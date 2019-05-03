@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_Description_Field_Last_Updated_c__c</fullName>
+    <externalDeveloperName>Date_Description_Field_Last_Updated__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Date &#39;Description&#39; Field Last Updated</label>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>

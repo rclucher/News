@@ -1,0 +1,50 @@
+.THIS .slds-tree .slds-tree__item-label {
+    display:inherit;
+}
+
+.THIS .slds-card__header {
+    margin-bottom: 0px;
+    padding-bottom: 12px;
+}
+
+.THIS .slds-media__figure {
+    padding-left: 6px;
+}
+
+.THIS div.slds-card__header div.slds-no-flex {
+    padding-right: 10px;
+}
+
+.THIS lightning-button-menu.slds-th__action-button {
+    display: none;
+}
+
+.THIS th.slds-text-title_caps {
+    text-transform: inherit;
+}
+
+.THIS a[href="http://#"] {
+    color: black;
+    text-decoration: none;
+}
+
+.THIS a[href="http://#"]:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.THIS .slds-grid_align-end {
+    justify-content: inherit;
+    -ms-flex-pack: inherit;
+	-webkit-justify-content: inherit;
+    -webkit-box-pack: inherit;
+    -moz-box-pack: inherit;
+}
+
+.THIS .consortiumLink {
+    color: rgb(0, 95, 178);
+}
+
+.THIS table.slds-table thead th span.slds-cell-fixed {
+	border-top: 1px solid rgb(216, 216, 216);
+}

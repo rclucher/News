@@ -1,0 +1,280 @@
+<apex:page controller="CS_ConfigureRule_Controller" action="{!init}" lightningStylesheets="true" docType="html-5.0" >
+
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+
+<!-- Import the Design System style sheet -->
+<apex:slds />
+
+<!-- REQUIRED SLDS WRAPPER -->
+<body class="slds-scope">
+
+<apex:form id="theForm">
+
+<!-- 
+	<apex:actionPoller action="{!actionReturn}" interval="5" rendered="{!(mp_bPauseAndRedirect)}" />
+	
+	<apex:actionStatus id="status">
+		<apex:facet name="start">
+			<c:Action_Status BackColor="#ffffff"
+							 borderColor="#6B6B6B"
+							 borderSize="1"
+							 height="50px"
+							 width="60px"
+							 margintop="-25px"
+							 marginleft="-60px"
+							 ImageUrl="/img/loading32.gif"
+							 Message="Please wait"/>
+		</apex:facet>
+	</apex:actionStatus>
+-->
+
+	<apex:pageBlock id="theRuleBlock" mode="edit" >
+
+		<apex:pageMessages id="pageMessagesId" />
+
+		<apex:pageBlockSection title="{!mp_SectionTitle}" columns="1" collapsible="false" id="theQuestionSection" >
+
+<!--  STEP 1 - CHOOSE A SECTION -->
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Choose a Section" />
+				<apex:outputPanel >
+					<apex:selectList value="{!mp_strSection}" size="1" rendered="{!NOT(mp_bEditMode)}" >
+						<apex:selectOptions value="{!mp_liSections}" />
+						<apex:actionSupport event="onchange" action="{!actionProcessSection}" reRender="theRuleBlock" />
+					</apex:selectList>
+					<apex:outputText value="{!mp_strSection}" rendered="{!mp_bEditMode}" />
+				</apex:outputPanel>
+			</apex:pageBlockSectionItem>
+			
+<!--  STEP 2 - CHOOSE THE SOURCE -->
+
+			<apex:pageBlockSectionItem rendered="{!mp_bShowAnswerSource}" >
+				<apex:outputLabel value="Collect Answer By" />
+				<apex:outputPanel >
+					<apex:inputField value="{!mp_Rule.Answer_Source__c}" rendered="{!NOT(mp_bEditMode)}" >
+						<apex:actionSupport event="onchange" action="{!actionProcessAnswerSource}" reRender="theRuleBlock" />
+					</apex:inputField>
+					<apex:outputField value="{!mp_Rule.Answer_Source__c}" rendered="{!mp_bEditMode}" />
+				</apex:outputPanel>
+			</apex:pageBlockSectionItem>
+			
+<!--  STEP 3A - SOURCE IS QUESTION - CHOOSE A QUESTION AND QUESTION TYPE -->
+
+			<apex:pageBlockSectionItem rendered="{!mp_bShowQuestions}" >
+				<apex:outputLabel value="Choose a Question" />
+				<apex:outputPanel >
+					<apex:selectList value="{!mp_strQuestion}" size="1" rendered="{!NOT(mp_bEditMode)}" >
+						<apex:selectOptions value="{!mp_liQuestions}" />
+						<apex:actionSupport event="onchange" action="{!actionShowQuestionTypePicklist}" reRender="theRuleBlock" />
+					</apex:selectList>
+					<apex:outputText value="{!mp_strQuestion}" rendered="{!mp_bEditMode}" />
+				</apex:outputPanel>
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem rendered="{!mp_bShowQuestionTypes}" >
+				<apex:outputLabel value="Choose a Question Type" />
+				<apex:outputPanel >
+					<apex:selectList value="{!mp_strQuestionType}" size="1" rendered="{!NOT(mp_bEditMode)}" >
+					<apex:selectOptions value="{!mp_liQuestionTypes}" />
+						<apex:actionSupport event="onchange" action="{!actionGetQuestionType}" reRender="theRuleBlock" />
+					</apex:selectList>
+					<apex:outputField value="{!mp_Rule.Question_Type__c}" rendered="{!mp_bEditMode}" />
+				</apex:outputPanel>
+			</apex:pageBlockSectionItem>
+
+		</apex:pageBlockSection>
+
+<!--  STEP 3A1 - SOURCE IS QUESTION - QUESTION TYPE IS GENERAL OR SPECIFIC -->
+
+		<apex:pageBlockSection title="Data Filter" columns="2" collapsible="false" id="theDataFilterSection" rendered="{!mp_bShowDataFilter}" >
+
+			<!-- line 1 -->
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Ask this Question when" />
+				<apex:inputField value="{!mp_Rule.Object_Name__c}" >
+					<apex:actionSupport event="onchange" action="{!actionChangeObject1}" reRender="theRuleBlock" />
+				</apex:inputField>
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Field" />
+				<apex:inputField value="{!mp_Rule.Field_Name__c}" >
+					<apex:actionSupport event="onchange" action="{!actionRebuildFilter1}" reRender="theRuleBlock" />
+				</apex:inputField>
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="equals" />
+
+				<apex:outputPanel rendered="{!mp_bShowValue1}" >
+					<!--  Text -->
+					<apex:inputField value="{!mp_Rule.Field_Value_Text__c}" rendered="{!mp_bIsText1}" />
+
+					<!-- Picklist -->
+					<apex:outputLabel value="Selected Values" rendered="{!mp_bIsPicklist1}" />
+				
+					<apex:outputPanel rendered="{!mp_bIsPicklist1}" >
+						<apex:selectList value="{!mp_strSelectedPicklist1Value}" size="{!mp_liSelectedPicklist1Values.size}" >
+				   			<apex:selectOptions value="{!mp_liSelectedPicklist1Values}" />
+	  					</apex:selectList>
+	  			
+	  					<apex:commandButton action="{!actionDeselectedPicklistValue1}" value="Delete --->" reRender="theRuleBlock" disabled="{!(mp_bDisableDeleteButton1)}" />
+					</apex:outputPanel>
+				</apex:outputPanel>
+			
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem >
+
+				<apex:selectList value="{!mp_strFilterPicklist1Value}" size="1" rendered="{!mp_bIsPicklist1}" >
+					<apex:selectOptions value="{!mp_liFilterPicklist1Values}" />
+					<apex:actionSupport event="onchange" action="{!actionAddSelectedFilterValue1}" reRender="theRuleBlock" />
+				</apex:selectList>
+
+			</apex:pageBlockSectionItem>
+			
+			<!-- line 2 -->
+			<br/>
+			<apex:pageBlockSectionItem />
+			
+			<!-- line 3 -->
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="(optional) AND when" />
+				<apex:inputField value="{!mp_Rule2.Object_Name__c}" >
+					<apex:actionSupport event="onchange" action="{!actionChangeObject2}" reRender="theRuleBlock" />
+				</apex:inputField>
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Field" />
+				<apex:inputField value="{!mp_Rule2.Field_Name__c}" >
+					<apex:actionSupport event="onchange" action="{!actionRebuildFilter2}" reRender="theRuleBlock" />
+				</apex:inputField>
+			</apex:pageBlockSectionItem>
+			
+			<!-- line 4 -->
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="equals" />
+
+				<apex:outputPanel rendered="{!mp_bShowValue2}" >
+					<!--  Text -->
+					<apex:inputField value="{!mp_Rule.Field_Value_Text_2__c}" rendered="{!mp_bIsText2}" />
+
+					<!-- Picklist -->
+					<apex:outputLabel value="Selected Values" rendered="{!mp_bIsPicklist2}" />
+				
+					<apex:outputPanel rendered="{!mp_bIsPicklist2}" >
+						<apex:selectList value="{!mp_strSelectedPicklist2Value}" size="{!mp_liSelectedPicklist2Values.size}" >
+				   			<apex:selectOptions value="{!mp_liSelectedPicklist2Values}" />
+	  					</apex:selectList>
+	  			
+	  					<apex:commandButton action="{!actionDeselectedPicklistValue2}" value="Delete --->" reRender="theRuleBlock" disabled="{!(mp_bDisableDeleteButton2)}" />
+					</apex:outputPanel>
+				</apex:outputPanel>
+			
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem >
+
+				<apex:selectList value="{!mp_strFilterPicklist2Value}" size="1" rendered="{!mp_bIsPicklist2}" >
+					<apex:selectOptions value="{!mp_liFilterPicklist2Values}" />
+					<apex:actionSupport event="onchange" action="{!actionAddSelectedFilterValue2}" reRender="theRuleBlock" />
+				</apex:selectList>
+
+			</apex:pageBlockSectionItem>
+			
+			<!-- line 5 -->
+			<apex:pageBlockSectionItem >
+				<apex:commandButton value="Save the filter selection" action="{!actionValidateDataFilter}" />
+			</apex:pageBlockSectionItem>
+
+		</apex:pageBlockSection>
+
+<!--  STEP 3B - SOURCE IS RELATED DATA - CHOOSE AN OBJECT AND FIELD -->
+
+		<apex:pageBlockSection title="Related Record" columns="2" collapsible="false" id="theRelaredRecordSection" rendered="{!mp_bShowRelatedObjectFilter}" >
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Label to Display on Questionnaire" />
+				<apex:inputField value="{!mp_Rule.Related_Field_Label__c}" />
+			</apex:pageBlockSectionItem>
+			
+			<apex:pageBlockSectionItem />
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Choose an Object" />
+				<apex:inputField value="{!mp_Rule.Related_Object_Name__c}" />
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Field" />
+				<apex:inputField value="{!mp_Rule.Related_Field_name__c}" />
+			</apex:pageBlockSectionItem>
+
+		</apex:pageBlockSection>
+
+<!--  STEP 4 - DATA COLLECTION AND CONSUMPTION -->
+
+		<apex:pageBlockSection title="Data Collection and Consumption" columns="2" collapsible="false" id="theConfigurationSection" rendered="{!mp_bShowConfig}" >
+
+			<apex:pageBlockSectionItem rendered="{!NOT(mp_bShowRelatedObjectFilter)}" >
+				<apex:outputLabel value="Answer the Question when Questionnaire is accessed from:" />
+				<apex:inputField value="{!mp_Rule.When_to_Ask__c}" />
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Show the Answer (read-only) when Questionnaire is accessed from:" />
+				<apex:inputField value="{!mp_Rule.When_to_View__c}" />
+			</apex:pageBlockSectionItem>
+
+		</apex:pageBlockSection>
+
+		<apex:pageBlockSection columns="2" showHeader="false" collapsible="false" id="theHelpTextSection" rendered="{!mp_bShowConfig}" >
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Help Text" />
+				<apex:inputTextArea value="{!mp_Rule.Help_Text__c}" cols="100" rows="3" />		<!-- disabled="{!mp_bShowRelatedObjectFilter}" /> -->
+			</apex:pageBlockSectionItem>
+
+		</apex:pageBlockSection>
+
+		<apex:pageBlockSection columns="2" showHeader="false" collapsible="false" id="theActiveSection" rendered="{!mp_bShowConfig}" >
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Enable Field Tracking" />
+				<apex:inputCheckbox value="{!mp_Rule.Enable_Field_Tracking__c}" disabled="{!NOT(mp_bShowFieldTracking)}" />
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Sequence Number" />
+				<apex:inputField type="number" value="{!mp_Rule.Sequence_Number__c}" />
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem />
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Active" />
+				<apex:inputCheckbox value="{!mp_Rule.isActive__c}" />
+			</apex:pageBlockSectionItem>
+		
+		</apex:pageBlockSection>
+
+		<apex:pageBlockButtons location="bottom" >
+			<apex:commandButton action="{!actionSave}" value="Save" title="Save" rerender="theRuleBlock" disabled="{!NOT(mp_bShowConfig)}" />
+			<apex:commandButton action="{!actionSaveandNew}" value="Save & New" title="Save and create a new Rule" rerender="theRuleBlock" disabled="{!NOT(mp_bShowConfig)}" />
+			<apex:commandButton action="{!actionSaveandReturn}" value="Save and Return" title="Save Rule and Return to Rules list" disabled="{!NOT(mp_bShowConfig)}" />
+			<apex:commandButton action="{!actionClone}" value="Clone" title="Create a new Rule based on this one" rerender="theRuleBlock" disabled="{!NOT(mp_bShowConfig)}" />
+			<apex:commandButton action="{!actionCancel}" value="Back to List" title="Abandon updates and return to Rules list" immediate="true" />
+			<apex:commandButton action="{!actionCancel}" value="Cancel" title="Cancel" immediate="true" />
+		</apex:pageBlockButtons>
+
+	</apex:pageBlock>
+
+</apex:form>
+
+</body>
+
+</html>
+</apex:page>

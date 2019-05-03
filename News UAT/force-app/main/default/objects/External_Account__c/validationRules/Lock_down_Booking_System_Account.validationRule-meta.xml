@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lock_down_Booking_System_Account</fullName>
+    <active>true</active>
+    <description>Validation Rule to constrain editing of the Booking System Accounts in Salesforce.</description>
+    <errorConditionFormula>IF(
+   NOT(
+     OR(
+      $Profile.Name = &#39;News National Finance Shared Service&#39;,
+      $Profile.Name = &#39;NewsAdds Admin Access&#39;,
+      $Profile.Name = &#39;News Integration&#39;,
+      $Profile.Name = &#39;System Administrator&#39;,
+      $Profile.Name = &#39;~System Administrator&#39;,
+      /* $Profile.Name = &#39;News Direct Sales Partner&#39;, */
+      $User.Exempt_from_data_validation_rules__c = TRUE
+     )
+   ),
+
+
+ AND(
+  NOT(ISNEW()),
+  OR(
+   RecordType.DeveloperName = &#39;Billing_Account&#39;,
+   ISPICKVAL(Account_Type__c,&#39;ABN Exempt&#39;),
+   ISPICKVAL(Account_Type__c,&#39;Ad Agency&#39;),
+   ISPICKVAL(Account_Type__c,&#39;Client of Newsagent&#39;),
+   ISPICKVAL(Account_Type__c,&#39;Contra&#39;),
+   ISPICKVAL(Account_Type__c,&#39;Contract Placeholder&#39;),
+   ISPICKVAL(Account_Type__c,&#39;Corporate&#39;),
+   ISPICKVAL(Account_Type__c,&#39;Established&#39;),
+   ISPICKVAL(Account_Type__c,&#39;House&#39;),
+   ISPICKVAL(Account_Type__c,&#39;Newsagent&#39;),
+   ISPICKVAL(Account_Type__c,&#39;OSCA Temp&#39;),
+   ISPICKVAL(Account_Type__c,&#39;Overseas&#39;),
+   ISPICKVAL(Account_Type__c,&#39;Overseas Advertising Agency&#39;),
+   ISPICKVAL(Account_Type__c,&#39;Overseas Agent&#39;),
+   ISPICKVAL(Account_Type__c,&#39;Transient&#39;), 
+
+   AND(ISPICKVAL(Account_Type__c, &#39;Casual Business&#39;), 
+
+    OR(
+     ISCHANGED(ABN_Number__c),
+     ISCHANGED(Account_Type__c),
+     ISCHANGED(Name),
+     ISCHANGED(Customer_Account__c),
+     ISCHANGED(First_Name__c),
+     ISCHANGED(Last_Name__c)
+   )
+ ), 
+
+ AND(
+  OR(
+   ISPICKVAL(Account_Type__c, &#39;Client of Ad Agency&#39;),
+   ISPICKVAL(Account_Type__c, &#39;Client of Overseas Advertising Agency&#39;),
+   ISPICKVAL(Account_Type__c, &#39;Client of Overseas Agent&#39;),
+   ISPICKVAL(Account_Type__c, &#39;Sub Corporate&#39;)
+  ),
+
+  NOT(
+   OR(
+    ISCHANGED(Default_Revenue_Group__c),
+    ISCHANGED(Email_Address__c),
+    ISCHANGED(Account_Type__c),
+    ISCHANGED(Email_Confirmation_Address__c),
+    ISCHANGED(Expires__c)
+   )
+  )
+ ),
+
+  AND(
+   ISPICKVAL(Account_Type__c, &#39;Private Party&#39;), 
+    OR(ISCHANGED(ABN_Number__c),
+     ISCHANGED(Name),
+     ISCHANGED(Customer_Account__c),
+     ISCHANGED(First_Name__c),
+     ISCHANGED(Last_Name__c),
+     ISCHANGED(Account_Type__c)
+    )
+  )
+ )
+),
+FALSE)</errorConditionFormula>
+    <errorMessage>You do not have the required permissions to edit this record. Please request the desired change through NFSS.</errorMessage>
+</ValidationRule>

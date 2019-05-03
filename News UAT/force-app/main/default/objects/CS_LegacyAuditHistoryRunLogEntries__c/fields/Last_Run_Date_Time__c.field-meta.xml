@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Run_Date_Time__c</fullName>
+    <description>This is the last run date / time of the process.
+The field is populated only for Legacy Process runs (which might happen only once).
+If the field is null, then all records are processed. If it is populated, any record modified after that specified date time will be processed.</description>
+    <externalId>false</externalId>
+    <label>Last Run Date Time</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

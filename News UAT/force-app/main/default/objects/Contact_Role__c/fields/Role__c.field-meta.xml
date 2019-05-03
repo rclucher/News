@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Role__c</fullName>
+    <description>•	Agency Contact – e.g. Media Agency Contact, Creative Agency Contact, PR Agency Contact
+•	Is Employed by Multiple Businesses – is an employee of more than one business e.g. Employed Mon-Fri by Telstra and on weekends/ after-hours runs own accountancy firm
+•	Other Association – Consultant for the Business e.g. Graphic Designer, Financial Services etc</description>
+    <externalId>false</externalId>
+    <label>Role</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Agency Contact</fullName>
+                <default>false</default>
+                <label>Agency Contact</label>
+            </value>
+            <value>
+                <fullName>Other Association</fullName>
+                <default>false</default>
+                <label>Other Association</label>
+            </value>
+            <value>
+                <fullName>Is Employed by Multiple Businesses</fullName>
+                <default>false</default>
+                <label>Is Employed by Multiple Businesses</label>
+            </value>
+            <value>
+                <fullName>NewsXtend Agency</fullName>
+                <default>false</default>
+                <label>NewsXtend Agency</label>
+            </value>
+            <value>
+                <fullName>NewsXtend Customer - Mgmt</fullName>
+                <default>false</default>
+                <label>NewsXtend Customer - Mgmt</label>
+            </value>
+            <value>
+                <fullName>NewsXtend Customer - Non Mgmt</fullName>
+                <default>false</default>
+                <label>NewsXtend Customer - Non Mgmt</label>
+            </value>
+            <value>
+                <fullName>NewsXtend Web Developer</fullName>
+                <default>false</default>
+                <label>NewsXtend Web Developer</label>
+            </value>
+            <value>
+                <fullName>NewsXtend NRM Sales Rep</fullName>
+                <default>false</default>
+                <label>NewsXtend NRM Sales Rep</label>
+            </value>
+            <value>
+                <fullName>NewsXtend CNG Sales Rep</fullName>
+                <default>false</default>
+                <label>NewsXtend CNG Sales Rep</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Client_Trading_Activity__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( OR(UPPER(Customer_Segment__c) = UPPER(&#39;Key&#39;),UPPER(Customer_Segment__c) = UPPER(&#39;Con&#39;),UPPER(Customer_Segment__c) = UPPER(&#39;IMA&#39;)),
+(IF(BLANKVALUE(Digital_Last_Transaction_Date__c, DATEVALUE(CreatedDate)) &gt;= TODAY()-91 || BLANKVALUE(Print_Last_Transaction_Date__c, DATEVALUE(CreatedDate)) &gt;= TODAY()-91 || BLANKVALUE(Xtend_Last_Transaction_Date__c, DATEVALUE(CreatedDate)) &gt;= TODAY()-91,&#39;Trading Client&#39;,
+(IF(BLANKVALUE(Digital_Last_Transaction_Date__c, DATEVALUE(CreatedDate)) &gt;= TODAY()-182 || BLANKVALUE(Print_Last_Transaction_Date__c, DATEVALUE(CreatedDate)) &gt;= TODAY()-182 || BLANKVALUE(Xtend_Last_Transaction_Date__c, DATEVALUE(CreatedDate)) &gt;= TODAY()-182,&#39;At Risk Client&#39;,
+(IF(BLANKVALUE(Digital_Last_Transaction_Date__c, DATEVALUE(CreatedDate)) &gt;= TODAY()-365 || BLANKVALUE(Print_Last_Transaction_Date__c, DATEVALUE(CreatedDate)) &gt;= TODAY()-365 || BLANKVALUE(Xtend_Last_Transaction_Date__c, DATEVALUE(CreatedDate)) &gt;= TODAY()-365,&#39;Lapsed Client&#39;,
+&#39;Long Lapsed Client&#39;)))))),
+
+IF( UPPER(Customer_Segment__c) = UPPER(&#39;SME&#39;),
+(IF(BLANKVALUE(Digital_Last_Transaction_Date__c, DATEVALUE(CreatedDate)) &gt;= TODAY()-28 || BLANKVALUE(Print_Last_Transaction_Date__c, DATEVALUE(CreatedDate)) &gt;= TODAY()-28 || BLANKVALUE(Xtend_Last_Transaction_Date__c, DATEVALUE(CreatedDate)) &gt;= TODAY()-28,&#39;Trading Client&#39;,
+(IF(BLANKVALUE(Digital_Last_Transaction_Date__c, DATEVALUE(CreatedDate)) &gt;= TODAY()-42 || BLANKVALUE(Print_Last_Transaction_Date__c, DATEVALUE(CreatedDate)) &gt;= TODAY()-42 || BLANKVALUE(Xtend_Last_Transaction_Date__c, DATEVALUE(CreatedDate)) &gt;= TODAY()-42,&#39;At Risk Client&#39;,
+(IF(BLANKVALUE(Digital_Last_Transaction_Date__c, DATEVALUE(CreatedDate)) &gt;= TODAY()-91 || BLANKVALUE(Print_Last_Transaction_Date__c, DATEVALUE(CreatedDate)) &gt;= TODAY()-91 || BLANKVALUE(Xtend_Last_Transaction_Date__c, DATEVALUE(CreatedDate)) &gt;= TODAY()-91,&#39;Lapsed Client&#39;,
+&#39;Long Lapsed Client&#39;)))))),&#39;Not In SME, Key, Con or IMA Segment&#39;)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Client Trading Activity</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

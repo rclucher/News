@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>The_Australian_Home_Page_Manager</fullName>
+    <columns>NAME</columns>
+    <columns>Useful_Link_Label__c</columns>
+    <columns>Useful_Link_URL__c</columns>
+    <columns>The_Australian_Home_Page_Manager_Sequenc__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>The_Australian_Home_Page_Manager_Sequenc__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>The Australian Home Page Manager</label>
+</ListView>

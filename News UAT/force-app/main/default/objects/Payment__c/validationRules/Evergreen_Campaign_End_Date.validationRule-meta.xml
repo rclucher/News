@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Evergreen_Campaign_End_Date</fullName>
+    <active>true</active>
+    <description>End Date cannot be before Initial Scheduled End Date</description>
+    <errorConditionFormula>AND(ISCHANGED(End_Date__c), Override_Cancellation__c = False,End_Date__c &lt;   Minimum_Evergreen_Cancellation_Date__c )</errorConditionFormula>
+    <errorMessage>End Date cannot be before Evergreen End Date.</errorMessage>
+</ValidationRule>

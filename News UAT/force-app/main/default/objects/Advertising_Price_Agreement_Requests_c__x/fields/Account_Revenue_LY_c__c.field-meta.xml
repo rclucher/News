@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Revenue_LY_c__c</fullName>
+    <externalDeveloperName>Account_Revenue_LY__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Account Revenue LY</label>
+    <precision>18</precision>
+    <readOnlyProxy>true</readOnlyProxy>
+    <required>false</required>
+    <scale>0</scale>
+    <type>Currency</type>
+</CustomField>

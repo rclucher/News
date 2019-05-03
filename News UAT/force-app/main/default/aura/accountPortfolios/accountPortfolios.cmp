@@ -1,0 +1,73 @@
+<!--
+History:
+05-10-2018: Mohsin Ali
+Added extensible="true" in aura:component Line
+Reference: Jira: NR-616
+This is to display the same lightning component in Classic againt Account Portfolios.
+-->
+<aura:component controller = "portfolioListController" implements="flexipage:availableForAllPageTypes,force:hasRecordId" access = "global" extensible="true" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <aura:attribute name="errorMessage" type="String"/>
+    
+    <aura:attribute name="portfolios" type="Portfolio2__c[]"/>
+    <aura:attribute name="hasPortfolios" type="Boolean" default="false"/>
+    <aura:attribute name="portfolioCount" type="Integer" default="0"/>
+    
+    <lightning:card iconName="action:new_child_case" class="slds-card_boundary">
+        <aura:set attribute="title">
+        	<b>Portfolios ({!v.portfolioCount})</b>
+        </aura:set>
+        
+        <aura:if isTrue="{!(v.errorMessage == null)}">
+    		
+            <aura:if isTrue="{!v.hasPortfolios}">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                  <thead>
+                    <tr class="slds-text-title_caps">
+                        <th scope="col">
+                            <div class="slds-truncate" title="Portfolio Name">Portfolio Name</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Owner(s)">Owner(s)</div>
+                        </th>
+                        <th scope="col" >
+                            <div class="slds-truncate slds-wrap"  title="Account Number(s)">Account Number(s)</div>
+                        </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <aura:iteration items="{!v.portfolios}" var="pf">
+                        <tr>
+                          <th scope="row" data-label="Portfolio Name">
+                              <div class="slds-truncate" title="{!pf.Name}"><a href="{!'/' + pf.Id}">{!pf.Name}</a></div>
+                          </th>
+                          <td>
+                            <div class="slds-truncate">
+                                <aura:iteration items="{!pf.Portfolio_Teams__r}" var="pt">
+                                    <span class="owners"><a href="{!'/' + pt.Portfolio_Owner__c}">{!pt.Portfolio_Owner__r.Name}</a></span>
+                                </aura:iteration>
+                            </div>
+                          </td>
+                            <td>
+                                
+                            <div class="itemList">
+                                <aura:iteration items="{!pf.relatedAccounts}" var="pt">
+                                    <span class="accountNumbers">{!pt}</span>
+                                </aura:iteration>
+                            </div>
+                          </td>
+                        </tr>
+                      </aura:iteration>
+                  </tbody>
+                </table>
+            </aura:if>
+            
+            <aura:set attribute="else">
+            	 <ui:message title="Error" severity="error" closable="false">
+                   {!v.errorMessage}
+                 </ui:message>
+            </aura:set>
+    	</aura:if>
+   </lightning:card>
+</aura:component>

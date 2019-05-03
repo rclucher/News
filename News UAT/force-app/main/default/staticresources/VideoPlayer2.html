@@ -1,0 +1,26 @@
+
+<!-- saved from url=(0099)https://newscorpaustralia-%2Dnx2dev-%2Dc.cs58.visual.force.com/resource/1538480697000/VideoPlayer2? -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body> 
+<style>
+  video {
+      display: block;
+      width : 100%;
+  }
+</style>
+<video controls=""></video>
+
+<script>
+    (function localFileVideoPlayer() {
+	'use strict'
+    var videoContainer = window.parent.document.getElementById("edit-video-container");
+	//Added if by Paras
+	if(videoContainer!=null && videoContainer!=undefined){
+	   var fileURL = videoContainer.getAttribute("data-fileURL");
+      var videoNode = document.querySelector('video')
+      videoNode.src = fileURL
+	}
+    
+  })()
+</script>
+ 
+</body></html>

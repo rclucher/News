@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deliverable__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>To be qualified by the relevant brand</inlineHelpText>
+    <label>Deliverable</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Print – Advertorial</fullName>
+                <default>false</default>
+                <label>Print – Advertorial</label>
+            </value>
+            <value>
+                <fullName>Print – Booklet Tip-On</fullName>
+                <default>false</default>
+                <label>Print – Booklet Tip-On</label>
+            </value>
+            <value>
+                <fullName>Print – Other</fullName>
+                <default>false</default>
+                <label>Print – Other</label>
+            </value>
+            <value>
+                <fullName>Website – Display Media</fullName>
+                <default>false</default>
+                <label>Website – Display Media</label>
+            </value>
+            <value>
+                <fullName>Website – OTP</fullName>
+                <default>false</default>
+                <label>Website – OTP</label>
+            </value>
+            <value>
+                <fullName>Website – Online advertorial</fullName>
+                <default>false</default>
+                <label>Website – Online advertorial</label>
+            </value>
+            <value>
+                <fullName>Website – Rich Media</fullName>
+                <default>false</default>
+                <label>Website – Rich Media</label>
+            </value>
+            <value>
+                <fullName>Website – Hub / Section</fullName>
+                <default>false</default>
+                <label>Website – Hub / Section</label>
+            </value>
+            <value>
+                <fullName>Website – Partner Collection</fullName>
+                <default>false</default>
+                <label>Website – Partner Collection</label>
+            </value>
+            <value>
+                <fullName>Mobile – Display Media</fullName>
+                <default>false</default>
+                <label>Mobile – Display Media</label>
+            </value>
+            <value>
+                <fullName>Mobile – OTP</fullName>
+                <default>false</default>
+                <label>Mobile – OTP</label>
+            </value>
+            <value>
+                <fullName>Mobile – Rich Media</fullName>
+                <default>false</default>
+                <label>Mobile – Rich Media</label>
+            </value>
+            <value>
+                <fullName>iPad – High Touch</fullName>
+                <default>false</default>
+                <label>iPad – High Touch</label>
+            </value>
+            <value>
+                <fullName>EDM</fullName>
+                <default>false</default>
+                <label>EDM</label>
+            </value>
+            <value>
+                <fullName>Social Media</fullName>
+                <default>false</default>
+                <label>Social Media</label>
+            </value>
+            <value>
+                <fullName>Video – Behind the Scenes</fullName>
+                <default>false</default>
+                <label>Video – Behind the Scenes</label>
+            </value>
+            <value>
+                <fullName>Video – How-to-series</fullName>
+                <default>false</default>
+                <label>Video – How-to-series</label>
+            </value>
+            <value>
+                <fullName>Video – Stop Motion</fullName>
+                <default>false</default>
+                <label>Video – Stop Motion</label>
+            </value>
+            <value>
+                <fullName>Video – Sponsored Editorial</fullName>
+                <default>false</default>
+                <label>Video – Sponsored Editorial</label>
+            </value>
+            <value>
+                <fullName>Video – Other</fullName>
+                <default>false</default>
+                <label>Video – Other</label>
+            </value>
+            <value>
+                <fullName>Trade – Flyer</fullName>
+                <default>false</default>
+                <label>Trade – Flyer</label>
+            </value>
+            <value>
+                <fullName>Trade – Presentation Template</fullName>
+                <default>false</default>
+                <label>Trade – Presentation Template</label>
+            </value>
+            <value>
+                <fullName>Trade – Deck</fullName>
+                <default>false</default>
+                <label>Trade – Deck</label>
+            </value>
+            <value>
+                <fullName>Trade – Mind Map</fullName>
+                <default>false</default>
+                <label>Trade – Mind Map</label>
+            </value>
+            <value>
+                <fullName>Trade – Other</fullName>
+                <default>false</default>
+                <label>Trade – Other</label>
+            </value>
+            <value>
+                <fullName>Management (please specify)</fullName>
+                <default>false</default>
+                <label>Management (please specify)</label>
+            </value>
+            <value>
+                <fullName>Event (please specify)</fullName>
+                <default>false</default>
+                <label>Event (please specify)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,108 @@
+<apex:page standardcontroller="csmso__Sales_Order__c" extensions="InsertionOrderController" action="{!getCampaignElements}" renderAs="pdf">
+
+    <head>
+        <style type="text/css">
+            .column1{width: 10px;height:auto; bgcolor:red;}
+            .column2{width: 5px;height:auto; bgcolor:red;}
+            .column3{width: 20px;height:auto; bgcolor:blue;}
+        </style>
+    </head>
+    <body style="font-family: Arial Unicode MS;">
+        <div class="CSwrapper">
+            <apex:stylesheet value="{!URLFOR($Resource.IOStylesCSS)}"/>
+            
+            <p style="font-size:30px">Your monthly subscription</p>
+
+            <apex:panelGrid columns="1" columnClasses="column1" width="100%" border="2" frame="box" cellpadding="0" cellspacing="5" bgcolor="blue"> 
+                <apex:panelGroup rendered="true">
+                    <apex:outputText style="font-size:30px; color:white" value="CUSTOMISED SOLUTIONS PACKAGE"/>
+                </apex:panelGroup>
+            </apex:panelGrid>
+
+            <apex:panelGrid columns="3" width="100%" border="1" frame="box" cellpadding="0" cellspacing="5">          
+                <!-- Display -->
+                <apex:panelGroup rendered="{!DisplayISSummaryFlag}">
+                    <apex:image value="{!URLFOR($Resource.DisplayIcon)}" style="centre;"/>
+                </apex:panelGroup>
+                <apex:panelGroup rendered="{!DisplayISSummaryFlag}">
+                        <apex:outputText value="Display"/>                
+                </apex:panelGroup>
+                <apex:panelGroup rendered="{!DisplayISSummaryFlag}">
+                    <apex:outputText style="white-space:pre-wrap" escape="false" value="{!ISDisplayStringText}"/><br/><br/>
+                    <apex:outputText rendered="{!DisplayISSummaryFlag}" value="Impressions: {!ISTotalDisplay} per month"/> 
+                </apex:panelGroup>
+
+                <!-- Search -->
+                <apex:panelGroup rendered="{!SearchISSummaryFlag}">
+                    <apex:image value="{!URLFOR($Resource.SearchIcon)}" style="centre;"/>
+                </apex:panelGroup>
+                <apex:panelGroup rendered="{!SearchISSummaryFlag}">
+                    <apex:outputText value="Search"/>
+                </apex:panelGroup>
+                <apex:panelGroup rendered="{!SearchISSummaryFlag}">
+                    <apex:outputText style="white-space:pre-wrap" escape="false" value="{!ISSearchStringText}"/>
+                </apex:panelGroup>
+
+                <!-- Social -->
+                <apex:panelGroup rendered="{!SocialISSummaryFlag}">
+                    <apex:image value="{!URLFOR($Resource.SocialIcon)}" style="centre;"/>
+                </apex:panelGroup>
+                <apex:panelGroup rendered="{!SocialISSummaryFlag}">
+                    <apex:outputText value="Social"/>
+                </apex:panelGroup>
+                <apex:panelGroup rendered="{!SocialISSummaryFlag}">
+                    <apex:outputText style="white-space:pre-wrap" escape="false" value="{!ISSocialStringText}"/><br/><br/>
+                    <apex:outputText rendered="{!SocialISSummaryFlag}" value="Social Posts: {!ISTotalSocial} per month"/> 
+                </apex:panelGroup>
+
+                <!-- Campaign Management -->
+               <apex:panelGroup rendered="{!CampaignISSummaryFlag}">
+                    <apex:image value="{!URLFOR($Resource.CampaignIcon)}" style="centre;"/>
+                </apex:panelGroup>
+                <apex:panelGroup rendered="{!CampaignISSummaryFlag}">
+                    <apex:outputText value="Campaign Management"/>
+                </apex:panelGroup>
+                <apex:panelGroup rendered="{!CampaignISSummaryFlag}">
+                    <apex:outputText style="white-space:pre-wrap" escape="false" value="{!ISCampaignStringText}"/><br/>
+                    <apex:outputText rendered="{!csmso__Sales_Order__c.Dashboard__c}" value="• Dashboard to give insight into the performance of your campaign"/><br/>
+                    <apex:outputText rendered="{!csmso__Sales_Order__c.Conversion_Tracking__c}" value="• Campaign conversion tracking"/><br/>
+                    <apex:outputText rendered="{!csmso__Sales_Order__c.Creative_Services__c}" value="• Creation of your digital advertising creative"/><br/> 
+                </apex:panelGroup>
+
+               <!-- Landing Page -->
+               <apex:panelGroup rendered="{!LandingISSummaryFlag}">
+                    <apex:image value="{!URLFOR($Resource.LandingIcon)}" style="centre;"/>
+                </apex:panelGroup>
+                <apex:panelGroup rendered="{!LandingISSummaryFlag}">
+                    <apex:outputText value="Landing Page"/>
+                </apex:panelGroup>
+                <apex:panelGroup rendered="{!LandingISSummaryFlag}">
+                    <apex:outputText style="white-space:pre-wrap" escape="false" value="{!ISLandingStringText}"/>
+                </apex:panelGroup>
+
+                <!-- Email -->
+               <apex:panelGroup rendered="{!EmailISSummaryFlag}">
+                    <apex:image value="{!URLFOR($Resource.EmailIcon)}" style="centre;"/>
+                </apex:panelGroup>
+                <apex:panelGroup rendered="{!EmailISSummaryFlag}">
+                    <apex:outputText value="Email"/>
+                </apex:panelGroup>
+                <apex:panelGroup rendered="{!EmailISSummaryFlag}">
+                    <apex:outputText style="white-space:pre-wrap" escape="false" value="{!ISEmailStringText}"/>
+                </apex:panelGroup>
+            </apex:panelGrid>
+            
+            <br/>
+            <br/>
+
+            <apex:panelGrid columns="1" columnClasses="column1" width="100%" border="2" frame="box" cellpadding="0" cellspacing="5" bgcolor="orange">          
+                <apex:panelGroup rendered="true">
+                    <apex:outputText value="Investment : $ {!csmso__Sales_Order__c.csmso__Total_Price__c} per month (ex GST), $ {!csmso__Sales_Order__c.Total_GST_inclusive__c} per month (incl GST)"/>
+                </apex:panelGroup>
+                <apex:panelGroup rendered="true">
+                    <apex:outputText value="Commitment : Minimum commitment is {!csmso__Sales_Order__c.Minimum_No_Cancel_Commitment_Months__c} months,  with 21 days notice to cancel"/>
+                </apex:panelGroup>
+            </apex:panelGrid>
+        </div>
+    </body>
+</apex:page>

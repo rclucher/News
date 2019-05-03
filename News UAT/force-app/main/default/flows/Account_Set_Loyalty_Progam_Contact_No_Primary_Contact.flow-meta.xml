@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>When an Account joins the Loyalty Progam and there is no Primary Contact set, make the oldest Active Contact the related Account the Loyalty Program Contact</description>
+    <formulas>
+        <name>TimeStamp</name>
+        <dataType>DateTime</dataType>
+        <expression>{!$System.OriginDateTime}</expression>
+    </formulas>
+    <interviewLabel>Account: Set Loyalty Progam Contact - No Primary Contact {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Account: Set Loyalty Progam Contact - No Primary Contact</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Select all Active Contact records for an Account</description>
+        <name>Get_all_Contacts_from_Account</name>
+        <label>Get all Contacts from Account</label>
+        <locationX>254</locationX>
+        <locationY>50</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Set_Account_Loyalty_Program_Contact</targetReference>
+        </connector>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>SelectedAccountId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Contact_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Active</stringValue>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <outputAssignments>
+            <assignToReference>SelectedContactId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Asc</sortOrder>
+    </recordLookups>
+    <recordUpdates>
+        <description>Set the Loyalty Program Contact to be the oldest Active Contact for the related Account</description>
+        <name>Set_Account_Loyalty_Program_Contact</name>
+        <label>Set Account Loyalty Program Contact</label>
+        <locationX>472</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Update_Loyalty_Contact_SysMod_Stamp</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>SelectedAccountId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Loyalty_Program_Contact__c</field>
+            <value>
+                <elementReference>SelectedContactId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>When the Loyalty Contact is set, update the Sysmod stamp to ensure Marketo picks up the change</description>
+        <name>Update_Loyalty_Contact_SysMod_Stamp</name>
+        <label>Update Loyalty Contact SysMod Stamp</label>
+        <locationX>472</locationX>
+        <locationY>279</locationY>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>SelectedContactId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Force_SysMod_Stamp_update__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+    </recordUpdates>
+    <startElementReference>Get_all_Contacts_from_Account</startElementReference>
+    <status>Active</status>
+    <variables>
+        <description>Account Id of selected Record</description>
+        <name>SelectedAccountId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Id of oldest Active Contact for selected Account</description>
+        <name>SelectedContactId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

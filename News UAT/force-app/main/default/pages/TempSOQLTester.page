@@ -1,0 +1,31 @@
+<apex:page showHeader="true" sidebar="true" controller="TempSOQLTesterController" title="SOQL tester" lightningStylesheets="tru">
+    <apex:form >
+
+    <apex:inputTextarea value="{!theQuery}" cols="200"/>
+    <apex:commandButton action="{!doQuery}" value="Do Query" rerender="resultsPanel" status="queryStatus"/>
+            <apex:actionStatus id="queryStatus"  stopText="">
+                <apex:facet name="start">
+                   <img src="/img/loading.gif"/> Querying....
+                </apex:facet> 
+            </apex:actionStatus>        
+    <br />
+    <br />
+    <br />
+    <apex:outputPanel id="resultsPanel">
+        <apex:pageMessages />
+        <apex:pageBlock rendered="{!soqlResult != null}">
+            <apex:outputLabel value="Query results:" />
+            <apex:pageBlockTable var="item" value="{!soqlResult}">
+                <apex:repeat var="fieldname" value="{!fields}">
+                    <apex:column >
+                        <apex:facet name="header">
+                            {!fieldname}
+                        </apex:facet>
+                        {!item[fieldname]}
+                    </apex:column> 
+                </apex:repeat>
+            </apex:pageBlockTable>              
+        </apex:pageBlock>
+    </apex:outputPanel>
+</apex:form>
+</apex:page>

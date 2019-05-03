@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Related_Record_Section__c</fullName>
+    <description>Needed when the Answer source is a Related Record, not a Question.
+These records are not linked to a Question record, where the Section value is stored</description>
+    <externalId>false</externalId>
+    <label>Related Record Section</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

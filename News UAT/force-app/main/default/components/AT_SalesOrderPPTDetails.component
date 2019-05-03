@@ -1,0 +1,57 @@
+<apex:component controller="AT_SalesOrderPPTDetails" access="global" >
+    <apex:attribute name="salesOrderID" description="Record ID of Sales Order" type="ID" assignTo="{!salesOrderRecordID}" access="global" required="true"/>
+    <apex:attribute name="clientDiscount" description="Customer Discount" type="Decimal" assignTo="{!clientDiscountValue}" access="global"/>
+    <apex:attribute name="targetDiscount" description="Target Discount" type="Decimal" assignTo="{!targetDiscountValue}" access="global"/>
+    <apex:attribute name="salesOrderOwner_Name" description="Sales Order Owner Name" type="String" assignTo="{!Owner_Name}" access="global"/>
+    <apex:attribute name="salesOrderCampaign_Start_Date_Formatted" description="Sales Order Campaign Start Date" type="String" assignTo="{!Campaign_Start_Date_Formatted}" access="global"/>
+    <table style="width:100%;font-family:verdana;font-size:10px;text-align:center;" border="1">
+        <thead>
+            <tr>
+                <td><b>Publication</b></td>
+                <td><b>DOW</b></td>
+                <td><b>No. of Insertions</b></td>
+                <td><b>Ad Size</b></td>
+                <!-- Commenting this Code Because of NR-1908-->
+                <!--<td><b>Current Client Discount %</b></td>
+                <td><b>Target Discount %</b></td>
+                -->
+				<td><b>MAL %*</b></td>
+                <td><b>Proposed Discount (%)</b></td>
+                <td><b>Proposed Discount Amount (ex. GST)</b></td>
+                <td><b>Total Price (ex GST)</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            <apex:repeat value="{!configs}" var="P">
+                <tr>
+                    <td style="text-align:left;">{!P.Publication__c}</td>
+                    <td>{!P.Print_Display_Selected_Days_Set__c}</td>
+                    <td>{!Text(P.Line_Item_Quantity__c)}</td>
+                    <td style="text-align:left;">{!P.Ad_Size__c}</td>
+                    <!-- Commenting this Code Because of NR-1908-->
+                    <!--					
+					<td>{!clientDiscountValue}0</td>
+                    <td>{!targetDiscountValue}0</td>
+					-->
+                    <td>{!P.Print_Display_PPT_Threshold__c}</td>
+                    <td>{!P.Proposed_Discount__c}</td>
+                    <td>{!P.Proposed_Discount_Amount__c}</td>
+                    <td>{!P.Total_Target_Duration_Price__c}</td>
+                </tr>
+            </apex:repeat>
+        </tbody>
+    </table>
+    <br/>
+    <span>* If a publication has more than one MAL % ie differs by day of week, the % displayed is the lowest potential discount.</span>
+    <!-- Commenting this Because of Business Request: Refer to NR-1908 -->
+    <!--
+<br/>
+<b><u>Additional Information</u></b>
+<br/>
+Account Manager: {!Owner_Name}
+<br/>
+Campaign Start Date: {!Campaign_Start_Date_Formatted}
+<br/>
+Total No. Insertions: {!Text(Sum_Of_Insertions)}
+-->
+</apex:component>

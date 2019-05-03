@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Event_Update_Comment_Summary</fullName>
+        <field>Comments_Summary__c</field>
+        <formula>LEFT(Description, 100)</formula>
+        <name>Event_Update_Comment_Summary</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Evt_Copy_Standard_Type_Field</fullName>
+        <field>Activity_Type__c</field>
+        <formula>TEXT(Type)</formula>
+        <name>Evt - Copy Standard Type Field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Event_Comment_Summary</fullName>
+        <actions>
+            <name>Event_Update_Comment_Summary</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update the Comment Summary field with the first 100 characters of the Comment field - as a Formula field cannot be used.</description>
+        <formula>NOT(ISBLANK( Description ))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Evt - Copy Standard Type Field</fullName>
+        <actions>
+            <name>Evt_Copy_Standard_Type_Field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Event.Type</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>Copy to standard event type field.</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

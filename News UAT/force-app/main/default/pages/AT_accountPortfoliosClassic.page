@@ -1,0 +1,24 @@
+<apex:page controller="portfolioListController" title="Portfolio" standardStylesheets="false" sidebar="false" lightningStylesheets="true" name="AT_accountPortfolios" readOnly="true" showHeader="false">
+  <div id="AT_AccountPortfolioComponent"/>
+  <apex:includeLightning />
+  
+  <script>
+    function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+	var queryID = getUrlVars()["id"];
+    var accountName = getUrlVars()["accName"].replace(/\+/g," ");
+    document.title = 'Portfolios - '+accountName;
+
+    $Lightning.use("c:AT_accountPortfoliosApp", function() {
+                $Lightning.createComponent(
+                    "c:accountPortfolios",
+                    {recordId: queryID},
+                    "AT_AccountPortfolioComponent");
+                });
+  </script>
+</apex:page>

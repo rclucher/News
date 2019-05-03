@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Get_Statement</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Get Statement</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)} 
+
+var accountNumber = &quot;{!External_Account__c.JDE_Account_Number__c}&quot;;
+var accountNo = &quot;{!External_Account__c.Id}&quot;;
+
+var userFirstName = &quot;{!$User.FirstName}&quot;;
+var userLastName = &quot;{!$User.LastName}&quot;;
+var userName = &quot;{!$User.Network_Username__c}&quot;;
+
+var errorMsg = &quot;&quot;;
+
+if(userName.length == 0)
+{
+  errorMsg += &quot;Error: Network username for user cannot be blank\n&quot;;
+}         
+if(accountNumber.length == 0)
+{
+  errorMsg += &quot;Error: JDE Account Number cannot be blank\n&quot;;
+}
+if(userFirstName.length == 0) 
+{
+  errorMsg += &quot;Error: User first name cannot be blank\n&quot;;
+}
+if(userLastName.length == 0)
+{
+  errorMsg += &quot;Error: User last name cannot be blank&quot;;
+}
+            
+if(errorMsg.length &gt; 0)
+  alert(errorMsg);
+else
+{
+var token = sforce.apex.execute(&quot;GlobalViewPointGetToken&quot;,&quot;getAccessToken&quot;,{acctNumber:accountNumber});
+
+if(token == null || token[0] == null)
+{
+    alert(&#39;There is an error when trying to get GVP access token. Your system administrator has been notified. &#39;);
+}
+else
+{     
+var newwindow2 = window.open(&quot;&quot;,&quot;&quot;, &quot;status = 1, height = 700, width = 1000, resizable = 0&quot;);
+
+if (typeof(newwindow2) == &quot;undefined&quot;)
+   {
+      alert(&quot;Error: No window is open. &quot;);
+   }
+   else
+   {
+var tmp = newwindow2.document;
+tmp.write(&#39;&lt;html&gt;&#39;);
+ 
+if(token[0].length &gt; 0)
+{
+token = token[0].replace(/(\r\n|\n|\r)/gm,&quot;&quot;);
+tokenLine = &quot;&lt;input type=\x22hidden\x22 name=\x22Token\x22 value=&quot; + token + &quot;&gt;&quot;;      
+    
+tmp.write(&#39;&lt;head&gt;&#39;);    
+tmp.write(&#39;&lt;title&gt;Please wait...&lt;/title&gt;&#39;);                           
+tmp.write(&#39;&lt;/head&gt;&#39;);                              
+tmp.write(&#39;&lt;body onload=&quot;document.TokenLoginForm.submit()\x3B&quot;&gt;&lt;center&gt;&#39;);                             
+tmp.write(&#39;Please wait...&#39;);                                  
+tmp.write(&#39;&lt;form name=&quot;TokenLoginForm&quot; method=&quot;post&quot; action=&quot;https://viewpoint.computershare.com/NewsLtd/Login.aspx&quot;&gt;&#39;);                                                      
+tmp.write(tokenLine);                             
+tmp.write(&#39;&lt;/form&gt;&#39;);                               
+}
+else
+{
+tmp.write(&#39;&lt;head&gt;&#39;);      
+tmp.write(&#39;&lt;title&gt;Warning&lt;/title&gt;&#39;);                           
+tmp.write(&#39;&lt;/head&gt;&#39;);                              
+tmp.write(&#39;&lt;body&gt;&lt;center&gt;&#39;);                             
+tmp.write(&#39;Error: Could not generate Global Viewpoint access token. Please contact your administrator&#39;);
+tmp.write(&#39;&lt;br /&gt;&lt;a href=&quot;#&quot; onclick=&quot;window.close();return false;&quot;&gt;close&lt;/a&gt;&#39;);
+}
+                        
+tmp.write(&#39;&lt;/center&gt;&lt;/body&gt;&#39;);      
+tmp.write(&#39;&lt;/html&gt;&#39;);
+tmp.close();
+}
+}
+}</url>
+</WebLink>

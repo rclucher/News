@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pre_Completion_Status__c</fullName>
+    <description>Field that stores the Status of a Member before it is set to &#39;Complete&#39; - i.e. the category of the Member if applicable.
+
+This is useful for the Categorisation (Waves) functionality, as this will preserve the &#39;Category&#39; (Status value) of the Member before it is set to &#39;Completed&#39;.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Preserves the Campaign Status value, useful for reporting. Essentially mirrors it until the Campaign Status value is &#39;Completed&#39;.</inlineHelpText>
+    <label>Category Status</label>
+    <length>255</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

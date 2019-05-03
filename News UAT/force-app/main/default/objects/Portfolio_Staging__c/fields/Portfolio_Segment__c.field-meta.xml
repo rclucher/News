@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Portfolio_Segment__c</fullName>
+    <externalId>false</externalId>
+    <label>Portfolio Segment</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Con</fullName>
+                <default>false</default>
+                <label>Con</label>
+            </value>
+            <value>
+                <fullName>IMA</fullName>
+                <default>false</default>
+                <label>IMA</label>
+            </value>
+            <value>
+                <fullName>Key</fullName>
+                <default>false</default>
+                <label>Key</label>
+            </value>
+            <value>
+                <fullName>SME</fullName>
+                <default>false</default>
+                <label>SME</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

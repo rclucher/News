@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Item-00040 - This setting is used by Email Routing (Email-to-Case)</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Keyword Match</label>
+    <visibility>Public</visibility>
+</CustomObject>

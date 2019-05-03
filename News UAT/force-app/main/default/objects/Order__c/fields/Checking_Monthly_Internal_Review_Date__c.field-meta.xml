@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Checking_Monthly_Internal_Review_Date__c</fullName>
+    <description>Internal field to check if today is monthly internal review date</description>
+    <externalId>false</externalId>
+    <formula>IF 
+( Monthly_Internal_Campaign_Review_Date__c = TODAY(), 
+true, 
+false 
+)</formula>
+    <label>Checking Monthly Internal Review Date</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

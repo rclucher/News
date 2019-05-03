@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Attach_Output_From_NEWS__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Attach Output from NEWS Australia Audience Bundler</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Attach Output from NEWS Australia Audience Bundler</inlineHelpText>
+    <label>Attach Output From NEWS Audience Bundler</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

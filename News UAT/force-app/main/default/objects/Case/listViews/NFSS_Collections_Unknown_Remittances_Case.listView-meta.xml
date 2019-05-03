@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NFSS_Collections_Unknown_Remittances_Case</fullName>
+    <filterScope>Queue</filterScope>
+    <label>NFSS Collections Unknown Remittances</label>
+    <queue>NFSS_Collections_Unknown_Remittances</queue>
+    <sharedTo>
+        <allInternalUsers/>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Approval_Level</fullName>
+        <categories>Process builder for bundle mix messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Approval Level</shortDescription>
+        <value>Sales order requires approval from Level</value>
+    </labels>
+    <labels>
+        <fullName>Approval_Level_1</fullName>
+        <categories>Process builder for bundle mix messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Approval Level 1</shortDescription>
+        <value>This will go for approval to the Level 1 Approver&#39;</value>
+    </labels>
+    <labels>
+        <fullName>Approval_Level_2</fullName>
+        <categories>Process builder for bundle mix messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Approval Level 2</shortDescription>
+        <value>This will go for approval to the Level 2 Approver</value>
+    </labels>
+    <labels>
+        <fullName>Approval_Level_3</fullName>
+        <categories>Process builder for bundle mix messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Approval Level 3</shortDescription>
+        <value>This will go for approval to the Level 3 Approver</value>
+    </labels>
+    <labels>
+        <fullName>Approval_Level_4</fullName>
+        <categories>Process builder for bundle mix messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Approval Level 4</shortDescription>
+        <value>This will go for approval to the Level 4 Approver</value>
+    </labels>
+    <labels>
+        <fullName>CS_Using_Old_Approvals</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CS Using Old Approvals (True or False)</shortDescription>
+        <value>True</value>
+    </labels>
+    <labels>
+        <fullName>Creative_Days_NextBizDate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Creative Days NextBizDate</shortDescription>
+        <value>3</value>
+    </labels>
+    <labels>
+        <fullName>DPID_Primary_Address_Contact_UI_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DPID Primary Address Contact UI ID</shortDescription>
+        <value>00N90000008T5dA</value>
+    </labels>
+    <labels>
+        <fullName>DPID_Secondary_Address_Contact_UI_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DPID Secondary Address Contact UI ID</shortDescription>
+        <value>00N90000008T5dB</value>
+    </labels>
+    <labels>
+        <fullName>Days_before_Dashboard_Review</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Days before Dashboard Review</shortDescription>
+        <value>3</value>
+    </labels>
+    <labels>
+        <fullName>Discount_Framework_X_Factor</fullName>
+        <categories>Discounting Framework</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Discount Framework X Factor</shortDescription>
+        <value>5</value>
+    </labels>
+    <labels>
+        <fullName>FLAG_Include_Division</fullName>
+        <categories>Sales Order Bundles</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FLAG Include Division</shortDescription>
+        <value>No</value>
+    </labels>
+    <labels>
+        <fullName>IODurationText</fullName>
+        <categories>InsertionOrder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>IODurationText</shortDescription>
+        <value>Unless your campaign is of a fixed duration, it will continue to run until either party cancels. Cancellation notice period is 30 days. No Cancellations will be accepted within 90 days of Campaign Start date (as displayed on your dashboard).</value>
+    </labels>
+    <labels>
+        <fullName>IOTermsAndConditions</fullName>
+        <categories>InsertionOrder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>IOTermsAndConditions</shortDescription>
+        <value>By approving this Order, you are accepting an offer to enter into a binding agreement with News Pty Limited for the advertising as set out in the Order. You are also agreeing to News Xtend’s advertising terms and conditions and News Corp Australia&#39;s Standard advertising terms and conditions, both of which are incorporated in our offer to you. By approving this order you agree that your News Xtend campaign will be set live without creative approval after 3 notifications across 3 separate days, you will be notified when your campaign goes live. Please contact News Xtend if you wish to approve your creative before going live or if you wish to change your creative after it has gone live</value>
+    </labels>
+    <labels>
+        <fullName>IOTermsAndConditions2</fullName>
+        <categories>InsertionOrder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>IOTermsAndConditions2</shortDescription>
+        <value>To review our standard advertising terms and conditions visit: &lt;a href=&quot;https://www.newscorpaustralia.com/terms-conditions/&quot; &gt;https://www.newscorpaustralia.com/terms-conditions/&lt;/a&gt;. To review our News Xtend terms and conditions visit: &lt;a href=&quot;http://www.newsxtend.com.au/news-xtend-terms-and-conditions/&quot; &gt;www.newsxtend.com.au/news-xtend-terms-and-conditions/&lt;/a&gt;.</value>
+    </labels>
+    <labels>
+        <fullName>Invalid</fullName>
+        <categories>Process builder for bundle mix messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Invalid campaign types</shortDescription>
+        <value>&#39;It is not possible to combine an Evergreen and Fixed Duration Campaign. Please use a separate Sales Order for each.&#39;</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_AddQuestion</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add Question</shortDescription>
+        <value>Add Question</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Anonymous</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Anonymous</shortDescription>
+        <value>Anonymous</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Answer_as</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Answer as</shortDescription>
+        <value>Answer as</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Cancel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Chatter</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Chatter</shortDescription>
+        <value>Chatter</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Chatter_Link</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Chatter Link</shortDescription>
+        <value>Chatter Link</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Community</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Community</shortDescription>
+        <value>Community</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_ContactWithCase</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contact with Case</shortDescription>
+        <value>Contact with Case:</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_CurrentSurveys</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Current Surveys</shortDescription>
+        <value>Current Surveys</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Delete</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Delete_Confirm</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Are you sure you want to delete this survey?</shortDescription>
+        <value>Are you sure you want to delete this survey?</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Edit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Email_Link_Anonymous</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Email Link, Anonymous</shortDescription>
+        <value>Email Link, Anonymous</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Email_Link_w_Contact_Case_Merge</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Email Link w/ Contact &amp; Case Merge</shortDescription>
+        <value>Email Link w/ Contact &amp; Case Merge</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Email_Link_w_Contact_Merge</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Email Link w/ Contact Merge</shortDescription>
+        <value>Email Link w/ Contact Merge</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_EnterSurveyName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enter Survey Name</shortDescription>
+        <value>Enter Survey Name</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_External_Please_Create_Site</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>For external facing surveys, please create a site first.  You may still create i</shortDescription>
+        <value>For external facing surveys, please create a site first.  You may still create internal surveys without creating a site.</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_For_community_assistance_with_Survey_Force</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>For community assistance with Survey Force</shortDescription>
+        <value>For community assistance with Survey Force</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Getting_Help</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Getting Help</shortDescription>
+        <value>Getting Help</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_HeaderAndThankYou</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Header and Thank You</shortDescription>
+        <value>Header, Thank You &amp; CSS</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Installation_Guide</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Installation Guide</shortDescription>
+        <value>Installation Guide</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Internal</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Internal</shortDescription>
+        <value>Internal</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_JustContact</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Just Contact</shortDescription>
+        <value>Just Contact</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Learn_More</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Learn More</shortDescription>
+        <value>Learn More</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_MakeANewSurvey</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Make A New Survey</shortDescription>
+        <value>Make A New Survey</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_MakeNewSurvey</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Make New Survey</shortDescription>
+        <value>Make New Survey</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Make_a_Sample_Survey</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Make a Sample Survey</shortDescription>
+        <value>Make a Sample Survey</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Next_Steps</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Next Steps</shortDescription>
+        <value>Next Steps</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_PleaseEnterTheList</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please enter the list</shortDescription>
+        <value>Please enter the list of answers/responses in the field below. Each value should be separated by a new line.</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Question</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Question</shortDescription>
+        <value>Question</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Required</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Required</shortDescription>
+        <value>required</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_RequiredQuestion</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Required Question</shortDescription>
+        <value>Required Question</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Resources</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Resources</shortDescription>
+        <value>Resources</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Results</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Results</shortDescription>
+        <value>Results</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_SELECTSITE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SELECT SITE</shortDescription>
+        <value>--SELECT SITE--</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_SELECTTYPE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>--SELECT--</shortDescription>
+        <value>--SELECT--</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Salesforce_Answers</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Salesforce Answers</shortDescription>
+        <value>Salesforce Answers</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Save</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_SaveOrder</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Save Order</shortDescription>
+        <value>Save Order</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_SelectQuestionType</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select Question Type</shortDescription>
+        <value>Select Question Type</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_SelectSitetodisplaySurvey</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select Site to display Survey</shortDescription>
+        <value>Select Site to display Survey</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Share</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Share</shortDescription>
+        <value>Share</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Share_My_Survey</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Share My Survey</shortDescription>
+        <value>Share My Survey</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Sharing_Options</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sharing Options</shortDescription>
+        <value>Sharing Options</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_SubmitSurvey</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Submit Survey</shortDescription>
+        <value>Submit Survey</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_SurveyForceIsOpenSource</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SurveyForceIsOpenSource</shortDescription>
+        <value>Survey Force is Open Source software.  We welcome your issue reports, ideas, documentation, code tweaks and all other participation.</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_SurveyURLLink</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Survey URL Link</shortDescription>
+        <value>Survey URL Link</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Survey_Force_is_unsupported</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Survey Force is unsupported</shortDescription>
+        <value>Survey Force is unsupported.</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Survey_Force_on_Github</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Survey Force on Github</shortDescription>
+        <value>Survey Force on Github</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Survey_Name_Is_Required</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Survey Name Is Required</shortDescription>
+        <value>Survey Name is Required</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Survey_Site_Is_Required</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Survey Site Is Required</shortDescription>
+        <value>Survey Site Is Required</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Survey_Submitted_Thank_you</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Your survey has been submitted. Thank you for taking our survey.</shortDescription>
+        <value>Your survey has been submitted. Thank you for taking our survey.</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_To_submit_ideas_or_issues</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>To submit ideas or issues</shortDescription>
+        <value>To submit ideas or issues</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_User_Guide</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>User Guide</shortDescription>
+        <value>User Guide</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_View_Results_In_New_Window</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>View Results In New Window</shortDescription>
+        <value>View Results In New Window</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_View_Sample_Survey</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>View Sample Survey</shortDescription>
+        <value>View Sample Survey</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Welcome_to_Survey_Force</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Welcome to Survey Force</shortDescription>
+        <value>Welcome to Survey Force</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_X1_Create_a_sample_survey</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>1. Create a sample survey by clicking the button below.</shortDescription>
+        <value>1. Create a sample survey by clicking the button below.</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_X2_External_Setup_Site</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>2. Set up a site if you would like to have external-facing surveys.</shortDescription>
+        <value>2. Set up a site if you would like to have external-facing surveys.</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_X3_Start_creating_your_first_survey</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>3. Start creating your first survey.</shortDescription>
+        <value>3. Start creating your first survey.</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_You_have_already_taken_this_survey</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You have already taken this survey!</shortDescription>
+        <value>You have already taken this survey!</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Your_next_few_steps_are_easy</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Your next few steps are easy.</shortDescription>
+        <value>Your next few steps are easy.</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_please_visit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>please visit</shortDescription>
+        <value>please visit</value>
+    </labels>
+    <labels>
+        <fullName>Landing_Days_NextBizDate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Landing Days NextBizDate</shortDescription>
+        <value>3</value>
+    </labels>
+    <labels>
+        <fullName>LeapfrogAppAPIName</fullName>
+        <categories>Leapfrog</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Leapfrog App API Name</shortDescription>
+        <value>Leapfrog_Canvas</value>
+    </labels>
+    <labels>
+        <fullName>MLE_Product_Definition_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MLE Product Definition ID</shortDescription>
+        <value>a3T90000000AdMA</value>
+    </labels>
+    <labels>
+        <fullName>Margin_on_the_SO</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Margin on the SO</shortDescription>
+        <value>0.49</value>
+    </labels>
+    <labels>
+        <fullName>Minimum_Cancellation_Notice</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Minimum Cancellation Notice</shortDescription>
+        <value>10</value>
+    </labels>
+    <labels>
+        <fullName>Minimum_Evergreen_Cancellation_Period</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Minimum Evergreen Cancellation Period</shortDescription>
+        <value>3</value>
+    </labels>
+    <labels>
+        <fullName>MyAccountCommunityURL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MyAccountCommunityURL</shortDescription>
+        <value>https://nx2dev-newscorpaustralia.cs58.force.com/myaccount/s/</value>
+    </labels>
+    <labels>
+        <fullName>NewsXtend_Portal_Base_URL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NewsXtend Portal Base URL</shortDescription>
+        <value>https://nx2dev-newscorpaustralia.cs58.force.com/customerportal</value>
+    </labels>
+    <labels>
+        <fullName>Number_Days_NextBizDate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Number Days NextBizDate</shortDescription>
+        <value>1</value>
+    </labels>
+    <labels>
+        <fullName>OA_Halt_Live_Campaign_Task_Subject</fullName>
+        <categories>Order Amendments</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OA Halt Live Campaign Task Subject</shortDescription>
+        <value>Halt any further campaign processing</value>
+    </labels>
+    <labels>
+        <fullName>OA_Halt_Live_Campaign_Task_Summary</fullName>
+        <categories>Order Amendments</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OA Halt Live Campaign Task Summary</shortDescription>
+        <value>Please note the campaign is being amended by Sales at this time. Please reach out to Sales for further clarification.</value>
+    </labels>
+    <labels>
+        <fullName>Order_Days_NextBizDate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Order Days NextBizDate</shortDescription>
+        <value>5</value>
+    </labels>
+    <labels>
+        <fullName>Proposed_Start_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Proposed Start Date</shortDescription>
+        <value>14</value>
+    </labels>
+    <labels>
+        <fullName>Retraction_Blocked_Process_Message</fullName>
+        <categories>Order Amendments</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message for OA when retraction is blocked</shortDescription>
+        <value>This Sales Order contains products which are no longer available in the catalogue. &lt;br&gt; Please remove the line items with the ARCHIVED indicator before proceeding.</value>
+    </labels>
+    <labels>
+        <fullName>Return_To_Sales_Chatter_Post_in_Opportunity_Content</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Return To Sales Chatter Post in Opportunity Content</shortDescription>
+        <value>This opportunity has been Returned to Sales. Please review and update.</value>
+    </labels>
+    <labels>
+        <fullName>SO_Email_Template_Base_URL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SO Email Template Base URL</shortDescription>
+        <value>https://newscorpaustralia--adsalesuat.cs31.my.salesforce.com</value>
+    </labels>
+    <labels>
+        <fullName>SO_Level_PPT_Approval_Message</fullName>
+        <categories>Process builder for bundle mix messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SO_Level_PPT_Approval_Message</shortDescription>
+        <value>Insertion(s) exceed mandatory MD approval limit and require approval from Level</value>
+    </labels>
+    <labels>
+        <fullName>SO_Updated_Client_Value_Points</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SO Updated Client Value Points</shortDescription>
+        <value>CVS Points changed. Target Discount Updated</value>
+    </labels>
+    <labels>
+        <fullName>SO_does_not_require_approval</fullName>
+        <categories>Process builder for bundle mix messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SO does not require approval</shortDescription>
+        <value>Sales Order is within pricing/margin guidelines. Internal approvals are not required.</value>
+    </labels>
+    <labels>
+        <fullName>Social_Day_of_KickOff</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Social Day of KickOff</shortDescription>
+        <value>20</value>
+    </labels>
+</CustomLabels>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FISC_MNTH_FIRST_DAY_DT__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>FISC MNTH FIRST DAY DT</label>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>

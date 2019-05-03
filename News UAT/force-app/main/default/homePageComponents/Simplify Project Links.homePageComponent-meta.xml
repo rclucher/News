@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <links>NewsCorp_Training_Feedback_FAQ</links>
+    <links>NewsCorp_CRM_Issues_FAQ</links>
+    <links>NewsCorp_Project_Deployment_Doc</links>
+    <links>NewsCorp_ESB_Error_Codes</links>
+    <links>NewsCorp_Integration_Mappings</links>
+    <links>NewsCorp_Email_Mailboxes</links>
+    <pageComponentType>links</pageComponentType>
+</HomePageComponent>

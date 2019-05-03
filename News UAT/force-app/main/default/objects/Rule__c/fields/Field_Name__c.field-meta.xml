@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Field_Name__c</fullName>
+    <description>This picklist defines the fields that can be used in a Data Filter
+Please be aware that any changes to the values in this list will require code changes in the CS_Questionnaire_Controller class</description>
+    <externalId>false</externalId>
+    <label>Field Name</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Object_Name__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Product_Type_Name__c</fullName>
+                <default>false</default>
+                <label>Product Type</label>
+            </value>
+            <value>
+                <fullName>StageName</fullName>
+                <default>false</default>
+                <label>StageName</label>
+            </value>
+            <value>
+                <fullName>csmso__Status__c</fullName>
+                <default>false</default>
+                <label>Status</label>
+            </value>
+            <value>
+                <fullName>Customer_Tier__c</fullName>
+                <default>false</default>
+                <label>Customer Tier</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>cscfga__Product_Configuration__c</controllingFieldValue>
+            <valueName>Product_Type_Name__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>StageName</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>csmso__Sales_Order__c</controllingFieldValue>
+            <valueName>csmso__Status__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product_Order__c</controllingFieldValue>
+            <valueName>Customer_Tier__c</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

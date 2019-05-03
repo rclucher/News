@@ -1,0 +1,35 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="files" type="List" />
+    <aura:attribute name="autoPlay" type="Boolean" />
+    <aura:attribute name="componentInitialized" type="Boolean" default="false"/>
+    <aura:attribute name="timeInterval" type="Integer" />
+    <aura:attribute name="slideIndex" type="Integer" default="1"/>
+    <aura:handler name="render" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.files}" action="{!c.onFileChange}" />
+    <!-- Slideshow container -->
+    <div class="custom-slideshow-container">
+        <aura:iteration items="{!v.files}" var="file" indexVar="index">
+            <div aura:id="mySlide" class="mySlides fade hide">
+                <div class="numbertext">{!add(index,1)} / {!v.files.length}</div>
+                <aura:if isTrue="{! notequals(file.type,'Text')}">
+                    <a class="download-icon-container icon-container" href="{!file.downloadUrl}">
+                        <lightning:icon iconName="utility:download" size="x-small" alternativeText="Download"/>
+                    </a>
+                    <span class="image-vertical-align"></span>
+                    <img src="{!file.fileURL}"/>
+                    <aura:set attribute="else">
+                        <div class="no-image-preview">{!file.content}</div>
+                    </aura:set>
+                </aura:if>
+            </div>
+        </aura:iteration>
+    </div>
+    <br/>
+    
+    <!-- The dots/circles -->
+    <div style="text-align:center">
+        <aura:iteration items="{!v.files}" var="file" indexVar="index">
+            <span aura:id="slideDot" class="dot" data-index="{!index}" onclick="{!c.currentSlide}"></span> 
+        </aura:iteration> 
+    </div>
+</aura:component>

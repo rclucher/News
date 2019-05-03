@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Adjustment</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>page</linkType>
+    <masterLabel>Credit Adjustment</masterLabel>
+    <openType>replace</openType>
+    <page>Credit_Adjustment_Page</page>
+    <protected>false</protected>
+</WebLink>

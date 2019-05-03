@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prospector_Link__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+ISBLANK(AccountNumber),
+&#39;&#39;,
+HYPERLINK(&quot;http://www.prospector-info.com.au/search_eng.asp?stype=20&amp;search_string=&quot;
++ SUBSTITUTE(AccountNumber, &#39; &#39;, &#39;&#39;), AccountNumber)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Look up the ABN in the website www.prospector-info.com.au
+
+You must provide an ABN number first</inlineHelpText>
+    <label>Prospector Link</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

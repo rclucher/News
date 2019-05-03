@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opty_Cannot_Link_to_GrandParent_Opty</fullName>
+    <active>true</active>
+    <description>You cannot select a parent opportunity which is linked to another parent opportunity. Linking to the parent opportunity can only be 1 level deep, please review your data entry.</description>
+    <errorConditionFormula>NOT ISBLANK(Linked_Opportunity__r.Linked_Opportunity__r.Linked_Opportunity__c)</errorConditionFormula>
+    <errorDisplayField>Linked_Opportunity__c</errorDisplayField>
+    <errorMessage>You cannot select a parent opportunity which is linked to another parent opportunity. Linking to the parent opportunity can only be 1 level deep, please review your data entry.</errorMessage>
+</ValidationRule>

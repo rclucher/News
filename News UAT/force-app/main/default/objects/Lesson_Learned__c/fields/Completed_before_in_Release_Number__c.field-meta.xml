@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Completed_before_in_Release_Number__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Identifies the release in which this item was resolved</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Identifies the release in which this item was resolved</inlineHelpText>
+    <label>Completed before/in Release Number</label>
+    <referenceTo>Release_DO_NOT_USE__c</referenceTo>
+    <relationshipLabel>Lessons Learned (Completed before/in Release Number)</relationshipLabel>
+    <relationshipName>Lessons_Learned1</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

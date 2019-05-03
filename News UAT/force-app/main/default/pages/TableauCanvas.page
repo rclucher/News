@@ -1,0 +1,11 @@
+<apex:page >
+    <apex:canvasApp developerName="Tableau_Canvas"
+                    height="800px"
+                    width="100%"
+                    parameters="
+                                {
+                                'ts.name':'{!$CurrentPage.parameters.wb}/{!$CurrentPage.parameters.vw}',
+                                'ts.tabs':'yes',
+                                'ts.toolbar':'yes',
+                                'ts.trustedTicket.username':'{!$User.Network_Username__c}'}" />
+</apex:page>

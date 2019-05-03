@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BookingLineItemTotalDays__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+ISNULL(BookingLineItem__r.Stop_On_Web_Date__c),1,
+(BookingLineItem__r.Stop_On_Web_Date__c - BookingLineItem__r.Run_Date__c) +1)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Booking Line Item Total Days</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

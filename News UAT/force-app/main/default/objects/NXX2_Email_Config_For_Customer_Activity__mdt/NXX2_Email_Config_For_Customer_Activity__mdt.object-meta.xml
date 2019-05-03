@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Configuration required to send reminder emails for customer activity</description>
+    <label>NXX2 Email Config For Customer Activity</label>
+    <pluralLabel>NXX2 Email Configs For Customer Activity</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,82 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="AT_ListView">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	
+    <aura:attribute type="String" name="title"/>
+    <aura:attribute type="String" name="icon"/>
+    <aura:attribute type="String" name="configList"/>
+    
+    <aura:attribute type="String[]" name="configNames"/>
+    <aura:attribute type="String" name="selectedConfig"/>
+    <aura:attribute type="Integer" name="configCount"/>
+    <aura:attribute type="Object[]" name="configs"/>
+    
+    <aura:attribute type="Boolean" name="allowViewAll" default="true"/>
+    
+    <aura:attribute type="Integer" name="width"/>
+    
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+              <div class="slds-media__figure">
+                <span class="slds-icon_container slds-icon-standard-account" title="{!v.title}">
+                    <lightning:icon iconName="{!v.icon}"/>
+                </span>
+              </div>
+              <div class="slds-media__body">
+                <h2 class="slds-card__header-title">
+                    <span class="slds-text-heading_small">{!v.title}</span>
+                </h2>
+              </div>
+              <div class="slds-no-flex">
+                <aura:if isTrue="{!v.allowViewAll}">
+                	<lightning:button iconName="utility:table" variant="neutral" onclick="{!c.viewAll}" title="View all records" label="View All"/>
+                </aura:if>
+              </div>
+            </header>
+          </div>
+        
+    	<aura:if isTrue="{!v.configs != null}">
+            <table class="summary">
+                <!--tr>
+                    <aura:iteration items="{!v.configs}" var="config">
+                        <td class="{!('icon ' + (config.name == v.selectedConfig ? 'selected' : ''))}" style = "{!('width: ' + v.width)}">
+                            <lightning:icon iconName="{!config.icon}"/>
+                        </td>
+                    </aura:iteration>
+                </tr-->
+                <tr>
+                    <aura:iteration items="{!v.configs}" var="config">
+                        <td class="{!('title ' + (config.name == v.selectedConfig ? 'selected' : ''))}">
+                            <lightning:button variant="bare" label="{!config.title}" name="{!config.name}" onclick="{!c.select}"/>
+                        </td>
+                    </aura:iteration>
+                </tr>
+                <tr>
+                    <aura:iteration items="{!v.configs}" var="config">
+                        <td class="{!('count ' + (config.name == v.selectedConfig ? 'selected' : ''))}">
+                            <aura:if isTrue="{!and(config.count != null, config.count != 0)}">
+                            	<lightning:button variant="bare" label="{!config.count}" name="{!config.name}" onclick="{!c.select}"/>
+                                
+                                <aura:set attribute="else">
+                                	<span style="font-style:italic; font-size: 0.8em; color: #aaa;">(none)</span>
+                                </aura:set>
+                            </aura:if>
+                        </td>
+                    </aura:iteration>
+                </tr>
+                <aura:if isTrue="{!(v.selectedConfig != null)}">
+                    <tr>
+                        <td colspan="{!v.configCount}" style="padding: 0px;">
+                            <c:AT_ListView mode="embedded" config="{!v.selectedConfig}" maxCount="10" pageSize="10"/>
+                        </td>
+                    </tr>
+                    <!--tr>
+                        <td colspan="{!v.configCount}" style="padding-top: 8px; padding-bottom: 8px; text-align: center;">
+                            <lightning:button variant="Bare" label="View All" onclick="{!c.viewAll}"/>
+                        </td>
+                    </tr-->
+                </aura:if>
+            </table>
+        </aura:if>
+    </article>
+</aura:component>

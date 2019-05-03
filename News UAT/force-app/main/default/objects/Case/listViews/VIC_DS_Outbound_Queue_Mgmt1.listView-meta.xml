@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VIC_DS_Outbound_Queue_Mgmt1</fullName>
+    <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+    <columns>CASES.LAST_UPDATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>Pillar__c</columns>
+    <columns>SuppliedFromEmail_Text__c</columns>
+    <columns>NAME</columns>
+    <columns>CASES.SUBJECT</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>CC HWT Gold Classifieds,CC VIC Features,CC Platinum VIC</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>CC HWT Gold Weekly Times,CC NEWS VIC DS Display,CC LDR Gold Classifieds</value>
+    </filters>
+    <filters>
+        <field>CASES.STATUS</field>
+        <operation>equals</operation>
+        <value>In Progress,Open,Queued,Re-Opened,Unassigned</value>
+    </filters>
+    <label>DS VIC Outbound Email Queue</label>
+    <sharedTo>
+        <group>Direct_Sales_All_Inc_DSP_AE_AC</group>
+    </sharedTo>
+</ListView>

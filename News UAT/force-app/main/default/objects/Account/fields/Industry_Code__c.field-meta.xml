@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Industry_Code__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>Industry Codes are imported from the ANSIC standard of Industry Codes. It is periodically maintained and the information in this field will feed into Opportunities and Bookings.</inlineHelpText>
+    <label>Industry</label>
+    <referenceTo>Industry_Code__c</referenceTo>
+    <relationshipLabel>Accounts_IndustryCodes</relationshipLabel>
+    <relationshipName>Accounts_Industry</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

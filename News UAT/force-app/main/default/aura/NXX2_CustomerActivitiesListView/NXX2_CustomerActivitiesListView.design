@@ -1,0 +1,8 @@
+<design:component >
+    <design:attribute name="ParentObjectName" label="Parent Object" 
+                      description="Customer Activities will be queried for Parent Object,For Custom Object, provide the API Name and if Component is placed in Community Home Page then set CommunityHomeTasks as Parent Object value" default="Account" />
+    <design:attribute name="view" label="View" 
+                      description="Customer Activities Component can be place in detail view or in list view, if component is placed as a List set this value as Compact, other wise set it as Full" default="Full" />
+<design:attribute name="externalUser" label="externalUser" 
+                      description="Set it to true for customer portal user" default="false" />
+  </design:component>

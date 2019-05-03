@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Progress_Bar__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+Progress_Percentage__c &lt;= 20 &amp;&amp; Progress_Percentage__c &gt; 0, IMAGE(&quot;/servlet/servlet.FileDownload?file=0159000000Edwkr&quot;, &quot;Warming Up&quot;),
+IF(
+Progress_Percentage__c &lt;= 40 &amp;&amp; Progress_Percentage__c &gt; 0, IMAGE(&quot;/servlet/servlet.FileDownload?file=0159000000Edwks&quot;, &quot;In Progress&quot;),
+IF(
+Progress_Percentage__c &lt;= 60 &amp;&amp; Progress_Percentage__c &gt; 0, IMAGE(&quot;/servlet/servlet.FileDownload?file=0159000000Edwkt&quot;, &quot;Half Way&quot;),
+IF(
+Progress_Percentage__c &lt;= 99&amp;&amp; Progress_Percentage__c &gt; 0, IMAGE(&quot;/servlet/servlet.FileDownload?file=0159000000Edwku&quot;, &quot;Almost There&quot;),
+IF(
+Progress_Percentage__c = 100, IMAGE(&quot;/servlet/servlet.FileDownload?file=0159000000Edwkv&quot;, &quot;Done&quot;),
+IMAGE(&quot;/servlet/servlet.FileDownload?file=0159000000Edwkw&quot;, &quot;Not Applicable&quot;))))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Progress Bar</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

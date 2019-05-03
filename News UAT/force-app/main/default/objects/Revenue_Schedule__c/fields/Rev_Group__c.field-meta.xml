@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rev_Group__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+ AND(
+  Stage__c = &#39;Awaiting Bookings&#39;,
+  Opportunity_Type__c = &#39;Core Activity&#39;,
+  ISBLANK(Sales_Order__c)
+ ), &#39;Awaiting Booking -Core$&#39;,
+
+  IF(
+   AND(
+    Stage__c = &#39;Awaiting Bookings&#39;,
+    Opportunity_Type__c = &#39;Non-Core Activity&#39;,
+    ISBLANK(Sales_Order__c)
+   ), &#39;Awaiting Booking -Non Core$&#39;,
+
+    IF(
+     AND(
+      Opty_IsWon__c = TRUE,
+      Count_Sales_Order_Line_Item__c = 0,
+      NOT(ISPICKVAL(Reporting_Type_L1__c, &#39;Target&#39;))
+     ), &#39;Closed Opty$&#39;,
+
+      IF(
+       AND(
+        (Opportunity__r.Revenue_Status__c) = &#39;Booked&#39;,
+        Opty_IsWon__c = TRUE
+        /* Count_Sales_Order_Line_Item__c &gt;= 1,    - redundant as Revenue Status checks order line */
+       ), &#39;Booked$&#39;,
+
+        IF(
+         AND(
+          Opty_IsWon__c = FALSE,
+          Probability__c &gt;= 0.50,
+          Probability__c &lt;= 0.89,
+          NOT CONTAINS(Stage__c, &#39;Closed Lost&#39;)
+         ),  &#39;Weighted Pipeline (50%+)$&#39; ,
+         
+          IF(
+           AND(
+            ISPICKVAL(Reporting_Type_L1__c, &#39;Target&#39;)
+           ), &#39;Target$&#39;,
+          
+/* Purpose for this catch is to bucket all remaining pipeline &lt;50 */
+            IF(
+             AND(
+              Opty_IsWon__c = FALSE,
+              Probability__c &gt;= 0.00,
+              Probability__c &lt;= 0.49,
+              NOT CONTAINS(Stage__c, &#39;Closed Lost&#39;)
+             ), &#39;Weighted Pipeline (&lt;50%)$&#39; ,
+
+/* Purpose for this catch is to bucket ANY pipeline if doesn&#39;t match any of the above rules */
+              IF(
+               AND(
+                CONTAINS(Stage__c, &#39;Closed Lost&#39;)
+               ), &#39;Lost Opty&#39; ,
+
+/* Purpose for this catch is to bucket ANY pipeline if doesn&#39;t match any of the above rules */
+                IF(
+                 AND(
+                  Opty_IsWon__c = FALSE
+                 ), &#39;OTHER: Pipeline? Sys admin check!&#39; ,
+
+/* Purpose for this catch is to bucket ANY closed to completed sales order if doesn&#39;t match any of the above rules */
+                  IF(
+                   AND(
+                    Opty_IsWon__c = TRUE
+                   ), &#39;OTHER: Closed? Sys admin check!&#39; ,
+                   &#39;OTHER: Everything else?&#39;
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+)</formula>
+    <label>Rev Group</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

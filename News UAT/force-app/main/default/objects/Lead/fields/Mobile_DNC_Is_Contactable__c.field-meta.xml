@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mobile_DNC_Is_Contactable__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( 
+Mobile_on_DNC__c = FALSE &amp;&amp; 
+NOT ISBLANK(Mobile_DNC_Washed_Date__c) &amp;&amp; 
+TODAY() - Mobile_DNC_Washed_Date__c &lt; 31, 
+TRUE, FALSE 
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Mobile DNC Is Contactable</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

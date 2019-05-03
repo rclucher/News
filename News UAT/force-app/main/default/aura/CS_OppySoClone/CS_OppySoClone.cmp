@@ -1,0 +1,66 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickActionWithoutHeader,force:hasRecordId" access="global" controller="CS_OpportunitySOCloneController">
+
+	<aura:attribute name="showSpinner" type="boolean" default="false" access="private"/>
+	<aura:attribute name="showErrorMessage" type="boolean" default="false"/>
+	<aura:attribute name="errorMessage" type="String" default="false"/>
+	<aura:attribute name="recordId" type="Id" />
+	<aura:attribute name="oppyName" type="String" access="private"/>
+	<!-- <aura:handler event="aura:waiting" action="{!c.showSpinner}"/> -->
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+
+
+
+	<div class="slds-m-around--medium">
+		<div class="slds-text-heading_large slds-m-vertical_medium">
+			<c:CS_SvgIcon svgPath="/resource/SLDS/assets/icons/standard-sprite/svg/symbols.svg#drafts" category="standard" size="large" name="drafts" />
+			<span class="slds-m-left_medium">
+				Re-Order
+			</span>
+		</div>
+
+		<!-- error message -->
+		<aura:if isTrue="{!v.showErrorMessage}">
+			<div class="slds-notify_container slds-m-vertical_medium messageBox">
+			  <div class="slds-notify slds-notify--alert slds-theme--error slds-theme--alert-texture errorMessageBox" role="alert">
+			    <button class="slds-button slds-notify__close slds-button--icon-inverse" title="Close" onclick="{!c.hideErrorMessageBox}">
+					<c:CS_SvgIcon svgPath="/resource/SLDS/assets/icons/utility-sprite/svg/symbols.svg#close" category="standard" size="small" name="close" />
+					<span class="slds-assistive-text">Close</span>
+			    </button>
+			    <span class="slds-assistive-text">Error</span>
+			    <h2>
+			      <c:CS_SvgIcon svgPath="/resource/SLDS/assets/icons/utility-sprite/svg/symbols.svg#ban" category="standard" size="small" name="ban"/>
+			      	{!v.errorMessage}
+			    </h2>
+			  </div>
+			</div>
+		</aura:if>
+
+		<div class="slds-grid slds-wrap">
+			<div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-m-vertical_small instructionText">
+				Use this Re-order function to clone the following records:
+				<li>Opportunity</li>
+				<li>Sales Order and Line Items (manually/externally approved)</li>
+				<li>Opportunity Products</li>
+				<li>Campaign Brief Answers</li>
+			</div>
+<!-- 			<div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-m-vertical_medium">
+				<lightning:input label="Cloned Opportunity Name" name="New Opportunity Name" value="{!v.oppyName}" placeholder="Please enter the opportunity name here" />
+			</div> -->
+			<div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-1 slds-text-align_right">
+				<lightning:button variant="brand" label="Confirm" onclick="{! c.handleClone }"/>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- spinner -->
+	<aura:if isTrue="{!v.showSpinner}">
+		<div aura:id="spinnerId" class="slds-spinner_container">
+		   <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+		     <span class="slds-assistive-text">Loading</span>
+		     <div class="slds-spinner__dot-a"></div>
+		     <div class="slds-spinner__dot-b"></div>
+		   </div>
+		</div>
+	</aura:if>
+</aura:component>

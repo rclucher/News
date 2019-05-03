@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Schedule_Date_Earliest__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Returns the earliest scheduled date from the revenue schedule. Populated by Apex and used to identify any accounts with revenue schedules prior to close dates.</inlineHelpText>
+    <label>Schedule Date (Earliest)</label>
+    <summarizedField>OpportunityLineItem.Schedule_Date_Earliest__c</summarizedField>
+    <summaryForeignKey>OpportunityLineItem.OpportunityId</summaryForeignKey>
+    <summaryOperation>min</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

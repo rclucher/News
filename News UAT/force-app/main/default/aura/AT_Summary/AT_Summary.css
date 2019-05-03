@@ -1,0 +1,103 @@
+.THIS .slds-card__header {
+    background-color: rgb(243, 242, 242);
+    margin-bottom: 0px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgb(221, 219, 218);
+}
+
+.THIS .slds-card__header h2 {
+	font-size: .8125rem;
+}
+
+.THIS table.summary {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.THIS table.summary td {
+    
+}
+
+.THIS .slds-button {
+    /*line-height: 1rem;*/
+}
+
+.THIS table.summary td.icon {
+    padding-top: 10px;
+    /*border-left: 1px solid rgb(221, 219, 218);*/
+    
+    border-left: none;
+    border-right: none;
+    
+    text-align: center;
+}
+
+.THIS table.summary td.title {
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    
+    vertical-align: top;
+    
+    /*border-left: 1px solid rgb(221, 219, 218);*/
+    border-left: none;
+    border-right: none;
+    
+    text-align: center;
+}
+
+.THIS table.summary td.count {
+    font-size: 2em;
+    
+    /*border-left: 1px solid rgb(221, 219, 218);*/
+    border-left: none;
+    border-right: none;
+    
+    text-align: center;
+    
+    border-bottom: 2px solid #c0c0f0; /*rgb(221, 219, 218);*/
+    
+    padding-bottom: 10px;
+}
+
+.THIS table.summary td:first-child {
+    border-left: none;
+}
+
+.THIS table.summary td.title:nth-child(odd) {
+    border-top: 2px solid #e0e0e0;
+    background-color: #e0e0e0;
+}
+
+.THIS table.summary td.count:nth-child(odd) {
+    background-color: #e0e0e0;
+}
+
+
+.THIS table.summary td.title:nth-child(even) {
+    border-top: 2px solid #f8f8f8;
+    background-color: #f8f8f8;
+}
+
+.THIS table.summary td.count:nth-child(even) {
+    
+    background-color: #f8f8f8;
+}
+
+.THIS table.summary td.title.selected {
+    font-weight: bold;
+    background: #e0e0ff;
+    border-bottom: none;
+    border-top: 2px solid #c0c0f0;
+    border-left: 2px solid #c0c0f0;
+    border-right: 2px solid #c0c0f0;
+}
+
+.THIS table.summary td.count.selected {
+    background: #e0e0ff;
+    border-bottom: none;
+    border-left: 2px solid #c0c0f0;
+    border-right: 2px solid #c0c0f0;
+    /*border-bottom: 1px solid #c0c0f0;*/
+}

@@ -1,0 +1,16 @@
+<apex:page >
+    <apex:includeLightning />
+
+    <div id="lightning" />
+
+    <script>
+        $Lightning.use("c:CS_CampaignQuestionnaireApp", function() {
+          $Lightning.createComponent("c:CS_CampaignQuestionnaire",
+          { },
+          "lightning",
+          function(cmp) {
+
+          });
+        });
+    </script>
+</apex:page>

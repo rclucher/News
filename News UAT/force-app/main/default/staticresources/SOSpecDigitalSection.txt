@@ -1,0 +1,33 @@
+{
+  "title": "Digital Sales Order Details",
+  "isOpen": false,
+  "content":
+  {
+    "col1": [
+	  {
+		"name": "Booking_Contact_For_Digital__c",
+		"columns": ["Account"],
+		"fieldNamesCSV": "Account.Name,Title,Email,Phone",
+		"narratorInfo": "title,email,phone",
+		"queryPlugin": "",
+		"objectName": "Contact",
+		"label": "Booking Contact",
+		"parent": "Advertiser__c",
+		"parentFieldName": "AccountId",
+		"type": "select2"
+	}
+	],
+    "col2": [
+      {
+        "name": "Total_Digital_Price__c",
+		"hidden": true, 
+        "label": "Digital Total Price ($)",
+        "type": "text"
+      },{
+        "name": "Total_Digital_Price_GST_Inclusive__c",
+		"hidden": true, 
+        "label": "Digital Total Price (GST Inclusive)",
+        "type": "text"
+      }]
+  }
+}

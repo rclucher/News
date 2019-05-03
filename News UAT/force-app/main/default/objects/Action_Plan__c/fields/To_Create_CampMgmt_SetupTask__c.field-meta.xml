@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>To_Create_CampMgmt_SetupTask__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>2015-07 NewsXtend - This checkbox decides whether to create default CampMagment-SetupTask when used by VF page NewsXtend_ActionPlan</description>
+    <externalId>false</externalId>
+    <label>To Create CampMgmt-SetupTask</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

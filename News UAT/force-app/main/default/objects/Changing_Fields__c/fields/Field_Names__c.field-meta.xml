@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Field_Names__c</fullName>
+    <description>Field names determine a record has been updated.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Field names determine a record has been updated. If more than one field name, separate them by Semicolon</inlineHelpText>
+    <label>Field Names</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Other_relevant_spend_information__c</fullName>
+    <description>Customer history, relationship, if new business why haven&#39;t they advertised before, detail any past ideas pitched?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Customer history, relationship, if new business why haven&#39;t they advertised before, detail any past ideas pitched?</inlineHelpText>
+    <label>Other customer background information</label>
+    <length>10000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Charge_Type_c__c</fullName>
+    <externalDeveloperName>Charge_Type__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>XXXCharge Type</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Credit Card (via Chargify)</fullName>
+                <default>false</default>
+                <label>Credit Card (via Chargify)</label>
+            </value>
+            <value>
+                <fullName>Bill Customer</fullName>
+                <default>false</default>
+                <label>Bill Customer</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

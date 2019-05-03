@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hide_Column_from_Campaign_Exec__c</fullName>
+    <description>2015-05 UserStory16.3</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Select column(s) that should be hidden from Campaign Execution page.</inlineHelpText>
+    <label>Hide Column from Campaign Exec</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Action</fullName>
+                <default>false</default>
+                <label>Action</label>
+            </value>
+            <value>
+                <fullName>Type</fullName>
+                <default>false</default>
+                <label>Type</label>
+            </value>
+            <value>
+                <fullName>Name</fullName>
+                <default>false</default>
+                <label>Name</label>
+            </value>
+            <value>
+                <fullName>Last Booking Value</fullName>
+                <default>false</default>
+                <label>Last Booking Value</label>
+            </value>
+            <value>
+                <fullName>CompanyOrAccount</fullName>
+                <default>false</default>
+                <label>CompanyOrAccount</label>
+            </value>
+            <value>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+                <label>In Progress</label>
+            </value>
+            <value>
+                <fullName>Call Count</fullName>
+                <default>false</default>
+                <label>Call Count</label>
+            </value>
+            <value>
+                <fullName>Execution Status</fullName>
+                <default>false</default>
+                <label>Execution Status</label>
+            </value>
+            <value>
+                <fullName>Status column</fullName>
+                <default>false</default>
+                <label>Status column</label>
+            </value>
+            <value>
+                <fullName>Last Response Datetime</fullName>
+                <default>false</default>
+                <label>Last Response Datetime</label>
+            </value>
+            <value>
+                <fullName>Call Back Date</fullName>
+                <default>false</default>
+                <label>Call Back Date</label>
+            </value>
+            <value>
+                <fullName>Locked By</fullName>
+                <default>false</default>
+                <label>Locked By</label>
+            </value>
+            <value>
+                <fullName>Age in List</fullName>
+                <default>false</default>
+                <label>Age in List</label>
+            </value>
+            <value>
+                <fullName>Created Date</fullName>
+                <default>false</default>
+                <label>Created Date</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>8</visibleLines>
+</CustomField>

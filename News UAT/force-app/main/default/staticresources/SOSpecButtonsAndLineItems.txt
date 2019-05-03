@@ -1,0 +1,145 @@
+],
+"customButtons": [{
+	"name": "Sync_SO",
+	"title": "Sync with Opportunity",
+	"label": "Sync",
+	"class": "SyncSalesOrder",
+	"cssFile": ""
+},{
+	"name": "Save_Exit",
+	"title": "Return to Opty",
+	"label": "Return to Opty",
+	"class": "SaveExitSalesOrder",
+	"cssFile": "/resource/SaveExitCSS"
+},
+{
+	"name": "multiEdit",
+	"label": "Multi Edit",
+	"class": "MultiConfigurationCustomActionSupport",
+	"cssFile": "/resource/MultiEditCSS",
+	"locks": "screen"
+},
+{
+	"name": "Request_Approval",
+	"title": "Submit Sales order for Approval",
+	"label": "Request Approval",
+	"class": "RequestApprovalSalesOrder",
+	"cssFile": "/resource/RequestApproveSalesOrderCSS",
+	"locks": "screen"
+},
+{
+	"name": "Approve_SO",
+	"title": "Approve SO",
+	"label": "Approve SO",
+	"class": "ApproveSalesOrder",
+	"cssFile": "/resource/ApproveSalesOrderCSS",
+	"locks": "screen"
+},
+{
+	"name": "Reject_SO",
+	"title": "Reject SO",
+	"label": "Reject SO",
+	"class": "RejectSalesOrder",
+	"cssFile": "/resource/RejectSalesOrderCSS"
+},
+{
+	"name": "Manual_Approval",
+	"title": "Manual Approval on behalf of customer",
+	"label": "Manual Approve",
+	"class": "ManualApprovalSalesOrder",
+	"cssFile": "/resource/ManualApprovalCSS",
+	"locks": "screen"
+},
+{
+	"name": "Get_PDF",
+	"title": "Get .csv Doc",
+	"label": "Get Doc",
+	"class": "GenerateProdConfigAttr",
+	"cssFile": "/resource/Generate_Sales_Order_CSS"
+},
+{
+	"name": "Retract_SO",
+	"title": "Retract SO",
+	"label": "Retract SO",
+	"class": "RetractSalesOrder",
+	"cssFile": "/resource/1532679756000/ButtonRetractSalesOrderCSS"
+},
+{
+	"name": "Recall_SO",
+	"title": "Recall SO",
+	"label": "Recall SO",
+	"class": "RecallSalesOrder",
+	"cssFile": "/resource/1532679803000/ButtonReCallSalesOrderCSS"
+},
+{
+	"name": "Generate_IO",
+	"title": "Generate IO",
+	"label": "Generate IO",
+	"class": "GenerateSalesOrderIO",
+	"cssFile": "/resource/1534663815000/Generate_IO_CSS"
+}
+], 
+"lineItemRelatedList": {
+"fields": [{
+"name": "Line_Item_Status__c",
+"label": "Status",
+"source": "ProductConfiguration",
+"value": "$Line_Item_Status__c$",
+"type": "text",
+"cssHeader": "cell-1",
+"cssCell": "cell-1"
+},
+{
+"name": "Line_Item_Platform__c",
+"label": "Platform",
+"source": "ProductConfiguration",
+"value": "$Line_Item_Platform__c$",
+"type": "text",
+"cssHeader": "cell-1",
+"cssCell": "cell-1"
+},
+{
+"name": "Line_Item_Description__c",
+"label": "Description",
+"source": "ProductConfiguration",
+"value": "$Line_Item_Description__c$",
+"type": "text",
+"cssHeader": "cell-6",
+"cssCell": "cell-6"
+},
+{
+"name": "Line_Item_Quantity__c",
+"label": "Qty OR Val",
+"source": "ProductConfiguration",
+"value": "$Line_Item_Quantity__c$",
+"type": "number",
+"cssHeader": "cell-1",
+"cssCell": "cell-1"
+},
+{
+"name": "Line_Item_Discount__c",
+"label": "  Disc(%)",
+"source": "ProductConfiguration",
+"type": "number",
+"cssHeader": "cell-1",
+"cssCell": "cell-1"
+},
+{
+"name": "Line_Item_Price_Display__c",
+"label": "Mthly Price (ex.GST)",
+"source": "ProductConfiguration",
+"type": "currency",
+"cssHeader": "cell-1",
+"cssCell": "cell-1"
+},
+{
+"name": "Line_Item_Duration_Price_Display__c",
+"label": "Total Price (ex. GST)",
+"source": "ProductConfiguration",
+"type": "currency",
+"cssHeader": "cell-1",
+"cssCell": "cell-1"
+}
+]
+}
+}

@@ -1,0 +1,53 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,lightning:isUrlAddressable" access="global">
+    <aura:attribute name="adDetails" type="Map"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="proofDetails" type="Map" default="{}"/>
+    <aura:attribute name="campaignId" type="String"/>
+    <aura:attribute name="createNewVersion" type="Boolean" default="false"/>
+    <aura:attribute name="adStatus" type="String" default="Create"/>
+    <aura:attribute name="processingRequest" type="Boolean" default="false"/>
+    <aura:attribute name="requestMessage" type="String" default="Processing request."/>
+    <aura:registerEvent name="closeModal" type="c:NXX2_CloseModal"/>
+    <aura:handler name="requestingServer" event="c:NXX2_RequestingServer" action="{!c.handleRequestingServerEvent}" phase="capture"/>
+    <aura:handler name="serverResponded" event="c:NXX2_ServerResponded" action="{!c.handleServerRespondedEvent}" phase="capture"/>
+    <aura:handler name="initialiseFileUpload" event="c:NXX2_InitialiseFileUpload" action="{!c.handleInitialiseFileUploadEvent}" phase="capture"/>
+    <aura:handler name="fbAdDetailsChanged" event="c:AllAccount_FacebookAd_DetailsChanged" action="{!c.handleFbAdDetailsChangedEvent}" phase="capture"/>
+    <c:NXX2_UploadFiles aura:id="fileUploader"></c:NXX2_UploadFiles>
+    <aura:if isTrue="{!v.processingRequest}">
+        <div class="spinner-container">
+            <lightning:spinner aura:id="mySpinner" size="medium"/>
+        </div>
+        <div class="processMessage-container">
+            <div class="process-description">{!v.requestMessage}</div>
+        </div>
+    </aura:if>
+    <div class="ad-container">
+        <aura:if isTrue="{!and(equals(v.adStatus,'CreateNewVersion'),not(v.createNewVersion))}">
+            <div class="confirmation-container">
+                <div class="confirmation-message">
+                    Are you sure to create new version of this approved ad?
+                </div>
+                <div class="button-container-footer">
+                    <lightning:button label="Cancel" title="Neutral action" onclick="{! c.cancelAd }"/>
+                    <lightning:button variant="brand" label="Create New Version" title="Success" onclick="{! c.createNewVersion }"/>
+                </div>
+            </div>
+            <aura:set attribute="else">
+                <div class="flex-container">
+                    <div class="ad-details-container">
+                        <article class="slds-card slds-p-around_small">
+                            <c:NXX2_CreateEditFacebookAd adStatus="{!v.adStatus}" recordId="{!v.recordId}" campaignId="{!v.campaignId}" proofDetails="{!v.proofDetails}"></c:NXX2_CreateEditFacebookAd>
+                        </article>
+                    </div>
+                    <div class="ad-preview-container">
+                        <aura:if isTrue="{! not(empty(v.adDetails.Creative_Type__c))}">
+                            <article class="slds-card slds-p-around_small">
+                                <c:NXX2_PreviewFacebookAd aura:id="previewComp" mode="edit"></c:NXX2_PreviewFacebookAd>
+                            </article>
+                        </aura:if>
+                    </div>
+                </div>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

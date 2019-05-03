@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Config For Social PO</label>
+    <protected>false</protected>
+    <values>
+        <field>Approval_Status__c</field>
+        <value xsi:type="xsd:string">APPROVED</value>
+    </values>
+    <values>
+        <field>Request_Change_Status__c</field>
+        <value xsi:type="xsd:string">In Review</value>
+    </values>
+    <values>
+        <field>TaskSubject__c</field>
+        <value xsi:type="xsd:string">Confirm client approval to fulfilment team</value>
+    </values>
+    <values>
+        <field>Task_Record_Type__c</field>
+        <value xsi:type="xsd:string">To-Do</value>
+    </values>
+</CustomMetadata>

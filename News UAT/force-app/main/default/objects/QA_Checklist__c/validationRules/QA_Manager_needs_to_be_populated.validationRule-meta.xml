@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QA_Manager_needs_to_be_populated</fullName>
+    <active>false</active>
+    <errorConditionFormula>!ISNEW() &amp;&amp; QA_Manager__c == null</errorConditionFormula>
+    <errorDisplayField>QA_Manager__c</errorDisplayField>
+    <errorMessage>Please populate QA Manager for this checklist.</errorMessage>
+</ValidationRule>

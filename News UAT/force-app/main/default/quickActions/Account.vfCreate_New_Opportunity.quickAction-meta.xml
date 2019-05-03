@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Create New Opportunity</description>
+    <height>500</height>
+    <label>Create New Opportunity (old)</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <page>qaCreateNewOpportunity</page>
+    <type>VisualforcePage</type>
+    <width>-100</width>
+</QuickAction>

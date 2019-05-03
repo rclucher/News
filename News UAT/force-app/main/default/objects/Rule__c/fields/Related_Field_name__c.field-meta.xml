@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Related_Field_name__c</fullName>
+    <externalId>false</externalId>
+    <label>Related Field name</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Related_Object_Name__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Account.BillingPostalCode</fullName>
+                <default>false</default>
+                <label>Billing Postcode</label>
+            </value>
+            <value>
+                <fullName>Account.BillingState</fullName>
+                <default>false</default>
+                <label>Billing State</label>
+            </value>
+            <value>
+                <fullName>Account.BillingStreet</fullName>
+                <default>false</default>
+                <label>Billing Street</label>
+            </value>
+            <value>
+                <fullName>Campaign_Customer_Contact__r.Phone</fullName>
+                <default>false</default>
+                <label>Campaign Contact&#39;s Business Phone Number</label>
+            </value>
+            <value>
+                <fullName>Campaign_Customer_Contact__r.Email</fullName>
+                <default>false</default>
+                <label>Campaign Contact&#39;s Email</label>
+            </value>
+            <value>
+                <fullName>Campaign_Customer_Contact__r.LastName</fullName>
+                <default>false</default>
+                <label>Campaign Contact&#39;s Family Name</label>
+            </value>
+            <value>
+                <fullName>Campaign_Customer_Contact__r.FirstName</fullName>
+                <default>false</default>
+                <label>Campaign Contact&#39;s Given Name</label>
+            </value>
+            <value>
+                <fullName>Campaign_Customer_Contact__r.MobilePhone</fullName>
+                <default>false</default>
+                <label>Campaign Contact&#39;s Mobile Phone Number</label>
+            </value>
+            <value>
+                <fullName>Campaign_Customer_Contact__r.Salutation</fullName>
+                <default>false</default>
+                <label>Campaign Contact&#39;s Salutation</label>
+            </value>
+            <value>
+                <fullName>Assigned_Campaign_Manager__r.Email</fullName>
+                <default>false</default>
+                <label>Campaign Manager&#39;s Email</label>
+            </value>
+            <value>
+                <fullName>Assigned_Campaign_Manager__r.FirstName</fullName>
+                <default>false</default>
+                <label>Campaign Manager&#39;s First Name</label>
+            </value>
+            <value>
+                <fullName>Assigned_Campaign_Manager__r.Name</fullName>
+                <default>false</default>
+                <label>Campaign Manager&#39;s Full Name</label>
+            </value>
+            <value>
+                <fullName>Assigned_Campaign_Manager__r.LastName</fullName>
+                <default>false</default>
+                <label>Campaign Manager&#39;s Last Name</label>
+            </value>
+            <value>
+                <fullName>Assigned_Campaign_Manager__r.Phone</fullName>
+                <default>false</default>
+                <label>Campaign Manager&#39;s Phone Number</label>
+            </value>
+            <value>
+                <fullName>Assigned_Campaign_Manager__r.State</fullName>
+                <default>false</default>
+                <label>Campaign Manager&#39;s State</label>
+            </value>
+            <value>
+                <fullName>Account.Name</fullName>
+                <default>false</default>
+                <label>Client&#39;s Company Name</label>
+            </value>
+            <value>
+                <fullName>Account.Website</fullName>
+                <default>false</default>
+                <label>Client&#39;s Company Website</label>
+            </value>
+            <value>
+                <fullName>Account.Industry</fullName>
+                <default>false</default>
+                <label>Client&#39;s Industry</label>
+            </value>
+            <value>
+                <fullName>Account__c</fullName>
+                <default>false</default>
+                <label>Company ID</label>
+            </value>
+            <value>
+                <fullName>Sales_Order__c</fullName>
+                <default>false</default>
+                <label>Order ID</label>
+            </value>
+            <value>
+                <fullName>Owner.Email</fullName>
+                <default>false</default>
+                <label>Sales Rep&#39;s Email</label>
+            </value>
+            <value>
+                <fullName>Owner.Name</fullName>
+                <default>false</default>
+                <label>Sales Rep&#39;s Name</label>
+            </value>
+            <value>
+                <fullName>Owner.Phone</fullName>
+                <default>false</default>
+                <label>Sales Rep&#39;s Phone Number</label>
+            </value>
+            <value>
+                <fullName>Account.BillingCity</fullName>
+                <default>false</default>
+                <label>Billing City</label>
+            </value>
+            <value>
+                <fullName>Account.Phone</fullName>
+                <default>false</default>
+                <label>Advertiser Phone</label>
+            </value>
+            <value>
+                <fullName>Account.Fax</fullName>
+                <default>false</default>
+                <label>Advertiser Fax</label>
+            </value>
+            <value>
+                <fullName>Contact__r.Name</fullName>
+                <default>false</default>
+                <label>Sales Contact Name</label>
+            </value>
+            <value>
+                <fullName>Contact__r.Email</fullName>
+                <default>false</default>
+                <label>Sales Contact Email</label>
+            </value>
+            <value>
+                <fullName>Contact__r.Phone</fullName>
+                <default>false</default>
+                <label>Sales Contact Phone</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Account.BillingPostalCode</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Account.BillingState</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Account.BillingStreet</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Account.Name</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Account.Website</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Account.Industry</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Owner.Email</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Owner.Name</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Owner.Phone</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Account.BillingCity</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Account.Phone</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Account.Fax</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Contact__r.Name</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Contact__r.Email</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Opportunity</controllingFieldValue>
+            <valueName>Contact__r.Phone</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order__c</controllingFieldValue>
+            <valueName>Campaign_Customer_Contact__r.Phone</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order__c</controllingFieldValue>
+            <valueName>Campaign_Customer_Contact__r.Email</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order__c</controllingFieldValue>
+            <valueName>Campaign_Customer_Contact__r.LastName</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order__c</controllingFieldValue>
+            <valueName>Campaign_Customer_Contact__r.FirstName</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order__c</controllingFieldValue>
+            <valueName>Campaign_Customer_Contact__r.MobilePhone</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order__c</controllingFieldValue>
+            <valueName>Campaign_Customer_Contact__r.Salutation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order__c</controllingFieldValue>
+            <valueName>Assigned_Campaign_Manager__r.Email</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order__c</controllingFieldValue>
+            <valueName>Assigned_Campaign_Manager__r.FirstName</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order__c</controllingFieldValue>
+            <valueName>Assigned_Campaign_Manager__r.Name</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order__c</controllingFieldValue>
+            <valueName>Assigned_Campaign_Manager__r.LastName</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order__c</controllingFieldValue>
+            <valueName>Assigned_Campaign_Manager__r.Phone</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order__c</controllingFieldValue>
+            <valueName>Assigned_Campaign_Manager__r.State</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order__c</controllingFieldValue>
+            <valueName>Account__c</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order__c</controllingFieldValue>
+            <valueName>Sales_Order__c</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,249 @@
+<apex:component >
+    <!--apex:attribute name="CampaignMemberList" type="Campaign_ControllerX_ResultLine[]" description="List of CampaignMember"/-->
+    <apex:attribute name="CampaignMemberList" type="CampaignMember[]" description="List of CampaignMember"/>
+    <apex:attribute name="CampaignMemberPaginator" type="Campaign_sObjectPaginator" description="Paginator" />
+    <apex:attribute name="hasProgressCampaignMember" type="Boolean" description="Has Progress Cammpaign Member" />
+    <apex:attribute name="cmListType" type="String" description="Type of CampaignMember List" />
+    <apex:attribute name="isDisplayAction" type="Boolean" description="Display Action column" />
+    <apex:attribute name="topController" type="Campaign_ControllerX" description="The Campaign Controller" />
+    <apex:attribute name="completeFunction" type="string" description="Function for OnComplete event" />
+
+
+                <apex:pageBlock id="PageBlock">
+                    <apex:pageBlockButtons id="PageBlockButtons">
+                        <apex:commandButton value="Refresh" 
+                                            action="{!topController.refresh}" 
+                                            reRender="theForm" 
+                                            status="status" 
+                                            id="RefreshBtn"
+                                            styleClass="{!cmListType}_RefreshBtn" >
+                            <apex:param name="tabName" value="{!cmListType}"/>
+                        </apex:commandButton>
+
+                        <apex:commandButton value="Reset Sort" 
+                                            action="{!topController.resetSort}"
+                                            reRender="theForm"
+                                            status="status"
+                                            id="ResetSortBtn">
+                            <apex:param name="tabName" value="{!cmListType}"/>
+                        </apex:commandButton>
+                    </apex:pageBlockButtons>
+
+                    <apex:pageBlockTable value="{!CampaignMemberList}" var="cm" id="CampaignMemberTable">
+                        <apex:column headerValue="Action" rendered="{!NOT(CONTAINS(topController.hideColumns, 'Action'))}">
+                            <apex:commandLink onclick="openActionPageSubtab('{!cm.Id}');return false;"
+                                                value="Start" 
+                                                rendered="{!IF(cmListType='all', 
+                                                (cm.Execution_Status__c !='Completed' && (cm.Locked_By__c == null && !hasProgressCampaignMember) || (cm.Locked_By__c == $User.Id && cm.Execution_Status__c == 'Call to Do')), 
+                                                (((cm.Locked_By__c == null && !hasProgressCampaignMember) || (cm.Locked_By__c == $User.Id && cm.Execution_Status__c == 'Call to Do' && !hasProgressCampaignMember)) && isDisplayAction))}" />
+                            <apex:commandLink onclick="openActionPageSubtab('{!cm.Id}');return false;"
+                                                value="Resume"
+                                                rendered="{!IF(cmListType='all', 
+                                                (cm.Execution_Status__c !='Completed' &&  cm.Locked_By__c == $User.Id && cm.In_Progress__c),
+                                                ((cm.Locked_By__c == $User.Id && cm.In_Progress__c) && isDisplayAction))}" />
+                            <!--cm.Execution_Status__c:{!cm.Execution_Status__c}<br/>
+                            cm.Locked_By__c:{!cm.Locked_By__c}<br/>
+                            hasProgressCampaignMember:{!hasProgressCampaignMember}<br/>
+                            cm.Locked_By__c:{!cm.Locked_By__c}<br/>
+                            cm.Execution_Status__c:{!cm.Execution_Status__c}<br/>-->
+                        </apex:column>
+                        
+                        <apex:column headerValue="Type" 
+                                        rendered="{!NOT(CONTAINS(topController.hideColumns, 'Type'))}" 
+                                        value="{!cm.Member_Type__c}"/>
+
+                        <!-- added by Tim Fabros / Bohao Chen 26 / 05 / 2014 - SFE-533 -->
+                        <!-- adds command link so that the header is clickable and sorts by name -->
+                        <!-- BEGIN: -->
+                        <apex:column rendered="{!NOT(CONTAINS(topController.hideColumns, 'Name'))}">
+                            <apex:facet name="header" >
+                                <apex:commandLink value="Name" 
+                                                    action="{!topController.toggleSort}" 
+                                                    rerender="theForm"
+                                                    status="status">
+                                    <apex:param name="sortField" 
+                                                    value="fullName" 
+                                                    assignTo="{!CampaignMemberPaginator.sortField}"/>
+                                    <apex:param name="tabName"
+                                                    value="{!cmListType}" />
+                                </apex:commandLink>
+                            </apex:facet>
+                            <apex:outputLink onclick="openContactSubtab('{!cm.ContactId}', '{!JSENCODE(cm.Contact.Name)}');return false" rendered="{!cm.Member_Type__c=='Contact'}">{!cm.Contact.Name}</apex:outputLink>
+                            <apex:outputLink onclick="openContactSubtab('{!cm.LeadId}', '{!JSENCODE(cm.Lead.Name)}');return false" rendered="{!cm.Member_Type__c=='Lead'}">{!cm.Lead.Name}</apex:outputLink>
+                        </apex:column>
+                        <apex:column rendered="{!NOT(CONTAINS(topController.hideColumns, 'Last Booking Value'))}">
+                            <apex:facet name="header">
+                                <apex:commandLink value="Last Booking Value" 
+                                                    action="{!topController.toggleSort}" 
+                                                    rerender="theForm"
+                                                    status="status">
+                                    <apex:param name="sortField" 
+                                                    value="lastBookingValue" 
+                                                    assignTo="{!CampaignMemberPaginator.sortField}"/>
+                                    <apex:param name="tabName"
+                                                    value="{!cmListType}" />                                                    
+                                </apex:commandLink>
+                            </apex:facet>
+                            <apex:outputField value="{!cm.Last_Booking_Value__c}"/>
+                        </apex:column>
+
+                        <!-- 21-05-2019 AdSales 272 darshan.gosar@bluewolfgroup.com Added to display field Last_Booking_Line_Item_Publication_Divs__c on UI & support sorting on same -->
+                        <apex:column rendered="{!NOT(CONTAINS(topController.hideColumns, 'Last Booking Line Item Publication Divs'))}">
+                            <apex:facet name="header">
+                                <apex:commandLink value="Last Booking Line Item Publication Divs"
+                                                    action="{!topController.toggleSort}" 
+                                                    rerender="theForm"
+                                                    status="status">
+                                    <apex:param name="sortField" 
+                                                    value="lastBookingLineItemPublicationDivs" 
+                                                    assignTo="{!CampaignMemberPaginator.sortField}"/>
+                                    <apex:param name="tabName"
+                                                    value="{!cmListType}" />                                                    
+                                </apex:commandLink>
+                            </apex:facet>
+                            <apex:outputField value="{!cm.Last_Booking_Line_Item_Publication_Divs__c}"/>
+                        </apex:column>
+                        <apex:column rendered="{!NOT(CONTAINS(topController.hideColumns, 'CompanyOrAccount'))}">
+                            <apex:facet name="header">
+                                <apex:commandLink value="CompanyOrAccount" 
+                                                    action="{!topController.toggleSort}" 
+                                                    rerender="theForm"
+                                                    status="status">
+                                    <apex:param name="sortField" 
+                                                    value="companyOrAccount" 
+                                                    assignTo="{!CampaignMemberPaginator.sortField}"/>
+                                    <apex:param name="tabName" 
+                                                    value="{!cmListType}" />
+                                </apex:commandLink>
+                            </apex:facet>
+                            <apex:outputField value="{!cm.CompanyOrAccount__c}" />
+                        </apex:column>
+                        <!-- END: -->
+                        <apex:column value="{!cm.In_Progress__c}" rendered="{!cmListType!='done' && cmListType!='myDone'&& NOT(NOT(ISBLANK(topController.hideColumns)) && CONTAINS(topController.hideColumns, 'In Progress'))}" />
+                        <apex:column value="{!cm.Call_Count__c}" rendered="{!NOT(CONTAINS(topController.hideColumns, 'Call Count'))}" />
+                        <apex:column rendered="{!NOT(CONTAINS(topController.hideColumns, 'Execution Status'))}">
+                            <apex:facet name="header">
+                                <apex:commandLink value="Execution Status" 
+                                                    action="{!topController.toggleSort}" 
+                                                    rerender="theForm"
+                                                    status="status">
+                                    <apex:param name="sortField" 
+                                                    value="executionStatus" 
+                                                    assignTo="{!CampaignMemberPaginator.sortField}"/>
+                                    <apex:param name="tabName"
+                                                    value="{!cmListType}" />                                                    
+                                </apex:commandLink>
+                            </apex:facet>
+                            <apex:outputField value="{!cm.Execution_Status__c}"/>
+                        </apex:column>                        
+                        <apex:column rendered="{!NOT(CONTAINS(topController.hideColumns, 'Status column'))}">
+                            <apex:facet name="header">
+                                <apex:commandLink value="Status" 
+                                                    action="{!topController.toggleSort}" 
+                                                    rerender="theForm"
+                                                    status="status">
+                                    <apex:param name="sortField" 
+                                                    value="status" 
+                                                    assignTo="{!CampaignMemberPaginator.sortField}"/>
+                                    <apex:param name="tabName"
+                                                    value="{!cmListType}" />
+                                </apex:commandLink>
+                            </apex:facet>
+                            <apex:outputField value="{!cm.Status}"/>
+                        </apex:column>
+                        <apex:column headerValue="Last Response Datetime" rendered="{!NOT(CONTAINS(topController.hideColumns, 'Last Response Datetime'))}">
+                            <a href="#" class="HoverPopup" >
+                                <apex:outputText value="{!cm.Response_Type__c} / {!cm.Response_Sub_Type__c}" 
+                                                rendered="{!NOT(cm.Response_Type__c=null)}" />
+                                <br/>
+                                <apex:outputField value="{!cm.Response_Datetime__c}" />
+                                <span Class="comment-box">
+                                    <apex:outputField value="{!cm.Response_Comment__c}" />
+                                </span>                                
+                            </a>
+                        </apex:column>
+                        <apex:column rendered="{!cmListType!='done' && cmListType!='myDone'&& NOT(NOT(ISBLANK(topController.hideColumns)) && CONTAINS(topController.hideColumns, 'In Progress'))}">
+                            <apex:facet name="header">
+                                <apex:commandLink value="Call Back Date" 
+                                                    action="{!topController.toggleSort}" 
+                                                    rerender="theForm"
+                                                    status="status">
+                                    <apex:param name="sortField" 
+                                                    value="callBackDate" 
+                                                    assignTo="{!CampaignMemberPaginator.sortField}"/>
+                                    <apex:param name="tabName"
+                                                    value="{!cmListType}" />                                                    
+                                </apex:commandLink>
+                            </apex:facet>
+                            <apex:outputField value="{!cm.Call_Back_Date__c}"/>
+                        </apex:column>
+                        <apex:column rendered="{!cmListType!='done' && cmListType!='myDone'&& NOT(NOT(ISBLANK(topController.hideColumns)) && CONTAINS(topController.hideColumns, 'In Progress'))}">
+                            <apex:facet name="header">
+                                <apex:commandLink value="Locked By" 
+                                                    action="{!topController.toggleSort}" 
+                                                    rerender="theForm"
+                                                    status="status">
+                                    <apex:param name="sortField" 
+                                                    value="lockedBy" 
+                                                    assignTo="{!CampaignMemberPaginator.sortField}"/>
+                                    <apex:param name="tabName"
+                                                    value="{!cmListType}" />                                                    
+                                </apex:commandLink>
+                            </apex:facet>
+                            <apex:outputField value="{!cm.Locked_By__c}"/>
+                        </apex:column>
+                        <apex:column rendered="{!NOT(CONTAINS(topController.hideColumns, 'Age in List'))}">
+                            <apex:facet name="header">
+                                <apex:commandLink value="Age in List" 
+                                                    action="{!topController.toggleSort}" 
+                                                    rerender="theForm"
+                                                    status="status">
+                                    <apex:param name="sortField" 
+                                                    value="ageInList" 
+                                                    assignTo="{!CampaignMemberPaginator.sortField}"/>
+                                    <apex:param name="tabName"
+                                                    value="{!cmListType}" />                                                    
+                                </apex:commandLink>
+                            </apex:facet>
+                            <apex:outputField value="{!cm.Age_in_List__c}"/>
+                        </apex:column>
+                        <apex:column value="{!cm.Completed_by__c}" 
+                                        rendered="{!OR(cmListType=='done',cmListType=='myDone')}" />
+                        <apex:column value="{!cm.Date_Completed__c}"
+                                        rendered="{!OR(cmListType=='done',cmListType=='myDone')}" />
+                        <apex:column value="{!cm.CreatedDate}" rendered="{!NOT(CONTAINS(topController.hideColumns, 'Created Date'))}">
+                            <!--apex:facet name="header">
+                                <apex:commandLink value="Created Date" action="{!toggleSort}" rerender="theForm">
+                                    <apex:param name="sortField" value="createdDate" assignTo="{!CampaignMemberPaginator.sortField}"/>
+                                </apex:commandLink>
+                            </apex:facet-->
+                        </apex:column>
+                    </apex:pageBlockTable>
+                                      
+                    <apex:outputPanel layout="block" style="width:95%; text-align:center; padding: 10px 0px" id="Pagination">
+                        <apex:commandLink value="Previous"
+                                            action="{!CampaignMemberPaginator.Previous}"
+                                            rendered="{!CampaignMemberPaginator.hasPrevious}"
+                                            status="status"
+                                            oncomplete="{!completeFunction}" />
+                        
+                        <apex:outputLabel value="Previous"
+                                            rendered="{!NOT(CampaignMemberPaginator.hasPrevious)}"
+                                            style="color:gray;"/>
+                        &nbsp;
+                        <apex:outputLabel value=" page {!CampaignMemberPaginator.currentPage} of {!CampaignMemberPaginator.totalPages} " />
+                        &nbsp;
+                        <apex:commandLink value="Next"
+                                            action="{!CampaignMemberPaginator.Next}"
+                                            rendered="{!CampaignMemberPaginator.hasNext}"
+                                            status="status" 
+                                            oncomplete="{!completeFunction}" />
+
+                        <apex:outputLabel value="Next"
+                                            rendered="{!Not(CampaignMemberPaginator.hasNext)}"
+                                            style="color:gray;"/>
+                    </apex:outputPanel>
+
+                </apex:pageBlock> 
+
+</apex:component>

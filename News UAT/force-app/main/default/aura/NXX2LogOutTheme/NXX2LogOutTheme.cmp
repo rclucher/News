@@ -1,0 +1,31 @@
+<aura:component implements="forceCommunity:themeLayout" access="global" description="NZXX2 Logout Theme">
+
+    <div class="theme-layout">
+		<div class="top-header">
+            <div class="ui-widget">
+                <div class="dummyCommThemeGroupId commThemeCmp comm-is-relative forceCommunityThemeHeroBase forceCommunityThemeHeroStarter" style="padding:53px 30px;position: relative;">
+                    <div class="bgImage comm-is-absolute" style="background: #FFFFFF url(/customerportal/s/sfsites/c/file-asset/egnxbackground?v=1) top center /cover"></div>
+                    <div class="bgOverlay comm-is-absolute" style="background: rgba(128, 129, 151, 0);"></div>
+                    <div class="contentContainer slds-grid align-center">
+                        <div class="widthContainer slds-grid align-right" style="width:1253px;">
+                            <div class="content">
+                                <h1 class="contentCaption" style="color: rgb(255, 255, 255); text-shadow: 1px 1px 0 rgba(0, 0, 0, 0)">
+                                    Manage your campaigns, and gain insights into our service.
+                                </h1>
+                                <h2 class="contentTitle" style="color: rgb(255, 255, 255); text-shadow: 1px 1px 0 rgba(0, 0, 0, 0)">
+                                    Your News Xtend Portal
+                                </h2>
+                                <div class="slds-grid align-right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<img src="/customerportal/s/sfsites/c/file-asset/egnxbackground?v=1"/>-->
+            <!--<img src="{!$Resource.NewsXtendBackground}"/>-->
+		</div>
+		<div class="main inner">
+			{!v.body}
+		</div>
+	</div>
+</aura:component>

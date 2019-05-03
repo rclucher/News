@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Queue_Division__c</fullName>
+    <description>Item-00072 - Displays 4th, 5th, 6th characters of the Queue Name, if Case Owner is a Queue.</description>
+    <externalId>false</externalId>
+    <formula>IF(BEGINS(OwnerId, &#39;00G&#39;),MID(Owner:Queue.DeveloperName,4,3),&#39;&#39;)</formula>
+    <inlineHelpText>Displays 4th, 5th, 6th characters of the Queue Name, if Case Owner is a Queue.</inlineHelpText>
+    <label>Queue Division</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

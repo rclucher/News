@@ -1,0 +1,3 @@
+<apex:page Controller="CS_EventNotificationController" action="{!updateNotificationEventSettingUser}">
+ <apex:outputText escape="false" value="{!message}" />
+</apex:page>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Booking_System__c</fullName>
+    <description>Booking system for this product category</description>
+    <externalId>false</externalId>
+    <label>Booking System</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Cyber$ell</fullName>
+                <default>false</default>
+                <label>Cyber$ell</label>
+            </value>
+            <value>
+                <fullName>CyberAd ADN</fullName>
+                <default>false</default>
+                <label>CyberAd ADN</label>
+            </value>
+            <value>
+                <fullName>CyberAd CNG</fullName>
+                <default>false</default>
+                <label>CyberAd CNG</label>
+            </value>
+            <value>
+                <fullName>CyberAd CNS</fullName>
+                <default>false</default>
+                <label>CyberAd CNS</label>
+            </value>
+            <value>
+                <fullName>CyberAd GAD</fullName>
+                <default>false</default>
+                <label>CyberAd GAD</label>
+            </value>
+            <value>
+                <fullName>CyberAd GCP</fullName>
+                <default>false</default>
+                <label>CyberAd GCP</label>
+            </value>
+            <value>
+                <fullName>CyberAd HWT</fullName>
+                <default>false</default>
+                <label>CyberAd HWT</label>
+            </value>
+            <value>
+                <fullName>CyberAd LDR</fullName>
+                <default>false</default>
+                <label>CyberAd LDR</label>
+            </value>
+            <value>
+                <fullName>CyberAd NQN</fullName>
+                <default>false</default>
+                <label>CyberAd NQN</label>
+            </value>
+            <value>
+                <fullName>CyberAd NTN</fullName>
+                <default>false</default>
+                <label>CyberAd NTN</label>
+            </value>
+            <value>
+                <fullName>CyberAd NWN</fullName>
+                <default>false</default>
+                <label>CyberAd NWN</label>
+            </value>
+            <value>
+                <fullName>CyberAd QNP</fullName>
+                <default>false</default>
+                <label>CyberAd QNP</label>
+            </value>
+            <value>
+                <fullName>CyberAd QST</fullName>
+                <default>false</default>
+                <label>CyberAd QST</label>
+            </value>
+            <value>
+                <fullName>AdPoint</fullName>
+                <default>false</default>
+                <label>AdPoint</label>
+            </value>
+            <value>
+                <fullName>Dummy</fullName>
+                <default>false</default>
+                <label>Dummy</label>
+            </value>
+            <value>
+                <fullName>Leapfrog</fullName>
+                <default>false</default>
+                <label>Leapfrog</label>
+            </value>
+            <value>
+                <fullName>NewsAdds</fullName>
+                <default>false</default>
+                <label>NewsAdds</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

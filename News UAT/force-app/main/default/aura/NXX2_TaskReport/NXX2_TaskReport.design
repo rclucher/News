@@ -1,0 +1,4 @@
+<design:component >
+    <design:attribute name="WidgetName" label="Label" description="The label which will be displayed for this widget." default="My Tasks" />
+    <design:attribute name="AppPageName" label="App Page Name" description="This will be used to identify the columns to be displayed." default="Social" />
+</design:component>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enforce_Business_Parent_Account</fullName>
+    <active>true</active>
+    <description>Parent Account is required for a Business or Agency Account unless overridden with No Parent Account checkbox</description>
+    <errorConditionFormula>AND(AND($Profile.Name &lt;&gt; &#39;Partner Community CNG&#39;,
+								$Profile.Name &lt;&gt; &#39;Partner Community CNG Admin&#39;),
+					OR(RecordType.Name  = &#39;Agency Account&#39;,
+							RecordType.Name  = &#39;Business Account&#39;,
+							RecordType.Name  = &#39;SME&#39;,
+							RecordType.Name  = &#39;IMA&#39;,
+							RecordType.Name  = &#39;KAC&#39;,
+							RecordType.Name  = &#39;Real Estate&#39;,
+							RecordType.Name  = &#39;The Aus/Regional&#39;,
+							RecordType.Name  = &#39;Sole Trader&#39;
+						),
+				OR(AND(ISBLANK(ParentId),
+											NOT(No_Parent_Account__c)),
+							AND(NOT(ISBLANK(ParentId)),
+											No_Parent_Account__c)
+						),
+				OR(NOT(ConvertedFromLead__c),
+							NOW() &gt; (ConvertedFromLeadTime__c)
+						),
+				NOT($User.FirstName +&#39; &#39;+ $User.LastName = &#39;Data Services&#39;)
+			)</errorConditionFormula>
+    <errorMessage>A Parent Account must be provided, unless the &#39;No Parent Account&#39; checkbox is ticked. 
+
+Conversely, if a Parent Account is provided, the &#39;No Parent Account&#39; should not be ticked.</errorMessage>
+</ValidationRule>

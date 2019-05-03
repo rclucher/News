@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Alrt_Start_GreaterThan_EndDate</fullName>
+    <active>true</active>
+    <description>The start date cannot start after the end date</description>
+    <errorConditionFormula>Start_Date__c &gt; Expiration_Date__c</errorConditionFormula>
+    <errorDisplayField>Start_Date__c</errorDisplayField>
+    <errorMessage>The Start Date for the alert cannot begin after the Expiration Date. Please review your data entry.</errorMessage>
+</ValidationRule>

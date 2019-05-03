@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Competitor__c</fullName>
+    <externalId>false</externalId>
+    <label>Competitor</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>B Mag</fullName>
+                <default>false</default>
+                <label>B Mag</label>
+            </value>
+            <value>
+                <fullName>Cinema</fullName>
+                <default>false</default>
+                <label>Cinema</label>
+            </value>
+            <value>
+                <fullName>Direct Mail</fullName>
+                <default>false</default>
+                <label>Direct Mail</label>
+            </value>
+            <value>
+                <fullName>Letterbox</fullName>
+                <default>false</default>
+                <label>Letterbox</label>
+            </value>
+            <value>
+                <fullName>Magazines - Bauer</fullName>
+                <default>false</default>
+                <label>Magazines - Bauer</label>
+            </value>
+            <value>
+                <fullName>Magazines - EMAP</fullName>
+                <default>false</default>
+                <label>Magazines - EMAP</label>
+            </value>
+            <value>
+                <fullName>Magazines - Fairfax Magazines</fullName>
+                <default>false</default>
+                <label>Magazines - Fairfax Magazines</label>
+            </value>
+            <value>
+                <fullName>Magazines - Other</fullName>
+                <default>false</default>
+                <label>Magazines - Other</label>
+            </value>
+            <value>
+                <fullName>Magazines – Pacific Magazines</fullName>
+                <default>false</default>
+                <label>Magazines – Pacific Magazines</label>
+            </value>
+            <value>
+                <fullName>Map Magazine</fullName>
+                <default>false</default>
+                <label>Map Magazine</label>
+            </value>
+            <value>
+                <fullName>No Competitor</fullName>
+                <default>false</default>
+                <label>No Competitor</label>
+            </value>
+            <value>
+                <fullName>Online - Fairfax Digital</fullName>
+                <default>false</default>
+                <label>Online - Fairfax Digital</label>
+            </value>
+            <value>
+                <fullName>Online - News Digital Media</fullName>
+                <default>false</default>
+                <label>Online - News Digital Media</label>
+            </value>
+            <value>
+                <fullName>Online - NineMSN</fullName>
+                <default>false</default>
+                <label>Online - NineMSN</label>
+            </value>
+            <value>
+                <fullName>Online - Other</fullName>
+                <default>false</default>
+                <label>Online - Other</label>
+            </value>
+            <value>
+                <fullName>Online - Sensis</fullName>
+                <default>false</default>
+                <label>Online - Sensis</label>
+            </value>
+            <value>
+                <fullName>Online - Yahoo</fullName>
+                <default>false</default>
+                <label>Online - Yahoo</label>
+            </value>
+            <value>
+                <fullName>Outdoor - APN</fullName>
+                <default>false</default>
+                <label>Outdoor - APN</label>
+            </value>
+            <value>
+                <fullName>Outdoor - Adshel</fullName>
+                <default>false</default>
+                <label>Outdoor - Adshel</label>
+            </value>
+            <value>
+                <fullName>Outdoor - Australia Outdoor Network</fullName>
+                <default>false</default>
+                <label>Outdoor - Australia Outdoor Network</label>
+            </value>
+            <value>
+                <fullName>Outdoor - Eyecorp</fullName>
+                <default>false</default>
+                <label>Outdoor - Eyecorp</label>
+            </value>
+            <value>
+                <fullName>Press - APN</fullName>
+                <default>false</default>
+                <label>Press - APN</label>
+            </value>
+            <value>
+                <fullName>Press - Fairfax Community</fullName>
+                <default>false</default>
+                <label>Press - Fairfax Community</label>
+            </value>
+            <value>
+                <fullName>Press - Fairfax Metro</fullName>
+                <default>false</default>
+                <label>Press - Fairfax Metro</label>
+            </value>
+            <value>
+                <fullName>Press - News Communitities</fullName>
+                <default>false</default>
+                <label>Press - News Communitities</label>
+            </value>
+            <value>
+                <fullName>Press - News Metro</fullName>
+                <default>false</default>
+                <label>Press - News Metro</label>
+            </value>
+            <value>
+                <fullName>Press - Other</fullName>
+                <default>false</default>
+                <label>Press - Other</label>
+            </value>
+            <value>
+                <fullName>Press - Trading Post</fullName>
+                <default>false</default>
+                <label>Press - Trading Post</label>
+            </value>
+            <value>
+                <fullName>Press - Yellow Pages</fullName>
+                <default>false</default>
+                <label>Press - Yellow Pages</label>
+            </value>
+            <value>
+                <fullName>Radio - Austereo</fullName>
+                <default>false</default>
+                <label>Radio - Austereo</label>
+            </value>
+            <value>
+                <fullName>Radio - DMG</fullName>
+                <default>false</default>
+                <label>Radio - DMG</label>
+            </value>
+            <value>
+                <fullName>Radio - Macquarie Radio Network</fullName>
+                <default>false</default>
+                <label>Radio - Macquarie Radio Network</label>
+            </value>
+            <value>
+                <fullName>Radio - Other</fullName>
+                <default>false</default>
+                <label>Radio - Other</label>
+            </value>
+            <value>
+                <fullName>Radio - Southern Cross</fullName>
+                <default>false</default>
+                <label>Radio - Southern Cross</label>
+            </value>
+            <value>
+                <fullName>Style Magazine</fullName>
+                <default>false</default>
+                <label>Style Magazine</label>
+            </value>
+            <value>
+                <fullName>TV - ABC</fullName>
+                <default>false</default>
+                <label>TV - ABC</label>
+            </value>
+            <value>
+                <fullName>TV - Channel 10</fullName>
+                <default>false</default>
+                <label>TV - Channel 10</label>
+            </value>
+            <value>
+                <fullName>TV - Channel 7</fullName>
+                <default>false</default>
+                <label>TV - Channel 7</label>
+            </value>
+            <value>
+                <fullName>TV - Channel 9</fullName>
+                <default>false</default>
+                <label>TV - Channel 9</label>
+            </value>
+            <value>
+                <fullName>TV - Other</fullName>
+                <default>false</default>
+                <label>TV - Other</label>
+            </value>
+            <value>
+                <fullName>TV - Pay TV</fullName>
+                <default>false</default>
+                <label>TV - Pay TV</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>7</visibleLines>
+</CustomField>

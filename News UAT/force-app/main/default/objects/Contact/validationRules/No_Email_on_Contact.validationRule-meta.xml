@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_Email_on_Contact</fullName>
+    <active>true</active>
+    <description>Email field is required unless No Email checkbox is ticked</description>
+    <errorConditionFormula>AND ( ( No_Email__c = FALSE ) , ISBLANK( Email ) )</errorConditionFormula>
+    <errorMessage>If you are creating a Contact record email is required unless No Email is selected. Please input an email address OR if you are converting a Lead to a Contact an email is required, enter a email on the Lead record before converting.</errorMessage>
+</ValidationRule>

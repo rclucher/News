@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Campaign_Customer_Contact__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>The customer contact you are dealing with about this Campaign. The value in this field will default from the Opportunity, but you can edit it to select the most appropriate contact.</inlineHelpText>
+    <label>Campaign Customer Contact</label>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Campaign Orders (Campaign Customer Contact)</relationshipLabel>
+    <relationshipName>Campaign_Orders</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

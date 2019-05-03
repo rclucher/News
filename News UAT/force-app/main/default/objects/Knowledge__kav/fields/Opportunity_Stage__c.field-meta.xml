@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Stage__c</fullName>
+    <externalId>false</externalId>
+    <label>Opportunity Stage</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Discover Needs</fullName>
+                <default>false</default>
+                <label>Discover Needs</label>
+            </value>
+            <value>
+                <fullName>Develop/Present Solution</fullName>
+                <default>false</default>
+                <label>Develop/Present Solution</label>
+            </value>
+            <value>
+                <fullName>Review/Reaffirm Value</fullName>
+                <default>false</default>
+                <label>Review/Reaffirm Value</label>
+            </value>
+            <value>
+                <fullName>Confirmed/Awaiting Bookings</fullName>
+                <default>false</default>
+                <label>Confirmed/Awaiting Bookings</label>
+            </value>
+            <value>
+                <fullName>Closed</fullName>
+                <default>false</default>
+                <label>Closed</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

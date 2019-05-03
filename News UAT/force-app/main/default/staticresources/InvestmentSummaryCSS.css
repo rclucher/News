@@ -1,0 +1,8 @@
+div.csbtn.InvestmentSummary {
+ border: none;
+ background-color: transparent;
+ background-image: url("/resource/InvestmentButton");
+
+ background-repeat: no-repeat;
+ cursor: pointer !important;
+}

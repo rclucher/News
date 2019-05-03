@@ -1,0 +1,100 @@
+<apex:component controller="CalloutABNLookupController">
+<apex:attribute name="ShowMessagesInBlock" description="Show apex message in the same block as this component."
+				type="boolean" default="false" required="false"/>
+
+
+<apex:includeScript value="{!$Resource.JQuery}"/>
+
+
+			<apex:pageMessages rendered="{!ShowMessagesInBlock}" />
+
+            <apex:pageBlockSection columns="1">
+				<apex:pageBlockSectionItem >
+	            	<apex:outputLabel value="Enter ABN:"/> 
+
+	            	<apex:outputPanel layout="none">
+
+		            	<apex:outputPanel layout="inline">
+    		            	<apex:inputText value="{!abnQuery}" styleClass="abnSearchInputText"/>
+    		            	<div style='width:12px;display:inline-block;' class='invalidABNIconSpaceHolder'/>
+    		            	<apex:image value="/img/func_icons/remove12_on.gif" styleClass="invalidABNIcon" id="invalidABNIcon" rendered="{!abn.isInvalid}"/>
+        				</apex:outputPanel>
+
+
+		<apex:actionStatus id="abnValidationStatus">
+         <apex:facet name="stop">
+             <apex:commandButton action="{!doABNLookup}" rerender="abnInfo" value="Validate" status="abnValidationStatus"/>
+         </apex:facet>
+         <apex:facet name="start">
+             <apex:outputPanel >
+                   <apex:commandButton value="Validating..." status="abnValidationStatus" disabled="true"/>
+                   <apex:image value="/img/loading32.gif" style="height: 15px;"/>
+               </apex:outputPanel>
+           </apex:facet>
+        </apex:actionStatus>
+
+
+
+					</apex:outputPanel>
+
+			    </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+
+			<apex:outputPanel id="abnInfo" layout="none">
+	            <apex:pageBlockSection columns="2"  rendered="{!AND(NOT(ISNULL(abn)),NOT(abn.isInvalid))}">
+					<apex:pageBlockSectionItem >
+	            		<apex:outputLabel value="Name:"/>
+	                	<apex:outputText value="{!abn.Name}"/>
+					</apex:pageBlockSectionItem>
+					<apex:pageBlockSectionItem >
+	            		<apex:outputLabel value="Is active:"/>
+	                	<apex:outputText value="{!abn.isActive}"/>
+					</apex:pageBlockSectionItem>
+	            </apex:pageBlockSection>
+			</apex:outputPanel>
+
+
+<script>
+jQuery(function() {
+
+	jQuery('.abnSearchInputText').keyup(function() {
+	  if(isABNValid(jQuery(this).val().replace(/ /g,''))) //
+	  {
+	  	if(!jQuery('.invalidABNIconSpaceHolder').length)
+	  	{
+	  		jQuery(this).parent().append('<div style=\'width:12px;display:inline-block;\' class=\'invalidABNIconSpaceHolder\' />');
+		}
+
+		jQuery('.invalidABNIcon').remove();
+	  }
+	  else
+	  {
+		if(!(jQuery('.invalidABNIcon').length>0))
+	 	{
+	 		jQuery('.invalidABNIconSpaceHolder').remove();
+	  		jQuery(this).parent().append('<img src=\'/img/func_icons/remove12_on.gif\' class=\'invalidABNIcon\' />');
+	  	}
+	  }
+	});
+
+
+
+
+	function isABNValid(value)
+	{
+		if (value.length != 11 || isNaN(parseInt(value)))
+			return false;
+
+		var weighting = [10,1,3,5,7,9,11,13,15,17,19];
+		var tally = (parseInt(value[0]) - 1) * weighting[0];
+		for (var i = 1; i < value.length; i++){
+			tally += (parseInt(value[i]) * weighting[i]);
+		}
+		return (tally % 89) == 0;
+	}
+});
+
+</script>
+
+
+</apex:component>

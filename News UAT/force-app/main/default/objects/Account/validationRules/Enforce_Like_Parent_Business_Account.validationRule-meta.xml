@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enforce_Like_Parent_Business_Account</fullName>
+    <active>false</active>
+    <description>Enforces a like parent business account (for example and Agency cannot be the parent of a Business Account)</description>
+    <errorConditionFormula>AND(NOT( ISBLANK( ParentId ) ) , RecordTypeId  &lt;&gt;  Parent.RecordTypeId )</errorConditionFormula>
+    <errorMessage>The Parent Account must be of the same record type as the currently selected Account.</errorMessage>
+</ValidationRule>

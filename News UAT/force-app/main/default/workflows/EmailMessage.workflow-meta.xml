@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Case_Set_Status_to_NFSS</fullName>
+        <description>Set Status to With NFSS</description>
+        <field>Status</field>
+        <literalValue>With NFSS</literalValue>
+        <name>Case Set Status to NFSS</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <targetObject>ParentId</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_AutoResp_Check_Field_If_Sent2</fullName>
+        <description>SFE-46 - Where an auto-response has been set, this flag is ticked to prevent further messages. WHY? Because E2C creates the case and our trigger does an update to the case before it sends an &#39;auto-response&#39; therefore this will trigger the email multiple</description>
+        <field>Apex_AutoResponse_Sent__c</field>
+        <literalValue>1</literalValue>
+        <name>Cse AutoResp Check Field If Sent2</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <targetObject>ParentId</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_AutoResp_Count_Incoming_Email</fullName>
+        <field>Apex_Count_Incoming_Emails__c</field>
+        <formula>+1</formula>
+        <name>Cse AutoResp Count Incoming Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <targetObject>ParentId</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_AutoResp_Count_Incoming_Emails</fullName>
+        <field>Apex_Count_Incoming_Emails__c</field>
+        <formula>+1</formula>
+        <name>Cse AutoResp Count Incoming Emails</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <targetObject>ParentId</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Set_Mailbox</fullName>
+        <field>Email_Mailbox__c</field>
+        <formula>IF(CONTAINS(Headers, &quot;Mailing-list: list &quot;) , 
+   MID(Headers, 
+       FIND(&quot;Mailing-list: list &quot;, Headers) + 19, 
+       MIN(FIND(&quot;;&quot;, Headers, 
+                FIND(&quot;Mailing-list: list &quot;, Headers)
+                  + 19
+               ) - FIND(&quot;Mailing-list: list &quot;, 
+                        Headers) - 19, 
+           255 ) 
+       ) , 
+   &quot;&quot; )</formula>
+        <name>Cse Set Mailbox</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <targetObject>ParentId</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Update_CcRecipients</fullName>
+        <description>Update the Case CC Recipients with Email Cc Address.</description>
+        <field>CC_Recipients__c</field>
+        <formula>CcAddress</formula>
+        <name>Cse Update CcRecipients</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <targetObject>ParentId</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Update_SuppliedFromEmail_Text</fullName>
+        <description>Update Supplied To Email</description>
+        <field>SuppliedFromEmail_Text__c</field>
+        <formula>FromAddress</formula>
+        <name>Cse Update SuppliedFromEmail Text</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <targetObject>ParentId</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Update_SuppliedToEmail</fullName>
+        <description>Update the Case SuppliedToEmail  with Email To Address</description>
+        <field>SuppliedTo__c</field>
+        <formula>ToAddress + IF(ISBLANK(BccAddress), &quot;&quot;, &quot;;&quot; + BccAddress)</formula>
+        <name>Cse Update SuppliedToEmail</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <targetObject>ParentId</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Update_SuppliedToEmail_ShortText</fullName>
+        <description>Update the Case SuppliedToEmail with Email To Address.
+This is a copy to a text field (255) rather than longtext so users can use this in a filter and also allow auditing.</description>
+        <field>Supplied_To_Email__c</field>
+        <formula>LEFT(Parent.SuppliedTo__c ,255)</formula>
+        <name>Cse Update SuppliedToEmail ShortText</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <targetObject>ParentId</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Email_Update_Set_Interaction_Flag_False</fullName>
+        <description>Unset Interaction Flag when there is an outgoing email</description>
+        <field>Apex_Cust_Replied_Since_Last_Interaction__c</field>
+        <literalValue>0</literalValue>
+        <name>Email Update Set Interaction Flag False</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <targetObject>ParentId</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Email_Update_Set_Interaction_Flag_True</fullName>
+        <description>Set Interaction Flag when there is an incoming email</description>
+        <field>Apex_Cust_Replied_Since_Last_Interaction__c</field>
+        <literalValue>1</literalValue>
+        <name>Email Update Set Interaction Flag True</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <targetObject>ParentId</targetObject>
+    </fieldUpdates>
+    <rules>
+        <fullName>Email Update Case Supplied To Email</fullName>
+        <actions>
+            <name>Cse_Set_Mailbox</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Cse_Update_SuppliedFromEmail_Text</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Cse_Update_SuppliedToEmail_ShortText</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Email Update Case Supplied To Email on initial Email-To-Case. This drives Assignment and Auto-Response.</description>
+        <formula>Incoming  &amp;&amp; NOT($Setup.CCNBatchJobSetting__c.Is_EmailMessage_Batch_Running__c)</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Email Update Set Interaction Flag False</fullName>
+        <actions>
+            <name>Email_Update_Set_Interaction_Flag_False</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Unset Interaction Flag when there is an outgoing email</description>
+        <formula>NOT(Incoming) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_EmailMessage_Batch_Running__c)</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Email Update Set Interaction Flag True</fullName>
+        <actions>
+            <name>Email_Update_Set_Interaction_Flag_True</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Set Interaction Flag when there is an incoming email</description>
+        <formula>Incoming  &amp;&amp; NOT($Setup.CCNBatchJobSetting__c.Is_EmailMessage_Batch_Running__c)</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Email Update Status of Credit Applcation</fullName>
+        <actions>
+            <name>Case_Set_Status_to_NFSS</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>When response sent back to Credit Application this will set the status of the parent Case to With NFSS.</description>
+        <formula>(  CONTAINS(Subject, &#39;Credit Application&#39;)  ||   CONTAINS(Subject, &#39;Direct Debit Application&#39;) )  &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_EmailMessage_Batch_Running__c)</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

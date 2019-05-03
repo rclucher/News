@@ -1,0 +1,136 @@
+<apex:page standardController="OpportunityLineItem" extensions="OpportunityProductSearch_ControllerX" action="{!createSelectedOpportunityLineItems}">
+    <apex:includeScript value="{!$Resource.JQuery}"/>
+    <script>
+        function setFocusOnLoad() {}
+        function checkAll(cb)
+        {
+            var checkboxes = document.getElementsByClassName('checkbox');
+            
+            for(var i in checkboxes)
+                checkboxes[i].checked = cb.checked;   
+                
+            return false;
+        }  
+        
+        jQuery.noConflict();
+        jQuery(function() 
+        {
+            jQuery("a.applyPatternLink").hide();
+        
+            jQuery("a.applyPatternLink").click(function()
+            {                
+                // find opportunity table
+                var lineItemTable = jQuery(this).closest("table.oppLineItemsTable");
+                
+                // find current line item row
+                var lineItemRow = jQuery(this).closest("tr");
+                
+                // get values from current row associate with 'apply pattern' link
+                var revenue = lineItemRow.find(".revenue").val();
+                var date = lineItemRow.find(".date").val();
+                var numOfPeriod = lineItemRow.find(".numOfPeriod").val();
+                var period = lineItemRow.find(".period").val();
+                var pattern = lineItemRow.find(".pattern").val();
+                var desc = lineItemRow.find(".desc").val();
+                
+                // do copy values to rest of checked line items
+                lineItemTable.find("tr").each(function() {
+                    applyPattern(revenue, date, numOfPeriod, period, pattern, desc, this);
+                });    
+                
+                return false;
+            });
+                        
+            jQuery("tr.dataRow").hover(
+              function () 
+              {
+                jQuery(this).find("a.applyPatternLink").show();
+              },
+              function () 
+              {
+                jQuery(this).find("a.applyPatternLink").hide();
+              }
+            );
+            
+            jQuery(".clear_pattern_btn").click(function()
+            {
+                // clear patterns on checked line items
+                jQuery("table.oppLineItemsTable").find("tr").each(function() 
+                {
+                    applyPattern(null, null, null, null, null, null, this);
+                }); 
+                
+                return false;
+            });
+        });
+        
+        function applyPattern(revenue, date, numOfPeriod, period, pattern, desc, row)
+        {            
+            var currentRow = jQuery(row);
+                        
+            if(currentRow.find(".checkbox").is(':checked'))
+            {
+                currentRow.find(".revenue").val(revenue);
+                currentRow.find(".date").val(date);
+                currentRow.find(".numOfPeriod").val(numOfPeriod);
+                currentRow.find(".period").val(period);
+                currentRow.find(".pattern").val(pattern);
+                currentRow.find(".desc").val(desc);
+            }
+        }
+
+    </script>
+    <apex:form id="the-form">
+        <apex:sectionHeader title="Add Products to" subtitle="{!opportunityName}" description="Add products to this opportunity."/> 
+        <apex:pageMessages escape="false"/>
+        <apex:pageblock rendered="{!opportunityLineItemsList.size > 0}">
+            <apex:pageblockButtons >
+                <apex:commandButton value="Save" action="{!saveBtn}"/>
+                <apex:commandButton value="Save & More" action="{!saveAndMoreBtn}"/>
+                <apex:commandButton value="Clear Pattern" styleClass="clear_pattern_btn"/>
+                <!-- added by Tim Fabros 17 / 07 / 2014 - SFE-516
+                    added clone function and action status to indicate processing.
+                    BEGIN:
+                -->
+                <apex:actionStatus id="cloneLoadingStatus">
+                    <apex:facet name="stop">      
+                        <apex:commandButton value="Clone Selected" action="{!cloneProducts}" status="cloneLoadingStatus" reRender="the-form"/> <!-- was -->
+                    </apex:facet>     
+                    <apex:facet name="start">
+                        <apex:commandButton value="Cloning products..." disabled="true"/>
+                    </apex:facet>
+                </apex:actionStatus>
+                <!-- END: -->
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageblockButtons>
+            <apex:pageblockTable value="{!opportunityLineItemsList}" var="oppLineItem" styleClass="oppLineItemsTable">
+                <apex:column >
+                    <apex:facet name="header">
+                        <apex:inputCheckbox id="select_All_Check" onclick="checkAll(this);" styleClass="check_all_checkbox"/>
+                    </apex:facet>
+                    <apex:inputCheckbox value="{!oppLineItem.isSelect}" styleClass="checkbox"/>
+                </apex:column>
+                <apex:column headerValue="Product">
+                    <apex:outputText value="{!oppLineItem.productName}" styleClass="productName"/>
+                </apex:column>
+                <apex:column headerValue="Revenue">
+                    <apex:inputField value="{!oppLineItem.opportunityLineItem.UnitPrice}" styleClass="revenue"/>
+                </apex:column>
+                <apex:column headerValue="Date">
+                    <apex:inputField value="{!oppLineItem.opportunityLineItem.ServiceDate}" styleClass="date"/>
+                </apex:column>
+                <apex:column headerValue="Duration" styleClass="duration">
+                    <apex:inputField value="{!oppLineItem.opportunityLineItem.of_Periods__c}" style="width:20px;" styleClass="numOfPeriod" />
+                    <apex:inputField value="{!oppLineItem.opportunityLineItem.Period__c}" styleClass="period"/>
+                </apex:column>
+                <apex:column headerValue="Frequency">
+                    <apex:inputField value="{!oppLineItem.opportunityLineItem.Pattern__c}" styleClass="pattern"/>
+                </apex:column>              
+                <apex:column headerValue="Line Description" style="width:300px;">
+                    <apex:inputField value="{!oppLineItem.opportunityLineItem.Description}" styleClass="desc" style="width:200px;"/>&nbsp;
+                    <apex:outputLink value="#" styleClass="applyPatternLink">Apply Pattern</apex:outputLink>
+                </apex:column>
+            </apex:pageblockTable>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>KAC_Consortium</fullName>
+    <active>false</active>
+    <description>Consortium</description>
+    <label>KAC - Consortium</label>
+    <picklistValues>
+        <picklist>ABN_Exempt_Reason__c</picklist>
+        <values>
+            <fullName>Not for Profit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Overseas Client</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Private Party %28less than %2475k turnover%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>AccountSource__c</picklist>
+        <values>
+            <fullName>Imported - Competitor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Imported - Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Imported - Purchased Lead</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inbound - Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inbound - Phone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Newsletter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Seminar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trade Show</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Walk In</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Account_Type__c</picklist>
+        <values>
+            <fullName>Agency %E2%80%93 Overseas Advertising Agency</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agency - Full Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Federal Government</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Private Party</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>State Government</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Billing_Status__c</picklist>
+        <values>
+            <fullName>Amber</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Green</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Orange</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Red</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Business_Size__c</picklist>
+        <values>
+            <fullName>1-2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>10-49</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3-9</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>50%2B</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Credit_Status__c</picklist>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Declined</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Customer_Books_Direct__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Digital_Customer_Tier__c</picklist>
+        <values>
+            <fullName>A</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AAA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Digital_Status__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Requested</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Industry__c</picklist>
+        <values>
+            <fullName>Agriculture</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apparel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Banking</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Biotechnology</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chemicals</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Communications</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Construction</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consulting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Education</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Electronics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Energy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Engineering</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Entertainment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Environmental</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Government</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Healthcare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hospitality</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Machinery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manufacturing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not For Profit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recreation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shipping</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Technology</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Telecommunications</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transportation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Utilities</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Lifecycle_Stage__c</picklist>
+        <values>
+            <fullName>At Risk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lapsed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>None</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Planned business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recent business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repeat business</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>News_Corp_Target_Audience__c</picklist>
+        <values>
+            <fullName>Alex Small Business Owner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Belinda Women 25-39</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eddie and Jane 18-24s</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>George and Anne Baby Boomers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Grace Mums with young kids</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Henry and Frances Over 65s</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jack and Sarah_rural</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>James Men 18-34</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Joe and Kate Home Owners</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kai Young Gamer 18-24</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kenneth Male Sports fans 25-54</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Luke the tradie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Margaret Empty Nester 65%2B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Matt Passive Job Seekers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mel and Ben All People 25-54</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mike and Amanda ABs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mrs Swinburne Mums with kids 5%2B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Paul and Tess Home Buyers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renae Women 25-54</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rob Men 25-54</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>The Bradshaw family Car Buyers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>The Ross Clan Families</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tim Male Grocery Buyer</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Ownership__c</picklist>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Private</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Public</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Subsidiary</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Print_Customer_Tier__c</picklist>
+        <values>
+            <fullName>A</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AAA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Client</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Rating__c</picklist>
+        <values>
+            <fullName>Cold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warm</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Referral_Source__c</picklist>
+        <values>
+            <fullName>ANZ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Revenue_Group__c</picklist>
+        <values>
+            <fullName>Amusements</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Employment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>House</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Motor Vehicle Dealers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Communications%2Fbusiness equipment%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Computers%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Finance%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Food and beverages%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Gambling%2Fgaming%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Government%2Fpolitical%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Media%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Motor Vehicle Manufacturers%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Other%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Personal care products%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Pharmaceutical %2F Health Products%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Travel%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Public Notices</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Real Estate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retail</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Salutation__c</picklist>
+        <values>
+            <fullName>Dr%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mr%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mrs%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ms%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prof%2E</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Share_of_Wallet__c</picklist>
+        <values>
+            <fullName>%3C50%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%3E%3D50%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>100%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unknown</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mark for Duplication</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Tier__c</picklist>
+        <values>
+            <fullName>Tier 0</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tier 3</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Account Managed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non Account Managed</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>cs_Active__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

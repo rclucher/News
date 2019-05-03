@@ -1,0 +1,156 @@
+.THIS .slds-checkbox_on {
+    display: none;
+}
+
+.THIS .slds-checkbox_off {
+    display: none;
+}
+
+.THIS table {
+    border: 1px solid black;
+}
+
+.THIS table td {
+    padding: 4px;
+}
+
+.THIS table td.border {
+    border: 1px solid black;
+}
+
+.THIS table td.sides {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.THIS table td.switch-label {
+    font-weight: bold;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.THIS table td.green {
+    color: #00c000;
+}
+
+.THIS table td.red {
+    color: red;
+}
+
+.THIS table td.top {
+    border-top: 1px solid black;
+}
+
+.THIS table td.bottom {
+    border-bottom: 1px solid black;
+}
+
+.THIS.bold {
+    font-weight: bold;
+}
+
+.THIS table td.grey {
+    background-color: #d9d9d9;
+}
+
+.THIS span.green {
+    color: #00c000;
+}
+
+.THIS span.red {
+    color: red;
+}
+
+.THIS span.ET {
+    color: #00c000;
+    font-weight: bold;
+}
+
+.THIS span.NPT {
+    color: #00c000;
+    font-weight: bold;
+}
+
+.THIS span.DO {
+    color: #00c000;
+    font-weight: bold;
+}
+
+.THIS span.CR {
+    color: red;
+    font-weight: bold;
+}
+
+.THIS span.TK {
+    color: #00c000;
+    font-weight: bold;
+}
+
+.THIS table td.heading {
+    font-weight: bold;
+    background: #1f497d;
+    color: white;
+    border: 1px solid black;
+}
+
+.THIS table td.highlight {
+    background: #fcd5b4;
+}
+
+.THIS table td.highlight-green {
+    background: #d5fcb4;
+}
+
+.THIS table#charts {
+    width: 100%;
+    height: 300px;
+}
+
+.THIS table#charts th {
+    text-align: center;
+    font-weight: 1.4em;
+}
+
+.THIS table#charts td {
+	vertical-align: bottom;
+    text-align: center;
+    padding: 0px;
+}
+
+.THIS table#charts td.month {
+	vertical-align: top;
+    border-top: 1px solid black;
+}
+
+.THIS table#charts td div {
+	vertical-align: bottom;
+    display:inline-block;
+    height:0px;
+    width: 80px;
+}
+
+.THIS table#charts td div span {
+	position: relative;
+    top: -20px;
+}
+
+.THIS table#charts td.legend span {
+    font-size: 0.8em;
+    
+}
+
+.THIS table#charts td .combinedTarget {
+	background-color: #5b9bd5;
+}
+
+.THIS table#charts td .combinedAchieved {
+	background-color: #ed7d31;
+}
+
+.THIS table#charts td .digitalTarget {
+	background-color: #a5a5a5;
+}
+
+.THIS table#charts td .digitalAchieved {
+	background-color: #ffc000;
+}

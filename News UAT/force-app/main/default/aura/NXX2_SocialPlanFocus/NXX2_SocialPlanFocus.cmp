@@ -1,0 +1,40 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,lightning:isUrlAddressable,force:hasRecordId">
+    <aura:attribute name="editing" type="Boolean" default="false"/>
+    <aura:attribute name="displaySpinner" type="Boolean" default="false"/>
+    <div class="slds-card">
+        <aura:if isTrue="{!v.displaySpinner}">
+            <div class="spinner-container">
+                <lightning:spinner size="medium"/>
+            </div>
+        </aura:if>
+        <aura:if isTrue="{!v.editing}">
+            <lightning:recordEditForm onsubmit="{!c.handleSubmit}" onsuccess="{!c.handleSuccess}" recordId="{!v.recordId}" objectApiName="SocialCampaign__c">
+                <lightning:messages />
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <div class="slds-col slds-size_2-of-2">        
+                        <lightning:inputField  fieldName="Social_Plan_Focus__c" />
+                    </div>
+                </div>
+            <div class="button-container slds-m-top_medium">
+                <lightning:button variant="neutral" label="Cancel" onclick="{!c.cancel}"/>
+                <lightning:button variant="brand" type="submit" label="Save" name="same"/>
+            </div>
+            </lightning:recordEditForm>
+            <aura:set attribute="else">
+                <lightning:recordViewForm recordId="{!v.recordId}" objectApiName="SocialCampaign__c">
+                    <lightning:messages />
+                    <div class="slds-grid slds-wrap slds-gutters">
+                        <div class="slds-col slds-size_2-of-2">        
+                            <lightning:outputField  fieldName="Social_Plan_Focus__c" />
+                        </div>
+                    </div>
+                </lightning:recordViewForm>
+                <!--
+                <div class="button-container slds-m-top_medium">
+                    <lightning:button variant="brand" label="Edit" onclick="{!c.edit}"/>
+                </div>
+				-->
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

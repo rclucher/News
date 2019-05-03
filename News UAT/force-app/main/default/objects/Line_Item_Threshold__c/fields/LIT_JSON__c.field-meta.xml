@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LIT_JSON__c</fullName>
+    <description>Formula for Json Parse</description>
+    <externalId>false</externalId>
+    <formula>&#39;{&#39;&amp;
+&#39;&quot;Level&quot;: &#39; &amp; TEXT(Approval_Level__c) &amp; &#39;,&#39;&amp;
+&#39;&quot;Monday&quot;: &#39; &amp; TEXT(Mon__c) &amp; &#39;,&#39; &amp;
+&#39;&quot;Tuesday&quot;: &#39; &amp; TEXT(Tue__c) &amp; &#39;,&#39;&amp; 
+&#39;&quot;Wednesday&quot;: &#39; &amp; TEXT(Wed__c) &amp; &#39;,&#39;&amp; 
+&#39;&quot;Thursday&quot;: &#39; &amp; TEXT(Thu__c) &amp; &#39;,&#39;&amp; 
+&#39;&quot;Friday&quot;: &#39; &amp; TEXT(Fri__c) &amp; &#39;,&#39;&amp; 
+&#39;&quot;Saturday&quot;: &#39; &amp; TEXT(Sat__c) &amp; &#39;,&#39;&amp; 
+&#39;&quot;Sunday&quot;: &#39; &amp; TEXT(Sun__c) &amp; 
+&#39;}&#39;</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Formula for Json Parse</inlineHelpText>
+    <label>LIT JSON</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

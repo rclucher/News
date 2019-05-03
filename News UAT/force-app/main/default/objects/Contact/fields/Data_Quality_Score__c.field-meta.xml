@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_Quality_Score__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISBLANK(Phone), 0, 30) 
++IF(ISBLANK(MobilePhone), 0, 15) 
++IF(ISBLANK(Email), 0, 20) 
++IF(ISBLANK(MailingStreet), 0, 10) 
++IF(ISBLANK( DPID_Primary_Address__c ), 0, 10) 
++IF(ISBLANK(Title), 0, 15)</formula>
+    <label>Contact Data Quality Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

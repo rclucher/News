@@ -1,0 +1,17 @@
+,{
+  "isOpen": true,
+  "content": {
+    "col1": [{
+        "name": "Created_By_Name__c",
+        "label": "Created By",
+        "type": "text"
+      }
+    ],
+    "col2": [{
+        "name": "Last_Modified_Name__c",
+        "label": "Last Modified By",
+        "type": "text"
+      }
+    ]
+  }
+}

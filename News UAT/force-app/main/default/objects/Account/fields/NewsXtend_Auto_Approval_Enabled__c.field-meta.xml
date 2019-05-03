@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NewsXtend_Auto_Approval_Enabled__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>When this check box is checked Proofs can be automatically approved after a number of notification reminders are sent to the client.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>When this check box is checked Proofs can be automatically approved after a number of notification reminders are sent to the client. Default is enabled.</inlineHelpText>
+    <label>NewsXtend Auto Approval Enabled</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

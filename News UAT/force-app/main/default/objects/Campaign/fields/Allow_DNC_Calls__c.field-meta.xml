@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Allow_DNC_Calls__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This controls visibility of DNC flagged leads in campaign execution. So if checked, reps can see leads even if the number is registered or not washed in last 30 days. 
+
+This is used when we have implied consent, eg. retention. If unchecked, reps cannot see leads where wash date is expired or phone number has DNC flag. 
+
+[[DEV: this may or may not be needed -depending on how this function is executed. Set for Sprint 4 to be built, using Record Type]]</description>
+    <externalId>false</externalId>
+    <label>Allow DNC Calls</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Goto_Booking</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Goto Booking</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/39.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/39.0/apex.js&quot;)} 
+
+var classification = &#39;{!Booking__c.CyberAd_Classification__c}&#39;;
+var division = &#39;{!Booking__c.CyberAd_Division__c}&#39;;
+
+var isInTransition = false;
+
+//check for transition from cyberAd to cyberSell
+if(&#39;{!Booking__c.Source_System__c}&#39; == &#39;CyberAd&#39;) {
+    var transitionConfiguration = sforce.connection.query(&quot;SELECT Id FROM Booking_System_Migration_Configuration__c WHERE Classification__c = \&#39;&quot; + classification + &quot;\&#39; AND Division__c =  \&#39;&quot; + division + &quot;\&#39;&quot;);
+    if (transitionConfiguration.size &gt; 0) {
+        isInTransition = true;
+    }
+}
+
+if(&#39;{!Booking__c.Source_System__c}&#39; == &#39;CyberAd&#39; &amp;&amp; !isInTransition) {
+    var RequestBroker = new ActiveXObject(&#39;SalesForceRequestBroker.RequestBroker&#39;); 
+    var r = RequestBroker.LaunchCyberAd(&#39;{!GETSESSIONID()}&#39;);
+    var Result = RequestBroker.ExecuteRequest(&#39;{!GETSESSIONID()}&#39;, &#39;{!Sales_Order__c.Id}-{!Booking__c.Id}&#39;, &#39;{\&quot;salesOrderSFID\&quot;:\&quot;{!Sales_Order__c.Id}\&quot;, \&quot;bookingSFID\&quot;:\&quot;{!Booking__c.Id}\&quot;}&#39;);
+}
+
+else if(&#39;{!Booking__c.Source_System__c}&#39; == &#39;Cyber$ell&#39; || (&#39;{!Booking__c.Source_System__c}&#39; == &#39;CyberAd&#39; &amp;&amp; isInTransition)) {
+    var wshShell;
+    var cyberOpen;
+    var cyberVersion;
+    var bpStatus;
+    var salesOrderId;
+    var baNum;
+    var bookingNum;
+    var cyber;
+    var conName;
+    var homeNum;
+    var placerName;
+    var placerNumber;
+    var salesRep;
+    var intgId;
+    var bookingProfileId;
+
+    try {
+        wshShell = new ActiveXObject(&quot;WScript.Shell&quot;);
+        cyberVersion = &quot;CyberSell v6&quot;;
+        cyberOpen = wshShell.AppActivate(cyberVersion);
+
+        if (cyberOpen) {
+            bpStatus = &quot;Pending&quot;;
+
+            cyber = new ActiveXObject(&quot;CyberSell.Application&quot;);
+            cyber = cyber.WrappedApplication;
+            salesOrderId = &quot;{!Sales_Order__c.Calc_External_id__c}&quot;;
+
+
+            // Get all values
+            baNum = &quot;{!Booking__c.Account_No__c}&quot;;
+            bookingNum = &quot;{!Booking__c.Booking_Number__c}&quot;;
+            conName = &quot;{!Sales_Order__c.Creative_Contact_Name__c}&quot;;
+            homeNum = &quot;{!Sales_Order__c.Creative_Contact_Phone__c}&quot;;
+            placerName = &quot;{!Sales_Order__c.Placer_Contact_Name__c}&quot;;
+            placerNumber = &quot;{!Sales_Order__c.Placer_Contact_Phone__c}&quot;;
+
+            if (conName.replace(/^\s+|\s+$/g, &#39;&#39;) == &quot;&quot;) {
+                conName = placerName;
+                homeNum = placerNumber;
+            }
+
+            salesRep = &quot;Genera&quot;;
+            intgId = &quot;{!Sales_Order__c.Calc_External_id__c}&quot;;
+
+            //different search function for cyberAd bookings in cyberSell
+            if (&#39;{!Booking__c.Source_System__c}&#39; == &#39;CyberAd&#39;) {
+
+                //start formatting createDate field
+                var dateString = &quot;{!Booking__c.CreatedDate}&quot;;
+                var createDate = dateString.split(&quot;/&quot;);
+
+                var monthString;
+                var month = createDate[1];
+                if (month) {
+                    switch(month) {
+                        case &#39;01&#39;: monthString = &#39;jan&#39;;break;
+                        case &#39;02&#39;: monthString = &#39;feb&#39;;break;
+                        case &#39;03&#39;: monthString = &#39;mar&#39;;break;
+                        case &#39;04&#39;: monthString = &#39;apr&#39;;break;
+                        case &#39;05&#39;: monthString = &#39;may&#39;;break;
+                        case &#39;06&#39;: monthString = &#39;jun&#39;;break;
+                        case &#39;07&#39;: monthString = &#39;jul&#39;;break;
+                        case &#39;08&#39;: monthString = &#39;aug&#39;;break;
+                        case &#39;09&#39;: monthString = &#39;sep&#39;;break;
+                        case &#39;10&#39;: monthString = &#39;oct&#39;;break;
+                        case &#39;11&#39;: monthString = &#39;nov&#39;;break;
+                        case &#39;12&#39;: monthString = &#39;dec&#39;;break;
+                        default: break;
+                    }
+                }
+
+                var dateString = &quot;00&quot; + createDate[0];
+                dateString = dateString.slice(-2);
+
+                createDate = dateString + monthString + createDate[2].slice(-2);
+
+
+
+                //Open existing booking
+                var searchString =  division + bookingNum + &quot;_&quot; + createDate;
+                cyber.Execute(&quot;LocateBooking&quot;, &quot;[ExternalBookingNumber] = &#39;&quot; + searchString + &quot;&#39;&quot;);
+            }
+            //Open existing booking
+            else if ((baNum != &quot;&quot;) &amp;&amp; (bookingNum != &quot;&quot;)) { //Then Locate a GBA and Locate a booking.
+                cyber.Execute(&quot;LocateAccount&quot;, &quot;[Number] = &#39;&quot; + baNum + &quot;&#39;&quot;);
+                if (cyber.Results.Accounts.Count == 1) {
+                    //Next 2 lines are meant to select the Customers tab and select the first item.
+                    cyber.Results.CurrentTab = 0;
+                    cyber.Results.ListIndex = 1;
+                    cyber.Execute(&quot;LocateBooking&quot;, &quot;[Number] = &#39;&quot; + bookingNum + &quot;&#39;&quot;);
+
+
+      if (cyber.Results.GeneralBookings.Count == 1) {
+
+        if ((cyber.CurrentForm != null) &amp;&amp; (cyber.CurrentForm.Booking != null)) { 
+          var pb = cyber.CurrentForm.Booking.PropertyBag; 
+          pb.add(&quot;SFSessionId&quot;, &quot;{!$Api.Session_ID}&quot;); 
+        }
+      } 
+
+                }
+            }
+            else { //Then raise an error.
+                alert(&quot;This Sales Order has invalid Booking&quot;);
+            }
+
+            cyber.UpdateGUI();
+        }
+        else if (&#39;{!Booking__c.Source_System__c}&#39; == &#39;CyberAd&#39;) {
+            alert(&quot;This division and pillar has transitioned to Cyber$ell. Unable to go to Cyber$ell. Please ensure that Cyber$ell is fully opened then try again.&quot;);
+        }
+        else {
+            alert(&quot;Unable to go to Cyber$ell. Please ensure that Cyber$ell is fully opened then try again.&quot;);
+        }
+    } catch (e) {
+        // Write the generic error message to screen
+        alert(e.toString() + &#39;\n&#39; + cyber + &#39;\n&#39; + e.errText + &#39;\n&#39; + e.errCode);
+    } finally {
+        wshShell = null;
+        cyber = null;
+    }
+}
+
+else if(&#39;{!Booking__c.Source_System__c}&#39; == &#39;AdPoint&#39;) {
+    if (typeof(srcSelf) == &#39;function&#39;) {
+        srcSelf(&#39;/apex/AdPointOrderDetailView?id={!Booking__c.Id}&amp;s=false&#39;);
+    }
+    else {
+        window.location.href = &#39;/apex/AdPointOrderDetailView?id={!Booking__c.Id}&amp;s=true&#39;;
+    }
+}
+
+else if(&#39;{!Booking__c.Source_System__c}&#39; == &#39;Leapfrog&#39; || &#39;{!Booking__c.Source_System__c}&#39; == &#39;NewsAdds Booking System&#39;) {
+    //changed from Booking.Id to Advertiser Account
+    if(typeof(srcUp)==&#39;function&#39;){ 
+        srcUp(&quot;/apex/LeapfrogBooking?id={! Booking__c.Id }&quot;); 
+    } else { 
+        window.location = &quot;/apex/LeapfrogBooking?id={!Booking__c.Id}&quot;; 
+    }
+}
+else {
+    alert(&#39;Unknown booking system in source system field on the booking record&#39;);
+}</url>
+</WebLink>

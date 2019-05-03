@@ -1,0 +1,2035 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product__c</fullName>
+    <externalId>false</externalId>
+    <label>Product</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Type__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Adelaide Matters</fullName>
+                <default>false</default>
+                <label>Adelaide Matters</label>
+            </value>
+            <value>
+                <fullName>AdelaideNow</fullName>
+                <default>false</default>
+                <label>AdelaideNow</label>
+            </value>
+            <value>
+                <fullName>advertiser.com.au</fullName>
+                <default>false</default>
+                <label>advertiser.com.au</label>
+            </value>
+            <value>
+                <fullName>Advocate</fullName>
+                <default>false</default>
+                <label>Advocate</label>
+            </value>
+            <value>
+                <fullName>Albert and Logan News - Fri</fullName>
+                <default>false</default>
+                <label>Albert and Logan News - Fri</label>
+            </value>
+            <value>
+                <fullName>Albert and Logan News - Wed</fullName>
+                <default>false</default>
+                <label>Albert and Logan News - Wed</label>
+            </value>
+            <value>
+                <fullName>Australian Golf Digest</fullName>
+                <default>false</default>
+                <label>Australian Golf Digest</label>
+            </value>
+            <value>
+                <fullName>Ayr Advocate</fullName>
+                <default>false</default>
+                <label>Ayr Advocate</label>
+            </value>
+            <value>
+                <fullName>Bayside Leader</fullName>
+                <default>false</default>
+                <label>Bayside Leader</label>
+            </value>
+            <value>
+                <fullName>Bayside Star</fullName>
+                <default>false</default>
+                <label>Bayside Star</label>
+            </value>
+            <value>
+                <fullName>Berwick Leader</fullName>
+                <default>false</default>
+                <label>Berwick Leader</label>
+            </value>
+            <value>
+                <fullName>Best Recipes</fullName>
+                <default>false</default>
+                <label>Best Recipes</label>
+            </value>
+            <value>
+                <fullName>Best Weekend Magazine</fullName>
+                <default>false</default>
+                <label>Best Weekend Magazine</label>
+            </value>
+            <value>
+                <fullName>Big League</fullName>
+                <default>false</default>
+                <label>Big League</label>
+            </value>
+            <value>
+                <fullName>birth.com.au</fullName>
+                <default>false</default>
+                <label>birth.com.au</label>
+            </value>
+            <value>
+                <fullName>Blacktown Advocate</fullName>
+                <default>false</default>
+                <label>Blacktown Advocate</label>
+            </value>
+            <value>
+                <fullName>Body+Soul</fullName>
+                <default>false</default>
+                <label>Body+Soul</label>
+            </value>
+            <value>
+                <fullName>Bowen Independent</fullName>
+                <default>false</default>
+                <label>Bowen Independent</label>
+            </value>
+            <value>
+                <fullName>Bribie Weekly</fullName>
+                <default>false</default>
+                <label>Bribie Weekly</label>
+            </value>
+            <value>
+                <fullName>Brimbank Leader</fullName>
+                <default>false</default>
+                <label>Brimbank Leader</label>
+            </value>
+            <value>
+                <fullName>Brisbane News</fullName>
+                <default>false</default>
+                <label>Brisbane News</label>
+            </value>
+            <value>
+                <fullName>Business Spectator</fullName>
+                <default>false</default>
+                <label>Business Spectator</label>
+            </value>
+            <value>
+                <fullName>Caboolture News</fullName>
+                <default>false</default>
+                <label>Caboolture News</label>
+            </value>
+            <value>
+                <fullName>Caboolture Shire Herald</fullName>
+                <default>false</default>
+                <label>Caboolture Shire Herald</label>
+            </value>
+            <value>
+                <fullName>cairns.com.au</fullName>
+                <default>false</default>
+                <label>cairns.com.au</label>
+            </value>
+            <value>
+                <fullName>Cairns Post</fullName>
+                <default>false</default>
+                <label>Cairns Post</label>
+            </value>
+            <value>
+                <fullName>Cairns Sun</fullName>
+                <default>false</default>
+                <label>Cairns Sun</label>
+            </value>
+            <value>
+                <fullName>Canning Times</fullName>
+                <default>false</default>
+                <label>Canning Times</label>
+            </value>
+            <value>
+                <fullName>Canterbury Bankstown Express</fullName>
+                <default>false</default>
+                <label>Canterbury Bankstown Express</label>
+            </value>
+            <value>
+                <fullName>Canvas</fullName>
+                <default>false</default>
+                <label>Canvas</label>
+            </value>
+            <value>
+                <fullName>Caulfield/Glen Eira/Port Phillip Leader</fullName>
+                <default>false</default>
+                <label>Caulfield/Glen Eira/Port Phillip Leader</label>
+            </value>
+            <value>
+                <fullName>Central</fullName>
+                <default>false</default>
+                <label>Central</label>
+            </value>
+            <value>
+                <fullName>Central Coast Express Advocate</fullName>
+                <default>false</default>
+                <label>Central Coast Express Advocate</label>
+            </value>
+            <value>
+                <fullName>Centralian Advocate</fullName>
+                <default>false</default>
+                <label>Centralian Advocate</label>
+            </value>
+            <value>
+                <fullName>City Messenger</fullName>
+                <default>false</default>
+                <label>City Messenger</label>
+            </value>
+            <value>
+                <fullName>City North Messenger</fullName>
+                <default>false</default>
+                <label>City North Messenger</label>
+            </value>
+            <value>
+                <fullName>City North News</fullName>
+                <default>false</default>
+                <label>City North News</label>
+            </value>
+            <value>
+                <fullName>City South News</fullName>
+                <default>false</default>
+                <label>City South News</label>
+            </value>
+            <value>
+                <fullName>Comment News</fullName>
+                <default>false</default>
+                <label>Comment News</label>
+            </value>
+            <value>
+                <fullName>Community Newspapers</fullName>
+                <default>false</default>
+                <label>Community Newspapers</label>
+            </value>
+            <value>
+                <fullName>Country Style</fullName>
+                <default>false</default>
+                <label>Country Style</label>
+            </value>
+            <value>
+                <fullName>couriermail.com.au</fullName>
+                <default>false</default>
+                <label>couriermail.com.au</label>
+            </value>
+            <value>
+                <fullName>Cranbourne Leader</fullName>
+                <default>false</default>
+                <label>Cranbourne Leader</label>
+            </value>
+            <value>
+                <fullName>dailytelegraph.com.au</fullName>
+                <default>false</default>
+                <label>dailytelegraph.com.au</label>
+            </value>
+            <value>
+                <fullName>Darwin Sun</fullName>
+                <default>false</default>
+                <label>Darwin Sun</label>
+            </value>
+            <value>
+                <fullName>Delicious</fullName>
+                <default>false</default>
+                <label>Delicious</label>
+            </value>
+            <value>
+                <fullName>Derwent Valley Gazette</fullName>
+                <default>false</default>
+                <label>Derwent Valley Gazette</label>
+            </value>
+            <value>
+                <fullName>Detail in description</fullName>
+                <default>false</default>
+                <label>Detail in description</label>
+            </value>
+            <value>
+                <fullName>Diamond Valley Leader</fullName>
+                <default>false</default>
+                <label>Diamond Valley Leader</label>
+            </value>
+            <value>
+                <fullName>Donna Hay</fullName>
+                <default>false</default>
+                <label>Donna Hay</label>
+            </value>
+            <value>
+                <fullName>Eastern Courier Messenger</fullName>
+                <default>false</default>
+                <label>Eastern Courier Messenger</label>
+            </value>
+            <value>
+                <fullName>Eastern Reporter</fullName>
+                <default>false</default>
+                <label>Eastern Reporter</label>
+            </value>
+            <value>
+                <fullName>East Torrens Messenger</fullName>
+                <default>false</default>
+                <label>East Torrens Messenger</label>
+            </value>
+            <value>
+                <fullName>Escape</fullName>
+                <default>false</default>
+                <label>Escape</label>
+            </value>
+            <value>
+                <fullName>Eureka Report</fullName>
+                <default>false</default>
+                <label>Eureka Report</label>
+            </value>
+            <value>
+                <fullName>Fairfield Advance</fullName>
+                <default>false</default>
+                <label>Fairfield Advance</label>
+            </value>
+            <value>
+                <fullName>Frankston Standard Leader</fullName>
+                <default>false</default>
+                <label>Frankston Standard Leader</label>
+            </value>
+            <value>
+                <fullName>Free Press Leader</fullName>
+                <default>false</default>
+                <label>Free Press Leader</label>
+            </value>
+            <value>
+                <fullName>Fremantle-Cockburn Gazette</fullName>
+                <default>false</default>
+                <label>Fremantle-Cockburn Gazette</label>
+            </value>
+            <value>
+                <fullName>Gaurdian Express</fullName>
+                <default>false</default>
+                <label>Gaurdian Express</label>
+            </value>
+            <value>
+                <fullName>Geelong Advertiser</fullName>
+                <default>false</default>
+                <label>Geelong Advertiser</label>
+            </value>
+            <value>
+                <fullName>geelongadvertiser.com.au</fullName>
+                <default>false</default>
+                <label>geelongadvertiser.com.au</label>
+            </value>
+            <value>
+                <fullName>Geelong Echo</fullName>
+                <default>false</default>
+                <label>Geelong Echo</label>
+            </value>
+            <value>
+                <fullName>Geelong News</fullName>
+                <default>false</default>
+                <label>Geelong News</label>
+            </value>
+            <value>
+                <fullName>goldcoast.com.au</fullName>
+                <default>false</default>
+                <label>goldcoast.com.au</label>
+            </value>
+            <value>
+                <fullName>Gold Coast Bulletin</fullName>
+                <default>false</default>
+                <label>Gold Coast Bulletin</label>
+            </value>
+            <value>
+                <fullName>Gold Coast Central</fullName>
+                <default>false</default>
+                <label>Gold Coast Central</label>
+            </value>
+            <value>
+                <fullName>Gold Coast Eye</fullName>
+                <default>false</default>
+                <label>Gold Coast Eye</label>
+            </value>
+            <value>
+                <fullName>Gold Coast North</fullName>
+                <default>false</default>
+                <label>Gold Coast North</label>
+            </value>
+            <value>
+                <fullName>Gold Coast Sun</fullName>
+                <default>false</default>
+                <label>Gold Coast Sun</label>
+            </value>
+            <value>
+                <fullName>Gold Coast Tweed/Southern</fullName>
+                <default>false</default>
+                <label>Gold Coast Tweed/Southern</label>
+            </value>
+            <value>
+                <fullName>Gold Coast Upper North</fullName>
+                <default>false</default>
+                <label>Gold Coast Upper North</label>
+            </value>
+            <value>
+                <fullName>GQ</fullName>
+                <default>false</default>
+                <label>GQ</label>
+            </value>
+            <value>
+                <fullName>Guardian Messenger</fullName>
+                <default>false</default>
+                <label>Guardian Messenger</label>
+            </value>
+            <value>
+                <fullName>Heidelberg Leader</fullName>
+                <default>false</default>
+                <label>Heidelberg Leader</label>
+            </value>
+            <value>
+                <fullName>Herald Sun</fullName>
+                <default>false</default>
+                <label>Herald Sun</label>
+            </value>
+            <value>
+                <fullName>heraldsun.com.au</fullName>
+                <default>false</default>
+                <label>heraldsun.com.au</label>
+            </value>
+            <value>
+                <fullName>Herbert River Express</fullName>
+                <default>false</default>
+                <label>Herbert River Express</label>
+            </value>
+            <value>
+                <fullName>Hills Gazette/Avon Valley Gazette</fullName>
+                <default>false</default>
+                <label>Hills Gazette/Avon Valley Gazette</label>
+            </value>
+            <value>
+                <fullName>Hills Shire Times</fullName>
+                <default>false</default>
+                <label>Hills Shire Times</label>
+            </value>
+            <value>
+                <fullName>Hobsons Bay Leader</fullName>
+                <default>false</default>
+                <label>Hobsons Bay Leader</label>
+            </value>
+            <value>
+                <fullName>Home</fullName>
+                <default>false</default>
+                <label>Home</label>
+            </value>
+            <value>
+                <fullName>Homelife</fullName>
+                <default>false</default>
+                <label>Homelife</label>
+            </value>
+            <value>
+                <fullName>Hornsby Advocate</fullName>
+                <default>false</default>
+                <label>Hornsby Advocate</label>
+            </value>
+            <value>
+                <fullName>Hume Leader</fullName>
+                <default>false</default>
+                <label>Hume Leader</label>
+            </value>
+            <value>
+                <fullName>Inner West Courier</fullName>
+                <default>false</default>
+                <label>Inner West Courier</label>
+            </value>
+            <value>
+                <fullName>Innisfail Advocate</fullName>
+                <default>false</default>
+                <label>Innisfail Advocate</label>
+            </value>
+            <value>
+                <fullName>Inside Out</fullName>
+                <default>false</default>
+                <label>Inside Out</label>
+            </value>
+            <value>
+                <fullName>Joondalup-Wanneroo Times</fullName>
+                <default>false</default>
+                <label>Joondalup-Wanneroo Times</label>
+            </value>
+            <value>
+                <fullName>Kidspot</fullName>
+                <default>false</default>
+                <label>Kidspot</label>
+            </value>
+            <value>
+                <fullName>Knox Leader</fullName>
+                <default>false</default>
+                <label>Knox Leader</label>
+            </value>
+            <value>
+                <fullName>Leader Messenger</fullName>
+                <default>false</default>
+                <label>Leader Messenger</label>
+            </value>
+            <value>
+                <fullName>Lilydale &amp; Yarra Valley Leader</fullName>
+                <default>false</default>
+                <label>Lilydale &amp; Yarra Valley Leader</label>
+            </value>
+            <value>
+                <fullName>Litchfield Sun</fullName>
+                <default>false</default>
+                <label>Litchfield Sun</label>
+            </value>
+            <value>
+                <fullName>Liverpool Leader</fullName>
+                <default>false</default>
+                <label>Liverpool Leader</label>
+            </value>
+            <value>
+                <fullName>MacArthur Chronicle</fullName>
+                <default>false</default>
+                <label>MacArthur Chronicle</label>
+            </value>
+            <value>
+                <fullName>Mandurah Coastal/Pinjarra Maurray Times</fullName>
+                <default>false</default>
+                <label>Mandurah Coastal/Pinjarra Maurray Times</label>
+            </value>
+            <value>
+                <fullName>Manly Daily</fullName>
+                <default>false</default>
+                <label>Manly Daily</label>
+            </value>
+            <value>
+                <fullName>Manningham Leader</fullName>
+                <default>false</default>
+                <label>Manningham Leader</label>
+            </value>
+            <value>
+                <fullName>Maribyrnong Leader</fullName>
+                <default>false</default>
+                <label>Maribyrnong Leader</label>
+            </value>
+            <value>
+                <fullName>Maroondah Leader</fullName>
+                <default>false</default>
+                <label>Maroondah Leader</label>
+            </value>
+            <value>
+                <fullName>Melbourne Leader</fullName>
+                <default>false</default>
+                <label>Melbourne Leader</label>
+            </value>
+            <value>
+                <fullName>Melton/Moorabool Leader</fullName>
+                <default>false</default>
+                <label>Melton/Moorabool Leader</label>
+            </value>
+            <value>
+                <fullName>Melville Times</fullName>
+                <default>false</default>
+                <label>Melville Times</label>
+            </value>
+            <value>
+                <fullName>Mercury</fullName>
+                <default>false</default>
+                <label>Mercury</label>
+            </value>
+            <value>
+                <fullName>Midland-Kalamunda Reporter</fullName>
+                <default>false</default>
+                <label>Midland-Kalamunda Reporter</label>
+            </value>
+            <value>
+                <fullName>Mitcham &amp; Hills Messenger</fullName>
+                <default>false</default>
+                <label>Mitcham &amp; Hills Messenger</label>
+            </value>
+            <value>
+                <fullName>Moonee Valley Leader</fullName>
+                <default>false</default>
+                <label>Moonee Valley Leader</label>
+            </value>
+            <value>
+                <fullName>Moorabbin Kingston Leader</fullName>
+                <default>false</default>
+                <label>Moorabbin Kingston Leader</label>
+            </value>
+            <value>
+                <fullName>Mordialloc Chelsea Leader</fullName>
+                <default>false</default>
+                <label>Mordialloc Chelsea Leader</label>
+            </value>
+            <value>
+                <fullName>Moreland Leader</fullName>
+                <default>false</default>
+                <label>Moreland Leader</label>
+            </value>
+            <value>
+                <fullName>Mornington Peninsula Leader</fullName>
+                <default>false</default>
+                <label>Mornington Peninsula Leader</label>
+            </value>
+            <value>
+                <fullName>Mosman Daily</fullName>
+                <default>false</default>
+                <label>Mosman Daily</label>
+            </value>
+            <value>
+                <fullName>Mt Druitt-St Marys Standard</fullName>
+                <default>false</default>
+                <label>Mt Druitt-St Marys Standard</label>
+            </value>
+            <value>
+                <fullName>Multiple</fullName>
+                <default>true</default>
+                <label>Multiple</label>
+            </value>
+            <value>
+                <fullName>mX Brisbane</fullName>
+                <default>false</default>
+                <label>mX Brisbane</label>
+            </value>
+            <value>
+                <fullName>mX Melbourne</fullName>
+                <default>false</default>
+                <label>mX Melbourne</label>
+            </value>
+            <value>
+                <fullName>mX Sydney</fullName>
+                <default>false</default>
+                <label>mX Sydney</label>
+            </value>
+            <value>
+                <fullName>news.com.au</fullName>
+                <default>false</default>
+                <label>news.com.au</label>
+            </value>
+            <value>
+                <fullName>News Local</fullName>
+                <default>false</default>
+                <label>News Local</label>
+            </value>
+            <value>
+                <fullName>News Review Messenger</fullName>
+                <default>false</default>
+                <label>News Review Messenger</label>
+            </value>
+            <value>
+                <fullName>North Coast Times</fullName>
+                <default>false</default>
+                <label>North Coast Times</label>
+            </value>
+            <value>
+                <fullName>Northcote Leader</fullName>
+                <default>false</default>
+                <label>Northcote Leader</label>
+            </value>
+            <value>
+                <fullName>Norther Miner</fullName>
+                <default>false</default>
+                <label>Norther Miner</label>
+            </value>
+            <value>
+                <fullName>Northern District Times</fullName>
+                <default>false</default>
+                <label>Northern District Times</label>
+            </value>
+            <value>
+                <fullName>Northern Messenger</fullName>
+                <default>false</default>
+                <label>Northern Messenger</label>
+            </value>
+            <value>
+                <fullName>Northern Times</fullName>
+                <default>false</default>
+                <label>Northern Times</label>
+            </value>
+            <value>
+                <fullName>North Shore Times</fullName>
+                <default>false</default>
+                <label>North Shore Times</label>
+            </value>
+            <value>
+                <fullName>Northside Chronicle</fullName>
+                <default>false</default>
+                <label>Northside Chronicle</label>
+            </value>
+            <value>
+                <fullName>North West News</fullName>
+                <default>false</default>
+                <label>North West News</label>
+            </value>
+            <value>
+                <fullName>NT News</fullName>
+                <default>false</default>
+                <label>NT News</label>
+            </value>
+            <value>
+                <fullName>ntnews.com.au</fullName>
+                <default>false</default>
+                <label>ntnews.com.au</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Palmerstone Sun</fullName>
+                <default>false</default>
+                <label>Palmerstone Sun</label>
+            </value>
+            <value>
+                <fullName>Parramatta Advertiser</fullName>
+                <default>false</default>
+                <label>Parramatta Advertiser</label>
+            </value>
+            <value>
+                <fullName>Penrith Press</fullName>
+                <default>false</default>
+                <label>Penrith Press</label>
+            </value>
+            <value>
+                <fullName>Perth Now</fullName>
+                <default>false</default>
+                <label>Perth Now</label>
+            </value>
+            <value>
+                <fullName>perthnow.com.au</fullName>
+                <default>false</default>
+                <label>perthnow.com.au</label>
+            </value>
+            <value>
+                <fullName>Pine River Press/North Lake Times</fullName>
+                <default>false</default>
+                <label>Pine River Press/North Lake Times</label>
+            </value>
+            <value>
+                <fullName>Port Douglas and Mossman Gazette</fullName>
+                <default>false</default>
+                <label>Port Douglas and Mossman Gazette</label>
+            </value>
+            <value>
+                <fullName>Portside Messenger</fullName>
+                <default>false</default>
+                <label>Portside Messenger</label>
+            </value>
+            <value>
+                <fullName>Preston Leader</fullName>
+                <default>false</default>
+                <label>Preston Leader</label>
+            </value>
+            <value>
+                <fullName>Progress Leader</fullName>
+                <default>false</default>
+                <label>Progress Leader</label>
+            </value>
+            <value>
+                <fullName>Quest Newspapers</fullName>
+                <default>false</default>
+                <label>Quest Newspapers</label>
+            </value>
+            <value>
+                <fullName>Q Weekend</fullName>
+                <default>false</default>
+                <label>Q Weekend</label>
+            </value>
+            <value>
+                <fullName>Readersmart</fullName>
+                <default>false</default>
+                <label>Readersmart</label>
+            </value>
+            <value>
+                <fullName>Redcliffe and Bayside Herald</fullName>
+                <default>false</default>
+                <label>Redcliffe and Bayside Herald</label>
+            </value>
+            <value>
+                <fullName>Rouse Hill Times</fullName>
+                <default>false</default>
+                <label>Rouse Hill Times</label>
+            </value>
+            <value>
+                <fullName>South East Advertiser</fullName>
+                <default>false</default>
+                <label>South East Advertiser</label>
+            </value>
+            <value>
+                <fullName>Southern Courier</fullName>
+                <default>false</default>
+                <label>Southern Courier</label>
+            </value>
+            <value>
+                <fullName>Southern Gazette</fullName>
+                <default>false</default>
+                <label>Southern Gazette</label>
+            </value>
+            <value>
+                <fullName>Southern Times Messenger</fullName>
+                <default>false</default>
+                <label>Southern Times Messenger</label>
+            </value>
+            <value>
+                <fullName>South West News</fullName>
+                <default>false</default>
+                <label>South West News</label>
+            </value>
+            <value>
+                <fullName>Springvale Dandenong Leader</fullName>
+                <default>false</default>
+                <label>Springvale Dandenong Leader</label>
+            </value>
+            <value>
+                <fullName>Stirling Times</fullName>
+                <default>false</default>
+                <label>Stirling Times</label>
+            </value>
+            <value>
+                <fullName>STM</fullName>
+                <default>false</default>
+                <label>STM</label>
+            </value>
+            <value>
+                <fullName>Stonnington Leader</fullName>
+                <default>false</default>
+                <label>Stonnington Leader</label>
+            </value>
+            <value>
+                <fullName>Sunbury Macedon Ranges Leader</fullName>
+                <default>false</default>
+                <label>Sunbury Macedon Ranges Leader</label>
+            </value>
+            <value>
+                <fullName>Sunday Herald Sun</fullName>
+                <default>false</default>
+                <label>Sunday Herald Sun</label>
+            </value>
+            <value>
+                <fullName>Sunday Mail</fullName>
+                <default>false</default>
+                <label>Sunday Mail</label>
+            </value>
+            <value>
+                <fullName>Sunday Style</fullName>
+                <default>false</default>
+                <label>Sunday Style</label>
+            </value>
+            <value>
+                <fullName>Sunday Tasmanian</fullName>
+                <default>false</default>
+                <label>Sunday Tasmanian</label>
+            </value>
+            <value>
+                <fullName>Sunday Territorian</fullName>
+                <default>false</default>
+                <label>Sunday Territorian</label>
+            </value>
+            <value>
+                <fullName>Sun Newspapers</fullName>
+                <default>false</default>
+                <label>Sun Newspapers</label>
+            </value>
+            <value>
+                <fullName>Super Food Ideas</fullName>
+                <default>false</default>
+                <label>Super Food Ideas</label>
+            </value>
+            <value>
+                <fullName>Tablelander</fullName>
+                <default>false</default>
+                <label>Tablelander</label>
+            </value>
+            <value>
+                <fullName>Tablelands Advetiser</fullName>
+                <default>false</default>
+                <label>Tablelands Advetiser</label>
+            </value>
+            <value>
+                <fullName>Tasmanian Country</fullName>
+                <default>false</default>
+                <label>Tasmanian Country</label>
+            </value>
+            <value>
+                <fullName>Taste</fullName>
+                <default>false</default>
+                <label>Taste</label>
+            </value>
+            <value>
+                <fullName>The Advertiser</fullName>
+                <default>false</default>
+                <label>The Advertiser</label>
+            </value>
+            <value>
+                <fullName>The Australian</fullName>
+                <default>false</default>
+                <label>The Australian</label>
+            </value>
+            <value>
+                <fullName>The Burdekin Advocate</fullName>
+                <default>false</default>
+                <label>The Burdekin Advocate</label>
+            </value>
+            <value>
+                <fullName>The Courier-Mail</fullName>
+                <default>false</default>
+                <label>The Courier-Mail</label>
+            </value>
+            <value>
+                <fullName>The Daily Telegraph</fullName>
+                <default>false</default>
+                <label>The Daily Telegraph</label>
+            </value>
+            <value>
+                <fullName>The Deal</fullName>
+                <default>false</default>
+                <label>The Deal</label>
+            </value>
+            <value>
+                <fullName>The Gazette</fullName>
+                <default>false</default>
+                <label>The Gazette</label>
+            </value>
+            <value>
+                <fullName>themercury.com.au</fullName>
+                <default>false</default>
+                <label>themercury.com.au</label>
+            </value>
+            <value>
+                <fullName>The Observer</fullName>
+                <default>false</default>
+                <label>The Observer</label>
+            </value>
+            <value>
+                <fullName>The Southern Star</fullName>
+                <default>false</default>
+                <label>The Southern Star</label>
+            </value>
+            <value>
+                <fullName>The Sunday Mail</fullName>
+                <default>false</default>
+                <label>The Sunday Mail</label>
+            </value>
+            <value>
+                <fullName>The Sunday Telegraph</fullName>
+                <default>false</default>
+                <label>The Sunday Telegraph</label>
+            </value>
+            <value>
+                <fullName>The Sunday Times</fullName>
+                <default>false</default>
+                <label>The Sunday Times</label>
+            </value>
+            <value>
+                <fullName>The Sunday Times Guide</fullName>
+                <default>false</default>
+                <label>The Sunday Times Guide</label>
+            </value>
+            <value>
+                <fullName>The Weekend Australian</fullName>
+                <default>false</default>
+                <label>The Weekend Australian</label>
+            </value>
+            <value>
+                <fullName>The Weekend Australian Magazine</fullName>
+                <default>false</default>
+                <label>The Weekend Australian Magazine</label>
+            </value>
+            <value>
+                <fullName>The Weekly Times</fullName>
+                <default>false</default>
+                <label>The Weekly Times</label>
+            </value>
+            <value>
+                <fullName>Townsville Bulletin</fullName>
+                <default>false</default>
+                <label>Townsville Bulletin</label>
+            </value>
+            <value>
+                <fullName>townsvillebulletin.com.au</fullName>
+                <default>false</default>
+                <label>townsvillebulletin.com.au</label>
+            </value>
+            <value>
+                <fullName>Townsville Eye</fullName>
+                <default>false</default>
+                <label>Townsville Eye</label>
+            </value>
+            <value>
+                <fullName>Townsville Sun</fullName>
+                <default>false</default>
+                <label>Townsville Sun</label>
+            </value>
+            <value>
+                <fullName>Tweed Sun</fullName>
+                <default>false</default>
+                <label>Tweed Sun</label>
+            </value>
+            <value>
+                <fullName>Village Voice Balmain</fullName>
+                <default>false</default>
+                <label>Village Voice Balmain</label>
+            </value>
+            <value>
+                <fullName>Vogue</fullName>
+                <default>false</default>
+                <label>Vogue</label>
+            </value>
+            <value>
+                <fullName>Vogue Australia</fullName>
+                <default>false</default>
+                <label>Vogue Australia</label>
+            </value>
+            <value>
+                <fullName>Vogue Living</fullName>
+                <default>false</default>
+                <label>Vogue Living</label>
+            </value>
+            <value>
+                <fullName>Wall Street Journal</fullName>
+                <default>false</default>
+                <label>Wall Street Journal</label>
+            </value>
+            <value>
+                <fullName>Waverley Leader</fullName>
+                <default>false</default>
+                <label>Waverley Leader</label>
+            </value>
+            <value>
+                <fullName>Weekender</fullName>
+                <default>false</default>
+                <label>Weekender</label>
+            </value>
+            <value>
+                <fullName>Weekend-Kwinana Courier</fullName>
+                <default>false</default>
+                <label>Weekend-Kwinana Courier</label>
+            </value>
+            <value>
+                <fullName>Weekly Times Messenger</fullName>
+                <default>false</default>
+                <label>Weekly Times Messenger</label>
+            </value>
+            <value>
+                <fullName>Weekly Times Now</fullName>
+                <default>false</default>
+                <label>Weekly Times Now</label>
+            </value>
+            <value>
+                <fullName>Wentworth Courier</fullName>
+                <default>false</default>
+                <label>Wentworth Courier</label>
+            </value>
+            <value>
+                <fullName>Western Suburbs Weekly</fullName>
+                <default>false</default>
+                <label>Western Suburbs Weekly</label>
+            </value>
+            <value>
+                <fullName>Westside News</fullName>
+                <default>false</default>
+                <label>Westside News</label>
+            </value>
+            <value>
+                <fullName>Whitehorse Leader</fullName>
+                <default>false</default>
+                <label>Whitehorse Leader</label>
+            </value>
+            <value>
+                <fullName>Whittlesea Leader</fullName>
+                <default>false</default>
+                <label>Whittlesea Leader</label>
+            </value>
+            <value>
+                <fullName>Wish</fullName>
+                <default>false</default>
+                <label>Wish</label>
+            </value>
+            <value>
+                <fullName>Wyndham Leader</fullName>
+                <default>false</default>
+                <label>Wyndham Leader</label>
+            </value>
+            <value>
+                <fullName>Wynnum Herald</fullName>
+                <default>false</default>
+                <label>Wynnum Herald</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Mobile</controllingFieldValue>
+            <controllingFieldValue>Tablet</controllingFieldValue>
+            <controllingFieldValue>Multiple</controllingFieldValue>
+            <controllingFieldValue>App - Mobile</controllingFieldValue>
+            <controllingFieldValue>App - Tablet</controllingFieldValue>
+            <controllingFieldValue>Cross-platform</controllingFieldValue>
+            <controllingFieldValue>Marketing - Partnerships</controllingFieldValue>
+            <controllingFieldValue>Marketing - Promotions</controllingFieldValue>
+            <valueName>Detail in description</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Adelaide Matters</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Advocate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Albert and Logan News - Fri</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Albert and Logan News - Wed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Ayr Advocate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Bayside Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <valueName>Bayside Star</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Berwick Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Blacktown Advocate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Bowen Independent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <valueName>Bribie Weekly</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Brimbank Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Brisbane News</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <valueName>Caboolture News</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Caboolture Shire Herald</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Cairns Sun</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Canning Times</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Canterbury Bankstown Express</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Caulfield/Glen Eira/Port Phillip Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Central</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Central Coast Express Advocate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>City Messenger</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>City North Messenger</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>City North News</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>City South News</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Comment News</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Cranbourne Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Darwin Sun</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Diamond Valley Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Eastern Courier Messenger</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Eastern Reporter</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>East Torrens Messenger</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Fairfield Advance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Frankston Standard Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Free Press Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Fremantle-Cockburn Gazette</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Gaurdian Express</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Geelong Echo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Geelong News</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Gold Coast Central</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Gold Coast North</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Gold Coast Sun</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Gold Coast Tweed/Southern</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Gold Coast Upper North</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Guardian Messenger</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Heidelberg Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Herbert River Express</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Hills Gazette/Avon Valley Gazette</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Hills Shire Times</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Hobsons Bay Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Hornsby Advocate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Hume Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Inner West Courier</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Innisfail Advocate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Joondalup-Wanneroo Times</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Knox Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Leader Messenger</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Lilydale &amp; Yarra Valley Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Litchfield Sun</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Liverpool Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>MacArthur Chronicle</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Mandurah Coastal/Pinjarra Maurray Times</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Manly Daily</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Manningham Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Maribyrnong Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Maroondah Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Melbourne Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Melton/Moorabool Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Melville Times</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Midland-Kalamunda Reporter</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Mitcham &amp; Hills Messenger</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Moonee Valley Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Moorabbin Kingston Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Mordialloc Chelsea Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Moreland Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Mornington Peninsula Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Mosman Daily</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Mt Druitt-St Marys Standard</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Newspaper - Metro</controllingFieldValue>
+            <controllingFieldValue>Newspaper - Regional</controllingFieldValue>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Metro</controllingFieldValue>
+            <controllingFieldValue>Editorial - Regional</controllingFieldValue>
+            <controllingFieldValue>Magazine</controllingFieldValue>
+            <valueName>Multiple</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>News Local</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>News Review Messenger</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>North Coast Times</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Northcote Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Norther Miner</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Northern District Times</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Northern Messenger</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Northern Times</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>North Shore Times</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Northside Chronicle</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>North West News</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Palmerstone Sun</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Parramatta Advertiser</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Penrith Press</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Pine River Press/North Lake Times</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Port Douglas and Mossman Gazette</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Portside Messenger</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Preston Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Progress Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Quest Newspapers</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Readersmart</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Redcliffe and Bayside Herald</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Rouse Hill Times</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>South East Advertiser</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Southern Courier</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Southern Gazette</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Southern Times Messenger</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>South West News</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Springvale Dandenong Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Stirling Times</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Stonnington Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Sunbury Macedon Ranges Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Newspaper - Regional</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Regional</controllingFieldValue>
+            <valueName>Sun Newspapers</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Tablelander</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Tablelands Advetiser</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>The Burdekin Advocate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>The Southern Star</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Townsville Sun</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Village Voice Balmain</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Waverley Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Weekender</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Weekend-Kwinana Courier</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Weekly Times Messenger</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Wentworth Courier</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Western Suburbs Weekly</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Westside News</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Whitehorse Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Whittlesea Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Wyndham Leader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Local</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>Wynnum Herald</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Metro</controllingFieldValue>
+            <controllingFieldValue>Editorial - Metro</controllingFieldValue>
+            <valueName>Herald Sun</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Metro</controllingFieldValue>
+            <controllingFieldValue>Editorial - Metro</controllingFieldValue>
+            <valueName>Mercury</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Metro</controllingFieldValue>
+            <controllingFieldValue>Editorial - Metro</controllingFieldValue>
+            <valueName>mX Brisbane</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Metro</controllingFieldValue>
+            <controllingFieldValue>Editorial - Metro</controllingFieldValue>
+            <valueName>mX Melbourne</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Metro</controllingFieldValue>
+            <controllingFieldValue>Editorial - Metro</controllingFieldValue>
+            <valueName>mX Sydney</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Metro</controllingFieldValue>
+            <controllingFieldValue>Editorial - Metro</controllingFieldValue>
+            <valueName>NT News</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Metro</controllingFieldValue>
+            <controllingFieldValue>Editorial - Metro</controllingFieldValue>
+            <valueName>Sunday Herald Sun</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Metro</controllingFieldValue>
+            <controllingFieldValue>Editorial - Metro</controllingFieldValue>
+            <valueName>Sunday Mail</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Metro</controllingFieldValue>
+            <controllingFieldValue>Editorial - Metro</controllingFieldValue>
+            <valueName>Sunday Tasmanian</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Metro</controllingFieldValue>
+            <controllingFieldValue>Editorial - Metro</controllingFieldValue>
+            <valueName>Sunday Territorian</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Metro</controllingFieldValue>
+            <controllingFieldValue>Editorial - Metro</controllingFieldValue>
+            <valueName>The Advertiser</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Metro</controllingFieldValue>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <controllingFieldValue>Editorial - Metro</controllingFieldValue>
+            <valueName>The Australian</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Metro</controllingFieldValue>
+            <controllingFieldValue>Editorial - Metro</controllingFieldValue>
+            <valueName>The Courier-Mail</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Metro</controllingFieldValue>
+            <controllingFieldValue>Editorial - Metro</controllingFieldValue>
+            <valueName>The Daily Telegraph</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Metro</controllingFieldValue>
+            <controllingFieldValue>Editorial - Metro</controllingFieldValue>
+            <valueName>The Sunday Mail</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Metro</controllingFieldValue>
+            <controllingFieldValue>Editorial - Metro</controllingFieldValue>
+            <valueName>The Sunday Telegraph</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Metro</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>The Sunday Times</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Metro</controllingFieldValue>
+            <controllingFieldValue>Editorial - Local</controllingFieldValue>
+            <valueName>The Sunday Times Guide</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Regional</controllingFieldValue>
+            <controllingFieldValue>Editorial - Regional</controllingFieldValue>
+            <valueName>Cairns Post</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Regional</controllingFieldValue>
+            <controllingFieldValue>Editorial - Regional</controllingFieldValue>
+            <valueName>Centralian Advocate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Regional</controllingFieldValue>
+            <controllingFieldValue>Editorial - Regional</controllingFieldValue>
+            <valueName>Geelong Advertiser</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Regional</controllingFieldValue>
+            <controllingFieldValue>Editorial - Regional</controllingFieldValue>
+            <valueName>Gold Coast Bulletin</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Regional</controllingFieldValue>
+            <controllingFieldValue>Editorial - Regional</controllingFieldValue>
+            <valueName>Tasmanian Country</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Regional</controllingFieldValue>
+            <controllingFieldValue>Editorial - Regional</controllingFieldValue>
+            <valueName>The Gazette</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Regional</controllingFieldValue>
+            <controllingFieldValue>Editorial - Regional</controllingFieldValue>
+            <valueName>The Observer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Regional</controllingFieldValue>
+            <controllingFieldValue>Editorial - Regional</controllingFieldValue>
+            <valueName>The Weekly Times</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Newspaper - Regional</controllingFieldValue>
+            <valueName>Townsville Bulletin</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <valueName>advertiser.com.au</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <valueName>Best Recipes</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <valueName>birth.com.au</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <valueName>Body+Soul</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <valueName>Business Spectator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <valueName>cairns.com.au</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <valueName>couriermail.com.au</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <valueName>dailytelegraph.com.au</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <valueName>Escape</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <valueName>Eureka Report</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <valueName>geelongadvertiser.com.au</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <valueName>goldcoast.com.au</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <valueName>heraldsun.com.au</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <valueName>Homelife</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <valueName>Kidspot</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <valueName>news.com.au</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <valueName>ntnews.com.au</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <valueName>perthnow.com.au</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <valueName>Taste</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <valueName>themercury.com.au</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <controllingFieldValue>Editorial - Regional</controllingFieldValue>
+            <valueName>townsvillebulletin.com.au</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <valueName>Vogue</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Web</controllingFieldValue>
+            <valueName>Wall Street Journal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Magazine</controllingFieldValue>
+            <valueName>Australian Golf Digest</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Magazine</controllingFieldValue>
+            <valueName>Big League</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Magazine</controllingFieldValue>
+            <valueName>Canvas</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Magazine</controllingFieldValue>
+            <valueName>Country Style</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Magazine</controllingFieldValue>
+            <valueName>Delicious</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Magazine</controllingFieldValue>
+            <valueName>Donna Hay</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Magazine</controllingFieldValue>
+            <valueName>Gold Coast Eye</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Magazine</controllingFieldValue>
+            <valueName>GQ</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Magazine</controllingFieldValue>
+            <valueName>Home</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Magazine</controllingFieldValue>
+            <valueName>Inside Out</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Magazine</controllingFieldValue>
+            <valueName>Q Weekend</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Magazine</controllingFieldValue>
+            <valueName>STM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Magazine</controllingFieldValue>
+            <valueName>Sunday Style</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Magazine</controllingFieldValue>
+            <valueName>Super Food Ideas</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Magazine</controllingFieldValue>
+            <valueName>The Deal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Magazine</controllingFieldValue>
+            <valueName>The Weekend Australian Magazine</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Magazine</controllingFieldValue>
+            <valueName>Townsville Eye</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Magazine</controllingFieldValue>
+            <valueName>Vogue Australia</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Magazine</controllingFieldValue>
+            <valueName>Vogue Living</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Magazine</controllingFieldValue>
+            <valueName>Wish</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

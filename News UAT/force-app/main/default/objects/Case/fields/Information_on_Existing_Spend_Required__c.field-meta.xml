@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Information_on_Existing_Spend_Required__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If an existing client is information on existing spend by product required?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If an existing client is information on existing spend by product required?</inlineHelpText>
+    <label>Information on Existing Spend Required?</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

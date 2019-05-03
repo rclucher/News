@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cancelled_Date_Not_Less_Than_Today</fullName>
+    <active>true</active>
+    <description>When a cancellation date is entered, it cannot be less than today&#39;s date.</description>
+    <errorConditionFormula>AND(ISNULL( PRIORVALUE(Cancelled_Date__c) ),
+				NOT(ISNULL( Cancelled_Date__c )),
+				Cancelled_Date__c &lt; TODAY())</errorConditionFormula>
+    <errorDisplayField>Cancelled_Date__c</errorDisplayField>
+    <errorMessage>Cancellation Date cannot be less than today&#39;s date</errorMessage>
+</ValidationRule>

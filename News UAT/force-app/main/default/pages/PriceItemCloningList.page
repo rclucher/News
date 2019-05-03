@@ -1,0 +1,6 @@
+<apex:page standardcontroller="cspmb__Price_Item__c" recordSetVar="priceItems" extensions="PriceItemCloning" action="{!clonePriceItems}" lightningStylesheets="true">
+	<apex:pageMessages id="pgMsgs"></apex:pageMessages>
+	<apex:form id="formId">
+		<apex:commandButton action="{!cancel}" value="Cancel"/>
+	</apex:form>
+</apex:page>

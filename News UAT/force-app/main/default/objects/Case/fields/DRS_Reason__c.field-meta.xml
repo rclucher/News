@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DRS_Reason__c</fullName>
+    <description>DRS Reason</description>
+    <externalId>false</externalId>
+    <inlineHelpText>DRS Reason</inlineHelpText>
+    <label>DRS Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Data Entry - Ad Cancelled but still appeared</fullName>
+                <default>false</default>
+                <label>Data Entry - Ad Cancelled but still appeared</label>
+            </value>
+            <value>
+                <fullName>Data Entry - Ad did not appear</fullName>
+                <default>false</default>
+                <label>Data Entry - Ad did not appear</label>
+            </value>
+            <value>
+                <fullName>Data Entry - Liner Contents Error</fullName>
+                <default>false</default>
+                <label>Data Entry - Liner Contents Error</label>
+            </value>
+            <value>
+                <fullName>Data Entry - Contract Rate Adjustment</fullName>
+                <default>false</default>
+                <label>Data Entry - Contract Rate Adjustment</label>
+            </value>
+            <value>
+                <fullName>Data Entry - Double booked</fullName>
+                <default>false</default>
+                <label>Data Entry - Double booked</label>
+            </value>
+            <value>
+                <fullName>Data Entry - Not Authorised</fullName>
+                <default>false</default>
+                <label>Data Entry - Not Authorised</label>
+            </value>
+            <value>
+                <fullName>Data Entry - Pricing Error - Over/Undercharged</fullName>
+                <default>false</default>
+                <label>Data Entry - Pricing Error - Over/Undercharged</label>
+            </value>
+            <value>
+                <fullName>Data Entry - Incorrect Publish Date</fullName>
+                <default>false</default>
+                <label>Data Entry - Incorrect Publish Date</label>
+            </value>
+            <value>
+                <fullName>Data Entry - Display Advertising Copy Error</fullName>
+                <default>false</default>
+                <label>Data Entry - Display Advertising Copy Error</label>
+            </value>
+            <value>
+                <fullName>Data Entry - Incorrect Publication</fullName>
+                <default>false</default>
+                <label>Data Entry - Incorrect Publication</label>
+            </value>
+            <value>
+                <fullName>Data Entry - Incorrect Section or Placement</fullName>
+                <default>false</default>
+                <label>Data Entry - Incorrect Section or Placement</label>
+            </value>
+            <value>
+                <fullName>Premedia - Ad Cancelled but still appeared</fullName>
+                <default>false</default>
+                <label>Premedia - Ad Cancelled but still appeared</label>
+            </value>
+            <value>
+                <fullName>Premedia - Ad did not appear</fullName>
+                <default>false</default>
+                <label>Premedia - Ad did not appear</label>
+            </value>
+            <value>
+                <fullName>Premedia - Display Advertising Copy Error</fullName>
+                <default>false</default>
+                <label>Premedia - Display Advertising Copy Error</label>
+            </value>
+            <value>
+                <fullName>Premedia - Incorrect Section or Placement</fullName>
+                <default>false</default>
+                <label>Premedia - Incorrect Section or Placement</label>
+            </value>
+            <value>
+                <fullName>Print Site - Unacceptable Print Quality</fullName>
+                <default>false</default>
+                <label>Print Site - Unacceptable Print Quality</label>
+            </value>
+            <value>
+                <fullName>Print Site - Distribution or Insert issue</fullName>
+                <default>false</default>
+                <label>Print Site - Distribution or Insert issue</label>
+            </value>
+            <value>
+                <fullName>Sales - Ad Cancelled but still appeared</fullName>
+                <default>false</default>
+                <label>Sales - Ad Cancelled but still appeared</label>
+            </value>
+            <value>
+                <fullName>Sales - Ad did not appear</fullName>
+                <default>false</default>
+                <label>Sales - Ad did not appear</label>
+            </value>
+            <value>
+                <fullName>Sales - Liner Contents Error</fullName>
+                <default>false</default>
+                <label>Sales - Liner Contents Error</label>
+            </value>
+            <value>
+                <fullName>Sales - Contract Rate Adjustment</fullName>
+                <default>false</default>
+                <label>Sales - Contract Rate Adjustment</label>
+            </value>
+            <value>
+                <fullName>Sales - Double Booked</fullName>
+                <default>false</default>
+                <label>Sales - Double Booked</label>
+            </value>
+            <value>
+                <fullName>Sales - Not Authorised</fullName>
+                <default>false</default>
+                <label>Sales - Not Authorised</label>
+            </value>
+            <value>
+                <fullName>Sales - Pricing Error - Over/Undercharged</fullName>
+                <default>false</default>
+                <label>Sales - Pricing Error - Over/Undercharged</label>
+            </value>
+            <value>
+                <fullName>Sales - Incorrect Publish date</fullName>
+                <default>false</default>
+                <label>Sales - Incorrect Publish date</label>
+            </value>
+            <value>
+                <fullName>Sales - Display Advertising Copy Error</fullName>
+                <default>false</default>
+                <label>Sales - Display Advertising Copy Error</label>
+            </value>
+            <value>
+                <fullName>Sales - Incorrect Publication</fullName>
+                <default>false</default>
+                <label>Sales - Incorrect Publication</label>
+            </value>
+            <value>
+                <fullName>Sales - Incorrect Section or Placement</fullName>
+                <default>false</default>
+                <label>Sales - Incorrect Section or Placement</label>
+            </value>
+            <value>
+                <fullName>Sales - Distribution or Insert issue</fullName>
+                <default>false</default>
+                <label>Sales - Distribution or Insert issue</label>
+            </value>
+            <value>
+                <fullName>Sales - Goodwill</fullName>
+                <default>false</default>
+                <label>Sales - Goodwill</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

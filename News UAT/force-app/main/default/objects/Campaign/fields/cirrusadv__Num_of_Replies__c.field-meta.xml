@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cirrusadv__Num_of_Replies__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label># of Replies</label>
+    <summarizedField>CampaignMember.cirrusadv__Num_of_Replies__c</summarizedField>
+    <summaryForeignKey>CampaignMember.CampaignId</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <type>Summary</type>
+</CustomField>

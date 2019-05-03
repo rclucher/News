@@ -1,0 +1,149 @@
+<aura:component description="Nitro Dashboard" controller="NewsQ_Dashboard" implements="flexipage:availableForAllPageTypes,lightning:isUrlAddressable,force:appHostable">
+    <ltng:require
+		scripts="{!join(',', $Resource.ChartJS, $Resource.ChartJSDatalabels)}"
+        styles="{!$Resource.Titillium}"
+        afterScriptsLoaded="{!c.afterScriptsLoaded}" />
+	
+    <aura:attribute type="String" name="userRoleID" default = ""/>
+    
+    <aura:attribute type="String" name="pillar"/>
+    
+    <aura:attribute type="List" name="digitalTopics"/>
+    <aura:attribute type="Integer" name="digitalTopicCount"/>
+    <aura:attribute type="List" name="digital"/>
+    
+    <aura:attribute type="List" name="salesTopics"/>
+    <aura:attribute type="Integer" name="salesTopicCount"/>
+    <aura:attribute type="List" name="sales"/>
+    
+    <aura:attribute type="List" name="marketingTopics"/>
+    <aura:attribute type="Integer" name="marketingTopicCount"/>
+    <aura:attribute type="List" name="marketing"/>
+    
+    <aura:attribute type="List" name="productTopics"/>
+    <aura:attribute type="Integer" name="productTopicCount"/>
+    <aura:attribute type="List" name="product"/>
+    
+    <aura:attribute type="List" name="topics"/>
+    <aura:attribute type="Integer" name = "topicCount"/>
+    
+    <aura:attribute type="List" name="totals"/>
+    <aura:attribute type="List" name="nitro"/>
+    <aura:attribute type="List" name="nitroNames"/>
+    <aura:attribute type="List" name="nitroCount"/>
+    
+    <aura:attribute type="String" name="view"/>
+
+    
+    <aura:attribute type="List" name="achieved"/>
+    <aura:attribute type="List" name="ontarget"/>
+    <aura:attribute type="List" name="missing"/>
+    
+    <aura:attribute type="List" name="users"/>
+    
+    <div style="width: 100%; padding: 0px; background: rgb(251, 174, 50);">
+    	<img src = "{!$Resource.NitroBanner}"/>
+    </div>
+    
+    <div style="width: 100%; background: white;  padding: 10px; padding-top: 20px;">
+
+    <table class="dashboard" style="width: 100%;">
+        
+        <tr>
+            <td style="">
+                <table style="width: inherit;">
+                	<tr>
+                        <td colspan="2" style="border-bottom: 1px solid black; padding-bottom: 5px;text-align: left; ">
+                            <span style="font-weight: bold; font-size: 1.2em">My team report card</span>
+                            &nbsp;&nbsp;
+                            <span style="background:green; color: white; padding: 4px; padding-top: 2px; padding-bottom: 2px;">Passed</span>
+                            &nbsp;
+                            <span style="background: orange; color: white; padding: 4px;padding-top: 2px; padding-bottom: 2px;">Incomplete</span>
+                            
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <span>
+                            	*Score = Total points divided by Total Available Pillar points
+                            </span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="">
+                        <td style="vertical-align: top; text-align: center; padding-top: 10px;">
+                            <c:AT_ProgressChart title="Total Nitro Scores" scores="{!v.nitro}"/>
+                        </td>
+                        <td style="vertical-align: top;text-align: center; padding-top: 10px; padding-left: 10px;">
+                            <c:AT_Scorecard title="Pillar Nitro Scores" scores="{!v.nitro}" headings="{!v.nitroNames}" headingCount="{!v.nitroCount}"/>
+                        </td>
+                    </tr>
+                </table>
+                
+                
+            	<table style="width: inherit;">
+                	<tr>
+                        <td style="border-bottom: 1px solid black; padding-bottom: 5px; padding-top: 20px;text-align: left; ">
+                            <span style="font-weight: bold; font-size: 1.2em">Topic Nitro Scores</span>
+                            &nbsp;&nbsp;
+                            <span style="background:green; color: white; padding: 4px; padding-top: 2px; padding-bottom: 2px;">Passed</span>
+                            &nbsp;
+                            <span style="background: orange; color: white; padding: 4px;padding-top: 2px; padding-bottom: 2px;">Incomplete</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="">
+                        <td style="vertical-align: top; text-align: center; padding-top: 10px;">
+                            <c:AT_Heatmap title="Digital" subtitle="Pillar" label="Level/Topic" scores="{!v.digital}" headings="{!v.digitalTopics}" headingCount="{!v.digitalTopicCount}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: top;text-align: center; padding-top: 10px;">
+                            <c:AT_Heatmap title="Marketing" subtitle="Pillar" label="Level/Topic" scores="{!v.marketing}" headings="{!v.marketingTopics}" headingCount="{!v.marketingTopicCount}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: top;text-align: center; padding-top: 10px;">
+                            <c:AT_Heatmap title="Sales" subtitle="Pillar" label="Level/Topic" scores="{!v.sales}" headings="{!v.salesTopics}" headingCount="{!v.salesTopicCount}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: top;text-align: center;padding-top: 10px;">
+                            <c:AT_Heatmap title="Product" subtitle="Pillar" label="Level/Topic" scores="{!v.product}" headings="{!v.productTopics}" headingCount="{!v.productTopicCount}"/>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        
+        <tr>
+        	<td style=" padding-top: 30px;">
+            	<table class="dashboard" style="width: inherit;">
+                    <tr>
+                        <td style="border-bottom: 1px solid black; padding-bottom: 5px; text-align: left;">
+                            <span style="font-weight: bold; font-size: 1.2em">Total Revenue Performance</span>
+                        </td>
+                        <td style="border-bottom: 1px solid black; padding-bottom: 5px; padding-top: 10px; text-align: left;">
+                            <span style="font-weight: bold; font-size: 1.2em">Digital Revenue Performance</span>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td style = "font-size: 0.9em; color: red; text-align: left; padding-bottom: 5px;">
+                        	Total Revenue Performance vs Nitro Score for previous 3 months - colour is Total Revenue performance and bubble size is Total Revenue Target
+                        </td>
+                        <td style = "font-size: 0.9em; color: red; text-align: left; padding-bottom: 5px;">
+                        	Digital Revenue vs Digital Nitro Score for previous 3 months - colour is Digital Revenue performance and bubble size is Digital Revenue Target
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td style="vertical-align: top;text-align: center;width: 700px;height: 500px;">
+                            <canvas aura:id="totalPerformance" style="width:100%;height:100%;"></canvas>
+                        </td>
+                        <td style="vertical-align: top;text-align: center;width: 700px;height: 500px;">
+                            <canvas aura:id="digitalPerformance" style="width:100%;height:100%;"></canvas>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    </div>
+</aura:component>

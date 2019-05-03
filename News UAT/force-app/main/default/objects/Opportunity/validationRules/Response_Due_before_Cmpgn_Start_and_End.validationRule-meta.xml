@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Response_Due_before_Cmpgn_Start_and_End</fullName>
+    <active>true</active>
+    <description>Response Due Date must be before Campaign Start Date and Campaign End Date</description>
+    <errorConditionFormula>AND( 
+(Response_Due__c &gt; Campaign_Start_Date__c),
+($Setup.NLM_Global_Settings__c.Fire_NLM_Validation_Rules__c) 
+)</errorConditionFormula>
+    <errorDisplayField>Response_Due__c</errorDisplayField>
+    <errorMessage>Response Due Date must be before Campaign Start Date and Campaign End Date</errorMessage>
+</ValidationRule>

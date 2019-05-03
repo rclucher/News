@@ -1,0 +1,73 @@
+<apex:page controller="CS_Actions_Controller" action="{!init}" lightningStylesheets="true" >
+
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+
+<!-- Import the Design System style sheet -->
+<apex:slds />
+
+<!-- REQUIRED SLDS WRAPPER -->
+<body class="slds-scope">
+
+<apex:form id="theForm">
+
+<!-- 
+	<apex:actionStatus id="status">
+		<apex:facet name="start">
+			<c:Action_Status BackColor="#ffffff"
+							 borderColor="#6B6B6B"
+							 borderSize="1"
+							 height="50px"
+							 width="60px"
+							 margintop="-25px"
+							 marginleft="-60px"
+							 ImageUrl="/img/loading32.gif"
+							 Message="Please wait"/>
+		</apex:facet>
+	</apex:actionStatus>
+-->
+	<apex:pageBlock id="detailBlock" mode="edit" >
+
+		<apex:pageMessages id="pageMessagesId" />
+
+		<apex:outputText value="No Actions have been created yet. Click on 'New' to get started" rendered="{!NOT(mp_bActionsExist)}" />
+
+		<apex:pageBlockTable value="{!mp_liActions}" var="a" id="theActionList" columns="3" rendered="{!mp_bActionsExist}" >
+				 
+			<apex:column headerValue="">
+				<apex:commandLink rendered="{!a.bShowEdit}" value="Edit" action="{!actionEdit}" >
+					<apex:param assignTo="{!mp_ActionId}" name="actionId" value="{!a.Action.Id}"/>
+				</apex:commandLink>
+				<apex:outputText value=" | " />
+				<apex:commandLink rendered="{!a.bShowDelete}" value="Delete" action="{!actionDelete}" rerender="detailBlock" >
+					<apex:param assignTo="{!mp_ActionId}" name="actionId" value="{!a.Action.Id}"/>
+				</apex:commandLink>
+				<apex:commandLink rendered="{!a.bShowInactivate}" value="Inactivate" action="{!actionInactivate}" rerender="detailBlock" >
+					<apex:param assignTo="{!mp_ActionId}" name="actionId" value="{!a.Action.Id}"/>
+				</apex:commandLink>
+			</apex:column>
+
+			<apex:column >
+				<apex:facet name="header">Action</apex:facet>
+				<apex:outputField value="{!a.Action.Name}" />
+			</apex:column>
+
+			<apex:column >
+				<apex:facet name="header">Active?</apex:facet>
+				<apex:outputField value="{!a.Action.isActive__c}" />
+			</apex:column>
+
+		</apex:pageBlockTable>
+
+		<apex:pageBlockButtons location="bottom" >
+			<apex:commandButton action="{!actionNew}" value="New" title="New" />
+			<apex:commandButton action="{!gotoQuestions}" value="View Questions" title="View Questions" />
+		</apex:pageBlockButtons>
+
+	</apex:pageBlock>
+
+</apex:form>
+
+</body>
+
+</html>
+</apex:page>

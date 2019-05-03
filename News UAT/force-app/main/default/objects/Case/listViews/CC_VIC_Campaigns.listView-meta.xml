@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CC_VIC_Campaigns</fullName>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>NAME</columns>
+    <columns>CASES.SUBJECT</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>CASES.PRIORITY</columns>
+    <columns>CASES.CREATED_DATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Supplied_To_Email__c</field>
+        <operation>equals</operation>
+        <value>campaignsvic@news.com.au</value>
+    </filters>
+    <filters>
+        <field>SuppliedFromEmail_Text__c</field>
+        <operation>equals</operation>
+        <value>noreply@news.com.au</value>
+    </filters>
+    <filters>
+        <field>CASES.CREATED_DATE_DATE_ONLY</field>
+        <operation>greaterThan</operation>
+        <value>7/1/2017 12:00 AM</value>
+    </filters>
+    <label>CC VIC Campaigns</label>
+</ListView>

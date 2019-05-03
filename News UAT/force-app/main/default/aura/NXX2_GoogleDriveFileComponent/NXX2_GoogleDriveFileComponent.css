@@ -1,0 +1,23 @@
+.THIS {
+}
+.THIS .custom-checkBox{
+    height: 1rem;
+    width: 1rem;
+}
+.THIS .liBorder{
+ border-bottom: none;
+}
+.THIS .custom-slds-avatar_medium{
+    width: 4rem;
+    height: 3rem;
+}
+.THIS .custom-slds-icon {
+    width: 1.5rem;
+    height: 1.4rem;
+    fill: rgb(255, 255, 255);
+}
+.THIS .slds-icon {
+    width: 1rem;
+    height: 1rem;
+    fill: rgb(255, 255, 255);
+}

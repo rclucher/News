@@ -1,0 +1,3 @@
+<apex:page standardController="Order__c" extensions="CS_CampaignPriorityExtension" lightningStylesheets="true" showQuickActionVfHeader="false" action="{!executeHighPriorityLogic}">
+    <apex:pageMessages id="showmsg"></apex:pageMessages>
+</apex:page>

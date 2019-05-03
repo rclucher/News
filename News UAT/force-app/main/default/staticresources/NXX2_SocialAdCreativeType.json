@@ -1,0 +1,30 @@
+    {
+        "Single image" : {
+            "creativeTypeName" : "Single image",
+            "textMaxLength" : 90,
+            "headlineMaxLength" : 25,
+            "linkDescriptionMaxLength" : 30,
+            "eventNameMaxLength" : 90
+        },
+        "Carousel" : {
+            "creativeTypeName" : "Carousel",
+            "textMaxLength" : 90,
+            "headlineMaxLength" : 40,
+            "linkDescriptionMaxLength" : 20,
+            "eventNameMaxLength" : 90
+        },
+        "Slideshow" : {
+            "creativeTypeName" : "Slideshow",
+            "textMaxLength" : 90,
+            "headlineMaxLength" : 25,
+            "linkDescriptionMaxLength" : 30,
+            "eventNameMaxLength" : 90
+        },
+        "Video" : {
+            "creativeTypeName" : "Video",
+            "textMaxLength" : 90,
+            "headlineMaxLength" : 25,
+            "linkDescriptionMaxLength" : 30,
+            "eventNameMaxLength" : 90
+        }
+    }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Line_Item_TC_Flags__c</fullName>
+    <description>Unique TC (Til Cancelled) flags in the Booking Line Items (True, False)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Unique TC (Til Cancelled) flags in the Booking Line Items</inlineHelpText>
+    <label>Line Item TC Flags</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

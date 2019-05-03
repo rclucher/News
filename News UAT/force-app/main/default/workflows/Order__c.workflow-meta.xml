@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Setup_Call_Reminder_To_Campaign_Manager</fullName>
+        <description>Setup Call Reminder To Campaign Manager</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Assigned_Campaign_Manager__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>News_Xtend/Setup_Call_Notification_To_Campaign_Manager</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Previous_Campaign_Status</fullName>
+        <field>Previous_Campaign_Status__c</field>
+        <formula>TEXT (PRIORVALUE( Status__c ))</formula>
+        <name>Previous Campaign Status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Previous_Campaign_Status_For_Cancellatio</fullName>
+        <field>Previous_Campaign_Status_For_Cancel__c</field>
+        <formula>TEXT (PRIORVALUE( Status__c ))</formula>
+        <name>Previous Campaign Status For Cancellatio</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Status_to_Ended</fullName>
+        <field>Status__c</field>
+        <literalValue>Campaign Ended</literalValue>
+        <name>Update Status to Ended</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>Rule to capture the previous picklist value of Order Status</fullName>
+        <actions>
+            <name>Previous_Campaign_Status</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Order__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Pending For Pause</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Rule to notify the Campaign manager about Setup Call before a day</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Order__c.Setup_Call_Schedule__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Setup_Call_Reminder_To_Campaign_Manager</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Order__c.Setup_Call_Schedule__c</offsetFromField>
+            <timeLength>-1</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Set Campaign to Ended</fullName>
+        <active>true</active>
+        <formula>End_Date__c &gt;= TODAY()  &amp;&amp; !ISPICKVAL(Status__c , &#39;Cancelled&#39;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Update_Status_to_Ended</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Order__c.End_Date__c</offsetFromField>
+            <timeLength>23</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+</Workflow>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NewsXtendRoles</fullName>
+    <active>true</active>
+    <description>Record Type for NewsXtend users</description>
+    <label>NewsXtendRoles</label>
+    <picklistValues>
+        <picklist>Role__c</picklist>
+        <values>
+            <fullName>NewsXtend Agency</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NewsXtend CNG Sales Rep</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NewsXtend Customer - Mgmt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NewsXtend Customer - Non Mgmt</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>NewsXtend NRM Sales Rep</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NewsXtend Web Developer</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

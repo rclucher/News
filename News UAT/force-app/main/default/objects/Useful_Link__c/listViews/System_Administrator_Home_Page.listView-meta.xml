@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>System_Administrator_Home_Page</fullName>
+    <columns>NAME</columns>
+    <columns>Useful_Link_Label__c</columns>
+    <columns>Useful_Link_URL__c</columns>
+    <columns>System_Administrator_Home_Page_Sequence__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>System_Administrator_Home_Page_Sequence__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>System Administrator Home Page</label>
+</ListView>

@@ -1,0 +1,32 @@
+.THIS .mobileViewOnly{
+    display: none;
+}
+.THIS .TileMenuContainer{
+    text-align: initial;
+}
+.THIS .contentContainer{
+    text-align: initial;
+    position: relative;
+}
+@media (min-width: 1200px) {
+.THIS .HeaderContainer{
+    max-width : var(--headerMaxWidth,100%);
+    margin: auto;
+}
+.THIS .HeroContainer{
+    max-width : var(--heroMaxWidth,100%);
+    margin: auto;
+}
+.THIS .TileMenuContainer{
+    max-width : var(--tileMaxWidth,100%);
+    margin: auto;
+}
+.THIS .contentContainer{
+    max-width : var(--contentMaxWidth,100%);
+    margin: auto;
+}
+.THIS .FooterContainer{
+    max-width : var(--contentMaxWidth,100%);
+    margin: auto;
+}
+}

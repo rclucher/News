@@ -1,0 +1,65 @@
+<apex:component >
+    <apex:attribute name="actionTask_List" type="Action_Task__c[]" description="List of Action Tasks"/>
+
+    <apex:attribute name="actionTaskGroup" type="String" description="Action Task Group" />
+    <apex:attribute name="actionTaskSubGroup" type="String" description="Action Task Sub Group" />
+    <apex:attribute name="topController" type="NewsXtend_ActionPlan" description="The Custom ActionPlan Controller" />
+
+    <!-- Set Up Action Tasks -->
+    <apex:outputPanel styleClass="actionTaskStatusBlock"
+    					rendered="{!actionTaskSubGroup='Setup Task'}">
+		<apex:pageBlockSection title="{!actionTaskGroup} - {!actionTaskSubGroup}" 
+								columns="1"
+								rendered="{!NOT(actionTask_List.Empty)}">
+	        <apex:pageBlockTable value="{!actionTask_List}" 
+	        						var="at">
+	            <apex:column headerClass="left" value="{!at.Step_Number__c}" />
+				<apex:column headerClass="left" value="{!at.Action_Task_Name__c}" />		
+				<apex:column headerClass="left" headerValue="Action Task Status"> 
+					<!-- render editable if previous task is completed or cancelled-->
+	                <apex:selectList styleClass="actionTaskStatus" value="{!at.Action_Task_Status__c}" size="1">
+	                    <apex:selectOptions value="{!topController.selectOption_ActionTaskStatus}" />
+	                </apex:selectList>
+				</apex:column>
+				<apex:column headerClass="left" headerValue="Note"> 
+					<!-- always make Note field editable -->
+					<apex:inputField value="{!at.Note__c}" />
+				</apex:column>							
+				<apex:column headerClass="left" headerValue="Assigned To"> 
+					<apex:inputField value="{!at.OwnerId}" />
+				</apex:column>
+	        </apex:pageBlockTable>
+		</apex:pageBlockSection>
+	</apex:outputPanel>
+
+	<!-- Month-to-month Action Tasks -->
+    <apex:outputPanel styleClass="actionTaskStatusBlock" 
+    					rendered="{!actionTaskSubGroup!='Setup Task'}">
+		<apex:pageBlockSection title="{!actionTaskGroup} - {!actionTaskSubGroup}" 
+								columns="1"
+								rendered="{!NOT(actionTask_List.Empty)}">
+	        <apex:pageBlockTable value="{!actionTask_List}" 
+	        						var="atm">
+	            <apex:column headerClass="left" value="{!atm.Step_Number__c}" />
+				<apex:column headerClass="left" value="{!atm.Action_Task_Name__c}" />		
+				<apex:column headerClass="left" value="{!atm.Target_Month__c}" />
+				<apex:column headerClass="left" headerValue="Action Task Status"> 
+					<!-- render editable if previous task is completed or cancelled-->
+	                <apex:selectList styleClass="actionTaskStatus"
+	                					value="{!atm.Action_Task_Status__c}" size="1">
+	                    <apex:selectOptions value="{!topController.selectOption_ActionTaskStatus}" />
+	                </apex:selectList>
+				</apex:column>
+				<apex:column headerClass="left" headerValue="Note"> 
+					<!-- always make Note field editable -->
+					<apex:inputField value="{!atm.Note__c}" />
+				</apex:column>							
+				<apex:column headerClass="left" headerValue="Assigned To"> 
+					<apex:inputField value="{!atm.OwnerId}" />
+				</apex:column>
+	        </apex:pageBlockTable>
+		</apex:pageBlockSection>
+	</apex:outputPanel>
+
+
+</apex:component>

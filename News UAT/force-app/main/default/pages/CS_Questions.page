@@ -1,0 +1,151 @@
+<apex:page controller="CS_Questions_Controller" action="{!init}" lightningStylesheets="true" >
+
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+
+<!-- Import the Design System style sheet -->
+<apex:slds />
+
+<!-- REQUIRED SLDS WRAPPER -->
+<body class="slds-scope">
+
+<apex:form id="theForm">
+
+<!-- 
+	<apex:actionStatus id="status">
+		<apex:facet name="start">
+			<c:Action_Status BackColor="#ffffff"
+							 borderColor="#6B6B6B"
+							 borderSize="1"
+							 height="50px"
+							 width="60px"
+							 margintop="-25px"
+							 marginleft="-60px"
+							 ImageUrl="/img/loading32.gif"
+							 Message="Please wait"/>
+		</apex:facet>
+	</apex:actionStatus>
+-->
+	<apex:pageBlock id="detailBlock" mode="edit" >
+
+		<apex:pageMessages id="pageMessagesId" />
+
+		<apex:outputText value="No Questions have been created yet. Click on 'New' to get started" rendered="{!NOT(mp_bQuestionsExist)}" />
+
+		<apex:pageBlockTable value="{!mp_liQuestions}" var="q" id="theQuestionList" columns="6"
+			rows="{!mp_iListSize}" rendered="{!mp_bQuestionsExist}" >
+				 
+			<apex:column headerValue="">
+				<apex:commandLink rendered="{!q.bShowEdit}" value="Edit" action="{!actionEdit}" >
+					<apex:param assignTo="{!mp_QuestionId}" name="questionId" value="{!q.Question.Id}"/>
+				</apex:commandLink>
+				<apex:outputText value=" | " />
+				<apex:commandLink rendered="{!q.bShowDelete}" value="Delete" action="{!actionDelete}" rerender="detailBlock" >
+					<apex:param assignTo="{!mp_QuestionId}" name="questionId" value="{!q.Question.Id}"/>
+				</apex:commandLink>
+				<apex:commandLink rendered="{!q.bShowInactivate}" value="Inactivate" action="{!actionInactivate}" rerender="detailBlock" >
+					<apex:param assignTo="{!mp_QuestionId}" name="questionId" value="{!q.Question.Id}"/>
+				</apex:commandLink>
+			</apex:column>
+
+			<apex:column >
+				<apex:facet name="header">Section</apex:facet>
+				<apex:outputField value="{!q.Question.Section__c}" />
+			</apex:column>
+
+			<apex:column >
+				<apex:facet name="header">Question</apex:facet>
+				<apex:outputField value="{!q.Question.Question_Text__c}" />
+			</apex:column>
+
+			<apex:column >
+				<apex:facet name="header">Answer Type</apex:facet>
+				<apex:outputField value="{!q.Question.Answer_Type__c}" />
+			</apex:column>
+
+			<apex:column >
+				<apex:facet name="header">Active?</apex:facet>
+				<apex:outputField value="{!q.Question.isActive__c}" />
+			</apex:column>
+
+		</apex:pageBlockTable>
+
+		  <apex:outputPanel id="theQuestionListNav" rendered="{!mp_liQuestions.size > 0}" >
+			<table width="100%" cellspacing="0" cellpadding="0" border="0" >
+				<tbody>
+					<tr>
+						<td width="35%">
+							<div align="right" >
+								<apex:commandLink value="<< First" 
+									action="{!showFirstPage}" 
+									rerender="theQuestionList, theQuestionListNav"
+									rendered="{!mp_iPageNumber > 1}" />
+								<apex:outputText value="<< First" rendered="{!NOT(mp_iPageNumber > 1)}" />
+							</div>
+						</td>
+						<td width="10%">
+							<div align="center" >
+								<apex:commandLink value=" <	Previous" 
+									action="{!showPreviousPage}" 
+									rerender="theQuestionList, theQuestionListNav"
+									rendered="{!mp_iPageNumber > 1}" />
+								<apex:outputText value=" <	Previous" rendered="{!NOT(mp_iPageNumber > 1)}" />
+							</div>
+						</td>
+						<td width="10%">
+							<div align="center" >
+								<apex:outputText value="Page " />
+								<apex:outputText value="{!mp_iPageNumber}" />
+								<apex:outputText value=" of " />
+								<apex:outputText value="{!mp_iTotalPages}" />
+							</div>
+						</td>
+						<td width="10%">
+							<div align="center" >
+								<apex:commandLink value="Next > " 
+									action="{!showNextPage}" 
+									rerender="theQuestionList, theQuestionListNav"
+									rendered="{!mp_iPageNumber < mp_iTotalPages}" />
+								<apex:outputText value="Next > " rendered="{!NOT(mp_iPageNumber < mp_iTotalPages)}" />
+							</div>
+						</td>
+						<td width="35%">
+							<div align="left" >
+								<apex:commandLink value="Last >>" 
+									action="{!showLastPage}" 
+									rerender="theQuestionList, theQuestionListNav"
+									rendered="{!mp_iPageNumber < mp_iTotalPages}" />
+								<apex:outputText value="Last >>" rendered="{!NOT(mp_iPageNumber < mp_iTotalPages)}" />
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</apex:outputPanel>
+
+		<apex:pageBlockButtons location="bottom" >
+			<apex:commandButton action="{!actionNew}" value="New" title="New" />
+
+			<apex:actionStatus id="status">
+				<apex:facet name="start">
+					<apex:outputText value="Saving..."/>
+				</apex:facet>
+				<apex:facet name="stop">
+					<apex:commandButton id="theSavetocsvFileButton" value="Download" status="status" 
+						disabled="{!NOT(mp_bQuestionsExist)}"
+						onclick="openPopup('/apex/CS_QuestionsDownload');return false;"
+						styleClass="ButtonStyle" />
+				</apex:facet>
+			</apex:actionStatus>
+
+			<apex:commandButton action="{!gotoViewRules}" value="View Rules" title="View" disabled="{!NOT(mp_bQuestionsExist)}" />
+			<apex:commandButton action="{!gotoViewActions}" value="View Actions" title="View" disabled="{!NOT(mp_bQuestionsExist)}" />
+		</apex:pageBlockButtons>
+
+	</apex:pageBlock>
+
+</apex:form>
+
+</body>
+
+</html>
+</apex:page>

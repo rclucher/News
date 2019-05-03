@@ -1,0 +1,8 @@
+div.csbtn.Finish_Sales_Order{
+ border: none;
+ background-color: transparent;
+ background-image: url("/resource/1460364036000/SalesOrderFinishButton");
+
+ background-repeat: no-repeat;
+ cursor: pointer !important;
+}

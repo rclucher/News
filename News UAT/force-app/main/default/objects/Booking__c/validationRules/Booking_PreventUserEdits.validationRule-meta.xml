@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Booking_PreventUserEdits</fullName>
+    <active>true</active>
+    <description>Prevent Users from updating Booking fields that cannot be un-Required. 
+- Name field
+
+The rest of the fields can be set as Read Only from Page Layouts</description>
+    <errorConditionFormula>AND( 
+  NOT(PRIORVALUE( Name )=&#39;&#39;), 
+  (PRIORVALUE(Name) != Name)
+)</errorConditionFormula>
+    <errorDisplayField>Name</errorDisplayField>
+    <errorMessage>Booking data cannot be updated from Salesforce. Please update from CyberAd or Cyber$ell</errorMessage>
+</ValidationRule>

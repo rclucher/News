@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Multiple</fullName>
+                <default>true</default>
+                <label>Multiple</label>
+            </value>
+            <value>
+                <fullName>App - Mobile</fullName>
+                <default>false</default>
+                <label>App - Mobile</label>
+            </value>
+            <value>
+                <fullName>App - Tablet</fullName>
+                <default>false</default>
+                <label>App - Tablet</label>
+            </value>
+            <value>
+                <fullName>Cross-platform</fullName>
+                <default>false</default>
+                <label>Cross-platform</label>
+            </value>
+            <value>
+                <fullName>Editorial - Local</fullName>
+                <default>false</default>
+                <label>Editorial - Local</label>
+            </value>
+            <value>
+                <fullName>Editorial - Metro</fullName>
+                <default>false</default>
+                <label>Editorial - Metro</label>
+            </value>
+            <value>
+                <fullName>Editorial - Regional</fullName>
+                <default>false</default>
+                <label>Editorial - Regional</label>
+            </value>
+            <value>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+                <label>Magazine</label>
+            </value>
+            <value>
+                <fullName>Marketing - Partnerships</fullName>
+                <default>false</default>
+                <label>Marketing - Partnerships</label>
+            </value>
+            <value>
+                <fullName>Marketing - Promotions</fullName>
+                <default>false</default>
+                <label>Marketing - Promotions</label>
+            </value>
+            <value>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+                <label>Mobile</label>
+            </value>
+            <value>
+                <fullName>Newspaper - Local</fullName>
+                <default>false</default>
+                <label>Newspaper - Local</label>
+            </value>
+            <value>
+                <fullName>Newspaper - Metro</fullName>
+                <default>false</default>
+                <label>Newspaper - Metro</label>
+            </value>
+            <value>
+                <fullName>Newspaper - Regional</fullName>
+                <default>false</default>
+                <label>Newspaper - Regional</label>
+            </value>
+            <value>
+                <fullName>Tablet</fullName>
+                <default>false</default>
+                <label>Tablet</label>
+            </value>
+            <value>
+                <fullName>Web</fullName>
+                <default>false</default>
+                <label>Web</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

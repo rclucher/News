@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Booking_System_Account__c</fullName>
+    <description>NextGen</description>
+    <externalId>false</externalId>
+    <label>Booking System Account</label>
+    <referenceTo>External_Account__c</referenceTo>
+    <relationshipLabel>Booking System - Portfolio Junctions</relationshipLabel>
+    <relationshipName>Booking_System_Portfolio_Junctions</relationshipName>
+    <relationshipOrder>1</relationshipOrder>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

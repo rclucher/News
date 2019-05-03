@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Team__c</fullName>
+    <externalId>false</externalId>
+    <label>Team</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>TBD</fullName>
+                <default>true</default>
+                <label>TBD</label>
+            </value>
+            <value>
+                <fullName>News Internal</fullName>
+                <default>false</default>
+                <label>News Internal</label>
+            </value>
+            <value>
+                <fullName>Active Directory Security</fullName>
+                <default>false</default>
+                <label>Active Directory Security</label>
+            </value>
+            <value>
+                <fullName>CyberAd Desktop Dev</fullName>
+                <default>false</default>
+                <label>CyberAd Desktop Dev</label>
+            </value>
+            <value>
+                <fullName>Genesys</fullName>
+                <default>false</default>
+                <label>Genesys</label>
+            </value>
+            <value>
+                <fullName>QAS</fullName>
+                <default>false</default>
+                <label>QAS</label>
+            </value>
+            <value>
+                <fullName>WDCi</fullName>
+                <default>false</default>
+                <label>WDCi</label>
+            </value>
+            <value>
+                <fullName>webMethods</fullName>
+                <default>false</default>
+                <label>webMethods</label>
+            </value>
+            <value>
+                <fullName>Marketo</fullName>
+                <default>false</default>
+                <label>Marketo</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opty_Competitor_AtStageClosed</fullName>
+    <active>true</active>
+    <description>Where opty is closed won a competitor is required to be captured.</description>
+    <errorConditionFormula>AND( 
+ISBLANK(Competitor__c),
+
+/* June 2015 Andrew Biernat, Bluewolf- Added Awaiting Bookings*/
+
+OR(IsClosed = TRUE, ISPICKVAL(StageName, &#39;Awaiting Bookings&#39;), ISPICKVAL(StageName, &#39;Reservation&#39;)),
+
+
+  /* Excludes walk-in forecast entry */
+  NOT(OR(
+    CONTAINS (TEXT(Opportunity_Type__c), &#39;Walk&#39;),
+    CONTAINS (TEXT(Opportunity_Type__c), &#39;Self Service&#39;)
+  ))
+)</errorConditionFormula>
+    <errorDisplayField>Competitor__c</errorDisplayField>
+    <errorMessage>Where an opportunity is Awaiting Bookings or Closed Won/Lost, a competitor is required.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,227 @@
+<apex:page StandardController="Action_Plan__c"
+            extensions="NewsXtend_ActionPlan"
+            cache="false"
+            contentType="text/html"
+            standardStylesheets="true"
+            title="NewsXtend Action Plan"
+            docType="html-5.0">            
+
+        <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" loadOnReady="false"/>
+        <!--Updated by Atul Gupta on 2016-01-25 for SFE-817 Remove rules forcing to complete steps in a logical order 
+        <apex:includeScript value="{!URLFOR($Resource.NewsXtend_ActionPlan_JS)}" loadOnReady="false"/>-->
+
+    <head>
+        <link rel="stylesheet" href="{!URLFOR($Resource.NewsXtend_ActionPlan_CSS)}" />
+    </head>
+
+    <apex:form id="theForm">
+        <apex:pageMessages />
+        <apex:actionStatus id="loading-status">
+            <apex:facet name="start">
+                <div id="loading-background"/>
+                <div id="loading">
+                    <div id="loading-content">
+                    <!--div class="spinner"/-->
+                        <div id="loading-msg">
+                            <img src="/img/loading32.gif" style="float: left; margin: 8px;" />
+                            <span style="display: inline-block; padding: 10px 0px;">Please Wait...</span>
+                        </div>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionStatus>
+
+        <apex:sectionHeader title="NewsXtend Action Plan" subtitle="{!actionPlan.Name}"/>
+
+        <apex:pageBlock title="NewsXtend Action Plan Detail">
+            <apex:pageBlockSection columns="2">
+                <apex:inputField value="{!actionPlan.Customer_Type__c}" />
+                <apex:inputField value="{!actionPlan.Action_Plan_Status__c}" />
+                <apex:inputField value="{!actionPlan.State__c}" />
+                <apex:inputField value="{!actionPlan.Action_Plan_Period__c}" required="true" />
+                <apex:pageBlockSectionItem />
+                <apex:inputField value="{!actionPlan.Start_Date__c}" required="true" />
+                <apex:inputField value="{!actionPlan.Go_Live_Date__c}" required="true" />
+                <apex:outputText value="{!actionPlan.CreatedBy.Name} {!actionPlan.CreatedDate}"
+                                    label="Created By" /> 
+                <apex:inputField value="{!actionPlan.End_Date__c}" required="true"/>
+                <apex:outputText value="{!actionPlan.LastModifiedBy.Name} {!actionPlan.LastModifiedDate}" 
+                                    label="Last Modified By" />
+                <apex:outputText />
+                <!-- //SFE-835 2016-02-10 atul.gupta@bluewolfgroup.com owner.name read only field tag added -->
+                <!-- //SFE-835 2016-02-24 darshan.gosar@bluewolfgroup.com ownerId input field is added in place of readonly -->
+                <apex:inputField value="{!actionPlan.OwnerId}" label="Action Plan Owner" />
+
+                <apex:actionRegion >
+                    <apex:pageblock title="Create Action Tasks Wizard" 
+                                    rendered="{!AND( NOT(actionPlan.To_Create_CampMgmt_MonthlyTask__c),
+                                                     NOT(actionPlan.To_Create_CampMgmt_SetupTask__c))}">
+                        <apex:pageBlockSection columns="1">
+                            <apex:selectList value="{!entered_ActionPlanGroup}" size="1" label="Action Plan Group">
+                                <apex:selectOptions value="{!selectOption_ActionPlanGroup}" />
+                            </apex:selectList>
+                            <apex:selectList value="{!entered_ActionPlanSubGroup}" size="1" label="Action Plan Sub Group">
+                                <apex:selectOptions value="{!selectOption_ActionPlanSubGroup}" />
+                            </apex:selectList>
+                        </apex:pageBlockSection>  
+
+                        <apex:pageBlockButtons location="bottom">
+                            <apex:commandButton styleClass="mass-create-tasks-button"
+                                                value="Create Tasks" 
+                                                action="{!click_Mass_Create_Tasks_button}" 
+                                                reRender="theForm"
+                                                status="loading-status" />
+                            <apex:commandButton styleClass="reset-all-tasks-button"
+                                                value="Reset All Month-Month Tasks"
+                                                onClick="click_Reset_All_Month_Month_Tasks_button_JS(); return false;" />
+                            <apex:actionFunction immediate="true"
+                                                    name="click_Reset_All_Month_Month_Tasks_button_SF"
+                                                    reRender="theForm"
+                                                    status="loading-status"
+                                                    action="{!click_Reset_All_Month_Month_Tasks_button}" />                                 
+                            <script>
+                                function click_Reset_All_Month_Month_Tasks_button_JS()
+                                {
+                                    if(confirm("Please confirm to reset all the associate Month-Month Action Task records"))
+                                    {
+                                        click_Reset_All_Month_Month_Tasks_button_SF();
+                                    }
+                                }
+                            </script>                                               
+                        </apex:pageBlockButtons>                        
+                    </apex:pageblock>
+                </apex:actionRegion>
+
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection columns="1">
+            </apex:pageBlockSection>                
+
+            <apex:pageBlockSection columns="1">
+                <apex:pageblock >
+                    <c:NewsXtend_ActionTaskBlock actionTask_List="{!campMgmt_Setup_List}"
+                                                actionTaskGroup="Campaign Management"
+                                                actionTaskSubGroup="Setup Task"
+                                                topController="{!theController}" />
+
+                    <c:NewsXtend_ActionTaskBlock actionTask_List="{!campMgmt_Monthly_List}"
+                                                actionTaskGroup="Campaign Management"
+                                                actionTaskSubGroup="Month-Month Task"
+                                                topController="{!theController}" />
+
+                    <c:NewsXtend_ActionTaskBlock actionTask_List="{!creative_Setup_List}"
+                                                actionTaskGroup="Creative"
+                                                actionTaskSubGroup="Setup Task"
+                                                topController="{!theController}" />
+
+                    <c:NewsXtend_ActionTaskBlock actionTask_List="{!creative_Monthly_List}"
+                                                actionTaskGroup="Creative"
+                                                actionTaskSubGroup="Month-Month Task"
+                                                topController="{!theController}" />
+
+                    <c:NewsXtend_ActionTaskBlock actionTask_List="{!display_Setup_List}"
+                                                actionTaskGroup="Display"
+                                                actionTaskSubGroup="Setup Task"
+                                                topController="{!theController}" />
+
+                    <c:NewsXtend_ActionTaskBlock actionTask_List="{!display_Monthly_List}"
+                                                actionTaskGroup="Display"
+                                                actionTaskSubGroup="Month-Month Task"
+                                                topController="{!theController}" />
+
+                    <c:NewsXtend_ActionTaskBlock actionTask_List="{!sem_Setup_List}"
+                                                actionTaskGroup="SEM"
+                                                actionTaskSubGroup="Setup Task"
+                                                topController="{!theController}" />
+
+                    <c:NewsXtend_ActionTaskBlock actionTask_List="{!sem_Monthly_List}"
+                                                actionTaskGroup="SEM"
+                                                actionTaskSubGroup="Month-Month Task"
+                                                topController="{!theController}" />
+
+                    <c:NewsXtend_ActionTaskBlock actionTask_List="{!seo_Setup_List}"
+                                                actionTaskGroup="SEO"
+                                                actionTaskSubGroup="Setup Task"
+                                                topController="{!theController}" />
+
+                    <c:NewsXtend_ActionTaskBlock actionTask_List="{!seo_Monthly_List}"
+                                                actionTaskGroup="SEO"
+                                                actionTaskSubGroup="Month-Month Task"
+                                                topController="{!theController}" />
+
+                    <c:NewsXtend_ActionTaskBlock actionTask_List="{!social_Setup_List}"
+                                                actionTaskGroup="Social"
+                                                actionTaskSubGroup="Setup Task"
+                                                topController="{!theController}" />
+
+                    <c:NewsXtend_ActionTaskBlock actionTask_List="{!social_Monthly_List}"
+                                                actionTaskGroup="Social"
+                                                actionTaskSubGroup="Month-Month Task"
+                                                topController="{!theController}" />
+
+                    <c:NewsXtend_ActionTaskBlock actionTask_List="{!video_Setup_List}"
+                                                actionTaskGroup="Video"
+                                                actionTaskSubGroup="Setup Task"
+                                                topController="{!theController}" />
+
+                    <c:NewsXtend_ActionTaskBlock actionTask_List="{!video_Monthly_List}"
+                                                actionTaskGroup="Video"
+                                                actionTaskSubGroup="Month-Month Task"
+                                                topController="{!theController}" />
+                </apex:pageBlock>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockButtons >
+                <apex:commandButton styleClass="save-button"
+                                    value="Save" 
+                                    action="{!click_Save_Button}" 
+                                    reRender="theForm"
+                                    status="loading-status" />
+                
+                <apex:commandButton styleClass="save-button"
+                                    value="Delete"
+                                    onClick="click_Delete_button_JS(); return false;" 
+                                    rendered="{!canDelete}"/>
+                
+                <apex:actionFunction immediate="true"
+                                        name="click_Delete_button_SF"
+                                        reRender="theForm"
+                                        status="loading-status"
+                                        action="{!click_Delete_button}" />                                  
+                <script>
+                    function click_Delete_button_JS()
+                    {
+                        if(confirm("Please confirm to delete the current Action Plan and all the associate Action Task records"))
+                        {
+                            click_Delete_button_SF();
+                        }
+                    }
+                </script>
+
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+
+    </apex:form>
+
+    <!-- 2015-07-22 RelatedList has to sit outside of the form tag. -->
+    <apex:pageBlock rendered="{!AND( NOT(actionPlan.To_Create_CampMgmt_MonthlyTask__c),
+                                     NOT(actionPlan.To_Create_CampMgmt_SetupTask__c))}">
+        <apex:RelatedList list="CombinedAttachments" subject="{!actionPlan.Id}"/>
+    </apex:pageBlock>
+
+    <apex:sectionHeader title="Opportunity" subtitle="{!oppName}" />
+    <div id="oppty-block">
+        <apex:pageBlock >
+            <center>
+                <apex:outputLink value="/{!oppId}">Goto Opportunity</apex:outputLink>
+            </center>
+            <apex:detail subject="{!oppId}" relatedList="false" title="false"/>
+            <apex:RelatedList list="CombinedAttachments" subject="{!oppId}"/>
+        </apex:pageBlock>
+    </div>
+
+    <script>
+        // 2015-07-22 disable date picker popup onload
+        function setFocusOnLoad() {}
+    </script>
+</apex:page>

@@ -1,0 +1,19 @@
+<aura:component >
+	<ltng:require
+		scripts="{!join(',', $Resource.ChartJS, $Resource.ChartJSDatalabels)}"
+        styles="{!$Resource.Titillium}"
+        afterScriptsLoaded="{!c.afterScriptsLoaded}" />
+    
+    <aura:attribute type="Integer" name="width"/>
+    <aura:attribute type="Integer" name="height"/>
+    
+    <aura:attribute type="List" name="achieved"/>
+    <aura:attribute type="List" name="ontarget"/>
+    <aura:attribute type="List" name="missing"/>
+    
+    <span>
+        <div class="bubble" style="{!('width: ' + v.width + ';height: ' + v.height + ';')}">
+    		<canvas aura:id="chart" style="width: 100%; height: 100%;"></canvas>
+        </div>
+    </span>
+</aura:component>

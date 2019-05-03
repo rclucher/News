@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Populate_Last_Payment_Schedule_End_Date</fullName>
+        <description>Populate the last end date of last schedule payment to determine if there has been an overpaiment. If this date is higher than End Date</description>
+        <field>Last_Scheduled_End_Date__c</field>
+        <formula>Schedule_End_Date__c</formula>
+        <name>Populate Last Payment Schedule End Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <targetObject>Payment__c</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Last_Payment_Schedule_StartDate</fullName>
+        <field>Last_Scheduled_Start_Date__c</field>
+        <formula>Schedule_Start_Date__c</formula>
+        <name>Populate Last Payment Schedule StartDate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <targetObject>Payment__c</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Sent_To_Billing_Date</fullName>
+        <field>Sent_Date__c</field>
+        <formula>Today()</formula>
+        <name>Populate Sent To Billing Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Status_to_In_Progress</fullName>
+        <field>Status__c</field>
+        <literalValue>In Progress</literalValue>
+        <name>Set Status to In Progress</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Credit_Approved_Checkbox</fullName>
+        <field>Credit_Approved__c</field>
+        <literalValue>1</literalValue>
+        <name>Update Credit Approved Checkbox</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Date_of_Last_Payment</fullName>
+        <field>Date_of_Last_Payment__c</field>
+        <formula>Billing_Date__c</formula>
+        <name>Update Date of Last Payment</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <targetObject>Payment__c</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Payment_Status_to_In_Progress</fullName>
+        <field>Status__c</field>
+        <literalValue>In Progress</literalValue>
+        <name>Update Payment Status to In Progress</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <targetObject>Payment__c</targetObject>
+    </fieldUpdates>
+    <rules>
+        <fullName>Populate Last Payment Schedule End Date on Payment</fullName>
+        <actions>
+            <name>Populate_Last_Payment_Schedule_End_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Populate_Last_Payment_Schedule_StartDate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Payment_Schedule__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Scheduled</value>
+        </criteriaItems>
+        <description>Populate the last end date of last schedule payment to determine if there has been an overpaiment. If this date is higher than End Date</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Populate Sent To Billing Date</fullName>
+        <actions>
+            <name>Populate_Sent_To_Billing_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Payment_Schedule__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Invoiced</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Payment Schedule to In Progress</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Payment_Schedule__c.Schedule_Start_Date__c</field>
+            <operation>greaterThan</operation>
+            <value>9/11/2016</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Payment_Schedule__c.Status__c</field>
+            <operation>notEqual</operation>
+            <value>Cancelled</value>
+        </criteriaItems>
+        <description>Updated by CSP not to activated Cancelled Payment Schedule</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Set_Status_to_In_Progress</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Payment_Schedule__c.Schedule_Start_Date__c</offsetFromField>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Update Date of Last Payment</fullName>
+        <actions>
+            <name>Update_Date_of_Last_Payment</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Payment_Schedule__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Scheduled</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Payment Status to In Progress</fullName>
+        <actions>
+            <name>Update_Payment_Status_to_In_Progress</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Payment__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Pending</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Payment_Schedule__c.Status__c</field>
+            <operation>equals</operation>
+            <value>In Progress</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

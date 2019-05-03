@@ -1,0 +1,282 @@
+<apex:page controller="LeapfrogBooking_Controller" showHeader="false" sidebar="false" standardStylesheets="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">
+    
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        
+        <head>
+            <title>Leapfrog Booking Page</title>
+            <apex:stylesheet value="{!URLFOR($Resource.SLDS203, 'assets/styles/salesforce-lightning-design-system.css')}" />
+            <script type="text/javascript" src="/canvas/sdk/js/33.0/controller.js"></script>
+            <apex:includeScript value="{!$Resource.JQuery}" />
+                <apex:includeScript value="/support/console/30.0/integration.js"/>
+                    <script type="text/javascript">
+                        function create_manage_booking(messageJsonString){
+                        setTimeout(function(){
+                            Sfdc.canvas.controller.publish(
+                                {
+                                    name :'sendAccount',
+                                    payload:{
+                                        message: messageJsonString
+                                    }
+                                }
+                            );
+                        }, 300);
+                    }
+                    
+                    function showMessage(){
+                        alert('fail to load canvas app');
+                    }
+            
+            function openConsoleTab() {
+                // if (sforce.console.isInConsole()) {
+                
+                // sforce.console.getEnclosingTabId(closeSubtab);
+                sforce.console.getEnclosingPrimaryTabId(openSubtab);
+                
+                
+                
+                // sforce.console.openPrimaryTab(null, '/003/e?retURL=', true, 'salesforce', openSuccess, 'salesforceTab');
+                
+                // }
+                // else {
+                //     alert('Please click button in service console');
+                // }
+                
+            }
+            
+            var openSubtab = function openSubtab(result) {
+                //Now that we have the tab ID, 
+                var tabId = result.id;
+                //ND 13/09/17 Replaced the hardcoded custom fields ui id with custom label 
+                //sforce.console.openSubtab(tabId, '/003/e?accid={!Account.Id}&00NO0000000hHtY={!Account.DPID_Primary_Address__c}&00NO0000000hHtT={!Account.DPID_Secondary_Address__c}&con18street={!Account.ShippingStreet}&con18city={!Account.ShippingCity}&con18state={!Account.ShippingState}&con18zip={!Account.ShippingPostalCode}&con18country={!Account.ShippingCountry}', true, 'New Contact', null, openSuccess, 'New Contact');
+                sforce.console.openSubtab(tabId, '/003/e?accid={!Account.Id}&{!$Label.DPID_Primary_Address_Contact_UI_ID}={!Account.DPID_Primary_Address__c}&{!$Label.DPID_Secondary_Address_Contact_UI_ID}={!Account.DPID_Secondary_Address__c}&con18street={!Account.ShippingStreet}&con18city={!Account.ShippingCity}&con18state={!Account.ShippingState}&con18zip={!Account.ShippingPostalCode}&con18country={!Account.ShippingCountry}', true, 'New Contact', null, openSuccess, 'New Contact');
+                
+            };
+            
+            var openSuccess = function openSuccess(result) {
+                //Report whether opening the new tab was successful
+                if (!result.success) {
+                    alert('Primary tab cannot be opened');
+                }
+            };
+            </script>
+        </head>
+        <body>
+            <apex:outputPanel id="pageBody">
+                <apex:outputPanel rendered="{!NOT(hasPermission)}">
+                    <apex:pageMessages />
+                </apex:outputPanel>
+                
+                <apex:outputPanel rendered="{!NOT(hasEmail)}">
+                    <apex:pageMessages />
+                </apex:outputPanel>
+                
+                <apex:outputPanel id="confirmationSection" rendered="{!showConfirmation}">
+                    <div class="slds-page-header" role="banner">
+                        <div class="slds-grid">
+                            <div class="slds-col--padded">
+                                <h1 class="slds-text-heading--medium">Please Confirm Booking Details</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <apex:pageMessages />
+                    
+                    <apex:form id="confirmationForm" styleClass="slds-form--horizontal slds-m-left--xx-large slds-m-right--xx-large slds-m-top--small">
+                        <apex:outputPanel >
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="select-01">Please confirm the sales rep: </label>
+                                <div class="slds-form-element__control">
+                                    <div class="slds-select_container">
+                                        <apex:variable var="count" value="{!0}" />
+                                        <apex:selectList value="{!salesRepId}" multiselect="false" size="1" styleClass="slds-select">
+                                            <apex:selectOption itemValue="" itemLabel="--Select a Sales Rep--"/>
+                                            <!--  -->
+                                            <apex:selectOptions value="{!listOfSalesRepList[0]}" />
+                                            <apex:selectOptions value="{!listOfSalesRepList[1]}" />
+                                            <apex:selectOptions value="{!listOfSalesRepList[2]}" />
+                                        </apex:selectList>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label">Account Name: </label>
+                                <div class="slds-form-element__control">
+                                    <div><apex:outputText value="{!account.Name}"/></div>
+                                </div>
+                            </div>
+                            
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label">Booking System Account: </label>
+                                <div class="slds-form-element__control">
+                                    <div class="slds-select_container">
+                                        <apex:selectList value="{!selectedBookingSystemAccount}" multiselect="false"
+                                                         size="1" styleClass="slds-select">
+                                            <apex:actionSupport event="onchange" status="status" action="{!changeBookingSystemAccount}"
+                                                                reRender="confirmationSection"/>
+                                            <apex:selectOptions value="{!bookingSystemAccountList}" />
+                                        </apex:selectList>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <apex:outputPanel rendered="{!pageAction = 'NEW MODIFY'}">    
+                                <div class="slds-form-element">
+                                    <label class="slds-form-element__label" for="select-01"></label>
+                                    <div class="slds-form-element__control">                    
+                                        
+                                        <apex:commandButton value="New" action="{!newBooking}"                          
+                                                            styleClass="slds-button slds-button--neutral slds-not-selected"
+                                                            status="status"
+                                                            reRender="pageBody"/>
+                                        
+                                        <apex:commandButton value="Modify" action="{!modifyBooking}"                           
+                                                            styleClass="slds-button slds-button--neutral slds-not-selected"
+                                                            status="status"
+                                                            reRender="pageBody"/>
+                                    </div>
+                                </div>                            
+                                
+                            </apex:outputPanel>
+                            
+                            <br/>
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="select-01">Please confirm the contact: </label>
+                                <div class="slds-form-element__control">
+                                    <div class="slds-select_container">
+                                        <apex:selectList value="{!contactId}" multiselect="false" size="1" styleClass="slds-select">
+                                            <apex:selectOptions value="{!contactList}" />
+                                        </apex:selectList>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <br/>
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="select-01"></label>
+                                <div class="slds-form-element__control">
+                                    <apex:commandButton value="Refresh" action="{!refreshContactList}" reRender="pageBody" styleClass="slds-button slds-button--neutral slds-not-selected" status="status"/>
+                                    <!-- <apex:commandButton value="Create a New Contact" onclick="openConsoleTab();" styleClass="slds-button slds-button--neutral slds-not-selected" status="status" reRender="pageBody"/> -->
+                                    <apex:commandButton value="Create a New Contact" onclick="window.open('/003/e?accid={!Account.Id}&{!$Label.DPID_Primary_Address_Contact_UI_ID}={!Account.DPID_Primary_Address__c}&{!$Label.DPID_Secondary_Address_Contact_UI_ID}={!Account.DPID_Secondary_Address__c}&con18street={!Account.ShippingStreet}&con18city={!Account.ShippingCity}&con18state={!Account.ShippingState}&con18zip={!Account.ShippingPostalCode}&con18country={!Account.ShippingCountry}', '_blank');"                           
+                                                        styleClass="slds-button slds-button--neutral slds-not-selected"
+                                                        status="status"
+                                                        reRender="pageBody" rendered="{!NOT(showPayerNewContact)}"/>
+                                    
+                                    <apex:commandButton value="Create a New Contact" onclick="window.open('/003/e?accid={!payerCustomerAccount.Id}&{!$Label.DPID_Primary_Address_Contact_UI_ID}={!payerCustomerAccount.DPID_Primary_Address__c}&{!$Label.DPID_Secondary_Address_Contact_UI_ID}={!payerCustomerAccount.DPID_Secondary_Address__c}&con18street={!payerCustomerAccount.ShippingStreet}&con18city={!payerCustomerAccount.ShippingCity}&con18state={!payerCustomerAccount.ShippingState}&con18zip={!payerCustomerAccount.ShippingPostalCode}&con18country={!payerCustomerAccount.ShippingCountry}', '_blank');"                           
+                                                        styleClass="slds-button slds-button--neutral slds-not-selected"
+                                                        status="status"
+                                                        reRender="pageBody" rendered="{!showPayerNewContact}"/>                                                
+                                    
+                                </div>
+                            </div>
+                        </apex:outputPanel>                                
+                        
+                        <apex:outputPanel rendered="{!pageAction != 'NEW MODIFY'}">
+                            
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label">
+                                    <h3 class="slds-text-heading--small">Post Payment Configuration</h3>
+                                </label>
+                                <div class="slds-form-element__control">
+                                    <span/>
+                                </div>
+                            </div>
+                            <br/>
+                            
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label">Booking Type : </label>
+                                <div class="slds-form-element__control">
+                                    <div class="slds-select_container">
+                                        <apex:selectList value="{!selectedBookingType}" multiselect="false"
+                                                         size="1" styleClass="slds-select">
+                                            <apex:actionSupport event="onchange" status="status" action="{!changeBookingType}"
+                                                                reRender="confirmationSection"/>
+                                            <apex:selectOptions value="{!bookingTypes}" />
+                                        </apex:selectList>
+                                    </div>
+                                </div>
+                            </div>                    
+                            
+                            <apex:outputPanel rendered="{!selectedBookingType == 'Agency'}" id="agency">
+                                <div class="slds-form-element slds-m-top--x-small">
+                                    <label class="slds-form-element__label">Payer Accounts: </label>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-select_container">
+                                            <apex:selectList value="{!selectedPayerAccountId}" multiselect="false"
+                                                             size="1" styleClass="slds-select">
+                                                <apex:actionSupport event="onchange" action="{!refreshGBAList}"
+                                                                    reRender="confirmationSection, confirmationForm" status="status"/>
+                                                <apex:selectOptions value="{!payerList}"/>
+                                            </apex:selectList>
+                                        </div>
+                                    </div>
+                                </div>
+                            </apex:outputPanel>                                        
+                            
+                            <div class="slds-form-element slds-m-top--x-small">
+                                <label class="slds-form-element__label">GBA : </label>
+                                <div class="slds-form-element__control">
+                                    <div class="slds-select_container">
+                                        <apex:selectList value="{!bsaId}" multiselect="false" size="1" styleClass="slds-select">
+                                            <apex:selectOptions value="{!bsaList}" />
+                                        </apex:selectList>
+                                    </div>  
+                                </div>
+                            </div>
+                        </apex:outputPanel>       
+                        
+                        
+                        <apex:outputPanel rendered="{!showAPA}" id="showAPA">
+                             <div class="slds-form-element slds-m-top--x-small">
+                                <label class="slds-form-element__label">APA: </label>
+                                <div class="slds-form-element__control">
+                                    <!--<div style="border: solid 2px #F4F6F8;padding-top: 10px;padding-bottom: 10px;">
+                                        -->
+                                    <div>
+                                        <apex:outputText value="{!apaValue}"/>
+                                    </div>
+                                    <!--</div>-->
+                                </div>
+                            </div>
+                        </apex:outputPanel>
+                        <div class="slds-col--rule-bottom slds-m-top--small slds-m-bottom--small" />
+                        <div style="text-align: center;">
+                            <apex:commandButton value="Confirm" action="{!confirm}" reRender="pageBody,alertMe" styleClass="slds-button slds-button--neutral slds-not-selected" status="status"/>
+                        </div>
+                        
+                        <apex:actionStatus id="status">
+                            <apex:facet name="start">
+                                <div class="slds-spinner_container">
+                                    <div class="slds-spinner--brand slds-spinner slds-spinner--large" aria-hidden="false" role="alert">
+                                        <div class="slds-spinner__dot-a"></div>
+                                        <div class="slds-spinner__dot-b"></div>
+                                    </div>
+                                </div>
+                            </apex:facet>
+                        </apex:actionStatus>
+                    </apex:form>
+                </apex:outputPanel>
+                <apex:outputPanel id="canvasAppSection" >
+                    <apex:canvasApp developerName="{!$Label.LeapfrogAppAPIName}" scrolling="yes" onCanvasAppLoad="create_manage_booking('{!jsonString}')" onCanvasAppError="showMessage" rendered="{!showCanvasApp}" maxWidth="2000px"/>
+                </apex:outputPanel>
+                <!--<apex:outputPanel id="debugSection" rendered="{!CONTAINS($Profile.Name, 'System Administrator')}">
+<br /><p>Debug Section</p>
+<apex:outputText value="jsonString: {!jsonString}" />
+<br /><apex:outputText value="orderId: {!leapfrogBookingId}" />
+<br /><apex:outputText value="bookingAccountId: {!leapfrogBookingAccountId}" />
+<br /><apex:outputText value="actionTypeName: {!actionTypeName}" />
+<br /><apex:outputText value="hasError: {!hasError}" />
+<br /><apex:outputText value="hasPermission: {!hasPermission}" />
+<br /><apex:outputText value="showCanvasApp: {!showCanvasApp}" />
+<br /><apex:outputText value="showConfirmation: {!showConfirmation}" />
+</apex:outputPanel>-->
+            </apex:outputPanel>
+            <apex:outputPanel id="alertMe">
+                <script type="text/javascript">
+                if ({!showAlert}) {
+                    alert('{!alertMessage}');
+                }
+                </script>
+            </apex:outputPanel>
+        </body>
+    </html>
+</apex:page>

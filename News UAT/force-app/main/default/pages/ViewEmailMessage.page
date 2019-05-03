@@ -1,0 +1,75 @@
+<apex:page docType="html-5.0" standardController="EmailMessage" extensions="ViewEmailMessageCtrl" title="Outbound Email Message" action="{!checkEmailMessage}">
+    
+    <script>
+    function showHTMLContent(messageId){
+        var w = window.open("/apex/EmailMessagePreview?Id=" + messageId, "Email Preview", "width=480,height=380,scrollbars=yes,resizable=yes");
+        return false;
+    }
+    </script>
+    
+    
+    <div class="bPageTitle">
+        <div class="ptBody">
+            <div class="content">
+                <img src="/img/icon/mail32.png" alt="Email Message" width="32" height="32" class="pageTitleIcon" title="Email Message"/>
+                <h1 class="noSecondHeader pageType">Outbound Email Message</h1>
+                <div class="blank">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+    </div>
+    <apex:form >
+      <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlock title="Email Message Detail" mode="maindetail">
+          <apex:pageBlockButtons >
+                <apex:commandButton value="Forward to Contact" action="{!sendToContactAndAttachToCase}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="2">
+                <!--                <apex:outputLabel value="Parent Case"></apex:outputLabel>    -->
+                <apex:inputField label="Parent Case" required="true" value="{!parentCase.parentId}"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="3">
+                <apex:pageBlockSectionItem dataStyle="width:1%">
+                    <apex:inputCheckbox value="{!sendToCustom}" label="Contact of my choice"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem dataStyle="width:1%">
+                    <apex:outputLabel value="Contact of my choice"></apex:outputLabel> 
+                    <apex:inputField label="Contact of my choice" value="{!parentCase.contactId}"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="3">
+                <apex:pageBlockSectionItem dataStyle="width:1%">
+                <apex:inputCheckbox value="{!sendToPlacer}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem dataStyle="width:8%">
+                    <apex:outputLabel value="Placer Contact"></apex:outputLabel> 
+                <apex:outputField label="Placer Contact" value="{!relatedBookingRecord.Placer_Contact__c}"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>                
+            <apex:pageBlockSection title="Information" columns="2">
+                <apex:outputField label="Related to" value="{!displayMsg2.RelatedToId}"/>
+                <apex:outputField label="Status" value="{!displayMsg2.Status}"/>            
+                <apex:outputField label="Message Date" value="{!displayMsg2.MessageDate}"/>
+                <apex:outputField label="Last Modified By" value="{!displayMsg2.LastModifiedById}"/>
+                <apex:outputField label="Created By" value="{!displayMsg2.CreatedById}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Address Information" columns="1">                                      
+                <apex:outputField label="From Address" value="{!displayMsg2.FromAddress}"/>
+                <apex:outputField label="From Name" value="{!displayMsg2.FromName}"/>
+                <apex:outputField label="To Address" value="{!displayMsg2.ToAddress}"/>
+                <apex:outputField label="CC Address" value="{!displayMsg2.CcAddress}"/>
+                <apex:outputField label="BCC Address" value="{!displayMsg2.BccAddress}"/>                                    
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Message Content" columns="1">
+                <apex:outputField label="Subject" value="{!displayMsg2.Subject}"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >HTML Body</apex:outputLabel>
+                    <apex:outputLink onclick="showHTMLContent('{!displayMsg2.Id}');return false;">Click here to view HTML version</apex:outputLink>
+                </apex:pageBlockSectionItem>            
+                <apex:outputField label="Text Body" value="{!displayMsg2.TextBody}"/>            
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

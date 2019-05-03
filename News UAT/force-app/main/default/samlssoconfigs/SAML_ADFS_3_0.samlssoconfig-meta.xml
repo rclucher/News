@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SamlSsoConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <identityLocation>SubjectNameId</identityLocation>
+    <identityMapping>FederationId</identityMapping>
+    <issuer>http://fed3.news.net.au/adfs/services/trust</issuer>
+    <loginUrl>https://fed3.news.net.au/adfs/ls/</loginUrl>
+    <name>SAML ADFS 3.0</name>
+    <oauthTokenEndpoint>https://newscorpaustralia--AdSalesUAT.cs31.my.salesforce.com/services/oauth2/token?so=00Dp000000096X8</oauthTokenEndpoint>
+    <redirectBinding>true</redirectBinding>
+    <requestSignatureMethod>0</requestSignatureMethod>
+    <salesforceLoginUrl>https://newscorpaustralia--AdSalesUAT.cs31.my.salesforce.com?so=00Dp000000096X8</salesforceLoginUrl>
+    <samlEntityId>https://newscorpaustralia.my.salesforce.com</samlEntityId>
+    <samlVersion>SAML2_0</samlVersion>
+    <userProvisioning>false</userProvisioning>
+    <validationCert>MIIE4TCCA8mgAwIBAgIQUBLAX7OhDidZEyObRtfjsDANBgkqhkiG9w0BAQsFADBEMQswCQYDVQQGEwJVUzEWMBQGA1UEChMNR2VvVHJ1c3QgSW5jLjEdMBsGA1UEAxMUR2VvVHJ1c3QgU1NMIENBIC0gRzMwHhcNMTUwNjMwMDAwMDAwWhcNMTgwNjI5MjM1OTU5WjBvMQswCQYDVQQGEwJBVTEYMBYGA1UECBMPTmV3IFNvdXRoIFdhbGVzMRQwEgYDVQQHFAtTdXJyeSBIaWxsczEVMBMGA1UEChQMTmV3cyBMaW1pdGVkMRkwFwYDVQQDFBBmZWQzLm5ld3MubmV0LmF1MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3l0frGsl3QzhMSprTvTKWPslg5Doh1xjE4Msj1fkjv2z68a4DkgF/w2gqP5/Q8eOjz21KEEIgvBrGDBz6ouDeY8fS/3Hq0NhAon/lT2i7m8ZOJQi+vUzdt5D5JJj8E4r+a+LT2lYSp3xkGsFch80a1XtxqpJo/jWGZaqBOw1/GSxpvVEAeuXPxbjVVZvalcg0ZOtPDDm4Jr7bSl4jr40nsqAF0V0zoXQ2/Oq85HGbQqfG1UGDBFctX8FX14oQ24z1AeGvVG0RIijaPGg54i2vsY8gTyrlqKZ8SYYxnDJti2u7Cr7ZalxeY1zSjRq1vFjenYTJy6dOKXAlgqtwUVGfQIDAQABo4IBojCCAZ4wGwYDVR0RBBQwEoIQZmVkMy5uZXdzLm5ldC5hdTAJBgNVHRMEAjAAMA4GA1UdDwEB/wQEAwIFoDArBgNVHR8EJDAiMCCgHqAchhpodHRwOi8vZ24uc3ltY2IuY29tL2duLmNybDCBnQYDVR0gBIGVMIGSMIGPBgZngQwBAgIwgYQwPwYIKwYBBQUHAgEWM2h0dHBzOi8vd3d3Lmdlb3RydXN0LmNvbS9yZXNvdXJjZXMvcmVwb3NpdG9yeS9sZWdhbDBBBggrBgEFBQcCAjA1DDNodHRwczovL3d3dy5nZW90cnVzdC5jb20vcmVzb3VyY2VzL3JlcG9zaXRvcnkvbGVnYWwwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMB8GA1UdIwQYMBaAFNJv95b0hT9yPDB9I9qFeJujfFp8MFcGCCsGAQUFBwEBBEswSTAfBggrBgEFBQcwAYYTaHR0cDovL2duLnN5bWNkLmNvbTAmBggrBgEFBQcwAoYaaHR0cDovL2duLnN5bWNiLmNvbS9nbi5jcnQwDQYJKoZIhvcNAQELBQADggEBANw+LUTNgKWm0FRkx4b25OTHbk/LJFqzrHxD8R1RGttzADmaP+8LZfEhFm/Z06RQ5UFGJtTCvD0Es5WSiJmunrosmX/vU9btzwnGavW+DuYIA4Y17HhZwQx2kAkVrMgBHZnmuDDFhBky3//rjLMRsbPdnT8kamCibO3cw63CMQ/cA6Cj9MbJGUnQoDAUtZ9jhArCBZ/7BHv+ObQXUrf4+rfOspXvjcl9mj4qRjLQydoDUv7SHlXSEIYSVL3hBoSXIKVM9M4R42tzSDvolWQYol8jCsp0IEFEupshbC3vo2eWxPqFFuI7GMObUlFrqLbXAagbHd9i3OmkbCwXGwqCX84=</validationCert>
+</SamlSsoConfig>

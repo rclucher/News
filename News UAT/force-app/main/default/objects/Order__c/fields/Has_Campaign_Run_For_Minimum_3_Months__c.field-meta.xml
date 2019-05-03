@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Has_Campaign_Run_For_Minimum_3_Months__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( 
+    TODAY() - Actual_Start_Date__c &lt; 90, 
+    false, 
+    true 
+)</formula>
+    <label>Has Campaign Run For Minimum 3 Months?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

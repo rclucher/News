@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Group_Spend__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>Total Group Spend for the Customer/Agency Hierarchy (this Customer and all below) for all Bookings (YTD)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Total Group Spend for the Customer/Agency Hierarchy (this Customer and all below) for all Bookings (YTD)</inlineHelpText>
+    <label>Total Group Spend</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

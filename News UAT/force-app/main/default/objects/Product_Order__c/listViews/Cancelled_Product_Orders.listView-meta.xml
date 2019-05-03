@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cancelled_Product_Orders</fullName>
+    <columns>NAME</columns>
+    <columns>Assigned_Fulfilment_Owner__c</columns>
+    <columns>Status__c</columns>
+    <columns>Product_Order_End_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Cancelled,Pending For Cancel</value>
+    </filters>
+    <label>Cancelled Product Orders</label>
+</ListView>

@@ -1,0 +1,133 @@
+<apex:page standardController="Case" extensions="Case_AccountInfo"
+            showHeader="false" sidebar="false"
+            title="Account Info"
+            action="{!init}">
+
+    <style>
+    .bPageBlock .pbTitle {width:50%;}
+    /*.bPageBlock .detailList .labelCol {width:40%;}*/
+    </style>
+
+	<apex:includeScript value="/support/console/22.0/integration.js"/>
+	<script type="text/javascript">
+		function openSubtab(url,label,name,openimmediately) 
+		{
+            if(sforce.console.isInConsole())
+            {
+				sforce.console.getEnclosingPrimaryTabId(function(primarytab){
+					sforce.console.openSubtab(primarytab.id , url, openimmediately, label, null, function(result){
+			  			// Report if there is issue to open Subtab
+			            if (result.success == false) 
+			            {
+                            alert('The particular record cannot be opened in the Subtab. (It may be already opened.)');
+			            }
+					}, name);
+				});            	
+            }
+            else
+            {                
+                window.open(url, '_blank');
+            }
+		}
+	</script>	
+
+    <apex:PageMessages id="Pagemessages-Block"/>
+
+    <apex:form rendered="{!caseRecord!=null}">
+    	<apex:pageBlock title="Case Account: {!acct.Name}">
+    		<apex:pageBlockSection columns="2">
+    			<apex:outputField value="{!acct.Name}" />
+    			<apex:outputField value="{!acct.Last_Booking_Number__c}" />
+    			<apex:outputField value="{!acct.RecordType.Name}" label="Record Type"/>
+				<apex:outputField value="{!acct.Owner.Name}" label="Account Owner"/>
+    		</apex:pageBlockSection>
+    	
+    		<apex:pageBlockButtons location="top">
+    			<apex:commandButton value="Change" action="{!changeAccount}" />
+    		</apex:pageBlockButtons>
+    	</apex:pageBlock>
+
+	    <apex:pageblock title="Bookings">
+	        <apex:pageBlockTable value="{!acct.Bookings__r}" var="b" rendered="{!NOT(acct.Bookings__r.Empty)}">
+	            <apex:column headerClass="left" headerValue="Booking #">
+					<apex:outputLink onclick="openSubtab('/{!b.Id}', '{!JSENCODE(b.Name)}', '{!b.Id}', true);return false;">{!b.Name}</apex:outputLink>
+	            </apex:column>
+	            <apex:column headerClass="left" value="{!b.Line_Item_Classifications__c}" />
+				<apex:column headerClass="left" value="{!b.Total_Cost__c}" />				
+				<apex:column headerClass="left" value="{!b.Status__c}" />
+				<apex:column headerClass="left" value="{!b.Ad_Proof_Link__c}" />
+	        </apex:pageBlockTable>
+	        <apex:outputLabel value="No records to display" rendered="{!acct.Bookings__r.Empty}" styleClass="noRowsHeader" />
+	    </apex:pageblock>
+
+	    <apex:pageblock title="Cases">
+	        <apex:pageBlockTable value="{!acct.Cases}" var="c" rendered="{!NOT(acct.Cases.Empty)}">
+				<apex:column headerClass="left" headerValue="Case #">
+					<apex:outputLink onclick="openSubtab('/{!c.Id}', '{!JSENCODE(c.CaseNumber)}', '{!c.Id}', true);return false;" rendered="{!c.Id!=caseRecord.Id}">{!c.CaseNumber}</apex:outputLink>
+					<apex:outputField value="{!c.CaseNumber}" rendered="{!c.Id==caseRecord.Id}" />
+				</apex:column>
+				<apex:column headerClass="left" value="{!c.RecordType.Name}" headerValue="Record Type"/>
+				<apex:column headerClass="left" value="{!c.Status}" />
+				<apex:column headerClass="left" value="{!c.Owner.Name}" headerValue="Owner"/>
+	        </apex:pageBlockTable>
+	        <apex:outputLabel value="No records to display" rendered="{!acct.Cases.Empty}" styleClass="noRowsHeader" />
+	    </apex:pageblock>
+
+	    <apex:pageblock title="Open Activities">
+	        <apex:pageBlockTable value="{!acct.OpenActivities}" var="oa" rendered="{!NOT(acct.OpenActivities.Empty)}">
+				<apex:column headerClass="left" headerValue="Subject">
+					<apex:outputLink onclick="openSubtab('/{!oa.Id}', '{!JSENCODE(oa.Subject)}', '{!oa.Id}', true);return false;">{!oa.Subject}</apex:outputLink>
+				</apex:column>
+				<apex:column headerClass="left" value="{!oa.ActivityType}" />
+				<apex:column headerClass="left" value="{!oa.Owner.Name}" headerValue="Assigned To"/>
+	        </apex:pageBlockTable>
+	        <apex:outputLabel value="No records to display" rendered="{!acct.OpenActivities.Empty}" styleClass="noRowsHeader" />
+	    </apex:pageblock>
+
+	    <apex:pageblock title="Activity Histories">
+	        <apex:pageBlockTable value="{!acct.ActivityHistories}" var="ah" rendered="{!NOT(acct.ActivityHistories.Empty)}">
+				<apex:column headerClass="left" headerValue="Subject">
+					<apex:outputLink onclick="openSubtab('/{!ah.Id}', '{!JSENCODE(ah.Subject)}', '{!ah.Id}', true);return false;">{!ah.Subject}</apex:outputLink>
+				</apex:column>				
+				<apex:column headerClass="left" value="{!ah.ActivityType}" />
+				<apex:column headerClass="left" value="{!ah.Owner.Name}" headerValue="Assigned To"/>
+	        </apex:pageBlockTable>
+	        <apex:outputLabel value="No records to display" rendered="{!acct.ActivityHistories.Empty}" styleClass="noRowsHeader" />
+	    </apex:pageblock>
+
+	    <apex:pageblock title="Active Campaigns of Associated Contacts">
+	        <apex:pageBlockTable value="{!cmList}" var="cm" rendered="{!NOT(cmList.Empty)}">
+				<apex:column headerClass="left" headerValue="Campaign Name">
+					<apex:outputLink onclick="openSubtab('/{!cm.CampaignId}', '{!JSENCODE(cm.Campaign.Name)}', '{!cm.CampaignId}', true);return false;" >{!cm.Campaign.Name}</apex:outputLink>
+				</apex:column>
+				<apex:column headerClass="left" value="{!cm.Campaign.Status}" headerValue="Campaign Status"/>
+				<apex:column headerClass="left" value="{!cm.Contact.Name}" headerValue="Contact Name"/>
+				<apex:column headerClass="left" headerValue="Latest Response">
+					{!cm.Response_Type__c}<br/>
+					{!cm.Response_Sub_Type__c}
+				</apex:column>
+				<apex:column headerClass="left" value="{!cm.LastModifiedDate}" />
+	        </apex:pageBlockTable>
+	        <apex:outputLabel value="No records to display" rendered="{!cmList.Empty}" styleClass="noRowsHeader" />
+	    </apex:pageblock>
+
+	    <apex:pageblock title="Contacts (for {!acct.Name})">
+	        <apex:pageBlockTable value="{!acct.Contacts}" var="ac" rendered="{!NOT(acct.Contacts.Empty)}">
+                <apex:column headerClass="left" headerValue="Action" width="50px">
+                    <apex:commandLink value="Use" rendered="{!NOT(ac.AccountId==null)}" action="{!applySelection}" styleclass="btn" style="text-decoration:none" >
+                        <apex:param name="selectedId" value="{!ac.Id}" />
+                    </apex:commandLink>
+                </apex:column>	        
+				<apex:column headerClass="left" headerValue="Name">
+					<apex:outputLink onclick="openSubtab('/{!ac.Id}', '{!JSENCODE(ac.Name)}', '{!ac.Id}', true);return false;">{!ac.Name}</apex:outputLink>
+				</apex:column>
+				<apex:column headerClass="left" value="{!ac.Phone}" />
+				<apex:column headerClass="left" value="{!ac.Email}" />
+	        </apex:pageBlockTable>
+	        <apex:pageBlockButtons location="top"><apex:commandButton value="New" action="{!createNewContact}" rendered="{!NOT(acct.IsPersonAccount)}"/></apex:pageBlockButtons>
+	        <apex:outputLabel value="No records to display" rendered="{!acct.Contacts.Empty}" styleClass="noRowsHeader" />
+	    </apex:pageblock>
+
+    </apex:form>
+
+</apex:page>

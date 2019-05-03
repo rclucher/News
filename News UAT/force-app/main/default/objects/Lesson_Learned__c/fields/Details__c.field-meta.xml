@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Details__c</fullName>
+    <description>Long text area field that outlines the detailed description of the lesson learned. Includes any initial thoughts on how to tackle this item</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Long text area field that outlines the detailed description of the lesson learned. Includes any initial thoughts on how to tackle this item</inlineHelpText>
+    <label>Details</label>
+    <length>32000</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

@@ -1,0 +1,3 @@
+<design:component >
+	<design:attribute name="config" label="List View Config" required="true" datasource="apex://AT_ListView"/>    
+</design:component>

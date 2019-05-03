@@ -1,0 +1,101 @@
+.THIS .slds-form-element__control {
+    width: 100%;
+}
+
+.THIS .slds-form-element__label {
+    display: none;
+}
+
+.THIS .icon-box {
+    background: #0070D2;
+    padding: 4px;
+    border-radius: 2px;
+    line-height: 1rem;
+}
+
+.THIS .knowledge-icon {
+    line-height: 1rem;
+}
+
+.THIS .knowledge-title {
+    font-weight: bold;
+}
+
+.THIS .blue {
+    background: #0070D2;
+    border-radius: 2px;
+}
+
+.THIS .article-button {
+    text-align: left;
+    line-height: 1em;
+}
+
+/******/
+
+.THIS .knowledge-document {
+    background-color: blue;
+    padding: 3px;
+    line-height: 1rem;
+    margin-right: 4px;
+}
+.THIS .knowledge-spreadsheet {
+    background-color: green;
+    padding: 3px;
+    line-height: 1rem;
+    margin-right: 4px;
+}
+.THIS .knowledge-presentation {
+    background-color: red;
+    padding: 3px;
+    line-height: 1rem;
+    margin-right: 4px;
+}
+.THIS .knowledge-image {
+    background-color: orange;
+    padding: 3px;
+    line-height: 1rem;
+    margin-right: 4px;
+}
+.THIS .knowledge-video {
+    background-color: purple;
+    padding: 3px;
+    line-height: 1rem;
+    margin-right: 4px;
+}
+.THIS .knowledge-other {
+    background-color: grey;
+    padding: 3px;
+    line-height: 1rem;
+    margin-right: 4px;
+}
+
+.THIS table.knowledge {
+    margin-top: 2px;
+}
+
+.THIS table.knowledge td {
+    vertical-align: top;
+    padding-top: 10px;
+    padding-bottom: 4px;
+}
+
+.THIS table.knowledge tr.oddRow {
+
+}
+
+.THIS table.knowledge tr.evenRow {
+    background-color: #eee;
+}
+
+.THIS table.knowledge tr {
+    border-bottom: 1px solid #aaa;
+}
+
+.THIS table.knowledge tr.lastRow {
+    border: 0px;
+}
+
+.THIS span.highlight {
+    background-color: #ffff00;
+}

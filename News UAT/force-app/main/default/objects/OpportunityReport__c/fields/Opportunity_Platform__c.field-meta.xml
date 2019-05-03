@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Platform__c</fullName>
+    <externalId>false</externalId>
+    <label>Opportunity Platform</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Digital</fullName>
+                <default>false</default>
+                <label>Digital</label>
+            </value>
+            <value>
+                <fullName>Inserts</fullName>
+                <default>false</default>
+                <label>Inserts</label>
+            </value>
+            <value>
+                <fullName>NewsXtend</fullName>
+                <default>false</default>
+                <label>NewsXtend</label>
+            </value>
+            <value>
+                <fullName>Newspaper</fullName>
+                <default>false</default>
+                <label>Newspaper</label>
+            </value>
+            <value>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+                <label>Magazine</label>
+            </value>
+            <value>
+                <fullName>Press</fullName>
+                <default>false</default>
+                <label>Press</label>
+            </value>
+            <value>
+                <fullName>Print</fullName>
+                <default>false</default>
+                <label>Print</label>
+            </value>
+            <value>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+                <label>Mobile</label>
+            </value>
+            <value>
+                <fullName>Integrated</fullName>
+                <default>false</default>
+                <label>Integrated</label>
+            </value>
+            <value>
+                <fullName>NIMS</fullName>
+                <default>false</default>
+                <label>NIMS</label>
+            </value>
+            <value>
+                <fullName>Print and Digital</fullName>
+                <default>false</default>
+                <label>Print and Digital</label>
+            </value>
+            <value>
+                <fullName>Print only</fullName>
+                <default>false</default>
+                <label>Print only</label>
+            </value>
+            <value>
+                <fullName>Digital only</fullName>
+                <default>false</default>
+                <label>Digital only</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

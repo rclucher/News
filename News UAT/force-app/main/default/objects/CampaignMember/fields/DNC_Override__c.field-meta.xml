@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DNC_Override__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>For Campaign Leads and Coordinators - override DNC and display a Member in the Console List</description>
+    <externalId>false</externalId>
+    <inlineHelpText>For Campaign Leads and Coordinators - override DNC and display a Member in the Console List</inlineHelpText>
+    <label>DNC Override</label>
+    <type>Checkbox</type>
+</CustomField>

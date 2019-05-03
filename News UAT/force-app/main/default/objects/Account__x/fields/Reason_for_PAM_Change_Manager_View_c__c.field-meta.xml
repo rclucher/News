@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_for_PAM_Change_Manager_View_c__c</fullName>
+    <externalDeveloperName>Reason_for_PAM_Change_Manager_View__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Reason for PAM Change - Manager</label>
+    <required>false</required>
+    <type>TextArea</type>
+</CustomField>

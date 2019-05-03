@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Change_Digital_Account</fullName>
+    <active>true</active>
+    <description>User cannot change contact&#39;s digital account to non-digital account</description>
+    <errorConditionFormula>AND(
+ISCHANGED( AccountId ), NOT(ISPICKVAL(Account.Digital_Status__c, &#39;Active&#39;)),
+ISPICKVAL(Digital_Status__c, &#39;Active&#39;)
+)</errorConditionFormula>
+    <errorMessage>The associated account is not yet a digital customer. Please make the new account a digital media customer before updating the contact</errorMessage>
+</ValidationRule>

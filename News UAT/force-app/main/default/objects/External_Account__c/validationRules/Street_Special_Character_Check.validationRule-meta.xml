@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Street_Special_Character_Check</fullName>
+    <active>true</active>
+    <description>check if street contains special characters</description>
+    <errorConditionFormula>AND(NOT(REGEX(Street__c, &quot;^[\\x20-\\x7E]*$&quot;)),NOT( $User.FirstName +&#39; &#39;+ $User.LastName = &#39;Data Services&#39;))</errorConditionFormula>
+    <errorMessage>Please remove special characters from Street field.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Use_Case__c</fullName>
+    <description>Narrative in business terms of how the requirement may be applied.  This information could be later used for test scripts and training materials.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Narrative in business terms of how the requirement may be applied.  This information could be later used for test scripts and training materials.</inlineHelpText>
+    <label>Use Case</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

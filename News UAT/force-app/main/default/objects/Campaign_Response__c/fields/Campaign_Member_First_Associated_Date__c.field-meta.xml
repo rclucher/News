@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Campaign_Member_First_Associated_Date__c</fullName>
+    <description>Value that holds the Campaign Member&#39;s creation date.</description>
+    <externalId>false</externalId>
+    <label>Campaign Member First Associated Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

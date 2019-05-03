@@ -1,0 +1,37 @@
+<apex:page showHeader="false" sidebar="false">
+    <script src="/support/console/32.0/integration.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function refreshPrimaryTab() 
+        {
+			//First find the ID of the current primary tab then Refresh it
+			sforce.console.getEnclosingPrimaryTabId(refreshPrimaryTabById);
+        }
+        
+        function refreshPrimaryTabById(result) 
+        {
+            //Now that we have the primary tab ID
+            var tabId = result.id;
+            sforce.console.refreshPrimaryTabById(tabId, true, null)
+        };
+    </script> 
+    
+    <!-- The purpose of this Visualforce Page is to act as a place holder for successful DML operation.
+			Once this page is loaded, it will refresh the Primary Tab of the Service Cloud console.-->
+    <br/>
+    <br/>
+    <center> 
+		<h1>Saving...</h1>
+		<br/>
+		<br/>
+		<apex:image url="/img/loading.gif" />
+	</center>		
+     
+	<script>
+		// when this page is loaded, refresh the Primary Tab
+		window.onload = function()
+		{
+			refreshPrimaryTab();
+		}		
+	</script>
+	
+</apex:page>

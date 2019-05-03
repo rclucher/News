@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SalesRoles</fullName>
+    <active>true</active>
+    <description>Record Type to display Roles for the Sales team</description>
+    <label>SalesRoles</label>
+    <picklistValues>
+        <picklist>Role__c</picklist>
+        <values>
+            <fullName>Agency Contact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Is Employed by Multiple Businesses</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other Association</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

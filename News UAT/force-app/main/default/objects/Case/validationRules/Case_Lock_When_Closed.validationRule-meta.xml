@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Lock_When_Closed</fullName>
+    <active>true</active>
+    <description>When Marked as Wrap Up this will lock Case fields from edit.
+28/10/13 AS - Removed case lock unlike task lock if wrapped up. Wrap Up checkbox is not visible on the case and thus never gets activated.</description>
+    <errorConditionFormula>AND(
+ Wrap_Up__c = true,
+ ISPICKVAL(Status,&quot;Closed&quot;),
+ OR(
+  ISCHANGED(Origin) ,
+  ISCHANGED(Type),
+  ISCHANGED(Sub_Type__c),
+  ISCHANGED(Sub_Status__c ),
+  ISCHANGED(Subject) ,
+  ISCHANGED(Severity__c),
+  ISCHANGED(Sales_Order__c),
+  ISCHANGED(Priority),
+  ISCHANGED(Opportunity__c),
+  ISCHANGED(Origin),
+  ISCHANGED(OwnerId),
+  AND(ISCHANGED(Status),
+   ISPICKVAL(Status, &quot;&lt;&gt; Closed&quot;)
+  ),
+   ISCHANGED( Wrap_Up_Reason__c ),
+   ISCHANGED(AccountId),
+   ISCHANGED(Booking__c),
+   ISCHANGED(Date_Time_Due__c),
+   ISCHANGED(ContactId),
+   ISCHANGED(OwnerId),
+   ISCHANGED( Sales_Order__c ),
+   ISCHANGED( Description )
+  ),
+ /* dont really need an AND statement, however looks neater. ;) */
+ AND(
+  NOT CONTAINS($Profile.Name, &#39;System Administrator&#39;),
+  NOT CONTAINS($Profile.Name, &#39;IT Administrator&#39;),
+  NOT CONTAINS($Profile.Name, &#39;Integration&#39;)
+ )
+)</errorConditionFormula>
+    <errorMessage>This Case is marked as Wrap Up and is Closed. It cannot be changed. Please create a new Task against the Case if necessary.</errorMessage>
+</ValidationRule>

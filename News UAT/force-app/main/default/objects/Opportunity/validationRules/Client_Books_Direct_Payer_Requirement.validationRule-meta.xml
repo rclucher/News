@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Client_Books_Direct_Payer_Requirement</fullName>
+    <active>true</active>
+    <description>If Customer Books Direct field equals &quot;No&quot;, then Payer account field become mandatory.</description>
+    <errorConditionFormula>AND(
+ISBLANK( Payer_Account__c ) = TRUE,
+OR(
+TEXT( Customer_Books_Direct__c ) = &quot;No&quot; )  )</errorConditionFormula>
+    <errorDisplayField>Payer_Account__c</errorDisplayField>
+    <errorMessage>Payer Account field is required if the customer does not book direct. Please complete Payer account field.</errorMessage>
+</ValidationRule>

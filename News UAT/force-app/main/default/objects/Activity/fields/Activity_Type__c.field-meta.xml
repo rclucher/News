@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Activity_Type__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>&#39;Type&#39; field cannot be used in workflows or formulas therefore field created to allow reporting.
+Workflow rules will update this field. This field does not need to be displayed on screen.</inlineHelpText>
+    <label>Activity Type</label>
+    <length>200</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

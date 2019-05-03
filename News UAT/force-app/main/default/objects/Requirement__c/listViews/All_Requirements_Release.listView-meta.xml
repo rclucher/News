@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Requirements_Release</fullName>
+    <columns>NAME</columns>
+    <columns>High_Level_Requirement__c</columns>
+    <columns>Functional_Requirement__c</columns>
+    <columns>Developer_Complete_Date__c</columns>
+    <columns>Release_SIT1__c</columns>
+    <columns>Release_UAT1__c</columns>
+    <columns>Release_PROD__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Ready For Test</value>
+    </filters>
+    <label>All Requirements - Release</label>
+</ListView>

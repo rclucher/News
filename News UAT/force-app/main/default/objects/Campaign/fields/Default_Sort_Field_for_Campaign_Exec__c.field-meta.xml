@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Default_Sort_Field_for_Campaign_Exec__c</fullName>
+    <description>2015-05 UserStory16.3. The picklist values are referenced in Campaign Execution page.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Define the Default Sorting Field for Campaign Execution page.</inlineHelpText>
+    <label>Default Sort Field for Campaign Exec</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Name</fullName>
+                <default>false</default>
+                <label>Name</label>
+            </value>
+            <value>
+                <fullName>Last Booking Value</fullName>
+                <default>false</default>
+                <label>Last Booking Value</label>
+            </value>
+            <value>
+                <fullName>CompanyOrAccount</fullName>
+                <default>false</default>
+                <label>CompanyOrAccount</label>
+            </value>
+            <value>
+                <fullName>Execution Status</fullName>
+                <default>false</default>
+                <label>Execution Status</label>
+            </value>
+            <value>
+                <fullName>Status</fullName>
+                <default>false</default>
+                <label>Status</label>
+            </value>
+            <value>
+                <fullName>Call Back Date</fullName>
+                <default>false</default>
+                <label>Call Back Date</label>
+            </value>
+            <value>
+                <fullName>Locked By</fullName>
+                <default>false</default>
+                <label>Locked By</label>
+            </value>
+            <value>
+                <fullName>Age in List</fullName>
+                <default>true</default>
+                <label>Age in List</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

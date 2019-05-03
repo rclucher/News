@@ -1,0 +1,163 @@
+<!--
+History:
+05-10-2018: Mohsin Ali
+Added extensible="true" in aura:component Line
+Reference: Jira: NR-1532
+This is to display the same lightning component in Classic againt Account Hierarchy.
+-->
+<aura:component extensible="true" controller="AT_AccountHierarchy" implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute type="String" name="type"/>
+    
+    <aura:attribute type="Object" name="accounts"/>
+    <aura:attribute type="List" name="columns"/>
+    
+    <aura:attribute type="Object" name="consortium"/>
+    <aura:attribute type="Object" name="agency"/>
+    
+    <aura:attribute type="Boolean" name="loading" default="true"/>
+    
+    <aura:if isTrue="{!v.loading}">
+        <lightning:spinner variant="brand" size="large"/>
+        
+        <aura:set attribute="else">
+            
+            <aura:if isTrue="{!v.type == 'agency'}">
+                <div class="slds-page-header">
+                  <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate">
+                      <div class="slds-media slds-no-space slds-grow">
+                        <div class="slds-media__figure">
+                          <span class="slds-icon_container slds-icon-standard-account" title="{!v.consortium.name}">
+                              <lightning:icon iconName="standard:account"/>
+                          </span>
+                        </div>
+                        <div class="slds-media__body">
+                          <nav>
+                            <ol class="slds-breadcrumb slds-line-height_reset">
+                              <li class="slds-breadcrumb__item">
+                                <span>Consortium</span>
+                              </li>
+                            </ol>
+                          </nav>
+                          <h1 class="slds-page-header__title slds-p-right_x-small">
+                            <a href="{!'/lightning/r/Account/' + v.consortium.id + '/view'}" class="slds-button slds-button_reset slds-type-focus slds-truncate" title="{!v.consortium.name}">
+                              <span class="slds-grid slds-has-flexi-truncate slds-grid_vertical-align-center">
+                                <span class="consortiumLink" title="{!v.consortium.name}">{!v.consortium.name}</span>
+                              </span>
+                            </a>
+                          </h1>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="slds-col slds-no-flex slds-grid slds-align-top slds-p-bottom_xx-small">
+                      <div class="slds-button-group" role="group">
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br/>
+            </aura:if>
+
+            <aura:if isTrue="{!or(v.type == 'consortium', v.type == 'agency')}">
+                <aura:iteration items = "{!v.accounts}" var = "agency">
+                    
+                    <article class="slds-card" style="border: 1px solid rgb(216, 216, 216);">
+                      <div class="slds-card__header slds-grid">
+                        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                          <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-standard-account" title="{!agency.label}">
+                              <lightning:icon iconName="standard:account" size="small"/>
+                            </span>
+                          </div>
+                          <div class="slds-media__body">
+                            <h2>
+                                <b><lightning:formattedUrl value="{!agency.href}" label="{!agency.label}"/></b>
+                            </h2>
+                          </div>
+                        </header>
+                        <div class="slds-no-flex">
+                            Current FY Spend: $<lightning:formattedNumber value="{!agency.spend}" maximumFractionDigits="0"/>
+                        </div>
+                      </div>
+                      <div class="slds-card__body slds-card__body_inner" style = "padding: 0px;">
+                          <lightning:treeGrid hideCheckboxColumn="true" columns="{!v.columns}" data="{!agency.items}" expandedRows="{!agency.expandedRows}" keyField="name"/>
+                      </div>
+                    </article>
+                    <br/>
+                    
+                </aura:iteration>
+            </aura:if>
+            
+            <!--aura:if isTrue="{!v.type == 'agency'}">
+                <lightning:tree items="{!v.accounts}"/ >
+                <aura:iteration items = "v.accounts" var = "agency">
+                    
+                    <article class="slds-card" style="border: 1px solid #bbb;">
+                      <div class="slds-card__header slds-grid">
+                        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                          <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-standard-account" title="{!agency.label}">
+                              <lightning:icon iconName="standard:account" size="small"/>
+                            </span>
+                          </div>
+                          <div class="slds-media__body">
+                            <h2>
+                                <b><lightning:formattedUrl value="{!agency.href}" label="{!agency.label}"/></b>
+                            </h2>
+                          </div>
+                        </header>
+                        <div class="slds-no-flex">
+                            Current FY Spend: $<lightning:formattedNumber value="{!agency.spend}" maximumFractionDigits="0"/>
+                        </div>
+                      </div>
+                      <div class="slds-card__body slds-card__body_inner" style = "padding: 0px;">
+                          <lightning:treeGrid hideCheckboxColumn="true" columns="{!v.columns}" data="{!agency.items}" expandedRows="{!agency.expandedRows}" keyField="name"/>
+                      </div>
+                    </article>
+                    <br/>
+                    
+                </aura:iteration>
+            </aura:if -->
+            
+            <aura:if isTrue="{!v.type == 'client'}">
+                <aura:iteration items = "{!v.accounts}" var = "consortium">
+                    
+                    <article class="slds-card" style="border: 1px solid rgb(216, 216, 216);">
+                      <div class="slds-card__header slds-grid">
+                        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                          <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-standard-account" title="{!consortium.label}">
+                              <lightning:icon iconName="standard:account" size="small"/>
+                            </span>
+                          </div>
+                          <div class="slds-media__body">
+                            <h2>
+                                <b>
+                                    <aura:if isTrue="{!(consortium.label != null)}">
+                                    	<lightning:formattedUrl value="{!consortium.href}" label="{!consortium.label}"/>
+                                        <aura:set attribute="else">
+                                        	<i>No consortium</i>
+                                        </aura:set>
+                                    </aura:if>
+                                </b>
+                            </h2>
+                          </div>
+                        </header>
+                        <div class="slds-no-flex">
+                            
+                        </div>
+                      </div>
+                      <div class="slds-card__body slds-card__body_inner" style = "padding: 0px;">
+                          <lightning:datatable hideCheckboxColumn="true" columns="{!v.columns}" data="{!consortium.items}" keyField="name"/>
+                      </div>
+                    </article>
+                    <br/>
+                    
+                </aura:iteration>
+            </aura:if>
+        </aura:set>
+    </aura:if>
+</aura:component>

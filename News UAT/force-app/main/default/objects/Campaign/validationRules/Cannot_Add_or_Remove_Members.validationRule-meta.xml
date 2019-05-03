@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_Add_or_Remove_Members</fullName>
+    <active>false</active>
+    <description>Standard Users are not allowed to add or remove campaign members</description>
+    <errorConditionFormula>AND(
+  NOT(OR(
+   $Profile.Name = &#39;News Campaign Coordinator&#39;,
+   $Profile.Name = &#39;News Project Team Member&#39;,
+    CONTAINS($Profile.Name,&#39;Admin&#39;),
+    $Profile.Name = &#39;News Integration&#39;)),
+ ISCHANGED(Total_Acquisition_Members_to_Call__c))</errorConditionFormula>
+    <errorMessage>You are not allowed to add or remove Campaign Members.</errorMessage>
+</ValidationRule>

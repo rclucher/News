@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Opportunity Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Brief</fullName>
+                <default>false</default>
+                <label>Brief</label>
+            </value>
+            <value>
+                <fullName>Historical</fullName>
+                <default>false</default>
+                <label>Historical</label>
+            </value>
+            <value>
+                <fullName>Late Space</fullName>
+                <default>false</default>
+                <label>Late Space</label>
+            </value>
+            <value>
+                <fullName>Multi-Channel</fullName>
+                <default>false</default>
+                <label>Multi-Channel</label>
+            </value>
+            <value>
+                <fullName>Proactive</fullName>
+                <default>false</default>
+                <label>Proactive</label>
+            </value>
+            <value>
+                <fullName>Promotions</fullName>
+                <default>false</default>
+                <label>Promotions</label>
+            </value>
+            <value>
+                <fullName>Self Service</fullName>
+                <default>false</default>
+                <label>Self Service</label>
+            </value>
+            <value>
+                <fullName>Target</fullName>
+                <default>false</default>
+                <label>Target</label>
+            </value>
+            <value>
+                <fullName>Walk-In</fullName>
+                <default>false</default>
+                <label>Walk-In</label>
+            </value>
+            <value>
+                <fullName>Walk-In Forecast</fullName>
+                <default>false</default>
+                <label>Walk-In Forecast</label>
+            </value>
+            <value>
+                <fullName>NLM Proactive</fullName>
+                <default>false</default>
+                <label>NLM Proactive</label>
+            </value>
+            <value>
+                <fullName>NLM Brief</fullName>
+                <default>false</default>
+                <label>NLM Brief</label>
+            </value>
+            <value>
+                <fullName>Trade Marketing</fullName>
+                <default>false</default>
+                <label>Trade Marketing</label>
+            </value>
+            <value>
+                <fullName>Management</fullName>
+                <default>false</default>
+                <label>Management</label>
+            </value>
+            <value>
+                <fullName>NLM Trade Marketing</fullName>
+                <default>false</default>
+                <label>NLM Trade Marketing</label>
+            </value>
+            <value>
+                <fullName>NLM Management</fullName>
+                <default>false</default>
+                <label>NLM Management</label>
+            </value>
+            <value>
+                <fullName>ADM/ASM Referral</fullName>
+                <default>false</default>
+                <label>ADM/ASM Referral</label>
+            </value>
+            <value>
+                <fullName>Existing customer - new business</fullName>
+                <default>false</default>
+                <label>Existing customer - new business</label>
+            </value>
+            <value>
+                <fullName>Existing customer - renewal</fullName>
+                <default>false</default>
+                <label>Existing customer - renewal</label>
+            </value>
+            <value>
+                <fullName>New customer</fullName>
+                <default>false</default>
+                <label>New customer</label>
+            </value>
+            <value>
+                <fullName>Transactional YoY</fullName>
+                <default>false</default>
+                <label>Transactional YoY</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Set_Normal_Priority</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Set Normal Priority</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/31.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/31.0/apex.js&quot;)} 
+
+
+var result = sforce.apex.execute(&quot;CS_OrchestratorPriorityControl&quot;,&quot;setOrchestratorPriorityCampaign&quot;,{campaignId:&quot;{!Order__c.Id}&quot;, priority:&quot;2 - Normal&quot;}); 
+
+window.location.reload();
+
+alert(result);</url>
+</WebLink>

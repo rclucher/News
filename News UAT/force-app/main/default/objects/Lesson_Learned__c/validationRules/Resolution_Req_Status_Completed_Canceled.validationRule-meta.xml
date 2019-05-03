@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resolution_Req_Status_Completed_Canceled</fullName>
+    <active>true</active>
+    <description>Resolution is Required if Status Equals Completed or Canceled</description>
+    <errorConditionFormula>AND (OR (ISPICKVAL(Status__c, &quot;Completed&quot;),
+ISPICKVAL(Status__c, &quot;Canceled&quot;)),
+ISBLANK(Resolution__c))</errorConditionFormula>
+    <errorDisplayField>Resolution__c</errorDisplayField>
+    <errorMessage>Resolution is Required if Status Equals &quot;Completed&quot; or &quot;Canceled&quot;</errorMessage>
+</ValidationRule>

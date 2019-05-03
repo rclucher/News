@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Campaign_Dates_Required</fullName>
+    <active>true</active>
+    <description>Provide a Start and End Date for the Campaign. Drives Launch and End Reminder to the Lead for the Campaign</description>
+    <errorConditionFormula>AND(
+  ISPICKVAL(Status, &quot;Launched&quot;),
+  OR(
+    ISNULL(EndDate),
+    ISNULL(StartDate)
+  )
+)</errorConditionFormula>
+    <errorDisplayField>StartDate</errorDisplayField>
+    <errorMessage>Please provide the Campaign Start and End Dates</errorMessage>
+</ValidationRule>

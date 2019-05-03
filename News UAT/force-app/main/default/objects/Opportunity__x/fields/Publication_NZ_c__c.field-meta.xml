@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Publication_NZ_c__c</fullName>
+    <externalDeveloperName>Publication_NZ__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Publication NZ</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New Zealand Herald</fullName>
+                <default>false</default>
+                <label>New Zealand Herald</label>
+            </value>
+            <value>
+                <fullName>Canvas Magazine</fullName>
+                <default>false</default>
+                <label>Canvas Magazine</label>
+            </value>
+            <value>
+                <fullName>The Business</fullName>
+                <default>false</default>
+                <label>The Business</label>
+            </value>
+            <value>
+                <fullName>My Generation</fullName>
+                <default>false</default>
+                <label>My Generation</label>
+            </value>
+            <value>
+                <fullName>Element</fullName>
+                <default>false</default>
+                <label>Element</label>
+            </value>
+            <value>
+                <fullName>Timeout</fullName>
+                <default>false</default>
+                <label>Timeout</label>
+            </value>
+            <value>
+                <fullName>NZ Online Employ</fullName>
+                <default>false</default>
+                <label>NZ Online Employ</label>
+            </value>
+            <value>
+                <fullName>NZH Online General</fullName>
+                <default>false</default>
+                <label>NZH Online General</label>
+            </value>
+            <value>
+                <fullName>Herald On Sunday</fullName>
+                <default>false</default>
+                <label>Herald On Sunday</label>
+            </value>
+            <value>
+                <fullName>Sunday Detours</fullName>
+                <default>false</default>
+                <label>Sunday Detours</label>
+            </value>
+            <value>
+                <fullName>The Aucklander</fullName>
+                <default>false</default>
+                <label>The Aucklander</label>
+            </value>
+            <value>
+                <fullName>View</fullName>
+                <default>false</default>
+                <label>View</label>
+            </value>
+            <value>
+                <fullName>Sunday Homes</fullName>
+                <default>false</default>
+                <label>Sunday Homes</label>
+            </value>
+            <value>
+                <fullName>Listener</fullName>
+                <default>false</default>
+                <label>Listener</label>
+            </value>
+            <value>
+                <fullName>Creme</fullName>
+                <default>false</default>
+                <label>Creme</label>
+            </value>
+            <value>
+                <fullName>Womans Weekly</fullName>
+                <default>false</default>
+                <label>Womans Weekly</label>
+            </value>
+            <value>
+                <fullName>Simply You</fullName>
+                <default>false</default>
+                <label>Simply You</label>
+            </value>
+            <value>
+                <fullName>Simply You Living</fullName>
+                <default>false</default>
+                <label>Simply You Living</label>
+            </value>
+            <value>
+                <fullName>Bay of Plenty Times</fullName>
+                <default>false</default>
+                <label>Bay of Plenty Times</label>
+            </value>
+            <value>
+                <fullName>BOP Property Guide</fullName>
+                <default>false</default>
+                <label>BOP Property Guide</label>
+            </value>
+            <value>
+                <fullName>Indulge (ex TVT)</fullName>
+                <default>false</default>
+                <label>Indulge (ex TVT)</label>
+            </value>
+            <value>
+                <fullName>Country News</fullName>
+                <default>false</default>
+                <label>Country News</label>
+            </value>
+            <value>
+                <fullName>Bay News</fullName>
+                <default>false</default>
+                <label>Bay News</label>
+            </value>
+            <value>
+                <fullName>Te Puke Times</fullName>
+                <default>false</default>
+                <label>Te Puke Times</label>
+            </value>
+            <value>
+                <fullName>Katikati Advertiser</fullName>
+                <default>false</default>
+                <label>Katikati Advertiser</label>
+            </value>
+            <value>
+                <fullName>Waihi Leader</fullName>
+                <default>false</default>
+                <label>Waihi Leader</label>
+            </value>
+            <value>
+                <fullName>Coastal News</fullName>
+                <default>false</default>
+                <label>Coastal News</label>
+            </value>
+            <value>
+                <fullName>BOP Special Pubs</fullName>
+                <default>false</default>
+                <label>BOP Special Pubs</label>
+            </value>
+            <value>
+                <fullName>BOP OnlinePubs</fullName>
+                <default>false</default>
+                <label>BOP OnlinePubs</label>
+            </value>
+            <value>
+                <fullName>Hamilton News</fullName>
+                <default>false</default>
+                <label>Hamilton News</label>
+            </value>
+            <value>
+                <fullName>Te Awamutu Courier</fullName>
+                <default>false</default>
+                <label>Te Awamutu Courier</label>
+            </value>
+            <value>
+                <fullName>Daily Post</fullName>
+                <default>false</default>
+                <label>Daily Post</label>
+            </value>
+            <value>
+                <fullName>RDP Real Estate Tab</fullName>
+                <default>false</default>
+                <label>RDP Real Estate Tab</label>
+            </value>
+            <value>
+                <fullName>TV Guide</fullName>
+                <default>false</default>
+                <label>TV Guide</label>
+            </value>
+            <value>
+                <fullName>Weekender</fullName>
+                <default>false</default>
+                <label>Weekender</label>
+            </value>
+            <value>
+                <fullName>ThermalAir</fullName>
+                <default>false</default>
+                <label>ThermalAir</label>
+            </value>
+            <value>
+                <fullName>Eastern Bay News</fullName>
+                <default>false</default>
+                <label>Eastern Bay News</label>
+            </value>
+            <value>
+                <fullName>Rotorua Special Pubs</fullName>
+                <default>false</default>
+                <label>Rotorua Special Pubs</label>
+            </value>
+            <value>
+                <fullName>Rotorua Online Pubs</fullName>
+                <default>false</default>
+                <label>Rotorua Online Pubs</label>
+            </value>
+            <value>
+                <fullName>Taupo Weekender</fullName>
+                <default>false</default>
+                <label>Taupo Weekender</label>
+            </value>
+            <value>
+                <fullName>Turangi Chronicle</fullName>
+                <default>false</default>
+                <label>Turangi Chronicle</label>
+            </value>
+            <value>
+                <fullName>Hawkes Bay Today</fullName>
+                <default>false</default>
+                <label>Hawkes Bay Today</label>
+            </value>
+            <value>
+                <fullName>Drive Time</fullName>
+                <default>false</default>
+                <label>Drive Time</label>
+            </value>
+            <value>
+                <fullName>Entertainment Extra</fullName>
+                <default>false</default>
+                <label>Entertainment Extra</label>
+            </value>
+            <value>
+                <fullName>HBT Property Guide A4</fullName>
+                <default>false</default>
+                <label>HBT Property Guide A4</label>
+            </value>
+            <value>
+                <fullName>Tremains HBT</fullName>
+                <default>false</default>
+                <label>Tremains HBT</label>
+            </value>
+            <value>
+                <fullName>Harcourts HBT</fullName>
+                <default>false</default>
+                <label>Harcourts HBT</label>
+            </value>
+            <value>
+                <fullName>Property Brokers HBT</fullName>
+                <default>false</default>
+                <label>Property Brokers HBT</label>
+            </value>
+            <value>
+                <fullName>The Napier Courier</fullName>
+                <default>false</default>
+                <label>The Napier Courier</label>
+            </value>
+            <value>
+                <fullName>The Hastings Leader</fullName>
+                <default>false</default>
+                <label>The Hastings Leader</label>
+            </value>
+            <value>
+                <fullName>Taradale Observer</fullName>
+                <default>false</default>
+                <label>Taradale Observer</label>
+            </value>
+            <value>
+                <fullName>Havelock North VP</fullName>
+                <default>false</default>
+                <label>Havelock North VP</label>
+            </value>
+            <value>
+                <fullName>HBT Special Pubs</fullName>
+                <default>false</default>
+                <label>HBT Special Pubs</label>
+            </value>
+            <value>
+                <fullName>HBT Online Pubs</fullName>
+                <default>false</default>
+                <label>HBT Online Pubs</label>
+            </value>
+            <value>
+                <fullName>Dannevirke News</fullName>
+                <default>false</default>
+                <label>Dannevirke News</label>
+            </value>
+            <value>
+                <fullName>CHB Mail</fullName>
+                <default>false</default>
+                <label>CHB Mail</label>
+            </value>
+            <value>
+                <fullName>Northern Advocate</fullName>
+                <default>false</default>
+                <label>Northern Advocate</label>
+            </value>
+            <value>
+                <fullName>Property Guide</fullName>
+                <default>false</default>
+                <label>Property Guide</label>
+            </value>
+            <value>
+                <fullName>Rural Advocate</fullName>
+                <default>false</default>
+                <label>Rural Advocate</label>
+            </value>
+            <value>
+                <fullName>NAD TV Times</fullName>
+                <default>false</default>
+                <label>NAD TV Times</label>
+            </value>
+            <value>
+                <fullName>Savvy</fullName>
+                <default>false</default>
+                <label>Savvy</label>
+            </value>
+            <value>
+                <fullName>The Whangarei  Report</fullName>
+                <default>false</default>
+                <label>The Whangarei  Report</label>
+            </value>
+            <value>
+                <fullName>NAD Special Pubs</fullName>
+                <default>false</default>
+                <label>NAD Special Pubs</label>
+            </value>
+            <value>
+                <fullName>NAD Online Pubs</fullName>
+                <default>false</default>
+                <label>NAD Online Pubs</label>
+            </value>
+            <value>
+                <fullName>Northland Age</fullName>
+                <default>false</default>
+                <label>Northland Age</label>
+            </value>
+            <value>
+                <fullName>Property Xpress</fullName>
+                <default>false</default>
+                <label>Property Xpress</label>
+            </value>
+            <value>
+                <fullName>Focus</fullName>
+                <default>false</default>
+                <label>Focus</label>
+            </value>
+            <value>
+                <fullName>Wairarapa Times Age</fullName>
+                <default>false</default>
+                <label>Wairarapa Times Age</label>
+            </value>
+            <value>
+                <fullName>Midweek WTA</fullName>
+                <default>false</default>
+                <label>Midweek WTA</label>
+            </value>
+            <value>
+                <fullName>Special Pubs WTA</fullName>
+                <default>false</default>
+                <label>Special Pubs WTA</label>
+            </value>
+            <value>
+                <fullName>WTA Online Pubs</fullName>
+                <default>false</default>
+                <label>WTA Online Pubs</label>
+            </value>
+            <value>
+                <fullName>Bush Telegraph</fullName>
+                <default>false</default>
+                <label>Bush Telegraph</label>
+            </value>
+            <value>
+                <fullName>Wanganui Chronicle</fullName>
+                <default>false</default>
+                <label>Wanganui Chronicle</label>
+            </value>
+            <value>
+                <fullName>Midweek Chronicle</fullName>
+                <default>false</default>
+                <label>Midweek Chronicle</label>
+            </value>
+            <value>
+                <fullName>WGC TV Guide</fullName>
+                <default>false</default>
+                <label>WGC TV Guide</label>
+            </value>
+            <value>
+                <fullName>WGC Your Property</fullName>
+                <default>false</default>
+                <label>WGC Your Property</label>
+            </value>
+            <value>
+                <fullName>WGC Spec Tab</fullName>
+                <default>false</default>
+                <label>WGC Spec Tab</label>
+            </value>
+            <value>
+                <fullName>WGC Online Pubs</fullName>
+                <default>false</default>
+                <label>WGC Online Pubs</label>
+            </value>
+            <value>
+                <fullName>Stratford Press</fullName>
+                <default>false</default>
+                <label>Stratford Press</label>
+            </value>
+            <value>
+                <fullName>Guardian Manawatu</fullName>
+                <default>false</default>
+                <label>Guardian Manawatu</label>
+            </value>
+            <value>
+                <fullName>Horowhenua Chronicle</fullName>
+                <default>false</default>
+                <label>Horowhenua Chronicle</label>
+            </value>
+            <value>
+                <fullName>Christchurch Star</fullName>
+                <default>false</default>
+                <label>Christchurch Star</label>
+            </value>
+            <value>
+                <fullName>North Canterbury News</fullName>
+                <default>false</default>
+                <label>North Canterbury News</label>
+            </value>
+            <value>
+                <fullName>Observer</fullName>
+                <default>false</default>
+                <label>Observer</label>
+            </value>
+            <value>
+                <fullName>Pegasus Post</fullName>
+                <default>false</default>
+                <label>Pegasus Post</label>
+            </value>
+            <value>
+                <fullName>Western News</fullName>
+                <default>false</default>
+                <label>Western News</label>
+            </value>
+            <value>
+                <fullName>News Advertiser</fullName>
+                <default>false</default>
+                <label>News Advertiser</label>
+            </value>
+            <value>
+                <fullName>Shore View</fullName>
+                <default>false</default>
+                <label>Shore View</label>
+            </value>
+            <value>
+                <fullName>Selwyn Times</fullName>
+                <default>false</default>
+                <label>Selwyn Times</label>
+            </value>
+            <value>
+                <fullName>Lifestyles</fullName>
+                <default>false</default>
+                <label>Lifestyles</label>
+            </value>
+            <value>
+                <fullName>Home Living</fullName>
+                <default>false</default>
+                <label>Home Living</label>
+            </value>
+            <value>
+                <fullName>Special Pubs</fullName>
+                <default>false</default>
+                <label>Special Pubs</label>
+            </value>
+            <value>
+                <fullName>Oamaru Mail</fullName>
+                <default>false</default>
+                <label>Oamaru Mail</label>
+            </value>
+            <value>
+                <fullName>Oamaru Xtra</fullName>
+                <default>false</default>
+                <label>Oamaru Xtra</label>
+            </value>
+            <value>
+                <fullName>Oamaru Special Pubs</fullName>
+                <default>false</default>
+                <label>Oamaru Special Pubs</label>
+            </value>
+            <value>
+                <fullName>CCN</fullName>
+                <default>false</default>
+                <label>CCN</label>
+            </value>
+            <value>
+                <fullName>NSM Features</fullName>
+                <default>false</default>
+                <label>NSM Features</label>
+            </value>
+            <value>
+                <fullName>Red Bulletin</fullName>
+                <default>false</default>
+                <label>Red Bulletin</label>
+            </value>
+            <value>
+                <fullName>Northern Publishing</fullName>
+                <default>false</default>
+                <label>Northern Publishing</label>
+            </value>
+            <value>
+                <fullName>Bay of Plenty</fullName>
+                <default>false</default>
+                <label>Bay of Plenty</label>
+            </value>
+            <value>
+                <fullName>Rotorua</fullName>
+                <default>false</default>
+                <label>Rotorua</label>
+            </value>
+            <value>
+                <fullName>Hawkes Bay</fullName>
+                <default>false</default>
+                <label>Hawkes Bay</label>
+            </value>
+            <value>
+                <fullName>Wanganui</fullName>
+                <default>false</default>
+                <label>Wanganui</label>
+            </value>
+            <value>
+                <fullName>Wairarapa</fullName>
+                <default>false</default>
+                <label>Wairarapa</label>
+            </value>
+            <value>
+                <fullName>Christchurch</fullName>
+                <default>false</default>
+                <label>Christchurch</label>
+            </value>
+            <value>
+                <fullName>Oamaru</fullName>
+                <default>false</default>
+                <label>Oamaru</label>
+            </value>
+            <value>
+                <fullName>Cook Strait News</fullName>
+                <default>false</default>
+                <label>Cook Strait News</label>
+            </value>
+            <value>
+                <fullName>Independent Herald</fullName>
+                <default>false</default>
+                <label>Independent Herald</label>
+            </value>
+            <value>
+                <fullName>Porirua News</fullName>
+                <default>false</default>
+                <label>Porirua News</label>
+            </value>
+            <value>
+                <fullName>Wainuiomata News</fullName>
+                <default>false</default>
+                <label>Wainuiomata News</label>
+            </value>
+            <value>
+                <fullName>Kapiti News</fullName>
+                <default>false</default>
+                <label>Kapiti News</label>
+            </value>
+            <value>
+                <fullName>Custom Pub</fullName>
+                <default>false</default>
+                <label>Custom Pub</label>
+            </value>
+            <value>
+                <fullName>Driven</fullName>
+                <default>false</default>
+                <label>Driven</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

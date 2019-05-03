@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Source_Account__c</fullName>
+    <description>The Account doing the Servicing - i.e. the source Account or Agency
+
+E.g. in the relationship &#39;[A] is serviced by [B]&#39;, this is &#39;[A]&#39;</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The Account doing the Servicing - i.e. the source Account or Agency
+
+E.g. in the relationship &#39;[A] is serviced by [B]&#39;, this is &#39;[A]&#39;</inlineHelpText>
+    <label>Source Account</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Account.IsPersonAccount</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </filterItems>
+        <filterItems>
+            <field>Account.Account_Type__c</field>
+            <operation>notEqual</operation>
+            <value>Consortium</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Services</relationshipLabel>
+    <relationshipName>Account_Services_Relationships</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>true</writeRequiresMasterRead>
+</CustomField>

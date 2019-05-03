@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Booking_Quote_Confirmation</fullName>
+    <availability>online</availability>
+    <description>sending booking quote or confirmation</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>CyberAd Quote/Confirmation</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT (&quot;/support/console/28.0/integration.js&quot;)} 
+
+var setCurrentConsoleTabId = function setCurrentConsoleTabId(result) {
+    openActionPageSubtab(result.id);
+};
+
+function openActionPageSubtab(TabId)
+{
+    sforce.console.getEnclosingPrimaryTabId(function(result) 
+    {         
+        var primaryTabId = result.id;                                           
+        sforce.console.openSubtab(primaryTabId , &#39;/apex/BookingQuoteConfirmationVF?id={!Case.Id}&amp;refTabId=&#39; + TabId, true, &#39;Quote/Confirmation&#39;);
+    });
+}
+
+try
+{
+    sforce.console.getEnclosingTabId(setCurrentConsoleTabId);
+
+
+}
+catch(ex)
+{
+    window.location.href = &#39;/apex/BookingQuoteConfirmationVF?id={!Case.Id}&#39;;
+}</url>
+</WebLink>

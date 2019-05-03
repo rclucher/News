@@ -1,0 +1,19 @@
+<aura:component>
+        <aura:attribute name="helpLink" type="String"/>
+        <aura:attribute name="helpText" type="String"/>  
+        <div class="slds-form-element" onmouseover="{!c.display}" onmouseout="{!c.displayOut}">
+            <div class="slds-form-element__icon slds-align-middle">
+                <button class="slds-button slds-button slds-button--icon" aria-describedby="help" title="" onclick="{!c.stopEvent}">
+                    <lightning:icon iconName="utility:info" size="xx-small" alternativeText="Help"/>
+                    <span class="slds-assistive-text">Help</span>
+                </button>
+            </div>
+        </div>
+        
+        <section class="slds-popover slds-popover_tooltip slds-nubbin_left slds-rise-from-ground toggle help-tooltip slds-slide-from-bottom-to-top"  aria-label="Dialog Title" role="tooltip" id="help" style="position:absolute;" aura:id="tooltip" aria-describedby="dialog-body-id-263">
+            <div class="slds-popover__body" id="dialog-body-id-263">
+                {!v.helpText}
+            </div>
+        </section>
+       
+</aura:component>

@@ -1,0 +1,2 @@
+<apex:page standardController="Order__c" extensions="CS_CampaignBriefFormExtension" action="{!creatOrViewBriefForm}" showQuickActionVfHeader="false">
+</apex:page>

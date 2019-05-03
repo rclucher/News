@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Expiry_Run_or_StopOnWeb__c</fullName>
+    <description>Latest date out of either:
+- The latest run date of Booking Line Items (Print)
+- Max Data on the Booking Line Item: &quot;Stop on Web Date&quot; (Digital)</description>
+    <externalId>false</externalId>
+    <formula>IF(ISBLANK(Last_Expiry_Appearance__c), IF(ISBLANK(Last_Expiry_Stop_on_Web_Date__c), null, Last_Expiry_Stop_on_Web_Date__c),
+  IF(ISBLANK(Last_Expiry_Stop_on_Web_Date__c), Last_Expiry_Appearance__c,
+    IF(Last_Expiry_Appearance__c &gt; Last_Expiry_Stop_on_Web_Date__c, Last_Expiry_Appearance__c, Last_Expiry_Stop_on_Web_Date__c)
+  )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Latest date out of either:
+- The latest run date of Booking Line Items (Print)
+- Max Data on the Booking Line Item: &quot;Stop on Web Date&quot; (Digital)</inlineHelpText>
+    <label>Last Expiry - Run or Stop On Web</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

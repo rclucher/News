@@ -1,0 +1,35 @@
+<aura:component implements="lightning:homeTemplate" description="Home Page Layout Template for NextGen">
+	<aura:attribute name="ticker" type="Aura.Component[]" />
+    <aura:attribute name="corner" type="Aura.Component[]" />
+    <aura:attribute name="top" type="Aura.Component[]" />
+    <aura:attribute name="bodyLeft" type="Aura.Component[]" />
+	<aura:attribute name="bodyMiddle" type="Aura.Component[]" />
+	<aura:attribute name="bodyRight" type="Aura.Component[]" />
+    
+	<table class="container homeLanding" style = "width: 100%;">
+        <tbody>
+            <tr>
+        		<td class="slds-p-around_small slds-grow slds-size_12-of-12 homeContainer" colspan="3">
+                    {!v.ticker}
+                </td>
+                
+        	</tr>
+            <tr>
+            	<td colspan="2" class="slds-p-around_small slds-grow slds-size_10-of-12 homeContainer">
+                    {!v.top}
+                </td>
+                <td rowspan="2" class="slds-p-around_small slds-grow slds-size_2-of-12 homeContainer">
+                    {!v.bodyRight}
+                </td>
+            </tr>
+            <tr>
+            	<td class="slds-p-around_small slds-grow slds-size_5-of-12 homeContainer">
+                    {!v.bodyLeft}
+                </td>
+                <td class="slds-p-around_small slds-grow slds-size_5-of-12 homeContainer">
+                    {!v.bodyMiddle}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</aura:component>

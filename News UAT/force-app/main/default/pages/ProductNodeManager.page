@@ -1,0 +1,61 @@
+<apex:page standardcontroller="csmso__Product_Node__c" extensions="ProductNodeCloning" lightningStylesheets="true" action="{!refreshForecastResult}">
+	<apex:form id="formId">
+		<apex:pageBlock title="Bespoke Manager" id="pgBlockId">
+			<apex:pageMessages id="pgMsgs"/>
+			<apex:pageBlockButtons >
+				<apex:commandButton action="{!cancel}" value="Cancel"/>
+				<apex:commandButton action="{!startOperation}" value="Start operation"/>
+			</apex:pageBlockButtons>
+			<apex:pageBlockSection title="Select Operation" columns="2" collapsible="false">
+				<apex:selectList value="{!selectedOperation}" multiselect="false" size="1" title="Select operation" label="Select Operation">
+					<apex:selectOptions value="{!operations}"/>
+					<apex:actionSupport event="onchange" action="{!refreshForecastResult}" reRender="originalProductNodeEdit,originalProductNode,pbForecastProductNode,operationDescription,pgBlockId"/>
+				</apex:selectList>
+				<apex:outputText label="Selected Operation Description" id="operationDescription" escape="false" value="{!operationDescription}"/>
+			</apex:pageBlockSection>
+			<apex:pageBlockSection title="{!bespokeProductRTname} Changes To Propagate" columns="2" collapsible="false" id="originalProductNodeEdit" rendered="{!IF(selectedOperation='propagateChanges', true, false)}">
+				<apex:inputField value="{!forecastResult.name}"/>
+				<apex:outputField value="{!forecastResult.csmso__Breadcrumb__c}"/>
+				<apex:outputField value="{!forecastResult.RecordTypeId}"/>
+				<apex:inputField value="{!forecastResult.Is_Active__c}"/>
+				<apex:inputField value="{!forecastResult.csmso__Calendar__c}"/>
+				<apex:outputField value="{!forecastResult.ExternalID__c}"/>
+				<apex:inputField value="{!forecastResult.Effective_Start_Date__c}"/>
+				<apex:inputField value="{!forecastResult.Effective_End_Date__c}"/>
+				<apex:outputField value="{!forecastResult.Old_Instance__c}"/>
+				<apex:outputField value="{!forecastResult.New_Instance__c}"/>
+			</apex:pageBlockSection>
+			<apex:pageBlockSection title="Selected {!bespokeProductRTname}" columns="2" collapsible="false" id="originalProductNode" rendered="{!IF(selectedOperation='propagateChanges', false, true)}">
+				<apex:outputField value="{!csmso__Product_Node__c.name}"/>
+				<apex:outputField value="{!csmso__Product_Node__c.csmso__Breadcrumb__c}"/>
+				<apex:outputField value="{!csmso__Product_Node__c.RecordTypeId}"/>
+				<apex:outputField value="{!csmso__Product_Node__c.Is_Active__c}"/>
+				<apex:outputField value="{!csmso__Product_Node__c.csmso__Calendar__c}"/>
+				<apex:outputField value="{!csmso__Product_Node__c.ExternalID__c}"/>
+				<apex:outputField value="{!csmso__Product_Node__c.Effective_Start_Date__c}"/>
+				<apex:outputField value="{!csmso__Product_Node__c.Effective_End_Date__c}"/>
+				<apex:outputField value="{!csmso__Product_Node__c.Old_Instance__c}"/>
+				<apex:outputField value="{!csmso__Product_Node__c.New_Instance__c}"/>
+			</apex:pageBlockSection>
+			<apex:pageBlockSection title="Resulting {!bespokeProductRTname} (simulated)" columns="2" collapsible="false" id="pbForecastProductNode" rendered="{!IF(selectedOperation='propagateChanges', false, true)}">
+				<apex:outputField value="{!forecastResult.name}"/>
+				<apex:outputField value="{!forecastResult.csmso__Breadcrumb__c}"/>
+				<apex:outputField value="{!forecastResult.RecordTypeId}"/>
+				<apex:outputField value="{!forecastResult.Is_Active__c}"/>
+				<apex:outputField value="{!forecastResult.csmso__Calendar__c}"/>
+				<apex:outputField value="{!forecastResult.ExternalID__c}"/>
+				<apex:outputField value="{!forecastResult.Effective_Start_Date__c}"/>
+				<apex:outputField value="{!forecastResult.Effective_End_Date__c}"/>
+				<apex:outputField value="{!forecastResult.Old_Instance__c}"/>
+				<apex:outputField value="{!forecastResult.New_Instance__c}"/>
+			</apex:pageBlockSection>
+			<apex:pageBlockSection title="Operation Scope Summary" columns="1" collapsible="true" id="pbOperationScope">
+				<apex:pageBlockTable value="{!summaryDetails}" var="item" columns="3" title="Summary of related records that will be affected (cloned or modified) by selected operation">
+					<apex:column headerValue="Type" value="{!item.typeName}" width="250px"/>
+					<apex:column headerValue="No. of records" value="{!item.count}" width="100px"/>
+					<apex:column headerValue="Names (unique values)" value="{!item.names}"/>
+				</apex:pageBlockTable>
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

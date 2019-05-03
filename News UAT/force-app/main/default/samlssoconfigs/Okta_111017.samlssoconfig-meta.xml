@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SamlSsoConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <identityLocation>SubjectNameId</identityLocation>
+    <identityMapping>FederationId</identityMapping>
+    <issuer>exk6zf32kcbziLIJS1t7</issuer>
+    <loginUrl>https://nca.okta.com/app/salesforce/exk6zf32kcbziLIJS1t7/sso/saml</loginUrl>
+    <name>Okta_111017</name>
+    <oauthTokenEndpoint>https://newscorpaustralia--AdSalesUAT.cs31.my.salesforce.com/services/oauth2/token?so=00Dp000000096X8</oauthTokenEndpoint>
+    <redirectBinding>false</redirectBinding>
+    <requestSignatureMethod>1</requestSignatureMethod>
+    <requestSigningCertId>0P190000000GpO7</requestSigningCertId>
+    <salesforceLoginUrl>https://newscorpaustralia--AdSalesUAT.cs31.my.salesforce.com?so=00Dp000000096X8</salesforceLoginUrl>
+    <samlEntityId>https://newscorpaustralia--AdSalesUAT.cs31.my.salesforce.com</samlEntityId>
+    <samlVersion>SAML2_0</samlVersion>
+    <userProvisioning>false</userProvisioning>
+    <validationCert>MIIDljCCAn6gAwIBAgIGAV2mza+xMA0GCSqGSIb3DQEBCwUAMIGLMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxDDAKBgNVBAMMA25jYTEcMBoGCSqGSIb3DQEJARYNaW5mb0Bva3RhLmNvbTAeFw0xNzA4MDMwNjMzNDRaFw0yNzA4MDMwNjM0NDNaMIGLMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxDDAKBgNVBAMMA25jYTEcMBoGCSqGSIb3DQEJARYNaW5mb0Bva3RhLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAImzOcBWOluuHOpjEkKYh3qxg0orIPMJ3v0CesmK9ZEMPrt0K1Up6Zug9CbiZrsbfTf5ALOVl2NY+OdiaOsA1ZWIoiBUfpBh3yRt6LRn2KmaoZqZBT8i5bXd5GzRgnf8MbUtpIBkWe9vZHow8WuygJQLd5A+VjO+qeWT6aYxgDABuNWy1s4C9pW5y8a5g4LW302qhXCj9GWWwWT0sPFpL6NSUYeMP0YBFWFJv/NaSN1kC98/ryGbHD5eQajsGuTtVJ3RDSXEYiuB80vKu9/OgjjbsxQz58ta12gPadUzvN/waLaDQGH74vDVPR8yju9BKQuPinB31RNl6q3it8FtgFsCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAFQHv/YKjgo1pttkh4r6Zq44XWyCoxAy7Yh5dDpfp+w/daAShmstmvdivBjvUVYYA+qzy5j8v3N+wzsLQ61brWuVa4ilktpcInsJgM1ixMsae42FcsITUbpqO9ZLrOfHx/V+9lbF81GmETyKtVh5QedfBGOkCe2Vu8RT2gCrHgwK6/Cjun4enfNHGEALuFJgfys6K/aDA1ff8KnGZxuHFRIr4z2FXELnJIaQGh7dp/8rOnw6Rbvue3oMyDZlQPvo2W/BdWX2LbpiA3ET8mUvVE2tFChJL0RNKGlLayNO4K8oFETwcFGubTqjoIJutJivu1Zr2cM55EEExN4sqXg6zyQ==</validationCert>
+</SamlSsoConfig>

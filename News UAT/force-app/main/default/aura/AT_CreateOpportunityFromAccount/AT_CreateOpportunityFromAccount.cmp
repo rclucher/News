@@ -1,0 +1,106 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" controller="AT_RecordTypeUtil">
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="objectName" type="String" default="Opportunity"/>
+    <aura:attribute name="recordTypes" type="Object"/>
+    <aura:attribute name="recordTypeId" type="String"/>
+    
+    
+    <aura:attribute name="account" type="Object"/>
+    <aura:attribute name="loadedAccount" type="Object"/>
+    <aura:attribute name="accountError" type="String"/>
+    <force:recordData aura:id="accountRecordLoader"
+        recordId="{!v.recordId}"
+        fields="Industry_Code__c,Revenue_Group__c"
+        targetRecord="{!v.account}"
+        targetFields="{!v.loadedAccount}"
+        targetError="{!v.accountError}"
+    />
+    
+    <aura:if isTrue="{!(v.recordTypeId != null)}">
+    <table style="height: 100%; width: 100%;">
+        <tr>
+        	<td>
+                <div class="slds-col modal-header slds-modal__header">
+                    <h2 class="title slds-text-heading--medium">New Opportunity</h2>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 100%; overflow: auto;">
+                <div class="slds-col modal-body scrollable slds-p-around--medium">
+                    <table>
+                        <tr>
+                            <td id = "selectLabel">
+                                Select a record type
+                            </td>
+                            <td>
+                                <aura:iteration items="{!v.recordTypes}" var="rt">
+                                    <aura:if isTrue="{!rt.isDefault}">
+                                        <lightning:input aura:id="{!rt.id}" type="radio" label="{!rt.name}" name="recordType" value="{!rt.id}" onchange="{!c.selectRecordType}" checked="true" />
+                                        <div class="description">{!rt.description}</div>
+                                    </aura:if>
+                                </aura:iteration>
+                                
+                                <aura:iteration items="{!v.recordTypes}" var="rt">
+                                    <aura:if isTrue="{!not(rt.isDefault)}">
+                                        <lightning:input aura:id="{!rt.id}" type="radio" label="{!rt.name}" name="recordType" value="{!rt.id}" onchange="{!c.selectRecordType}" />
+                                        <div class="description">{!rt.description}</div>
+                                    </aura:if>
+                                </aura:iteration>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+        <tr>
+        	<td>
+                <div class="slds-col modal-footer slds-modal__footer">
+                    <lightning:button variant="neutral" label="Cancel" onclick="{!c.cancel}"/>
+                    <lightning:button variant="brand" label="Next" onclick="{!c.next}"/>
+                </div>
+            </td>
+        </tr>
+    </table>
+    </aura:if>
+        
+	<!--
+
+    <lightning:card title="New Opportunity">
+    <table>
+        <tr>
+        	<td>
+            	Select a record type
+            </td>
+            <td>
+            	<aura:iteration items="{!v.recordTypes}" var="rt">
+                    <aura:if isTrue="{!rt.isDefault}">
+                        <lightning:input aura:id="{!rt.id}" type="radio" label="{!rt.name}" name="recordType" value="{!rt.id}" onchange="{!c.selectRecordType}" checked="true" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;{!rt.description}
+                        <br/>
+                        <br/>
+                    </aura:if>
+                </aura:iteration>
+                
+                <aura:iteration items="{!v.recordTypes}" var="rt">
+                    <aura:if isTrue="{!not(rt.isDefault)}">
+                        <lightning:input aura:id="{!rt.id}" type="radio" label="{!rt.name}" name="recordType" value="{!rt.id}" onchange="{!c.selectRecordType}" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;{!rt.description}
+                        <br/>
+                        <br/>
+                    </aura:if>
+                </aura:iteration>
+            </td>
+        </tr>
+    </table>
+        
+        <aura:set attribute="footer">
+            <lightning:button label="Cancel" onclick="{!c.cancel}"/>
+            <lightning:button label="Next" onclick="{!c.next}"/>
+        </aura:set>
+    </lightning:card>
+
+ //-->
+
+</aura:component>

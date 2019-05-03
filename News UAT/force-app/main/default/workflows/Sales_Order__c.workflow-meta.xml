@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>SalesOrder_Set_External_Id_to_record_id</fullName>
+        <field>External_Id__c</field>
+        <formula>Id</formula>
+        <name>SalesOrder-Set_External_Id_to_record_id</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Total_Gross_Price_YTD_Last_Modified</fullName>
+        <description>timestamp for sales order when total gross price YTD has been changed</description>
+        <field>Total_Gross_Price_YTD_Last_Modified__c</field>
+        <formula>NOW()</formula>
+        <name>Total Gross Price YTD Last Modified</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_stored_fax</fullName>
+        <field>Stored_Fax__c</field>
+        <formula>Placer_Contact_Fax__c</formula>
+        <name>Update stored fax</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>SalesOrder-Set_externalId_if_blank</fullName>
+        <actions>
+            <name>SalesOrder_Set_External_Id_to_record_id</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Sales_Order__c.External_Id__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <description>When a Sales Order is created if External Id field is not set, updates its value to the recordid</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Total Gross Price YTD Last Modified</fullName>
+        <actions>
+            <name>Total_Gross_Price_YTD_Last_Modified</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>timestamp for sales order when total gross price YTD has been changed</description>
+        <formula>ISCHANGED( Total_Gross_Price_Ytd__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Edit_ABN_on_BSA</fullName>
+    <active>true</active>
+    <description>Restrict permissions of the BSA so the ABN field cannot be edited after the BSA has been saved. Applies for all Profiles excluding System Admin, ~System Admin, NewsAdds Admin and NFSS.</description>
+    <errorConditionFormula>AND( 
+OR( 
+$Profile.Name = &#39;News Campaign Coordinator&#39;, 
+$Profile.Name = &#39;News Campaign Coordinator NVM&#39;, 
+$Profile.Name = &#39;News Direct Sales Account Manager&#39;, 
+$Profile.Name = &#39;News Direct Sales Account Manager NVM&#39;, 
+$Profile.Name = &#39;News Direct Sales Inbound&#39;, 
+$Profile.Name = &#39;News Direct Sales Inbound NVM&#39;, 
+$Profile.Name = &#39;News Direct Sales Outbound&#39;, 
+$Profile.Name = &#39;News Direct Sales Outbound NVM&#39;, 
+$Profile.Name = &#39;News Direct Sales Partner&#39;, 
+$Profile.Name = &#39;News Direct Sales Partner - Fulfillment&#39;, 
+$Profile.Name = &#39;News Field Sales Account Manager&#39;, 
+$Profile.Name = &#39;News Field Sales Associate&#39;, 
+$Profile.Name = &#39;News Field Sales Other&#39;, 
+$Profile.Name = &#39;News IT Administration&#39;, 
+$Profile.Name = &#39;News Operations Direct Sales&#39;, 
+$Profile.Name = &#39;News Operations Direct Sales NVM&#39;, 
+$Profile.Name = &#39;News Operations Field Sales&#39;, 
+$Profile.Name = &#39;News Reporting Team&#39;, 
+$Profile.Name = &#39;News Reporting Team NVM&#39;, 
+$Profile.Name = &#39;NLM Key Account Manager&#39;, 
+$Profile.Name = &#39;NLM Operations Field Sales&#39;), 
+ISCHANGED(ABN_Number__c))</errorConditionFormula>
+    <errorDisplayField>ABN_Number__c</errorDisplayField>
+    <errorMessage>You do not have permissions to change the ABN field on the Booking System Account record</errorMessage>
+</ValidationRule>

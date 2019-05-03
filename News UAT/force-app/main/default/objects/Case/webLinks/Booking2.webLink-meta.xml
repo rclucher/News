@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Booking2</fullName>
+    <availability>online</availability>
+    <description>Testing Javascript Error</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Booking2</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>if(&quot;{!Case.Opportunity_Status__c}&quot; != &quot;Closed Won&quot;)
+{
+alert(&#39;Before creating a booking from a Case please ensure the sales stage is set to Closed Won&#39;);
+}
+else
+{
+
+try
+{
+srcUp(&#39;/apex/{!$Setup.Visualforce_Target__c.BookingUI__c}?caseid={!Case.Id}&#39;);
+}
+catch(ex)
+{
+window.location.href = &#39;/apex/{!$Setup.Visualforce_Target__c.BookingUI__c}?caseid={!Case.Id}&amp;s=true&#39;;
+}
+}</url>
+</WebLink>

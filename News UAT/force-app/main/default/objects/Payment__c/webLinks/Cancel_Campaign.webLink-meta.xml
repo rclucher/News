@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cancel_Campaign</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Cancel Campaign</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)} 
+if( confirm(&quot;Are you sure you want to cancel this campaign?&quot;)) { 
+var ord = sforce.connection.query(&quot;SELECT id,Status__c from Order__c where id = &#39;{! Payment__c.OrderId__c }&#39;&quot;); 
+records = ord.getArray(&quot;records&quot;); 
+if (records[0].Status__c == &quot;Pending For Cancel&quot; || records[0].Status__c == &quot;Cancelled&quot;) { 
+alert (&quot;Campaign is already cancelled.&quot;); 
+} 
+else { 
+var p = new sforce.SObject(&#39;Order__c&#39;); 
+p.id = &quot;{!Payment__c.OrderId__c}&quot;; 
+p.Status__c = &quot;Pending For Cancel&quot;; 
+result = sforce.connection.update([p]); 
+location.reload(true);; 
+} 
+}</url>
+</WebLink>

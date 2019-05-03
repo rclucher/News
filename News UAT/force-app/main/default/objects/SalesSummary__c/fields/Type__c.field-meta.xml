@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Target</fullName>
+                <color>#0B6FCE</color>
+                <default>false</default>
+                <label>Target</label>
+            </value>
+            <value>
+                <fullName>Actual</fullName>
+                <color>#78C953</color>
+                <default>false</default>
+                <label>Actual</label>
+            </value>
+            <value>
+                <fullName>Pipeline</fullName>
+                <color>#A845DC</color>
+                <default>false</default>
+                <label>Pipeline</label>
+            </value>
+            <value>
+                <fullName>Actual (NewsFact)</fullName>
+                <color>#FF9900</color>
+                <default>false</default>
+                <label>Actual (NewsFact)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

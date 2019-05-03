@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opty_OpportunityPlatform_Probability50</fullName>
+    <active>true</active>
+    <description>Opportunity Field field is required when:
+- probability &gt;= 50%
+- user is part of the NAUS division</description>
+    <errorConditionFormula>AND(
+  ISBLANK(OpportunityGroup__c ),
+  CONTAINS( Owner.UserRole.DeveloperName, &#39;NAUS&#39;),
+  OR(
+    TEXT(StageName) = &quot;Present Solution/ Proposal&quot;,
+    TEXT(StageName) = &quot;Re-affirm Value/ Negotiate&quot;,
+    TEXT(StageName) = &quot;Reservation&quot;,    
+    TEXT(StageName) = &quot;Awaiting Bookings&quot;,
+    TEXT(StageName) = &quot;Closed Won&quot;
+  ),
+  /* Excludes  walk-in forecast entry */
+  NOT(OR(
+    CONTAINS (TEXT(Opportunity_Type__c), &#39;Walk&#39;),
+    CONTAINS (TEXT(Opportunity_Type__c), &#39;Self Service&#39;)
+  ))
+)</errorConditionFormula>
+    <errorDisplayField>OpportunityGroup__c</errorDisplayField>
+    <errorMessage>&#39;Opportunity Platform&#39; is required when the opportunity reaches beyond the &#39;Present Proposal/Solution&#39; stage. Note: should only be for NAUS users.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>MasterLabel</columns>
+    <columns>CutOff__c</columns>
+    <columns>Reminder_1__c</columns>
+    <columns>Escalation_1__c</columns>
+    <columns>Reminder_2__c</columns>
+    <columns>Escalation_2__c</columns>
+    <columns>Reminder_3__c</columns>
+    <columns>Escalation_3__c</columns>
+    <columns>Reminder_4__c</columns>
+    <columns>Reminder_5__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

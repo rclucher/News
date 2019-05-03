@@ -1,0 +1,28 @@
+<aura:component implements="flexipage:availableForAllPageTypes,lightning:isUrlAddressable" controller="AT_LowSpendCustomers">
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    
+    <aura:attribute name="title" type="String" default="Low Client Spend YoY"/>
+    <aura:attribute name="listSize" type="Integer" default="5"/>
+    
+    <aura:attribute name="spendingColumns" type="List"/>
+    <aura:attribute name="spendingData" type="Object"/>
+    
+    <aura:attribute type="Boolean" name="loading" default="true"/>
+    
+    <lightning:card >
+        <aura:set attribute="title">
+            <lightning:icon iconName="standard:partner_fund_request"/>&nbsp;&nbsp;<b>{!v.title}</b>
+        </aura:set>
+        
+        <aura:if isTrue="{!v.loading}">
+            <lightning:spinner variant="brand" size="medium"/>
+        
+            <aura:set attribute="else">
+                <lightning:datatable columns="{!v.spendingColumns}"
+                                     data="{!v.spendingData}"
+                                     keyField="Id"
+                                     hideCheckboxColumn="true"/>
+            </aura:set>
+        </aura:if>
+    </lightning:card>
+</aura:component>

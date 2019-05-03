@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cancellation_Date__c</fullName>
+    <description>This field is supposed to be read only and mirrored from Payment record End Date. Re-labelled to End Date
+NXRIII-311</description>
+    <externalId>false</externalId>
+    <label>End Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

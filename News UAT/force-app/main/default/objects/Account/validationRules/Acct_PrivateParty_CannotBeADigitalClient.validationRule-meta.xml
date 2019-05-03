@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Acct_PrivateParty_CannotBeADigitalClient</fullName>
+    <active>true</active>
+    <description>Private parties cannot be converted into a digital media client.</description>
+    <errorConditionFormula>AND(
+  Is_Digital__c = TRUE,
+  RecordType.DeveloperName = &#39;Private_Party&#39;,
+
+ AND(
+  NOT CONTAINS($Profile.Name, &#39;System Administrat&#39;),
+  NOT CONTAINS($Profile.Name, &#39;IT Administrat&#39;),
+  NOT CONTAINS($Profile.Name, &#39;Integrat&#39;)
+ )
+
+)</errorConditionFormula>
+    <errorDisplayField>Is_Digital__c</errorDisplayField>
+    <errorMessage>A Private Party cannot be a digital customer. Where sole traders require a digital media booking; please create them as a Business Account.</errorMessage>
+</ValidationRule>

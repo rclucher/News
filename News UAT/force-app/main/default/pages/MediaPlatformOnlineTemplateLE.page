@@ -1,0 +1,155 @@
+<apex:page doctype="html-5.0" controller="cscfga.StatelessUIController" action="{!init}" showHeader="false" standardStylesheets="false" sidebar="false">
+    <body>
+        <div>
+            <apex:repeat var="screenSequence" value="{!screenSequences}">
+                <apex:repeat var="layout" value="{!screenSequence.layouts}">
+
+                    <apex:outputText escape="false" value="{!'<script type=\"text/html\" data-cs-ref=\"' & layout.ref & '\">'}" />
+                        <div id="configSection_CONFIGTABS" class="scrollable tab-pane">
+                            <!--<div id="CSInfoMessageBox" class="CSInfoMessageBox"><div id="CSInfoMessage" class="CSInfoMessageBox"></div></div>-->
+                            <apex:repeat var="section" value="{!layout.sections}">
+                                <div class="configSection_SectionHeader sectionExpanded" onclick="CS.media.toggleScreenSection(this,'configSection_{!section.section.Id}');">
+                                    {!BLANKVALUE(section.section.cscfga__Label__c, section.section.Name)}
+                                </div>
+                                <div id="configSection_{!section.section.Id}" class="sectionExpanded">
+                                    <apex:repeat var="row" value="{!section.rows}">
+                                        <div class="configTabAttributeRow">
+                                            <div class="{!IF(NOT(ISNULL(row.first.cscfga__Column_Span__c)) && row.first.cscfga__Column_Span__c > 1, IF(row.first.cscfga__Type__c != 'Text Display', 'configTabAttributeDouble', 'configTabAttributeDouble'), 'configTabAttribute')}" data-role="fieldcontain" style="{!if(row.first.cscfga__Label__c == '__script','display: none;','')}">
+                                                <apex:outputText rendered="{!NOT(row.hasFirst)}">
+                                                    <span>&nbsp;</span>
+                                                </apex:outputText>
+
+                                                <apex:outputText rendered="{!row.hasFirst}">
+                                                    <apex:outputText rendered="{!row.first.cscfga__Type__c != '' && row.first.cscfga__Type__c != 'Text Display'}">
+                                                        <label class="configLabel" for="{!layout.domSafeScreenName & '__' & row.first.cscfga__reference_name__c}_%idx%" data-cs-label="%ctx%{!row.first.cscfga__reference_name__c}_%idx%" data-cs-required="%ctx%{!row.first.cscfga__reference_name__c}_%idx%"> 
+                                                        </label>
+                                                    </apex:outputText>
+                                                    <apex:outputText rendered="{!row.first.cscfga__Type__c == 'Tree' || row.first.cscfga__Type__c == 'Day Part' || row.first.cscfga__Enable_Multiple_Selection__c == true}">
+                                                        <span id="%ctx%{!row.first.cscfga__reference_name__c}_%idx%"><span data-cs-binding="%ctx%{!row.first.cscfga__reference_name__c}_%idx%">&nbsp;</span></span>
+                                                    </apex:outputText>
+                                                    <apex:outputText rendered="{!row.first.cscfga__Type__c != 'Tree' && row.first.cscfga__Type__c != 'Day Part' && row.first.cscfga__Enable_Multiple_Selection__c != true}">
+                                                        <cscfga:AttributeTemplateLE type="{!row.firstType}" domId="{!row.firstHtmlId}" flavour="standard" ref="{!row.first.cscfga__reference_name__c}" definition="{!row.first}" />
+                                                    </apex:outputText>
+                                                </apex:outputText>
+                                            </div>
+                                            <apex:outputText rendered="{!row.hasSecond}">
+                                                <div class="configTabAttribute" data-role="fieldcontain" style="{!if(row.second.cscfga__Label__c == '__script','display: none; ','')}">
+                                                    <apex:outputText rendered="{!row.second.cscfga__Type__c != '' && row.second.cscfga__Type__c != 'Text Display'}">
+                                                        <label class="configLabel" for="{!layout.domSafeScreenName & '__' & row.second.cscfga__reference_name__c}_%idx%" data-cs-label="%ctx%{!row.second.cscfga__reference_name__c}_%idx%" data-cs-required="%ctx%{!row.second.cscfga__reference_name__c}_%idx%">
+                                                        </label>
+                                                    </apex:outputText>
+                                                    <apex:outputText rendered="{!row.second.cscfga__Type__c == 'Tree' || row.second.cscfga__Type__c == 'Day Part' || row.second.cscfga__Enable_Multiple_Selection__c == true}">
+                                                        <span id="%ctx%{!row.second.cscfga__reference_name__c}_%idx%"><span data-cs-binding="%ctx%{!row.second.cscfga__reference_name__c}_%idx%">&nbsp;</span></span>
+                                                    </apex:outputText>
+                                                    <apex:outputText rendered="{!row.second.cscfga__Type__c != 'Tree' && row.second.cscfga__Type__c != 'Day Part' && row.second.cscfga__Enable_Multiple_Selection__c != true}">
+                                                        <cscfga:AttributeTemplateLE type="{!row.secondType}" domId="{!row.secondHtmlId}" flavour="standard" ref="{!row.second.cscfga__reference_name__c}" definition="{!row.second}" />
+                                                    </apex:outputText>
+                                                </div>
+                                            </apex:outputText>
+                                            <apex:outputText rendered="{!NOT(row.hasSecond) && NOT(ISBLANK(row.first.cscfga__Column_Span__c)) && row.first.cscfga__Column_Span__c < 2}">
+                                                    <div class="configTabAttribute">
+                                                        <span>&nbsp;</span>
+                                                    </div>
+                                            </apex:outputText>
+                                        </div>
+                                    </apex:repeat>
+                                </div>
+                            </apex:repeat>
+                            <apex:repeat var="list" value="{!layout.lists}">
+                                <div class="configTabAttributeDouble">
+                                    <div data-cs-binding="%ctx%{!list.def.cscfga__Reference_Name__c}_%idx%"></div>
+                                </div>
+                            </apex:repeat>
+                        </div>
+                    <apex:outputText escape="false" value="</script>" />
+
+                </apex:repeat>
+            </apex:repeat>
+
+            <cscfga:OutputRules />
+
+        </div>
+    </body>
+
+<!--
+  Non-Angular template
+-->
+
+    <script type="text/html" id="CS.MultiSelectLookupLE__tpl">
+        <%  var disabled = attrDefinition.cscfga__Max__c && records.length >= attrDefinition.cscfga__Max__c ? 'disabled="disabled"' : '',
+        record,
+        rowClass;
+        %> 
+            <div class="configTabAttributeRow MLookupWrapper" data-role="fieldcontain">
+                <div class="MLookupMainHeader">
+                <span class="icon-list"></span>
+        <% if (!attrDefinition.cscfga__Label__c){ %>
+                <label><%= attrDefinition.Name %></label>
+        <%} else {%>
+                <label><%= attrDefinition.cscfga__Label__c %></label>
+        <%}%>
+        <% if (!attrWrapper.attr.cscfga__Is_Read_Only__c){ %>
+                <button <%= disabled %> class="add btnLE icon-add" data-cs-control="<%= attrWrapper.reference %>" data-cs-ref="<%= attrWrapper.reference %>" data-cs-params="<%= parameterize({ref: attrWrapper.reference}) %>" data-cs-action="addLookup" data-cs-type="add" data-role="none">New item</button>
+        <%}%>
+                </div>
+                <div>
+                    <div class="MLookupcontainer">
+        <%  if (records.length > 0) { %>
+                        <div class="MLookup">
+                          <div class="MLookupHeader">
+                            <div class="MLookupHRow">
+        <% if (!attrWrapper.attr.cscfga__Is_Read_Only__c){ %>
+                              <div class="MLookupHCell MLookupHCellAction">Action</div>
+        <%}%>
+        <% if (attrWrapper.attr.cscfga__Is_Read_Only__c){ %>
+                              <div class="MLookupHCell MLookupHCellAction readonly">Action</div>
+        <%}%>
+
+                              <div class="MLookupHCell">Name</div>
+        <%  for (columnName in columns) { 
+                if (columnName.toLowerCase() != 'name'){ %>
+
+                            <div class="MLookupHCell"><%= columnName %></div>
+        <%  }}   %>
+                            </div>
+                          </div>
+                          <div class="MLookupBody scrollable">
+        <%      for (var i = 0; i < records.length; i++) {
+                    record = records[i];
+                    rowClass = 'dataRow ' + (i/2 == Math.floor(i/2) ? 'even ' : 'odd ') + (i == 0 ? 'first ' : '') + (i >= records.length - 1 ? 'last' : '');
+        %>
+                            <div class="MLookupBRow">
+        <% if (!attrWrapper.attr.cscfga__Is_Read_Only__c){ %>
+                              <div class="MLookupBCell MLookupBCellAction"><button class="remove icon-delete" data-cs-action="removeLookup" data-cs-params="<%= parameterize({id: record.id}) %>" data-cs-ref="<%= attrWrapper.reference %>"></button></div>
+        <%}%>
+        <% if (attrWrapper.attr.cscfga__Is_Read_Only__c){ %>
+                              <div class="MLookupBCell MLookupBCellAction readonly"><button class="remove icon-delete" data-cs-action="removeLookup" data-cs-params="<%= parameterize({id: record.id}) %>" data-cs-ref="<%= attrWrapper.reference %>"></button></div>
+        <%}%>
+                              <div class="MLookupBCell"><%= record.name %></div>
+                        <%      for (columnName in columns) {
+                                    if (columnName.toLowerCase() != 'name'){
+                                        var fieldName = columns[columnName].toLowerCase();
+                                        var fieldValue = record[fieldName];
+                        %>
+                                  <div class="MLookupBCell"><%= fieldValue %></div>
+                                    
+                        <%      }} %>
+
+                            </div>
+                            <div class="disabled-message">This element is disabled</div>
+        <%      } %>
+                          </div>
+                        </div>
+        <%  } else { %>
+                        <div class="MLookup">
+                            <div class="MLookupBody scrollable">
+                                <div class="empty">No items to display</div>
+                            </div>
+                        </div>
+        <%  } %>
+                    </div>
+                </div>
+            </div>
+    </script>
+    
+</apex:page>

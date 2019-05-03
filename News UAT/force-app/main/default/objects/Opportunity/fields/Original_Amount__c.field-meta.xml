@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Original_Amount__c</fullName>
+    <description>This field is introduced as part of retraction. When a SO is retracted on a Live campaign, the value is populated.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Opportunity Amount before Retraction on Live Campaign</inlineHelpText>
+    <label>Original Amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,53 @@
+.THIS {
+}
+
+.THIS .tableHeader{
+	background-color: #706e6b !important;
+	color: #f3f2f2 !important;
+}
+
+.THIS.controlPanel{
+	position: fixed;
+    top: 235px;
+    right: -357px;
+    z-index: 999;
+  	padding-left: 8px;
+  	width: 400px;
+    height: 150px;
+}
+
+.THIS.controlPanel{
+	background-color: 	rgb(211,211,211);
+	opacity: 0.9;
+}
+
+.THIS.controlPanelExpanded {
+	width: 700px;
+}
+
+.THIS.controlPanelElement {
+	margin-left: 30px;
+}
+
+
+.THIS.ease {
+  transition: width 1s ease;
+}
+
+.THIS .controlPanelIcon svg{
+	fill: #57BECD;
+	margin-right: 2px;
+    margin-bottom: 2px;
+}
+
+.THIS .filterContainer{
+	position: sticky;
+    z-index: 998;
+}
+
+.THIS .backBtn{
+	font-size: 15px;
+}
+.THIS campaignInfo {
+    font-weight: 500 !important;
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reporting_Type_L2__c</fullName>
+    <description>Filter forecast to - booked vs pipeline.</description>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(PricebookEntry.Product2.Name, &quot;Target Digital&quot;),
+  &quot;Target Digital&quot;,
+
+  IF(CONTAINS(PricebookEntry.Product2.Name, &quot;Target Print&quot;),
+    &quot;Target Print&quot;,
+
+    IF(CONTAINS(PricebookEntry.Product2.Name, &quot;Target Magazine&quot;),
+      &quot;Target Magazine&quot;,
+
+      IF(CONTAINS(PricebookEntry.Product2.Name, &quot;Walk-In&quot;),
+      &quot;Pipeline&quot;,
+
+        IF(Opportunity.Count_Sales_Order_Line_Item__c &gt;=1, &quot;Booked&quot;, &quot;Pipeline&quot;)
+      )
+    )
+  )
+)</formula>
+    <label>Reporting Type L2</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

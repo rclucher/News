@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Solution_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Solution Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Configuration</fullName>
+                <default>false</default>
+                <label>Configuration</label>
+            </value>
+            <value>
+                <fullName>Workflow Rules</fullName>
+                <default>false</default>
+                <label>Workflow Rules</label>
+            </value>
+            <value>
+                <fullName>Lead Assignement Rules</fullName>
+                <default>false</default>
+                <label>Lead Assignement Rules</label>
+            </value>
+            <value>
+                <fullName>Approval Process</fullName>
+                <default>false</default>
+                <label>Approval Process</label>
+            </value>
+            <value>
+                <fullName>Analytics</fullName>
+                <default>false</default>
+                <label>Analytics</label>
+            </value>
+            <value>
+                <fullName>Security Model</fullName>
+                <default>false</default>
+                <label>Security Model</label>
+            </value>
+            <value>
+                <fullName>Data Migration</fullName>
+                <default>false</default>
+                <label>Data Migration</label>
+            </value>
+            <value>
+                <fullName>Data Validation</fullName>
+                <default>false</default>
+                <label>Data Validation</label>
+            </value>
+            <value>
+                <fullName>API Development</fullName>
+                <default>false</default>
+                <label>API Development</label>
+            </value>
+            <value>
+                <fullName>VisualForce Development</fullName>
+                <default>false</default>
+                <label>VisualForce Development</label>
+            </value>
+            <value>
+                <fullName>Apex Code Development</fullName>
+                <default>false</default>
+                <label>Apex Code Development</label>
+            </value>
+            <value>
+                <fullName>Outbound Message</fullName>
+                <default>false</default>
+                <label>Outbound Message</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

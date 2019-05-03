@@ -1,0 +1,131 @@
+<apex:page standardController="OpportunityLineItem" extensions="OpportunityProductSearch_ControllerX">
+    <apex:includeScript value="{!$Resource.JQuery}"/>
+    <script>
+        $.noConflict();
+
+        function checkAll(cb)
+        {
+            var checkboxes = document.getElementsByClassName('ticket_check_box');
+            
+            for(var i in checkboxes)
+                checkboxes[i].checked = cb.checked;
+                
+            return false;               
+        }  
+
+        window.onkeypress = search;
+        function search(e)
+        {
+            var eventInstance = window.event ? event : e;
+            var keyCode = eventInstance.charCode ? eventInstance.charCode : eventInstance.keyCode;    
+            if (keyCode == 13){
+                document.getElementById('{!$Component.searchForm.theBlock.theBlockSection.searchButton}').click();
+                return false;
+            }
+        }
+    </script>
+    <style>
+        /* HOVER STYLES */
+        div.publications_section
+        {
+          display: none;
+          position: absolute;
+          right: 20px;
+          padding: 10px;
+          background: white;
+          color: #000000;
+          border: 1px solid #1a1a1a;
+          font-size: 90%;
+        }
+    </style>
+    <apex:form id="searchForm">
+        <apex:sectionHeader title="Product Selection for" subtitle="Opportunity {!opportunityName}" description="Enter your keyword or choose product family, category, region, then click Search to begin your search."/> 
+        <apex:pageMessages escape="false" id="msg"/>
+        <div class="selectButtons" style="text-align:center;">
+            <apex:commandButton value="Select" action="{!selectBtn}"/>
+            <apex:commandButton value="Cancel" action="{!cancel}"/>
+        </div>
+        <apex:pageblock title="Find Products" id="theBlock">              
+            <apex:pageBlockSection columns="1" id="theBlockSection">
+                <apex:actionRegion >
+                <apex:panelGrid columns="4" >
+                    <apex:outputLabel value="By Keyword" />
+                    <apex:outputLabel value="By Product Family" />                        
+                    <apex:outputLabel value="By Category" />                        
+                    <apex:outputLabel value="By Region" />                        
+                    <apex:inputText value="{!keyword}" styleClass="keywordInput" onkeypress="return search(event)"/>
+                    <apex:selectList size="1" value="{!productFamily}">
+                        <apex:selectOptions value="{!familySelectOptions}"></apex:selectOptions>
+                        <apex:actionSupport event="onchange" action="{!doFilter}" rerender="product_search_results_section" status="searching_status"/>
+                    </apex:selectList>
+                    
+                    <apex:selectList size="1" value="{!productCategory}">
+                        <apex:selectOptions value="{!categorySelectOptions}"></apex:selectOptions>
+                        <apex:actionSupport event="onchange" action="{!doFilter}" rerender="product_search_results_section" status="searching_status"/>
+                    </apex:selectList>
+
+                    <apex:selectList size="1" value="{!productRegion}">
+                        <apex:selectOptions value="{!regionSelectOptions}"></apex:selectOptions>
+                        <apex:actionSupport event="onchange" action="{!doFilter}" rerender="product_search_results_section" status="searching_status"/>                        
+                    </apex:selectList>                                        
+                    <apex:commandButton value="Search" id="searchButton" action="{!searchBtn}" reRender="product_search_results_section, msg" status="searching_status" accesskey="1"/>
+                </apex:panelGrid>
+                </apex:actionRegion>
+            </apex:pageBlockSection>
+        </apex:pageblock>
+        <apex:pageblock >
+            <apex:actionStatus id="searching_status">
+                <apex:facet name="start">
+                    <div class="waitingHolder" style="width: 96%; padding:0px !important; margin:0px !important; min-height:200px;text-align:center;">
+                        <div style="position:relative;top:96px;">
+                            <img src="/img/loading.gif" class="waitingImage" title="Please Wait..." />
+                            <span class="waitingDescription">Loading...</span>
+                        </div>
+                    </div>
+                </apex:facet>
+                <apex:facet name="stop">
+                    <apex:outputPanel id="product_search_results_section">
+                        <script>
+                            
+  (document).ready(function($) 
+                            {
+                                $('a.trigger').hover(function(e) 
+                                {
+                                    var top = $(this).position().top;
+                                    $(this).next().css( "top", top + 20);
+                                    $(this).next().show();
+                                }, function() {
+                                    $(this).next().hide();
+                                });
+                            }); 
+                            
+                        </script>    
+                        <apex:pageBlockTable value="{!productSearchResultsList}" var="productSearchResultLine">
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:inputCheckbox id="select_All_Check" onclick="checkAll(this);" styleClass="check_all_checkbox"/>
+                                </apex:facet>
+                                <apex:inputCheckbox value="{!productSearchResultLine.isSelect}" styleClass="ticket_check_box"/>
+                            </apex:column>
+                            <apex:column value="{!productSearchResultLine.product.Name}"  headerValue="Product Name"/>
+                            <apex:column value="{!productSearchResultLine.product.Family}" headerValue="Product Family"/>
+                            <apex:column value="{!productSearchResultLine.product.Category__c}" headerValue="Category"/>
+                            <apex:column value="{!productSearchResultLine.product.Region__c}" headerValue="Region"/>
+                            <!--apex:column value="{!productSearchResultLine.product.Description}" headerValue="Product Description"/-->
+                            <apex:column headerValue="Product Description"  width="80px;">
+                                <apex:outputLink styleClass="trigger" value="#" rendered="{!NOT(productSearchResultLine.product.PublicationList__c == null || productSearchResultLine.product.PublicationList__c == '')}">
+                                    {!productSearchResultLine.publicationsAbbr}
+                                </apex:outputLink>
+                                <apex:outputPanel layout="block" styleClass="publications_section">
+                                    <apex:dataTable value="{!productSearchResultLine.publicationList}" var="publication">
+                                        <apex:column value="{!publication}"/>
+                                    </apex:dataTable>
+                                </apex:outputPanel>
+                            </apex:column>
+                        </apex:pageBlockTable>
+                    </apex:outputPanel>
+                </apex:facet>
+            </apex:actionStatus>            
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

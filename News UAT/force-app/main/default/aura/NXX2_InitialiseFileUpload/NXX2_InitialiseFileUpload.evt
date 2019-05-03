@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="This will be fired to initialise file upload.">
+    <aura:attribute name="files" type="List" />
+    <aura:attribute name="recordId" type="String" />
+</aura:event>

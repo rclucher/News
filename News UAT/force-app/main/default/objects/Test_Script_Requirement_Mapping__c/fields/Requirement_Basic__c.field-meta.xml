@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Requirement_Basic__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Requirement (Basic)</label>
+    <referenceTo>Requirement_Basic__c</referenceTo>
+    <relationshipLabel>Test Script/Requirement Mappings</relationshipLabel>
+    <relationshipName>Test_Script_Requirement_Mappings</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

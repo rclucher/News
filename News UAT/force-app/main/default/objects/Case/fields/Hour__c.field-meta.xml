@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hour__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+((DateValue(CreatedDate)&gt;= Date(2018,4,1)) &amp;&amp; (DateValue(CreatedDate) &lt;= DATE(2018,10,7))) ||
+((DateValue(CreatedDate) &gt;= Date(2019,4,7)) &amp;&amp; (DateValue(CreatedDate) &lt;= DATE(2019,10,6))) ||
+((DateValue(CreatedDate)&gt;= Date(2020,4,5)) &amp;&amp; (DateValue(CreatedDate) &lt;= DATE(2020,10,4))) ||
+((DateValue(CreatedDate) &gt;= Date(2021,4,4)) &amp;&amp; (DateValue(CreatedDate) &lt;= DATE(2021,10,3))) ||
+((DateValue(CreatedDate) &gt;= Date(2022,4,3)) &amp;&amp; (DateValue(CreatedDate) &lt;= DATE(2022,10,2))),
+VALUE(MID(TEXT(CreatedDate+10/24),12,2)),VALUE(MID(TEXT(CreatedDate+11/24),12,2)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Hour</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

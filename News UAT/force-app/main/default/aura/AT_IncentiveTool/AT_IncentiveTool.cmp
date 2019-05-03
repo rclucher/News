@@ -1,0 +1,617 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+    <aura:attribute type="Boolean" name="regionalTeam" default="false"/>
+    <aura:attribute type="Boolean" name="quarterlyRole" default="false"/>
+    <aura:attribute type="Boolean" name="programmaticRole" default="false"/>
+
+    <aura:attribute type="String" name="targetState1" default="ET"/>
+    <aura:attribute type="String" name="targetState2" default="ET"/>
+    <aura:attribute type="String" name="targetState3" default="ET"/>
+    <aura:attribute type="String" name="targetStateQ" default="ET"/>
+    
+    <aura:attribute type="Decimal" name="printTarget1" default="0"/>
+    <aura:attribute type="Decimal" name="printTarget2" default="0"/>
+    <aura:attribute type="Decimal" name="printTarget3" default="0"/>
+    <aura:attribute type="Decimal" name="printTargetQ" default="0"/>
+    
+    <aura:attribute type="Decimal" name="digitalTarget1" default="0"/>
+    <aura:attribute type="Decimal" name="digitalTarget2" default="0"/>
+    <aura:attribute type="Decimal" name="digitalTarget3" default="0"/>
+    <aura:attribute type="Decimal" name="digitalTargetQ" default="0"/>
+    
+    <aura:attribute type="Decimal" name="printAchieved1" default="0"/>
+    <aura:attribute type="Decimal" name="printAchieved2" default="0"/>
+    <aura:attribute type="Decimal" name="printAchieved3" default="0"/> 
+    <aura:attribute type="Decimal" name="printAchievedQ" default="0"/>
+    
+	<aura:attribute type="Decimal" name="digitalAchieved1" default="0"/>
+    <aura:attribute type="Decimal" name="digitalAchieved2" default="0"/>
+    <aura:attribute type="Decimal" name="digitalAchieved3" default="0"/>
+    <aura:attribute type="Decimal" name="digitalAchievedQ" default="0"/>
+    
+    <aura:attribute type="Decimal" name="combinedTarget1" default="0"/>
+    <aura:attribute type="Decimal" name="combinedTarget2" default="0"/>
+    <aura:attribute type="Decimal" name="combinedTarget3" default="0"/>
+    <aura:attribute type="Decimal" name="combinedAchieved1" default="0"/>
+    <aura:attribute type="Decimal" name="combinedAchieved2" default="0"/>
+    <aura:attribute type="Decimal" name="combinedAchieved3" default="0"/>
+    <aura:attribute type="Decimal" name="digital2Target1" default="0"/>
+    <aura:attribute type="Decimal" name="digital2Target2" default="0"/>
+    <aura:attribute type="Decimal" name="digital2Target3" default="0"/>
+    <aura:attribute type="Decimal" name="digital2Achieved1" default="0"/>
+    <aura:attribute type="Decimal" name="digital2Achieved2" default="0"/>
+    <aura:attribute type="Decimal" name="digital2Achieved3" default="0"/>
+    
+    <aura:attribute type="Boolean" name="programmatic1" default="false"/>
+    <aura:attribute type="Boolean" name="programmatic2" default="false"/>
+    <aura:attribute type="Boolean" name="programmatic3" default="false"/>
+    <aura:attribute type="Boolean" name="programmaticQ" default="false"/>
+    
+    <aura:attribute type="Decimal" name="underOverCombinedTargetAmt1" default="0"/>
+    <aura:attribute type="Decimal" name="underOverCombinedTargetAmt2" default="0"/>
+    <aura:attribute type="Decimal" name="underOverCombinedTargetAmt3" default="0"/>
+    <aura:attribute type="Decimal" name="underOverCombinedTargetAmtQ" default="0"/>
+    
+    <aura:attribute type="Decimal" name="underOverDigitalTargetAmt1" default="0"/>
+    <aura:attribute type="Decimal" name="underOverDigitalTargetAmt2" default="0"/>
+    <aura:attribute type="Decimal" name="underOverDigitalTargetAmt3" default="0"/>
+    <aura:attribute type="Decimal" name="underOverDigitalTargetAmtQ" default="0"/>
+    
+    <aura:attribute type="Decimal" name="underOverCombinedTargetPct1" default="0"/>
+    <aura:attribute type="Decimal" name="underOverCombinedTargetPct2" default="0"/>
+    <aura:attribute type="Decimal" name="underOverCombinedTargetPct3" default="0"/>
+    <aura:attribute type="Decimal" name="underOverCombinedTargetPctQ" default="0"/>
+    
+    <aura:attribute type="String" name="underOverCombinedTargetPct1Class" default="sides red"/>
+    <aura:attribute type="String" name="underOverCombinedTargetPct2Class" default="sides red"/>
+    <aura:attribute type="String" name="underOverCombinedTargetPct3Class" default="sides red"/>
+    <aura:attribute type="String" name="underOverCombinedTargetPctQClass" default="sides red"/>
+    
+    <aura:attribute type="Decimal" name="underOverDigitalTargetPct1" default="0"/>
+    <aura:attribute type="Decimal" name="underOverDigitalTargetPct2" default="0"/>
+    <aura:attribute type="Decimal" name="underOverDigitalTargetPct3" default="0"/>
+    <aura:attribute type="Decimal" name="underOverDigitalTargetPctQ" default="0"/>
+    
+    <aura:attribute type="String" name="underOverDigitalTargetPct1Class" default="sides red"/>
+    <aura:attribute type="String" name="underOverDigitalTargetPct2Class" default="sides red"/>
+    <aura:attribute type="String" name="underOverDigitalTargetPct3Class" default="sides red"/>
+    <aura:attribute type="String" name="underOverDigitalTargetPctQClass" default="sides red"/>
+    
+    <aura:attribute type="Decimal" name="baseSalary1" default="0"/>
+    <aura:attribute type="Decimal" name="baseSalary2" default="0"/>
+    <aura:attribute type="Decimal" name="baseSalary3" default="0"/>
+    <aura:attribute type="Decimal" name="monthSalary1" default="0"/>
+    <aura:attribute type="Decimal" name="monthSalary2" default="0"/>
+    <aura:attribute type="Decimal" name="monthSalary3" default="0"/>
+    
+    <aura:attribute type="Decimal" name="incentivePercent" default="0.3"/>
+    
+    <aura:attribute type="Decimal" name="combinedIncentivePercent" default="0.21"/>
+    <aura:attribute type="Decimal" name="combinedIncentivePercent1" default="0"/>
+    <aura:attribute type="Decimal" name="combinedIncentivePercent2" default="0"/>
+    <aura:attribute type="Decimal" name="combinedIncentivePercent3" default="0"/>
+    
+    <aura:attribute type="Decimal" name="digitalIncentivePercent" default="0.09"/>
+    <aura:attribute type="Decimal" name="digitalIncentivePercent1" default="0"/>
+    <aura:attribute type="Decimal" name="digitalIncentivePercent2" default="0"/>
+    <aura:attribute type="Decimal" name="digitalIncentivePercent3" default="0"/>
+    
+    <aura:attribute type="Decimal" name="programmaticIncentivePercent" default="0"/>
+    <aura:attribute type="Decimal" name="programmaticIncentivePercent1" default="0"/>
+    <aura:attribute type="Decimal" name="programmaticIncentivePercent2" default="0"/>
+    <aura:attribute type="Decimal" name="programmaticIncentivePercent3" default="0"/>
+    <aura:attribute type="Decimal" name="programmaticIncentivePercentQ" default="0"/>
+    
+    <aura:attribute type="Decimal" name="combinedPayPct" default="0"/>
+    <aura:attribute type="Decimal" name="combinedPayPct1" default="0"/>
+    <aura:attribute type="Decimal" name="combinedPayPct2" default="0"/>
+    <aura:attribute type="Decimal" name="combinedPayPct3" default="0"/>
+    <aura:attribute type="Decimal" name="digitalPayPct" default="0"/>
+    <aura:attribute type="Decimal" name="digitalPayPct1" default="0"/>
+    <aura:attribute type="Decimal" name="digitalPayPct2" default="0"/>
+    <aura:attribute type="Decimal" name="digitalPayPct3" default="0"/>
+    <aura:attribute type="Decimal" name="combinedPay1" default="0"/>
+    <aura:attribute type="Decimal" name="combinedPay2" default="0"/>
+    <aura:attribute type="Decimal" name="combinedPay3" default="0"/>
+    <aura:attribute type="Decimal" name="digitalPay1" default="0"/>
+    <aura:attribute type="Decimal" name="digitalPay2" default="0"/>
+    <aura:attribute type="Decimal" name="digitalPay3" default="0"/>
+    <aura:attribute type="Decimal" name="programmaticPay1" default="0"/>
+    <aura:attribute type="Decimal" name="programmaticPay2" default="0"/>
+    <aura:attribute type="Decimal" name="programmaticPay3" default="0"/>
+    
+    <aura:attribute type="Decimal" name="monthPay1" default="0"/>
+    <aura:attribute type="Decimal" name="monthPay2" default="0"/>
+    <aura:attribute type="Decimal" name="monthPay3" default="0"/>
+    <aura:attribute type="Decimal" name="monthPayQ" default="0"/>
+    
+    <aura:attribute type="String" name="monthPay1Class" default="border"/>
+    <aura:attribute type="String" name="monthPay2Class" default="border"/>
+    <aura:attribute type="String" name="monthPay3Class" default="border"/>
+    <aura:attribute type="String" name="monthPayQClass" default="border"/>
+    
+    <aura:attribute type="Decimal" name="qtrCombinedAchieved1" default="0"/>
+    <aura:attribute type="Decimal" name="qtrCombinedAchieved2" default="0"/>
+    <aura:attribute type="Decimal" name="qtrCombinedAchieved3" default="0"/>
+    <aura:attribute type="Decimal" name="qtrCombinedAchievedQ" default="0"/>
+    <aura:attribute type="Decimal" name="qtrDigitalAchieved1" default="0"/>
+    <aura:attribute type="Decimal" name="qtrDigitalAchieved2" default="0"/>
+    <aura:attribute type="Decimal" name="qtrDigitalAchieved3" default="0"/>
+    <aura:attribute type="Decimal" name="qtrDigitalAchievedQ" default="0"/>
+    <aura:attribute type="Decimal" name="qtrProgrammaticAchieved1" default="0"/>
+    <aura:attribute type="Decimal" name="qtrProgrammaticAchieved2" default="0"/>
+    <aura:attribute type="Decimal" name="qtrProgrammaticAchieved3" default="0"/>
+    <aura:attribute type="Decimal" name="qtrProgrammaticAchievedQ" default="0"/>
+    
+    <aura:attribute type="String" name="qtrCombinedAchieved1Class" default="border"/>
+    <aura:attribute type="String" name="qtrCombinedAchieved2Class" default="border"/>
+    <aura:attribute type="String" name="qtrCombinedAchieved3Class" default="border"/>
+    <aura:attribute type="String" name="qtrCombinedAchievedQClass" default="border"/>
+    <aura:attribute type="String" name="qtrDigitalAchieved1Class" default="border"/>
+    <aura:attribute type="String" name="qtrDigitalAchieved2Class" default="border"/>
+    <aura:attribute type="String" name="qtrDigitalAchieved3Class" default="border"/>
+    <aura:attribute type="String" name="qtrDigitalAchievedQClass" default="border"/>
+    <aura:attribute type="String" name="qtrProgrammaticAchieved1Class" default="border"/>
+    <aura:attribute type="String" name="qtrProgrammaticAchieved2Class" default="border"/>
+    <aura:attribute type="String" name="qtrProgrammaticAchieved3Class" default="border"/>
+    <aura:attribute type="String" name="qtrProgrammaticAchievedQClass" default="border"/>
+    
+    <aura:attribute type="Decimal" name="totalA" default="0"/>
+    
+    <aura:attribute type="Decimal" name="financialMonthlyPay" default="0"/>
+    <aura:attribute type="Decimal" name="totalQuarterPay" default="0"/>
+    
+    <aura:attribute type="Decimal" name="baseSalaryPerQ" default="0"/>
+    <aura:attribute type="Decimal" name="qtrAccelGateway" default="0"/>
+    <aura:attribute type="Decimal" name="incentivePctBaseSalary" default="0"/>
+    <aura:attribute type="Decimal" name="totalB" default="0"/>
+    <aura:attribute type="Decimal" name="financialMonthly" default="0"/>
+    <aura:attribute type="Decimal" name="qtrlyAccelPay" default="0"/>
+    <aura:attribute type="Decimal" name="totalPayQ" default="0"/>
+    <aura:attribute type="Decimal" name="totalFinalPayQ" default="0"/>
+    
+    <aura:attribute type="String" name="combinedTargetBar1" default="0"/>
+    <aura:attribute type="String" name="combinedTargetBar2" default="0"/>
+    <aura:attribute type="String" name="combinedTargetBar3" default="0"/>
+    
+    <aura:attribute type="String" name="combinedAchievedBar1" default="0"/>
+    <aura:attribute type="String" name="combinedAchievedBar2" default="0"/>
+    <aura:attribute type="String" name="combinedAchievedBar3" default="0"/>
+   
+    <aura:attribute type="String" name="digitalTargetBar1" default="0"/>
+    <aura:attribute type="String" name="digitalTargetBar2" default="0"/>
+    <aura:attribute type="String" name="digitalTargetBar3" default="0"/>
+    
+    <aura:attribute type="String" name="digitalAchievedBar1" default="0"/>
+    <aura:attribute type="String" name="digitalAchievedBar2" default="0"/>
+    <aura:attribute type="String" name="digitalAchievedBar3" default="0"/>
+    
+    <lightning:card >
+        <aura:set attribute="title">
+            <b>Incentive Estimate Calculator (Exclude Regional)</b>
+        </aura:set>
+        
+        <aura:set attribute="actions">
+            <button class="slds-button slds-button--neutral" type="button" onclick="{!c.goBack}">
+                <lightning:button iconName="utility:back" variant="base" />
+                Back
+            </button>
+        </aura:set>
+        
+		<div style="padding: 12px;">
+            <table id="charts">
+                <thead>
+                    <th colspan = "3">Target v Achieved Revenue</th>
+                </thead>
+                <tbody>
+                    <tr style="height: 100%;">
+                        <td>
+                            <div class="combinedTarget"   style="{!v.combinedTargetBar1}"><span><lightning:formattedNumber style="currency" value="{!v.combinedTarget1}"/></span></div>
+                            <div class="combinedAchieved" style="{!v.combinedAchievedBar1}"><span><lightning:formattedNumber style="currency" value="{!v.combinedAchieved1}"/></span></div>
+                            <div class="digitalTarget"    style="{!v.digitalTargetBar1}"><span><lightning:formattedNumber style="currency" value="{!v.digitalTarget1}"/></span></div>
+                            <div class="digitalAchieved"  style="{!v.digitalAchievedBar1}"><span><lightning:formattedNumber style="currency" value="{!v.digitalAchieved1}"/></span></div>
+                        </td>
+                        <td>
+                            <div class="combinedTarget"   style="{!v.combinedTargetBar2}"><span><lightning:formattedNumber style="currency" value="{!v.combinedTarget2}"/></span></div>
+                            <div class="combinedAchieved" style="{!v.combinedAchievedBar2}"><span><lightning:formattedNumber style="currency" value="{!v.combinedAchieved2}"/></span></div>
+                            <div class="digitalTarget"    style="{!v.digitalTargetBar2}"><span><lightning:formattedNumber style="currency" value="{!v.digitalTarget2}"/></span></div>
+                            <div class="digitalAchieved"  style="{!v.digitalAchievedBar2}"><span><lightning:formattedNumber style="currency" value="{!v.digitalAchieved2}"/></span></div>
+                        </td>
+                        <td>
+                            <div class="combinedTarget"   style="{!v.combinedTargetBar3}"><span><lightning:formattedNumber style="currency" value="{!v.combinedTarget3}"/></span></div>
+                            <div class="combinedAchieved" style="{!v.combinedAchievedBar3}"><span><lightning:formattedNumber style="currency" value="{!v.combinedAchieved3}"/></span></div>
+                            <div class="digitalTarget"    style="{!v.digitalTargetBar3}"><span><lightning:formattedNumber style="currency" value="{!v.digitalTarget3}"/></span></div>
+                            <div class="digitalAchieved"  style="{!v.digitalAchievedBar3}"><span><lightning:formattedNumber style="currency" value="{!v.digitalAchieved3}"/></span></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="month">Month 1</td>
+                        <td class="month">Month 2</td>
+                        <td class="month">Month 3</td>
+                    </tr>
+                    <tr>
+                    	<td colspan = "3" class="legend" style="padding-top: 10px;">
+                            <span class="combinedTarget">&nbsp;&nbsp;&nbsp;&nbsp;</span> Combined Target
+                            	&nbsp;&nbsp;
+                            <span class="combinedAchieved">&nbsp;&nbsp;&nbsp;&nbsp;</span> Combined Achieved
+                            	&nbsp;&nbsp;
+                            <span class="digitalTarget">&nbsp;&nbsp;&nbsp;&nbsp;</span> Digital Target
+                            	&nbsp;&nbsp;
+                            <span class="digitalAchieved">&nbsp;&nbsp;&nbsp;&nbsp;</span> Digital Achieved
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td colspan = "3">&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <table id="incentives">
+                <tbody>
+                    <tr><td  colspan="6" class="heading">REVENUE DETAILS</td></tr>
+                    <tr>
+                    	<td class="border switch-label">Regional Team?</td>
+                        <td class="border highlight-green">
+                        	<lightning:input value="{!v.regionalTeam}" aura:id="regionalTeam" type="toggle" label="" variant="no-label" name="input1" messageToggleActive="Yes" messageToggleInactive="No" onchange="{!c.calc}"/>
+                        </td>
+                        <td class="border switch-label">Quarterly Role?</td>
+                        <td class="border highlight-green">
+                        	<lightning:input value="{!v.quarterlyRole}" aura:id="quarterlyRole" type="toggle" label="" variant="no-label" name="input1" messageToggleActive="Yes" messageToggleInactive="No" onchange="{!c.calc}"/>
+                        </td>
+                        <td class="border switch-label">Programmatic Role?</td>
+                        <td class="border highlight-green">
+                        	<lightning:input value="{!v.programmaticRole}" aura:id="programmaticRole" type="toggle" label="" variant="no-label" name="input1" messageToggleActive="Yes" messageToggleInactive="No" onchange="{!c.calc}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan = "2" class="red">Enter Data in the Orange Highlighted Areas</td>
+                        <td class="border bold" style="width: 16%">Month 1</td>
+                        <td class="border bold" style="width: 16%">Month 2</td>
+                        <td class="border bold" style="width: 16%">Month 3</td>
+                        <td class="border bold" style="width: 16%">Quarter</td>
+                    </tr>
+                    <tr>
+                        <td colspan = "2">Print Target</td>
+                        <td class="sides highlight"><lightning:input type="number" formatter="currency" variant="label-hidden" placeholder=" " label="" value="{!v.printTarget1}" onchange="{!c.calc}"/></td>
+                        <td class="sides highlight"><lightning:input type="number" formatter="currency" variant="label-hidden" placeholder=" " label="" value="{!v.printTarget2}" onchange="{!c.calc}"/></td>
+                        <td class="sides highlight"><lightning:input type="number" formatter="currency" variant="label-hidden" placeholder=" " label="" value="{!v.printTarget3}" onchange="{!c.calc}"/></td>
+                        <td><lightning:formattedNumber style="currency" value="{!v.printTargetQ}"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan = "2">Digital Target</td>
+                        <td class="sides bottom highlight"><lightning:input type="number" formatter="currency" variant="label-hidden" placeholder="" label="" value="{!v.digitalTarget1}" onchange="{!c.calc}"/></td>
+                        <td class="sides bottom highlight"><lightning:input type="number" formatter="currency" variant="label-hidden" placeholder="" label="" value="{!v.digitalTarget2}" onchange="{!c.calc}"/></td>
+                        <td class="sides bottom highlight"><lightning:input type="number" formatter="currency" variant="label-hidden" placeholder="" label="" value="{!v.digitalTarget3}" onchange="{!c.calc}"/></td>
+                        <td><lightning:formattedNumber style="currency" value="{!v.digitalTargetQ}"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan = "2">&nbsp;</td>
+                        <td class="sides"> </td>
+                        <td class="sides"> </td>
+                        <td class="sides"> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td colspan = "2">Print Achieved</td>
+                        <td class="sides top highlight"><lightning:input type="number" formatter="currency" variant="label-hidden" placeholder="" label="" value="{!v.printAchieved1}" onchange="{!c.calc}"/></td>
+                        <td class="sides top highlight"><lightning:input type="number" formatter="currency" variant="label-hidden" placeholder="" label="" value="{!v.printAchieved2}" onchange="{!c.calc}"/></td>
+                        <td class="sides top highlight"><lightning:input type="number" formatter="currency" variant="label-hidden" placeholder="" label="" value="{!v.printAchieved3}" onchange="{!c.calc}"/></td>
+                        <td><lightning:formattedNumber style="currency" value="{!v.printAchievedQ}"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan = "2">Digital Achieved</td>
+                        <td class="sides bottom highlight"><lightning:input type="number" formatter="currency" variant="label-hidden" placeholder="" label="" value="{!v.digitalAchieved1}" onchange="{!c.calc}"/></td>
+                        <td class="sides bottom highlight"><lightning:input type="number" formatter="currency" variant="label-hidden" placeholder="" label="" value="{!v.digitalAchieved2}" onchange="{!c.calc}"/></td>
+                        <td class="sides bottom highlight"><lightning:input type="number" formatter="currency" variant="label-hidden" placeholder="" label="" value="{!v.digitalAchieved3}" onchange="{!c.calc}"/></td>
+                        <td><lightning:formattedNumber style="currency" value="{!v.digitalAchievedQ}"/></td>
+                    </tr>
+                    
+                    <tr>
+                    	<td colspan = "6">
+                        	&nbsp;
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                    	<td colspan="2">&nbsp;</td>
+                        <td class="border">Month 1</td>
+                        <td class="border">Month 2</td>
+                        <td class="border">Month 3</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Combined Target</td>
+                    	<td class="sides"><lightning:formattedNumber style="currency" value="{!v.combinedTarget1}"/></td>
+                        <td class="sides"><lightning:formattedNumber style="currency" value="{!v.combinedTarget2}"/></td>
+                        <td class="sides"><lightning:formattedNumber style="currency" value="{!v.combinedTarget3}"/></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Combined Achieved</td>
+                    	<td class="sides"><lightning:formattedNumber style="currency" value="{!v.combinedAchieved1}"/></td>
+                        <td class="sides"><lightning:formattedNumber style="currency" value="{!v.combinedAchieved2}"/></td>
+                        <td class="sides"><lightning:formattedNumber style="currency" value="{!v.combinedAchieved3}"/></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Digital Target</td>
+                    	<td class="sides"><lightning:formattedNumber style="currency" value="{!v.digitalTarget1}"/></td>
+                        <td class="sides"><lightning:formattedNumber style="currency" value="{!v.digitalTarget2}"/></td>
+                        <td class="sides"><lightning:formattedNumber style="currency" value="{!v.digitalTarget3}"/></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Digital Achieved</td>
+                    	<td class="sides"><lightning:formattedNumber style="currency" value="{!v.digitalAchieved1}"/></td>
+                        <td class="sides"><lightning:formattedNumber style="currency" value="{!v.digitalAchieved2}"/></td>
+                        <td class="sides"><lightning:formattedNumber style="currency" value="{!v.digitalAchieved3}"/></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan = "2">Programmatic Achieved</td>
+                        <td class="border highlight-green"><lightning:input value="{!v.programmatic1}" aura:id="programmatic1" type="toggle" label="" variant="no-label" name="input1" messageToggleActive="Yes" messageToggleInactive="No" onchange="{!c.calc}"/></td>
+                        <td class="border highlight-green"><lightning:input value="{!v.programmatic2}" aura:id="programmatic2" type="toggle" label="" variant="no-label" name="input1" messageToggleActive="Yes" messageToggleInactive="No" onchange="{!c.calc}"/></td>
+                        <td class="border highlight-green"><lightning:input value="{!v.programmatic3}" aura:id="programmatic3" type="toggle" label="" variant="no-label" name="input1" messageToggleActive="Yes" messageToggleInactive="No" onchange="{!c.calc}"/></td>
+                        <td class="border highlight-green"><lightning:input value="{!v.programmaticQ}" aura:id="programmaticQ" type="toggle" label="" variant="no-label" name="input1" messageToggleActive="Yes" messageToggleInactive="No" onchange="{!c.calc}"/></td>
+                    </tr>
+                    <tr>
+                    	<td colspan="6">&nbsp;</td>
+                    </tr>
+                    
+                    <tr>
+                        <td colspan = "2">Under/Over Combined Target $</td>
+                        <td class="sides top grey red"><lightning:formattedNumber style="currency" value="{!v.underOverCombinedTargetAmt1}"/></td>
+                        <td class="sides top grey red"><lightning:formattedNumber style="currency" value="{!v.underOverCombinedTargetAmt2}"/></td>
+                        <td class="sides top grey red"><lightning:formattedNumber style="currency" value="{!v.underOverCombinedTargetAmt3}"/></td>
+                        <td class="sides top grey"><lightning:formattedNumber style="currency" value="{!v.underOverCombinedTargetAmtQ}"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan = "2">Under/Over Digital Target $</td>
+                        <td class="sides grey"><lightning:formattedNumber style="currency" value="{!v.underOverDigitalTargetAmt1}"/></td>
+                        <td class="sides grey"><lightning:formattedNumber style="currency" value="{!v.underOverDigitalTargetAmt2}"/></td>
+                        <td class="sides grey"><lightning:formattedNumber style="currency" value="{!v.underOverDigitalTargetAmt3}"/></td>
+                        <td class="sides grey"><lightning:formattedNumber style="currency" value="{!v.underOverDigitalTargetAmtQ}"/></td>
+                    </tr>
+                    <tr>
+                    	<td colspan="2"></td>
+                        <td class="sides">
+                        	<aura:if isTrue="{!v.targetState1 == 'ET'}">
+                            	<span class="ET">Enter Target</span>
+                            </aura:if>
+                            <aura:if isTrue="{!v.targetState1 == 'NPT'}">
+                            	<span class="NPT">No Print Target</span>
+                            </aura:if>
+                            <aura:if isTrue="{!v.targetState1 == 'DO'}">
+                            	<span class="DO">Digital Only</span>
+                            </aura:if>
+                            <aura:if isTrue="{!v.targetState1 == 'CR'}">
+                            	<span class="CR">&#10060;</span>
+                            </aura:if>
+                            <aura:if isTrue="{!v.targetState1 == 'TK'}">
+                            	<span class="TK">&#10004;</span>
+                            </aura:if>
+                        </td>
+                        <td class="sides">
+                        	<aura:if isTrue="{!v.targetState2 == 'ET'}">
+                            	<span class="ET">Enter Target</span>
+                            </aura:if>
+                            <aura:if isTrue="{!v.targetState2 == 'NPT'}">
+                            	<span class="NPT">No Print Target</span>
+                            </aura:if>
+                            <aura:if isTrue="{!v.targetState2 == 'DO'}">
+                            	<span class="DO">Digital Only</span>
+                            </aura:if>
+                            <aura:if isTrue="{!v.targetState2 == 'CR'}">
+                            	<span class="CR">&#10060;</span>
+                            </aura:if>
+                            <aura:if isTrue="{!v.targetState2 == 'TK'}">
+                            	<span class="TK">&#10004;</span>
+                            </aura:if>
+                        </td>
+                        <td class="sides">
+                        	<aura:if isTrue="{!v.targetState3 == 'ET'}">
+                            	<span class="ET">Enter Target</span>
+                            </aura:if>
+                            <aura:if isTrue="{!v.targetState3 == 'NPT'}">
+                            	<span class="NPT">No Print Target</span>
+                            </aura:if>
+                            <aura:if isTrue="{!v.targetState3 == 'DO'}">
+                            	<span class="DO">Digital Only</span>
+                            </aura:if>
+                            <aura:if isTrue="{!v.targetState3 == 'CR'}">
+                            	<span class="CR">&#10060;</span>
+                            </aura:if>
+                            <aura:if isTrue="{!v.targetState3 == 'TK'}">
+                            	<span class="TK">&#10004;</span>
+                            </aura:if>
+                        </td>
+                        <td class="sides">
+                        	<aura:if isTrue="{!v.targetStateQ == 'ET'}">
+                            	<span class="ET">Enter Target</span>
+                            </aura:if>
+                            <aura:if isTrue="{!v.targetStateQ == 'NPT'}">
+                            	<span class="NPT">No Print Target</span>
+                            </aura:if>
+                            <aura:if isTrue="{!v.targetStateQ == 'DO'}">
+                            	<span class="DO">Digital Only</span>
+                            </aura:if>
+                            <aura:if isTrue="{!v.targetStateQ == 'CR'}">
+                            	<span class="CR">&#10060;</span>
+                            </aura:if>
+                            <aura:if isTrue="{!v.targetStateQ == 'TK'}">
+                            	<span class="TK">&#10004;</span>
+                            </aura:if>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td colspan = "2">Under/Over Combined Target %</td>
+                        <td class="{!v.underOverCombinedTargetPct1Class}"><lightning:formattedNumber style="percent" minimumFractionDigits="2" maximumFractionDigits="2" value="{!v.underOverCombinedTargetPct1}"/></td>
+                        <td class="{!v.underOverCombinedTargetPct2Class}"><lightning:formattedNumber style="percent" minimumFractionDigits="2" maximumFractionDigits="2" value="{!v.underOverCombinedTargetPct2}"/></td>
+                        <td class="{!v.underOverCombinedTargetPct3Class}"><lightning:formattedNumber style="percent" minimumFractionDigits="2" maximumFractionDigits="2" value="{!v.underOverCombinedTargetPct3}"/></td>
+                        <td class="{!v.underOverCombinedTargetPctQClass}"><lightning:formattedNumber style="percent" minimumFractionDigits="2" maximumFractionDigits="2" value="{!v.underOverCombinedTargetPctQ}"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan = "2">Under/Over Digital Target %</td>
+                        <td class="{!v.underOverDigitalTargetPct1Class}"><lightning:formattedNumber style="percent" minimumFractionDigits="2" maximumFractionDigits="2" value="{!v.underOverDigitalTargetPct1}"/></td>
+                        <td class="{!v.underOverDigitalTargetPct2Class}"><lightning:formattedNumber style="percent" minimumFractionDigits="2" maximumFractionDigits="2" value="{!v.underOverDigitalTargetPct2}"/></td>
+                        <td class="{!v.underOverDigitalTargetPct3Class}"><lightning:formattedNumber style="percent" minimumFractionDigits="2" maximumFractionDigits="2" value="{!v.underOverDigitalTargetPct3}"/></td>
+                        <td class="{!v.underOverDigitalTargetPctQClass}"><lightning:formattedNumber style="percent" minimumFractionDigits="2" maximumFractionDigits="2" value="{!v.underOverDigitalTargetPctQ}"/></td>
+                    </tr>
+                    <tr><td  colspan="6" class="heading">PART A: ACHIEVING TARGET EACH MONTH &amp; MAKEUP FINANCIAL MONTHLY PAYMENT</td></tr>
+                    <tr>
+                    	<td colspan="2">1) Monthly Incentive Calculations</td>
+                        <td class="border bold">Month 1</td>
+                        <td class="border bold">Month 2</td>
+                        <td class="border bold">Month 3</td>
+                        <td class="border bold">Quarter</td>
+                    </tr>
+                    <tr>
+                        <td colspan = "2">Enter Annual Base Salary for each month <span style="font-size: 1.5em;">&#10230;</span></td>
+                        <td class="sides highlight"><lightning:input type="number" formatter="currency" variant="label-hidden" placeholder="" label="" value="{!v.baseSalary1}" onchange="{!c.calc}"/></td>
+                        <td class="sides highlight"><lightning:input type="number" formatter="currency" variant="label-hidden" placeholder="" label="" value="{!v.baseSalary2}" onchange="{!c.calc}"/></td>
+                        <td class="sides highlight"><lightning:input type="number" formatter="currency" variant="label-hidden" placeholder="" label="" value="{!v.baseSalary3}" onchange="{!c.calc}"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan = "2">Enter Base Salary for each month <span style="font-size: 1.5em;">&#10230;</span></td>
+                        <td class="sides bottom"><lightning:formattedNumber style="currency" value="{!v.monthSalary1}"/></td>
+                        <td class="sides bottom"><lightning:formattedNumber style="currency" value="{!v.monthSalary2}"/></td>
+                        <td class="sides bottom"><lightning:formattedNumber style="currency" value="{!v.monthSalary3}"/></td>
+                    </tr>
+                    <tr>
+                    	<td>Incentive %</td>
+                        <td><lightning:formattedNumber style="percent" value="{!v.incentivePercent}" minimumFractionDigits="2"/></td>                        
+                    </tr>
+                    <tr>
+                        <td>Combined Incentive Payment % of Base Salary</td>
+                        <td class="sides top"><lightning:formattedNumber style="percent" value="{!v.combinedIncentivePercent}" minimumFractionDigits="2"/></td>
+                        <td class="sides top"><lightning:formattedNumber style="percent" value="{!v.combinedIncentivePercent1}" minimumFractionDigits="2"/></td>
+                        <td class="sides top"><lightning:formattedNumber style="percent" value="{!v.combinedIncentivePercent2}" minimumFractionDigits="2"/></td>
+                        <td class="sides top"><lightning:formattedNumber style="percent" value="{!v.combinedIncentivePercent3}" minimumFractionDigits="2"/></td>
+                    </tr>
+                    <tr>
+                        <td>Digital Incentive Payment % of Base Salary</td>
+                        <td class="sides"><lightning:formattedNumber style="percent" value="{!v.digitalIncentivePercent}" minimumFractionDigits="2"/></td>
+                        <td class="sides"><lightning:formattedNumber style="percent" value="{!v.digitalIncentivePercent1}" minimumFractionDigits="2"/></td>
+                        <td class="sides"><lightning:formattedNumber style="percent" value="{!v.digitalIncentivePercent2}" minimumFractionDigits="2"/></td>
+                        <td class="sides"><lightning:formattedNumber style="percent" value="{!v.digitalIncentivePercent3}" minimumFractionDigits="2"/></td>
+                    </tr>
+                    <tr>
+                        <td>Programmatic Incentive Payment % of Base Salary</td>
+                        <td class="sides bottom"><lightning:formattedNumber style="percent" value="{!v.programmaticIncentivePercent}" minimumFractionDigits="2"/></td>
+                        <td class="sides bottom"><lightning:formattedNumber style="percent" value="{!v.programmaticIncentivePercent1}" minimumFractionDigits="2"/></td>
+                        <td class="sides bottom"><lightning:formattedNumber style="percent" value="{!v.programmaticIncentivePercent2}" minimumFractionDigits="2"/></td>
+                        <td class="sides bottom"><lightning:formattedNumber style="percent" value="{!v.programmaticIncentivePercent3}" minimumFractionDigits="2"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan = "2">Combined Incentive Payment</td>
+                        <td class="sides"><lightning:formattedNumber style="currency" value="{!v.combinedPay1}"/></td>
+                        <td class="sides"><lightning:formattedNumber style="currency" value="{!v.combinedPay2}"/></td>
+                        <td class="sides"><lightning:formattedNumber style="currency" value="{!v.combinedPay3}"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan = "2">Digital Incentive Payment</td>
+                        <td class="sides"><lightning:formattedNumber style="currency" value="{!v.digitalPay1}"/></td>
+                        <td class="sides"><lightning:formattedNumber style="currency" value="{!v.digitalPay2}"/></td>
+                        <td class="sides"><lightning:formattedNumber style="currency" value="{!v.digitalPay3}"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan = "2">Programmatic Incentive Payment</td>
+                        <td class="sides"><lightning:formattedNumber style="currency" value="{!v.programmaticPay1}"/></td>
+                        <td class="sides"><lightning:formattedNumber style="currency" value="{!v.programmaticPay2}"/></td>
+                        <td class="sides"><lightning:formattedNumber style="currency" value="{!v.programmaticPay3}"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan = "2">Monthly Payments</td>
+                        <td class="{!v.monthPay1Class}"><lightning:formattedNumber style="currency" value="{!v.monthPay1}"/></td>
+                        <td class="{!v.monthPay2Class}"><lightning:formattedNumber style="currency" value="{!v.monthPay2}"/></td>
+                        <td class="{!v.monthPay3Class}"><lightning:formattedNumber style="currency" value="{!v.monthPay3}"/></td>
+                        <td class="{!v.monthPayQClass}"><lightning:formattedNumber style="currency" value="{!v.monthPayQ}"/></td>
+                    </tr>
+                    <tr>
+                        <td coslpan="6">
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td coslpan="6">2) Makeup Incentive Paid for Missed Incentive Months at Quarter End if Target for Quarter Achieved</td>
+                    </tr>
+                    <tr>
+                        <td colspan = "2">Paid if combined target for the quarter is achieved</td>
+                        <td class="{!v.qtrCombinedAchieved1Class}"><lightning:formattedNumber style="currency" value="{!v.qtrCombinedAchieved1}"/></td>
+                        <td class="{!v.qtrCombinedAchieved2Class}"><lightning:formattedNumber style="currency" value="{!v.qtrCombinedAchieved2}"/></td>
+                        <td class="{!v.qtrCombinedAchieved3Class}"><lightning:formattedNumber style="currency" value="{!v.qtrCombinedAchieved3}"/></td>
+                        <td class="border"><lightning:formattedNumber style="currency" value="{!v.qtrCombinedAchievedQ}"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan = "2">Paid if digital target for the quarter is achieved</td>
+                        <td class="{!v.qtrDigitalAchieved1Class}"><lightning:formattedNumber style="currency" value="{!v.qtrDigitalAchieved1}"/></td>
+                        <td class="{!v.qtrDigitalAchieved2Class}"><lightning:formattedNumber style="currency" value="{!v.qtrDigitalAchieved2}"/></td>
+                        <td class="{!v.qtrDigitalAchieved3Class}"><lightning:formattedNumber style="currency" value="{!v.qtrDigitalAchieved3}"/></td>
+                        <td class="border"><lightning:formattedNumber style="currency" value="{!v.qtrDigitalAchievedQ}"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan = "2">Paid if Programmatic target for the quarter is achieved</td>
+                        <td class="{!v.qtrProgrammaticAchieved1Class}"><lightning:formattedNumber style="currency" value="{!v.qtrProgrammaticAchieved1}"/></td>
+                        <td class="{!v.qtrProgrammaticAchieved2Class}"><lightning:formattedNumber style="currency" value="{!v.qtrProgrammaticAchieved2}"/></td>
+                        <td class="{!v.qtrProgrammaticAchieved3Class}"><lightning:formattedNumber style="currency" value="{!v.qtrProgrammaticAchieved3}"/></td>
+                        <td class="border"><lightning:formattedNumber style="currency" value="{!v.qtrProgrammaticAchievedQ}"/></td>
+                    </tr>
+                    <tr>
+                    	<td colspan="2">* Paid only if there are 3 targets for set for the quarter</td>
+                    </tr>
+                    <tr>
+                        <td colspan = "5">Total for Part A</td>
+                        <td class="border"><lightning:formattedNumber style="currency" value="{!v.totalA}"/></td>
+                    </tr>
+                    <tr><td  colspan="6" class="heading">PART B: FINANCIAL QUARTERLY INCENTIVE</td></tr>
+                    <tr>
+                    	<td colspan="5">&nbsp;</td>
+                        <td class="border">Quarter</td>
+                    </tr>
+                    <tr>
+                        <td>Base Salary (per Qtr - based on month 3)</td>
+                        <td class="border"><lightning:formattedNumber style="currency" value="{!v.baseSalaryPerQ}"/></td>
+                        <td colspan = "4">&nbsp;</td>
+                        
+                    </tr>
+                    <tr>
+                        <td colspan = "5">Quarter Accelerator Gateway %</td>
+                        <td class="sides top"><lightning:formattedNumber style="percent" minimumFractionDigits="2" maximumFractionDigits="2" value="{!v.qtrAccelGateway}"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan = "5">Incentive % on Base Salary</td>
+                        <td class="sides bottom"><lightning:formattedNumber style="percent" minimumFractionDigits="2" maximumFractionDigits="2" value="{!v.incentivePctBaseSalary}"/></td>
+                    </tr>
+                    <tr>
+                    	<td colspan="6">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan = "5">Total for part B</td>
+                        <td class="border"><lightning:formattedNumber style="currency" value="{!v.totalB}"/></td>
+                    </tr>
+                    <tr><td  colspan="6" class="heading">TOTAL PAYMENTS FOR THE QUARTER</td></tr>
+                    <tr>
+                    	<td colspan="5">&nbsp;</td>
+                        <td class="border">Payments</td>
+                    </tr>
+                    <tr>
+                        <td colspan = "5">Financial Monthly Payments and Makeup Monthly Payments</td>
+                        <td class="border"><lightning:formattedNumber style="currency" value="{!v.financialMonthlyPay}"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan = "5">Quarterly Accelerator Financial Payments</td>
+                        <td class="border"><lightning:formattedNumber style="currency" value="{!v.totalB}"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan = "5">Total Payments for the Quarter</td>
+                        <td class="border"><lightning:formattedNumber style="currency" value="{!v.totalQuarterPay}"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan = "5"><b>Total Final Payment for the Quarter</b></td>
+                        <td class="border"><b><span class="green"><lightning:formattedNumber style="currency" value="{!v.totalFinalPayQ}"/></span></b></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </lightning:card>
+</aura:component>

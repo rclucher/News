@@ -1,0 +1,125 @@
+<aura:component controller='NXX2_CustomerActivitiesListController' implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+
+<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+<aura:attribute name="recordId" type="String"/>
+<aura:attribute name="sObjectName" type="String" default='Customer_Task__c'/>
+<aura:attribute name="customerTasksList" type="List" />
+<aura:attribute name="customerTask" type="Object" />
+<aura:attribute name="originalDataCustomerTasksList" type="List" />
+<aura:attribute name="isUserHasCreateAccessToTask" type="boolean"/>
+<aura:attribute name="customerTaskResponse" type="Object"/>
+<aura:attribute name="iconName" type="String" />
+<aura:attribute name="ParentObjectName" type="String" />
+<aura:attribute name="view" type="String" default="Compact"/>
+<aura:attribute name="ParentObjectRecordId" type="String" />
+<aura:attribute name="Spinner" type="boolean" default="false"/>
+<aura:attribute name="overlay" type="Object"/>
+<aura:attribute name="recordType" type="String" />
+    <aura:attribute name="externalUser" type="Boolean" default="false"/>
+<aura:handler event="c:NXX2_CustomerActivityUpdated" action="{!c.doInit}"/>
+<lightning:overlayLibrary aura:id="overlayLib"/>
+<lightning:notificationsLibrary aura:id="notifLib"/>
+<!-- set up the aura:method for to Open Customer Activities  -->
+<aura:method name="loadCustomerActivities" description="Open Customer Activities">
+    <aura:attribute name="parentRecordId" type="String"/>
+</aura:method>
+    
+<aura:handler name="handleCustomerActivitiesDetailView" event="c:NXX2_HandleCustomerActivitiesDetailViewEvent" action="{!c.onCustomerActivityPreview}"/>
+
+<aura:handler name="handleCustomerActivityRefreshListEvent" event="c:NXX2_HandleCustomerActivityRefreshListEvent" action="{!c.refreshView}"/>
+
+<aura:handler event="c:NXX2_LoadCustomerTaskRelatedToSObjectEvent" action="{!c.loadSObJectRelatedCustomerTask}"/>
+
+
+<lightning:card variant="Narrow" title="Customer Activities"  iconName="{!v.iconName}" >
+   <aura:set attribute="actions">
+       
+       
+        <aura:if isTrue="{!v.isUserHasCreateAccessToTask}">
+            <lightning:buttonGroup>
+                    <lightning:button variant="brand" label="Create Customer Activity" title="Create Customer Activity" onclick="{! c.openQuickCreateActivityView }" />
+                    <lightning:buttonMenu aura:id="menu"  class="slds-button_last" iconName="utility:filterList" onselect="{! c.filterCustomerActivity }" 
+                    alternativeText="Show menu">
+                        <lightning:menuItem value="All" label="All" />
+                    <lightning:menuItem value="New" label="New" />
+                        <lightning:menuItem value="Completed" label="Completed" />
+                        <lightning:menuItem value="In Review" label="In Review" />
+                        <lightning:menuItem value="With Client" label="With Client" />
+                    </lightning:buttonMenu>
+            </lightning:buttonGroup>
+         <aura:set attribute="else">
+           <lightning:buttonGroup>
+                    <lightning:buttonMenu aura:id="menu"  iconName="utility:filterList" onselect="{! c.filterCustomerActivity }" 
+                    alternativeText="Show menu">
+                    <lightning:menuItem value="All" label="All" />
+                    <lightning:menuItem value="Completed" label="Completed" />
+                    <lightning:menuItem value="With Client" label="With Client" />
+                    </lightning:buttonMenu>
+            </lightning:buttonGroup>
+                                </aura:set>
+                        </aura:if>
+    </aura:set>
+
+    <aura:set attribute="footer">
+       <!-- <a class="slds-card__footer-action" href="javascript:void(0);">View All
+            <span class="slds-assistive-text">Contacts</span>
+        </a>
+    -->
+    </aura:set>
+    <div class="slds-card__body slds-card__body_inner"></div>
+    <p class="slds-p-horizontal_small">
+        <div class="slds-card__body">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped" role="grid">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                            <aura:if isTrue="{!(v.view!='Full')}">
+                                    <th class="slds-text-title_caps" scope="col">
+                                            <div class="slds-truncate" title="Name">Type</div>
+                                        </th>
+                                        <th class="slds-text-title_caps" scope="col">
+                                                <div class="slds-truncate" title="Company"></div>
+                                        </th>
+                                    <aura:set attribute="else">
+                                            <th class="slds-text-title_caps" scope="col">
+                                                    <div class="slds-truncate" title="Name">Type</div>
+                                                </th>
+                                                <th class="slds-text-title_caps" scope="col">
+                                                    <div class="slds-truncate" title="Company">Due Date</div>
+                                                </th>
+                                                <th class="slds-text-title_caps" scope="col">
+                                                        <div class="slds-truncate" title="Company">Status</div>
+                                                </th>
+                                                <th class="slds-text-title_caps" scope="col">
+                                                        <div class="slds-truncate" title="Company"></div>
+                                                </th>
+                                    </aura:set>
+                            </aura:if>
+                        
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:if isTrue="{!v.Spinner}">
+                        <div class="spinner-container">
+                            <lightning:spinner alternativeText="Loading" size="medium" aura:id="LoadingReport"/>
+                        </div>
+                        <aura:set attribute="else">
+                            <aura:iteration items="{!v.customerTasksList}" var="customerTask" indexVar="fileIndex">
+                               <c:NXX2_CustomerActivity customerTask="{!customerTask.Customer_Task}"  warningColor ="{!customerTask.warningColor}" view="{!v.view}" externalUser="{!v.externalUser}"/>
+                            </aura:iteration>
+                        </aura:set>
+                    </aura:if>
+                    <aura:if isTrue="{! and(empty(v.customerTasksList),!v.Spinner)}">
+                        <tr>
+                            <td colspan="4" class="no-record-msg">No Records To Display</td>
+                        </tr>
+                    </aura:if> 
+                </tbody>
+            </table>
+        </div>
+
+      <!--  <c:NXX2_CustomerTaskDetailEditView aura:id="customerActivityDetailEditView"/> -->
+    </p>
+</lightning:card>
+
+</aura:component>

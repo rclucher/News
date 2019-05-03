@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Owning_Credit_Division__c</fullName>
+    <description>Booking Account Owning Credit Division</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Booking Account Owning Credit Division</inlineHelpText>
+    <label>Owning Credit Division</label>
+    <length>10</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Debug_Centralized_Report</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Debug Centralized Report</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>https://www.appextremes.com/apps/Conga/PointMerge.aspx
+?SessionID={!API.Session_ID}
+&amp;ServerURL={!API.Partner_Server_URL_80}
+&amp;Id={!Status_Report__c.Id}
+&amp;ReportId=00O30000004LwOB?pv0={!Status_Report__c.Project_OverviewId__c}
+&amp;ReportId=00O30000004LwOC?pv0={!Status_Report__c.Project_OverviewId__c}
+&amp;ReportId=00O30000004LwOD
+&amp;ReportId=00O30000004LwOE?pv0={!Status_Report__c.Project_OverviewId__c}
+&amp;ReportId=00O30000004LwOF?pv0={!Status_Report__c.Project_OverviewId__c}
+&amp;ReportId=00O30000004LwOG?pv0={!Status_Report__c.Project_OverviewId__c}~pv1={!Status_Report__c.Status_Date__c}
+&amp;ReportId=00O30000004LwOH?pv0={!Status_Report__c.Project_OverviewId__c}
+&amp;ReportId=00O30000004LwOI?pv0={!Status_Report__c.Project_OverviewId__c}
+&amp;TemplateId=a0t300000016HOv
+&amp;OFN=Centralized+Status+Report+-+{!Status_Report__c.Customer_Name__c}</url>
+</WebLink>

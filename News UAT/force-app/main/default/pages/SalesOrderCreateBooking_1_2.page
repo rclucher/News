@@ -1,0 +1,727 @@
+<apex:page standardController="Sales_Order__c" extensions="SalesOrderCreateBookingv2_ControllerX" sidebar="{!showHeaderAndSidebar}" showheader="{!showHeaderAndSidebar}">
+<!-- Note: The Internet Explorer Control inside GMMS handles Javascript errors differently from standalone IE. 
+     Inside GMMS, any JS errors stops execution. Debug in standalone browser to confirm no suppressed errors before 
+     moving to GMMS testing. -->
+    <apex:includeScript value="/support/console/29.0/integration.js"/>
+    <apex:includeScript value="{!$Resource.JQuery}"/>
+    <apex:form >
+        <apex:sectionHeader title="Create Booking 1.4" />
+        <apex:pageMessages id="messages" escape="false" />
+        <apex:pageBlock id="pgbkOrder">
+            <apex:actionRegion >                                    
+                <apex:pageBlockSection id="pbksType" columns="1" title="Order Type" >                                
+                    <apex:pageBlockSectionItem id="pbsiType">
+                        <apex:outputLabel value="{!$ObjectType.Sales_Order__c.Fields.Booking_Type__c.Label}" for="lstBookingType"/>
+                        <apex:outputPanel id="pnlBooking" layout="block">
+                            <apex:selectList Id="lstBookingType" size="1" value="{!so.Booking_Type__c}" onchange="changeTypeSystem();">
+                                <apex:selectOptions value="{!bookingTypes}" />                
+                            </apex:selectList>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                   
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$ObjectType.Sales_Order__c.Fields.Source_System__c.Label}" for="lstTargetSystems" />
+                        <apex:outputPanel id="pnlTarget" layout="block">
+                            <apex:selectList Id="lstTargetSystems" size="1" value="{!so.Source_System__c}" onchange="changeTypeSystem();">
+                                <apex:selectOptions value="{!targetSystems}" />
+                            </apex:selectList>
+                            <apex:selectList Id="lstDivisions" size="1" value="{!so.Booking_Division__c}" html-hidden="true" onchange="changeTypeSystem();">
+                                <apex:selectOptions value="{!cyberAdDivisions}" />
+                            </apex:selectList>
+                            <apex:actionFunction name="reloadPage" status="changeTypeSystemStatus" action="{!onChangeBookingType}" reRender="pbsiType, lstTargetSystems, pgbkProducts, pnlCustomer, pbksContacts, pbbButtonsDiv, messages, lstBillingAccounts, tNumberSearchSection, pnlBillBook"/>
+                            <apex:actionFunction name="resetPage" rerender="pgbkProducts, pnlCustomer, pbksContacts, pbbButtonsDiv, messages, lstBillingAccounts, tNumberSearchSection, pnlBillBook" />
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>            
+
+                    <!-- To check product availability for AdPoint Booking -->
+                    <apex:pageblockSectionItem rendered="{!so.Source_System__c == 'AdPoint'}">
+                        <apex:outputText ></apex:outputText>
+                        <apex:actionRegion >
+                            <apex:outputLink onclick="openProductAvailabilityPage();return false;">Check AdPoint Products Availability</apex:outputLink>                    
+                        </apex:actionRegion>
+                    </apex:pageblockSectionItem>                    
+                </apex:pageBlockSection>
+            </apex:actionRegion>
+            <apex:actionRegion >
+                <apex:pageBlockSection id="tNumberSearchSection" columns="1">
+                    <apex:pageBlockSectionItem rendered="{!AND(isGenera,NOT(showAddNewGBAFlag))}">
+                        <apex:outputLabel value="Search T Number"/>
+                        <apex:outputPanel layout="none" >
+                            <apex:actionRegion >
+                                <apex:inputText value="{!tNumberSearch}" id="inputTNumberSearch" styleClass="inputTNumberSearch" />
+                                <apex:commandButton action="{!doTNumberSearch}"
+                                                    rerender="pbsTNumberSearch,messages" 
+                                                    value="Search"
+                                                    styleClass="buttonTNumberSearch"
+                                                    status="buttonTNumberSearchLoadingStatus"/> <!-- added by Dr. Mancilla - added messages to reRender -->
+
+                                <apex:actionStatus id="buttonTNumberSearchLoadingStatus" stopText="">
+                                    <apex:facet name="start">
+                                        <img src="/img/loading.gif" />
+                                    </apex:facet>
+                                </apex:actionStatus>
+
+                                <script>
+                                    jQuery('.inputTNumberSearch').bind('keypress', function(e) {
+                                         var code = e.keyCode || e.which;
+                                         if(code == 13) {
+                                           jQuery('.buttonTNumberSearch').click();
+                                           return false;
+                                         }
+                                    });
+                                </script>
+                            </apex:actionRegion>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+            </apex:actionRegion>
+
+            <apex:outputPanel id="pbsTNumberSearch">
+                <apex:pageBlockSection columns="1" >
+                    <apex:actionStatus id="TNumberSearchLoadingStatus" stopText="">
+                        <apex:facet name="start">
+                            <img src="/img/loading.gif" />
+                        </apex:facet>
+                        <apex:facet name="stop">
+                            <apex:outputPanel layout="none"  id="tblTNumberSearchResults" rendered="{!AND(NOT(ISBLANK(tNumberResult)), tNumberResult.size>0)}" >                        
+                            <apex:actionRegion >
+                                <apex:pageBlockTable value="{!tNumberResult}" var="ex">
+                                    <apex:column >
+                                        <apex:facet name="header" >
+                                            <apex:outputLabel value="{!$ObjectType.External_Account__c.Fields.Account_No__c.Label}"/>
+                                        </apex:facet>
+                                        <a href="#"
+                                            id="{!ex.Id}"
+                                            position="relative"
+                                            onclick="doSelectTNumber('{!ex.Id}', '{!ex.Account_No__c}'); return false;"
+                                            onblur="LookupHoverDetail.getHover('{!ex.Id}').hide();"
+                                            onfocus="LookupHoverDetail.getHover('{!ex.Id}', '/{!ex.Id}/m?retURL=%2F{!ex.Id}&isAjaxRequest=1').show();"
+                                            onmouseout="LookupHoverDetail.getHover('{!ex.Id}').hide();"
+                                            onmouseover="LookupHoverDetail.getHover('{!ex.Id}', '/{!ex.Id}/m?retURL=%2F{!ex.Id}&isAjaxRequest=1').show();">
+                                            <apex:outputText value="{!ex.Account_No__c}" />
+                                        </a>
+                                    </apex:column>
+                                    <apex:column value="{!ex.Name}"/>
+                                    <apex:column value="{!ex.ABN_Number__c}"/>
+                                    <apex:column value="{!ex.Customer_Account__r.Name}"/>
+                                    <apex:column value="{!ex.Customer_Account__r.Phone}"/>
+                                </apex:pageBlockTable>
+                            </apex:actionRegion>
+                            </apex:outputPanel>
+                        </apex:facet>
+                    </apex:actionStatus>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+            <apex:actionStatus id="changeTypeSystemStatus" stopText="" >
+                <apex:facet name="start">
+                    <img src="/img/loading.gif" />
+                </apex:facet>
+            </apex:actionStatus>
+            <apex:outputPanel id="pnlCustomer">
+                <apex:outputPanel rendered="{!  AND(NOT(ISBLANK(so.Booking_Type__c)),
+                                                            AND(NOT(ISBLANK(so.Source_System__c)),
+                                                                OR(AND(isCyber,NOT(ISBLANK(so.Booking_Division__c))),
+                                                                    NOT(isCyber))),
+                                                        ISBLANK(so.Advertiser_Account__c))}">   
+                                                                                        
+                        <c:AccountSearch debugMode="false"
+                                            rerenderAreas="pbksContacts, pnlCustomer,pnlBillBook, messages, pbbButtonsDiv"
+                                            rerenderAreasOnSearch="pnlCreateCustomer"
+                                            vfPageController="{!this}"
+                                            vfkey="accountSearch"                                             
+                        />
+
+                
+                        <apex:outputPanel id="pnlCreateCustomer">                   
+                                <c:AccountCreate sectionTitle="Add new Advertiser"
+                                                rerenderAreas="pbksContacts, pnlCustomer,pnlCreateCustomer, messages, pbbButtonsDiv, pnlBillBook"
+                                                vfPageController="{!this}"
+                                                vfkey="accountCreate"
+                                                rendered="{!hasSearched}"
+                                                sourceSystem="{!so.Source_System__c}"/>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+                </apex:outputPanel>             
+        
+            <apex:actionRegion id="regOrder">
+            <apex:outputPanel id="pbksContacts" >
+            <apex:pageBlockSection columns="2" title="Booking Accounts and Contacts" 
+                                    rendered="{!AND(
+                                                    selectedAdvertiser!=null,
+                                                    NOT(ISBLANK(so.Booking_Type__c)),
+                                                    NOT(ISBLANK(so.Source_System__c)),
+                                                    NOT(AND(so.Source_System__c == 'CyberAd', ISBLANK(so.Booking_Division__c)))
+                                                )}">
+                            
+                <apex:outputField value="{!so.Advertiser_Account__c}" id="advertiserAccount" />                
+                <apex:inputField value="{!so.Planner_Account__c}" rendered="{!so.Source_System__c != 'AdPoint'}"/>
+                <apex:pageBlockSectionItem rendered="{!AND(IsAgency, so.Source_System__c != 'AdPoint')}">
+                    <apex:outputLabel value="{!$ObjectType.Sales_Order__c.Fields.Payer_Account__c.Label}"/>
+                    <apex:outputPanel layout="none">
+                        <apex:actionRegion >
+                            <apex:selectList id="lstPayers" size="1" value="{!payerPicklistSelection}">
+                                <apex:selectOptions value="{!payerAccounts}" />
+                                <apex:actionSupport event="onchange" 
+                                                    action="{!onChangePicklistSelection}"
+                                                    rerender="pbksContacts,pnlBillBook,pbbButtonsDiv,pbsiNewPayer,messages" 
+                                                    status="payerSelectionLoadingStatus"/>
+                            </apex:selectList>
+                        </apex:actionRegion>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+                <!--apex:outputText rendered="{!so.Source_System__c ='AdPoint'}"></apex:outputText-->
+<apex:outputLabel value=""  rendered="{!IsAgency || so.Source_System__c ='AdPoint'}"/>
+
+                <apex:pageBlockSectionItem id="pbsiNewPayer">
+                    <apex:outputPanel layout="none">
+                        <apex:outputLabel value="{!IF(AND(IsAgency, so.Source_System__c != 'AdPoint'),'or Select new','')}  {!$ObjectType.Sales_Order__c.Fields.Payer_Account__c.Label}" />
+                    </apex:outputPanel>
+                    <apex:outputPanel layout="none">
+                        <apex:actionRegion >
+                            <apex:inputField value="{!so.Payer_Account__c}" id="contactPayerAccount" rendered="{!so.Booking_Type__c != 'Direct'}">
+                                <apex:actionSupport event="onchange"
+                                                    action="{!onChangePayerAccount}"
+                                                    rerender="pbksContacts,pnlBillBook,pbbButtonsDiv,pbsiNewPayer,messages" 
+                                                    status="payerSelectionLoadingStatus"/>
+                            </apex:inputField>
+                            
+                            <apex:actionStatus id="payerSelectionLoadingStatus" stopText="">
+                                <apex:facet name="start">
+                                    <img src="/img/loading.gif" />
+                                </apex:facet>
+                            </apex:actionStatus>
+                        
+                        </apex:actionRegion>
+                        <apex:outputField value="{!so.Payer_Account__c}" rendered="{!so.Booking_Type__c = 'Direct'}"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+                <apex:inputField value="{!so.Creative_Account__c}"/>
+
+                <!-- added by Tim Fabros 16 / 07 / 2014 - SFE-583 
+						removed conditional rendering so adpoint can select placer account.
+                -->
+                <apex:pageBlockSectionItem > <!-- was rendered="{!so.Source_System__c != 'AdPoint'}" -->
+                    <apex:outputLabel value="{!$ObjectType.Sales_Order__c.Fields.Placer_Account__c.Label}" />
+                    <apex:outputPanel layout="none">
+                        <apex:actionRegion >
+                            <apex:inputField value="{!so.Placer_Account__c}">
+                                <apex:actionSupport event="onchange"
+                                                    action="{!onChangePLacerAccount}"
+                                                    rerender="pbksContacts,pnlBillBook,pbbButtonsDiv,pbsiNewPayer,messages, makeDigitalBtnDiv" 
+                                                    status="payerSelectionLoadingStatus"/>              
+                            </apex:inputField>
+                        </apex:actionRegion>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                
+                <!-- removed by Tim Fabros 16 / 07 / 2014 - SFE-583 
+						commented out outputfield due to bug causing the lookup field to no longer be a dependent lookup
+                -->
+                <!--apex:outputField value="{!so.Placer_Account__c}" rendered="{!so.Source_System__c = 'AdPoint'}" /-->
+                
+                <apex:inputField value="{!so.Creative_Contact__c}"/>
+
+
+
+                <apex:pageBlockSectionItem id="pbsiPayerContact">
+                    <apex:outputPanel >
+                        <apex:outputLabel value="{!$ObjectType.Sales_Order__c.Fields.Contact__c.Label}" rendered="{!so.Source_System__c != 'AdPoint'}"/>
+                        <apex:outputLabel value="Contact" rendered="{!so.Source_System__c = 'AdPoint'}"/>
+                    </apex:outputPanel>
+                    <apex:outputPanel layout="none">
+                        <apex:inputField value="{!so.Contact__c}" required="true" >
+                            <apex:actionSupport event="onchange" 
+                                                reRender="makeDigitalBtnDiv, pbbButtonsDiv, messages" 
+                                                action="{!onChangeContact}"
+                                                status="payerContactLoadingStatus"/>
+                        </apex:inputField>
+                        <apex:actionStatus id="payerContactLoadingStatus" stopText="">
+                                <apex:facet name="start">
+                                    <img src="/img/loading.gif" />
+                                </apex:facet>
+                            </apex:actionStatus>
+                        <apex:commandButton value="Add new" 
+                                            action="{!showAddNewPayerContactFlag}"
+                                            rerender="pbsiPayerContact, oppNewPayerContact"
+                                            immediate="true"
+                                            rendered="{!selectedPlacer.RecordType.DeveloperName!='Private_Party'}"/>
+                        <apex:outputPanel layout="none" id="makeDigitalBtnDiv">
+                            <apex:commandButton value="Make Digital" rendered="{!isAdPointBookingSystem}"
+                                action="{!makeDigital}" reRender="messages, pbsiPayerContact, pbbButtonsDiv" 
+                                disabled="{!NOT(isReadyToMakeDigital)}" status="payerContactLoadingStatus"/>                            
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:outputPanel styleClass="placerInputField" style="display:none">
+                    <apex:inputField value="{!so.Placer_Account__c}" rendered="{!so.Source_System__c = 'AdPoint'}"/>
+                </apex:outputPanel>
+            </apex:pageBlockSection>
+        </apex:outputPanel>
+        </apex:actionRegion>
+
+            <apex:actionRegion >
+            <apex:outputPanel id="oppNewPayerContact">
+                <apex:pageBlockSection columns="1" rendered="{!showAddNewPayerContactFlag}" title="Add new Placer Contact">
+                    <apex:inputField value="{!newPayerContact.FirstName}" required="true"/>
+                    <apex:inputField value="{!newPayerContact.LastName}"  required="true"/>
+                    <apex:inputField value="{!newPayerContact.Phone}"  required="true"/>
+                    <apex:inputField value="{!newPayerContact.Email}"  required="true"/>
+        
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel />
+                        <apex:outputPanel layout="none">
+                            <apex:actionStatus id="newContactSaveBtn">
+                                <apex:facet name="stop">
+                                    <apex:commandButton action="{!saveAddNewPayerContact}" 
+                                    value="Save and Select" status="newContactSaveBtn"
+                                    reRender="pbsiPayerContact,oppNewPayerContact, messages, pbbButtonsDiv"/>
+                                </apex:facet>
+                                <apex:facet name="start">
+                                    <apex:commandButton disabled="true" value="Saving..."/>
+                                </apex:facet>
+                                
+                            </apex:actionStatus>
+                            <apex:commandButton action="{!cancelAddNewPayerContact}" value="Cancel" reRender="pbsiPayerContact,oppNewPayerContact" immediate="true"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+        
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+            </apex:actionRegion>
+            
+            <apex:outputPanel id="pnlBillBook">
+
+                <apex:pageBlockSection id="pbksGenera"
+                        title="Booking System Account for Cyber$ell"
+                        columns="1"
+                        rendered="{!AND(isGenera, AND(NOT(ISBLANK(so.Advertiser_Account__c)), NOT(ISBLANK(so.Payer_Account__c))))}">
+                    
+                    <apex:pageBlockSectionItem id="pbsiGBASelection">
+                        <apex:outputLabel value="Booking Account" for="lstBookingAccounts" />
+                        <apex:outputPanel >
+                            <apex:selectList id="lstBookingAccounts" size="1" value="{!so.External_Account__c}" >
+                                <apex:selectOptions value="{!bookingAccounts}" />
+                                <apex:actionSupport event="onchange" rerender="pbbButtonsDiv"/>
+                            </apex:selectList>
+                                <apex:actionRegion >
+                                    <apex:commandButton action="{!showAddNewGBA}"
+                                                        rendered="{!canCreateGBA}"
+                                                        rerender="pbksGenera,pbksType,messages"
+                                                        value="Add new Booking System Account" 
+                                                        disabled="{!showAddNewGBAFlag}"
+                                                        status="showNewGBALoadingStatus"/>
+                                    <apex:actionStatus id="showNewGBALoadingStatus">
+                                        <apex:facet name="start">
+                                            <apex:image value="/img/loading.gif"/>
+                                        </apex:facet>
+                                    </apex:actionStatus>
+                                </apex:actionRegion>
+                        </apex:outputPanel>
+                     </apex:pageBlockSectionItem>
+                
+                <apex:outputPanel rendered="{!showAddNewGBAFlag}">  
+                    <apex:actionRegion >
+                    <c:ExternalAccountForm isIndirect="{!isAgency}"
+                                            advertiser="{!selectedAdvertiser}"
+                                            payer="{!selectedPayer}"
+                                            redirect="false"
+                                            rerenderAreas="pbksGenera"
+                                            vfPageController="{!this}" 
+                                            vfkey="externalAccountForm"
+                                            />
+                    </apex:actionRegion>
+                </apex:outputPanel>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection id="pbksCyber" title="Booking System Account for Cyber" columns="1" rendered="{!AND(isCyber,NOT(ISBLANK(so.Booking_Division__c)),NOT(ISBLANK(so.Advertiser_Account__c)))}">
+                <apex:pageBlockSectionItem rendered="{!NOT(ISBLANK(billingAccounts))}">
+                    <apex:outputLabel value="Billing Account" for="lstBillingAccounts" />
+                    <apex:selectList id="lstBillingAccounts" size="1" value="{!so.External_Account__c}" >
+                        <apex:selectOptions value="{!billingAccounts}" />
+                        <apex:actionSupport event="onchange" rerender="pbbButtonsDiv"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:outputText value="{!noBookingSystemAccountMessage}"  rendered="{!ISBLANK(billingAccounts)}" />
+
+                <!-- apex:inputField value="{!so.External_Account_Address__c}" label="Billing Account Address"  rendered="{!NOT(ISBLANK(billingAccounts))}"/ -->
+            </apex:pageBlockSection>
+
+    </apex:outputPanel>
+            <apex:outputPanel id="pgbkProducts">
+                <apex:pageBlockSection title="Products"  rendered="{!AND(NOT(ISBLANK(so.Source_System__c)), NOT(ISBLANK(orderWrapper.opptyItemByBookingSystem)))}">
+                    <apex:actionRegion >
+                    <apex:pageBlockTable value="{!orderWrapper.opptyItemByBookingSystem[so.Source_System__c]}" var="p">
+                        <apex:column value="{!p.opptylineItem.PricebookEntry.Product2.Name}" style="{!IF(AND(so.Source_System__c=='CyberAd',p.opptylineItem.PricebookEntry.Product2.CyberAd_Division__c != so.Booking_Division__c), 'color:LightGray  !important;','')}"/>
+                    </apex:pageBlockTable>
+                    </apex:actionRegion>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+
+            <apex:pageBlockButtons location="bottom" id="pbbButtons">
+                <apex:outputPanel id="pbbButtonsDiv" styleClass="bookBtn">
+                    <apex:actionStatus id="saveButtonStatus">
+                        <apex:facet name="stop">
+                            <apex:commandButton value="Book"
+                                        onclick="toggleBookButton();"
+                                        action="{!doBook}"
+                                        rerender="messages,integrationScripts"
+                                        oncomplete="goExternalSystem();return false;"                                        
+                                        disabled="{!OR(hasErrorMsg, hasWarningMsg)}"
+                                        />
+                        </apex:facet>
+                        <apex:facet name="start">
+                            <apex:outputPanel >
+                                <apex:commandButton value="Processing..." disabled="true"  status="saveButtonStatus"/>
+                                <apex:image value="/img/loading.gif"/>                  
+                            </apex:outputPanel>                             
+                        </apex:facet>
+                    </apex:actionStatus>
+                    <!-- SFE-78 - Booking UI - Ability to search for a different advertiser after one has been selected 
+                    Modified LMancilla
+                    May 21 2014
+                    Bwb
+                    -->
+                    <apex:commandButton value="Change Advertiser" action="{!doResetAdvertiserAccount}" rerender="pbksContacts, pnlCustomer, pnlBillBook, messages" immediate="true"/>
+                    <!-- End change LMancilla -->
+                    <!-- Updated by Bohao Chen for booking UI performance enhancement -->
+                    <!--apex:commandButton value="Cancel" action="{!cancelAndRedirectToSource}" immediate="true"/-->
+                    <apex:commandButton value="Cancel" action="{!cancel}" immediate="true" rendered="{!showHeaderAndSidebar}"/>
+                    <apex:commandButton value="Cancel" onclick="closeTab();return false" rendered="{!NOT(showHeaderAndSidebar)}"/>
+                    <!-- End -->
+                </apex:outputPanel>                
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        
+        <apex:actionFunction name="doSelectTNumber" reRender="pgbkOrder, messages" action="{!doSelectTNumber}">
+            <apex:param id="selectedExternalAccountId" name="selectedExternalAccountId" value=""/>
+            <apex:param id="selectedExternalAccountNumber" name="selectedExternalAccountNumber" value=""/>
+        </apex:actionFunction>         
+    </apex:form>
+
+    <apex:outputPanel id="integrationScripts">
+    <script type="text/javascript">
+        window.onload=function()
+        {
+            var bookSystem = jQuery('[id$=lstTargetSystems]').val();
+            var bookDivisionSection = jQuery('[id$=lstDivisions]');
+
+          //  alert('@hello: ' + bookSystem);
+
+            if(bookSystem == 'CyberAd') 
+                bookDivisionSection.show();
+            else
+                bookDivisionSection.hide();
+        };
+        
+        // Scripts here are re-loaded based on rerender events
+        function changeTypeSystem() {   
+
+            //alert('@changetypesystem');
+
+            var bookType = jQuery('[id$=lstBookingType]').val();
+            var bookSystem = jQuery('[id$=lstTargetSystems]').val();
+            var bookDivisionSection = jQuery('[id$=lstDivisions]');
+
+            //alert("bookType: " + bookType);
+            //alert("bookSystem: " + bookSystem);
+            // /alert("bookDivisionSection: " + bookDivisionSection);
+            
+            // show division dropdownlist when booking system is cyberAd, otherwise hide it
+            if(bookSystem == 'CyberAd') 
+                bookDivisionSection.show();
+            else
+                bookDivisionSection.hide();
+
+            if(bookType != '' && ((bookSystem != '' && bookSystem != 'CyberAd') || (bookSystem == 'CyberAd' && bookDivisionSection.val() != '')))
+            {
+                reloadPage();
+            }
+            else
+            {
+                resetPage();
+            }
+        }
+
+       // checking product availability for AdPoint
+        function openProductAvailabilityPage()
+        {
+            var availabilityCheckPageUrl = '/apex/AdPointProductAvailabilityCheck';
+            
+            if({!showHeaderAndSidebar})
+            {
+                window.open(availabilityCheckPageUrl + '?s=true');
+            }
+            else
+            {                                        
+                sforce.console.getEnclosingPrimaryTabId(function(result) 
+                {                 
+                    sforce.console.openSubtab(result.id , availabilityCheckPageUrl , true, "Product Availability", null);
+                }); 
+            }
+        } 
+
+        function toggleBookButton()
+        {
+            var bookBtns = jQuery('.bookBtn').children('span').children();
+            
+            for(var i=0;i<bookBtns.length;i++)
+            {
+                //console.log('button is: ' + bookBtns[i]);
+                if(jQuery(bookBtns[i]).css('display') == 'none'){ 
+                   jQuery(bookBtns[i]).show();
+                } else {
+                   jQuery(bookBtns[i]).hide(); 
+                }
+            }
+        }
+
+        function goExternalSystem()
+        {            
+            //console.log('@ goExternalSystem: {!isBookingReady}');
+
+            if({!isBookingReady})
+            {                        
+                if("{!so.id}" == "")
+                    return;
+                
+        
+                if("{!so.Source_System__c}"=="Cyber$ell")
+                {
+                    //console.log('@ goExternalSystem goCyberSell()');
+                    goCyberSell();
+                }
+                else if("{!so.Source_System__c}"=="CyberAd")
+                {
+                    //console.log('@ goExternalSystem goCyberAd()');
+                    goCyberAd();
+                }
+                else if("{!so.Source_System__c}"=="AdPoint")
+                {                
+                    // ajax remoting to get order id from AdPoint
+                    getAdPointOrderId();
+                }
+                
+                // For adpoint, redirect functiion should be inside callback function from remote action
+                if("{!so.Source_System__c}"!="AdPoint")
+                {
+                    redirectToSalesOrder();
+                }
+            }
+        }
+        
+        // redirect user to sales order page if book succeeds
+        function redirectToSalesOrder()
+        {
+            if(!{!showHeaderAndSidebar})
+            {                
+                sforce.console.getEnclosingPrimaryTabId(function(result) 
+                {                 
+                    //console.log('@ goExternalSystem getEnclosingPrimaryTabId result.id:' + result.id );                    
+                    sforce.console.openSubtab(result.id , "/{!so.id}" , true, "{!so.name}");
+                }); 
+        
+                sforce.console.getEnclosingTabId(function(result) 
+                {
+                    //console.log('@ goExternalSystem getEnclosingPrimaryTabId result.id:' + result.id );
+                    sforce.console.closeTab(result.id);
+                }); 
+            }
+            else
+            {   
+                //console.log('@ goExternalSystem not in console');
+                //not in console
+                window.location.href="/{!so.id}";
+            }
+        }
+        
+        //// GENERA
+        function goCyberSell(){
+
+            var wshShell;
+            var cyberOpen;
+            var cyberVersion;
+            var bpStatus;
+            var salesOrderId;
+            var baNum;
+            var bookingNum;
+            var cyber;
+            var conName;
+            var homeNum;
+            var placerName;
+            var placerNumber;
+            var salesRep;
+            var intgId;
+            var bookingProfileId;
+
+            try {
+                wshShell = new ActiveXObject("WScript.Shell");
+                cyberVersion = "CyberSell v6";
+                cyberOpen = wshShell.AppActivate(cyberVersion);
+
+                if (cyberOpen) {
+                    bpStatus = "Pending";
+
+                    cyber = new ActiveXObject("CyberSell.Application");
+                    cyber = cyber.WrappedApplication;
+                    salesOrderId = "{!so.Calc_External_id__c}";
+
+
+                    // Get all values
+                    baNum = "{!so.External_Account__r.Account_No__c}";
+                    bookingNum = "";
+                    conName = "{!so.Creative_Contact_Name__c}";
+                    homeNum = "{!so.Creative_Contact_Phone__c}";
+                    placerName = "{!so.Placer_Contact_Name__c}";
+                    placerNumber = "{!so.Placer_Contact_Phone__c}";
+
+
+
+                    if (conName.replace(/^\s+|\s+$/g, '') == "") {
+                        conName = placerName;
+                        homeNum = placerNumber;
+                    }
+
+                    intgId = "{!so.Calc_External_id__c}";
+
+                        if (baNum != "") { //Then go to Cybersell, Locate GBA and Create Booking.
+                            cyber.Execute("LocateAccount", "[Number] = '" + baNum + "'");
+                            if (cyber.Results.Accounts.Count == 1) {
+                                //Next 2 lines are meant to select the Customers tab and select the first item.
+                                cyber.Results.CurrentTab = 0;
+                                cyber.Results.ListIndex = 1;
+                                cyber.Execute("NewBooking");
+
+                                //To check if we are on the correct form.
+                                if ((cyber.CurrentForm != null) && (cyber.CurrentForm.Booking != null) && (cyber.CurrentForm.Booking.GetField("^IsNew")) && (cyber.CurrentForm.Booking.Account.AccountNumber == baNum)) {
+                                    cyber.CurrentForm.Booking.Caller = placerName;
+                                    cyber.CurrentForm.Booking.SetField("^InsertionSets(1).Attributes([Attribute.Code]='~MATCON').Detail", conName);
+                                    cyber.CurrentForm.Booking.SetField("^InsertionSets(1).Attributes([Attribute.Code]='~MATCON#').Detail", homeNum);
+                                    cyber.CurrentForm.Booking.SetField("^Attributes([Attribute.Code]='~CLRCON#').Detail", placerNumber);
+                                    cyber.CurrentForm.Booking.SetField("^Attributes([Attribute.Code]='~SIEBSO').Detail", intgId);
+                                }
+                            }
+                            else
+                            {
+                                alert("Invalid Booking account number\n" + baNum + " could not be found");
+                            }
+                        }
+                        else
+                        {
+                            alert("Invalid Booking account number.");
+                        }
+
+                    cyber.UpdateGUI();
+                } else {
+                    alert("Unable to go to Cyber$ell. Please ensure that Cyber$ell is fully opened then try again.");
+                }
+            } catch (e) {
+                // Write the generic error message to screen
+                alert(e.toString() + cyber + e.errText + e.errCode);
+            } finally {
+                wshShell = null;
+                cyber = null;
+            }
+            
+            toggleBookButton();
+            
+        }
+        //////CYBERAD
+
+        function goCyberAd()
+        {
+            //alert('@ goCyberAd({!so.Id})');
+            var RequestBroker = new ActiveXObject('SalesForceRequestBroker.RequestBroker');
+            var r = RequestBroker.LaunchCyberAd('{!GETSESSIONID()}');
+            var parameters = '{\"salesOrderSFID\":\"{!so.Id}\"';
+
+            var caseSource = '{!caseSource.Id}';
+            if(caseSource!='')
+                parameters += ',\"caseSourceSFID\":\"' + caseSource + '\"';
+
+            parameters += '}';
+            var Result = RequestBroker.ExecuteRequest('{!GETSESSIONID()}', '{!so.Id}', parameters);
+            
+            toggleBookButton();
+        }    
+        
+        // This function is to get AdPoint Id by calling SFDC remote action function
+        // createOrderInAdPointRemote. If success, redirect user to sales order page.
+        // Otherwise, notify user
+        // Updated by Bohao Chen on 5/06/2014 for JIRA SFE-202
+        function getAdPointOrderId() 
+        {                        
+            SalesOrderCreateBookingv2_ControllerX.createOrderInAdPoint(
+                '{!so.Advertiser_Account__c}',
+                '{!so.Payer_Account__c}',
+                '{!so.Contact__c}',
+                '{!so.Id}',
+                true,
+                function(result, event) {
+                    if (event.status) {
+                        window.location = "/apex/AdPointOrder?id=" + result + '&s={!showHeaderAndSidebar}';
+                    }
+                    else if (event.type === 'exception') 
+                    {
+                        alert(event.message);
+                    }
+                    
+                    toggleBookButton();
+                }
+            ); 
+            
+        }    
+        
+        jQuery(function() {
+            try
+            {
+                sforce.console.setTabTitle('Create Booking');
+            }
+            catch(ex)
+            {}        
+        });  
+
+        // Updated by Bohao Chen on 17 JUNE 2014 for Booking UI enhancement
+        // begin
+        function closeTab() {
+            //First find the ID of the current tab to close it
+            sforce.console.getEnclosingTabId(closeSubtab);
+        }
+
+        var closeSubtab = function closeSubtab(result) {
+            //Now that we have the tab ID, we can close it
+            var tabId = result.id;
+            sforce.console.closeTab(tabId);
+        };
+        // end
+
+    </script>
+    </apex:outputPanel>
+    
+    <!-- for Datasan --> 
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js" />
+    <script type="text/javascript" src="https://d1c24wnrse4bd3.cloudfront.net/api/sf/1.8/datasan-sf.min.js" />
+
+    <script type="text/javascript">
+            var datasan__settings = {
+                key : "nTPhWj59v81re_CN0MMmQXwWVqoI2o6xZlRetkwIfexqv5h_1YknlxBpV4wykmp3", // populate DataSan key
+                addresses : []
+            };
+
+            jQuery(function() {
+                // on page load
+                
+                // render Type & System correctly 
+                //changeTypeSystem();
+
+                // set console tab title
+                try
+                {
+                    sforce.console.setTabTitle('Create Booking');
+                }
+                catch(ex)
+                {}        
+            });
+    </script>
+</apex:page>

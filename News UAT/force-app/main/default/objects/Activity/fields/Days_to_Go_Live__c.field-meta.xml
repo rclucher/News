@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Days_to_Go_Live__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(CSPOFA__Orchestration_Step__r.CSPOFA__Orchestration_Process__r.Product_Order__c &lt;&gt; null,  CSPOFA__Orchestration_Step__r.CSPOFA__Orchestration_Process__r.Product_Order__r.Days_to_Go_Live__c ,  IF(CSPOFA__Orchestration_Step__r.CSPOFA__Orchestration_Process__r.Creative__c &lt;&gt; null,  CSPOFA__Orchestration_Step__r.CSPOFA__Orchestration_Process__r.Creative__r.Product_Order__r.Days_to_Go_Live__c,  IF( CSPOFA__Orchestration_Step__r.CSPOFA__Orchestration_Process__r.Order__c &lt;&gt; null, CSPOFA__Orchestration_Step__r.CSPOFA__Orchestration_Process__r.Order__r.Day_s_to_Go_Live__c, 0) )  )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Days to Go Live</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

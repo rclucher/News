@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <description>1.This will capture the Task Type.</description>
+    <externalId>false</externalId>
+    <label>Type</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Upload Creative Assets</fullName>
+                <default>false</default>
+                <label>Upload Creative Assets</label>
+            </value>
+            <value>
+                <fullName>Place GTM on Website</fullName>
+                <default>false</default>
+                <label>Place GTM on Website</label>
+            </value>
+            <value>
+                <fullName>Extend Access to Google Analytics</fullName>
+                <default>false</default>
+                <label>Extend Access to Google Analytics</label>
+            </value>
+            <value>
+                <fullName>Approve and Review Your Display Ads</fullName>
+                <default>false</default>
+                <label>Approve and Review Your Display Ads</label>
+            </value>
+            <value>
+                <fullName>Approve and Review Your Facebook Ads</fullName>
+                <default>false</default>
+                <label>Approve and Review Your Facebook Ads</label>
+            </value>
+            <value>
+                <fullName>Grant News Xtend Facebook Access</fullName>
+                <default>false</default>
+                <label>Grant News Xtend Facebook Access</label>
+            </value>
+            <value>
+                <fullName>Approve and Review Your Landing Page</fullName>
+                <default>false</default>
+                <label>Approve and Review Your Landing Page</label>
+            </value>
+            <value>
+                <fullName>Approve Display Ad Proof</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Approve Display Ad Proof</label>
+            </value>
+            <value>
+                <fullName>Approve Facebook Ads Proof</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Approve Facebook Ads Proof</label>
+            </value>
+            <value>
+                <fullName>Generic Task</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Generic Task</label>
+            </value>
+            <value>
+                <fullName>Google Tag Manager</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Google Tag Manager</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

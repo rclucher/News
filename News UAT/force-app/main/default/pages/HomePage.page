@@ -1,0 +1,1269 @@
+<apex:page Controller="HomePageController" docType="html-5.0" sidebar="false" id="mainPage">
+    <apex:stylesheet value="{!$Resource.TaskList + '/assets/styles/salesforce-lightning-design-system-vf.css'}"/>
+    <apex:stylesheet value="/apex/LightningOverrideCss"/>
+    <apex:includeLightning />
+    <apex:includeScript value="/lightning/lightning.out.js" />
+    <apex:includeScript value="/support/console/29.0/integration.js"/>
+
+    <style type="text/css">
+        .home-page-wrapper {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            padding: 0.5rem;
+            font-size: 13px;
+            font-family: 'Salesforce Sans',Helvetica,Arial,sans-serif;
+            color: #16325c;
+            -webkit-flex-wrap: wrap;
+            -moz-flex-wrap: wrap;
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }
+        .wrapper-inner {
+            border: 1px solid #e2e8ed;
+            border-radius: 5px;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .wrapper-inner.full-width {
+            width: 100%;
+        }
+        .wrapper-inner.full-width img {
+            max-width: 100%;
+        }
+
+        .side-bar-right {
+            margin-right: 0.5rem;
+            -webkit-box-flex: 1 25%;
+            -moz-box-flex: 1 25%;
+            -webkit-flex: 1 25%;
+            -ms-flex: 1 25%;
+            flex: 1 25%;
+            width: 250px;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            flex-basis: 250px;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .side-bar-right .wrapper-inner {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-wrap: wrap;
+            -moz-flex-wrap: wrap;
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            height: 50%;
+            -webkit-box-flex: 1 1 auto;
+            -moz-box-flex: 1 1 auto;
+            -webkit-flex: 1 1 auto;
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+        }
+        .side-bar-right .wrapper-inner.quick-links {
+            flex-direction: column;
+            -webkit-flex-wrap: nowrap;
+            -moz-flex-wrap: nowrap;
+            -webkit-flex-wrap: nowrap;
+            -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+        }
+        .side-bar-right p {
+            margin: 0.5rem 0;
+        }
+        .side-bar-right h4.user-title {
+            font-size: 1.1rem;
+            font-weight: lighter;
+            margin: 0.5rem 0;
+            padding: 0 0.5rem;
+            color: #006cb5;
+        }
+        .side-bar-right table {
+            width: 100%;
+            padding: 0 0.5rem;
+        }
+        .side-bar-right table th, .side-bar-right table td {
+            font-weight: normal;
+            padding: 0.15rem 0;
+        }
+        /*.side-bar-right .user-active:before {
+            display: inline-block;
+            content: "";
+            height: 0.65rem;
+            width: 0.65rem;
+            border-radius: 50%;
+            background: #5db005;
+        }*/
+        .quick-link {
+            cursor: pointer;
+        }
+        .quick-link:before {
+            content: "";
+            display: inline-block;
+            vertical-align: middle;
+            height: 2rem;
+            width: 2rem;
+            margin: 0 1rem;
+        }
+
+        .main-viewport {
+            -webkit-box-flex: 1 75%;
+            -moz-box-flex: 1 75%;
+            -webkit-flex: 1 75%;
+            -ms-flex: 1 75%;
+            flex: 1 75%;
+            height: 400px;
+            overflow-y: auto;
+        }
+        body .bPageBlock, body #bodyCell .bResource .secondaryPalette,
+        body .secondaryPalette.bPageBlock, body .individualPalette .secondaryPalette.bPageBlock,
+        body .bodyDiv .genericTable, body .genericPageBlockTable, body .bodyDiv .bSubBlock,
+        body .bComponentBlock .bPageBlock, body .bMyDashboard .bPageBlock,
+        body.rlHoverFrame .bPageBlock, body.subjectSelectionPopup div.choicesBox,
+        body.lookupTab .secondaryPalette.bPageBlock, body.popupTab .secondaryPalette.bPageBlock,
+        body.UserTagStatsPage .secondaryPalette.bPageBlock {
+            border: none !important;
+        }
+        .task-wrapper {
+            color: rgb(22, 50, 92);
+            display: block;
+            font-size: .8125rem;
+            height: 100%;
+            overflow: hidden;
+        }
+        .task-wrapper form {
+            overflow: hidden;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-flow: row;
+            -ms-flex-flow: row;
+            flex-flow: row;
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            height: 100%;
+            overflow: hidden;
+        }
+        .task-wrapper .task-view-wrapper {
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            width: 100%;
+            flex-basis: 100%;
+            //background-color: rgb(244, 246, 249);
+            border-bottom: 1px solid rgb(216, 221, 230);
+            padding-top: 0.5rem;
+            align-items: center;
+            height: 50px;
+        }
+        .task-wrapper .task-list-wrapper {
+            -ms-flex: 2 1 40rem;
+            flex: 2 1 40rem;
+            position: relative;
+            overflow-y: auto;
+            border: 1px solid rgb(216, 221, 230);
+            border-top: none;
+            height: calc(100% - 50px);
+            overflow-y: auto;
+        }
+        .task-wrapper .task-details-wrapper {
+            -webkit-flex: 1 1 20rem;
+            -ms-flex: 1;
+            flex: 1 1 20rem;
+            position: relative;
+            overflow-y: auto;
+            background-color: rgb(238, 241, 246);
+            //height: calc(100% - 50px);
+            overflow-y: auto;
+        }
+        .slds .task-wrapper .slds-button {
+            padding: 0 1rem;
+            font-weight: 400;
+            font-size: .75rem;
+            display: table-cell;
+            vertical-align: middle;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 370px;
+            line-height: 1.875rem;
+        }
+        .task-wrapper .task-view-select {
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+        }
+        .task-wrapper .task-view-select label {
+            display: block;
+            text-transform: uppercase;
+            font-size: .75rem;
+            color: rgb(84, 105, 141);
+            /*margin-bottom: 0.25rem;*/
+        }
+        .task-wrapper .task-view-select select {
+            width: auto;
+        }
+
+
+        .tabs-menu {
+            font-family: 'Salesforce Sans',Helvetica,Arial,sans-serif;
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            text-transform: inherit;
+
+        }
+
+        .tabs-menu li {
+            height: 30px;
+            line-height: 30px;
+            float: left;
+            margin-right: 5px;
+            //background-color: #ccc;
+            border-top: 1px solid #d4d4d1;
+            border-right: 1px solid #d4d4d1;
+            border-left: 1px solid #d4d4d1;
+        }
+
+        .tabs-menu li.current {
+            position: relative;
+            background-color: #fff;
+            border-bottom: 1px solid #fff;
+             border-top: 1px solid #d4d4d1;
+            border-right: 1px solid #d4d4d1;
+            border-left: 1px solid #d4d4d1;
+            z-index: 5;
+            text-decoration: none;
+        }
+
+        .tabs-menu li a {
+            padding: 10px;
+            color: black;
+            text-decoration: none; 
+        }
+
+        .tabs-menu .current a {
+            color: #2e7da3;
+        }
+        .tab-content.current{
+                    display: inherit;
+                }
+
+        .tab {
+            border: 1px solid #d4d4d1;
+            background-color: #fff;
+            float: left;
+            margin-bottom: 20px;
+            width: auto;
+        }
+
+        .tab-content {
+            width: 100%;
+            padding-top: 32px;
+            display: none;
+        }
+
+        #tab-1 {
+         display: block;   
+        }
+
+        .slds .task-wrapper .task-view-actions .slds-button {
+            line-height: 1.5rem;
+        }
+        .task-wrapper a {
+            cursor: pointer;
+        }
+        .task-wrapper ul {
+            margin-left: 5px;
+            padding: 0;
+            list-style-type: none;
+        }
+        .task-wrapper ul.task-list>li {
+            margin: 0;
+            border: 1px solid transparent;
+            border-bottom: 1px solid rgb(216, 221, 230);
+            /*border-left: 1px solid rgb(216, 221, 230);*/
+            cursor: pointer;
+        }
+        .task-wrapper ul.task-list>li:hover {
+            background: rgb(244, 246, 249);
+        }
+        /*.task-wrapper ul.task-list>li:first-child {
+            border-top: 1px solid rgb(216, 221, 230);
+        }*/
+        .task-wrapper .task-list .task {
+            overflow: hidden;
+        }
+        .task-wrapper .task-list .task.selected {
+            background: rgb(240, 248, 252);
+            border: 1px solid rgb(0, 112, 210);
+        }
+        .task-wrapper .task-checkbox {
+            float: left;
+            margin-left: .75rem;
+            margin-bottom: 15px;
+            margin-top: .75rem;
+        }
+        .task-wrapper .task-subject.completed {
+            text-decoration: line-through;
+        }
+        .task-wrapper .date {
+            color: rgb(84, 105, 141);
+            font-size: .75rem;
+        }
+        .task-wrapper .task-list .date {
+            float: right;
+            padding: .75rem .75rem .75rem 0;
+        }
+        .task-wrapper .date.overdue {
+            color: rgb(194, 57, 52);
+            font-weight: 700;
+        }
+        .task-wrapper .task-info {
+            overflow: hidden;
+            min-height: 3rem;
+            padding: .75rem 12px 0 0;
+            margin-bottom: 10px;
+
+        }
+        .task-wrapper .task-subject {
+            margin: 0;
+        }
+        .task-wrapper .horizontal li {
+            display: inline-block;
+            margin-top: 5px;
+        }
+       /* .task-wrapper .horizontal li:not(:last-child):after {
+            content: "\00b7";
+            clear: both;
+            padding: .25rem;
+            font-size: 1.25rem;
+            font-weight: bold;
+            vertical-align: middle;
+        }*/
+        .task-wrapper .task-details {
+            border: 1px solid rgb(216, 221, 230);
+            border-radius: .25rem;
+            margin: .25rem;
+            background-color: rgb(255, 255, 255);
+            overflow: hidden;
+        }
+        .task-wrapper .task-details-header {
+            margin-top: 0.75rem;
+            min-height: 30px;
+        }
+        .task-wrapper .task-details .task-checkbox {
+            margin-top: 0;
+            margin-right: 0.5rem;
+        }
+        .task-details-action {
+            padding: 0 1.5rem;
+            margin-top: 0.75rem;
+        }
+        .task-wrapper .slds-dropdown-trigger {
+            cursor: pointer;
+        }
+        .task-wrapper .task-details .task-details-body {
+
+            margin-top: 1.5rem;
+            border-top: 1px solid rgb(216, 221, 230);
+        }
+        .task-wrapper .forcePageBlock {
+            padding-bottom: 2rem;
+        }
+        .task-wrapper .sectionHeader {
+            background-color: rgb(244, 246, 249);
+            color: rgb(22, 50, 92);
+            border-radius: .25rem;
+            margin: .25rem 0;
+        }
+        .task-wrapper .sectionHeader .titleSpan {
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            align-items: center;
+            padding: .5rem .75rem .5rem .75rem;
+        }
+        .task-wrapper .sectionHeader .titleSpan:before {
+            display: inline-block;
+            content: "";
+            height: 0.8125rem;
+            width: 0.8125rem;
+            margin-right: 0.25rem;
+            vertical-align: text-top;
+            background: transparent url("{!URLFOR($Resource.TaskList,'/assets/icons/utility/chevrondown_60.png')}") no-repeat center / 0.8125rem;
+        
+        }
+        .task-wrapper .sectionHeader.collapsed .titleSpan:before {
+            background: transparent url("{!URLFOR($Resource.TaskList,'/assets/icons/utility/chevronright_60.png')}") no-repeat center / 0.8125rem;
+        }
+        .task-wrapper .sectionHeader.collapsed + .sectionContainer {
+            display: none;
+        }
+        .task-wrapper .sectionHeader .sectionHeaderButton {
+            color: inherit;
+            font: inherit;
+            background-color: transparent;
+            border: none;
+            width: 100%;
+            height: 100%;
+            text-align: left;
+            padding: 0
+        }
+        .task-wrapper .forcePageBlockSectionRow {
+            display: -webkit-flex;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -moz-box-orient: horizontal;
+            -ms-box-orient: horizontal;
+            box-orient: horizontal;
+            -webkit-flex-flow: row nowrap;
+            -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+        }
+        .task-wrapper .forcePageBlockSectionRow .forcePageBlockItem {
+            margin: 0 1rem;
+            padding: .5rem;
+            border-top: 1px solid rgb(216, 221, 230);
+            border-bottom: none;
+            overflow: hidden;
+            -webkit-box-flex: 1;
+            width: calc(50% - 2rem);
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+        }
+        .task-wrapper .forcePageBlockSectionRow:first-child .forcePageBlockItem {
+            border-top: none;
+        }
+        .task-wrapper .labelCol,
+        .task-wrapper .dataCol.readonly {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            min-height: 1.1rem;
+        }
+        .task-wrapper .dataCol.readonly span {
+            display: block;
+        }
+        .task-wrapper .dataCol.readonly span + span {
+            font-size: 0.75rem;
+        }
+        .task-wrapper .dataCol.readonly.wrap-text {
+            white-space: normal;
+        }
+        .task-wrapper .labelCol {
+            font-size: .75rem;
+            color: rgb(84, 105, 141);
+        }
+        @-moz-keyframes scroll-left {
+            0%   { -moz-transform: translateX(100%); }
+            100% { -moz-transform: translateX(-100%); }
+        }
+        @-webkit-keyframes scroll-left {
+            0%   { -webkit-transform: translateX(100%); }
+            100% { -webkit-transform: translateX(-100%); }
+        }
+        @keyframes scroll-left {
+        0%   { 
+            -moz-transform: translateX(100%); /* Browser bug fix */
+            -webkit-transform: translateX(100%); /* Browser bug fix */
+            transform: translateX(100%);        
+        }
+        100% { 
+            -moz-transform: translateX(-100%); /* Browser bug fix */
+            -webkit-transform: translateX(-100%); /* Browser bug fix */
+            transform: translateX(-100%); 
+        }
+        /**/
+        @-moz-keyframes scroll-left-second {
+            0%   { -moz-transform: translateX(0%); }
+            100% { -moz-transform: translateX(100%); }
+        }
+        @-webkit-keyframes scroll-left-second {
+            0%   { -webkit-transform: translateX(0%); }
+            100% { -webkit-transform: translateX(100%); }
+        }
+        @keyframes scroll-left-second {
+        0%   { 
+            -moz-transform: translateX(0%); /* Browser bug fix */
+            -webkit-transform: translateX(0%); /* Browser bug fix */
+            transform: translateX(0%);        
+        }
+        100% { 
+            -moz-transform: translateX(100%); /* Browser bug fix */
+            -webkit-transform: translateX(100%); /* Browser bug fix */
+            transform: translateX(100%); 
+        }
+
+    </style>
+    
+
+    <div class="home-page-wrapper">
+        <div id = "tabs" class="main-viewport wrapper-inner slds">
+           <ul class="tabs-menu">
+            <li class="current"><a href="#tasktab">Tasks</a></li>
+            <li><a href="#ordertab">Campaign Orders</a></li>
+            <li><a href="#prodordertab">Product Orders</a></li>
+            </ul>
+            <div id="tasktab" class="tab-content current">
+            <apex:outputPanel id="taskPanel" layout="block" styleClass="task-wrapper" rendered="true">
+                <apex:form id="taskForm">
+                	<apex:pageMessage rendered="{!error}" severity="error" id="testmessage" title="{!errorMessage}"/>
+                    <apex:actionFunction id="loadSelectedTaskDetails" name="loadSelectedTaskDetails" action="{!loadSelectedTaskDetails}" reRender="taskForm" status="">
+                        <apex:param id="selectedTaskId" name="selectedTaskId" assignTo="{!selectedTaskId}" value="" />
+                    </apex:actionFunction>
+                    <apex:actionFunction name="changeTask" action="{!changeTask}" reRender="taskForm" status="">
+                        <apex:param name="selectedTaskId" assignTo="{!selectedTaskId}" value="" />
+                        <apex:param name="selectedTaskCompleted" assignTo="{!selectedTaskCompleted}" value="" />
+                    </apex:actionFunction>
+                    <apex:actionFunction name="setInProgress" action="{!setInProgress}" reRender="taskForm" status="">
+                        <apex:param name="selectedTaskId" assignTo="{!selectedTaskId}" value="" />
+
+                    </apex:actionFunction>
+                    <div class="task-view-wrapper" style="width: 70%;">
+
+                        <div class="task-view-select">
+                        Filter By: 
+                            <apex:selectList value="{!taskView}" multiselect="false" size="1" styleClass="slds-select">
+                                <apex:actionSupport event="onchange" reRender="taskForm"/>
+                                <apex:selectOptions value="{!items}"/>
+                            </apex:selectList>
+                        </div>
+                        <div class="task-view-select"> 
+                        State:                                             
+                            <apex:selectList value="{!stateView}" multiselect="false" size="1" styleClass="slds-select">
+                                <apex:actionSupport event="onchange" reRender="taskForm"/>
+                                <apex:selectOptions value="{!states}"/>
+                            </apex:selectList>
+                        </div>
+                        <div class="task-view-select"> 
+                        Assigned To:                                             
+                            <apex:selectList value="{!assignedTo}" multiselect="false" size="1" styleClass="slds-select">
+                                <apex:actionSupport event="onchange" reRender="taskForm"/>
+                                <apex:selectOptions value="{!assignOptions}"/>
+                            </apex:selectList>
+                        </div>
+
+                    </div>
+                    <apex:outputPanel id="taskList" layout="block" styleClass="task-list-wrapper">
+                        <ul class="task-list">
+                            <apex:repeat value="{!taskList}" var="t">
+                                <li class="task {!IF(t.Id == selectedTaskId,'selected','')}" onclick="loadSelectedTaskDetails('{!t.Id}')"><apex:outputPanel rendered="{!t.Id != null}" layout="block">
+                                    <div class="date">
+                                        <apex:outputText value="{0,date,dd-MMM}">
+                                            <apex:param value="{!IF(t.id!= null && maptaskWithDetails[t.id].HasDetails, maptaskWithDetails[t.id].campaignStartDate, t.activitydate)}" /> 
+                                        </apex:outputText>
+                                    </div>
+                                    <div class="task-info">
+                                        <p class="task-subject {!IF(t.Status == 'Completed','completed','')}">
+                                            <apex:outputField value="{!t.Subject} "/>
+                                        </p>
+                                        <ul class="horizontal">
+                                            <li>Related To:
+                                                <apex:outputLink target="_top" value="/{!t.WhatId}" id="relatedToLink">
+                                                    <apex:outputField value=" {!t.What.Name}"/>
+                                                </apex:outputLink>
+                                            </li> 
+                                            <li>
+                                                <apex:outputField value="{!t.WhoId}"/>
+                                            </li>
+                                        </ul>
+                                        <apex:outputPanel rendered="{!t.id!= null && maptaskWithDetails[t.id].HasDetails}">
+                                        <ul class="horizontal">
+                                            <li>Account Name: 
+                                                <apex:outputLink target="_top" value="/{!maptaskWithDetails[t.id].accId}" id="relatedToAcc">
+                                                    <apex:outputText value="{!maptaskWithDetails[t.id].accName}"/>
+                                                </apex:outputLink>
+                                            </li> 
+
+                                        </ul>
+                                        <ul class="horizontal">
+                                            <li>Opportunity Name: 
+                                                <apex:outputLink target="_top" value="/{!maptaskWithDetails[t.id].oppId}" id="relatedToOpp">
+                                                    <apex:outputText value="{!maptaskWithDetails[t.id].oppName}"/>
+                                                </apex:outputLink>
+                                            </li> 
+
+                                        </ul>
+                                       
+                                        </apex:outputPanel>
+
+                                    </div>
+                                </apex:outputPanel></li>
+                            </apex:repeat>
+                        </ul>
+                    </apex:outputPanel>
+                    <apex:outputPanel id="selectedTask" layout="block" styleClass="task-details-wrapper">
+                        <div class="task-details">
+                            <div class="task-details-header">
+                                <div class="task-checkbox">
+                                    <apex:outputPanel rendered="{!selectedTask.Status == 'Completed'}">
+                                        <input type="checkbox" name="task-2-completed-{!selectedTask.Subject}-{!selectedTask.WhatId}" checked="checked" onclick="changeTask('{!selectedTask.Id}',false)" />
+                                    </apex:outputPanel>
+                                    <apex:outputPanel rendered="{!selectedTask.Status != 'Completed'}">
+                                        <input type="checkbox" onmouseover="" name="task-2-completed-{!selectedTask.Subject}-{!selectedTask.WhatId}" onchange="if (confirm ('Are you sure you want to complete this task?')) {
+                                                    debugger;
+                                                    this.checked = true;
+                                                    debugger;
+                                                    changeTask('{!selectedTask.Id}',true);
+
+                                                }
+                                                else {
+                                                    this.checked = false;
+                                                }"  />
+                                    </apex:outputPanel>
+                                </div>
+                                <div class="task-subject">
+                                    <p class="task-subject {!IF(selectedTask.Status == 'Completed','completed','')}">
+                                    <apex:outputLink target="_top" value="/{!selectedTask}" id="taskLInk">
+                                    <apex:outputText value="{!selectedTask.Subject}"></apex:outputText>
+                                    </apex:outputLink>
+                                    <apex:outputPanel style=" margin-right: 10px; position: relative; float:right;" rendered="{!IF (selectedTask.Status != 'In Progress' && !selectedTask.isClosed, true, false)}">
+                                    <input type="button" value ="Start Work" title="Set In Progress"  onclick="setInProgress(this)" />
+                                    </apex:outputPanel>
+                                    </p>
+                                    <span class="date"><apex:outputText value="{0,date,dd-MMM}">
+                                        <apex:param value="{!selectedTask.CreatedDate}" /> 
+                                    </apex:outputText></span>
+                                    
+                                </div>
+                            </div>
+                           
+                            <div class="task-details-body">
+                                <div class="forcePageBlock">
+                                    <section>
+                                        <div class="sectionHeader collapsible">
+                                            <h2 class="title">
+                                                <button type="button" class="slds-button slds-button--neutral sectionHeaderButton uiButton" onclick="toggleCollapse(this)">
+                                                    <span class="titleSpan">Task Information</span>
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div class="sectionContainer">
+                                            <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Assigned To
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly">
+                                                            <apex:outputField value="{!selectedTask.OwnerId}" />
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Assigned to Group 
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly">
+                                                            <apex:outputField value="{!selectedTask.CS_GT__Associated_Group__c}" />
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Related To
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly">
+                                                            <apex:outputLink target="_top" value="/{!selectedTask.WhatId}" id="relatedToId">
+                                                                <apex:outputText value="{!selectedTask.What.Name}"/>
+                                                            </apex:outputLink>
+                                                        </div>
+                                                       
+                                                    </div>
+
+                                                </div>
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Due Date
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly">
+                                                            <apex:outputField value="{!selectedTask.ActivityDate}" />
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Subject
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly wrap-text">
+                                                            <apex:outputField value="{!selectedTask.Subject}" />
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           
+                                            <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Comments
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly wrap-text">
+                                                            <apex:outputField value="{!selectedTask.Description}" />
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section>
+                                        <div class="sectionHeader collapsible">
+                                            <h2 class="title">
+                                                <button type="button" class="slds-button slds-button--neutral sectionHeaderButton uiButton" onclick="toggleCollapse(this)">
+                                                    <span class="titleSpan">Additional Information</span>
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div class="sectionContainer">
+                                        
+                                        <apex:outputPanel rendered="{!selectedTask.id!= null && maptaskWithDetails[selectedTask.id].HasDetails}">
+                                        <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Opportunity Name
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly">
+                                                            <apex:outputText value="{!maptaskWithDetails[selectedTask.id].oppName}" />
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Account Name
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly">
+                                                            <apex:outputText value="{!maptaskWithDetails[selectedTask.id].accName}"/>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                             <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Product Name
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly">
+                                                            <apex:outputText value="{!maptaskWithDetails[selectedTask.id].productName}" />
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </apex:outputPanel>
+                                            <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Status
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly">
+                                                            <apex:outputField value="{!selectedTask.Status}" />
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Item Planned Start Date
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly">
+                                                            <apex:outputField value="{!selectedTask.Item_Proposed_Start_Date__c}" />
+                                                        </div>
+                                                        <a class="inlineEditTrigger" href="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Priority
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly">
+                                                            <apex:outputField value="{!selectedTask.Priority}" />
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        State
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly">
+                                                            <apex:outputField value="{!selectedTask.State__c}" />
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section>
+                                        <div class="sectionHeader collapsible">
+                                            <h2 class="title">
+                                                <button type="button" class="slds-button slds-button--neutral sectionHeaderButton uiButton" onclick="toggleCollapse(this)">
+                                                    <span class="titleSpan">System Information</span>
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <div class="sectionContainer">
+                                            <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Created By
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly">
+                                                            <apex:outputField value="{!selectedTask.CreatedById}" />
+                                                            <apex:outputField value="{!selectedTask.CreatedDate}" />
+                                                        </div>
+                                                        <a class="inlineEditTrigger" href="" />
+                                                    </div>
+                                                </div>
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Last Modified By
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly">
+                                                            <apex:outputField value="{!selectedTask.LastModifiedById}" />
+                                                            <apex:outputField value="{!selectedTask.LastModifiedDate}" />
+                                                        </div>
+                                                        <a class="inlineEditTrigger" href="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+                </apex:form>
+            </apex:outputPanel> 
+            </div> 
+            <div id="ordertab" class="tab-content" >
+            <apex:outputPanel layout="block" styleClass="task-wrapper" rendered="true">
+                    <apex:outputPanel id="orderList" layout="block" styleClass="task-list-wrapper">
+                    <apex:form id="orderForm" style="border: 1px solid #e2e8ed;border-radius: 5px;">
+                    <apex:actionFunction id="loadSelectedOrderDetails" name="loadSelectedOrderDetails" action="{!loadSelectedOrderDetails}" reRender="orderForm" status="">
+                        <apex:param id="selectedOrderWrap" name="selectedOrderWrap" assignTo="{!selectedOrderWrapIden}" value="" />
+                    </apex:actionFunction>
+                   
+                        <ul class="task-list" style="width: 60%; ">
+                            <apex:repeat value="{!orders}" var="o">
+                                <li class="task {!IF(o.order.Id == selectedOrderWrapIden,'selected','')}" onclick="loadSelectedOrderDetails('{!o.order.Id}')"><apex:outputPanel layout="block">
+                                    <div class="task-info">
+                                    <ul class="horizontal">
+                                    <li>
+                                    <apex:outputField value="{!o.order.Name} "/>
+
+                                        <ul class="horizontal">
+                                            <li>Related To Account: 
+                                                <apex:outputLink target="_top" value="/{!o.order.Account__c}" id="relatedToOrderLink">
+                                                    <apex:outputField value=" {!o.order.account__r.name}"/>
+                                                </apex:outputLink> 
+                                            </li> 
+                                        </ul> 
+                                       </li>
+                                       <li style="float:right;"> 
+                                       <apex:outputPanel style="float:right;" rendered="{!o.jeopardy}">
+                                    <!--  <span class="slds-icon__container slds-icon__container--circle slds-icon-action-close">
+                                      <svg aria-hidden="true" class="slds-icon  slds-icon_x-small ">
+                                        <use  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Resource.TaskList, 'assets/icons/action-sprite/svg/symbols.svg#close')}"></use>
+                                      </svg> </span> -->
+                                      <apex:image value="{!URLFOR($Resource.Exclamation)}" style=" height: 40px;"/>
+                                    </apex:outputPanel></li></ul>
+                                    </div>
+                                    
+                                    </apex:outputPanel>
+                                    </li>
+                                
+
+                            </apex:repeat>
+                        </ul>
+                        <apex:outputPanel id="selectedOrder" layout="block" styleClass="task-details-wrapper" >
+                        <div class="task-details" style="height: 100%;">
+                        <div class="task-details-header"> 
+                                <div class="task-subject" style="padding-left: 20px">
+                                    <apex:outputLink target="_top" value="/{!selectedOrderWrap.order.Id}" id="relatedToOrderId">
+                                    <apex:outputField value="{!selectedOrderWrap.order.name}" />
+                                    </apex:outputLink>
+                                </div>
+                            </div>
+                            <div class="task-details-body"><div class="forcePageBlock">
+
+                                            <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Assigned To
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly">
+                                                            <apex:outputField value="{!selectedOrderWrap.order.Assigned_Campaign_Manager__c}" />
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                               
+                                            </div>
+                                            <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Related To Account 
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly">
+                                                            <apex:outputLink target="_top" value="/{!selectedOrderWrap.order.Account__c}" id="relatedToId">
+                                                                <apex:outputText value="{!selectedOrderWrap.order.account__r.Name}"/>
+                                                            </apex:outputLink>
+                                                        </div>
+                                                       
+                                                    </div>
+
+                                                </div>
+                                               
+                                            </div>
+
+                                             <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Status
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly">
+                                                                <apex:outputText value="{!selectedOrderWrap.order.Status__c}"/>
+                                                        </div>
+                                                       
+                                                    </div>
+
+                                                </div>
+                                               
+                                            </div>
+                                           
+                                           
+                                            <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Pending
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly wrap-text">
+                                                        <apex:repeat value="{!selectedOrderWrap.status}" var="stat">
+                                                            <apex:outputText value="{!stat}" />
+                                                            <br />
+                                                        </apex:repeat>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                             <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Jeopardy status
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly wrap-text">
+                                                            <apex:outputText value="{!selectedOrderWrap.jeopardyStatus}" />
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Proposed Start Date
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly wrap-text">
+                                                        <apex:outputText value="{0,date,dd'/'MM'/'yyyy}">
+                                                            <apex:param value="{!selectedOrderWrap.order.Proposed_Start_Date__c}" /> 
+                                                        </apex:outputText>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Actual Start Date
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <apex:outputText value="{0,date,dd'/'MM'/'yyyy}">
+                                                            <apex:param value="{!selectedOrderWrap.order.Actual_Start_Date__c}" /> 
+                                                        </apex:outputText>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                           
+                                </div>
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+                        </apex:form>
+                    </apex:outputPanel>
+                    
+                    </apex:outputPanel>
+                </div>
+            <div id="prodordertab" class="tab-content" >
+            <apex:outputPanel layout="block" styleClass="task-wrapper" rendered="true">
+                    <apex:outputPanel id="prodorderList" layout="block" styleClass="task-list-wrapper">
+                    <apex:form id="prodorderForm" style="border: 1px solid #e2e8ed;">
+                    <apex:actionFunction id="loadSelectedProdOrderDetails" name="loadSelectedProdOrderDetails" action="{!loadSelectedProdOrderDetails}" reRender="prodorderForm" status="">
+                        <apex:param id="selectedProdOrderWrap" name="selectedProdOrderWrap" assignTo="{!selectedProdOrderWrapIden}" value="" />
+                    </apex:actionFunction>
+                   
+                        <ul class="task-list" style="width: 60%; ">
+                            <apex:repeat value="{!prodorders}" var="o">
+
+                            <li class="task {!IF(o.prodorder.Id == selectedProdOrderWrapIden,'selected','')}" onclick="loadSelectedProdOrderDetails('{!o.prodOrder.Id}')"><apex:outputPanel layout="block">
+                                    <div class="task-info">
+                                    <ul class="horizontal">
+                                    <li>
+                                    <apex:outputField value="{!o.prodorder.Name} "/>
+
+                                        <ul class="horizontal">
+                                            <li>Related To Account: 
+                                                <apex:outputLink target="_top" value="/{!o.prodorder.order__r.Account__c}" id="relatedToProdOrderLink">
+                                                    <apex:outputField value=" {!o.prodorder.order__r.account__r.name}"/>
+                                                </apex:outputLink> 
+                                            </li> 
+                                        </ul> 
+                                       </li>
+                                       <li style="float:right;"> 
+                                       <apex:outputPanel style="float:right;" rendered="{!o.jeopardy}">
+                                    <!--  <span class="slds-icon__container slds-icon__container--circle slds-icon-action-close">
+                                      <svg aria-hidden="true" class="slds-icon  slds-icon_x-small ">
+                                        <use  xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Resource.TaskList, 'assets/icons/action-sprite/svg/symbols.svg#close')}"></use>
+                                      </svg> </span> -->
+                                      <apex:image value="{!URLFOR($Resource.Exclamation)}" style=" height: 40px;"/>
+                                    </apex:outputPanel></li></ul>
+                                    </div>
+                                    
+                                    </apex:outputPanel>
+                                    </li>
+
+                            </apex:repeat>
+                        </ul>
+                        <apex:outputPanel id="selectedProdOrder" layout="block" styleClass="task-details-wrapper" >
+                        <div class="task-details" style="height: 100%;">
+                        <div class="task-details-header"> 
+                                <div class="task-subject" style="padding-left: 20px">
+                                    <apex:outputLink target="_top" value="/{!selectedProdOrderWrap.prodorder.Id}" id="relatedToProdOrderId">
+                                    <apex:outputField value="{!selectedProdOrderWrap.prodorder.name}" />
+                                    </apex:outputLink>
+                                </div>
+                            </div>
+                            <div class="task-details-body"><div class="forcePageBlock">
+                                <div class="sectionContainer">
+                                            <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Assigned To
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly">
+                                                            <apex:outputField value="{!selectedprodOrderWrap.prodorder.Assigned_Fulfilment_Owner__c}" />
+                                                        </div>
+                                                        
+                                                    </div>
+                                                  
+                                                </div>
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Assigned To (Social)
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly">
+                                                            <apex:outputField value="{!selectedprodOrderWrap.prodorder.Assigned_Social_Owner__c}" />
+                                                        </div>
+                                                        
+                                                    </div>
+                                                  
+                                                </div>
+                                               
+                                            </div>
+                                            </div>
+                                            <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Related To Account
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly">
+                                                            <apex:outputLink target="_top" value="/{!selectedprodOrderWrap.prodorder.order__r.Account__c}" id="relatedToAccId">
+                                                                <apex:outputText value="{!selectedProdOrderWrap.prodorder.order__r.account__r.Name}"/>
+                                                            </apex:outputLink>
+                                                        </div>
+                                                       
+                                                    </div>
+
+                                                </div>
+                                               
+                                            </div>
+                                            <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Status
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly">
+
+                                                                <apex:outputText value="{!selectedProdOrderWrap.prodorder.status__c }"/>
+
+                                                        </div>
+                                                       
+                                                    </div>
+
+                                                </div>
+                                               
+                                            </div>
+                                           
+                                           
+                                            <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Pending
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly wrap-text">
+                                                             <apex:repeat value="{!selectedProdOrderWrap.status}" var="prodstat">
+                                                            <apex:outputText value="{!prodstat}" />
+                                                            <br />
+                                                        </apex:repeat>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                             <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Jeopardy status
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly wrap-text">
+                                                            <apex:outputText value="{!selectedprodOrderWrap.jeopardyStatus}" />
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Proposed Start Date
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly wrap-text">  <apex:outputText value="{0,date,dd'/'MM'/'yyyy}">
+                                                            <apex:param value="{!selectedOrderWrap.prodorder.Product_Order_Start_Date__c}" /> 
+                                                        </apex:outputText>
+                                                         
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="forcePageBlockSectionRow">
+                                                <div class="forcePageBlockItem">
+                                                    <div class="labelCol">
+                                                        Product Name
+                                                    </div>
+                                                    <div class="itemBody">
+                                                        <div class="dataCol readonly">
+
+                                                                <!--<apex:outputText value="{!selectedProdOrderWrap.prodorder.News_Xtend_Product_Ref__r.name }"/>-->
+                                                                <apex:outputText value="{!selectedProdOrderWrap.prodorder.Product_Node__r.name }"/>
+
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </div>
+                                           
+                                            </div>
+                            </div>
+                        </div> </div> 
+                    </apex:outputPanel>
+                        </apex:form>
+                    </apex:outputPanel>
+                    
+                    </apex:outputPanel>
+                </div>
+            </div>          
+        </div>    
+        
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    //window.onfocus (window.location.href = window.location.href;);
+$(document).ready(function() {
+    $(".tabs-menu a").click(function(event) {
+        event.preventDefault();
+        $(this).parent().addClass("current");
+        $(this).parent().siblings().removeClass("current");
+        var tab = $(this).attr("href");
+        $(".tab-content").not(tab).css("display", "none");
+        $(tab).fadeIn();
+    });
+});
+
+    function changeTaskJs(task) {
+        debugger;
+        changeTask(task);
+        var error = '{!errorMessage}'
+
+        if (error != '')
+            alert('You cannot complete this task cause you have not populated all required fields. Please review the task description and make sure you have done the expected work.');
+        else {
+            window.location = window.location;
+        }
+
+    }
+
+    function toggleCollapse(objBtn) {
+        jQuery(objBtn).parent().parent().toggleClass("collapsed");
+    }
+    </script>
+</apex:page>

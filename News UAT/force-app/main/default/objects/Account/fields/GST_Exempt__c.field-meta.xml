@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GST_Exempt__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates whether an account is GST exempt</description>
+    <externalId>false</externalId>
+    <inlineHelpText>When account is digital (&#39;Is Digital Account?&#39; field is checked), GST will automatically be applied to the account and displayed on IOs. If the customer is exempt from being charged GST (overseas account), check this field so GST wlll be displayed as $0.</inlineHelpText>
+    <label>GST Exempt</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

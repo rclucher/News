@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>SocialAd__c</label>
+    <protected>false</protected>
+    <values>
+        <field>GoogleDriveFolderId__c</field>
+        <value xsi:type="xsd:string">1NrniRZZgqfPN_uTtmeyIL8X85kjTz8ul</value>
+    </values>
+</CustomMetadata>

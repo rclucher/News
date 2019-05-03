@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Make_Good_Revenue__c</fullName>
+    <description>Adjustment quantity for IO Booked Revenue</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Adjustment quantity for IO Booked Revenue</inlineHelpText>
+    <label>Make Good Revenue</label>
+    <precision>16</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

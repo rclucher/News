@@ -1,0 +1,28 @@
+<aura:component implements="flexipage:availableForAllPageTypes">    
+    <aura:attribute type="Boolean" name="showQuickQuote" default = "false"/>
+    
+    <lightning:card >
+        <aura:set attribute="title">
+            <lightning:icon iconName="custom:custom108"/>&nbsp;&nbsp;<b>Tools</b>
+        </aura:set>
+        <div style="text-align: center; padding: 4px;">
+            <lightning:button label="Incentive Estimate Calculator" variant="neutral" onclick="{!c.openIncentiveCalculator}"/>
+            <!-- br/><br/ -->
+            <!--lightning:button label="SME Bundles Quick Price Calculator" variant="neutral" onclick="{!c.openQuickQuote}"/ -->
+        </div>
+    </lightning:card>
+    
+    <!--aura:if isTrue="{!v.showQuickQuote}">
+    	<section role="dialog" tabindex="-1" class="slds-modal slds-modal_large slds-fade-in-open">
+            <div class="slds-modal__container" style = "">
+              <header class="slds-modal__header slds-modal__header_empty" style="background: transparent; text-align: right;">
+                  <lightning:buttonIcon iconName="utility:close" alternativeText="Close Quick Quote" variant="bare-inverse" size="large" onclick="{!c.closeQuickQuote}"/>
+              </header>
+              <div class="slds-modal__content slds-p-around_medium">
+                  <c:AT_QuickQuote />
+              </div>
+            </div>
+		</section>
+      	<div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if -->
+</aura:component>

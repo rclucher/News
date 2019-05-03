@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Phone_Number__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>The Phone number that is eligible for washing (or has been washed) against the Do Not Call Register. This is set as a text field as it also needs to be a unique external Id.</description>
+    <externalId>true</externalId>
+    <label>Phone Number</label>
+    <length>20</length>
+    <required>true</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

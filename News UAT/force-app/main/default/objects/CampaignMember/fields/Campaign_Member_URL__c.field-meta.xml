@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Campaign_Member_URL__c</fullName>
+    <description>URL field to access the Campaign Member in Reports</description>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&quot;javascript:if(typeof(srcUp)==&#39;function&#39;) {srcUp(&#39;/&quot; + Id + &quot;/e&#39;); } else {window.location.assign(&#39;/&quot; + Id + &quot;/e&#39;) }&quot;, &#39;Edit &#39; &amp; FirstName &amp; &#39; &#39; &amp; LastName)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>URL field to access the Campaign Member in Reports</inlineHelpText>
+    <label>Campaign Member URL</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

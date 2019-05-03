@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Phones_Combined__c</fullName>
+    <externalId>false</externalId>
+    <formula>PersonAssistantPhone &amp; 
+  IF(BEGINS(PersonAssistantPhone,&#39;+61&#39;),&#39;0&#39; &amp; RIGHT(PersonAssistantPhone,LEN(PersonAssistantPhone)-3),&#39;&#39;) 
+&amp;
+  PersonHomePhone &amp; 
+  IF(BEGINS(PersonHomePhone ,&#39;+61&#39;),&#39;0&#39; &amp; RIGHT(PersonHomePhone ,LEN(PersonHomePhone )-3),&#39;&#39;)
+&amp;
+  PersonMobilePhone &amp; 
+  IF(BEGINS(PersonMobilePhone ,&#39;+61&#39;),&#39;0&#39; &amp; RIGHT(PersonMobilePhone ,LEN(PersonMobilePhone )-3),&#39;&#39;)
+&amp;
+  PersonOtherPhone &amp; 
+  IF(BEGINS(PersonOtherPhone ,&#39;+61&#39;),&#39;0&#39; &amp; RIGHT(PersonOtherPhone  ,LEN(PersonOtherPhone  )-3),&#39;&#39;)
+&amp;
+  Phone &amp; 
+  IF(BEGINS(Phone ,&#39;+61&#39;),&#39;0&#39; &amp; RIGHT(Phone  ,LEN(Phone  )-3),&#39;&#39;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Phones Combined</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

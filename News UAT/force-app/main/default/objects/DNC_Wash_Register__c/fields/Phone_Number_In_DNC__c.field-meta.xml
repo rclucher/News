@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Phone_Number_In_DNC__c</fullName>
+    <description>Interprets the DNC Status picklist in this object to determine a Yes/No. It is a safe interpretation: treat Not Checked or I(nvalid) as Do Not Call. 
+
+Used by the DNC Update logic to push DNC Value to the Lead and Contacts. The design is to push the value only if the DNC Status picklist has been updated from ACMA - i.e. is Y or N, and not &#39;Not Checked&#39;.</description>
+    <externalId>false</externalId>
+    <formula>NOT(ISPICKVAL(DNC_Status__c, &#39;N&#39;))</formula>
+    <inlineHelpText>Driven by the DNC Status field in this Object. It is a safe interpretation: treat Not Checked or I(nvalid) as Do Not Call</inlineHelpText>
+    <label>Do Not Call the Number</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,8 @@
+<apex:page controller="DNCUpdate_Controller" showHeader="{!showHeaderAndSidebar}" sidebar="{!showHeaderAndSidebar}">
+    <apex:form >
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:commandButton action="{!runDncUpdate}" value="Update DNC"/>
+        
+        <apex:commandLink action="{!checkJobStatus}" value="Check Job Status" target="_blank" rendered="{!$Profile.Name = 'System Administrator'}"/> 
+    </apex:form>    
+</apex:page>

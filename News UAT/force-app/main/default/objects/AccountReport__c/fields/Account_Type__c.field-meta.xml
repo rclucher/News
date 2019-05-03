@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Type__c</fullName>
+    <description>Account Type</description>
+    <externalId>false</externalId>
+    <label>Account Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Agency - Full Service</fullName>
+                <default>false</default>
+                <label>Agency - Full Service</label>
+            </value>
+            <value>
+                <fullName>Agency - Media Buyer</fullName>
+                <default>false</default>
+                <label>Agency - Media Buyer</label>
+            </value>
+            <value>
+                <fullName>Agency – Overseas Advertising Agency</fullName>
+                <default>false</default>
+                <label>Agency – Overseas Advertising Agency</label>
+            </value>
+            <value>
+                <fullName>Federal Government</fullName>
+                <default>false</default>
+                <label>Federal Government</label>
+            </value>
+            <value>
+                <fullName>State Government</fullName>
+                <default>false</default>
+                <label>State Government</label>
+            </value>
+            <value>
+                <fullName>Private Party</fullName>
+                <default>false</default>
+                <label>Private Party</label>
+            </value>
+            <value>
+                <fullName>Consortium</fullName>
+                <default>false</default>
+                <label>Consortium</label>
+            </value>
+            <value>
+                <fullName>Agency Independent</fullName>
+                <default>false</default>
+                <label>Agency Independent</label>
+            </value>
+            <value>
+                <fullName>General</fullName>
+                <default>false</default>
+                <label>General</label>
+            </value>
+            <value>
+                <fullName>Sole Trader</fullName>
+                <default>false</default>
+                <label>Sole Trader</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

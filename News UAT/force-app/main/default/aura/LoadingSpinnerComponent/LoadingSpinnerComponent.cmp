@@ -1,0 +1,16 @@
+<!--
+	This is the one of many lightning library components to be reused in Lightning Sales Console.
+
+	Author: LBK
+	Date: 	2018-10-17
+-->
+<aura:component >
+	<aura:attribute name="spinner" type="Boolean"/>
+    
+    <div class="loading" style="{!if(v.spinner, '', 'display:none;')}">
+        <div class="slds-spinner--brand slds-spinner slds-spinner--medium" aria-hidden="false" role="alert">
+            <div class="slds-spinner__dot-a"></div>
+            <div class="slds-spinner__dot-b"></div>
+        </div>
+    </div>
+</aura:component>

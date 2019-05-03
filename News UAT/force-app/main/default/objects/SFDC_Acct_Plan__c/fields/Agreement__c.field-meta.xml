@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Agreement__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>Agreements/ Contracts/ Internal Rate Agreements</inlineHelpText>
+    <label>Agreement</label>
+    <referenceTo>Agreement__c</referenceTo>
+    <relationshipLabel>Acct Plans</relationshipLabel>
+    <relationshipName>Acct_Plans</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

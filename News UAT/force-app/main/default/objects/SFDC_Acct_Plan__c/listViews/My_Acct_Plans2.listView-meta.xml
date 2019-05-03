@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Acct_Plans2</fullName>
+    <columns>NAME</columns>
+    <columns>Account__c</columns>
+    <columns>Planning_Year__c</columns>
+    <columns>Plan_Status__c</columns>
+    <filterScope>Mine</filterScope>
+    <label>My Acct Plans</label>
+</ListView>

@@ -1,0 +1,155 @@
+<apex:page standardController="Document" extensions="MyFaxSend_Controller">
+    
+    <!--
+// added by Tim Fabros 05 / 06 / 2014 - SFE-418
+
+// included script section that changes the console tab name to 'Send A Fax'
+// included 'includeScript' to get console js methods.
+-->
+    <!-- BEGIN: -->
+    <apex:includeScript value="/support/console/28.0/integration.js"/>
+    
+    <script>
+    function initialiseServiceConsoleTab() 
+    {        
+        sforce.console.setTabTitle('Send A Fax');
+    }
+    
+    var previousOnload = window.onload; 
+    window.onload = function() 
+    {
+        if (previousOnload) 
+        {
+            previousOnload();
+        }
+        setTimeout('initialiseServiceConsoleTab()', '1');
+    }
+
+    function closeServiceConsoleTab()
+    {
+        if ({!validFax} == true)
+            sforce.console.getEnclosingTabId(closeSubtab);
+    }
+
+    var closeSubtab = function closeSubtab(result) {
+            //Now that we have the tab ID, we can close it
+            var tabId = result.id;
+            sforce.console.closeTab(tabId);
+    };
+    </script>
+    <!-- END: -->
+    <apex:sectionHeader title="Send Fax" />
+    
+    <apex:pageMessages id="errorMsg"/>
+    <apex:form id="theForm">
+        <apex:pageBlock title="Send Fax">
+            
+            <apex:pageBlockButtons location="both">
+                <apex:commandButton action="{!doSendFax}" value="Send a Fax"/>
+                <apex:commandButton action="{!doCancel}" value="Cancel" />
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockSection title="Fax" columns="1">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Related to" />
+                    <apex:outputPanel layout="none">
+                        <!--apex:selectList value="{!relatedTo}" size="2" multiselect="false" rendered="{!relatedToId==null}">
+<apex:selectOptions value="{!relatedToList}" />
+</apex:selectList>
+<apex:outputText value="{!relatedTo}" rendered="{!relatedToId!=null}" /-->
+                        <apex:outputText value="{!relatedToObject}: {!relatedToName}" />
+                    </apex:outputPanel>  
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >  
+                    <apex:outputLabel value="Template" /> 
+                    <apex:selectList value="{!selectedTemplateId}" size="1" onchange="setEmailBody()">
+                        
+                        <apex:selectOptions value="{!myPersonalTemplateOptions}"/>
+                    </apex:selectList>  
+                </apex:pageBlockSectionItem>
+                
+                <apex:actionFunction action="{!setEmailBody}" name="setEmailBody">
+                    <apex:param name="firstParam" assignTo="{!selectedTemplateId}" value="" />
+                </apex:actionFunction>                 
+                
+                
+                
+                
+            </apex:pageBlockSection>
+            <!-- SFE-339 -  Make contact, fax number and subject as required fields 
+Modified by LMancilla
+Added div and classes from SFDC for styling. inputText fields do not show the required bar by default
+Validation for subject and number is performed in the background
+August 11 2014-->
+            <apex:pageBlockSection title="Recipient details" columns="1" id="recipientDetailsSection">
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Contact" />
+                        <apex:inputField value="{!caseProxy.contactId}">
+                            <apex:actionSupport action="{!onChangeContact}" event="onchange" /> 
+                        </apex:inputField>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem helpText="{!faxNumberHelpText}">
+                    <apex:outputLabel value="Fax Number" />
+                    <apex:outputPanel >
+                        <div class="requiredInput">
+                            <div class="requiredBlock"></div>
+                            <apex:inputText value="{!faxNumber}" id="faxNumber" label="Fax Number"/>
+                            <apex:message for="faxNumber" styleClass="errorMsg"/> 
+                        </div>                   
+                        <apex:outputText value="{!faxNumberHelpText}" />
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Subject"/>
+                    <apex:outputPanel >
+                        <div class="requiredInput">
+                            <div class="requiredBlock"></div>
+                            <apex:inputText value="{!faxSubject}"  id="faxSubject" label="Subject"/>
+                            <apex:message for="faxSubject" styleClass="errorMsg"/>
+                        </div>                   
+                    </apex:outputPanel>                
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <!-- End LMancilla -->
+            
+            <apex:pageBlockSection title="Cover Page details" columns="2">
+                <apex:inputcheckbox value="{!isUrgent}" label="Mark as Urgent" />
+                <apex:inputcheckbox value="{!isComment}" label="For Comment" />
+                <apex:inputcheckbox value="{!isReview}" label="Mark as Review" />
+                <apex:inputcheckbox value="{!isAnswer}" label="For Answer" />
+                <apex:inputcheckbox value="{!isInformative}" label="Mark as Informative" />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="1">
+                <apex:inputTextarea value="{!comment}" label="Comment" style="min-width:80%;min-height:300px;"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Attachment">
+                <apex:pageBlockSection >
+                    <apex:inputFile value="{!document.body}" filename="{!document.name}" contentType="{!document.contentType}" fileSize="{!document.bodyLength}"/>
+                    <apex:commandButton value="Attach File" action="{!attachFile}"/>
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection columns="1">
+                </apex:pageBlockSection>
+            </apex:pageBlockSection>
+
+            <apex:outputLabel value="Total attachment size: " />
+            <apex:outputText value="{!totalSize}" />       
+            <apex:pageBlockTable value="{!fileList}" var="f" id="attachedFiles">
+                <apex:column >
+                    <apex:commandLink action="{!removeAttachedFile}" value="remove">
+                        <apex:param name="selectedFileToRemove" value="{!f.devName}" />
+                    </apex:commandLink>
+                </apex:column>
+                <apex:column value="{!f.Id}" />
+                <apex:column value="{!f.name}" />
+                <apex:column value="{!f.type}" />
+                <apex:column value="{!f.Size}" />
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>    
+    
+    
+</apex:page>

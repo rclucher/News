@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Email_For_Trigger_Go_Live__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If this is set to true then proof trigger will send to email on the address mentioned in email service to execute trigger go live</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Send Email For Trigger Go Live</label>
+    <type>Checkbox</type>
+</CustomField>

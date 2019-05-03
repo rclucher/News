@@ -1,0 +1,189 @@
+<apex:component controller="AccountCreate_Controller" allowDML="true">
+            
+    <apex:attribute name="sectionTitle"
+                    type="String"
+                    default="Add new Account"
+                    required="false"
+                    description="Section title" />
+
+    <apex:attribute name="rerenderAreas"
+                    type="String"
+                    description="Areas IDs to rerender on Save or Cancel" />
+
+    <apex:attribute name="vfkey"
+                    type="String"
+                    assignTo="{!Key}"
+                    description="The key given to this component so the page can easily get access to it" />
+
+    <apex:attribute name="vfPageController"
+                    type="PageControllerBase"
+                    assignTo="{!pageController}"
+                    required="true"
+                    description="The controller for the page." />
+
+    <apex:attribute name="sourceSystem"
+                    type="String"
+                    assignTo="{!bookingSourceSystem}"
+                    description="Booking source system" />
+
+        <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" loadOnReady="false"/>
+        <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js" loadOnReady="false"/>
+    
+            <apex:outputPanel id="pbsAddnewAccount">
+
+            <apex:pageBlockSection columns="1" title="{!sectionTitle}">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Add New Advertiser Account" />
+                    <apex:outputPanel id="pnlGridAccountNewAccountTypeSelection">
+                        <apex:selectList value="{!AccountSelectedRectype}" 
+                                        multiselect="false"  
+                                        size="1"  
+                                        disabled="{!showAddnewAccountFlag || bookingSourceSystem = 'AdPoint'}">
+                            <apex:selectOptions value="{!accountRecordTypeOptions}"/>
+                            <apex:actionSupport event="onchange"
+                                    rerender="pnlGridAccountNewAccountTypeSelection"
+                                    status="AccountNewAccountTypeSelectionLoadingStatus"/>
+                        </apex:selectList>
+
+                        <apex:commandButton action="{!showAddnewAccount}"
+                                            value="Add"
+                                            rerender="pbkAddnewAccount, pnlGridAccountNewAccountTypeSelection" 
+                                            disabled="{!OR(ISBLANK(AccountSelectedRectype), showAddnewAccountFlag)}" 
+                                            status="AccountNewAccountTypeSelectionLoadingStatus"/>
+
+                        <apex:actionStatus id="AccountNewAccountTypeSelectionLoadingStatus" stopText="">
+                            <apex:facet name="start">
+                                <img src="/img/loading.gif" />
+                            </apex:facet>
+                        </apex:actionStatus>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            </apex:outputPanel>
+
+
+            <apex:outputPanel layout="none" id="pbkAddnewAccount" >
+                <apex:pageBlockSection columns="1" rendered="{!showAddnewAccountFlag}" title="{!sectionTitle}">
+
+                    <!--apex:inputField value="{!newAccount.PersonTitle}"  rendered="{!accountSelectedRectypeName='Private Party'}"/-->
+                    <apex:inputField value="{!contactProxy.FirstName}"  rendered="{!accountSelectedRectypeName='Private Party'}"/>
+                    <apex:inputField value="{!contactProxy.LastName}"  rendered="{!accountSelectedRectypeName='Private Party'}"/>
+                    <!-- added by Tim Fabros 2014-10-21: SFE-643 
+                         added new fields to the creation page
+                         BEGIN:  -->
+                    <apex:inputField value="{!newAccount.PersonEmail}" rendered="{!accountSelectedRectypeName='Private Party'}"/>
+                     <!-- END: -->
+
+                    <apex:inputField value="{!newAccount.Name}"  rendered="{!accountSelectedRectypeName!='Private Party'}"/>
+                    <apex:inputField value="{!newAccount.Phone}" required="true"/>
+
+                    <!-- added by Tim Fabros 2014-10-21: SFE-643 
+                         added new fields to the creation page
+                         BEGIN:  -->
+                    <apex:inputField value="{!newAccount.AccountNumber}" rendered="{!accountSelectedRectypeName!='Private Party'}" />
+                    <!--apex:inputField value="{!newAccount.ABN_Exempt__c}" rendered="{!accountSelectedRectypeName!='Private Party'}" /-->
+                    <!-- END: -->
+
+                    <apex:inputField value="{!newAccount.Type}" required="true" rendered="{!accountSelectedRectypeName!='Private Party'}"/>
+                    <apex:inputField value="{!newAccount.Account_Type__c}" required="true" rendered="{!accountSelectedRectypeName!='Private Party'}"/>
+                    <apex:inputField value="{!newAccount.Revenue_Group__c}" required="true"  rendered="{!accountSelectedRectypeName!='Private Party'}"/>
+                    <apex:inputField value="{!newAccount.Industry_Code__c}"  required="true"  rendered="{!accountSelectedRectypeName!='Private Party'}"/>
+
+                    <apex:inputField value="{!newAccount.ParentId}" rendered="{!accountSelectedRectypeName!='Private Party'}"/>
+                    <apex:inputField value="{!newAccount.No_Parent_Account__c}" rendered="{!accountSelectedRectypeName!='Private Party'}"/>
+
+                    <apex:pageBlockSectionItem />
+                    
+                    <apex:pageBlockSectionItem id="cityInputItem">
+                        <apex:outputLabel value="Enter City or Postcode" for="cityInput" />
+                        <apex:inputText id="cityInput" tabindex="0" />
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem id="streetInputItem">
+                        <apex:outputLabel value="Enter Street" for="streetInput"/>
+                        <apex:inputText id="streetInput" tabindex="0" />
+                    </apex:pageBlockSectionItem>        
+                                
+                    <apex:pageBlockSectionItem />
+                    
+
+                    <apex:pageBlockSectionItem id="newAccountBillignStreet">
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.BillingStreet.Label}" />
+                        <apex:inputText id="newAccountBillingStreet" value="{!newAccount.BillingStreet}"  html-readonly="true" tabindex="1"/>
+                    </apex:pageBlockSectionItem>  
+
+
+                    <apex:pageBlockSectionItem id="newAccountBillingCity">
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.BillingCity.Label}" />
+                        <apex:inputText id="newAccountBillingCity" value="{!newAccount.BillingCity}"  html-readonly="true" tabindex="1"/>
+                    </apex:pageBlockSectionItem>  
+
+                    <apex:pageBlockSectionItem id="newAccountBillingState">
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.BillingState.Label}" />
+                        <apex:inputText id="newAccountBillingState" value="{!newAccount.BillingState}"  html-readonly="true" tabindex="1"/>
+                    </apex:pageBlockSectionItem> 
+                    
+                    <apex:pageBlockSectionItem id="newAccountBillingPostalCode">
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.BillingPostalCode.Label}" />
+                        <apex:inputText id="newAccountBillingPostalCode" value="{!newAccount.BillingPostalCode}" html-readonly="true" tabindex="1"/>
+                    </apex:pageBlockSectionItem>                     
+                   
+                    <apex:pageBlockSectionItem id="newAccountBillingCountry">
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.BillingCountry.Label}" />
+                        <apex:inputText id="newAccountBillingCountry" value="{!newAccount.BillingCountry}" html-readonly="true" tabindex="1"/>
+                    </apex:pageBlockSectionItem>         
+                    
+                    <apex:pageBlockSectionItem id="newAccountBillingDPID">
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.datasan__Billing_Address_DPID__c.Label}" />
+                        <apex:inputText id="newAccountBillingDPID" value="{!newAccount.datasan__Billing_Address_DPID__c}"  html-readonly="true" tabindex="1"/>
+                    </apex:pageBlockSectionItem>                         
+
+                    <apex:pageBlockSectionItem >
+                    <apex:outputLabel />
+                        <apex:outputPanel layout="none">
+                            <apex:commandButton action="{!saveAddnewAccount}" value="Save and Select" reRender="{!rerenderAreas}"/>
+                            <apex:commandButton action="{!cancelAddnewAccount}" value="Cancel" reRender="rerenderAreas" immediate="true"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>                      
+
+                    <apex:includeScript value="https://d1c24wnrse4bd3.cloudfront.net/api/js/1.1/datasan.min.js" loadOnReady="false"/>
+
+                <script>                                            
+                        datasan.autoCompleteLocality(
+                            "{!$Component.cityInputItem.cityInput}", 
+                            {   
+                                select: [
+                                    {id: "{!$Component.newAccountBillingCity.newAccountBillingCity}",    value: "{locality_name}"},
+                                    {id: "{!$Component.newAccountBillingPostalCode.newAccountBillingPostalCode}",     value: "{postcode}"},
+                                    {id: "{!$Component.newAccountBillingState.newAccountBillingState}",   value: "{state}"}
+                                ]
+                            }
+                        );
+                        datasan.autoCompleteAddress (
+                            "{!$Component.streetInputItem.streetInput}",
+                            {   locality : {city : "{!$Component.newAccountBillingCity.newAccountBillingCity}", postcode : "{!$Component.newAccountBillingPostalCode.newAccountBillingPostalCode}" },
+                             menu  : {label: "<b>{address_line_1}</b><br/>{locality_name} {state}, {postcode}", value: "{address_line_1}"},
+                             select: [
+                                 {id: "{!$Component.newAccountBillingCity.newAccountBillingCity}",    value: "{locality_name}"},
+                                 {id: "{!$Component.newAccountBillingPostalCode.newAccountBillingPostalCode}",     value: "{postcode}"},
+                                 {id: "{!$Component.newAccountBillingState.newAccountBillingState}",   value: "{state}"},
+                                 {id: "{!$Component.newAccountBillignStreet.newAccountBillingStreet}",  value: "{address_line_1}"},
+                                 {id: "{!$Component.newAccountBillingCountry.newAccountBillingCountry}",  value: "{country}"},
+                                 {id: "{!$Component.newAccountBillingDPID.newAccountBillingDPID}",  value: "{delivery_point_id}"}
+                             ]
+                            }
+                        ); 
+   
+                        jQuery(document).ready(function() {                      
+                            datasan.init({
+                                key : "nTPhWj59v81re_CN0MMmQXwWVqoI2o6xZlRetkwIfexqv5h_1YknlxBpV4wykmp3",
+                                theme : "flick"
+                            });
+                        });
+                            
+                </script> 
+
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+    
+</apex:component>

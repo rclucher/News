@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_to_date__c</fullName>
+    <description>amount expended to date based on actual hours logged</description>
+    <externalId>false</externalId>
+    <inlineHelpText>amount expended to date based on actual hours logged</inlineHelpText>
+    <label>Total $ to date</label>
+    <summarizedField>Burn_Report__c.Actual_dollars_to_date__c</summarizedField>
+    <summaryForeignKey>Burn_Report__c.Project_Overview__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

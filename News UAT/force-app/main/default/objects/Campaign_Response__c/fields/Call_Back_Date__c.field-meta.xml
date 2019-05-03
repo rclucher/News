@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Call_Back_Date__c</fullName>
+    <description>Date to call customer back - only allowed for Response Subtypes of &#39;Call Back Same Agent&#39; or &#39;Call Back Any Agent&#39;</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Validated against Response Type and Response Subtype</inlineHelpText>
+    <label>Call Back Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

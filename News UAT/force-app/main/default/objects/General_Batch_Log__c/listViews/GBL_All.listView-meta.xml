@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GBL_All</fullName>
+    <columns>NAME</columns>
+    <columns>Batch_Job_No__c</columns>
+    <columns>Batch_Mode__c</columns>
+    <columns>Batch_Type__c</columns>
+    <columns>sObject__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>End_Date__c</columns>
+    <columns>Number_of_Records__c</columns>
+    <columns>CCN_Detected__c</columns>
+    <columns>Has_Error__c</columns>
+    <columns>Error_Message__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <label>GBL All</label>
+</ListView>

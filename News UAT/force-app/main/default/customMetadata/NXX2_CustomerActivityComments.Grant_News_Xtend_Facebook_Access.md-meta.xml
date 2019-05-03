@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Grant News Xtend Facebook Access</label>
+    <protected>false</protected>
+    <values>
+        <field>Comments__c</field>
+        <value xsi:type="xsd:string">If you’re an admin,  please click your Facebook ‘Settings’ and select the &#39;Page Roles&#39; in the left column. Then approve the Pending Request.</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">Grant News Xtend Facebook Access</value>
+    </values>
+</CustomMetadata>

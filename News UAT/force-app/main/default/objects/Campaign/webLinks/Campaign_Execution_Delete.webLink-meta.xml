@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Campaign_Execution_Delete</fullName>
+    <availability>online</availability>
+    <description>To open campaign execution window</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Campaign Execution Delete</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>if (&quot;{!Campaign.Status}&quot; == &#39;Launched&#39; &amp;&amp; &quot;{!Campaign.IsActive}&quot; == true)
+{
+  if(typeof(srcUp)==&#39;function&#39;)
+  {
+    srcUp(&quot;/apex/Campaign?id={!Campaign.Id}&amp;isdtp=vw&quot;);
+  } else 
+  {
+    window.location = &quot;/apex/Campaign?id={!Campaign.Id}&quot;;
+  }
+}
+else if (&quot;{!Campaign.Status}&quot; != &#39;Launched&#39; &amp;&amp; &quot;{!Campaign.IsActive}&quot; != true)
+{
+  alert(&quot;Campaign is not Launched and not Active!&quot;);
+}
+else if (&quot;{!Campaign.Status}&quot; != &#39;Launched&#39;)
+{
+  alert(&quot;Campaign is not Launched!&quot;);
+}
+else if (&quot;{!Campaign.IsActive}&quot; != true)
+{
+  alert(&quot;Campaign is not Active!&quot;);
+}
+else
+{
+  alert(&quot;Unable to access Campaign Execution!&quot;);
+}</url>
+</WebLink>

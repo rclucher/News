@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Weighted_Pipeline_50__c</fullName>
+    <description>NB: This is not a weighted pipeline. This is the sum of the pipeline based on a certain probability/ stage.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+ Rev_Group__c = &#39;Weighted Pipeline (50%+)$&#39;,
+ Rev_Amount__c,
+ 0
+)</formula>
+    <label>Pipeline (50-89%)$</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

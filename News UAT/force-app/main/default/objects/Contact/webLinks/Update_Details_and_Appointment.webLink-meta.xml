@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Update_Details_and_Appointment</fullName>
+    <availability>online</availability>
+    <description>Update Contact details, create appointment Task if required and log the call</description>
+    <displayType>button</displayType>
+    <height>600</height>
+    <linkType>page</linkType>
+    <masterLabel>Update Details and Appointment</masterLabel>
+    <openType>sidebar</openType>
+    <page>Contact_Update_Details_Book_Appointment</page>
+    <protected>false</protected>
+</WebLink>

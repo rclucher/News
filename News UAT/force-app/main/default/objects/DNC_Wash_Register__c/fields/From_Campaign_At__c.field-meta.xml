@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>From_Campaign_At__c</fullName>
+    <description>Used for the Manual (Campaign-specific) Wash.
+
+This is timestamp field used to distinguish extract process is from specific campaign rather than from the Monthly (Batch) DNC Register update.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Used for the Manual (Campaign-specific) Wash.</inlineHelpText>
+    <label>From Campaign At</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

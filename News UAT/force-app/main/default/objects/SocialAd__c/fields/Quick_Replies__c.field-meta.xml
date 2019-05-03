@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quick_Replies__c</fullName>
+    <description>Quick replies allow the user in the Messenger Conversation to select from populated fields that relate to the nature of their enquiry. This also allows your business to quickly be informed of what the user is wanting to know.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Quick replies allow the user in the Messenger Conversation to select from populated fields that relate to the nature of their enquiry. This also allows your business to quickly be informed of what the user is wanting to know.</inlineHelpText>
+    <label>Quick Replies</label>
+    <length>131072</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Html</type>
+    <visibleLines>25</visibleLines>
+</CustomField>

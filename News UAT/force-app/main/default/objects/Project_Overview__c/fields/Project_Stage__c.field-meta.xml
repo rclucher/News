@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project_Stage__c</fullName>
+    <externalId>false</externalId>
+    <label>Project Stage</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Plan</fullName>
+                <default>true</default>
+                <label>Plan</label>
+            </value>
+            <value>
+                <fullName>Analyze</fullName>
+                <default>false</default>
+                <label>Analyze</label>
+            </value>
+            <value>
+                <fullName>Design - High Level</fullName>
+                <default>false</default>
+                <label>Design - High Level</label>
+            </value>
+            <value>
+                <fullName>Design - Detailed Field Mapping</fullName>
+                <default>false</default>
+                <label>Design - Detailed Field Mapping</label>
+            </value>
+            <value>
+                <fullName>Build</fullName>
+                <default>false</default>
+                <label>Build</label>
+            </value>
+            <value>
+                <fullName>Test - Unit Testing</fullName>
+                <default>false</default>
+                <label>Test - Unit Testing</label>
+            </value>
+            <value>
+                <fullName>Test - Validation</fullName>
+                <default>false</default>
+                <label>Test - Validation</label>
+            </value>
+            <value>
+                <fullName>Deploy to Prod</fullName>
+                <default>false</default>
+                <label>Deploy to Prod</label>
+            </value>
+            <value>
+                <fullName>Closed</fullName>
+                <default>false</default>
+                <label>Closed</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

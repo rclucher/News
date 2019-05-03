@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuthProvider xmlns="http://soap.sforce.com/2006/04/metadata">
+    <authorizeUrl>https://accounts.google.com/o/oauth2/auth?access_type=offline&amp;approval_prompt=force</authorizeUrl>
+    <consumerKey>349693541591-7fj2v5jhnjrc9mkmjo1srum1v9h3q0lq.apps.googleusercontent.com</consumerKey>
+    <consumerSecret>+JuPqARtVGICWifFbnwYKxrdKFZYHCFbcEEY92ILatc=</consumerSecret>
+    <defaultScopes>https://www.googleapis.com/auth/drive</defaultScopes>
+    <friendlyName>NewsXtend GoogleDrive PROD</friendlyName>
+    <includeOrgIdInIdentifier>false</includeOrgIdInIdentifier>
+    <providerType>OpenIdConnect</providerType>
+    <sendAccessTokenInHeader>true</sendAccessTokenInHeader>
+    <sendClientCredentialsInHeader>false</sendClientCredentialsInHeader>
+    <tokenUrl>https://accounts.google.com/o/oauth2/token</tokenUrl>
+</AuthProvider>

@@ -1,0 +1,2 @@
+<apex:page standardController="Product_Order__c" extensions="New_Creative_Ctrl" action="{!New_Creative_Method}">
+</apex:page>

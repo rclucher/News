@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Department_picklist_c__c</fullName>
+    <externalDeveloperName>Department_picklist__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Department picklist</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Agency One</fullName>
+                <default>false</default>
+                <label>Agency One</label>
+            </value>
+            <value>
+                <fullName>Agency Two</fullName>
+                <default>false</default>
+                <label>Agency Two</label>
+            </value>
+            <value>
+                <fullName>Agency Three</fullName>
+                <default>false</default>
+                <label>Agency Three</label>
+            </value>
+            <value>
+                <fullName>Agency Wellington</fullName>
+                <default>false</default>
+                <label>Agency Wellington</label>
+            </value>
+            <value>
+                <fullName>Australia</fullName>
+                <default>false</default>
+                <label>Australia</label>
+            </value>
+            <value>
+                <fullName>Classifieds</fullName>
+                <default>false</default>
+                <label>Classifieds</label>
+            </value>
+            <value>
+                <fullName>Digital</fullName>
+                <default>false</default>
+                <label>Digital</label>
+            </value>
+            <value>
+                <fullName>Direct</fullName>
+                <default>false</default>
+                <label>Direct</label>
+            </value>
+            <value>
+                <fullName>Employment</fullName>
+                <default>false</default>
+                <label>Employment</label>
+            </value>
+            <value>
+                <fullName>Inserts</fullName>
+                <default>false</default>
+                <label>Inserts</label>
+            </value>
+            <value>
+                <fullName>Client Partnerships</fullName>
+                <default>false</default>
+                <label>Client Partnerships</label>
+            </value>
+            <value>
+                <fullName>Business Development</fullName>
+                <default>false</default>
+                <label>Business Development</label>
+            </value>
+            <value>
+                <fullName>Major Retail</fullName>
+                <default>false</default>
+                <label>Major Retail</label>
+            </value>
+            <value>
+                <fullName>Management</fullName>
+                <default>false</default>
+                <label>Management</label>
+            </value>
+            <value>
+                <fullName>Motoring</fullName>
+                <default>false</default>
+                <label>Motoring</label>
+            </value>
+            <value>
+                <fullName>New Business</fullName>
+                <default>false</default>
+                <label>New Business</label>
+            </value>
+            <value>
+                <fullName>Partnerships</fullName>
+                <default>false</default>
+                <label>Partnerships</label>
+            </value>
+            <value>
+                <fullName>Products</fullName>
+                <default>false</default>
+                <label>Products</label>
+            </value>
+            <value>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+                <label>Real Estate</label>
+            </value>
+            <value>
+                <fullName>Regional</fullName>
+                <default>false</default>
+                <label>Regional</label>
+            </value>
+            <value>
+                <fullName>Sections</fullName>
+                <default>false</default>
+                <label>Sections</label>
+            </value>
+            <value>
+                <fullName>Digital Auckland</fullName>
+                <default>false</default>
+                <label>Digital Auckland</label>
+            </value>
+            <value>
+                <fullName>Strategic</fullName>
+                <default>false</default>
+                <label>Strategic</label>
+            </value>
+            <value>
+                <fullName>Wellington</fullName>
+                <default>false</default>
+                <label>Wellington</label>
+            </value>
+            <value>
+                <fullName>Digital Wellington</fullName>
+                <default>false</default>
+                <label>Digital Wellington</label>
+            </value>
+            <value>
+                <fullName>Digital Bay of Plenty</fullName>
+                <default>false</default>
+                <label>Digital Bay of Plenty</label>
+            </value>
+            <value>
+                <fullName>Digital Christchurch</fullName>
+                <default>false</default>
+                <label>Digital Christchurch</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Call_Result_Subscription_c__c</fullName>
+    <externalDeveloperName>Call_Result_Subscription__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>XXXCall Result (Subscription)</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Disconnected</fullName>
+                <default>false</default>
+                <label>Disconnected</label>
+            </value>
+            <value>
+                <fullName>Hang up</fullName>
+                <default>false</default>
+                <label>Hang up</label>
+            </value>
+            <value>
+                <fullName>No answer</fullName>
+                <default>false</default>
+                <label>No answer</label>
+            </value>
+            <value>
+                <fullName>Call me back</fullName>
+                <default>false</default>
+                <label>Call me back</label>
+            </value>
+            <value>
+                <fullName>Disqualified (current 7 day subscriber)</fullName>
+                <default>false</default>
+                <label>Disqualified (current 7 day subscriber)</label>
+            </value>
+            <value>
+                <fullName>Do not contact me again</fullName>
+                <default>false</default>
+                <label>Do not contact me again</label>
+            </value>
+            <value>
+                <fullName>No interest</fullName>
+                <default>false</default>
+                <label>No interest</label>
+            </value>
+            <value>
+                <fullName>NSM to call customer (see comments)</fullName>
+                <default>false</default>
+                <label>NSM to call customer (see comments)</label>
+            </value>
+            <value>
+                <fullName>Sale</fullName>
+                <default>false</default>
+                <label>Sale</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

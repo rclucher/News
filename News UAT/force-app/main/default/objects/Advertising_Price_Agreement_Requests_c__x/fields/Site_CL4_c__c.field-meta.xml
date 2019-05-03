@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Site_CL4_c__c</fullName>
+    <externalDeveloperName>Site_CL4__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Site (CL4)</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>APN ARM</fullName>
+                <default>false</default>
+                <label>APN ARM</label>
+            </value>
+            <value>
+                <fullName>Airlie Beach</fullName>
+                <default>false</default>
+                <label>Airlie Beach</label>
+            </value>
+            <value>
+                <fullName>Biloela</fullName>
+                <default>false</default>
+                <label>Biloela</label>
+            </value>
+            <value>
+                <fullName>Bundaberg</fullName>
+                <default>false</default>
+                <label>Bundaberg</label>
+            </value>
+            <value>
+                <fullName>Coffs Coast</fullName>
+                <default>false</default>
+                <label>Coffs Coast</label>
+            </value>
+            <value>
+                <fullName>Emerald</fullName>
+                <default>false</default>
+                <label>Emerald</label>
+            </value>
+            <value>
+                <fullName>Fraser Coast</fullName>
+                <default>false</default>
+                <label>Fraser Coast</label>
+            </value>
+            <value>
+                <fullName>Gatton</fullName>
+                <default>false</default>
+                <label>Gatton</label>
+            </value>
+            <value>
+                <fullName>Gladstone</fullName>
+                <default>false</default>
+                <label>Gladstone</label>
+            </value>
+            <value>
+                <fullName>Grafton</fullName>
+                <default>false</default>
+                <label>Grafton</label>
+            </value>
+            <value>
+                <fullName>Gympie</fullName>
+                <default>false</default>
+                <label>Gympie</label>
+            </value>
+            <value>
+                <fullName>Ipswich</fullName>
+                <default>false</default>
+                <label>Ipswich</label>
+            </value>
+            <value>
+                <fullName>Kingaroy</fullName>
+                <default>false</default>
+                <label>Kingaroy</label>
+            </value>
+            <value>
+                <fullName>Lismore</fullName>
+                <default>false</default>
+                <label>Lismore</label>
+            </value>
+            <value>
+                <fullName>Mackay</fullName>
+                <default>false</default>
+                <label>Mackay</label>
+            </value>
+            <value>
+                <fullName>Rockhampton</fullName>
+                <default>false</default>
+                <label>Rockhampton</label>
+            </value>
+            <value>
+                <fullName>Rural Weekly</fullName>
+                <default>false</default>
+                <label>Rural Weekly</label>
+            </value>
+            <value>
+                <fullName>Specialist Media</fullName>
+                <default>false</default>
+                <label>Specialist Media</label>
+            </value>
+            <value>
+                <fullName>Sunshine Coast</fullName>
+                <default>false</default>
+                <label>Sunshine Coast</label>
+            </value>
+            <value>
+                <fullName>Surat</fullName>
+                <default>false</default>
+                <label>Surat</label>
+            </value>
+            <value>
+                <fullName>Toowoomba</fullName>
+                <default>false</default>
+                <label>Toowoomba</label>
+            </value>
+            <value>
+                <fullName>Tweed</fullName>
+                <default>false</default>
+                <label>Tweed</label>
+            </value>
+            <value>
+                <fullName>Warwick</fullName>
+                <default>false</default>
+                <label>Warwick</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

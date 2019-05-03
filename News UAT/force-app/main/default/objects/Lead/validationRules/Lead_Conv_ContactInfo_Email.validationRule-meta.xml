@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Conv_ContactInfo_Email</fullName>
+    <active>true</active>
+    <description>Ensure that the relevant Contact information is provided based on the selected Channel</description>
+    <errorConditionFormula>AND(
+  ISPICKVAL( Status, &#39;Qualified&#39;),
+  ISBLANK(Email ),
+  ISPICKVAL( Channel__c , &#39;Email&#39;)
+)</errorConditionFormula>
+    <errorDisplayField>Email</errorDisplayField>
+    <errorMessage>An Email Address needs to be provided if the Lead Channel is Email</errorMessage>
+</ValidationRule>

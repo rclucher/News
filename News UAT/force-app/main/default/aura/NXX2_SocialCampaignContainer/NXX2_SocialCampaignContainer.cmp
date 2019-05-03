@@ -1,0 +1,14 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,force:hasRecordId" controller="NXX2_SocialAdPageController" access="global">
+    <aura:attribute name="recordId" type="String"/>
+    <lightning:tabset selectedTabId="one">
+        <lightning:tab label="Item One" id="one">
+        	<c:NXX2_SocialCampaignDetails recordId="{!v.recordId}"></c:NXX2_SocialCampaignDetails>
+        </lightning:tab>
+        <lightning:tab label="Item Two" id="two">
+            <c:NXX2_AdPreviewForClient recordId="{!v.recordId}"></c:NXX2_AdPreviewForClient>
+        </lightning:tab>
+        <lightning:tab label="Item Three" id="three">
+            <c:NXX2GoogleDriveConnector recordId="{!v.recordId}"></c:NXX2GoogleDriveConnector>
+        </lightning:tab>
+    </lightning:tabset>
+</aura:component>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Default_Revenue_Group__c</fullName>
+    <description>Booking Account Default Revenue Group</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Booking Account Default Revenue Group</inlineHelpText>
+    <label>Default Revenue Group</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Amusements</fullName>
+                <default>false</default>
+                <label>Amusements</label>
+            </value>
+            <value>
+                <fullName>Election-Political</fullName>
+                <default>false</default>
+                <label>Election-Political</label>
+            </value>
+            <value>
+                <fullName>Employment</fullName>
+                <default>false</default>
+                <label>Employment</label>
+            </value>
+            <value>
+                <fullName>House</fullName>
+                <default>false</default>
+                <label>House</label>
+            </value>
+            <value>
+                <fullName>MV Dealers</fullName>
+                <default>false</default>
+                <label>MV Dealers</label>
+            </value>
+            <value>
+                <fullName>Nat - Com/Bus Equip</fullName>
+                <default>false</default>
+                <label>Nat - Com/Bus Equip</label>
+            </value>
+            <value>
+                <fullName>Nat - Computers</fullName>
+                <default>false</default>
+                <label>Nat - Computers</label>
+            </value>
+            <value>
+                <fullName>Nat - Finance</fullName>
+                <default>false</default>
+                <label>Nat - Finance</label>
+            </value>
+            <value>
+                <fullName>Nat - Food &amp; Bev</fullName>
+                <default>false</default>
+                <label>Nat - Food &amp; Bev</label>
+            </value>
+            <value>
+                <fullName>Nat - Gamb/Gaming</fullName>
+                <default>false</default>
+                <label>Nat - Gamb/Gaming</label>
+            </value>
+            <value>
+                <fullName>Nat - Gov/Pol Part</fullName>
+                <default>false</default>
+                <label>Nat - Gov/Pol Part</label>
+            </value>
+            <value>
+                <fullName>Nat - Media</fullName>
+                <default>false</default>
+                <label>Nat - Media</label>
+            </value>
+            <value>
+                <fullName>Nat - MV Manufact</fullName>
+                <default>false</default>
+                <label>Nat - MV Manufact</label>
+            </value>
+            <value>
+                <fullName>Nat - Other</fullName>
+                <default>false</default>
+                <label>Nat - Other</label>
+            </value>
+            <value>
+                <fullName>Nat - Pers Care Prod</fullName>
+                <default>false</default>
+                <label>Nat - Pers Care Prod</label>
+            </value>
+            <value>
+                <fullName>Nat - Pharm/Hth Prod</fullName>
+                <default>false</default>
+                <label>Nat - Pharm/Hth Prod</label>
+            </value>
+            <value>
+                <fullName>Nat - Travel/Accom</fullName>
+                <default>false</default>
+                <label>Nat - Travel/Accom</label>
+            </value>
+            <value>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+                <label>Real Estate</label>
+            </value>
+            <value>
+                <fullName>Retail</fullName>
+                <default>false</default>
+                <label>Retail</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

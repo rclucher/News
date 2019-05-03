@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Need_More_Information</fullName>
+    <columns>NAME</columns>
+    <columns>External_ID__c</columns>
+    <columns>Functional_Requirement__c</columns>
+    <columns>Solution_Risks_Issues__c</columns>
+    <columns>Comments__c</columns>
+    <columns>Req_Workshop_Questions__c</columns>
+    <columns>Req_Workshop_Answers__c</columns>
+    <columns>Process_L3__c</columns>
+    <columns>Type__c</columns>
+    <columns>Solution_Complexity__c</columns>
+    <columns>Scope__c</columns>
+    <columns>Priority__c</columns>
+    <columns>Status__c</columns>
+    <columns>Schedule_Sprint__c</columns>
+    <columns>Estimated_Effort_Days__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Type__c</field>
+        <operation>equals</operation>
+        <value>Need More Information</value>
+    </filters>
+    <label>Need More Information</label>
+</ListView>

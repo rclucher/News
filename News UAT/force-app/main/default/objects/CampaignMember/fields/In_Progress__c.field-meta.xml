@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>In_Progress__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used in Execution Control to mark a Member as currently in progress - opened by the Agent currently locking it</description>
+    <externalId>false</externalId>
+    <label>In Progress</label>
+    <type>Checkbox</type>
+</CustomField>

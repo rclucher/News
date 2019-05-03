@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Order_End_Date_Buy_Sheet__c</fullName>
+    <description>Set to the Product Order End Date unless Evergreen is true in which case the value is Product Order End Date + 1 Year</description>
+    <externalId>false</externalId>
+    <formula>IF( ISBLANK(Flight_Period_End_Date__c) , IF(ISBLANK(Cancellation_Date__c), if (ISBLANK( Previous_End_Date_Override__c ), 
+(if( Order__r.Evergreen__c = true , 
+Proposed_Start_Date__c + Previous_End_Date_Buy_Sheet_add_1y__c, 
+Product_Order_End_Date__c ) 
+), 
+Previous_End_Date_Override__c 
+), Cancellation_Date__c),Flight_Period_End_Date__c )</formula>
+    <inlineHelpText>Set to the Product Order End Date unless Evergreen is true in which case the value is Product Order End Date + 1 Year</inlineHelpText>
+    <label>Previous End Date Buy Sheet</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

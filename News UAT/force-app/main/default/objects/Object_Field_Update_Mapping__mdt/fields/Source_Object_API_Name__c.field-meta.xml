@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Source_Object_API_Name__c</fullName>
+    <description>The API name of the source object that the new field values will be read from.
+Example: Account, Opportunity, cscfga__Product_Configuration__c, cscfga__Product_Basket__c, csmso__Sales_Order__c</description>
+    <externalId>false</externalId>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <inlineHelpText>The API name of the source object that the new field values will be read from.
+Example: Account, Opportunity, cscfga__Product_Configuration__c, cscfga__Product_Basket__c, csmso__Sales_Order__c</inlineHelpText>
+    <label>Source Object API Name</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

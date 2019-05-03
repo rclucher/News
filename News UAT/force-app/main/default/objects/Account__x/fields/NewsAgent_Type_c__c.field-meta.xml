@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NewsAgent_Type_c__c</fullName>
+    <externalDeveloperName>NewsAgent_Type__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>NewsAgent Type</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Master Agent</fullName>
+                <default>false</default>
+                <label>Master Agent</label>
+            </value>
+            <value>
+                <fullName>Sub Agent</fullName>
+                <default>false</default>
+                <label>Sub Agent</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

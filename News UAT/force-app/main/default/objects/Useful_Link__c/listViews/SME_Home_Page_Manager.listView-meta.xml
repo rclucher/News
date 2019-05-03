@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SME_Home_Page_Manager</fullName>
+    <columns>NAME</columns>
+    <columns>Useful_Link_Label__c</columns>
+    <columns>Useful_Link_URL__c</columns>
+    <columns>SME_Home_Page_Manager_Sequence__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>SME_Home_Page_Manager_Sequence__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>SME Home Page Manager</label>
+</ListView>

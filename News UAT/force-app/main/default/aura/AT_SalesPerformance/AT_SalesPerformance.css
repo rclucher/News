@@ -1,0 +1,103 @@
+.THIS .slds-card__header {
+    background-color: rgb(243, 242, 242);
+    margin-bottom: 0px;
+    padding-bottom: 12px;
+}
+
+.THIS table.slds-table th {
+    text-align: center;
+}
+
+.THIS table.slds-table td.even {
+    background-color: #f4f4f4;
+}
+
+.THIS table.slds-table td.combined {
+    font-weight: bold;
+}
+
+.THIS .outline {
+    font-weight: bold;
+    color: white;
+    font-size: 1.2em;
+    text-align: right;
+    padding-right: 4px;
+}
+
+.THIS .percent {
+    font-weight: normal;
+    color: black;
+    text-align: right;
+    vertical-align: middle;
+    font-size: 1.0em;
+    /*position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;*/
+    /*padding-right: 10px;*/
+    /*padding-top: 7px;*/    
+}
+
+.THIS .gauge-container {
+    /*min-height: 100%;
+    width: auto;
+    width: 150px;
+    */
+    
+    
+    display: block;
+    /*padding: 10px;*/
+}
+.THIS .gauge-container > .gauge > .dial {
+    stroke: #ddd;
+    stroke-width: 10;
+    fill: rgba(0,0,0,0);
+}
+.THIS .gauge-container > .gauge > .value {
+    stroke: #F32450; /*rgb(255, 227, 47);*/
+    stroke-width: 10;
+    fill: rgba(0,0,0,0);
+}
+.THIS .gauge-container > .gauge > .value-text {
+    fill: #3F51B5;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+
+.THIS table#sales {
+	align: right;
+}
+
+.THIS table#sales td {
+    padding: 4px;
+    padding-left: 10px;
+    text-align: right;
+}
+
+.THIS div.displayed {
+    display: block;
+}
+
+.THIS div.hidden {
+    display: none;
+}
+
+.THIS .gap {
+    color: red;
+}
+
+.THIS .slds-radio_faux {
+    white-space: nowrap;
+}
+
+.THIS table.selections {
+	margin-top: 10px;    
+    margin-bottom: 10px;
+}
+
+.THIS .slds-button{
+    white-space: nowrap;
+}

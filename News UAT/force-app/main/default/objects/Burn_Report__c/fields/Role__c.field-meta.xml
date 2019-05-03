@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Role__c</fullName>
+    <externalId>false</externalId>
+    <label>Role</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Application Design Architect</fullName>
+                <default>false</default>
+                <label>Application Design Architect</label>
+            </value>
+            <value>
+                <fullName>Business Analyst</fullName>
+                <default>false</default>
+                <label>Business Analyst</label>
+            </value>
+            <value>
+                <fullName>Curriculum Developer</fullName>
+                <default>false</default>
+                <label>Curriculum Developer</label>
+            </value>
+            <value>
+                <fullName>Data Architect</fullName>
+                <default>false</default>
+                <label>Data Architect</label>
+            </value>
+            <value>
+                <fullName>Data Migration Specialist</fullName>
+                <default>false</default>
+                <label>Data Migration Specialist</label>
+            </value>
+            <value>
+                <fullName>Developer - Custom Code</fullName>
+                <default>false</default>
+                <label>Developer - Custom Code</label>
+            </value>
+            <value>
+                <fullName>Developer - Integration</fullName>
+                <default>false</default>
+                <label>Developer - Integration</label>
+            </value>
+            <value>
+                <fullName>Education Architect</fullName>
+                <default>false</default>
+                <label>Education Architect</label>
+            </value>
+            <value>
+                <fullName>Engagement Manager</fullName>
+                <default>false</default>
+                <label>Engagement Manager</label>
+            </value>
+            <value>
+                <fullName>Engagement Mgr - Tech</fullName>
+                <default>false</default>
+                <label>Engagement Mgr - Tech</label>
+            </value>
+            <value>
+                <fullName>Instructor (onsite)</fullName>
+                <default>false</default>
+                <label>Instructor (onsite)</label>
+            </value>
+            <value>
+                <fullName>Project Manager</fullName>
+                <default>false</default>
+                <label>Project Manager</label>
+            </value>
+            <value>
+                <fullName>QA Architect</fullName>
+                <default>false</default>
+                <label>QA Architect</label>
+            </value>
+            <value>
+                <fullName>Quality Engineer</fullName>
+                <default>false</default>
+                <label>Quality Engineer</label>
+            </value>
+            <value>
+                <fullName>Senior Business Analyst</fullName>
+                <default>false</default>
+                <label>Senior Business Analyst</label>
+            </value>
+            <value>
+                <fullName>Senior Technical Architect</fullName>
+                <default>false</default>
+                <label>Senior Technical Architect</label>
+            </value>
+            <value>
+                <fullName>Solution Delivery Manager</fullName>
+                <default>false</default>
+                <label>Solution Delivery Manager</label>
+            </value>
+            <value>
+                <fullName>Sr Advisor</fullName>
+                <default>false</default>
+                <label>Sr Advisor</label>
+            </value>
+            <value>
+                <fullName>Technical Architect</fullName>
+                <default>false</default>
+                <label>Technical Architect</label>
+            </value>
+            <value>
+                <fullName>Application Design  Architect</fullName>
+                <default>false</default>
+                <label>Application Design  Architect</label>
+            </value>
+            <value>
+                <fullName>Senior Developer</fullName>
+                <default>false</default>
+                <label>Senior Developer</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

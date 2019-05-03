@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Team_Role__c</fullName>
+    <description>Team Roles</description>
+    <externalId>false</externalId>
+    <label>Team Role</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sales Manager</fullName>
+                <default>false</default>
+                <label>Sales Manager</label>
+            </value>
+            <value>
+                <fullName>Account Manager</fullName>
+                <default>false</default>
+                <label>Account Manager</label>
+            </value>
+            <value>
+                <fullName>Market Manager</fullName>
+                <default>false</default>
+                <label>Market Manager</label>
+            </value>
+            <value>
+                <fullName>Direct Sales Partner</fullName>
+                <default>false</default>
+                <label>Direct Sales Partner</label>
+            </value>
+            <value>
+                <fullName>Account Coordinator/Account Executive</fullName>
+                <default>false</default>
+                <label>Account Coordinator/Account Executive</label>
+            </value>
+            <value>
+                <fullName>Sales Associate</fullName>
+                <default>false</default>
+                <label>Sales Associate</label>
+            </value>
+            <value>
+                <fullName>Customer Solutions</fullName>
+                <default>false</default>
+                <label>Customer Solutions</label>
+            </value>
+            <value>
+                <fullName>Campaigns Execution</fullName>
+                <default>false</default>
+                <label>Campaigns Execution</label>
+            </value>
+            <value>
+                <fullName>Accounts/Credit</fullName>
+                <default>false</default>
+                <label>Accounts/Credit</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

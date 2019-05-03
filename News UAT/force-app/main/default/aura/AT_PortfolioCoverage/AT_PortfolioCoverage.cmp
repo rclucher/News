@@ -1,0 +1,123 @@
+<aura:component controller="AT_PortfolioCoverage" implements="flexipage:availableForAllPageTypes,lightning:isUrlAddressable">
+	<aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    
+    <aura:attribute type="String" name="title" default="My Portfolio Client Coverage"/>
+    <aura:attribute type="String" name="icon" default="standard:environment_hub"/>
+    
+    <aura:attribute type="String" name="mode" default = "SME/RE"/>
+    
+    <aura:attribute type="List" name="portfolios"/>
+    
+    <aura:attribute type="Boolean" name="loading" default="true"/>
+    
+    <article class="slds-card">
+      <div class="slds-card__header slds-grid">
+        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+          <div class="slds-media__figure">
+            <span class="slds-icon_container slds-icon-standard-contact" title="{!v.title}">
+              <lightning:icon iconName="{!v.icon}"/>
+            </span>
+          </div>
+          <div class="slds-media__body">
+            <h2>
+                <b>{!v.title}</b>
+            </h2>
+          </div>
+        </header>
+        <div class="slds-no-flex">
+        
+        </div>
+      </div>
+      <div class="slds-card__body slds-card__body_inner" style = "padding: 0px;">
+        <aura:if isTrue="{!v.loading}">
+        	<lightning:spinner variant="brand" size="medium"/>
+        
+            <aura:set attribute="else">
+                <table class="slds-table slds-table_bordered">
+                    <thead>
+                        <tr class="">
+                            <th scope="col">
+                                Portfolio
+                            </th>
+                            <th scope="col">
+                                Number of Clients
+                            </th>
+                            <th scope="col">
+                                Sales Rep Activity
+                            </th>
+                            <th scope="col" class="numbers">
+                                Trading
+                            </th>
+                            <th scope="col" class="numbers">
+                                At Risk
+                            </th>
+                            <th scope="col" class="numbers">
+                                Lapsed
+                            </th>
+                            <th scope="col" class="numbers">
+                                Long Lapsed
+                            </th>
+                            <th scope="col" class="percentage">
+                            	Long lapsed clients without activity as a % of total
+                            </th>
+                            <th scope="col" class="percentage">
+                             	Trading clients as a % of total
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.portfolios}" var="p">
+                            <tr>
+                                <td rowspan = "2">
+                                    <lightning:formattedUrl value="{!'/lightning/r/Portfolio2__c/' + p.Id + '/view'}" label="{!p.Name}"/>
+                                </td>
+                                <td rowspan = "2">
+                                    {!p.clients}
+                                </td>
+                                <td>
+                                    With Activity
+                                </td>
+                                <td class="numbers">
+                                    {!p.withActivity.trading}
+                                </td>
+                                <td class="numbers">
+                                    {!p.withActivity.atRisk}
+                                </td>
+                                <td class="numbers">
+                                    {!p.withActivity.lapsed}
+                                </td>
+                                <td class="numbers">
+                                    {!p.withActivity.longLapsed}
+                                </td>
+                                <td rowspan = "2" class="percentage">
+                                    <lightning:formattedNumber value="{!p.withoutActivity.longLapsed/p.clients}" style="percent" />
+                                </td>
+                                <td rowspan = "2" class="percentage">
+                                    <lightning:formattedNumber value="{!((p.withActivity.trading + p.withoutActivity.trading) / p.clients)}" style="percent" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Without Activity
+                                </td>
+                                <td class="numbers">
+                                    {!p.withoutActivity.trading}
+                                </td>
+                                <td class="numbers">
+                                    {!p.withoutActivity.atRisk}
+                                </td>
+                                <td class="numbers">
+                                    {!p.withoutActivity.lapsed}
+                                </td>
+                                <td class="numbers">
+                                    {!p.withoutActivity.longLapsed}
+                                </td>
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+            </aura:set>
+          </aura:if>
+       </div>      
+    </article>
+</aura:component>

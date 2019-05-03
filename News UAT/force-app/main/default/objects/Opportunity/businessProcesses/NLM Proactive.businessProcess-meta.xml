@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NLM Proactive</fullName>
+    <isActive>true</isActive>
+    <values>
+        <fullName>Closed Lost</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Closed Won</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Develop Solution%2F Proposal</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Discover Needs</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Establish Rapport</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Identify Prospects</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Present Solution%2F Proposal</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Re-affirm Value%2FAwaiting Bookings</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Review%2FNegotiate</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Submit Opportunity for BS Approval</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Submit Opportunity for CS Approval</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Submit to BS for final concept approval</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

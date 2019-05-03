@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DS_NSW_Inbound_Email_Queues2</fullName>
+    <booleanFilter>1 AND (2 OR 3 OR 4) AND (5 OR 6 OR 7 OR 8 OR 9 OR 10)</booleanFilter>
+    <columns>CASES.LAST_UPDATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>Pillar__c</columns>
+    <columns>SuppliedFromEmail_Text__c</columns>
+    <columns>NAME</columns>
+    <columns>CASES.SUBJECT</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.STATUS</field>
+        <operation>equals</operation>
+        <value>In Progress,Queued,Re-Opened</value>
+    </filters>
+    <filters>
+        <field>OWNER_NAME</field>
+        <operation>startsWith</operation>
+        <value>CC CNG</value>
+    </filters>
+    <filters>
+        <field>OWNER_NAME</field>
+        <operation>startsWith</operation>
+        <value>CC NWN</value>
+    </filters>
+    <filters>
+        <field>OWNER_NAME</field>
+        <operation>startsWith</operation>
+        <value>CC AUS</value>
+    </filters>
+    <filters>
+        <field>OWNER_NAME</field>
+        <operation>contains</operation>
+        <value>Display</value>
+    </filters>
+    <filters>
+        <field>OWNER_NAME</field>
+        <operation>contains</operation>
+        <value>Notices</value>
+    </filters>
+    <filters>
+        <field>OWNER_NAME</field>
+        <operation>contains</operation>
+        <value>Classifieds</value>
+    </filters>
+    <filters>
+        <field>OWNER_NAME</field>
+        <operation>contains</operation>
+        <value>Employment</value>
+    </filters>
+    <filters>
+        <field>OWNER_NAME</field>
+        <operation>contains</operation>
+        <value>Trades</value>
+    </filters>
+    <filters>
+        <field>OWNER_NAME</field>
+        <operation>contains</operation>
+        <value>Realestate</value>
+    </filters>
+    <label>DS NSW Inbound Email Queues</label>
+    <sharedTo>
+        <group>Direct_Sales_All_Inc_DSP_AE_AC</group>
+    </sharedTo>
+</ListView>

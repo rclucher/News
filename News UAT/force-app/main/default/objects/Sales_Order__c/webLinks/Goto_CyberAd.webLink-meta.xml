@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Goto_CyberAd</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Goto CyberAd</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>var RequestBroker = new ActiveXObject(&#39;SalesForceRequestBroker.RequestBroker&#39;);
+var r = RequestBroker.LaunchCyberAd(&#39;{!GETSESSIONID()}&#39;);
+var Result = RequestBroker.ExecuteRequest(&#39;{!GETSESSIONID()}&#39;, &#39;{!Sales_Order__c.Id}&#39;, &#39;{\&quot;salesOrderSFID\&quot;:\&quot;{!Sales_Order__c.Id}\&quot;}&#39;);</url>
+</WebLink>

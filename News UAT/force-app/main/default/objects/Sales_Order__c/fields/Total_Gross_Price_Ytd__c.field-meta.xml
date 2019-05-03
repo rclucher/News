@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Gross_Price_Ytd__c</fullName>
+    <externalId>false</externalId>
+    <label>Total Gross Price YTD</label>
+    <summarizedField>Booking__c.Line_Item_Gross_Price_YTD__c</summarizedField>
+    <summaryForeignKey>Booking__c.Sales_Order__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

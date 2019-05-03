@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="Event template" >
+<aura:attribute name="refreshParentView" type="Boolean" />
+<aura:attribute name="ParentRecordId" type="String" />
+</aura:event>

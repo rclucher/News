@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Comments_mandatory_with_NA_Status</fullName>
+    <active>true</active>
+    <description>When the Container Tag Status field is populated as N/A: Container Tag Not Needed, the Container Tag Comments field must be populated</description>
+    <errorConditionFormula>ISPICKVAL( Container_Tag_Status__c , &quot;N/A: Container Tag Not Needed&quot;) &amp;&amp; ISBLANK ( Container_Tag_Comments__c )</errorConditionFormula>
+    <errorDisplayField>Container_Tag_Comments__c</errorDisplayField>
+    <errorMessage>When the Container Tag Status field is populated as N/A: Container Tag Not Needed, you must populate the Container Tag Comments field with a reason.</errorMessage>
+</ValidationRule>

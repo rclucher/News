@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Email_Invalid__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Email Invalid will be flagged as True after an email address has bounced 3 times in the past 3 months.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If Email Invalid box is checked, please re-confirm the customer&#39;s email address during the next call.</inlineHelpText>
+    <label>Email Invalid</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

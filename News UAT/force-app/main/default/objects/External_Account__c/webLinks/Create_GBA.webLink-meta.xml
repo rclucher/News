@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_GBA</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Create GBA</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>try 
+{ 
+srcUp(&#39;/apex/ExternalAccountCreateBookingAccount?acctId={! External_Account__c.Customer_AccountId__c }&#39;); 
+} 
+catch(ex) 
+{ 
+window.location.href = &#39;/apex/ExternalAccountCreateBookingAccount?acctId={! External_Account__c.Customer_AccountId__c }&amp;s=true&#39;; 
+}</url>
+</WebLink>

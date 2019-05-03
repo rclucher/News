@@ -1,0 +1,1 @@
+<apex:page Controller="CS_SetDatesForCSVDocumentController" contentType="application/vnd.ms-excel#{!csvName}" cache="true" action="{!attachNewFile}">{!csvFileData}</apex:page>

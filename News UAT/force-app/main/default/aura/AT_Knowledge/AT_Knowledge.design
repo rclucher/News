@@ -1,0 +1,10 @@
+<design:component >
+    <design:attribute name="title" label="Title"/>
+    <design:attribute name="iconColour" label="Icon Colour"/>
+    
+    <design:attribute name="filterValue" label="Content Type" description="Value to filter" />
+    
+    <design:attribute name="showSearch" label="Show Search Box" />
+    
+    <design:attribute name="pageSize" label="Page Size" description="Number of articles to show at a time" />
+</design:component>

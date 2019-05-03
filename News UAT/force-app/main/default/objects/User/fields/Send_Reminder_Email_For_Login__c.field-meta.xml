@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Reminder_Email_For_Login__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This will be set to true for the given frequency to send login reminder emails to user</description>
+    <externalId>false</externalId>
+    <label>Send Reminder Email For Login</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

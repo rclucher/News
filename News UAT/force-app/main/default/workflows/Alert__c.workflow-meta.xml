@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Alrt_IsActive_Checked</fullName>
+        <field>Is_Active__c</field>
+        <literalValue>1</literalValue>
+        <name>Alrt_IsActive_Checked</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Alrt_IsActive_Unchecked</fullName>
+        <field>Is_Active__c</field>
+        <literalValue>0</literalValue>
+        <name>Alrt_IsActive_Unchecked</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Alrt_TriggerAccountOnly_toFalse</fullName>
+        <description>Update Trigger_Account_Only field to FALSE</description>
+        <field>Trigger_Account_Only__c</field>
+        <literalValue>0</literalValue>
+        <name>Alrt_TriggerAccountOnly toFalse</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Alrt_TriggerAccountOnly_toTrue</fullName>
+        <description>Update Trigger_Account_Only field to TRUE</description>
+        <field>Trigger_Account_Only__c</field>
+        <literalValue>1</literalValue>
+        <name>Alrt_TriggerAccountOnly toTrue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Alrt_IsActive_Checked</fullName>
+        <actions>
+            <name>Alrt_IsActive_Checked</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(   Start_Date__c &lt;=Today(),   Today() &lt;= Expiration_Date__c  )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Alrt_IsActive_Checked_IfForwardDate</fullName>
+        <active>true</active>
+        <formula>Start_Date__c &gt; Today()</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Alrt_IsActive_Checked</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Alert__c.Start_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Alrt_IsActive_Unchecked</fullName>
+        <actions>
+            <name>Alrt_IsActive_Unchecked</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>OR(   Expiration_Date__c &lt; Today() )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Alrt_IsActive_Unchecked_IfExpiredDate</fullName>
+        <active>true</active>
+        <formula>Expiration_Date__c &lt; Today()</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Alrt_IsActive_Unchecked</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Alert__c.Expiration_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Alrt_TriggerAccountOnly_FALSE</fullName>
+        <actions>
+            <name>Alrt_TriggerAccountOnly_toFalse</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>This checkbox is used to flag that alert is ONLY associated to an account and does not have a contact. This flag allows rollup summaries to use as a filter and hence, create further triggers off rollup summary field.</description>
+        <formula>AND(   NOT ISBLANK(Contact__c),   Trigger_Account_Only__c = TRUE  )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Alrt_TriggerAccountOnly_TRUE</fullName>
+        <actions>
+            <name>Alrt_TriggerAccountOnly_toTrue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>This checkbox is used to flag that alert is ONLY associated to an account and does not have a contact. This flag allows rollup summaries to use as a filter and hence, create further triggers off rollup summary field.</description>
+        <formula>AND(   NOT ISBLANK(Account__c),   ISBLANK(Contact__c),   Trigger_Account_Only__c = FALSE  )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

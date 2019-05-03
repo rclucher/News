@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>News_Corp_Target_Audience__c</fullName>
+    <externalId>false</externalId>
+    <label>News Corp Target Audience</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Alex Small Business Owner</fullName>
+                <default>false</default>
+                <label>Alex Small Business Owner</label>
+            </value>
+            <value>
+                <fullName>Belinda Women 25-39</fullName>
+                <default>false</default>
+                <label>Belinda Women 25-39</label>
+            </value>
+            <value>
+                <fullName>Eddie and Jane 18-24s</fullName>
+                <default>false</default>
+                <label>Eddie and Jane 18-24s</label>
+            </value>
+            <value>
+                <fullName>George and Anne Baby Boomers</fullName>
+                <default>false</default>
+                <label>George and Anne Baby Boomers</label>
+            </value>
+            <value>
+                <fullName>Grace Mums with young kids</fullName>
+                <default>false</default>
+                <label>Grace Mums with young kids</label>
+            </value>
+            <value>
+                <fullName>Henry and Frances Over 65s</fullName>
+                <default>false</default>
+                <label>Henry and Frances Over 65s</label>
+            </value>
+            <value>
+                <fullName>Jack and Sarah_rural</fullName>
+                <default>false</default>
+                <label>Jack and Sarah_rural</label>
+            </value>
+            <value>
+                <fullName>James Men 18-34</fullName>
+                <default>false</default>
+                <label>James Men 18-34</label>
+            </value>
+            <value>
+                <fullName>Joe and Kate Home Owners</fullName>
+                <default>false</default>
+                <label>Joe and Kate Home Owners</label>
+            </value>
+            <value>
+                <fullName>Kai Young Gamer 18-24</fullName>
+                <default>false</default>
+                <label>Kai Young Gamer 18-24</label>
+            </value>
+            <value>
+                <fullName>Kenneth Male Sports fans 25-54</fullName>
+                <default>false</default>
+                <label>Kenneth Male Sports fans 25-54</label>
+            </value>
+            <value>
+                <fullName>Luke the tradie</fullName>
+                <default>false</default>
+                <label>Luke the tradie</label>
+            </value>
+            <value>
+                <fullName>Margaret Empty Nester 65+</fullName>
+                <default>false</default>
+                <label>Margaret Empty Nester 65+</label>
+            </value>
+            <value>
+                <fullName>Matt Passive Job Seekers</fullName>
+                <default>false</default>
+                <label>Matt Passive Job Seekers</label>
+            </value>
+            <value>
+                <fullName>Mel and Ben All People 25-54</fullName>
+                <default>false</default>
+                <label>Mel and Ben All People 25-54</label>
+            </value>
+            <value>
+                <fullName>Mike and Amanda ABs</fullName>
+                <default>false</default>
+                <label>Mike and Amanda ABs</label>
+            </value>
+            <value>
+                <fullName>Mrs Swinburne Mums with kids 5+</fullName>
+                <default>false</default>
+                <label>Mrs Swinburne Mums with kids 5+</label>
+            </value>
+            <value>
+                <fullName>Paul and Tess Home Buyers</fullName>
+                <default>false</default>
+                <label>Paul and Tess Home Buyers</label>
+            </value>
+            <value>
+                <fullName>Renae Women 25-54</fullName>
+                <default>false</default>
+                <label>Renae Women 25-54</label>
+            </value>
+            <value>
+                <fullName>Rob Men 25-54</fullName>
+                <default>false</default>
+                <label>Rob Men 25-54</label>
+            </value>
+            <value>
+                <fullName>The Bradshaw family Car Buyers</fullName>
+                <default>false</default>
+                <label>The Bradshaw family Car Buyers</label>
+            </value>
+            <value>
+                <fullName>The Ross Clan Families</fullName>
+                <default>false</default>
+                <label>The Ross Clan Families</label>
+            </value>
+            <value>
+                <fullName>Tim Male Grocery Buyer</fullName>
+                <default>false</default>
+                <label>Tim Male Grocery Buyer</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>10</visibleLines>
+</CustomField>

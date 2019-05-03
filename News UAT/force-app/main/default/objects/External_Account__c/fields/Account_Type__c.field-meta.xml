@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Type__c</fullName>
+    <description>Booking/Billing Account Type</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Booking/Billing Account Type</inlineHelpText>
+    <label>Account Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Established</fullName>
+                <default>true</default>
+                <label>Established</label>
+            </value>
+            <value>
+                <fullName>Ad Agency</fullName>
+                <default>false</default>
+                <label>Ad Agency</label>
+            </value>
+            <value>
+                <fullName>ABN Exempt</fullName>
+                <default>false</default>
+                <label>ABN Exempt</label>
+            </value>
+            <value>
+                <fullName>Casual Business</fullName>
+                <default>false</default>
+                <label>Casual Business</label>
+            </value>
+            <value>
+                <fullName>Private Party</fullName>
+                <default>false</default>
+                <label>Private Party</label>
+            </value>
+            <value>
+                <fullName>House</fullName>
+                <default>false</default>
+                <label>House</label>
+            </value>
+            <value>
+                <fullName>Newsagent</fullName>
+                <default>false</default>
+                <label>Newsagent</label>
+            </value>
+            <value>
+                <fullName>Overseas Agent</fullName>
+                <default>false</default>
+                <label>Overseas Agent</label>
+            </value>
+            <value>
+                <fullName>Non Established</fullName>
+                <default>false</default>
+                <label>Non Established</label>
+            </value>
+            <value>
+                <fullName>Client of Ad Agency</fullName>
+                <default>false</default>
+                <label>Client of Ad Agency</label>
+            </value>
+            <value>
+                <fullName>Sub corporate</fullName>
+                <default>false</default>
+                <label>Sub corporate</label>
+            </value>
+            <value>
+                <fullName>Client of Overseas Advertising Agency</fullName>
+                <default>false</default>
+                <label>Client of Overseas Advertising Agency</label>
+            </value>
+            <value>
+                <fullName>Client of Overseas Agent</fullName>
+                <default>false</default>
+                <label>Client of Overseas Agent</label>
+            </value>
+            <value>
+                <fullName>Contra</fullName>
+                <default>false</default>
+                <label>Contra</label>
+            </value>
+            <value>
+                <fullName>Overseas Advertising Agency</fullName>
+                <default>false</default>
+                <label>Overseas Advertising Agency</label>
+            </value>
+            <value>
+                <fullName>Corporate</fullName>
+                <default>false</default>
+                <label>Corporate</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

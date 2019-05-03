@@ -1,0 +1,35 @@
+<aura:component controller="ExternalAccountCreateBA_Controller"  implements="lightning:recordHomeTemplate" description="Create External Booking Account">
+
+	<aura:attribute name="headerCard1" type="Aura.Component[]" />
+	<aura:attribute name="headerCard2" type="Aura.Component[]" />
+	<aura:attribute name="headerCard3" type="Aura.Component[]" />
+	<aura:attribute name="headerCard4" type="Aura.Component[]" />
+	<aura:attribute name="leftColumn"  type="Aura.Component[]" />
+	<aura:attribute name="rightColumn" type="Aura.Component[]" />
+
+	<div>
+		<lightning:layout horizontalAlign="spread" class="slds-m-bottom_x-small">
+			<lightning:layoutItem flexibility="grow" size="3" class="slds-p-horizontal_x-small">
+				{!v.headerCard1}
+			</lightning:layoutItem>
+			<lightning:layoutItem flexibility="grow" size="3" class="slds-p-horizontal_x-small">
+				{!v.headerCard2}
+			</lightning:layoutItem>
+			<lightning:layoutItem flexibility="grow" size="3" class="slds-p-horizontal_x-small">
+				{!v.headerCard3}
+			</lightning:layoutItem>
+			<lightning:layoutItem flexibility="grow" size="3" class="slds-p-horizontal_x-small">
+				{!v.headerCard4}
+			</lightning:layoutItem>
+		</lightning:layout>
+		<lightning:layout horizontalAlign="spread">
+			<lightning:layoutItem flexibility="grow" size="7" class="slds-p-horizontal_x-small">
+				{!v.leftColumn}
+			</lightning:layoutItem>
+			<lightning:layoutItem flexibility="grow" size="5" class="slds-p-horizontal_x-small">
+				{!v.rightColumn}
+			</lightning:layoutItem>
+		</lightning:layout>
+	</div>
+
+</aura:component>

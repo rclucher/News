@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>NXX2_Update_Activity_To_Send_Email</fullName>
+        <description>This will update a filed which will send email</description>
+        <field>Eligible_to_send_email__c</field>
+        <literalValue>1</literalValue>
+        <name>NXX2 Update Activity To Send Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Trigger WorkFlow to Send Email</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Customer_Task__c.Status__c</field>
+            <operation>equals</operation>
+            <value>With Client</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Customer_Task__c.LastModifiedById</field>
+            <operation>equals</operation>
+            <value>false</value>
+        </criteriaItems>
+        <description>This work flow will be used to update the field in Customer Activity, which will trigger another workflow to send email</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>NXX2_Update_Activity_To_Send_Email</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+</Workflow>

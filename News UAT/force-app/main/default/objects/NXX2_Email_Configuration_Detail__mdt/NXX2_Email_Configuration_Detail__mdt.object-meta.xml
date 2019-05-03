@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This will be used to provide emial configuration details like community name for url, reply email id etc.</description>
+    <label>NXX2 Email Configuration Detail</label>
+    <pluralLabel>NXX2 Email Configuration Details</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>NCFC20200924</label>
+    <protected>false</protected>
+    <values>
+        <field>DT_ID__c</field>
+        <value xsi:type="xsd:string">20200924</value>
+    </values>
+    <values>
+        <field>Date__c</field>
+        <value xsi:type="xsd:date">2020-09-24</value>
+    </values>
+    <values>
+        <field>FISC_DOY_NR__c</field>
+        <value xsi:type="xsd:double">88.0</value>
+    </values>
+    <values>
+        <field>FISC_HFYR_NM__c</field>
+        <value xsi:type="xsd:string">First Half Year</value>
+    </values>
+    <values>
+        <field>FISC_HFYR_NR__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>FISC_HFYR_SNAM__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>FISC_MNTH_FIRST_DAY_DT__c</field>
+        <value xsi:type="xsd:date">2020-08-31</value>
+    </values>
+    <values>
+        <field>FISC_MNTH_ID__c</field>
+        <value xsi:type="xsd:string">202103</value>
+    </values>
+    <values>
+        <field>FISC_MNTH_LAST_DAY_DT__c</field>
+        <value xsi:type="xsd:date">2020-09-27</value>
+    </values>
+    <values>
+        <field>FISC_MNTH_NM__c</field>
+        <value xsi:type="xsd:string">September</value>
+    </values>
+    <values>
+        <field>FISC_MNTH_NR__c</field>
+        <value xsi:type="xsd:double">3.0</value>
+    </values>
+    <values>
+        <field>FISC_MNTH_SNAM__c</field>
+        <value xsi:type="xsd:string">Sep</value>
+    </values>
+    <values>
+        <field>FISC_QRTR_NM__c</field>
+        <value xsi:type="xsd:string">Fiscal Quarter 1</value>
+    </values>
+    <values>
+        <field>FISC_QRTR_NR__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>FISC_QRTR_SNAM__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
+        <field>FISC_WEEK_FIRST_DAY_DT__c</field>
+        <value xsi:type="xsd:date">2020-09-21</value>
+    </values>
+    <values>
+        <field>FISC_WEEK_ID__c</field>
+        <value xsi:type="xsd:string">202113</value>
+    </values>
+    <values>
+        <field>FISC_WEEK_LAST_DAY_DT__c</field>
+        <value xsi:type="xsd:date">2020-09-27</value>
+    </values>
+    <values>
+        <field>FISC_WEEK_NR__c</field>
+        <value xsi:type="xsd:double">13.0</value>
+    </values>
+    <values>
+        <field>FISC_YEAR_FIRST_DAY_DT__c</field>
+        <value xsi:type="xsd:date">2020-06-29</value>
+    </values>
+    <values>
+        <field>FISC_YEAR_ID__c</field>
+        <value xsi:type="xsd:string">2021</value>
+    </values>
+    <values>
+        <field>FISC_YEAR_LAST_DAY_DT__c</field>
+        <value xsi:type="xsd:date">2021-06-27</value>
+    </values>
+    <values>
+        <field>FISC_YEAR_MNTH_DS__c</field>
+        <value xsi:type="xsd:string">2021-03</value>
+    </values>
+    <values>
+        <field>FISC_YEAR_NR__c</field>
+        <value xsi:type="xsd:string">2021</value>
+    </values>
+    <values>
+        <field>FISC_YEAR_QRTR_DS__c</field>
+        <value xsi:type="xsd:string">2021-01</value>
+    </values>
+</CustomMetadata>

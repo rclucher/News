@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manage_NewsAdds_Account</fullName>
+    <availability>online</availability>
+    <description>To manage account on Leapfrog system</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Manage NewsAdds Account</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>if(typeof(srcUp)==&#39;function&#39;){ 
+srcUp(&quot;/apex/LeapfrogBooking?Id={!External_Account__c.Id}&quot;); 
+} else { 
+window.location = &quot;/apex/LeapfrogBooking?Id={!External_Account__c.Id}&quot;; 
+}</url>
+</WebLink>

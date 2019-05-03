@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manual_Wash_Export</fullName>
+    <availability>online</availability>
+    <description>Report to download Phone numbers in specific Campaigns to wash today - manually triggered. Manual wash ensures that the number of phone numbers to wash is small - quicker, and does not use up ACMA quota.
+
+These will be phone numbers from Campaigns where the &#39;DNC Wash&#39; was clicked today.</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Manual Wash Export</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>/00O90000004y0eH</url>
+</WebLink>

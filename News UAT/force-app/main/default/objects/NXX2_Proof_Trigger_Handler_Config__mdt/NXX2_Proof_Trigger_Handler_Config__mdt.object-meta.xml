@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This will control the flow of trigger handler.</description>
+    <label>NXX2 Proof Trigger Handler Config</label>
+    <pluralLabel>NXX2 Proof Trigger Handler Configs</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

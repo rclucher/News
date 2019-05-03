@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Publication_Division__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(INCLUDES(Campaign__r.Publication_Division__c,&quot;ADN&quot;),&quot;ADN,&quot;,null)+ 
+IF(INCLUDES(Campaign__r.Publication_Division__c,&quot;CNG&quot;),&quot;CNG,&quot;,null)+ 
+IF(INCLUDES(Campaign__r.Publication_Division__c,&quot;CNS&quot;),&quot;CNS,&quot;,null)+ 
+IF(INCLUDES(Campaign__r.Publication_Division__c,&quot;DBL&quot;),&quot;DBL,&quot;,null)+ 
+IF(INCLUDES(Campaign__r.Publication_Division__c,&quot;GAD&quot;),&quot;GAD,&quot;,null)+ 
+IF(INCLUDES(Campaign__r.Publication_Division__c,&quot;GCP&quot;),&quot;GCP,&quot;,null)+ 
+IF(INCLUDES(Campaign__r.Publication_Division__c,&quot;HWT&quot;),&quot;HWT,&quot;,null)+ 
+IF(INCLUDES(Campaign__r.Publication_Division__c,&quot;LDR&quot;),&quot;LDR,&quot;,null)+ 
+IF(INCLUDES(Campaign__r.Publication_Division__c,&quot;MNG&quot;),&quot;MNG,&quot;,null)+ 
+IF(INCLUDES(Campaign__r.Publication_Division__c,&quot;National&quot;),&quot;National,&quot;,null)+ 
+IF(INCLUDES(Campaign__r.Publication_Division__c,&quot;NMG&quot;),&quot;NMG,&quot;,null)+ 
+IF(INCLUDES(Campaign__r.Publication_Division__c,&quot;NWN&quot;),&quot;NWN,&quot;,null)+ 
+IF(INCLUDES(Campaign__r.Publication_Division__c,&quot;PST&quot;),&quot;PST,&quot;,null)+ 
+IF(INCLUDES(Campaign__r.Publication_Division__c,&quot;QNP&quot;),&quot;QNP,&quot;,null)+ 
+IF(INCLUDES(Campaign__r.Publication_Division__c,&quot;QST&quot;),&quot;QST,&quot;,null)+ 
+IF(INCLUDES(Campaign__r.Publication_Division__c,&quot;NQN&quot;),&quot;NQN,&quot;,null)+ 
+IF(INCLUDES(Campaign__r.Publication_Division__c,&quot;NTN&quot;),&quot;NTN,&quot;,null)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Publication Division</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

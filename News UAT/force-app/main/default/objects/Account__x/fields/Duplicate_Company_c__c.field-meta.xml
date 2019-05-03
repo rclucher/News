@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Duplicate_Company_c__c</fullName>
+    <externalDeveloperName>Duplicate_Company__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Duplicate Company</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Not Duplicate</fullName>
+                <default>false</default>
+                <label>Not Duplicate</label>
+            </value>
+            <value>
+                <fullName>Parent Account Duplicate</fullName>
+                <default>false</default>
+                <label>Parent Account Duplicate</label>
+            </value>
+            <value>
+                <fullName>Child Account Duplicate</fullName>
+                <default>false</default>
+                <label>Child Account Duplicate</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

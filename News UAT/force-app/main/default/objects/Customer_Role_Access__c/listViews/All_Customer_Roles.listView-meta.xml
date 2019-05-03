@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Customer_Roles</fullName>
+    <columns>NAME</columns>
+    <columns>Contact_Role__c</columns>
+    <columns>Customer_Activity_Access__c</columns>
+    <columns>Account_Access__c</columns>
+    <columns>Proof_Access__c</columns>
+    <columns>Community_User_Profile__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Customer Roles</label>
+</ListView>

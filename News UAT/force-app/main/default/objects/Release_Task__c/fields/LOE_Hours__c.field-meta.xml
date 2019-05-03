@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LOE_Hours__c</fullName>
+    <externalId>false</externalId>
+    <label>LOE (Hours)</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>&lt; 1 hour</fullName>
+                <default>false</default>
+                <label>&lt; 1 hour</label>
+            </value>
+            <value>
+                <fullName>1 to 8 hours</fullName>
+                <default>false</default>
+                <label>1 to 8 hours</label>
+            </value>
+            <value>
+                <fullName>8+ to 40 hours</fullName>
+                <default>false</default>
+                <label>8+ to 40 hours</label>
+            </value>
+            <value>
+                <fullName>40+ to 160 hours</fullName>
+                <default>false</default>
+                <label>40+ to 160 hours</label>
+            </value>
+            <value>
+                <fullName>&gt; 160 hours</fullName>
+                <default>false</default>
+                <label>&gt; 160 hours</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

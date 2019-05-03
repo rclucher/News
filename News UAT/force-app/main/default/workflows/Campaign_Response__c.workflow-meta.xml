@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>CpgnRes_CallBackReminder</fullName>
+        <description>CpgnRes_CallBackReminder</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Campaign_Notifications/Campaign_Callback_Reminder</template>
+    </alerts>
+    <rules>
+        <fullName>CpgnRes_CallBackReminder</fullName>
+        <active>true</active>
+        <description>Email reminder for Call Backs with the Reminder set.</description>
+        <formula>AND(   Call_Back_Reminder__c ,    NOT(ISBLANK( Call_Back_Date__c )) )</formula>
+        <triggerType>onCreateOnly</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>CpgnRes_CallBackReminder</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Campaign_Response__c.Call_Back_Date__c</offsetFromField>
+            <timeLength>-1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+</Workflow>

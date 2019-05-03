@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Apex_AutoResponse_Sent__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>SFE-46 - Where an auto-response has been set, this flag is ticked to prevent further messages. WHY? Because E2C creates the case and our trigger does an update to the case before it sends an &#39;auto-response&#39; therefore this will trigger the email multiple times potentiallly.</description>
+    <externalId>false</externalId>
+    <label>Apex: AutoResponse Sent</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

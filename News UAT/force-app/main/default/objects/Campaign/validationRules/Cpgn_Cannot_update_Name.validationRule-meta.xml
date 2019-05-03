@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cpgn_Cannot_update_Name</fullName>
+    <active>true</active>
+    <description>Campaign Names can only be edited by the Campaign Coordinators</description>
+    <errorConditionFormula>AND(
+ ISCHANGED(Name),
+
+ AND(
+  NOT CONTAINS($Profile.Name, &#39;Campaign Management&#39;),
+  NOT CONTAINS($Profile.Name, &#39;Campaign Coordinator&#39;),
+  NOT CONTAINS($Profile.Name, &#39;System Administrator&#39;),
+  NOT CONTAINS($Profile.Name, &#39;Field Sales Other&#39;),
+  NOT CONTAINS($Profile.Name, &#39;IT Administrator&#39;),
+  NOT CONTAINS($Profile.Name, &#39;Integration&#39;),
+NOT CONTAINS($Profile.Name, &#39;Operations&#39;)
+ )
+)</errorConditionFormula>
+    <errorDisplayField>Name</errorDisplayField>
+    <errorMessage>Campaign Names can only be edited by &#39;Campaign Coordinators&#39;.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Previous_Product_Status_For_Cancel</fullName>
+        <field>Previous_Product_Order_Status_For_Cancel__c</field>
+        <formula>TEXT (PRIORVALUE( Status__c ))</formula>
+        <name>Previous Product Status For Cancel</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Sales_Team_Override</fullName>
+        <description>Set Sales Team Override to Order State</description>
+        <field>Sales_Team_Override__c</field>
+        <formula>Order__r.State__c</formula>
+        <name>Set Sales Team Override</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_PO_to_Ended</fullName>
+        <field>Status__c</field>
+        <literalValue>Campaign Ended</literalValue>
+        <name>Update PO to Ended</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>Rule to capture the previous picklist value of Product Order Status for Cancellation</fullName>
+        <actions>
+            <name>Previous_Product_Status_For_Cancel</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Product_Order__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Pending For Pause,Pending For Cancel</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Sales Team Override</fullName>
+        <actions>
+            <name>Set_Sales_Team_Override</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Sets initial value of the Sales Team Override to the Order State</description>
+        <formula>ISBLANK( Sales_Team_Override__c )</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update PO to Ended</fullName>
+        <active>false</active>
+        <formula>ISPICKVAL(Order__r.Status__c , &#39;Campaign Ended&#39;) &amp;&amp; !ISPICKVAL(Status__c , &#39;Cancelled&#39;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Update_PO_to_Ended</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+</Workflow>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RFP_Queue_WA_Case</fullName>
+    <filterScope>Queue</filterScope>
+    <label>RFP Queue WA</label>
+    <queue>RFP_Queue_WA</queue>
+    <sharedTo>
+        <allInternalUsers/>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1) New</fullName>
+                <default>false</default>
+                <label>1) New</label>
+            </value>
+            <value>
+                <fullName>2) Working</fullName>
+                <default>false</default>
+                <label>2) Working</label>
+            </value>
+            <value>
+                <fullName>3) Pending</fullName>
+                <default>false</default>
+                <label>3) Pending</label>
+            </value>
+            <value>
+                <fullName>4) Monitoring</fullName>
+                <default>false</default>
+                <label>4) Monitoring</label>
+            </value>
+            <value>
+                <fullName>5) Closed</fullName>
+                <default>false</default>
+                <label>5) Closed</label>
+            </value>
+            <value>
+                <fullName>1 - New</fullName>
+                <default>false</default>
+                <label>1 - New</label>
+            </value>
+            <value>
+                <fullName>2 - Monitoring</fullName>
+                <default>false</default>
+                <label>2 - Monitoring</label>
+            </value>
+            <value>
+                <fullName>3 - Impacting Project</fullName>
+                <default>false</default>
+                <label>3 - Impacting Project</label>
+            </value>
+            <value>
+                <fullName>4 - Closed</fullName>
+                <default>false</default>
+                <label>4 - Closed</label>
+            </value>
+            <value>
+                <fullName>Open</fullName>
+                <default>false</default>
+                <label>Open</label>
+            </value>
+            <value>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+                <label>In Progress</label>
+            </value>
+            <value>
+                <fullName>Ready for Retest</fullName>
+                <default>false</default>
+                <label>Ready for Retest</label>
+            </value>
+            <value>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+                <label>Duplicate</label>
+            </value>
+            <value>
+                <fullName>Canceled</fullName>
+                <default>false</default>
+                <label>Canceled</label>
+            </value>
+            <value>
+                <fullName>Closed</fullName>
+                <default>false</default>
+                <label>Closed</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

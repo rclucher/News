@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Calculate_Total_Customer_Agency_Spendings</fullName>
+    <availability>online</availability>
+    <description>This button is only for admin to calculate total custom/agency spendings manually</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Calculate Total Customer/Agency Spendings</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>sforce.apex.execute(
+    &quot;AccountBatch_Helper&quot;,
+    &quot;runAccountCalculateTcsTasBatch&quot;,
+    {accountId:&quot;{!Account.Id}&quot;},
+    {onSuccess: function(result){
+        alert(&#39;You have successfully execute batch to calculate total customer/agency spendings already&#39;)}, 
+     onFailure: function(error){
+        alert(&#39;Error: &#39; + error)}
+});</url>
+</WebLink>

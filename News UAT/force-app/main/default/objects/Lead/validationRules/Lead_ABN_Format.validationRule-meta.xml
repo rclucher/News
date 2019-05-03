@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_ABN_Format</fullName>
+    <active>true</active>
+    <description>The ABN number is a 14-character containing numbers and spaces
+- 11 numbers
+- 3 spaces
+
+E.g: 80 093 220 136
+
+Users will copy/paste the 14-char format. ABN service can handle any format as long as theres 11-numbers</description>
+    <errorConditionFormula>IF(ISBLANK(ABN_Number__c),
+FALSE,
+NOT(REGEX(ABN_Number__c, &quot;[\\d]{2}[ ]?[\\d]{3}[ ]?[\\d]{3}[ ]?[\\d]{3}&quot;))
+)</errorConditionFormula>
+    <errorDisplayField>ABN_Number__c</errorDisplayField>
+    <errorMessage>The ABN Number is an invalid format. 
+
+It must have exactly 11-numbers, either all together or separated by 3 spaces to meet the standard ABN 14-character format.</errorMessage>
+</ValidationRule>

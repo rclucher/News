@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Switch_on_your_brand_package_c__c</fullName>
+    <externalDeveloperName>Switch_on_your_brand_package__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Campaign</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SOYB Silver</fullName>
+                <default>false</default>
+                <label>SOYB Silver</label>
+            </value>
+            <value>
+                <fullName>SOYB Gold</fullName>
+                <default>false</default>
+                <label>SOYB Gold</label>
+            </value>
+            <value>
+                <fullName>SOYB Platinum</fullName>
+                <default>false</default>
+                <label>SOYB Platinum</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

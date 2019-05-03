@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>ExLog_Send_Notification_Email</fullName>
+        <description>ExLog - Send Notification Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Key_Person_to_Notify__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/ExLog_Notification</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>ExLog_Notified</fullName>
+        <description>2015-09-17 SFE-740 Updated Notified field when workflow rule is executed</description>
+        <field>Notified__c</field>
+        <literalValue>1</literalValue>
+        <name>ExLog - Notified</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>ExLog Notification</fullName>
+        <actions>
+            <name>ExLog_Send_Notification_Email</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>ExLog_Notified</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>2015-09-17 SFE-740</description>
+        <formula>NOT ISBLANK(Key_Person_to_Notify__c)</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

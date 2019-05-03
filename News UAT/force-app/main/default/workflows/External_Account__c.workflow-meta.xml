@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Bsa_Change_Account_Type_to_Established</fullName>
+        <description>Change the account type to established</description>
+        <field>Account_Type__c</field>
+        <literalValue>Established</literalValue>
+        <name>Bsa Change Account Type to Established</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <outboundMessages>
+        <fullName>ExtAcct_NameAddress</fullName>
+        <apiVersion>28.0</apiVersion>
+        <endpointUrl>https://webmethodsuat.newsdev.com.au/ws/news.crm.adapter.wsdl.provider:handleNotification</endpointUrl>
+        <fields>ABN_Number__c</fields>
+        <fields>Account_No__c</fields>
+        <fields>Account_Type__c</fields>
+        <fields>Country__c</fields>
+        <fields>DPID__c</fields>
+        <fields>Default_Revenue_Group__c</fields>
+        <fields>Division__c</fields>
+        <fields>Email_Confirmation_Address__c</fields>
+        <fields>Id</fields>
+        <fields>Integration_Error__c</fields>
+        <fields>JDE_Account_Number__c</fields>
+        <fields>Name</fields>
+        <fields>Parent_Account_Number__c</fields>
+        <fields>Phone__c</fields>
+        <fields>Post_Code__c</fields>
+        <fields>RecordTypeName__c</fields>
+        <fields>State__c</fields>
+        <fields>Street__c</fields>
+        <fields>Suburb__c</fields>
+        <includeSessionId>false</includeSessionId>
+        <integrationUser>sf-integrator@news.com.au</integrationUser>
+        <name>ExtAcct NameAddress</name>
+        <protected>false</protected>
+        <useDeadLetterQueue>false</useDeadLetterQueue>
+    </outboundMessages>
+    <rules>
+        <fullName>Bsa change Account Type to Established</fullName>
+        <actions>
+            <name>Bsa_Change_Account_Type_to_Established</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>NewsAdds BSA Account &#39;Account Type&#39; = Established , WHEN the GBA is saved to the NewsAdds BSA</description>
+        <formula>AND( NOT( ISBLANK(BSA__c)), RecordType.DeveloperName = &#39;NewsAdds_Booking_System&#39; )</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>ExtAcct NameAddress Update</fullName>
+        <actions>
+            <name>ExtAcct_NameAddress</name>
+            <type>OutboundMessage</type>
+        </actions>
+        <active>true</active>
+        <formula>$Profile.Name != &#39;News Integration&#39; &amp;&amp;  NOT(ISNEW()) &amp;&amp;  RecordType.DeveloperName  = &#39;Booking_Account&#39; &amp;&amp; ( ISCHANGED( Name ) || ISCHANGED( Country__c ) || ISCHANGED(  DPID__c ) || ISCHANGED( Street__c ) || ISCHANGED( Suburb__c ) || ISCHANGED( State__c ) || ISCHANGED( Post_Code__c ) || ISCHANGED( Email_Confirmation_Address__c ) || ISCHANGED ( Default_Revenue_Group__c ) || ISCHANGED ( ABN_Number__c ) || ISCHANGED ( Phone__c ) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

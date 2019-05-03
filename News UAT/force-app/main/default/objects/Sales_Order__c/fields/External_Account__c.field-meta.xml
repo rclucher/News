@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>External_Account__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Related Booking/Billing Account</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Select the related Booking or Billing Account</inlineHelpText>
+    <label>Booking System Account</label>
+    <referenceTo>External_Account__c</referenceTo>
+    <relationshipLabel>Sales Orders (External Account)</relationshipLabel>
+    <relationshipName>Sales_Orders_ExternalAccount</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

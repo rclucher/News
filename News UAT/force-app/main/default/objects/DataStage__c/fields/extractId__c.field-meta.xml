@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>extractId__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>This field identifies a particular job that performs a delta extraction. The Pack for Salesforce.com uses this field to track the last time this ID performed a delta extraction. The time of the last delta extraction determines which data the query returns to a particular ID.
+
+For example, a Salesforce.com organization might have an AccountManager user who runs an extraction job weekly and a SalesRep user who runs another job daily. Both jobs might extract data from the same Salesforce object. Setting up a unique extractId for each job lets the Pack for Salesforce.com return the data that has changed in the last week to the AccountManager user, and the data that has changed in the last day to the SalesRep.</description>
+    <externalId>true</externalId>
+    <label>extractId</label>
+    <length>80</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

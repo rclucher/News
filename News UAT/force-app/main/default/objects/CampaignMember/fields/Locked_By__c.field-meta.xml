@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Locked_By__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The current User updating the Member in Execution UI</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This is the user who has a lock on this Campaign Member</inlineHelpText>
+    <label>Locked By</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Campaign_Members_Locked</relationshipName>
+    <required>false</required>
+    <type>Lookup</type>
+</CustomField>

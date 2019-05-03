@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Booking_Accounts</fullName>
+    <columns>NAME</columns>
+    <columns>Account_Type__c</columns>
+    <columns>Account_No__c</columns>
+    <columns>Customer_Account__c</columns>
+    <columns>Request_for_Establish__c</columns>
+    <columns>External_Account__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>External_Account__c.Booking_Account</value>
+    </filters>
+    <label>All Booking Accounts</label>
+</ListView>

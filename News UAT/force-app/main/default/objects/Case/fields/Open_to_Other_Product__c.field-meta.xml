@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Open_to_Other_Product__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Is the Client Open to Other Product Suggestions Relevant to their Target Audience?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Is the Client Open to Other Product Suggestions Relevant to their Target Audience? If Yes, please provide other Product details below.</inlineHelpText>
+    <label>Open to Other Product Suggestions</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

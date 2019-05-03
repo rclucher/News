@@ -1,0 +1,3394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CaseSettings xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseFeedItemSettings>
+        <characterLimit>400</characterLimit>
+        <collapseThread>false</collapseThread>
+        <displayFormat>Default</displayFormat>
+        <feedItemType>EmailMessageEvent</feedItemType>
+    </caseFeedItemSettings>
+    <closeCaseThroughStatusChange>true</closeCaseThroughStatusChange>
+    <defaultCaseOwner>Not_Assigned</defaultCaseOwner>
+    <defaultCaseOwnerType>Queue</defaultCaseOwnerType>
+    <defaultCaseUser>sf-integrator@news.com.au</defaultCaseUser>
+    <emailToCase>
+        <enableE2CSourceTracking>true</enableE2CSourceTracking>
+        <enableEmailToCase>true</enableEmailToCase>
+        <enableHtmlEmail>true</enableHtmlEmail>
+        <enableOnDemandEmailToCase>true</enableOnDemandEmailToCase>
+        <enableThreadIDInBody>true</enableThreadIDInBody>
+        <enableThreadIDInSubject>false</enableThreadIDInSubject>
+        <notifyOwnerOnNewCaseEmail>false</notifyOwnerOnNewCaseEmail>
+        <overEmailLimitAction>Bounce</overEmailLimitAction>
+        <preQuoteSignature>false</preQuoteSignature>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>rabilar0730@gmail.com</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>AAA TEST Only- Do not use</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>anthony.gostisp@news.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>Anthony Gosti</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>bosn@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>Biggest Online Shopping Network</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>brydie.lanesp@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>Brydie Lane</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>bunny.thongsp@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>Bunny Thong</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>accountmanagers.adv@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC ADV Account Managers</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>adelaidetrader.adv@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC ADV Adelaide Trader</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>features@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC ADV Business Development</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing  - SA</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>classifieds@adv.newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC ADV Classifieds</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>clientmanager.adv@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC ADV Client Manager</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>customerrelations.adv@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC ADV Customer Relations</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>display.adv@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC ADV Display</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>funerals@adv.newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC ADV Funerals</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>marketmanagers.adv@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC ADV Market Managers</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>naaphotos.adv@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC ADV Photos</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>naaphotos@adv.newsltd.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>CC ADV Photos 2</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>placeanad.adv@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC ADV Place an Ad</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>real.estate@adv.newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC ADV Real Estate</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>ausadvertise@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC AUS Advertise</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>advert@theaustralian.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC AUS Advertising</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>agency@theaustralian.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC AUS Agency</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>classifieds@theaustralian.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC AUS Classifieds</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>fedgovdigital@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC AUS Fedgovdigital</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>accountmanagers@newslocal.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC CNG Account Managers</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>adult@newslocal.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC CNG Adult</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>agency@newslocal.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC CNG Agency</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>customerservice@newslocal.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC CNG CRR</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>campaign@newslocal.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC CNG Campaign</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>ads@newslocal.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC CNG Classifieds</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>display@newslocal.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC CNG Display</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing - SA</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>careers@newslocal.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC CNG Employment</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>cngcarsguide@news.net.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC CNG Motor</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>classifieds@cumberlandnewspapers.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>CC CNG NWN Classifieds Leadpages</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>notices@newslocal.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC CNG Notices</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>rentalguide@newslocal.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC CNG Realestate</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>retail@newslocal.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC CNG Retail MM</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>trades@newslocal.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC CNG Trades</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>cairnsclassifieds@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC CNS Classifieds</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>accountmanagers@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC DS NSW Account Managers</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>qldproof@news.com.au</emailAddress>
+            <emailServicesAddress>qldproof@ovgztu4yd7hkrszxh2oq9lfcqp4u8s5y8obtkdz2g5dp7amv1.p-96x8eai.cs31.case.sandbox.salesforce.com</emailServicesAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC DS Online Support Services</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>cngfuneralnotices@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC Funeral Notices</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>classifieds@geelongadvertiser.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC GAD Classifieds</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>priority@geelongadvertiser.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC GAD Priority</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>gcbadvertising@gcb.newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC GCB Advertising</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>gcbclassbooking@gcb.newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC GCB ClassBooking</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>gcbsundirectory@gcb.newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC GCB Sundirectory</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>gcadvertise@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC GCP Advertise</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>gcbclassifieds@gcb.newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC GCP Classifieds</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>gcpgold@newsadvantage.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC GCP Gold</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>gcpplatinum@newsadvantage.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC GCP Platinum</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>hscarsguide@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC HS CarsGuide</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>hsrealestate@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC HS Realestate</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>hsretail@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC HS Retail</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>hsretailsouth@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC HS RetailSouth</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>hstravel@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC HS Travel</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>campaigns@hwt.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC HWT Campaigns</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>hwtclass@hwt.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC HWT Classifieds</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>customerrelations@hwt.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC HWT Customer Relations</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>gold@hwt.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC HWT Gold Classifieds</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>gold@theweeklytimes.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC HWT Gold Weekly Times</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>priority@hwt.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC HWT Priority</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>campaigns@leadernewspapers.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC LDR Campaigns</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>classifieds@leadernewspapers.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC LDR Classifieds</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>gold@leadernewspapers.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC LDR Gold Classifieds</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>adultservices@dailytelegraph.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC MATP Adult</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nascarsguide@dailytelegraph.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC MATP Carsguide</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>careers@dailytelegraph.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC MATP Employment</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>gold@dailytelegraph.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC MATP Gold</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nasrealestate@dailytelegraph.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC MATP Realestate</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>classifieds.mng@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC MNG Classifieds</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>trade.hipages1@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC MNG HiPages1</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>trade.hipages2@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC MNG HiPages2</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>trade.hipages3@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC MNG HiPages3</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>trade.hipages4@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC MNG HiPages4</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>outboundfax.mng@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC MNG Outbound Fax</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>tradesandservices.sa@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC MNG Trades</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>tradesandservices.mng@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC MNG Trades &amp; Services</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>inboundadbuildproofs@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NAA Inbound Proofs</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>outboundadbuildproofs@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NAA Outbound Proofs</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>naapromos@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NAA Promotions</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing - QLD</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>webhelp@newsadvantage.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NAB Web Help</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswtradies@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NAS Campaign</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nqdirect@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NQ Direct</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswadvertise@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NSW Advertise</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing - NSW</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>careerads@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NSW MM Careers</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>displayads@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NSW MM Display</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>tradeads@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NSW MM Trades</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>agency@dailytelegraph.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NWN Agency</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>bosn@newslifemedia.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NWN BOSN</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>bodyandsoulclassifieds@newsmagazines.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>CC NWN Body&amp;Soul Classifieds</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing - NSW</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>careersagency@dailytelegraph.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NWN C1AGENCY</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>classifieds@dailytelegraph.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>CC NWN Classifieds</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>countrystyleclassifieds@newsmagazines.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NWN Country Style</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>countrystyleemporium@newslifemedia.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NWN Country Style Emporium</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>deliciousclassifieds@newslifemedia.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NWN Delicious</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>directories@dailytelegraph.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>CC NWN Directories</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>entertainment@dailytelegraph.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NWN Entertainment</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>foxtelclassifieds@newslifemedia.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NWN FOXTEL Classifieds</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>funeralnotices@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NWN Funeral Notices</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>gqclassifieds@newslifemedia.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NWN GQ</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>gardeningaustraliaclassifieds@newslifemedia.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NWN Gardening Australia</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>golfdigestclassifieds@newslifemedia.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NWN Golf Digest</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>insideoutclassifieds@newsmagazines.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NWN Inside Out</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nasfeatures@dailytelegraph.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NWN Market Place</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>superfoodideasclassifieds@newslifemedia.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NWN SFI</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>shortescapes@dailytelegraph.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NWN Short Escapes</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>tastemagazine@newslifemedia.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NWN Taste</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>thesportsman@newsadvantage.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NWN The Sportsman</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>trades@dailytelegraph.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NWN Trades</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>travel@dailytelegraph.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NWN Travel</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vetclassifieds@newsmagazines.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NWN VET</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vogueclassifieds@newslifemedia.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NWN Vogue</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>voguelivingclassifieds@newslifemedia.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NWN Vogue Living</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing  - SA</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nationalretail@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC National Retail</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <caseOwner>GAD_Sales_AE_Ops_Awaiting_Booking</caseOwner>
+            <caseOwnerType>Queue</caseOwnerType>
+            <casePriority>4 - Next Business Day</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>gadbookings@news.com.au</emailAddress>
+            <emailServicesAddress>gadbookings@m-2vqygsd7fhqd8jjbc9l5rt4fc2ajoxikbkab6vwvocw67d91v2.p-96x8eai.cs31.case.sandbox.salesforce.com</emailServicesAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC News GAD Bookings</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>gadcontacts@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC News GAD Contacts</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>gadrealestate@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC News GAD Real Estate</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>agency@newsadvantage.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC NewsAdvantage Agency</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>newsmagazinesclassifieds@newsmagazines.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>CC NewsMagazines Classifieds</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>lite@newsxtend.com.au</emailAddress>
+            <emailServicesAddress>lite@b-ttyh0ca6hkv376k2s2oht2oebmngd56f0y0yptxmhzzo7yhso.p-96x8eai.cs31.case.sandbox.salesforce.com</emailServicesAddress>
+            <isVerified>false</isVerified>
+            <routingName>CC NewsXtend Lite</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>platinumvic@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC Platinum VIC</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>proofs@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC Proofs</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>qldadm01@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QLD ADM 01</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>qldadm02@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QLD ADM 02</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>qldadm03@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QLD ADM 03</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>qldadm04@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QLD ADM 04</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>qldadm05@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QLD ADM 05</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>qldadm06@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QLD ADM 06</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>qldam01@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QLD AM 01</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>qldam02@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QLD AM 02</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>qldam03@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QLD AM 03</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>qldam04@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QLD AM 04</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>qldam05@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QLD AM 05</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>qldam06@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QLD AM 06</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>qldadvertise@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QLD Advertise</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>newsqldadvertising@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QLD Advertising</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>newsqldbdm@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QLD Business Development</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>newsqldcareers@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QLD Careers</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>qldclassifiedsagency@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QLD Classifieds Agency</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>newsqldgcadvertising@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QLD GC Advertising</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>newsqldgcrealestate@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QLD GC Real Estate</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>newsqldmotors@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QLD Motors</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>newsqldpartnerfax@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QLD Partner Fax</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>newsqldrealestate@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QLD Real Estate</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>classifieds@thecouriermail.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QNP Classifieds</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>gold@thecouriermail.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QNP Gold</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>placeanad@thecouriermail.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QNP PlaceAnAd</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>platinum@thecouriermail.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QNP Platinum</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>advertise@questnews.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QST Advertise</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>campaign@questnews.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QST Campaigns</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>classifieds@questnews.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QST Classifieds</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>gold@questnews.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QST Gold</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>platinum@questnews.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC QST Platinum</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>careeronesa@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC SA DS AM CareerOne</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing - SA</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>careerssa@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC SA DS AM Careers</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>motorssa@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC SA DS AM Motoring</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>personals.sa@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC SA DS AM Personals</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>amrealestate.sa@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC SA DS AM Real Estate</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>sabd@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC SA DS Business Development</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>careerone_sads@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC SA DS CareerOne</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>employmentads@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC SA DS Careers</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>gigguide.sa@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC SA DS Gig Guide</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>sasales@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC SA DS MM Careers &amp; Motoring</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>sarealestate@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC SA DS MM Real Estate</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>motoring_sads@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC SA DS Motoring</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>realestate_sads@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC SA DS Real Estate</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>features_sads1@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC SA DS1 Features</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>features_sads2@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC SA DS2 Features</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>true</createTask>
+            <emailAddress>retailsa@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC SA MM Retail</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+            <taskStatus>Not Started</taskStatus>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>classifieds@townsvillebulletin.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC TSV Classifieds</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing  - NSW</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>test.classifieds@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC Test Classifieds</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>campaignsvic@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC VIC Campaigns</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>platinumnotices@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC VIC Email AM Legal</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicfeatures@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC VIC Features</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicgovads@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC VIC Government</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>trades@leadernewspapers.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>CC VIC Trades Classifieds</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>craig.heathsp@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>Craig Heath</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>dean.oostemasp@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>Dean Oostema</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>deb.milnesp@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>Deb MilneSP</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>emily.garciasp@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>Emily Garcia</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>emily.gillettsp@news.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>Emily GillettSP</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>Outlook</addressType>
+            <caseOrigin>Email - Outlook</caseOrigin>
+            <caseOwner>Field_Sales_Outlook</caseOwner>
+            <caseOwnerType>Queue</caseOwnerType>
+            <casePriority>Minor</casePriority>
+            <isVerified>false</isVerified>
+            <routingName>Field Sales Outlook Case Create</routingName>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>fran.freemansp@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>Fran Freeman</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>gobigorgolocal@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>Go Big or Go Local</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>jo.williamssp@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>Jo Williams</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>karrina.koufalassp@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>Karrina Koufalas</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <caseOwner>rajasuriarr@news.com.au</caseOwner>
+            <caseOwnerType>User</caseOwnerType>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>kidspotenquiries@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>Kidspot Enquiries</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>kim.wrightsp@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>Kim Wright</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>lu.roslingsp@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>Lu Rosling</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>madison.emessp@news.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>Madison Emes</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>mamta.sandhusp@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>Mamta Sandhu SP</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>michaela.rosatosp@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>Michaela.Rosato</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>harveynorman@cng.newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NCM Harvey Norman</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>ncmservicerequests@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NCM Service Requests</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicadvertise@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NEWS VIC DS Display</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>accounts@newscorp.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NFSS Account Enquiries</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nfsscreditapplications@newscorp.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NFSS Credit Applications</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nfssholdqueue@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NFSS Hold Queue</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>newspay@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NFSS NewsPay</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>remittances@news.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>NFSS Remittances</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nlmadvertise@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NLM Advertise</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nsw.accountmanagers@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Account Managers</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <caseOwner>NSW_CON_AE_Tasks</caseOwner>
+            <caseOwnerType>Queue</caseOwnerType>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>consortiumteam@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW CON - AE Tasks</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Internal</caseOrigin>
+            <caseOwner>NSW_Agency_AE_Ops_Awaiting_Booking</caseOwner>
+            <caseOwnerType>Queue</caseOwnerType>
+            <casePriority>4 - Next Business Day</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswconbookingqueue@news.com.au</emailAddress>
+            <emailServicesAddress>nswconbookingqueue@k-2w6sqnh78t5ot1loil12wm7gr47za5b9n9m8tk5xi3ojfp22tq.p-96x8eai.cs31.case.sandbox.salesforce.com</emailServicesAddress>
+            <isVerified>false</isVerified>
+            <routingName>NSW CON Booking Queue</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Internal</caseOrigin>
+            <caseOwner>NSW_IMA_AE_Tasks</caseOwner>
+            <caseOwnerType>Queue</caseOwnerType>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>independentagenciesteam@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW IMA - AE Tasks - Independent Agencies Team</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <caseOwner>NSW_IMA_AE_Tasks</caseOwner>
+            <caseOwnerType>Queue</caseOwnerType>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>majoraccountsteam@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW IMA - AE Tasks - Major Accounts Team</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <caseOwner>NSW_KA_AE_Tasks</caseOwner>
+            <caseOwnerType>Queue</caseOwnerType>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>keyaccountsteam@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW KA - AE Tasks</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Internal</caseOrigin>
+            <caseOwner>NSW_KA_AE_Ops_Awaiting_Booking</caseOwner>
+            <caseOwnerType>Queue</caseOwnerType>
+            <casePriority>4 - Next Business Day</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswkacbookingqueue@news.com.au</emailAddress>
+            <emailServicesAddress>nswkacbookingqueue@26a00xi3cpl2qinp40s2qigty1sddstyphw66t92n0jpahqhqm.p-96x8eai.cs31.case.sandbox.salesforce.com</emailServicesAddress>
+            <isVerified>false</isVerified>
+            <routingName>NSW KA Booking Queue</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Call - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>new.business.leads@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW New Business Leads</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <caseOwner>NSW_SME_AEs</caseOwner>
+            <caseOwnerType>Queue</caseOwnerType>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nsw.ae@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW SME AE</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Internal</caseOrigin>
+            <caseOwner>NSW_SME_AE_Ops_Awaiting_Booking</caseOwner>
+            <caseOwnerType>Queue</caseOwnerType>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswse@news.com.au</emailAddress>
+            <emailServicesAddress>nswse@r63iwpvgt81jvv3go2uoz52s27k8igx5s4lcictazv6bxoirx.p-96x8eai.cs31.case.sandbox.salesforce.com</emailServicesAddress>
+            <isVerified>false</isVerified>
+            <routingName>NSW Sales Managers to Account Exectuive Bookings</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrepfax1@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Partner Fax 1</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrepfax2@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Partner Fax 2</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrepfax3@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Partner Fax 3</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep1@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 1 01</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep2@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 1 02</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep3@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 1 03</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep4@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 1 04</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep5@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 1 05</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep6@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 1 06</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep7@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 1 07</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep8@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 1 08</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep9@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 1 09</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep10@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 1 10</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep11@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 1 11</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep12@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 1 12</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep13@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 1 13</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep14@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 1 14</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep15@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 1 15</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep16@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 1 16</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep17@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 1 17</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep18@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 1 18</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep19@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 1 19</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep20@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 1 20</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep21@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 1 21</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep22@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 2 22</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep23@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 2 23</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep24@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 2 24</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep25@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 2 25</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep26@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 2 26</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep27@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 2 27</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep28@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 2 28</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep29@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 2 29</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep30@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 2 30</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep31@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 2 31</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep32@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 2 32</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep33@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 2 33</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswsalesrep34@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Sales Rep 2 34</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nswtrademarketing@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NSW Trade Marketing</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>ntadvertise@news.com.au</emailAddress>
+            <emailServicesAddress>ntadvertise@g-2l77b5r1ogzx9hoewty85mopgkblyhv3nj270nf7we44v39cud.p-96x8eai.cs31.case.sandbox.salesforce.com</emailServicesAddress>
+            <isVerified>false</isVerified>
+            <routingName>NT Advertise</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nathan.boultonsp@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>Nathan BoultonSP</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>ncaadmin@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>National Trade Marketing Enquries</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>customercare@newsadds.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NewsAdds Customer Care</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>support@newsadds.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>NewsAdds Support</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>nithin.mathaisp@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>Nithin Mathai</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>qldsalesrep1@news.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>QLD Sales Rep 01</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>qldsalesrep2@qnp.newsltd.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>QLD Sales Rep 02</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>reshma.trivedisp@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>Reshma TrivediSP</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>sa.accountdev01@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>SA ADM 01</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>sa.accountdev02@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>SA ADM 02</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>sa.accountdev03@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>SA ADM 03</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>sa.accountdev04@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>SA ADM 04</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>sa.accountdev05@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>SA ADM 05</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>sa.accountdev06@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>SA ADM 06</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>sa.accountdev07@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>SA ADM 07</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>sa.accountdev08@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>SA ADM 08</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>sa.accountdev09@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>SA ADM 09</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>sa.accountdev10@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>SA ADM 10</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>sa.accountexecutive@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>SA Account Executive</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>sa.accountexecutiveteam@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>SA Account Executive Team</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>saadvertise@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>SA Advertise</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>saadvertiser@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>SA Advertiser</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>agencyexecutivessa@news.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>SA Agency Executives</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>sa.industryexecutiveteam@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>SA Industry Executive Team</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>sa.industryexecutives@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>SA Industry Executives</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>sasalesrep1@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>SA Sales Rep 01</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>sasalesrep2@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>SA Sales Rep 02</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>sasalesrep3@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>SA Sales Rep 03</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>sasalesrep4@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>SA Sales Rep 04</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>sasalesrep5@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>SA Sales Rep 05</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>savannah.vatsinarissp@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>Savannah Vatsinaris</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>dev.classifieds@news.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>TEST CC DEV Classifieds</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>dev.enquiries@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>TEST CC DEV Enquiries</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>cc.sitclassifieds@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>TEST CC SIT Classifieds</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>cc.sitenquiries@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>TEST CC SIT Enquiries</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>uat.classifieds@news.com.au</emailAddress>
+            <emailServicesAddress>uat.classifieds@1fkd8zs6iubnysz8wessggg3hv95x92st48o8rmn12ck1cs01o.p-96x8eai.cs31.case.sandbox.salesforce.com</emailServicesAddress>
+            <isVerified>true</isVerified>
+            <routingName>TEST CC UAT Classifieds</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing  - NSW</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>uat.enquiries@news.com.au</emailAddress>
+            <emailServicesAddress>uat.enquiries@y-4fi9xqmjrvy9c2kjzoz5pwaqcv6ljjt8mpqc7v56mxmombxvo.p-96x8eai.cs31.case.sandbox.salesforce.com</emailServicesAddress>
+            <isVerified>true</isVerified>
+            <routingName>TEST CC UAT Enquiries</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>twtbookings@news.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>The Weekly Times Bookings</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>twtdirect@news.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>The Weekly Times Direct Bookings</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>trnnsw1.classifieds@news.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>Training NSW 1 Classifieds</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>trnnsw1.enquiries@news.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>Training NSW 1 Enquiries</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>trnqld1.classifieds@news.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>Training QLD 1 Classifieds</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>trnqld1.enquiries@news.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>Training QLD 1 Enquiries</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>trnsa1.classifieds@news.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>Training SA 1 Classifieds</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>trainingsa1enquiries@news.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>Training SA 1 Enquiries</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>trnvic1.classifieds@news.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>Training VIC 1 Classifieds</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>trnvic1.enquiries@news.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>Training VIC 1 Enquiries</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrepfax1@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Fax 1</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrepfax2@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Fax 2</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrepfax3@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Fax 3</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrepfax4@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Fax 4</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep1@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 1 01</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep2@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 1 02</routingName>
+            <saveEmailHeaders>false</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep3@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 1 03</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep4@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 1 04</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep5@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 1 05</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep6@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 1 06</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep7@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 1 07</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep8@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 2 08</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep9@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 2 09</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep10@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 2 10</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep11@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 2 11</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep12@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 2 12</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep13@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 2 13</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep14@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 2 14</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep15@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 2 15</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep16@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 2 16</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep17@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 2 17</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep18@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 2 18</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep19@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 2 19</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep20@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 2 20</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep21@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 3 21</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep22@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 3 22</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep23@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 3 23</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep24@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 3 24</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep25@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 3 25</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep26@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 3 26</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep27@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 3 27</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep28@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 3 28</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep29@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 3 29</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>vicsalesrep30@newsltd.com.au</emailAddress>
+            <isVerified>true</isVerified>
+            <routingName>VIC Sales Partner Team 3 30</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <routingAddresses>
+            <addressType>EmailToCase</addressType>
+            <caseOrigin>Email - Inbound for Routing</caseOrigin>
+            <casePriority>3-Medium</casePriority>
+            <createTask>false</createTask>
+            <emailAddress>ebilling@news.com.au</emailAddress>
+            <isVerified>false</isVerified>
+            <routingName>eBilling</routingName>
+            <saveEmailHeaders>true</saveEmailHeaders>
+        </routingAddresses>
+        <unauthorizedSenderAction>Bounce</unauthorizedSenderAction>
+    </emailToCase>
+    <enableCaseFeed>true</enableCaseFeed>
+    <enableDraftEmails>false</enableDraftEmails>
+    <enableEarlyEscalationRuleTriggers>false</enableEarlyEscalationRuleTriggers>
+    <enableEmailActionDefaultsHandler>false</enableEmailActionDefaultsHandler>
+    <enableSuggestedArticlesApplication>false</enableSuggestedArticlesApplication>
+    <enableSuggestedArticlesCustomerPortal>false</enableSuggestedArticlesCustomerPortal>
+    <enableSuggestedArticlesPartnerPortal>false</enableSuggestedArticlesPartnerPortal>
+    <enableSuggestedSolutions>true</enableSuggestedSolutions>
+    <keepRecordTypeOnAssignmentRule>true</keepRecordTypeOnAssignmentRule>
+    <notifyContactOnCaseComment>false</notifyContactOnCaseComment>
+    <notifyDefaultCaseOwner>false</notifyDefaultCaseOwner>
+    <notifyOwnerOnCaseComment>false</notifyOwnerOnCaseComment>
+    <notifyOwnerOnCaseOwnerChange>false</notifyOwnerOnCaseOwnerChange>
+    <showEmailAttachmentsInCaseAttachmentsRL>true</showEmailAttachmentsInCaseAttachmentsRL>
+    <showFewerCloseActions>false</showFewerCloseActions>
+    <useSystemEmailAddress>true</useSystemEmailAddress>
+    <useSystemUserAsDefaultCaseUser>false</useSystemUserAsDefaultCaseUser>
+    <webToCase>
+        <enableWebToCase>false</enableWebToCase>
+    </webToCase>
+</CaseSettings>

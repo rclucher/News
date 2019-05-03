@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Name__c</fullName>
+    <description>Name of the Negotiation Point parameter used in determining the Negotiation Score.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Name of the Negotiation Point parameter used in determining the Negotiation Score.</inlineHelpText>
+    <label>Name</label>
+    <required>true</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Frequency</fullName>
+                <default>false</default>
+                <label>Frequency</label>
+            </value>
+            <value>
+                <fullName>Number of Publications</fullName>
+                <default>false</default>
+                <label>Number of Publications</label>
+            </value>
+            <value>
+                <fullName>Print Client</fullName>
+                <default>false</default>
+                <label>Print Client</label>
+            </value>
+            <value>
+                <fullName>Product Mix</fullName>
+                <default>false</default>
+                <label>Product Mix</label>
+            </value>
+            <value>
+                <fullName>Share of Wallet</fullName>
+                <default>false</default>
+                <label>Share of Wallet</label>
+            </value>
+            <value>
+                <fullName>Insertion Count</fullName>
+                <default>false</default>
+                <label>Insertion Count</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,186 @@
+<apex:page >
+
+        <script>
+
+         function callCyberAd()
+         {
+
+			var salesOrderId = '1-11111';
+			var sPlacerContact = 'pLastName';
+			var sPayerAccount = 'payerAccount';
+			var sBookingProfile = 'NEWS Payer Profile Display Name';
+
+			var RequestBroker = new ActiveXObject("SalesForceRequestBroker.RequestBroker")
+
+			var r = RequestBroker.LaunchCyberAd('{!GETSESSIONID()}')
+			//RequestBroker.ExecuteRequest(SessionID, salesOrderID, Parameters)
+			var Result = RequestBroker.ExecuteRequest('{!GETSESSIONID()}', salesOrderID, '{}')
+
+         }
+
+
+  function callCyberSell()
+{
+//Declare Variables
+        var bpStatus;
+        var baNum;
+        var bookingNum;
+        var cyber;
+        var conName;
+        var homeNum;
+        var placerName;
+        var placerNumber;
+        var salesRep;
+        var creativeContact;
+        var salesOrderId;
+        var inputs;
+        var inputsBP;
+        var outputs;
+        var outputsBP;
+        var bSvc;
+        var bookingProfileId;
+        var intgId;
+        var bookingProfileName;
+        var custName;
+        var stAddress;
+        var city;
+        var pcode;
+        var state;
+        var country;
+        var emailAddress;
+        var dpId;
+        var mainPhone;
+        var mainnoplus;
+        var localNumber;
+        var areaCode;
+        var fax;
+        var faxnoplus;
+        var faxLocalNumber;
+        var faxAreaCode;
+/*      var alias;
+        var rexp;
+        var aliasString;*/
+        var accountType;
+        var contactFirstName;
+        var contactLastName;
+        var abn;
+        var bpType;
+        var parentBANum;
+        var bpAdvtAccntName;
+    //  var bookingProfileBANum;
+        var wshShell;
+        var cyberOpen;
+        var cyberVersion;
+
+        try
+        {
+            wshShell = new ActiveXObject("WScript.Shell");
+            cyberVersion = "CyberSell v6";  //TheApplication().GetProfileAttr("NEWS Cyber$ell Version");
+            cyberOpen = wshShell.AppActivate(cyberVersion);
+
+            if(cyberOpen)
+            {
+                bpStatus = "Pending"; //this.BusComp().GetFieldValue("Status");
+
+                cyber =  new ActiveXObject("CyberSell.Application");
+                cyber = cyber.WrappedApplication;
+                //inputs = theApplication().NewPropertySet();
+                //bSvc  = theApplication().GetService("NEWS CyberSell Integration");
+                salesOrderId = "1-1A'"; //this.BusComp().GetFieldValue("Id");
+                // inputs.SetProperty("SalesOrderId",salesOrderId);
+                // outputs = bSvc.InvokeMethod("LocateSalesOrder", inputs);
+
+    			// Get all values
+                baNum =  "T1944180";
+                bookingNum = "1234567890"; //outputs.GetProperty("NEWSBookingNumber");
+                conName = "CON_NAME"; //outputs.GetProperty("ContactName");
+                homeNum =  "HOME_NUM"; //outputs.GetProperty("HomeNumber");
+                placerName = "OpportunityLineItem.Placer_Contact__c";
+				//placerNumber = "PHONE";
+
+                if(conName==" ")
+                {
+                    conName = placerName;
+                    homeNum = placerNumber;
+                }
+
+                salesRep = "ahost"; //outputs.GetProperty("SalesRep");
+                intgId = "INTN_ID"; //outputs.GetProperty("IntegrationId");
+                bookingProfileId = "BP_ID"; //outputs.GetProperty("BookingProfileId");
+                if(bpStatus == "Pending")
+                {
+                    if(baNum != "")
+                    {//Then go to Cybersell, Locate GBA and Create Booking.
+                        cyber.Execute("LocateAccount", "[Number] = '" + baNum + "'");
+                        if(cyber.Results.Accounts.Count==1)
+                        {
+                            //Next 2 lines are meant to select the Customers tab and select the first item.
+                            cyber.Results.CurrentTab=0;
+                            cyber.Results.ListIndex=1;
+                            cyber.Execute("NewBooking");
+
+                            //To check if we are on the correct form.
+                            if((cyber.CurrentForm != null) && (cyber.CurrentForm.Booking != null) && (cyber.CurrentForm.Booking.GetField("^IsNew"))&&(cyber.CurrentForm.Booking.Account.AccountNumber==baNum))
+                            {
+                                cyber.CurrentForm.Booking.Caller = placerName;
+                                cyber.CurrentForm.Booking.SetField("^InsertionSets(1).Attributes([Attribute.Code]='~MATCON').Detail", conName);
+                                cyber.CurrentForm.Booking.SetField("^InsertionSets(1).Attributes([Attribute.Code]='~MATCON#').Detail", homeNum);
+                                cyber.CurrentForm.Booking.SetField("^Attributes([Attribute.Code]='~CLRCON#').Detail", placerNumber);
+                                cyber.CurrentForm.Booking.SetField("^Attributes([Attribute.Code]='~SIEBSO').Detail", intgId);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if((bpStatus != "Pending") && (baNum != "") && (bookingNum != ""))
+                    {//Then Locate a GBA and Locate a booking.
+                        cyber.Execute("LocateAccount", "[Number] = '" + baNum + "'");
+                        if(cyber.Results.Accounts.Count==1)
+                        {
+                            //Next 2 lines are meant to select the Customers tab and select the first item.
+                            cyber.Results.CurrentTab=0;
+                            cyber.Results.ListIndex=1;
+                            cyber.Execute("LocateBooking", "[Number] = '" + bookingNum + "'");
+                        }
+                    }
+                    else
+                    {//Then raise an error.
+                        alert("This Sales Order has invalid Booking");
+                    }
+                }
+                cyber.UpdateGUI();
+            }
+            else
+            {
+                alert("Unable to go to Cyber$ell. Please ensure that Cyber$ell is fully opened then try again.");
+            }
+        }
+        catch(e)
+        {
+            // Write the generic error message to screen
+            alert(e.toString()+cyber+e.errText+e.errCode);
+        }
+        finally
+        {
+        //  cyber.UpdateGUI();
+            wshShell = null;
+            inputs = null;
+            outputs = null;
+            inputsBP = null;
+            outputsBP = null;
+            bSvc = null;
+            cyber = null;
+        }
+}
+
+</script>
+
+<a href="#" onclick="callCyberAd();return false;">CyberAd</a><br />
+<a href="#" onclick="callCyberSell();return false;">CyberSell</a><br />
+<br />
+
+Session Id: {!GETSESSIONID()}
+
+
+</apex:page>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Call_Result_c__c</fullName>
+    <externalDeveloperName>Call_Result__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Call Result</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sale</fullName>
+                <default>false</default>
+                <label>Sale</label>
+            </value>
+            <value>
+                <fullName>Already Rebooked</fullName>
+                <default>false</default>
+                <label>Already Rebooked</label>
+            </value>
+            <value>
+                <fullName>Auto-Renewed</fullName>
+                <default>false</default>
+                <label>Auto-Renewed</label>
+            </value>
+            <value>
+                <fullName>Call Back Later</fullName>
+                <default>false</default>
+                <label>Call Back Later</label>
+            </value>
+            <value>
+                <fullName>Left Message</fullName>
+                <default>false</default>
+                <label>Left Message</label>
+            </value>
+            <value>
+                <fullName>N/A for Resolicitation</fullName>
+                <default>false</default>
+                <label>N/A for Resolicitation</label>
+            </value>
+            <value>
+                <fullName>No Sale</fullName>
+                <default>false</default>
+                <label>No Sale</label>
+            </value>
+            <value>
+                <fullName>Opportunity Logged</fullName>
+                <default>false</default>
+                <label>Opportunity Logged</label>
+            </value>
+            <value>
+                <fullName>Cancellation</fullName>
+                <default>false</default>
+                <label>Cancellation</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

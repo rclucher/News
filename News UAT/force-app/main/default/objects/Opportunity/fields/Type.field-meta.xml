@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type</fullName>
+    <inlineHelpText>Core Activity - Opportunity revenue contributes to the negotiated agreement or normal client spend pattern.
+Non-Core Activity - Opportunity revenue is not part of committed spend or normal spend pattern (Proactive).</inlineHelpText>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+</CustomField>

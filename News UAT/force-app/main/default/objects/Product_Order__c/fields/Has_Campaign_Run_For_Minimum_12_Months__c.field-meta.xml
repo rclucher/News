@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Has_Campaign_Run_For_Minimum_12_Months__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( 
+TODAY() - Product_Order_Start_Date__c &lt;365, 
+false, 
+true 
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Has Campaign Run For Minimum 12 Months?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

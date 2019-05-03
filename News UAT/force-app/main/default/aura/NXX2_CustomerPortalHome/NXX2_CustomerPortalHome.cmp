@@ -1,0 +1,22 @@
+<aura:component implements="force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global">
+	<div class="slds-grid slds-wrap">
+    	<div class="slds-col slds-size_1-of-1 slds-large-size_6-of-12 custom-padding">
+            <div>
+                <h4>Your accounts</h4>
+                <p >
+                    Let's work together to reach your goals. To review and sign off your campaigns please choose an account below:
+                </p>
+            </div>
+        	<c:NXX2_MyAccountListView recordId="{!v.recordId}"></c:NXX2_MyAccountListView>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-large-size_6-of-12 custom-padding">
+            <div>
+                <h4 >Your campaign tasks</h4>
+                <p>
+                    When you're ready mark the task as 'Completed' and your campaign manager will be notified.
+                </p>
+            </div>
+            <c:NXX2_CustomerActivitiesListView recordId="{!v.recordId}"></c:NXX2_CustomerActivitiesListView>
+        </div>
+    </div>
+</aura:component>

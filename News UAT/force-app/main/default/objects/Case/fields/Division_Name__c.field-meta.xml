@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Division_Name__c</fullName>
+    <description>Description of Division values</description>
+    <externalId>false</externalId>
+    <formula>CASE (TEXT(Division__c),
+							&quot;ADV&quot;, &quot;Advertiser Newspapers&quot;,
+							&quot;CNG&quot;, &quot;Cumberland/News Local&quot;,
+							&quot;CNS&quot;, &quot;The Cairns Post&quot;,
+							&quot;GAD&quot;, &quot;Geelong Advertisor&quot;,
+							&quot;GCP&quot;, &quot;Gold Coast Publications&quot;,
+							&quot;HS&quot;, &quot;Herald Sun&quot;,
+							&quot;HWT&quot;, &quot;Herald Weekly Times&quot;,
+							&quot;LDR&quot;, &quot;Leader&quot;,
+							&quot;MNG&quot;, &quot;Messenger&quot;,
+							&quot;NAT&quot;, &quot;National&quot;,
+							&quot;NQN&quot;, &quot;Townsville Bulletin&quot;,
+							&quot;NSW&quot;, &quot;New South Wales&quot;,
+							&quot;NWN&quot;, &quot;Nationwide News&quot;,
+							&quot;QLD&quot;, &quot;Queensland&quot;,
+							&quot;QST&quot;, &quot;Quest&quot;,
+							&quot;SA&quot;, &quot;South Australia&quot;,
+							&quot;VIC&quot;, &quot;Victoria&quot;,
+							&quot;WT&quot;, &quot;Weekly Times&quot;,
+							&quot;&quot;)</formula>
+    <label>Division Name</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,576 @@
+<apex:page standardController="Task" extensions="ScorecardSurveyAppExtension" showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">
+
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+<head>
+  <title>NVM Scorecard App</title>
+  <apex:stylesheet value="{!URLFOR($Resource.SLDS, 'assets/styles/salesforce-lightning-design-system.css')}" />
+  <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+</head>
+
+<style>
+.mainFrame{
+  margin:auto;
+  padding:0px 60px;
+}
+.fullHeight{
+  height: 530px;
+}
+#drawer {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  height: 100%;
+  width: 300px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  background-color:#fff;
+  z-index: 9999;
+}
+.prog-bar-div {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 9.3;
+  clear: both;
+}
+.menu-handle{
+  padding: 5px 12px;
+  background-color: #0070d2;
+  border-radius: 0px 12px 12px 0px;
+  margin-top: 50px;
+  position: fixed;
+  top: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  z-index: 9999;
+}
+.menu-icon{
+  font-weight:bold;
+  color:#fff;
+}
+#showIco, #hideIco{
+  cursor: pointer;
+  cursor: hand;
+}
+li.qComplete {
+    text-decoration: line-through !important;
+}
+ul.slds-navigation-list--vertical li h3 {
+    font-weight: bold !important;
+    padding: 10px 0px 0px 4px !important;
+}
+a{
+    text-decoration:none !important;
+}
+.slds-tabs--scoped__nav{
+    border:0px !important;
+    border-bottom: 1px solid #d8dde6 !important;
+}
+.slds-tabs--scoped__content{
+    border:0px !important;
+}
+.slds-m-top--x-large{
+    margin-top: 1.4rem;
+}
+.slds-p-bottom--large{
+    padding-bottom: 1rem;
+}
+.evenClass{
+    background: #fbfbfb;
+    padding-top: 1.4%;
+}
+.oddClass{
+    background: #fff;
+}
+</style>
+
+<script>
+// NCS-00626  2016-11-29 darshan.gosar@bluewolfgroup.com 
+    // Added below javascript function to calculate score on edit
+$( document ).ready(function() {
+    calculateProgress(false);
+});
+
+function showDrawer(){
+  $("#drawer").animate({"left":"0px"}, "slow");
+  $(".menu-handle").animate({"left":"300px"}, "slow");
+  $("#showIco").hide();
+  $("#hideIco").show();
+}
+function hideDrawer(){
+  $("#drawer").animate({"left":"-300px"}, "slow");
+  $(".menu-handle").animate({"left":"0px"}, "slow");
+  $("#showIco").show();
+  $("#hideIco").hide();
+}
+function goToStep(stepNo){
+  navigateQuestions(stepNo);
+}
+function closeErrorMsg(){
+  $(".errorMessageModal").hide();
+}
+function markQ(qno, qtype, obj, isWeighted){
+  /*Item-00625 DD ASFB-03 - Running Score
+  removed this functionality to make way for this calculation being performed in APEX
+
+  if(qtype == 'radio'){
+    if($(".answer-" + qno).prop("checked",true)){
+      $(".question-" + qno).attr('checked', true).val(true);
+      $("#label-" + qno).addClass("qComplete").removeClass("qNotComplete");
+    }
+    else{
+      $(".question-" + qno).attr("checked", false).val(false);
+      $("#label-" + qno).removeClass("qComplete").addClass("qNotComplete");
+    }
+  }else if(qtype == 'checkbox'){
+    var haveAnswer = false;
+    $(".answer-" + qno).find(':checkbox').each(function(){
+      var sThisVal = (this.checked ? "1" : "0");
+      if(sThisVal == "1"){
+        haveAnswer = true;
+      }
+    });
+    if(haveAnswer){
+      $(".question-" + qno).attr('checked', true).val(true);
+      $("#label-" + qno).addClass("qComplete").removeClass("qNotComplete");
+    }else{
+      $(".question-" + qno).attr("checked", false).val(false);
+      $("#label-" + qno).removeClass("qComplete").addClass("qNotComplete");
+    }
+  }else if(qtype == 'textbox'){
+    if(obj.value != ''){
+      $(".question-" + qno).attr("checked", true).val(true);
+      $("#label-" + qno).addClass("qComplete").removeClass("qNotComplete");
+    }
+    else{
+      $(".question-" + qno).attr("checked", false).val(false);
+      $("#label-" + qno).removeClass("qComplete").addClass("qNotComplete");
+    }
+}*/
+
+  //calcProgress();
+  calculateProgress(isWeighted);
+
+}
+
+/*Item-00625 DD ASFB-03 - Running Score
+removed this functionality to make way for this calculation being performed in APEX
+
+function calcProgress(){
+  var totalQues = 0;
+  var doneQues = 0;
+
+  $(".hidden-progress").each(function(){
+    var sThisVal = (this.checked ? "1" : "0");
+    totalQues++;
+    if(sThisVal == "1"){
+      doneQues++;
+    }
+  });
+
+  $('#ProgBar').attr('value',totalQues);
+  $('#ProgBar').val(doneQues);
+}*/
+
+function scrollToAnchor(aid){
+    var aTag = $("#"+ aid);
+    $('html,body').animate({scrollTop: aTag.offset().top-50},'slow');
+    hideDrawer();
+}
+
+function calculateProgress(isWeighted){
+
+    debugger;
+    
+    var totalScore = $('#totalScore').val();
+    
+    console.log("totalScore " + totalScore);
+    if(totalScore == undefined  || totalScore == NaN)
+        	totalScore = 0;
+    
+    var possibleScore = $('#possibleScore').val();
+    var runningPercent =  (totalScore / possibleScore) * 100;
+    var roundedPercent = Math.round(runningPercent);
+    $('.showCurrentPercent').html('Current Score: ' + roundedPercent + '%');
+    //$('#ProgBar').val(totalScore);
+    console.log("totalScore " + totalScore);
+    console.log("possibleScore " + possibleScore);
+    console.log("runningPercent " + runningPercent);
+
+
+}
+
+// NCS-00626  2016-11-29 darshan.gosar@bluewolfgroup.com 
+    // Added below javascript function to renderTabs
+function renderTab(tabId){
+    var thisTab = $('#' + tabId);
+    var thisTabTab = $('#' + tabId + '-tab');
+
+    if(tabId != 'tab-scoped-1'){
+        var otherTab = $('#tab-scoped-1');
+        var otherTabTab = $('#tab-scoped-1-tab');
+    }else{
+        var otherTab = $('#tab-scoped-2');
+        var otherTabTab = $('#tab-scoped-2-tab');
+    }
+
+    thisTab.addClass('slds-active').addClass('slds-show').removeClass('slds-hide');
+    thisTabTab.addClass('slds-active');
+    otherTab.removeClass('slds-active').removeClass('slds-show').addClass('slds-hide');
+    otherTabTab.removeClass('slds-active');
+}
+
+</script>
+
+<body>
+
+<apex:form >
+
+<!-- Menu Navigation Javascript -->
+<apex:actionFunction action="{!goToStep}" name="navigateQuestions" reRender="thePanel">
+    <apex:param name="selectedStep" value=""/>
+</apex:actionFunction>
+
+<!--  
+    NCS-00626  2016-11-29 darshan.gosar@bluewolfgroup.com 
+        Added below div section to show tabs
+ -->
+
+  <!-- REQUIRED SLDS WRAPPER -->
+  <div class="slds">
+
+      <div class="slds-tabs--scoped">
+          <ul class="slds-tabs--scoped__nav" role="tablist">
+               <li id="tab-scoped-1-tab" class="slds-tabs--scoped__item slds-text-title--caps slds-active" title="Item One" role="presentation"><a class="slds-tabs--scoped__link" href="javascript:void(0);" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-scoped-1" id="tab-scoped-1__item" onclick="renderTab('tab-scoped-1');">New Survey</a></li>
+               <li id="tab-scoped-2-tab" class="slds-tabs--scoped__item slds-text-title--caps" title="Item Two" role="presentation"><a class="slds-tabs--scoped__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-2" id="tab-scoped-2__item" onclick="renderTab('tab-scoped-2');">Existing Responses</a></li>
+           </ul>
+           <div id="tab-scoped-1" class="slds-tabs--scoped__content slds-show" role="tabpanel" aria-labelledby="tab-scoped-1__item">
+
+            <!-- Development Container -->
+            <div style="max-width:800px;height:380px;">
+
+            <!-- VF PAGE RERENDER -->
+            <apex:outputPanel id="theProg">
+              <apex:outputPanel rendered="{!IF(AND(selectedSurvey != null, thankYouRendered = false), true, false)}">
+                <!--<div class="slds-grid slds-grid--vertical-align-center slds-grid--align-center slds-wrap slds-grid--pull-padded prog-bar-div">
+                  <progress value="0" max="{!allQuestions.size}" id="ProgBar" style="padding:20px 0px;"></progress>
+                </div>-->
+                <div class="prog-bar-div">
+                    <div class="slds-grid">
+                      <div class="slds-col">
+                        <div class="slds-box slds-box--small slds-text-align--center" style="border: 0px;color:#0070d2;font-weight:bold;">
+                          <!-- Item-00625 DD -->
+                          <!-- Current score is set to 0 by default, then over written via Javascript function using the following inputs -->
+                          <div class="showCurrentPercent">Current Score: 0%</div>
+
+                          <apex:outputPanel id="hiddenInputs" rendered="true" >
+                              <input type="hidden" id="possibleScore" value="{!possibleScore}" />
+                              <input type="hidden" id="possibleBonus" value="{!possibleBonus}" />
+                              <input type="hidden" id="currentScore" value="{!currentScore}" />
+                              <input type="hidden" id="currentBonus" value="{!currentBonus}" />
+                              <input type="hidden" id="totalScore" value="{!totalScore}" />
+                          </apex:outputPanel>
+                          <!-- END Item-00625 DD -->
+                        </div>
+                      </div>
+                      <div class="slds-col">
+                        <div class="slds-box slds-box--small slds-text-align--center" style="padding: 0px;border:0px;">
+                          <progress value="{!currentProgress}" max="{!allQuestionsSize}" id="ProgBar" style="padding:20px 0px;"></progress>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="menu-drawer" id="drawer">
+                      <div class="slds-grid slds-grid--vertical">
+                      <h2 class="slds-text-heading--label slds-p-around--small" id="entity-header">Questions</h2>
+                      <ul class="slds-navigation-list--vertical slds-has-block-links--space">
+                        <apex:variable var="section" value=""/>
+                        <apex:repeat value="{!allQuestions}" var="qMenu" id="aQMenu">
+                          <h3 style="{!IF(qMenu.surveySection == section, 'display:none;', '')}">{!qMenu.surveySection}</h3>
+                          <li id="label-{!qMenu.orderNumber}" class="{!IF(qMenu.answered, 'qComplete', 'qNotComplete')}">
+                          <a href="javascript:scrollToAnchor('anchor-{!qMenu.orderNumber}');" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">{!qMenu.orderNumber} {!qMenu.question} <span style="margin-left: 5px;{!IF(qMenu.required, '', 'display:none;')}" class="slds-badge slds-theme--error">R</span><span style="margin-left: 5px;{!IF(qMenu.compliance, '', 'display:none;')}" class="slds-badge slds-theme--success">C</span></a></li>
+                          <apex:variable var="section" value="{!qMenu.surveySection}"/>
+                        </apex:repeat>
+                      </ul>
+                      </div>
+                    </div>
+                    <div class="menu-handle">
+                      <div id="showIco" class="menu-icon slds-text-heading--large" onclick="showDrawer();">
+                        &#62;
+                      </div>
+                      <div id="hideIco" class="menu-icon slds-text-heading--large" onclick="hideDrawer();" style="display:none;">
+                        &#60;
+                      </div>
+                    </div>
+                </div>
+              </apex:outputPanel>
+            </apex:outputPanel>
+
+            <apex:outputPanel id="thePanel">
+
+            <apex:outputPanel rendered="{!surveyError}">
+
+              <div class="errorMessageModal">
+                <div aria-hidden="false" aria-labelledby="prompt-heading-id" aria-describedby="prompt-message-wrapper" role="alertdialog" class="slds-modal slds-modal--prompt slds-fade-in-open">
+                  <div class="slds-modal__container slds-modal--prompt" role="document" id="prompt-message-wrapper" tabindex="0">
+                    <div class="slds-modal__header slds-theme--error slds-theme--alert-texture">
+                      <h2 class="slds-text-heading--medium" id="prompt-heading-id">Error</h2>
+                    </div>
+                    <div class="slds-modal__content slds-p-around--medium">
+                      <div>
+                        <p>{!surveyErrorMessage}</p>
+                      </div>
+                    </div>
+                    <div class="slds-modal__footer slds-theme--default">
+                      <input type="button" value="Close" class="slds-button slds-button--neutral" onclick="closeErrorMsg()" />
+                    </div>
+                  </div>
+                </div>
+                <div class="slds-backdrop slds-backdrop--open"></div>
+            </div>
+
+            </apex:outputPanel>
+
+          <!-- FIRST STEP: SELECT A SURVEY -->
+          <apex:outputPanel rendered="{!IF(AND(selectedSurvey == null, thankYouRendered = false), true, false)}">
+              <div class="mainFrame testClass fullHeight">
+
+                  <div class="slds-grid slds-grid--vertical-align-center slds-grid--align-center slds-wrap slds-grid--pull-padded" style="height:100%;">
+
+                    <!-- ROW 1 -->
+                    <div class="slds-col--padded slds-size--1-of-1 slds-p-bottom--large">
+                      <div class="slds-form-element__control">
+                        <div class="slds-select_container">
+                          <apex:selectList value="{!selectedSurvey}" styleClass="slds-select" multiselect="false" size="1">
+                            <apex:selectOptions value="{!AvailableSurveys}" />
+                          </apex:selectList>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="slds-col--padded">
+                      <apex:commandButton styleClass="slds-button slds-button--brand" action="{!beginSurvey}" value="Next" reRender="thePanel, theProg" />
+                    </div>
+                    <!-- / ROW 1 -->
+
+                  </div>
+        </div>
+      </apex:outputPanel>
+      <!-- / FIRST STEP: SELECT A SURVEY -->
+
+
+      <!-- SECOND STEP: FILL OUT SURVEY -->
+      <apex:outputPanel rendered="{!IF(AND(selectedSurvey != null, thankYouRendered = false), true, false)}">
+
+        <div style="clear:both;"> </div>
+
+        <apex:variable var="section" value=""/>
+        <apex:variable var="i" value="{!0}"/>
+        <apex:repeat value="{!allQuestions}" var="qPreview" id="aQPreview">
+          <!--<apex:outputPanel rendered="{!IF(VALUE(qPreview.orderNumber) == currentStep, true, false)}"> -->
+
+            <div class="mainFrame testClass" id="anchor-{!qPreview.orderNumber}">
+
+              <div class="slds-grid slds-grid--vertical-align-center slds-grid--align-center slds-wrap slds-grid--pull-padded {!IF(MOD(i,2) = 0,'oddClass','evenClass')}">
+
+                <!-- ROW 1 -->
+                <div class="slds-col--padded slds-size--1-of-1 slds-p-bottom--large">
+
+                <div class="slds-text-body--regular">
+                   <!--<p style="font-weight:bold;">{!qPreview.surveySection}</p> -->
+                   <p style="{!IF(qPreview.surveySection == section, 'display:none;', '')}" class="slds-text-heading--small slds-m-top--x-large">{!qPreview.surveySection}</p>
+                    <span style="font-weight:bold;" class="questionNumber">Question #{!qPreview.orderNumber}</span>
+                    <!--<input type="hidden" value="false" id="question-{!qPreview.orderNumber}" class = "hidden-progress"/>-->
+                    <apex:inputCheckbox value="{!qPreview.answered}" styleClass="question-{!qPreview.orderNumber} hidden-progress" style="display:none;"/>
+
+
+                    <span style="margin-left: 5px;{!IF(qPreview.required, '', 'display:none;')}" class="slds-badge slds-theme--error">Required</span>
+                    <span style="margin-left: 5px;{!IF(qPreview.compliance, '', 'display:none;')}" class="slds-badge slds-theme--success">Compliance</span>
+                    <br/> <!-- <br/> -->
+                    {!qPreview.question}
+                  </div>
+                </div>
+
+                <div class="slds-col--padded slds-size--1-of-1 slds-p-bottom--large">
+
+                  <!-- RADIO BUTTON (HORIZONTAL) INPUT -->
+                  <apex:outputPanel rendered="{!IF(OR(qPreview.renderSelectRadio == 'true',qPreview.renderSelectRow == 'true'),true,false)}" id="rdoBtn">
+                    <apex:selectRadio layout="lineDirection " value="{!qPreview.selectedOption}" styleClass="answer-{!qPreview.orderNumber}" >
+                      <apex:selectOptions value="{!qPreview.singleOptions}"/>
+                      <apex:actionSupport oncomplete="markQ('{!qPreview.orderNumber}', 'radio', this, 'false')" reRender="theProg" action="{!calculatePossibleScore}" event="onchange" />
+                    </apex:selectRadio>
+                  </apex:outputPanel>
+
+                  <!-- RADIO BUTTON (HORIZONTAL) WEIGHTED INPUT -->
+                  <apex:outputPanel rendered="{!IF(OR(qPreview.renderSelectRadioWeight == 'true', qPreview.renderSelectRowWeight == 'true'),true,false)}" id="rdoBtnWtd">
+                    <apex:selectRadio layout="lineDirection " value="{!qPreview.selectedOption}" styleClass="answer-{!qPreview.orderNumber}" >
+                      <apex:selectOptions value="{!qPreview.singleOptions}"/>
+                      <apex:actionSupport oncomplete="markQ('{!qPreview.orderNumber}', 'radio', this, 'true')" reRender="theProg" action="{!calculatePossibleScore}" event="onchange" />
+                    </apex:selectRadio>
+                  </apex:outputPanel>
+
+                  <!-- CHECKBOX INPUT -->
+                  <apex:outputPanel rendered="{!qPreview.renderSelectCheckboxes}" id="chkBxs">
+                    <apex:selectCheckboxes layout="lineDirection " styleClass="answer-{!qPreview.orderNumber}" value="{!qPreview.selectedOptions}" >
+                      <apex:selectOptions value="{!qPreview.multiOptions}"/>
+                      <apex:actionSupport oncomplete="markQ('{!qPreview.orderNumber}', 'checkbox', this, 'false')" reRender="theProg" action="{!calculatePossibleScore}" event="onchange" />
+                    </apex:selectCheckboxes>
+                  </apex:outputPanel>
+
+                  <!-- FREE TEXT INPUT -->
+                  <apex:outputPanel rendered="{!qPreview.renderFreeText}" id="txtBxs">
+                    <apex:inputTextArea styleClass="slds-textarea answer-{!qPreview.orderNumber}" cols="50" rows="4" value="{!qPreview.choices}">
+                        <apex:actionSupport oncomplete="markQ('{!qPreview.orderNumber}', 'textbox', this, 'false')" reRender="theProg" action="{!calculatePossibleScore}" event="onblur" />
+                    </apex:inputTextArea>
+                  </apex:outputPanel>
+
+                  <!-- RADIO BUTTON (VERTICAL) INPUT -->
+                  <!-- <apex:outputPanel rendered="{!qPreview.renderSelectRow}" id="rdoVertical">
+                    <apex:selectRadio value="{!qPreview.selectedOption}" styleClass="answer-{!qPreview.orderNumber}">
+                      <apex:selectOptions value="{!qPreview.rowOptions}"/>
+                      <apex:actionSupport oncomplete="markQ('{!qPreview.orderNumber}', 'radio', this, 'false')" reRender="theProg" action="{!calculatePossibleScore}" event="onchange" />
+                    </apex:selectRadio>
+                  </apex:outputPanel> -->
+
+                  <!-- RADIO BUTTON (VERTICAL) WEIGHTED INPUT -->
+                  <!--<apex:outputPanel rendered="{!qPreview.renderSelectRowWeight}" id="rdoRowWtd" >
+                    <apex:selectRadio value="{!qPreview.selectedOption}" styleClass="answer-{!qPreview.orderNumber}">
+                      <apex:selectOptions value="{!qPreview.singleOptions}"/>
+                      <apex:actionSupport oncomplete="markQ('{!qPreview.orderNumber}', 'radio', this, 'true')" reRender="theProg" event="onchange" action="{!calculatePossibleScore}" />
+                    </apex:selectRadio>
+                  </apex:outputPanel> -->
+
+                </div>
+
+              </div>
+
+
+                  <!-- PREVIOUS BTN -->
+                 <!-- <input style="{!IF(currentStep<2, '', 'display:none;')};margin-right:10px;" type="button" class="slds-button slds-button--brand" value="Previous" disabled="true" />
+                  <apex:commandButton styleClass="slds-button slds-button--brand" action="{!previousStep}" value="Previous" reRender="thePanel" rendered="{!IF(currentStep>1, true, false)}" style="margin-right:10px;" /> -->
+
+                  <!-- NEXT BTN -->
+                  <!--<apex:commandButton styleClass="slds-button slds-button--brand" action="{!nextStep}" value="Next" reRender="thePanel" rendered="{!IF(currentStep<allQuestions.size, true, false)}"  /> -->
+
+                  <!-- FINISH BTN -->
+                <!--  <apex:commandButton styleClass="slds-button slds-button--brand" action="{!submitResults}" value="Finish" reRender="thePanel" rendered="{!IF(currentStep=allQuestions.size, true, false)}"  /> -->
+
+
+
+            </div>
+
+          <!-- </apex:outputPanel> -->
+          <apex:variable var="section" value="{!qPreview.surveySection}"/>
+          <apex:variable var="i" value="{!i+1}"/>
+        </apex:repeat>
+        <div class="slds-grid slds-grid--align-center slds-wrap slds-grid--pull-padded">
+
+        <div class="slds-align-bottom slds-p-top--x-large">
+              <!-- FINISH BTN -->
+      <apex:commandButton styleClass="slds-button slds-button--brand" 
+                          action="{!submitResults}" 
+                          value="Finish" 
+                          reRender="thePanel"
+                          onClick="this.disabled=true; " />
+
+        </div>
+
+        </div>
+      </apex:outputPanel>
+      <!-- / SECOND STEP: FILL OUT SURVEY -->
+
+      <!-- THIRD STEP: THANK YOU MESSAGE -->
+      <apex:outputPanel rendered="{!thankYouRendered}">
+
+        <div class="mainFrame testClass fullHeight">
+
+          <div class="slds-grid slds-grid--vertical-align-center slds-grid--align-center slds-wrap slds-grid--pull-padded" style="height:100%;">
+
+            <!-- ROW 1 -->
+            <div class="slds-col--padded slds-size--1-of-1 slds-p-bottom--large">
+              <div class="slds-text-heading--large slds-p-bottom--large slds-align--absolute-center">Thank you very much!</div>
+              <div class="slds-text-body--regular slds-align--absolute-center">The survey is now complete.</div>
+            </div>
+            <!-- / ROW 1 -->
+
+          </div>
+
+        </div>
+
+      </apex:outputPanel>
+      <!-- / THIRD STEP: THANK YOU MESSAGE -->
+    </apex:outputPanel>
+    <!-- / VF PAGE RERENDER -->
+    </div>
+<!-- / Development Container -->
+    </div>
+    <!--  
+        NCS-00626  2016-11-29 darshan.gosar@bluewolfgroup.com 
+            Added below div section to show existing survey response
+     -->    
+    </div>
+        <div id="tab-scoped-2" class="slds-tabs--scoped__content slds-hide" role="tabpanel" aria-labelledby="tab-scoped-2__item">
+            <apex:outputPanel id="tab-2-content">
+                <apex:outputPanel id="surveyListPanel" rendered="{!IF(AND(surveyTakerId == null, editExistingSurveyResponse = false), true, false)}">
+                    <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+                      <thead>
+                        <tr class="slds-text-title--caps">
+                          <th scope="col">
+                            <div class="slds-truncate" title="Survey Name">Survey</div>
+                          </th>
+                          <th scope="col">
+                            <div class="slds-truncate" title="Completed By">Completed By</div>
+                          </th>
+                          <th scope="col">
+                            <div class="slds-truncate" title="Completed Date">Completed Date</div>
+                          </th>
+                          <!--<th scope="col">
+                            <div class="slds-truncate" title="Last Modified By">Last Modified By</div>
+                          </th>
+                          <th scope="col">
+                            <div class="slds-truncate" title="Last Modified Date">Last Modified Date</div>
+                          </th>-->
+                          <th scope="col">
+                            <div class="slds-truncate" title="Total Score">Score</div>
+                          </th>
+                          </tr>
+                      </thead>
+                        <tbody>
+                            <apex:repeat value="{!surveyTakerList}" var="st" id="theRepeat">
+                                <tr>
+                                  <th scope="row" data-label="Survey Competed">
+                                    <div class="slds-truncate" ><a href="/apex/ScorecardSurveyApp?Id={!TaskId}&surveyId={!st.Survey__c}&surveyTakerId={!st.Id}">{!st.Survey__r.Name}</a></div>
+                                  </th>
+                                  <th scope="row" data-label="Completed By">
+                                    <div class="slds-truncate" ><apex:outputField value="{!st.CreatedById}"/></div>
+                                  </th>
+                                  <th scope="row" data-label="Completed Date">
+                                    <div class="slds-truncate" ><apex:outputField value="{!st.CreatedDate}"/></div>
+                                  </th>
+                                  <!--<th scope="row" data-label="Last Modified By">
+                                    <div class="slds-truncate" ><apex:outputField value="{!st.LastModifiedById}"/></div>
+                                  </th>
+                                  <th scope="row" data-label="Last Modified Date">
+                                    <div class="slds-truncate" ><apex:outputField value="{!st.LastModifiedDate}"/></div>
+                                  </th>-->
+                                  <th scope="row" data-label="Score">
+                                    <div class="slds-truncate" ><apex:outputField value="{!st.Final_Score__c }"/></div>
+                                  </th>
+                                </tr>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+                  </apex:outputPanel>
+              </apex:outputPanel>
+        </div>
+    </div>
+    <!-- / REQUIRED SLDS WRAPPER -->
+
+</apex:form>
+</body>
+</html>
+</apex:page>

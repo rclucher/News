@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DNC_Status_Audit__c</fullName>
+    <defaultValue>&quot;Phone: Not contactable - No washed date&quot;&amp;BR()&amp;
+&quot;Mobile: Not contactable - No washed date&quot;</defaultValue>
+    <description>DNC Status audit field populated by workflow rule</description>
+    <externalId>false</externalId>
+    <inlineHelpText>DNC Status audit field populated by workflow rule</inlineHelpText>
+    <label>DNC Status Audit</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

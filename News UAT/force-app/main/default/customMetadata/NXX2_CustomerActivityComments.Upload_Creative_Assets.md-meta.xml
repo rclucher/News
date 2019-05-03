@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Upload Creative Assets</label>
+    <protected>false</protected>
+    <values>
+        <field>Comments__c</field>
+        <value xsi:type="xsd:string">Please click on the ‘File’ tab to upload all creative assets that you would like to in your campaign. These can include logos, style guides, images and video</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">Upload Creative Assets</value>
+    </values>
+</CustomMetadata>

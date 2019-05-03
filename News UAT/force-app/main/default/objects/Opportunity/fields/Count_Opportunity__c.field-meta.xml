@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Count_Opportunity__c</fullName>
+    <description>25/9/13 - Counts the opportunity so it can be used within BY reporting.</description>
+    <externalId>false</externalId>
+    <formula>1</formula>
+    <inlineHelpText>Set this opty to count 1: Field only used for reporting formula summary fields (Win/ Loss Ratio). This field should not be displayed in any page layouts.</inlineHelpText>
+    <label>Count: Opportunity</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

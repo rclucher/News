@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Industry_List</fullName>
+    <columns>NAME</columns>
+    <columns>Group__c</columns>
+    <columns>Division__c</columns>
+    <columns>Subdivision__c</columns>
+    <columns>Class__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Industry List</label>
+</ListView>

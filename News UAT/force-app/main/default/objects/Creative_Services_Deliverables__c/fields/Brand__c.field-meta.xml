@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Brand__c</fullName>
+    <externalId>false</externalId>
+    <label>Brand</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Australian Golf Digest</fullName>
+                <default>false</default>
+                <label>Australian Golf Digest</label>
+            </value>
+            <value>
+                <fullName>Birth.com.au</fullName>
+                <default>false</default>
+                <label>Birth.com.au</label>
+            </value>
+            <value>
+                <fullName>Buro247.com</fullName>
+                <default>false</default>
+                <label>Buro247.com</label>
+            </value>
+            <value>
+                <fullName>BestRecipes.com.au</fullName>
+                <default>false</default>
+                <label>BestRecipes.com.au</label>
+            </value>
+            <value>
+                <fullName>Country Style</fullName>
+                <default>false</default>
+                <label>Country Style</label>
+            </value>
+            <value>
+                <fullName>Delicious</fullName>
+                <default>false</default>
+                <label>Delicious</label>
+            </value>
+            <value>
+                <fullName>Donna Hay</fullName>
+                <default>false</default>
+                <label>Donna Hay</label>
+            </value>
+            <value>
+                <fullName>DonnaHay.com.au</fullName>
+                <default>false</default>
+                <label>DonnaHay.com.au</label>
+            </value>
+            <value>
+                <fullName>GQ</fullName>
+                <default>false</default>
+                <label>GQ</label>
+            </value>
+            <value>
+                <fullName>GQ.com.au</fullName>
+                <default>false</default>
+                <label>GQ.com.au</label>
+            </value>
+            <value>
+                <fullName>Inside Out</fullName>
+                <default>false</default>
+                <label>Inside Out</label>
+            </value>
+            <value>
+                <fullName>InsideOut.com.au</fullName>
+                <default>false</default>
+                <label>InsideOut.com.au</label>
+            </value>
+            <value>
+                <fullName>Kidspot.com.au</fullName>
+                <default>false</default>
+                <label>Kidspot.com.au</label>
+            </value>
+            <value>
+                <fullName>Super Food Ideas</fullName>
+                <default>false</default>
+                <label>Super Food Ideas</label>
+            </value>
+            <value>
+                <fullName>Taste Magazine</fullName>
+                <default>false</default>
+                <label>Taste Magazine</label>
+            </value>
+            <value>
+                <fullName>Taste.com.au</fullName>
+                <default>false</default>
+                <label>Taste.com.au</label>
+            </value>
+            <value>
+                <fullName>Vogue Australia</fullName>
+                <default>false</default>
+                <label>Vogue Australia</label>
+            </value>
+            <value>
+                <fullName>Vogue.com.au</fullName>
+                <default>false</default>
+                <label>Vogue.com.au</label>
+            </value>
+            <value>
+                <fullName>Vogue Living</fullName>
+                <default>false</default>
+                <label>Vogue Living</label>
+            </value>
+            <value>
+                <fullName>VogueLiving.com.au</fullName>
+                <default>false</default>
+                <label>VogueLiving.com.au</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

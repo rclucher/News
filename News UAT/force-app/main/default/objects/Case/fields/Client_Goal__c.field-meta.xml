@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Client_Goal__c</fullName>
+    <description>Client analysis: what is client trying to achieve</description>
+    <externalId>false</externalId>
+    <inlineHelpText>What do we need to do with media? (e.g. to raise awareness, to educate, to change perceptions, to broaden their audience and so on.)</inlineHelpText>
+    <label>Media Objectives</label>
+    <length>10000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

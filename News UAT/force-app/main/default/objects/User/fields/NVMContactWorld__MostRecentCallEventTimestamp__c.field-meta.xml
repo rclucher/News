@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NVMContactWorld__MostRecentCallEventTimestamp__c</fullName>
+    <deprecated>false</deprecated>
+    <description>The timestamp of the most recent call event (deliver, transfer...) that this user has handled</description>
+    <externalId>false</externalId>
+    <label>Most Recent Call Event Timestamp</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>DateTime</type>
+</CustomField>

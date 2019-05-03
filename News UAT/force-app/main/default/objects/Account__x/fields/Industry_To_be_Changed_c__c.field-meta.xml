@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Industry_To_be_Changed_c__c</fullName>
+    <externalDeveloperName>Industry_To_be_Changed__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Change Industry To</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Banking and Finance</fullName>
+                <default>false</default>
+                <label>Banking and Finance</label>
+            </value>
+            <value>
+                <fullName>Government</fullName>
+                <default>false</default>
+                <label>Government</label>
+            </value>
+            <value>
+                <fullName>Miscellaneous</fullName>
+                <default>false</default>
+                <label>Miscellaneous</label>
+            </value>
+            <value>
+                <fullName>Motor Vehicles</fullName>
+                <default>false</default>
+                <label>Motor Vehicles</label>
+            </value>
+            <value>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+                <label>Real Estate</label>
+            </value>
+            <value>
+                <fullName>Retail</fullName>
+                <default>false</default>
+                <label>Retail</label>
+            </value>
+            <value>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+                <label>Telecommunications</label>
+            </value>
+            <value>
+                <fullName>Trades and Services</fullName>
+                <default>false</default>
+                <label>Trades and Services</label>
+            </value>
+            <value>
+                <fullName>Travel/Accommodation/Tourism</fullName>
+                <default>false</default>
+                <label>Travel/Accommodation/Tourism</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

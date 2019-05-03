@@ -1,0 +1,8 @@
+div.csbtn.Request_Approval {
+ border: none;
+ background-color: transparent;
+ background-image: url("/resource/TickButton");
+
+ background-repeat: no-repeat;
+ cursor: pointer !important;
+}

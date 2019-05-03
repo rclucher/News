@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Duration_last_period_days__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISBLANK(Flight_Period_End_Date__c)  , Product_Order_End_Date__c - First_Day_of_the_Last_Calendar_Month__c, IF( AND( NOT( ISBLANK(Flight_Period_End_Date__c) ) ,MONTH( Flight_Period_End_Date__c )&gt; MONTH( Product_Order_Start_Date__c )) ,  Flight_Period_End_Date__c - First_Day_of_the_Last_Calendar_Month__c, 0) )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Duration last period (days)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

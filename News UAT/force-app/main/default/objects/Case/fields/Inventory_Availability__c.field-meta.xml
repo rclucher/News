@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inventory_Availability__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Inventory availability checked and included</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Do you want inventory availability checked and included?</inlineHelpText>
+    <label>Inventory Availability?</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

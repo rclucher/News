@@ -1,0 +1,61 @@
+@isTest
+public class NXX2_LightningReqRespModelTest{
+    public static testMethod void testContants() {
+        Test.startTest();
+        NXX2_LightningReqRespModel.SocialAdWithContent socialAdWithContent = new NXX2_LightningReqRespModel.SocialAdWithContent();
+        socialAdWithContent.socialAd = null;
+        socialAdWithContent.contents = null;
+        socialAdWithContent.socialForm = null;
+        NXX2_LightningReqRespModel.SocialAdContent socialAdContent = new NXX2_LightningReqRespModel.SocialAdContent();
+        socialAdContent.name = 'Test';
+        socialAdContent.type = 'Test';
+        socialAdContent.size = 100;
+        socialAdContent.adHeadline = 'Test';
+        socialAdContent.adLink = 'Test';
+        socialAdContent.adNewsfeedDesc = 'Test';
+        socialAdContent.content = 'Test';
+        socialAdContent.fileURL = 'Test';
+        socialAdContent.id = 'Test';
+        socialAdContent.GoogleDriveFileId = 'Test';
+        socialAdContent.hasEmbedLink = true;
+        socialAdContent.downloadUrl = 'Test';
+        NXX2_LightningReqRespModel.GoogleDriveFilesDTO fileDto = new NXX2_LightningReqRespModel.GoogleDriveFilesDTO();
+        fileDto.id = 'Test';
+        fileDto.thumbnailLink = 'Test';
+        fileDto.title = 'Test';
+        fileDto.createdDate = 'Test';
+        fileDto.downloadUrl = 'Test';
+        fileDto.mimeType = 'Test';
+        fileDto.displayUrl = 'Test';
+        fileDto.embedLink = 'Test';
+        NXX2_LightningReqRespModel.CustomerTaskDTO customerTaskDTO = new NXX2_LightningReqRespModel.CustomerTaskDTO();
+        customerTaskDTO.id = 'Test';
+        customerTaskDTO.Name = 'Test';
+        customerTaskDTO.dueDate = 'Test';
+        customerTaskDTO.productOrder = 'Test';
+        customerTaskDTO.socialCampaign = 'Test';
+        customerTaskDTO.campaignOrder = 'Test';
+        customerTaskDTO.warningColor = 'Test';
+        customerTaskDTO.status = 'Test';
+        customerTaskDTO.Customer_Task = null;
+        customerTaskDTO.isUserHasCreateAccessToTask = true;
+        NXX2_LightningReqRespModel.customerTaskResponse customerTaskResponse = new NXX2_LightningReqRespModel.customerTaskResponse();
+        customerTaskResponse.customerTaskDTOList = null;
+        customerTaskResponse.isUserHasCreateAccessToTask = true;
+        NXX2_LightningReqRespModel.AccountDTO accountDTO = new NXX2_LightningReqRespModel.AccountDTO();
+        accountDTO.id = 'Test';
+        accountDTO.Name = 'Test';
+        NXX2_LightningReqRespModel.AccountResponse accountResponse = new NXX2_LightningReqRespModel.AccountResponse();
+        accountResponse.accountList = null;
+        accountResponse.isUserHasSearchAccessToContact = true;
+        NXX2_LightningReqRespModel.SocialAdHistoryResponse socialAdHistoryResponse = new NXX2_LightningReqRespModel.SocialAdHistoryResponse();
+        socialAdHistoryResponse.Id = 'Test';
+        socialAdHistoryResponse.IsDeleted = true;
+        socialAdHistoryResponse.ParentId = 'Test';
+        socialAdHistoryResponse.Field = 'Test';
+        socialAdHistoryResponse.OldValue = 'Test';
+        socialAdHistoryResponse.NewValue = 'Test';
+        socialAdHistoryResponse.createdDate = system.now();
+        Test.stopTest();
+    }
+}

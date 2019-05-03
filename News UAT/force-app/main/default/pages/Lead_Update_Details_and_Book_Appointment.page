@@ -1,0 +1,5 @@
+<apex:page standardController="Lead">
+  <flow:interview name="Lead_Update_Details_and_get_an_Appointment" finishLocation="/{!Lead.Id}">
+      <apex:param name="LeadId" value="{!Lead.Id}" />
+  </flow:interview>
+</apex:page>

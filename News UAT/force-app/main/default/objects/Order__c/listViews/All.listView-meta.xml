@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>CREATED_DATE</columns>
+    <columns>NAME</columns>
+    <columns>Opportunity__c</columns>
+    <columns>Proposed_Start_Date__c</columns>
+    <columns>Progress_Bar__c</columns>
+    <columns>Next_Campaign_Performance_Review_Date__c</columns>
+    <columns>Evergreen__c</columns>
+    <columns>Has_Campaign_Run_For_Minimum_3_Months__c</columns>
+    <columns>Briefing_Form_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Assigned_Campaign_Manager__c</field>
+        <operation>equals</operation>
+        <value>Peter Bell</value>
+    </filters>
+    <label>All assigned to me</label>
+</ListView>

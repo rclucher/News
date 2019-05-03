@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Activity_Type_L1__c</fullName>
+    <externalId>false</externalId>
+    <formula>Case( Activity_Type__c,
+&#39;Call - Inbound&#39;, &#39;Email/Phone&#39;,
+&#39;Call - Internal&#39;, &#39;Email/Phone&#39;,
+&#39;Call - Outbound&#39;, &#39;Email/Phone&#39;,
+&#39;Call - Transfer&#39;, &#39;Email/Phone&#39;,
+&#39;Campaign Automation&#39;, &#39;Non Face-to-Face&#39;,
+&#39;Campaign File Upload&#39;, &#39;Non Face-to-Face&#39;,
+&#39;Email - Inbound&#39;, &#39;Email/Phone&#39;,
+&#39;Email - Outbound&#39;, &#39;Email/Phone&#39;,
+&#39;SMS - Inbound&#39;, &#39;Email/Phone&#39;,
+&#39;SMS - Outbound&#39;, &#39;Email/Phone&#39;,
+&#39;To Do&#39;, &#39;Non Face-to-Face&#39;,
+&#39;Web - Inbound&#39;, &#39;Non Face-to-Face&#39;,
+&#39;Web - Interaction&#39;, &#39;Non Face-to-Face&#39;,
+&#39;Web - Update&#39;, &#39;Non Face-to-Face&#39;,
+&#39;Appointment&#39;, &#39;Appointment&#39;,
+&#39;Entertainment&#39;, &#39;Appointment&#39;,
+&#39;Presentation&#39;, &#39;Appointment&#39;,
+&#39;Meeting - Internal&#39;, &#39;Non Face-to-Face&#39;,
+&#39;Campaign Launch&#39;, &#39;Non Face-to-Face&#39;,
+&#39;Err: Activity Type L1&#39;)</formula>
+    <inlineHelpText>Not displayed on page. Used for reporting to group activity types.</inlineHelpText>
+    <label>Activity Type L1</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

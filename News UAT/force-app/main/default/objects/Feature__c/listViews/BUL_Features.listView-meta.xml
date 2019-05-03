@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BUL_Features</fullName>
+    <columns>NAME</columns>
+    <columns>Product__c</columns>
+    <columns>Description__c</columns>
+    <columns>Feature_Date__c</columns>
+    <columns>Number_of_Pages__c</columns>
+    <columns>Target_Revenue__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>NAME</field>
+        <operation>contains</operation>
+        <value>NQN</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Closed</value>
+    </filters>
+    <label>NQN Features</label>
+    <sharedTo>
+        <roleAndSubordinates>QLD_NQN_General_Manager</roleAndSubordinates>
+    </sharedTo>
+</ListView>

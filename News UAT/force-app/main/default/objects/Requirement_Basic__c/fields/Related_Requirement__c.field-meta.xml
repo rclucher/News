@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Related_Requirement__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Related Requirement - for duplicates or joint requirements or parent/child</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Related Requirement - for duplicates or joint requirements or parent/child</inlineHelpText>
+    <label>Related Requirement</label>
+    <referenceTo>Requirement_Basic__c</referenceTo>
+    <relationshipLabel>Related Requirements</relationshipLabel>
+    <relationshipName>Requirements_Basic</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

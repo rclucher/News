@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Proof_Customer_Activity</fullName>
+    <active>true</active>
+    <description>Proof Customer Activity</description>
+    <label>Proof Customer Activity</label>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>With Client</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Approve and Review Your Display Ads</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Approve and Review Your Facebook Ads</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Approve and Review Your Landing Page</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Extend Access to Google Analytics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Grant News Xtend Facebook Access</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Place GTM on Website</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Upload Creative Assets</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

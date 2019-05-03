@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Creates an opportunity and redirects to the Sales Order creation page (CloudSense)</description>
+    <height>250</height>
+    <label>Quick Create Quote</label>
+    <lightningComponent>QuickQuote</lightningComponent>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>LightningComponent</type>
+    <width>-100</width>
+</QuickAction>

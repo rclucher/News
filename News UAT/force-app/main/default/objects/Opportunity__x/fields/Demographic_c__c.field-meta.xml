@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Demographic_c__c</fullName>
+    <externalDeveloperName>Demographic__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Target Market Group(s)</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Traditional Family</fullName>
+                <default>false</default>
+                <label>Traditional Family</label>
+            </value>
+            <value>
+                <fullName>Visible Achievement</fullName>
+                <default>false</default>
+                <label>Visible Achievement</label>
+            </value>
+            <value>
+                <fullName>Conventional Family Life</fullName>
+                <default>false</default>
+                <label>Conventional Family Life</label>
+            </value>
+            <value>
+                <fullName>Look at Me</fullName>
+                <default>false</default>
+                <label>Look at Me</label>
+            </value>
+            <value>
+                <fullName>Real Conservatives</fullName>
+                <default>false</default>
+                <label>Real Conservatives</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

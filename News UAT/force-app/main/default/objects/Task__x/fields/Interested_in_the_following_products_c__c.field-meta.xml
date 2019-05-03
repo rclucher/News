@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Interested_in_the_following_products_c__c</fullName>
+    <externalDeveloperName>Interested_in_the_following_products__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Interested in the following products?</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Advertising - Facebook Advertising</fullName>
+                <default>false</default>
+                <label>Advertising - Facebook Advertising</label>
+            </value>
+            <value>
+                <fullName>Advertising - SEM (AdWords)</fullName>
+                <default>false</default>
+                <label>Advertising - SEM (AdWords)</label>
+            </value>
+            <value>
+                <fullName>Advertising - SEO (Search Engine Optimisation)</fullName>
+                <default>false</default>
+                <label>Advertising - SEO (Search Engine Optimisation)</label>
+            </value>
+            <value>
+                <fullName>Advertising - Local Directories</fullName>
+                <default>false</default>
+                <label>Advertising - Local Directories</label>
+            </value>
+            <value>
+                <fullName>Advertising - Letterbox Drops</fullName>
+                <default>false</default>
+                <label>Advertising - Letterbox Drops</label>
+            </value>
+            <value>
+                <fullName>Advertising - Video Production</fullName>
+                <default>false</default>
+                <label>Advertising - Video Production</label>
+            </value>
+            <value>
+                <fullName>Printing - Business Cards</fullName>
+                <default>false</default>
+                <label>Printing - Business Cards</label>
+            </value>
+            <value>
+                <fullName>Printing - Coupons/Flyers</fullName>
+                <default>false</default>
+                <label>Printing - Coupons/Flyers</label>
+            </value>
+            <value>
+                <fullName>Printing - Stationary</fullName>
+                <default>false</default>
+                <label>Printing - Stationary</label>
+            </value>
+            <value>
+                <fullName>Printing - Stickers/Decals</fullName>
+                <default>false</default>
+                <label>Printing - Stickers/Decals</label>
+            </value>
+            <value>
+                <fullName>Other - Accounting Software (e.g. MYOB)</fullName>
+                <default>false</default>
+                <label>Other - Accounting Software (e.g. MYOB)</label>
+            </value>
+            <value>
+                <fullName>Other - Job Management Software</fullName>
+                <default>false</default>
+                <label>Other - Job Management Software</label>
+            </value>
+            <value>
+                <fullName>Other - Insurance</fullName>
+                <default>false</default>
+                <label>Other - Insurance</label>
+            </value>
+            <value>
+                <fullName>Other - OHS legislation information</fullName>
+                <default>false</default>
+                <label>Other - OHS legislation information</label>
+            </value>
+            <value>
+                <fullName>Other - legal advice</fullName>
+                <default>false</default>
+                <label>Other - legal advice</label>
+            </value>
+            <value>
+                <fullName>Other - training</fullName>
+                <default>false</default>
+                <label>Other - training</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

@@ -1,0 +1,6 @@
+<apex:component >
+	<apex:attribute name="toRerender" type="string" description="Area to be rerendered on save" />
+
+	<apex:commandButton value="click!" rerender="{!toRerender}" />
+
+</apex:component>

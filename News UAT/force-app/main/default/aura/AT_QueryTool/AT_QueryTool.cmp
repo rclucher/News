@@ -1,0 +1,33 @@
+<aura:component controller="AT_QueryTool" implements="lightning:isUrlAddressable">
+    <aura:attribute name="query" type="String" default="SELECT Id, Name, Email FROM Contact LIMIT 10"/>
+    <aura:attribute name="columns" type="String[]"/>
+    <aura:attribute name="data" type="Object[]"/>
+    
+	<lightning:card title="Query Tool">
+        <lightning:input title="Query" type="text" value="{!v.query}" placeholder="SOQL Query"/>
+        <lightning:button label="Submit" onclick="{!c.submit}"/>
+        
+        <br/><br/>
+		
+        <div>
+            <table border="1" aura:id="results" id="results">
+                <thead>
+                    <tr>
+                    	<aura:iteration items="{!v.columns}" var="col">
+            				<td>{!col}</td>
+                        </aura:iteration>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v.data}" var="row">
+            			<tr>
+                        	<aura:iteration items="{!row}" indexVar="key" var="col">
+            					<td>{!col.value}</td>
+            				</aura:iteration>
+                        </tr>
+            		</aura:iteration>
+                </tbody>
+            </table>
+        </div>
+    </lightning:card>
+</aura:component>

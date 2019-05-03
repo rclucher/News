@@ -1,0 +1,34 @@
+.THIS {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.THIS table.scorecard {
+    background: white;
+    width: inherit;
+}
+
+.THIS table.scorecard td {
+    border-bottom: 1px solid black;
+    padding: 2px;
+    padding-right: 6px;
+}
+
+.THIS table.scorecard td.p{
+    background: green;
+}
+
+.THIS table.scorecard td.i{
+    background: orange;
+}
+
+.THIS table.scorecard td.e{
+    background: pink;
+}
+
+.THIS table.scorecard td.bordered {
+    border: 1px solid black;
+}
+
+.THIS table.scorecard tr.heading td {
+    border-bottom: 3px solid black;
+}

@@ -1,0 +1,80 @@
+<!--
+	This is the second of many lightning components to provide the Campaign Execution functionality in Lightning Sales Console.
+
+	Author: LBK
+	Date: 	2018-10-17
+-->
+<aura:component >
+	<aura:attribute name="hideRefresh" type="Boolean" default="true"/>
+	<aura:attribute name="hideResetSort" type="Boolean" default="true"/>
+	<aura:attribute name="hideSearch" type="Boolean" default="true"/>
+	<aura:attribute name="hideResetSearch" type="Boolean" default="true"/>
+	<aura:attribute name="hideClose" type="Boolean" default="true"/>
+	
+	<aura:attribute name="disableRefresh" type="Boolean" default="true"/>
+	<aura:attribute name="disableResetSort" type="Boolean" default="true"/>
+	<aura:attribute name="disableSearch" type="Boolean" default="true"/>
+	<aura:attribute name="disableResetSearch" type="Boolean" default="true"/>
+	<aura:attribute name="disableClose" type="Boolean" default="true"/>
+	
+	
+	<aura:attribute name="onRefresh" type="Aura.Action"/>
+	<aura:attribute name="onResetSort" type="Aura.Action"/>
+	<aura:attribute name="onSearch" type="Aura.Action"/>
+	<aura:attribute name="onResetSearch" type="Aura.Action"/>
+	<aura:attribute name="onClose" type="Aura.Action"/>
+	 
+	
+    <div class="slds-page-header slds-grid slds-grid--align-end navBarShell" role="banner">        
+        <aura:if isTrue="{!not(v.hideSearch)}">
+			<span class="slds-m-left--xx-small slds-m-right--xx-small">
+			<aura:if isTrue="{!v.disableSearch}">
+				<button class="slds-button slds-button--brand" onclick="" disabled="true">Search</button>
+				<aura:set attribute="else">
+					<button class="slds-button slds-button--brand" onclick="{!v.onSearch}">Search</button>
+				</aura:set>
+			</aura:if>
+			</span>
+		</aura:if>
+        <aura:if isTrue="{!not(v.hideResetSearch)}">
+			<span class="slds-m-left--xx-small slds-m-right--xx-small">
+			<aura:if isTrue="{!v.disableResetSearch}">
+				<button class="slds-button slds-button--neutral" onclick="" disabled="true">Reset Search</button>
+				<aura:set attribute="else">
+					<button class="slds-button slds-button--neutral" onclick="{!v.onResetSearch}">Reset Search</button>
+				</aura:set>
+			</aura:if>
+			</span>
+		</aura:if>
+		<aura:if isTrue="{!not(v.hideRefresh)}">
+			<span class="slds-m-left--xx-small slds-m-right--xx-small">
+			<aura:if isTrue="{!v.disableRefresh}">
+				<button class="slds-button slds-button--brand" onclick="" disabled="true">Refresh</button>
+				<aura:set attribute="else">
+					<button class="slds-button slds-button--brand" onclick="{!v.onRefresh}">Refresh</button>
+				</aura:set>
+			</aura:if>
+			</span>
+		</aura:if>
+		<aura:if isTrue="{!not(v.hideResetSort)}">
+			<span class="slds-m-left--xx-small slds-m-right--xx-small">
+			<aura:if isTrue="{!v.disableResetSort}">
+				<button class="slds-button slds-button--brand" onclick="" disabled="true">Reset Sort</button>
+				<aura:set attribute="else">
+					<button class="slds-button slds-button--brand" onclick="{!v.onResetSort}">Reset Sort</button>
+				</aura:set>
+			</aura:if>
+			</span>
+		</aura:if>
+		<aura:if isTrue="{!not(v.hideClose)}">
+			<span class="slds-m-left--xx-small slds-m-right--xx-small">
+			<aura:if isTrue="{!v.disableClose}">
+				<button class="slds-button slds-button--brand" onclick="" disabled="true">Close</button>
+				<aura:set attribute="else">
+					<button class="slds-button slds-button--brand" onclick="{!v.onClose}">Close</button>
+				</aura:set>
+			</aura:if>
+			</span>
+		</aura:if>
+	</div>
+</aura:component>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Close_Case</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Close Case</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/apex.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/support/console/30.0/integration.js&quot;)}
+
+var profileName = &quot;{!$Profile.Name}&quot;;
+var caseClosePage = &quot;/{!Case.Id}/s?retURL=/{!Case.Id}&quot;;
+var caseType = &quot;{!Case.RecordType}&quot;;
+var caseOrigin = &quot;{!Case.Origin}&quot;;
+
+if(profileName.indexOf(&quot;Direct Sales&quot;) !== -1 &amp;&amp; caseType == &quot;Advertising&quot; &amp;&amp; (caseOrigin.indexOf(&quot;Call&quot;) !== -1 || caseOrigin.indexOf(&quot;Email&quot;) !== -1 || caseOrigin.indexOf(&quot;Fax&quot;) !== -1))
+{
+var result = sforce.connection.query(&quot;Select count() From Task t Where t.WhatId = \&#39;{!Case.Id}\&#39; And t.IsClosed = false&quot;);
+
+if(result.size &gt; 0)
+{
+   var message = &quot;This case cannot be closed because it has &quot; + result.size + &quot; open &quot;;
+
+   if(result.size == 1)
+   {
+      message += &quot;task&quot;;
+   }
+   else
+   {
+      message += &quot;tasks&quot;;
+   }
+
+   alert(message);
+}
+else
+{
+   // close case
+   var caseId = &quot;{!Case.Id}&quot;;
+   var caseRec = sforce.connection.retrieve(&quot;Status&quot;, &quot;Case&quot;, [caseId])[0];
+
+   caseRec.Status = &quot;Closed&quot;;
+
+   result = sforce.connection.update([caseRec]);
+ 
+   if (result[0].getBoolean(&quot;success&quot;)) 
+   {
+     alert(&quot;Case {!Case.CaseNumber} is now closed&quot;);
+     window.location.reload();
+   } 
+   else 
+   {
+     alert(&quot;failed to update case {!Case.CaseNumber}.&quot; + result[0]);
+   }
+}
+}
+else
+{
+window.location.href= caseClosePage;
+}</url>
+</WebLink>

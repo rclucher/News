@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Progress__c</fullName>
+    <description>G = on target to meet completion date
+Y = delayed, but no impact to overall project schedule
+R = delayed, will impact go live date</description>
+    <externalId>false</externalId>
+    <inlineHelpText>G = on target to meet completion date
+Y = delayed, but no impact to overall project schedule
+R = delayed, will impact go live date</inlineHelpText>
+    <label>Progress</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Green</fullName>
+                <default>true</default>
+                <label>Green</label>
+            </value>
+            <value>
+                <fullName>Yellow</fullName>
+                <default>false</default>
+                <label>Yellow</label>
+            </value>
+            <value>
+                <fullName>Red</fullName>
+                <default>false</default>
+                <label>Red</label>
+            </value>
+            <value>
+                <fullName>DONE</fullName>
+                <default>false</default>
+                <label>DONE</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

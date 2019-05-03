@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Master_Digital_Status__c</fullName>
+    <description>Verifies whether the Account is usable for Digital purposes - using Digital-related fields and the Account Status.
+
+Used in various other formulas and workflows as a check.</description>
+    <externalId>false</externalId>
+    <formula>AND(
+  ISPICKVAL(Digital_Status__c,&#39;Active&#39;) , 
+  NOT( ISBLANK(AdPoint_Id__c )), 
+  ISPICKVAL(Status__c, &#39;Active&#39;)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Master Digital Status</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

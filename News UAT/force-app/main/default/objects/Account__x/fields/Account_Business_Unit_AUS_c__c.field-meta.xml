@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Business_Unit_AUS_c__c</fullName>
+    <externalDeveloperName>Account_Business_Unit_AUS__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Account Business Unit</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>AIRLIE BEACH</fullName>
+                <default>false</default>
+                <label>AIRLIE BEACH</label>
+            </value>
+            <value>
+                <fullName>BIG RIGS</fullName>
+                <default>false</default>
+                <label>BIG RIGS</label>
+            </value>
+            <value>
+                <fullName>BILOELA</fullName>
+                <default>false</default>
+                <label>BILOELA</label>
+            </value>
+            <value>
+                <fullName>BRISBANE</fullName>
+                <default>false</default>
+                <label>BRISBANE</label>
+            </value>
+            <value>
+                <fullName>BUNDABERG</fullName>
+                <default>false</default>
+                <label>BUNDABERG</label>
+            </value>
+            <value>
+                <fullName>COFFS HARBOUR</fullName>
+                <default>false</default>
+                <label>COFFS HARBOUR</label>
+            </value>
+            <value>
+                <fullName>CONTACT CENTRE</fullName>
+                <default>false</default>
+                <label>CONTACT CENTRE</label>
+            </value>
+            <value>
+                <fullName>EMERALD</fullName>
+                <default>false</default>
+                <label>EMERALD</label>
+            </value>
+            <value>
+                <fullName>FRASER COAST</fullName>
+                <default>false</default>
+                <label>FRASER COAST</label>
+            </value>
+            <value>
+                <fullName>GATTON</fullName>
+                <default>false</default>
+                <label>GATTON</label>
+            </value>
+            <value>
+                <fullName>GLADSTONE</fullName>
+                <default>false</default>
+                <label>GLADSTONE</label>
+            </value>
+            <value>
+                <fullName>GOLD COAST</fullName>
+                <default>false</default>
+                <label>GOLD COAST</label>
+            </value>
+            <value>
+                <fullName>GRAFTON</fullName>
+                <default>false</default>
+                <label>GRAFTON</label>
+            </value>
+            <value>
+                <fullName>GYMPIE</fullName>
+                <default>false</default>
+                <label>GYMPIE</label>
+            </value>
+            <value>
+                <fullName>IPSWICH</fullName>
+                <default>false</default>
+                <label>IPSWICH</label>
+            </value>
+            <value>
+                <fullName>KINGAROY</fullName>
+                <default>false</default>
+                <label>KINGAROY</label>
+            </value>
+            <value>
+                <fullName>LISMORE</fullName>
+                <default>false</default>
+                <label>LISMORE</label>
+            </value>
+            <value>
+                <fullName>MACKAY</fullName>
+                <default>false</default>
+                <label>MACKAY</label>
+            </value>
+            <value>
+                <fullName>MELBOURNE</fullName>
+                <default>false</default>
+                <label>MELBOURNE</label>
+            </value>
+            <value>
+                <fullName>MILTON</fullName>
+                <default>false</default>
+                <label>MILTON</label>
+            </value>
+            <value>
+                <fullName>ONLINE</fullName>
+                <default>false</default>
+                <label>ONLINE</label>
+            </value>
+            <value>
+                <fullName>ROCKHAMPTON</fullName>
+                <default>false</default>
+                <label>ROCKHAMPTON</label>
+            </value>
+            <value>
+                <fullName>RURAL WEEKLY</fullName>
+                <default>false</default>
+                <label>RURAL WEEKLY</label>
+            </value>
+            <value>
+                <fullName>SUNSHINE COAST</fullName>
+                <default>false</default>
+                <label>SUNSHINE COAST</label>
+            </value>
+            <value>
+                <fullName>SURAT BASIN</fullName>
+                <default>false</default>
+                <label>SURAT BASIN</label>
+            </value>
+            <value>
+                <fullName>SYDNEY</fullName>
+                <default>false</default>
+                <label>SYDNEY</label>
+            </value>
+            <value>
+                <fullName>TOOWOOMBA</fullName>
+                <default>false</default>
+                <label>TOOWOOMBA</label>
+            </value>
+            <value>
+                <fullName>TWEED</fullName>
+                <default>false</default>
+                <label>TWEED</label>
+            </value>
+            <value>
+                <fullName>WARWICK</fullName>
+                <default>false</default>
+                <label>WARWICK</label>
+            </value>
+            <value>
+                <fullName>SENIORS</fullName>
+                <default>false</default>
+                <label>SENIORS</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

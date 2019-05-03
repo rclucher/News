@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_CPQ_Approvers</fullName>
+    <columns>NAME</columns>
+    <columns>Sales_Rep__c</columns>
+    <columns>Platform__c</columns>
+    <columns>Approval_Level__c</columns>
+    <columns>L1_Approver__c</columns>
+    <columns>L2_Approver__c</columns>
+    <columns>L3_Approver__c</columns>
+    <columns>L4_Approver__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Sales_Rep__c</field>
+        <operation>equals</operation>
+        <value>peter menzies</value>
+    </filters>
+    <label>All CPQ Approvers</label>
+</ListView>

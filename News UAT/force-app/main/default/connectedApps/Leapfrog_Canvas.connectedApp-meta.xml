@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canvasConfig>
+        <accessMethod>Post</accessMethod>
+        <canvasUrl>https://myaccountuat.newsadds.com.au/salesforce/canvas</canvasUrl>
+        <locations>Visualforce</locations>
+        <samlInitiationMethod>None</samlInitiationMethod>
+    </canvasConfig>
+    <contactEmail>georgia.clarke@news.com.au</contactEmail>
+    <label>Leapfrog Canvas</label>
+    <oauthConfig>
+        <callbackUrl>https://myaccountuat.newsadds.com.au/salesforceoauth</callbackUrl>
+        <consumerKey>3MVG9Se4BnchkASmtngzNh_R0lRGs0EZcecCfaJL9SGGmPt4DhjSOfob6oq4Jxarw3id99GxeYmvPACOT3arJ</consumerKey>
+        <scopes>Basic</scopes>
+    </oauthConfig>
+</ConnectedApp>

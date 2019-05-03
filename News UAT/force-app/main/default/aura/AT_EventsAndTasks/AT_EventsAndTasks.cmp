@@ -1,0 +1,72 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="AT_EventsAndTasks">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute type="Object[]" name="eventsTasks"/>
+    
+	<article class="slds-card">
+      <div class="slds-card__header slds-grid">
+        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+          <div class="slds-media__figure">
+            <span class="slds-icon_container slds-icon-standard-event" title="My Events &amp; Tasks">
+              <lightning:icon iconName="standard:event"/>
+            </span>
+          </div>
+          <div class="slds-media__body">
+            <h2>
+                <b>My Events &amp; Tasks</b>
+            </h2>
+          </div>
+        </header>
+          <div class="slds-no-flex">
+              <lightning:button iconName = "utility:event" variant="neutral" onclick="{!c.viewCalendar}" title="View Calendar" label="View Calendar"/>
+          </div>
+      </div>
+      <div class="slds-card__body slds-card__body_inner" style = "padding: 0px;">
+          <table class="slds-table slds-table_bordered slds-no-row-hover" style="width: 100%; table-layout: fixed;">
+              <thead>
+                  <tr>
+                      <aura:iteration items="{!v.eventsTasks}" var="et">
+                          <th>
+                              {!et.day}&nbsp;&nbsp;{!et.dateMonth}
+                          </th>
+                      </aura:iteration>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <aura:iteration items="{!v.eventsTasks}" var="et">
+                          <td class="day">
+                              <table class="entry">
+                              	<aura:iteration items="{!et.entries}" var="d">
+                                    <tr>
+                                        <aura:if isTrue="{!d.type == 'task'}">
+                                            <td class="icon">
+                                                <lightning:icon iconName="standard:task" size="x-small"/>
+                                            </td>
+                                            <td class="link">
+                                                <lightning:formattedUrl value="{!('#/sObject/' + d.id + '/view')}" label='{!d.title}'/>                                          
+                                            </td>
+                                        </aura:if>
+                                        <aura:if isTrue="{!d.type == 'event'}">
+                                            <td class="icon">
+                                                <lightning:icon iconName="standard:event" size="x-small"/>
+                                            </td>
+                                            <td class="link">
+                                                {!d.displayTime}<br/>
+                                                <a href="{!('/lightning/r/' + d.id + '/view')}">{!d.title}</a>
+                                            </td>
+                                        </aura:if>
+                                    </tr>
+                              	</aura:iteration>
+                              </table>
+                          </td>
+                      </aura:iteration>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      <!--footer class="slds-card__footer">
+          <lightning:button variant="bare" label="View Calendar" onclick="{!c.viewCalendar}"/>
+      </footer-->
+    </article>  
+</aura:component>

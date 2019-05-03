@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Revenue_Group__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Revenue Groups are based on the News Corp categorisations that are defined for budget and forecasting reporting. This field will feed into Opportunity and Booking information.</inlineHelpText>
+    <label>Revenue Group</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Amusements</fullName>
+                <default>false</default>
+                <label>Amusements</label>
+            </value>
+            <value>
+                <fullName>Employment</fullName>
+                <default>false</default>
+                <label>Employment</label>
+            </value>
+            <value>
+                <fullName>House</fullName>
+                <default>false</default>
+                <label>House</label>
+            </value>
+            <value>
+                <fullName>Motor Vehicle Dealers</fullName>
+                <default>false</default>
+                <label>Motor Vehicle Dealers</label>
+            </value>
+            <value>
+                <fullName>National (Communications/business equipment)</fullName>
+                <default>false</default>
+                <label>National (Communications/business equipment)</label>
+            </value>
+            <value>
+                <fullName>National (Computers)</fullName>
+                <default>false</default>
+                <label>National (Computers)</label>
+            </value>
+            <value>
+                <fullName>National (Finance)</fullName>
+                <default>false</default>
+                <label>National (Finance)</label>
+            </value>
+            <value>
+                <fullName>National (Food and beverages)</fullName>
+                <default>false</default>
+                <label>National (Food and beverages)</label>
+            </value>
+            <value>
+                <fullName>National (Gambling/gaming)</fullName>
+                <default>false</default>
+                <label>National (Gambling/gaming)</label>
+            </value>
+            <value>
+                <fullName>National (Government/political)</fullName>
+                <default>false</default>
+                <label>National (Government/political)</label>
+            </value>
+            <value>
+                <fullName>National (Media)</fullName>
+                <default>false</default>
+                <label>National (Media)</label>
+            </value>
+            <value>
+                <fullName>National (Motor Vehicle Manufacturers)</fullName>
+                <default>false</default>
+                <label>National (Motor Vehicle Manufacturers)</label>
+            </value>
+            <value>
+                <fullName>National (Other)</fullName>
+                <default>false</default>
+                <label>National (Other)</label>
+            </value>
+            <value>
+                <fullName>National (Personal care products)</fullName>
+                <default>false</default>
+                <label>National (Personal care products)</label>
+            </value>
+            <value>
+                <fullName>National (Pharmaceutical / Health Products)</fullName>
+                <default>false</default>
+                <label>National (Pharmaceutical / Health Products)</label>
+            </value>
+            <value>
+                <fullName>National (Travel)</fullName>
+                <default>false</default>
+                <label>National (Travel)</label>
+            </value>
+            <value>
+                <fullName>Public Notices</fullName>
+                <default>false</default>
+                <label>Public Notices</label>
+            </value>
+            <value>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+                <label>Real Estate</label>
+            </value>
+            <value>
+                <fullName>Retail</fullName>
+                <default>false</default>
+                <label>Retail</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

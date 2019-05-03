@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Campaign_Publication_Division_Required</fullName>
+    <active>true</active>
+    <description>The Publication Division is required when the Campaign is a Retention or Contact Plan</description>
+    <errorConditionFormula>AND(
+  ISBLANK( Publication_Division__c ),
+  OR( 
+    ISPICKVAL( Type , &#39;Retention&#39;),
+    ISPICKVAL( Type , &#39;Contact Plan&#39;)
+  )
+)</errorConditionFormula>
+    <errorDisplayField>Publication_Division__c</errorDisplayField>
+    <errorMessage>A Publication Division must be provided if the Campaign Type is Retention or Contact Plan</errorMessage>
+</ValidationRule>

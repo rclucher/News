@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Lightning verion of Button to set the Campaign Order orchestrator process to Normal Priority</description>
+    <height>250</height>
+    <label>Set Normal Priority</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <page>CO_Normal_Priority_VF_Page</page>
+    <type>VisualforcePage</type>
+    <width>-100</width>
+</QuickAction>

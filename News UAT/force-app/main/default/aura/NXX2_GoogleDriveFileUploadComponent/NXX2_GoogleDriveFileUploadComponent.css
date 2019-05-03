@@ -1,0 +1,5 @@
+.THIS {
+}
+.THIS .slds-file-selector__dropzone .slds-file-selector__text{ /*the right label*/
+    display: none;
+}

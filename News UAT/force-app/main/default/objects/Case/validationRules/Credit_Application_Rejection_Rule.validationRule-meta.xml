@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Application_Rejection_Rule</fullName>
+    <active>true</active>
+    <description>Validation rule to ensure information is populated for Rejection notification.</description>
+    <errorConditionFormula>AND(RecordType.DeveloperName = &#39;Credit_Application&#39;, ISPICKVAL( Status  , &#39;Closed - Rejected&#39;), OR(NOT( OR(ISPICKVAL( Type , &#39;Credit Application&#39;) ,ISPICKVAL( Type , &#39;Direct Debit Application&#39;), ISPICKVAL( Type , &#39;NewsPay Application&#39;)) ), ISBLANK( Contact.Email )))</errorConditionFormula>
+    <errorMessage>You must populate Type to Credit Application or Direct Debit Application and select an appropriate Contact with an email address before changing the Status to Closed - Rejected.</errorMessage>
+</ValidationRule>

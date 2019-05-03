@@ -1,0 +1,52 @@
+<aura:component controller='NXX2_GoogleDriveFileBrowserController'  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" >
+    
+    <aura:attribute name="files" type="Object"/>   
+    <aura:dependency resource="markup://force:navigateToURL" type="EVENT"/>
+    <aura:attribute name="overlay" type="Object"/> 
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+
+    <aura:registerEvent name="googleDriveFileDeleteEvent" type="c:NXX2_GoogleDriveFileDeleteEvent"/>
+    
+    <tr class="slds-hint-parent">
+        <th scope="row">
+            <div class="slds-truncate" title="{!v.files.title}">
+                <div class="slds-grid slds-gutters">
+                    <ul class="slds-has-dividers_bottom-space">
+                        <li class="slds-item liBorder" >
+                            <lightning:tile label="{!v.files.title}" href="#" >
+                                <aura:set attribute="media">
+                                    <lightning:avatar src="{!v.files.thumbnailLink}" fallbackIconName="doctype:image" alternativeText="{!v.files.title}" class='custom-slds-avatar_medium'/>
+                                </aura:set>
+                                <p class="slds-truncate">Created On: <ui:outputDate format="d/M/yyyy" 
+                                               value="{!v.files.createdDate}" /></p>
+                                
+                            </lightning:tile>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </th>
+        
+        <td>
+            <div class="slds-truncate" >
+                <div class="slds-button-group" role="group">
+                    <button class="slds-button slds-button_icon" onclick="{! c.handleFileDownLoadOperation }">
+                        <lightning:icon iconName="action:download" alternativeText="{!'Download' + v.files.title}" 
+                                        title="{!'Download ' + v.files.title}" />
+                    </button>
+                    <button class="slds-button slds-button_icon" onclick="{! c.handleFilePreview }">
+                        <lightning:icon  iconName="action:preview" alternativeText="{!'Download' + v.files.title}"
+                                        title="{!'Click to preview ' + v.files.title}" />
+                    </button>
+                    <button class="slds-button slds-button_icon" onclick="{! c.handleFileDeleteOperation }">
+                        <lightning:icon title="{!'Click to delete ' + v.files.title}" 
+                                        iconName="action:delete" alternativeText="{!'Download' + v.files.title}" />
+                    </button>
+                </div>
+                
+            </div>
+            
+        </td>
+    </tr>
+</aura:component>

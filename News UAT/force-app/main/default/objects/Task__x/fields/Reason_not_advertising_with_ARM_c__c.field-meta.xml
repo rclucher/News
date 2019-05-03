@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_not_advertising_with_ARM_c__c</fullName>
+    <externalDeveloperName>Reason_not_advertising_with_ARM__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Reason not advertising with ARM</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Business closed/retired</fullName>
+                <default>false</default>
+                <label>Business closed/retired</label>
+            </value>
+            <value>
+                <fullName>Established business - has enough from word of mouth or repeat clients</fullName>
+                <default>false</default>
+                <label>Established business - has enough from word of mouth or repeat clients</label>
+            </value>
+            <value>
+                <fullName>Established business - unwilling to expand business, happy with current workload and income</fullName>
+                <default>false</default>
+                <label>Established business - unwilling to expand business, happy with current workload and income</label>
+            </value>
+            <value>
+                <fullName>Franchise - unable to advertise</fullName>
+                <default>false</default>
+                <label>Franchise - unable to advertise</label>
+            </value>
+            <value>
+                <fullName>No budget</fullName>
+                <default>false</default>
+                <label>No budget</label>
+            </value>
+            <value>
+                <fullName>No longer sole trader/working for someone else</fullName>
+                <default>false</default>
+                <label>No longer sole trader/working for someone else</label>
+            </value>
+            <value>
+                <fullName>No reason/disengaged client</fullName>
+                <default>false</default>
+                <label>No reason/disengaged client</label>
+            </value>
+            <value>
+                <fullName>No response</fullName>
+                <default>false</default>
+                <label>No response</label>
+            </value>
+            <value>
+                <fullName>Too expensive</fullName>
+                <default>false</default>
+                <label>Too expensive</label>
+            </value>
+            <value>
+                <fullName>Advertising elsewhere (please provide details)</fullName>
+                <default>false</default>
+                <label>Advertising elsewhere (please provide details)</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

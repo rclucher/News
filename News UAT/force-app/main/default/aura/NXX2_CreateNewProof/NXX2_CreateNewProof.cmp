@@ -1,0 +1,41 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" access="global" controller="NXX2_OverrideButtonController">
+    <aura:attribute name="recordTypeId" type="String"/>
+    <aura:attribute name="displayInModal" type="Boolean" default="false"/>
+    <aura:attribute name="displaySpinner" type="Boolean" default="true"/>
+    <aura:attribute name="disabled" type="Boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <lightning:navigation aura:id="navService"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <div>
+    <aura:if isTrue="{!v.displaySpinner}">
+        	<lightning:spinner size="medium"/>
+    </aura:if>
+    <lightning:recordEditForm
+                              recordTypeId = "{!v.recordTypeId}"
+                              onload="{!c.handleLoad}"
+                              onerror="{!c.handleError}"
+                              onsubmit="{!c.handleSubmit}"
+                              objectApiName="SocialCampaign__c" 
+                              onsuccess ="{!c.closeModal }" >
+        <lightning:messages />
+        <div class="slds-grid slds-wrap slds-gutters">
+        	<div class="slds-col slds-size_1-of-2">        
+                <lightning:inputField fieldName="Status__c" />
+            </div>
+            <div class="slds-col slds-size_1-of-2">        
+                <lightning:inputField fieldName="Product_Order__c" value="{!v.recordId}" disabled="{!v.disabled}" onchange="{!c.onPOChange}"/>
+            </div>
+            <div class="slds-col slds-size_1-of-2">        
+                <lightning:inputField fieldName="Campaign_Start_Date__c" />
+            </div>
+            <div class="slds-col slds-size_1-of-2">        
+                <lightning:inputField fieldName="Campaign_End_Date__c" />
+            </div>
+        </div>
+        <div class="slds-m-top_medium">
+            <lightning:button name="cancel" label="Cancel" onclick="{!c.closeModal}"/>
+            <lightning:button variant="brand" type="submit" name="save" label="Save" />
+        </div>
+    </lightning:recordEditForm>
+        </div>
+</aura:component>

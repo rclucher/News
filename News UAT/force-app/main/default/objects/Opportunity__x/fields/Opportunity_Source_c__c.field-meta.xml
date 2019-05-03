@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Source_c__c</fullName>
+    <externalDeveloperName>Opportunity_Source__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Opportunity Source</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Advertised in other competitor</fullName>
+                <default>false</default>
+                <label>Advertised in other competitor</label>
+            </value>
+            <value>
+                <fullName>Advertised in press competitor</fullName>
+                <default>false</default>
+                <label>Advertised in press competitor</label>
+            </value>
+            <value>
+                <fullName>Advertised in radio competitor</fullName>
+                <default>false</default>
+                <label>Advertised in radio competitor</label>
+            </value>
+            <value>
+                <fullName>Advertised in TV competitor</fullName>
+                <default>false</default>
+                <label>Advertised in TV competitor</label>
+            </value>
+            <value>
+                <fullName>Contact Centre referral</fullName>
+                <default>false</default>
+                <label>Contact Centre referral</label>
+            </value>
+            <value>
+                <fullName>Editorial Referral</fullName>
+                <default>false</default>
+                <label>Editorial Referral</label>
+            </value>
+            <value>
+                <fullName>Features referral</fullName>
+                <default>false</default>
+                <label>Features referral</label>
+            </value>
+            <value>
+                <fullName>Free market or local council reports</fullName>
+                <default>false</default>
+                <label>Free market or local council reports</label>
+            </value>
+            <value>
+                <fullName>Lapsed Account Database</fullName>
+                <default>false</default>
+                <label>Lapsed Account Database</label>
+            </value>
+            <value>
+                <fullName>Lapsed Accounts</fullName>
+                <default>false</default>
+                <label>Lapsed Accounts</label>
+            </value>
+            <value>
+                <fullName>Local Mail Drop</fullName>
+                <default>false</default>
+                <label>Local Mail Drop</label>
+            </value>
+            <value>
+                <fullName>Marketing Referral</fullName>
+                <default>false</default>
+                <label>Marketing Referral</label>
+            </value>
+            <value>
+                <fullName>Networking</fullName>
+                <default>false</default>
+                <label>Networking</label>
+            </value>
+            <value>
+                <fullName>Referral from existing customer</fullName>
+                <default>false</default>
+                <label>Referral from existing customer</label>
+            </value>
+            <value>
+                <fullName>Self-sourced</fullName>
+                <default>false</default>
+                <label>Self-sourced</label>
+            </value>
+            <value>
+                <fullName>Current Advertiser</fullName>
+                <default>false</default>
+                <label>Current Advertiser</label>
+            </value>
+            <value>
+                <fullName>Ad Agency</fullName>
+                <default>false</default>
+                <label>Ad Agency</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

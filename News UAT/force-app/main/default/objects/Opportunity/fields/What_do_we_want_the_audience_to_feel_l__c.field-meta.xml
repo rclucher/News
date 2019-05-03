@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>What_do_we_want_the_audience_to_feel_l__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>What do we want the audience to feel / think / learn?</inlineHelpText>
+    <label>What do we want the audience to feel?</label>
+    <length>1000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>2</visibleLines>
+</CustomField>

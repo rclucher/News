@@ -1,0 +1,74 @@
+<aura:component controller='NXX2_AccountListController' implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+
+<aura:handler name="refreshParentPage" event="c:NXX2_RefreshParentPage" action="{!c.refreshView}"/>
+
+<!--<aura:handler name="loadRelatedCustomerActivity" event="c:NXX2_HandleCustomerActivitiesDetailView" action="{!c.openAccountRelatedCustomerActivity}"/> -->
+
+<aura:registerEvent name="loadCustomerTaskRelatedToSObjectEvent" type="c:NXX2_LoadCustomerTaskRelatedToSObjectEvent"/>
+
+<aura:attribute name="accountOverlay" type="Object"/>
+
+<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+<aura:attribute name="sObjectName" type="String" default='Account'/>
+<aura:attribute name="accountList" type="List" />
+<aura:attribute name="isUserHasSearchAccessToContact" type="Boolean" default="false"/>
+
+<aura:attribute name="iconName" type="String" />
+<aura:attribute name="contactId" type="String" />
+<aura:attribute name="Spinner" type="boolean" default="false"/>
+<aura:attribute name="issearching"    type="Boolean" default="false"/>
+<lightning:overlayLibrary aura:id="overlayLib"/>
+    
+<lightning:card variant="Narrow" title="Accounts"  iconName="{!v.iconName}" >
+        <aura:set attribute="actions">
+            <aura:if isTrue="{!v.isUserHasSearchAccessToContact}">
+                <div onkeyup="{! c.searchAccounts }"> 
+                    <lightning:input
+                        aura:id="enter-search"
+                        name="enter-search"
+                        label="Enter Contact Email address for Account and hit Enter"
+                        isLoading="{! v.issearching }"
+                        type="search"
+                    />
+                </div>
+            </aura:if> 
+            
+        </aura:set>
+    <p class="slds-p-horizontal_small">
+        <div class="slds-card__body">
+            <table class="slds-table slds-table_cell-buffer slds-no-row-hover slds-table_bordered slds-table_fixed-layout" role="grid">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Name">Name</div>
+                        </th>
+                       <!-- <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Id">Account Type</div>
+                        </th> -->
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:if isTrue="{!v.Spinner}">
+                        <div class="spinner-container">
+                            <lightning:spinner alternativeText="Loading" size="medium" aura:id="LoadingReport"/>
+                        </div>
+                        <aura:set attribute="else">
+                            <aura:iteration items="{!v.accountList}" var="account" indexVar="fileIndex">
+                                <c:NXX2_MyAccountView account="{!account}"  iconName="{!v.iconName}"/>
+                            </aura:iteration>
+                        </aura:set>
+                    </aura:if>
+                    <aura:if isTrue="{! and(empty(v.accountList),!v.Spinner)}">
+                        <tr>
+                            <td colspan="2" class="no-record-msg">No Records To Display</td>
+                        </tr>
+                    </aura:if> 
+                </tbody>
+            </table>
+        </div>
+        
+    </p>
+</lightning:card>
+
+</aura:component>

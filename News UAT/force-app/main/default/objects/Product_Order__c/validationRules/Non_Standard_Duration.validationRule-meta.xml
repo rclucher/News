@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Non_Standard_Duration</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL( Duration_Type__c, &#39;Non-standard&#39;) &amp;&amp;  Duration_Comment__c ==&#39;&#39;</errorConditionFormula>
+    <errorDisplayField>Duration_Comment__c</errorDisplayField>
+    <errorMessage>Populate Duration Comment field.</errorMessage>
+</ValidationRule>

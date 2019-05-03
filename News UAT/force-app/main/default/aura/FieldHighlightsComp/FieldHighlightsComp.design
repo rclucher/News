@@ -1,0 +1,6 @@
+<design:component label="Field Highlight">
+	<design:attribute name="isFieldSet" label="Use Field Set" description="Select this if you want to use a field set against the object"/>
+	<design:attribute name="field" label="Field" description="API name of the field or fieldset to display" />
+	<design:attribute name="showLabel" label="Display Field Label?" description="Display or hide the standard field label" />
+	<design:attribute name="title" label="Title" description="Title of the card (optional)" />
+</design:component>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Xtend_Opportunity_CW</fullName>
+    <active>false</active>
+    <errorConditionFormula>NOT(ISPICKVAL(PRIORVALUE(StageName),&#39;Closed Won&#39;)) &amp;&amp; 
+INCLUDES(OpportunityGroup__c, &#39;NewsXtend&#39;) &amp;&amp; ISPICKVAL(StageName, &#39;Closed Won&#39;) &amp;&amp; Briefing_Form_Status__c != &#39;Completed&#39;</errorConditionFormula>
+    <errorMessage>To Close Win Xtend Opportunity, you need to complete Sales Briefing Form</errorMessage>
+</ValidationRule>

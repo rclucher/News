@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ABRPayloadSearchResults xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://abr.business.gov.au/ABRXMLSearch/">
+  <request>
+    <identifierSearchRequest>
+      <authenticationGUID>229cdaa7-f787-47f0-99a1-b5d7ef9120c0</authenticationGUID>
+      <identifierType>ABN</identifierType>
+      <identifierValue>47007871178</identifierValue>
+      <history>N</history>
+    </identifierSearchRequest>
+  </request>
+  <response>
+    <usageStatement>This extract is based on information supplied by businesses to the Registrar of the Australian Business Register. 
+         Neither the Registrar nor the Australian Government guarantee this information is accurate, up to date or complete. 
+         You should consider verifying this information from other sources.</usageStatement>
+    <dateRegisterLastUpdated>2013-05-20</dateRegisterLastUpdated>
+    <dateTimeRetrieved>2013-05-20T13:38:38.015625+10:00</dateTimeRetrieved>
+    <businessEntity>
+      <recordLastUpdatedDate>2013-03-22</recordLastUpdatedDate>
+      <ABN>
+        <identifierValue>47007871178</identifierValue>
+        <isCurrentIndicator>Y</isCurrentIndicator>
+        <replacedFrom>0001-01-01</replacedFrom>
+      </ABN>
+      <entityStatus>
+        <entityStatusCode>Active</entityStatusCode>
+        <effectiveFrom>2000-05-10</effectiveFrom>
+        <effectiveTo>0001-01-01</effectiveTo>
+      </entityStatus>
+      <ASICNumber>007871178</ASICNumber>
+      <entityType>
+        <entityTypeCode>PUB </entityTypeCode>
+        <entityDescription>Australian Public Company</entityDescription>
+      </entityType>
+      <goodsAndServicesTax>
+        <effectiveFrom>2000-07-01</effectiveFrom>
+        <effectiveTo>0001-01-01</effectiveTo>
+      </goodsAndServicesTax>
+      <mainName>
+        <organisationName>NEWS PTY LIMITED</organisationName>
+        <effectiveFrom>2002-05-05</effectiveFrom>
+      </mainName>
+      <mainTradingName>
+        <organisationName>NEWS PTY LIMITED</organisationName>
+        <effectiveFrom>2000-05-10</effectiveFrom>
+      </mainTradingName>
+      <mainBusinessPhysicalAddress>
+        <stateCode>NSW</stateCode>
+        <postcode>2010</postcode>
+        <effectiveFrom>2008-07-21</effectiveFrom>
+        <effectiveTo>0001-01-01</effectiveTo>
+      </mainBusinessPhysicalAddress>
+    </businessEntity>
+  </response>
+</ABRPayloadSearchResults>

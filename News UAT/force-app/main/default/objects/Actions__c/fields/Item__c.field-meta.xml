@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Item__c</fullName>
+    <externalId>false</externalId>
+    <label>Item</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Activity Assignment</fullName>
+                <default>false</default>
+                <label>Activity Assignment</label>
+            </value>
+            <value>
+                <fullName>Activity Closure</fullName>
+                <default>false</default>
+                <label>Activity Closure</label>
+            </value>
+            <value>
+                <fullName>API Knowledge Transfer</fullName>
+                <default>false</default>
+                <label>API Knowledge Transfer</label>
+            </value>
+            <value>
+                <fullName>Campaigns</fullName>
+                <default>false</default>
+                <label>Campaigns</label>
+            </value>
+            <value>
+                <fullName>Contracts &amp; Orders</fullName>
+                <default>false</default>
+                <label>Contracts &amp; Orders</label>
+            </value>
+            <value>
+                <fullName>Creating Activities</fullName>
+                <default>false</default>
+                <label>Creating Activities</label>
+            </value>
+            <value>
+                <fullName>Dashboards</fullName>
+                <default>false</default>
+                <label>Dashboards</label>
+            </value>
+            <value>
+                <fullName>Data Migration Test File</fullName>
+                <default>false</default>
+                <label>Data Migration Test File</label>
+            </value>
+            <value>
+                <fullName>Date Created Fields</fullName>
+                <default>false</default>
+                <label>Date Created Fields</label>
+            </value>
+            <value>
+                <fullName>Design Progress</fullName>
+                <default>false</default>
+                <label>Design Progress</label>
+            </value>
+            <value>
+                <fullName>Inactive Users</fullName>
+                <default>false</default>
+                <label>Inactive Users</label>
+            </value>
+            <value>
+                <fullName>Knowledge Transfer</fullName>
+                <default>false</default>
+                <label>Knowledge Transfer</label>
+            </value>
+            <value>
+                <fullName>Legacy Systems</fullName>
+                <default>false</default>
+                <label>Legacy Systems</label>
+            </value>
+            <value>
+                <fullName>Mailing List</fullName>
+                <default>false</default>
+                <label>Mailing List</label>
+            </value>
+            <value>
+                <fullName>Project Plan</fullName>
+                <default>false</default>
+                <label>Project Plan</label>
+            </value>
+            <value>
+                <fullName>QTC Interface</fullName>
+                <default>false</default>
+                <label>QTC Interface</label>
+            </value>
+            <value>
+                <fullName>Risks</fullName>
+                <default>false</default>
+                <label>Risks</label>
+            </value>
+            <value>
+                <fullName>Search &amp; Replace</fullName>
+                <default>false</default>
+                <label>Search &amp; Replace</label>
+            </value>
+            <value>
+                <fullName>SOW Invoice</fullName>
+                <default>false</default>
+                <label>SOW Invoice</label>
+            </value>
+            <value>
+                <fullName>Task Console</fullName>
+                <default>false</default>
+                <label>Task Console</label>
+            </value>
+            <value>
+                <fullName>Technical Contact</fullName>
+                <default>false</default>
+                <label>Technical Contact</label>
+            </value>
+            <value>
+                <fullName>Translation Workbench</fullName>
+                <default>false</default>
+                <label>Translation Workbench</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

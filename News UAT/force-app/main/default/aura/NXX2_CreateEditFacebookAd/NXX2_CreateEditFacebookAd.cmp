@@ -1,0 +1,204 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes" controller="NXX2_SocialAdPageController" access="global">
+    <aura:attribute name="adStatus" type="String" default="Create"/>
+    <aura:attribute name="currentFileIndex" type="Integer" default="0"/>
+    <aura:attribute name="proofDetails" type="Map" default="{}"/>
+    <aura:attribute name="adDetails" type="Map" default="{}"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="campaignId" type="String"/>
+    <aura:attribute name="uploadConfig" type="Map" default="{}"/>
+    <aura:attribute name="adTypes" type="List"/>
+    <aura:attribute name="creativeTypes" type="List"/>
+    <aura:attribute name="selectedAdType" type="Map"/>
+    <aura:attribute name="selectedCreativeType" type="Map"/>
+    <aura:attribute name="message" type="String"/>
+    <aura:attribute name="pageInitialized" type="Boolean" default="false"/>
+    <aura:registerEvent name="requestingServer" type="c:NXX2_RequestingServer"/>
+    <aura:registerEvent name="serverResponded" type="c:NXX2_ServerResponded"/>
+    <aura:registerEvent name="closeModal" type="c:NXX2_CloseModal"/>
+    <aura:registerEvent name="initialiseFileUpload" type="c:NXX2_InitialiseFileUpload"/>
+    <aura:registerEvent name="fbAdDetailsChanged" type="c:AllAccount_FacebookAd_DetailsChanged"/>
+    <aura:registerEvent name="AdHasBeenUpdated" type="c:NXX2_AdHasBeenUpdated"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.adDetails}" action="{!c.adDetailsChangedHandler}" />
+    <aura:handler event="c:NXX2_FileUploadCompleted" action="{!c.postUploadHandler}"/>
+    <div class="spinner-container">
+        <lightning:spinner aura:id="mySpinner" size="medium"/>
+    </div>
+    <div class="notification-container">
+        <lightning:notificationsLibrary aura:id="notifLib"/>
+    </div>
+    <div aura:id="containerDiv" class="create-edit-ad-container">
+        <aura:if isTrue="{!or(equals(v.adStatus,'Create'),not(empty(v.adDetails)))}">
+            <div class="version-number-container">
+                Version Number : 
+                <aura:if isTrue="{!notequals(v.adStatus,'CreateNewVersion')}">
+                    <aura:if isTrue="{!empty(v.adDetails.Version_Number__c)}">
+                        1
+                        <aura:set attribute="else">
+                            {!v.adDetails.Version_Number__c}
+                        </aura:set>
+                    </aura:if>
+                    <aura:set attribute="else">
+                        {!add(v.adDetails.Version_Number__c,1)}
+                    </aura:set>
+                </aura:if>
+            </div>
+            <form>
+            <div class="slds-form slds-form_stacked">
+                <div class="slds-form-element">
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col slds-size_1-of-2">
+                            <label class="slds-form-element__label question-title">
+                                Start Date
+                            </label>
+                            <div class="slds-form-element__control answer-container">
+                                <lightning:input type="date" label="Start Date" value="{!v.adDetails.Start_Date__c}"/>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <label class="slds-form-element__label question-title">
+                                End Date
+                            </label>
+                            <div class="slds-form-element__control answer-container">
+                                <lightning:input type="date" label="End Date" value="{!v.adDetails.End_Date__c}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label question-title" for="input-id-01">
+                        <span class="question-count">1</span>
+                        Ad type
+                    </label>
+                    <div class="slds-form-element__control answer-container">
+                        <lightning:select class="select-ad-type" aura:id="selectAdType" name="selectAdType" label="" value="{!v.adDetails.Ad_Type__c}" onchange="{!c.selectAdType}">
+                            <option value="">Select ad type</option>
+                            <aura:iteration items="{!v.adTypes}" var="adType">
+                                <option value="{!adType.adType}">{!adType.adType}</option>
+                            </aura:iteration>
+                        </lightning:select>
+                    </div>
+                </div>
+                <aura:if isTrue="{! not(empty(v.adDetails.Ad_Type__c))}">
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label question-title" for="input-id-01">
+                            <span class="question-count">2</span>
+                            Creative type
+                        </label>
+                        <div class="slds-form-element__control answer-container">
+                            <lightning:select class="select-creative-type" aura:id="selectCreativeType" name="selectCreativeType" label="" onchange="{!c.selectCreativeType}">
+                                <option value="">Select creative type</option>
+                                <aura:iteration items="{!v.creativeTypes}" var="creativeType">
+                                    <option value="{!creativeType.creativeTypeName}">{!creativeType.creativeTypeName}</option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                    </div>
+                </aura:if>
+                <aura:if isTrue="{! not(empty(v.adDetails.Creative_Type__c))}">
+                    <div class="slds-form-element adContent-container">
+                        <label class="question-title" for="input-id-01">
+                            <span class="question-count">3</span>
+                            Ad content
+                        </label>
+                        <span class="CharCount">Remaining Characters : {!if(empty(v.adDetails.Ad_Text__c),v.selectedCreativeType.textMaxLength,sub(v.selectedCreativeType.textMaxLength,v.adDetails.Ad_Text__c.length))}</span>
+                        <lightning:input label="Text" name="contentText" maxlength="{!v.selectedCreativeType.textMaxLength}" value="{!v.adDetails.Ad_Text__c}"/>
+                        <aura:if isTrue="{! notequals(v.adDetails.Creative_Type__c,'Carousel')}">
+                            <aura:if isTrue="{! and((and(notequals(v.adDetails.Ad_Type__c,'Event Response'),notequals(v.adDetails.Ad_Type__c,'Video Views'))),notequals(v.adDetails.Ad_Type__c,'Engagement'))}">
+                        <span class="CharCount">Remaining Characters : {!if(empty(v.adDetails.Ad_Headline__c),v.selectedCreativeType.headlineMaxLength,sub(v.selectedCreativeType.headlineMaxLength,v.adDetails.Ad_Headline__c.length))}</span>
+                                <lightning:input label="Headline" name="contentHeadline" maxlength="{!v.selectedCreativeType.headlineMaxLength}" value="{!v.adDetails.Ad_Headline__c}"/>
+                        <span class="CharCount">Remaining Characters : {!if(empty(v.adDetails.Ad_Newsfeed_Link_Description__c),v.selectedCreativeType.linkDescriptionMaxLength,sub(v.selectedCreativeType.linkDescriptionMaxLength,v.adDetails.Ad_Newsfeed_Link_Description__c.length))}</span>
+                                <lightning:input label="Newsfeed link description" name="contentDescription" maxlength="{!v.selectedCreativeType.linkDescriptionMaxLength}" value="{!v.adDetails.Ad_Newsfeed_Link_Description__c}"/>
+                            </aura:if>
+                            <aura:if isTrue="{! equals(v.adDetails.Ad_Type__c,'Event Response')}">
+                                <span class="CharCount">Remaining Characters : {!if(empty(v.adDetails.Event_Name__c),v.selectedCreativeType.eventNameMaxLength,sub(v.selectedCreativeType.eventNameMaxLength,v.adDetails.Event_Name__c.length))}</span>
+                                <lightning:input label="Event Name" name="eventName" maxlength="{!v.selectedCreativeType.eventNameMaxLength}" value="{!v.adDetails.Event_Name__c}"/>
+                            </aura:if>
+                        </aura:if>
+                        <aura:if isTrue="{! notequals(v.adDetails.Creative_Type__c,'Carousel')}">
+                            <lightning:input aura:id="field" type="url" label="Link" name="contentLink" value="{!v.adDetails.Ad_Link__c}"/>
+                        </aura:if>
+                        <aura:if isTrue="{! notequals(v.adDetails.Ad_Type__c,'Video Views')}">
+                            <lightning:select aura:id="selectButtonType" name="selectButtonType" label="Button" value="{!v.adDetails.Button_Type__c }">
+                                <option value="">None</option>
+                                <aura:iteration items="{!v.selectedAdType.buttons}" var="buttonType">
+                                    <option value="{!buttonType}">{!buttonType}</option>
+                                </aura:iteration>
+                            </lightning:select>
+                        </aura:if>
+                        <aura:if isTrue="{! or(equals(v.adDetails.Creative_Type__c,'Carousel'),equals(v.adDetails.Creative_Type__c,'Slideshow'))}">
+                            <ul aura:id="file-counter" class="file-counter">
+                                <aura:iteration items="{!v.adDetails.uploadedFiles}" var="file" indexVar="index">
+                                    <li class="file-count" data-index="{!index}" onclick="{!c.changeCurrentFileIndex}">
+                                        <aura:if isTrue="{! notequals(file.type,'Text')}">
+                                            <img src="{!file.fileURL}"></img>
+                                            <aura:set attribute="else">
+                                                {!add(index,1)}
+                                            </aura:set>
+                                        </aura:if>
+                                    </li>
+                                </aura:iteration>
+                                <aura:if isTrue="{!lessthan(v.adDetails.uploadedFiles.length,10)}">
+                                    <li onclick="{!c.addFileCount}">
+                                        <lightning:icon iconName="utility:add" size="xx-small" alternativeText="add"/>
+                                    </li>
+                                </aura:if>
+                            </ul>
+                            <div class="sub-details-container">
+                                <aura:iteration items="{!v.adDetails.uploadedFiles}" var="file" indexVar="index">
+                                    <aura:if isTrue="{! equals(v.currentFileIndex,index)}">
+                                        <aura:if isTrue="{!greaterthan(v.adDetails.uploadedFiles.length,3)}">
+                                            <span class="remove-sub-detail" onclick="{!c.removeSubDetail}">Remove</span>
+                                        </aura:if>
+                                        <div class="upload-image-section">
+                                            <div class="remove-image-icon-container">
+                                                <aura:if isTrue="{! notequals(file.type,'Text')}">
+                                                    <span onclick="{!c.removeImage}">
+                                                        <lightning:icon iconName="utility:close" size="xx-small" alternativeText="close"/>
+                                                    </span>
+                                                </aura:if>
+                                            </div>
+                                            <div class="image-preview-container">
+                                                <aura:if isTrue="{! notequals(file.type,'Text')}">
+                                                    <img src="{!file.fileURL}"></img>
+                                                    <aura:set attribute="else">
+                                                        <div>{!file.content}</div>
+                                                    </aura:set>
+                                                </aura:if>
+                                            </div>
+                                            <div class="upload-button-container">
+                                                <lightning:input type="file" label="{!v.uploadConfig.label}" name="fileUploader" multiple="false" accept="{!v.uploadConfig.accept}" onchange="{! c.UploadFile }"/>
+                                            </div>
+                                        </div>
+                                        <aura:if isTrue="{! equals(v.adDetails.Creative_Type__c,'Carousel')}">
+                                            <div class="sub-details-button-container">
+                                                <aura:if isTrue="{! and(notequals(v.adDetails.Ad_Type__c,'Video Views'),notequals(v.adDetails.Ad_Type__c,'Engagement'))}">
+                                                    <span class="CharCount">Remaining Characters : {!if(empty(file.adHeadline),v.selectedCreativeType.headlineMaxLength,sub(v.selectedCreativeType.headlineMaxLength,file.adHeadline.length))}</span>
+                                                    <lightning:input label="Headline" name="contentHeadline" maxlength="{!v.selectedCreativeType.headlineMaxLength}" value="{!file.adHeadline}" onchange="{!c.updateView}"/>
+                                                    <span class="CharCount">Remaining Characters : {!if(empty(file.adNewsfeedDesc),v.selectedCreativeType.linkDescriptionMaxLength,sub(v.selectedCreativeType.linkDescriptionMaxLength,file.adNewsfeedDesc.length))}</span>
+                                                    <lightning:input label="Newsfeed link description" name="contentDescription" maxlength="{!v.selectedCreativeType.linkDescriptionMaxLength}" value="{!file.adNewsfeedDesc}" onchange="{!c.updateView}"/>
+                                                </aura:if>
+                                                <lightning:input aura:id="field" type="url" label="Link" name="contentLink" value="{!file.adLink}" onchange="{!c.updateView}"/>
+                                            </div>
+                                        </aura:if>
+                                    </aura:if>
+                                </aura:iteration>
+                            </div>
+                            <aura:set attribute="else">
+                                <lightning:input type="file" label="{!v.uploadConfig.label}" name="fileUploader" multiple="false" accept="{!v.uploadConfig.accept}" onchange="{! c.UploadFile }"/>
+                            </aura:set>
+                        </aura:if>
+                    </div>
+                </aura:if>
+                <div class="slds-form-element button-container-footer">
+                    <lightning:button label="Cancel" title="Neutral action" onclick="{! c.cancelAd }"/>
+                    <lightning:button variant="success" label="Submit" title="Success" disabled="{!empty(v.adDetails.Ad_Text__c)}" onclick="{! c.saveAd }"/>
+                </div>
+            </div>
+                </form>
+            <aura:set attribute="else">
+                <div class="Message-container">No Record Found</div>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

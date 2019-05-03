@@ -1,0 +1,15 @@
+<apex:component access="global" controller="EmailTemplate_Controller">
+    <apex:attribute name="division" description="Publishing division for the header" type="string" assignTo="{!divisionName}" />
+    <p> 
+    <!--      
+    <apex:image id="NAUS" 
+        value="{!baseUrl}/servlet/servlet.ImageServer?id={!logoId}&oid={!orgId}" 
+        rendered="{!division=='NAUS'}" />
+        
+    <apex:image id="ADV" 
+        value="{!baseUrl}/servlet/servlet.ImageServer?id={!logoId}&oid={!orgId}" 
+        rendered="{!division=='ADV'}" />
+	-->
+	<apex:image id="ADV" value="{!baseUrl}/servlet/servlet.ImageServer?id={!logoId}&oid={!orgId}" rendered="{!NOT(ISBLANK(logoId))}" />
+    </p>
+</apex:component>

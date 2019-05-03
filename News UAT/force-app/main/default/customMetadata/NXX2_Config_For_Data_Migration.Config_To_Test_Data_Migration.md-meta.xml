@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Config To Test Data Migration</label>
+    <protected>false</protected>
+    <values>
+        <field>Doing_Testing__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Named_Credential__c</field>
+        <value xsi:type="xsd:string">GDriveCredentialPRODV2</value>
+    </values>
+    <values>
+        <field>ProofAd_Folder_Id__c</field>
+        <value xsi:type="xsd:string">1eODrI-ENJ9Dgs-C2sO_uK6QP5xaOb52m</value>
+    </values>
+    <values>
+        <field>Proof_Folder_Id__c</field>
+        <value xsi:type="xsd:string">1jDveYm3DVUsXHBMFvRtXryj-gjYnp5oq</value>
+    </values>
+    <values>
+        <field>Team_Drive_Parent_Folder_Id__c</field>
+        <value xsi:type="xsd:string">0AKwr-PKerbieUk9PVA</value>
+    </values>
+</CustomMetadata>

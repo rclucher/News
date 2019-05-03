@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Campaigns</fullName>
+    <columns>NAME</columns>
+    <columns>Account__c</columns>
+    <columns>Customer_Tier__c</columns>
+    <columns>Status__c</columns>
+    <columns>Total_Number_Of_Product_Orders__c</columns>
+    <columns>Proposed_Start_Date__c</columns>
+    <columns>Actual_Start_Date__c</columns>
+    <filterScope>Mine</filterScope>
+    <label>My Campaigns</label>
+</ListView>

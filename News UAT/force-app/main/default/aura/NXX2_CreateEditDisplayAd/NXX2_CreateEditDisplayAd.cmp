@@ -1,0 +1,57 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes" controller="NXX2_SocialAdPageController" access="global">
+    <aura:attribute name="adDetails" type="Map" default="{}"/>
+    <aura:attribute name="campaignId" type="String"/>
+    <aura:attribute name="proofDetails" type="Map"/>
+    <aura:attribute name="processingRequest" type="Boolean" default="false"/>
+    <aura:attribute name="requestMessage" type="String" default="Processing request."/>
+    <aura:registerEvent name="closeModal" type="c:NXX2_CloseModal"/>
+    <aura:registerEvent name="AdHasBeenUpdated" type="c:NXX2_AdHasBeenUpdated"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:if isTrue="{!v.processingRequest}">
+        <div class="spinner-container">
+            <lightning:spinner aura:id="mySpinner" size="medium"/>
+        </div>
+        <div class="processMessage-container">
+            <div class="process-description">{!v.requestMessage}</div>
+        </div>
+    </aura:if>
+    <div class="notification-container">
+        <lightning:notificationsLibrary aura:id="notifLib"/>
+    </div>
+    <div aura:id="containerDiv" class="create-edit-ad-container">
+        <div class="slds-form slds-form_stacked">
+            <div class="slds-form-element">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-2">
+                        <label class="slds-form-element__label question-title">
+                            Start Date
+                        </label>
+                        <div class="slds-form-element__control answer-container">
+                            <lightning:input type="date" label="Start Date" value="{!v.adDetails.Start_Date__c}"/>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <label class="slds-form-element__label question-title">
+                            End Date
+                        </label>
+                        <div class="slds-form-element__control answer-container">
+                            <lightning:input type="date" label="End Date" value="{!v.adDetails.End_Date__c}"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label question-title" for="input-id-01">
+                        Display Link
+                    </label>
+                    <div class="slds-form-element__control answer-container">
+                        <lightning:input aura:id="field" label="Link" type="url" name="displayLink" value="{!v.adDetails.Display_Ad_Link__c}"/>
+                    </div>
+                </div>
+                <div class="slds-form-element button-container-footer">
+                    <lightning:button label="Cancel" title="Neutral action" onclick="{! c.cancelAd }"/>
+                    <lightning:button variant="success" label="Submit" title="Success" disabled="{!empty(v.adDetails.Display_Ad_Link__c)}" onclick="{! c.saveAd }"/>
+                </div>
+            </div>
+    </div>
+</aura:component>

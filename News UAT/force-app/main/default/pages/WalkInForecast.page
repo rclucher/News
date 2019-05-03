@@ -1,0 +1,189 @@
+<apex:page standardController="Opportunity" extensions="WalkinForecast_ControllerX">
+    <apex:includeScript value="/support/console/28.0/integration.js"/>
+    <apex:includeScript value="{!$Resource.JQuery}"/>
+    <script>
+        function checkAll(cb)
+        {
+            var checkboxes = document.getElementsByClassName('checkbox');
+            
+            for(var i in checkboxes)
+            {
+                if(!checkboxes[i].disabled)
+                {
+                    checkboxes[i].checked = cb.checked;   
+                }
+            }   
+            return false;
+        }  
+        
+        jQuery.noConflict();
+        jQuery(function() 
+        {        
+            // if it is in service console, set tab title        
+            if (sforce.console.isInConsole()) 
+            {
+                sforce.console.setTabTitle('Walk-in Forecast');
+            }
+        });
+        
+
+        
+        function applyPattern(revenues, row)
+        {              
+            var currentRow = jQuery(row);
+                        
+            if(currentRow.find(".checkbox").is(':checked'))
+            {            
+                currentRow.find(".productFamily").each(function(i){                
+                    jQuery(this).val(jQuery(revenues[i]).val());
+                });
+            }
+        }        
+
+    </script>
+    <link rel="stylesheet" href="{!URLFOR($Resource.BW_Loading_Status_CSS)}"/>
+    <apex:form id="theForm">
+        <apex:actionStatus id="loading-status">
+            <apex:facet name="start">
+                <div id="loading-background"/>
+                <div id="loading">
+                    <div id="loading-content">
+                    <!--div class="spinner"/-->
+                        <div id="loading-msg">
+                            <img src="/img/loading32.gif" style="float: left; margin: 8px;" />
+                            <span style="display: inline-block; padding: 10px 0px;">Please Wait...</span>
+                        </div>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionStatus>
+
+        <apex:pageMessages id="msg"></apex:pageMessages>        
+        <apex:pageblock id="thePageBlock">
+            <apex:pageblockButtons >
+                <apex:commandButton value="Save" 
+                                    action="{!save}" 
+                                    disabled="{!opportunities.size = 0}"
+                                    reRender="msg, thePageBlock"
+                                    status="loading-status"/>
+                <apex:commandButton value="Quick Save" 
+                                    action="{!quickSave}" 
+                                    disabled="{!opportunities.size = 0}"
+                                    reRender="msg, thePageBlock"
+                                    status="loading-status"/>
+                <apex:commandButton value="Cancel" 
+                                    action="{!cancel}"
+                                    reRender="msg, thePageBlock"
+                                    status="loading-status"/>
+                
+            </apex:pageblockButtons>
+            <apex:pageblockSection columns="4" id="inputSection">
+                <apex:pageblockSection columns="2">
+                    <apex:inputField value="{!oppt.OwnerId}" label="User" required="false" rendered="{!manageAllWalkIn}"> 
+                        <apex:actionSupport event="onchange" reRender="msg, thePageBlock"  status="searching_status" action="{!refreshWalkinForecastTable}"/>
+                    </apex:inputField>
+                    <apex:outputField value="{!oppt.OwnerId}" label="User" rendered="{!NOT(manageAllWalkIn)}"/>
+                    <apex:pageblockSectionItem >
+                        <apex:outputLabel value="Period" />
+                        <apex:selectList size="1" value="{!selectedYear}" id="Period" styleClass="Period">
+                            <apex:selectOptions value="{!YearOptions}">
+                            </apex:selectOptions>
+                            <apex:actionSupport event="onchange" reRender="msg, opportunitySection, inputSection" status="searching_status" action="{!refreshWalkinForecastTable}"/>
+                        </apex:selectList>
+                    </apex:pageblockSectionItem>
+                </apex:pageblockSection>
+            <apex:pageblockSection columns="1">
+                <apex:commandLink value="Actual Walk-ins" target="_blank" action="{!goToReport}"/>
+            </apex:pageblockSection>
+            </apex:pageblockSection>
+            <apex:actionStatus id="searching_status">
+                <apex:facet name="start">
+                    <div class="waitingHolder" style="width: 96%; padding:0px !important; margin:0px !important; min-height:200px;text-align:center;">
+                        <div style="position:relative;top:96px;">
+                            <img src="/img/loading.gif" class="waitingImage" title="Please Wait..." />
+                            <span class="waitingDescription">Loading...</span>
+                        </div>
+                    </div>
+                </apex:facet>
+                <apex:facet name="stop">
+                    <apex:pageblockSection columns="1" id="opportunitySection">            
+                        <script>
+                            jQuery(document).ready(function($) 
+                            {                                
+                                jQuery("a.applyPatternLink").hide();
+                        
+                                jQuery("tr.dataRow").hover(
+                                  function () 
+                                  {
+                                    jQuery(this).find("a.applyPatternLink").show();
+                                  },
+                                  function () 
+                                  {
+                                    jQuery(this).find("a.applyPatternLink").hide();
+                                  }
+                                ); 
+                                
+                                jQuery("a.applyPatternLink").click(function()
+                                {                
+                                    // find walking opportunity table
+                                    var lineItemTable = jQuery(this).closest("table.walkinOpportunityTable");
+                                    
+                                    // find the row to be copied from
+                                    var lineItemRow = jQuery(this).closest("tr");
+                                    
+                                    
+                                    // get revuenue values from the row 
+                                     var revenues = lineItemRow.find(".productFamily");
+                    
+                                    // do copy values to rest of checked rows
+                                    lineItemTable.find("tr").each(function() {
+                                        applyPattern(revenues, this);
+                                    });
+                                    
+                                    return false;
+                                }); 
+                            });
+                            
+
+                            
+                        </script>
+
+                        <apex:pageblockTable value="{!opportunities}" var="oppty" styleClass="walkinOpportunityTable">
+                            <apex:column width="10px;">  
+                                <apex:facet name="header">
+                                    <apex:inputCheckbox id="select_All_Check" onclick="checkAll(this);" styleClass="check_all_checkbox"/>
+                                </apex:facet>                   
+                                <apex:inputCheckbox value="{!oppty.isSelect}" styleClass="checkbox" disabled="{!oppty.weekCommencingDate <= TODAY()}"/>
+                            </apex:column>
+                            <apex:column headerValue="Fiscal Week" width="80px;">
+                                <apex:outputText value="Week {0, Number, 00}">
+                                    <apex:param value="{!oppty.weekNum}"/>                        
+                                </apex:outputText>
+                            </apex:column>
+                            <apex:column headerValue="Week Commencing" width="90px;">
+                               <apex:outputText value="{0,date, dd/MM/yyyy}">
+                                   <apex:param value="{!oppty.weekCommencingDate}"/>
+                               </apex:outputText>
+                            </apex:column>
+                            <apex:repeat value="{!PricebookEntries}" var="prodEntry">
+                                <apex:column headerValue="{!prodEntry.Product2.Family}">                        
+                                    <apex:inputField value="{!oppty.opportunityLineItemsByPricebookEntryId[prodEntry.Id].Custom_TotalPrice__c}" styleClass="productFamily" rendered="{!oppty.weekCommencingDate > TODAY()}"/>
+                                    <apex:outputField value="{!oppty.opportunityLineItemsByPricebookEntryId[prodEntry.Id].Custom_TotalPrice__c}" styleClass="productFamily" rendered="{!NOT(oppty.weekCommencingDate > TODAY())}"/>
+                                </apex:column>
+                            </apex:repeat>                            
+                            <apex:column headerValue="Total">
+                                <apex:outputText value="{0, number, $,##0.00}">
+                                   <apex:param value="{!oppty.opportunity.Amount}"/>
+                                </apex:outputText>
+                            </apex:column>                            
+                            <apex:column width="100px;">
+                                <apex:outputLink value="#" styleClass="applyPatternLink" rendered="{!oppty.weekCommencingDate > TODAY()}">Apply Pattern</apex:outputLink>                            
+                            </apex:column>
+                        </apex:pageblockTable>
+                    </apex:pageblockSection> 
+                </apex:facet>
+            </apex:actionStatus>     
+        </apex:pageblock>
+    </apex:form>
+
+</apex:page>

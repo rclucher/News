@@ -1,0 +1,579 @@
+<apex:page standardController="csmso__Sales_Order__c" extensions="AT_BookingSheet" renderAs="pdf" applyBodyTag="false" applyHtmlTag="false" showHeader="false" sidebar="false">
+    <html>
+        <head>
+            <style>
+                @media print {
+                body, page {
+                margin: 0;
+                box-shadow: 0;
+                }
+                }
+                
+                @page {
+                size: A4 portrait;
+                }
+                
+                body {
+                font-family: Arial, Helvetica, sans-serif;
+                }
+                
+                h1 {
+                font-size: 0.9em;
+                }
+                
+                table {
+                font-size: 0.7em;
+                
+                border: 1px solid black;
+                width: 100%;
+                border-spacing: 0px;
+                }
+                
+                table th {
+                background: black;
+                color: white;
+                font-weight: bold;
+                }
+                
+                table td {
+                padding: 4px;
+                }
+                
+                table td.label {
+                white-space: nowrap;
+                }
+                
+                table td.value {
+                width: 99%;
+                }
+                
+                table td.subheading {
+                background: #ccc;
+                font-weight: bold;
+                border-top: 1px solid black;
+                border-bottom: 1px solid black;
+                }
+                
+                table td.right {
+                border-right: 1px solid black;
+                }
+                
+                table tr.bottom td {
+                border-bottom: 1px solid black;
+                }
+            </style>
+        </head>
+        
+        <body>
+            <h1>
+                Booking Instructions:
+                
+                <apex:outputPanel rendered="{!NOT(Bespoke)}">
+                    {!Bundle.Bundle_Name__c}  ({!Bundle.Duration__c} Weeks)
+                </apex:outputPanel>
+                
+                <apex:outputPanel rendered="{!Bespoke}">
+                    {!Opp.Name} / {!SOrder.Name}
+                </apex:outputPanel>
+            </h1>
+            
+            <table>
+                <thead>
+                    <th colspan = "2">Client Details</th>
+                    <th colspan = "2">News Corp Australia Details</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Name:</td>
+                        <td>{!BkCnt.Name}</td>
+                        <td>Sales Manager:</td>
+                        <td>{!SOrder.Owner.Name}</td>
+                    </tr>
+                    <tr>
+                        <td>Business Name:</td>
+                        <td>{!Acc.Name}</td>
+                        <td>Email Address:</td>
+                        <td>{!SOrder.Owner.Email}</td>
+                    </tr>
+                    <tr>
+                        <td>Contact Phone Number:</td>
+                        <td>{!BkCnt.MobilePhone} {!if((BkCnt.MobilePhone != "" && BkCnt.Phone != ""), "/", "")} {!BkCnt.Phone}</td>
+                        <td>Contact Phone Number:</td>
+                        <td>{!SOrder.Owner.Phone}</td>
+                    </tr>
+                    <tr>
+                        <td>Email Address:</td>
+                        <td>{!BkCnt.Email}</td>
+                        <td>Opportunity Name:</td>
+                        <td>{!Opp.Name}</td>
+                    </tr>
+                    <tr>
+                        <td>Business Address:</td>
+                        <td>{!address}</td>
+                        <td>Sales Order Number:</td>
+                        <td>{!SOrder.Name}</td>
+                    </tr>
+                    <tr>
+                        <td>Business ABN:</td>
+                        <td>{!Acc.AccountNumber}</td>
+                        <apex:outputText rendered="{!NOT(Bespoke)}">
+                            <td>Bundle Name:</td>
+                            <td>{!Bundle.Bundle_Details__c}</td>
+                        </apex:outputText>
+                    </tr>
+                    <tr>
+                        <td>Web Address URL:</td>
+                        <td>{!Acc.Website}</td>
+                        <td>Creation Date/Time:</td>
+                        <td>
+                            <apex:outputText value="{0, date,dd'/'MM'/'yyyy}">
+                                <apex:param value="{!(createdDate)}" /> 
+                            </apex:outputText>
+                            &nbsp;
+                            <apex:outputText value="{0, time,h':'mm a}">
+                                <apex:param value="{!(createdDate)}" /> 
+                            </apex:outputText>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!--<apex:outputPanel rendered="{!Bespoke}">-->
+            <br/>
+            <table>
+                <thead>
+                    <th colspan = "4">Agency/Payer Details</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Agency/Payer Name:</td>
+                        <td>{!Opp.Payer_Account__r.Name}</td>
+                        <td>Agency/Payer Ph No.:</td>
+                        <td>{!Opp.Payer_Account__r.Phone}</td>
+                    </tr>
+                    <tr>
+                        <td>Planner Account:</td>
+                        <td>{!Opp.Planner_Account__r.Name}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--</apex:outputPanel>-->
+            
+            <br/>
+            <table>
+                <thead>
+                    <th colspan = "2">Total Price</th>
+                </thead>
+                <tbody>
+                    <apex:outputPanel id="opEverGreenTotalPrice" rendered="{!if(Bundle.Duration__c == 'Evergreen', true, false)}" layout="none">
+                        <tr>
+                            <td class="label">Total Price (ex GST):</td>
+                            <td class="value"><apex:outputtext value="${0, number, ###,###,##0.00}"><apex:param value="{!(Bundle.Total_Bundle_Price__c)}"/></apex:outputtext> Per Month</td>
+                        </tr>
+                        <tr>
+                            <td class="label">GST:</td>
+                            <td class="value"><apex:outputtext value="${0, number, ###,###,##0.00}"><apex:param value="{!(Bundle.Total_Bundle_Price_GST_Inclusive__c - Bundle.Total_Bundle_Price__c)}"/></apex:outputtext> Per Month</td>
+                            
+                        </tr>
+                        <tr>
+                            <td class="label">Total Price (inc GST):</td>
+                            <td class="value"><apex:outputtext value="${0, number, ###,###,##0.00}"><apex:param value="{!(Bundle.Total_Bundle_Price_GST_Inclusive__c)}"/></apex:outputtext> Per Month</td>
+                        </tr>
+                    </apex:outputPanel>
+                    <apex:outputPanel id="opNotEverGreenTotalPrice" rendered="{!if(Bundle.Duration__c == 'Evergreen', false, true)}" layout="none">
+                        <tr>
+                            <td class="label">Total Price (ex GST):</td>
+                            <td class="value"><apex:outputtext value="${0, number, ###,###,##0.00}"><apex:param value="{!(SOrder.Total_Duration_Price__c)}"/></apex:outputtext></td>
+                        </tr>
+                        <tr>
+                            <td class="label">GST:</td>
+                            <td class="value"><apex:outputtext value="${0, number, ###,###,##0.00}"><apex:param value="{!SOrder.Total_Duration_GST__c}"/></apex:outputtext></td>
+                            
+                        </tr>
+                        <tr>
+                            <td class="label">Total Price (inc GST):</td>
+                            <td class="value"><apex:outputtext value="${0, number, ###,###,##0.00}"><apex:param value="{!(SOrder.Total_Duration_Price_GST_Inclusive__c)}"/></apex:outputtext></td>
+                        </tr>
+                    </apex:outputPanel>
+                </tbody>
+            </table>
+            
+            <apex:outputPanel rendered="{!NOT(Bespoke)}" layout="none">
+                <br/>
+                <table>
+                    <thead>
+                        <th>Key Success Metrics for Client</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                {!Bundle.Client_Outcome__c}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </apex:outputPanel>
+            
+            <apex:outputText rendered="{!hasXtend}">
+                <br/>
+                <table>
+                    <thead>
+                        <th colspan = "3">NewsXtend - Booking Details</th>
+                    </thead>
+                    <tbody>
+                        <apex:repeat value="{!Xtends}" var="Xtend">
+                            <apex:outputPanel id="opEverGreenXtendBooking" rendered="{!if(Bundle.Duration__c == 'Evergreen', true, false)}" layout="none">
+                                <tr>
+                                    <td class="label">{!Xtend.Product_Line_Name__c}:</td>
+                                    <td class="value"><apex:outputtext value="${0, number, ###,###,##0.00}"><apex:param value="{!Xtend.Total_Xtend_Price__c}"/></apex:outputtext> Per Month</td>
+                                </tr>
+                            </apex:outputPanel>
+                            <apex:outputPanel id="opNotEverGreenXtendBooking" rendered="{!if(Bundle.Duration__c == 'Evergreen', false, true)}" layout="none">
+                                <tr>
+                                    <td class="label">{!Xtend.Product_Line_Name__c}:</td>
+                                    <td class="value"><apex:outputtext value="${0, number, ###,###,##0.00}"><apex:param value="{!Xtend.Line_Item_Duration_Price__c}"/></apex:outputtext> Over total of {!Xtend.Duration_Months__c} Months</td>
+                                </tr>
+                            </apex:outputPanel>
+                        </apex:repeat>
+                    </tbody>
+                </table>
+            </apex:outputText>
+            
+            <apex:outputText rendered="{!hasDigital}">
+                <br/>
+                <table>
+                    <thead>
+                        <th colspan = "4">Digital Advertising - Booking Details</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="label">Digital AdPoint ID:</td>
+                            <td class="value">{!Acc.AdPoint_Id__c}</td>
+                        </tr>
+                        <apex:outputPanel rendered="{!NOT(Bespoke)}" layout="none">
+                            <tr>
+                                <td class="label">SF Primary Campaign Source:</td>
+                                <td class="value">{!Bundle.SF_Primary_Campaign_Source__c}</td>
+                            </tr>
+                        </apex:outputPanel>
+                        <apex:repeat value="{!Digitals}" var="Digital">
+                            <tr>
+                                <td class = "label subheading">{!Digital.Digital_Device_Type__c} Ad Product:</td>
+                                <td class = "subheading">{!Digital.Bespoke_Digital_Description__c}</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Price Group:</td>
+                                <td class="value">{!Digital.Digital_Online_Advertising_Type__c}</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Site Section:</td>
+                                <td class="value">{!Digital.Digital_Online_Advertising_Type__c} {!Digital.Digital_Insertion_Unit_Type__c}</td>
+                            </tr>
+                            <tr>
+                                <td class="label">AdSize:</td>
+                                <td class="value">{!Digital.Digital_Ad_Product__c}</td>
+                            </tr>
+                            <apex:outputPanel rendered="{!NOT(Bespoke)}" layout="none">
+                                <tr>
+                                    <td class="label">Targeting:</td>
+                                    <td class="value">
+                                        {!Digital.Digital_Targeting_Selection__c}
+                                        <!--apex:outputText rendered="{!(Bundle.State__c == 'SA') || (Bundle.State__c == 'QLD') || (Bundle.Bundle_Name__c == 'Essentials - Renewal') || (Bundle.Bundle_Name__c == 'Essentials - Intro Offer')}">
+                                            'Placing instructions' field paste Newsconnect targeting: Geographic &gt; {!Bundle.State__c} &gt; Publication
+                                        </apex:outputText>
+                                        <apex:outputText rendered="{!(Bundle.State__c != 'SA') && (Bundle.State__c != 'QLD') && (Bundle.Bundle_Name__c != 'Essentials - Renewal') && (Bundle.Bundle_Name__c != 'Essentials - Intro Offer')}">
+                                            Targeting 'Geographical' remove Australia add State: {!Bundle.State__c}
+                                        </apex:outputText-->
+                                    </td>
+                                </tr>
+                            </apex:outputPanel>
+                            <tr>
+                                <td class="label">Impression QTY:</td>
+                                <td class="value">{!Digital.Total_Digital_Duration_Quantity__c}</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Effective Price (CPM):</td>
+                                <td class="value"><apex:outputtext value="${0, number, ###,###,##0.00}"><apex:param value="{!if(Digital.Total_Digital_Duration_Quantity__c != null && Digital.Total_Digital_Duration_Quantity__c > 0, (Digital.Line_Item_Duration_Price__c / (Digital.Total_Digital_Duration_Quantity__c / 1000)), 0)}"/></apex:outputtext></td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="label">Total Price (ex GST):</td>
+                                <td class="value"><apex:outputtext value="${0, number, ###,###,##0.00}"><apex:param value="{!Digital.Line_Item_Duration_Price__c}"/></apex:outputtext></td>
+                            </tr>
+                            <tr>
+                                <td class="label">Estimated Start Date - Digital Advertising:</td>
+                                <td class="value"><apex:outputText value="{0, date, dd'/'MM'/'yyyy}"><apex:param value="{!SOrder.csmso__From__c}" /></apex:outputText></td>
+                            </tr>
+                            <tr>
+                                <td class="label">Estimated End Date - Digital Advertising:</td>
+                                <td class="value"><apex:outputText value="{0, date, dd'/'MM'/'yyyy}"><apex:param value="{!SOrder.csmso__To__c}" /></apex:outputText></td>
+                            </tr>
+                            <tr>
+                                <td class="label">Frequency:</td>
+                                <td class="value">{!Digital.Cycle__c}</td>
+                            </tr>
+                            <apex:outputPanel rendered="{!NOT(Bespoke)}" layout="none">
+                                <tr>
+                                    <td class="label">Order Name Prefix:</td>
+                                    <td class="value">{!Bundle.Order_Name_Prefix__c}</td>
+                                </tr>
+                            </apex:outputPanel>
+                            <tr>
+                                <td class="label">Material Contact Name:</td>
+                                <td class="value">{!SOrder.Booking_Contact_For_Digital__r.Name}</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Material Contact Phone Number:</td>
+                                <td class="value">{!SOrder.Booking_Contact_For_Digital__r.MobilePhone} {!if((SOrder.Booking_Contact_For_Digital__r.MobilePhone != "" && SOrder.Booking_Contact_For_Digital__r.Phone != ""), "/", "")} {!SOrder.Booking_Contact_For_Digital__r.Phone}</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Material Contact Email Address:</td>
+                                <td class="value">{!SOrder.Booking_Contact_For_Digital__r.Email}</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Material Instructions:</td>
+                                <td class="value">{!Digital.Material_Instructions__c}</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Other Booking Notes and Instructions:</td>
+                                <td class="value">{!Digital.Booking_Notes__c}</td>
+                            </tr>
+                            <tr>
+                                <td class="label">News Corp Sales Manager:</td>
+                                <td class="value">{!SOrder.Owner.Name}</td>
+                            </tr>
+                        </apex:repeat>
+                    </tbody>
+                </table>
+            </apex:outputText>
+            
+            <apex:outputText rendered="{!hasPrint}">
+                <br/>
+                <table>
+                    <thead>
+                        <th colspan = "2">Print Advertising - Booking Details</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="label">Account Number(s):</td>
+                            <td class="value">{!AccountNumbers}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">SF Primary Campaign Source:</td>
+                            <td class="value">{!Bundle.SF_Primary_Campaign_Source__c}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Revenue Group:</td>
+                            <td class="value">{!Opp.Revenue_Group__c}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Industry Code:</td>
+                            <td class="value">{!Opp.Industry_Code__r.Name}</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Payment Method:</td>
+                            <td class="value">{!SOrder.Payment_Method__c}</td>
+                        </tr>
+                        <apex:repeat value="{!Prints}" var="Print">
+                            <tr>
+                                <td class ="label subheading">Publication Name:</td>
+                                <td class ="subheading">{!Print.Publication__c}</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Ad Size:</td>
+                                <td class="value">{!Print.Ad_Size__c}</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Section/Classifications(s):</td>
+                                <td class="value">{!Print.Subsection__c}</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Position:</td>
+                                <td class="value">{!Print.Position__c}</td>
+                            </tr>
+                            <apex:outputText rendered="{!Bespoke}">
+                                <tr>
+                                    <td class="label">Caption:</td>
+                                    <td class="value">{!Print.Print_Caption__c}</td>
+                                </tr>
+                            </apex:outputText>
+                            <tr>
+                                <td class="label">Start Date - Print Advertising:</td>
+                                <td class="value">
+                                    <apex:outputText value="{0, date, dd'/'MM'/'yyyy}" rendered="{!(Bundle.Name == 'Xtend Led' && NOT(Bespoke))}">
+                                        <apex:param value="{!Bundle.Print_Start_Date__c}" />
+                                    </apex:outputText>
+                                    <apex:outputText value="{0, date, dd'/'MM'/'yyyy}" rendered="{!(Bundle.Name != 'Xtend Led' && NOT(Bespoke))}">
+                                        <apex:param value="{!SOrder.csmso__From__c}" />
+                                    </apex:outputText>
+                                    <apex:outputText value="{0, date, dd'/'MM'/'yyyy}" rendered="{!Bespoke}">
+                                        <apex:param value="{!Print.csmso__Flight_Begin__c}" />
+                                    </apex:outputText>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">Frequency:</td>
+                                <td class="value">
+                                    <apex:outputPanel rendered="{!NOT(Bespoke)}" layout="none">
+                                        {!Bundle.Cycle__c}
+                                    </apex:outputPanel>
+                                    <apex:outputPanel rendered="{!Bespoke}" layout="none">
+                                        {!Print.Impressions_Quantity__c}
+                                    </apex:outputPanel>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">Schedule:</td>
+                                <td class="value">
+                                    <apex:outputText rendered="{!(Bundle.Duration__c == 'Evergreen') && (Bundle.Name == 'Xtend Led')}">
+                                        <apex:outputText rendered="{!Bundle.Cycle__c == '2 Insertions per Month with Week 2 and Week 4'}">
+                                            TC&nbsp;
+                                            2{!Print.Day_of_Week__c}
+                                            4{!Print.Day_of_Week__c}
+                                            &nbsp;
+                                            <apex:outputText value="{0, date,dd}">
+                                                <apex:param value="{!(Print.csmso__Flight_Begin__c)}" /> 
+                                            </apex:outputText>
+                                            <apex:outputText value="{0, date,MMM}">
+                                                <apex:param value="{!(Print.csmso__Flight_Begin__c)}" /> 
+                                            </apex:outputText>
+                                            <apex:outputText value="{0, date,yy}">
+                                                <apex:param value="{!(Print.csmso__Flight_Begin__c)}" /> 
+                                            </apex:outputText>
+                                        </apex:outputText>
+                                        
+                                        <apex:outputText rendered="{!Bundle.Cycle__c == '2 Insertions per Month with Week 1 and Week 3'}">
+                                            TC&nbsp;
+                                            1{!Print.Day_of_Week__c}
+                                            3{!Print.Day_of_Week__c}
+                                            &nbsp;
+                                            <apex:outputText value="{0, date,dd}">
+                                                <apex:param value="{!(Print.csmso__Flight_Begin__c)}" /> 
+                                            </apex:outputText>
+                                            <apex:outputText value="{0, date,MMM}">
+                                                <apex:param value="{!(Print.csmso__Flight_Begin__c)}" /> 
+                                            </apex:outputText>
+                                            <apex:outputText value="{0, date,yy}">
+                                                <apex:param value="{!(Print.csmso__Flight_Begin__c)}" /> 
+                                            </apex:outputText>
+                                        </apex:outputText>
+                                        
+                                        <apex:outputText rendered="{!Bundle.Cycle__c == '4 Insertions per Month'}">
+                                            TC&nbsp;
+                                            1{!Print.Day_of_Week__c}
+                                            2{!Print.Day_of_Week__c}
+                                            3{!Print.Day_of_Week__c}
+                                            4{!Print.Day_of_Week__c}
+                                            &nbsp;
+                                            <apex:outputText value="{0, date,dd}">
+                                                <apex:param value="{!(Print.csmso__Flight_Begin__c)}" /> 
+                                            </apex:outputText>
+                                            <apex:outputText value="{0, date,MMM}">
+                                                <apex:param value="{!(Print.csmso__Flight_Begin__c)}" /> 
+                                            </apex:outputText>
+                                            <apex:outputText value="{0, date,yy}">
+                                                <apex:param value="{!(Print.csmso__Flight_Begin__c)}" /> 
+                                            </apex:outputText>
+                                        </apex:outputText>
+                                        
+                                        <apex:outputText rendered="{!NOT((Bundle.Cycle__c == '2 Insertions per Month with Week 2 and Week 4') || (Bundle.Cycle__c == '2 Insertions per Month with Week 1 and Week 3') || (Bundle.Cycle__c == '4 Insertions per Month'))}">
+                                            {!Print.Selected_Dates__c}
+                                        </apex:outputText>
+                                    </apex:outputText>
+                                    
+                                    <apex:outputText rendered="{!NOT((Bundle.Duration__c == 'Evergreen') && (Bundle.Name == 'Xtend Led'))}">
+                                        {!Print.Selected_Dates__c}
+                                    </apex:outputText>
+                                </td>
+                            </tr>
+                            <apex:outputText rendered="{!NOT(Bespoke)}">
+                                <tr>
+                                    <td class="label">Sort Caption Prefix:</td>
+                                    <td class="value">{!Bundle.Order_Name_Prefix__c}</td>
+                                </tr>
+                            </apex:outputText>
+                            <tr>
+                                <td class="label">Price Per Insertion (ex GST):</td>
+                                <td class="value"><apex:outputtext value="${0, number, ###,###,##0.00}"><apex:param value="{!Print.Price_Per_Impression__c}"/></apex:outputtext></td>
+                            </tr>
+                            <apex:outputText rendered="{!Bespoke}">
+                                <tr>
+                                    <td class="label">Discount Level %:</td>
+                                    <td class="value"><apex:outputtext value="{0,number,.00}%" rendered="{!if(AND(Print.Proposed_Discount__c!=null,Print.Proposed_Discount__c!=0),true,false)}"><apex:param value="{!Print.Proposed_Discount__c}"/></apex:outputtext></td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Discount $:</td>
+                                    <td class="value"><apex:outputtext value="${0, number, ###,###,##0.00}" rendered="{!if(AND(Print.Proposed_Discount_Amount__c!=null,Print.Proposed_Discount_Amount__c!=0),true,false)}"><apex:param value="{!Print.Proposed_Discount_Amount__c}"/></apex:outputtext></td>
+                                </tr>                    
+                            </apex:outputText>
+                            <apex:outputPanel id="opEverGreenPrintBooking" rendered="{!if(Bundle.Duration__c == 'Evergreen', true, false)}" layout="none">
+                                <tr>
+                                    <td class="label">Total Price (ex GST):</td>
+                                    <td class="value"><apex:outputtext value="${0, number, ###,###,##0.00}"><apex:param value="{!Print.Total_Print_Price__c}"/></apex:outputtext> Per Month</td>
+                                </tr>
+                            </apex:outputPanel>
+                            <apex:outputPanel id="opNotEverGreenPrintBooking" rendered="{!if(Bundle.Duration__c == 'Evergreen', false, true)}" layout="none">
+                                <tr>
+                                    <td class="label">Total Price (ex GST):</td>
+                                    <td class="value"><apex:outputtext value="${0, number, ###,###,##0.00}"><apex:param value="{!Print.Line_Item_Duration_Price__c}"/></apex:outputtext></td>
+                                </tr>
+                            </apex:outputPanel>                    
+                            <tr>
+                                <td class="label">Material Contact Name:</td>
+                                <td class="value">{!SOrder.Booking_Contact_For_Print__r.Name}</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Material Contact Phone Number:</td>
+                                <td class="value">{!SOrder.Booking_Contact_For_Print__r.MobilePhone} {!if((SOrder.Booking_Contact_For_Print__r.MobilePhone != "" && SOrder.Booking_Contact_For_Print__r.Phone != ""), "/", "")} {!SOrder.Booking_Contact_For_Print__r.Phone}</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Material Contact Email Address:</td>
+                                <td class="value">{!SOrder.Booking_Contact_For_Print__r.Email}</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Material Type:</td>
+                                <td class="value">{!Print.Material_Type__c}</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Material Changes:</td>
+                                <td class="value">{!Print.Material_Changes__c}</td>
+                            </tr>                    
+                            <tr>
+                                <td class="label">Material Instructions:</td>
+                                <td class="value">{!Print.Material_Instructions__c}</td>
+                            </tr>
+                            <!--
+25-10-2018: 	Mohsin Ali
+@description: 	Adding Print Placement Notes Field On Booking Instructions PDF Page
+Refer to Jira: NR-1632 & NR-1764
+-->
+                            <apex:outputText rendered="{!Bespoke}">
+                                <tr>
+                                    <td class="label">Placement Notes:</td>
+                                    <td class="value">{!Print.Print_Placement_Notes__c}</td>
+                                </tr>
+                            </apex:outputText>
+                            <!--
+/*
+24-10-2018: 	Mohsin Ali
+@description: 	Removing Field From Booking Instructions PDF Page
+Refer to Jira: NR-1734
+*/
+-->
+                            <apex:outputText rendered="{!NOT(Bespoke)}">
+                                <tr>
+                                    <td class="label">Other Booking Notes and Instructions:</td>
+                                    <td class="value">{!Print.Booking_Notes__c}</td>
+                                </tr>
+                            </apex:outputText>
+                            <tr>
+                                <td class="label">News Corp Sales Manager:</td>
+                                <td class="value">{!SOrder.Owner.Name}</td>
+                            </tr>
+                        </apex:repeat>
+                    </tbody>
+                </table>
+            </apex:outputText>
+        </body>
+    </html>
+</apex:page>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StaticResource xmlns="http://soap.sforce.com/2006/04/metadata">
+    <cacheControl>Private</cacheControl>
+    <contentType>application/x-x509-ca-cert</contentType>
+    <description>Not sure we are going to use certificate or not. If not, we have to delete this file</description>
+</StaticResource>

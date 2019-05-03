@@ -1,0 +1,12 @@
+.THIS div.slds-card__body {
+    padding: 10px;
+}
+
+.THIS table thead td {
+    font-weight: bold;
+    padding: 2px;
+}
+
+.THIS table tbody td {
+    padding: 2px;
+}

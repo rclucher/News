@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Confirmed__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Confirmation by the Delivery Manager that a key deliverable has been completed</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Confirmed by the SFDC Delivery Manager</inlineHelpText>
+    <label>Confirmed</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

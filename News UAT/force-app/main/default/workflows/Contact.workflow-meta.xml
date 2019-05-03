@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Ctc_Address_PRI_Remove_DPID</fullName>
+        <field>DPID_Primary_Address__c</field>
+        <name>Ctc Address PRI Remove DPID</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Address_SEC_Remove_DPID</fullName>
+        <field>DPID_Secondary_Address__c</field>
+        <name>Ctc Address SEC Remove DPID</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Automatically_untick_Email_Invalid</fullName>
+        <field>Email_Invalid__c</field>
+        <literalValue>0</literalValue>
+        <name>Ctc Automatically untick Email Invalid</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Clear_AssistPhone_DNCStatus</fullName>
+        <description>Clear_AssistPhone_DNCStatus
+Re-evaluate workflow rules to trigger audit</description>
+        <field>AssistantPhone_on_DNC__c</field>
+        <literalValue>0</literalValue>
+        <name>Ctc_Clear_AssistPhone_DNCStatus</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Clear_AssistPhone_DNCWashedDate</fullName>
+        <description>Re-evaluate Workflow Rules to trigger audit</description>
+        <field>AssistantPhone_DNC_Washed_Date__c</field>
+        <name>Ctc_Clear_AssistPhone_DNCWashedDate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Copy_DPID_from_Account_PRI</fullName>
+        <field>DPID_Primary_Address__c</field>
+        <formula>Account.DPID_Primary_Address__c</formula>
+        <name>Ctc Copy DPID from Account PRI</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Copy_DPID_from_Account_SEC</fullName>
+        <field>DPID_Secondary_Address__c</field>
+        <formula>Account.DPID_Secondary_Address__c</formula>
+        <name>Ctc Copy DPID from Account SEC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Digital_Status_To_Requested</fullName>
+        <description>Update contact digital status to requested</description>
+        <field>Digital_Status__c</field>
+        <literalValue>Requested</literalValue>
+        <name>Ctc Digital Status To Requested</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Digital_Status_to_Pending</fullName>
+        <description>Set the Contact&#39;s Digital Status to Pending - awaiting the system to signal Adpoint to create the equivalent Contact.</description>
+        <field>Digital_Status__c</field>
+        <literalValue>Pending</literalValue>
+        <name>Ctc Digital Status to Pending</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_HomePhone_Delete_DNCStatusDelete</fullName>
+        <description>HomePhone_Delete_DNCStatusDelete
+Re-evaluate workflow rules to trigger audit</description>
+        <field>Home_Phone_on_DNC__c</field>
+        <literalValue>0</literalValue>
+        <name>Ctc_HomePhone_Delete_DNCStatusDelete</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_HomePhone_Delete_WashedDateDelete</fullName>
+        <description>Re-evaluate Workflow Rules to trigger audit</description>
+        <field>Home_Phone_DNC_Washed_Date__c</field>
+        <name>Ctc_HomePhone_Delete_WashedDateDelete</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Inactivate_Date</fullName>
+        <description>Set the Status to Inactive</description>
+        <field>Contact_Status__c</field>
+        <literalValue>Inactive</literalValue>
+        <name>Ctc_Inactivate_Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Mobile_Delete_DNCStatusDelete</fullName>
+        <description>Mobile Phone DNC Status Delete
+Re-evaluate Workflow Rules to trigger audit</description>
+        <field>Mobile_on_DNC__c</field>
+        <literalValue>0</literalValue>
+        <name>Ctc_Mobile_Delete_DNCStatusDelete</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Mobile_Delete_WashedDateDelete</fullName>
+        <description>Re-evaluate Workflow Rules to trigger audit</description>
+        <field>Mobile_DNC_Washed_Date__c</field>
+        <name>Ctc_Mobile_Delete_WashedDateDelete</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_OtherPhone_Delete_DNCStatusDelete</fullName>
+        <description>Delete Other Phone DNC Status
+Re-evaluate Workflow Rules to trigger audit</description>
+        <field>Other_Phone_on_DNC__c</field>
+        <literalValue>0</literalValue>
+        <name>Ctc_OtherPhone_Delete_DNCStatusDelete</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_OtherPhone_Delete_WashedDateDelete</fullName>
+        <description>Re-evaluate Workflow Rules to trigger audit</description>
+        <field>Other_Phone_DNC_Washed_Date__c</field>
+        <name>Ctc_OtherPhone_Delete_WashedDateDelete</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Phone_Delete_DNCStatusDelete</fullName>
+        <description>Delete_Phone DNC Status
+Re-evaluate Workflow Rules to trigger audit</description>
+        <field>Phone_on_DNC__c</field>
+        <literalValue>0</literalValue>
+        <name>Ctc_Phone_Delete_DNCStatusDelete</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Phone_Delete_WashedDateDelete</fullName>
+        <description>Re-evaluate Workflow Rules to trigger audit</description>
+        <field>Phone_DNC_Washed_Date__c</field>
+        <name>Ctc_Phone_Delete_WashedDateDelete</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Reset_Adpoint_ID</fullName>
+        <description>Reset the Adpoint ID</description>
+        <field>AdPoint_Id__c</field>
+        <name>Ctc Reset Adpoint ID</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Reset_Digital_Status</fullName>
+        <description>Clear the Digital Status</description>
+        <field>Digital_Status__c</field>
+        <name>Ctc Reset Digital Status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Set_DNC_Status_audit</fullName>
+        <field>DNC_Status_Audit__c</field>
+        <formula>&#39;Phone: &#39;&amp; If(Phone_DNC_Contactable__c,&#39;Contactable&#39;,&#39;Not contactable&#39;)&amp;&#39; - &#39;&amp;IF(!ISBLANK(Phone_DNC_Washed_Date__c),&#39;Washed @&#39;&amp;TEXT(Phone_DNC_Washed_Date__c),&#39;No washed date&#39;)&amp;BR()&amp;
+&#39;Mobile: &#39;&amp;If( Mobile_DNC_Contactable__c ,&#39;Contactable&#39;,&#39;Not contactable&#39;)&amp;&#39; - &#39;&amp;IF(!ISBLANK(Mobile_DNC_Washed_Date__c),&#39;Washed @&#39;&amp;TEXT(Mobile_DNC_Washed_Date__c),&#39;No washed date&#39;)&amp;BR()&amp;
+&#39;Home Phone: &#39;&amp;If( Home_Phone_DNC_Contactable__c ,&#39;Contactable&#39;,&#39;Not contactable&#39;)&amp;&#39; - &#39;&amp;IF(!ISBLANK(Home_Phone_DNC_Washed_Date__c),&#39;Washed @&#39;&amp;TEXT(Home_Phone_DNC_Washed_Date__c),&#39;No washed date&#39;)&amp;BR()&amp;
+&#39;Other Phone: &#39;&amp;If( Other_Phone_DNC_Contactable__c ,&#39;Contactable&#39;,&#39;Not contactable&#39;)&amp;&#39; - &#39;&amp;IF(!ISBLANK(Other_Phone_DNC_Washed_Date__c),&#39;Washed @&#39;&amp;TEXT(Other_Phone_DNC_Washed_Date__c),&#39;No washed date&#39;)&amp;BR()&amp;
+&#39;Assist. Phone: &#39;&amp;If( AssistantPhone_DNC_Contactable__c ,&#39;Contactable&#39;,&#39;Not contactable&#39;)&amp;&#39; - &#39;&amp;IF(!ISBLANK(AssistantPhone_DNC_Washed_Date__c),&#39;Washed @&#39;&amp;TEXT(AssistantPhone_DNC_Washed_Date__c),&#39;No washed date&#39;)</formula>
+        <name>Ctc_Set DNC Status audit</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Set_DPID_Information</fullName>
+        <description>Set DPID Information</description>
+        <field>DPID_Primary_Address__c</field>
+        <formula>IF(ISBLANK(DPID_Primary_Address__c), Account.DPID_Primary_Address__c, Account.DPID_Primary_Address__c)</formula>
+        <name>Ctc Set DPID Information</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Set_DPID_Secondary_Information</fullName>
+        <description>Set Secondary DPID Information</description>
+        <field>DPID_Secondary_Address__c</field>
+        <formula>IF(ISBLANK(DPID_Secondary_Address__c) , Account.DPID_Secondary_Address__c, DPID_Secondary_Address__c)</formula>
+        <name>Ctc Set DPID Secondary Information</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Set_Do_Not_Call_False</fullName>
+        <description>Set the standard Do Not Call field</description>
+        <field>DoNotCall</field>
+        <literalValue>0</literalValue>
+        <name>Ctc_Set_Do_Not_Call_False</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Set_Do_Not_Call_True</fullName>
+        <description>Set the standard Do Not Call field</description>
+        <field>DoNotCall</field>
+        <literalValue>1</literalValue>
+        <name>Ctc_Set_Do_Not_Call_True</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Set_Marketing_Product_audit</fullName>
+        <field>Marketing_Preferences__c</field>
+        <formula>&#39;Phone: &#39;&amp;BLANKVALUE(TEXT( Channel_Opt_In_Phone__c) ,&#39;None&#39;) &amp;BR()&amp; 
+&#39;SMS: &#39;&amp;BLANKVALUE(TEXT( Channel_Opt_In_SMS__c ) ,&#39;None&#39;) &amp;BR()&amp; 
+&#39;Email: &#39;&amp;BLANKVALUE(TEXT(Channel_Opt_In_Email__c) ,&#39;None&#39;)&amp;BR()&amp;&#39;Metro Print: &#39;&amp;BLANKVALUE(TEXT( Product_Opt_In_Metro_Print__c ) ,&#39;None&#39;)&amp;BR()&amp; 
+&#39;Community Print: &#39;&amp;BLANKVALUE(TEXT(Product_Opt_In_Community_Print__c) ,&#39;None&#39;)&amp;BR()&amp; 
+&#39;Regional Print: &#39;&amp;BLANKVALUE(TEXT( Product_Opt_In_Regional_Print__c) ,&#39;None&#39;)&amp; BR()&amp; 
+&#39;Digital Offerings: &#39;&amp;BLANKVALUE(TEXT(Product_Opt_In_Digital_Offerings__c ) ,&#39;None&#39;)&amp;BR()&amp; 
+&#39;Magazines: &#39;&amp;BLANKVALUE(TEXT(Product_Opt_In_Magazines__c ) ,&#39;None&#39;)&amp;BR()&amp; 
+&#39;Seminars + Events: &#39;&amp;BLANKVALUE(TEXT(Product_Opt_In_Seminars_Events__c) ,&#39;None&#39;)</formula>
+        <name>Ctc_Set Marketing Product audit</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Set_datasan_DPID_Billing</fullName>
+        <description>Set the Account Datasan DPID Billing if populated</description>
+        <field>datasan__Mailing_Address_DPID__c</field>
+        <formula>IF(ISBLANK(datasan__Mailing_Address_DPID__c), Account.datasan__Billing_Address_DPID__c, datasan__Mailing_Address_DPID__c)</formula>
+        <name>Ctc Set datasan DPID Billing</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Set_datasan_DPID_Shipping</fullName>
+        <description>Set datasan Secondary DPID from Account</description>
+        <field>datasan__Other_Address_DPID__c</field>
+        <formula>IF(ISBLANK(datasan__Other_Address_DPID__c), Account.datasan__Shipping_Address_DPID__c, datasan__Other_Address_DPID__c)</formula>
+        <name>Ctc Set datasan DPID Shipping</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Status_Active</fullName>
+        <field>Inactive_Date__c</field>
+        <name>Ctc_Status_Active</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Status_Inactive</fullName>
+        <field>Inactive_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Ctc_Status_Inactive</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Unmark_Digital_Creation_Delay</fullName>
+        <description>Allows a Contact created during the Digital Booking UI to automatically convert to Digital if it is not turned Digital during the Booking process</description>
+        <field>Delay_Digital_Creation__c</field>
+        <literalValue>0</literalValue>
+        <name>Ctc Unmark Digital Creation Delay</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Update_Digital_Status_To_Pending</fullName>
+        <description>Update contact digital status to pending</description>
+        <field>Digital_Status__c</field>
+        <literalValue>Pending</literalValue>
+        <name>Ctc Update Digital Status To Pending</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Ctc_Update_Digital_Status_To_Requested</fullName>
+        <description>Update contact digital status to requested</description>
+        <field>Digital_Status__c</field>
+        <literalValue>Requested</literalValue>
+        <name>Ctc Update Digital Status To Requested</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <outboundMessages>
+        <fullName>Ctc_Update_Digital_Contact</fullName>
+        <apiVersion>29.0</apiVersion>
+        <description>Update a digital contact in AdPoint</description>
+        <endpointUrl>https://webmethodsuat.newsdev.com.au/ws/news.crm.adapter.wsdl.provider:handleNotification</endpointUrl>
+        <fields>AccountId</fields>
+        <fields>Account_AdPoint_Id__c</fields>
+        <fields>AdPoint_Id__c</fields>
+        <fields>Email</fields>
+        <fields>Fax</fields>
+        <fields>FirstName</fields>
+        <fields>Id</fields>
+        <fields>LastName</fields>
+        <fields>MobilePhone</fields>
+        <fields>Phone</fields>
+        <fields>Salutation</fields>
+        <fields>Title</fields>
+        <includeSessionId>false</includeSessionId>
+        <integrationUser>sf-integrator@news.com.au</integrationUser>
+        <name>Ctc Update Digital Contact</name>
+        <protected>false</protected>
+        <useDeadLetterQueue>false</useDeadLetterQueue>
+    </outboundMessages>
+    <rules>
+        <fullName>Ctc Address PRI Remove DPID</fullName>
+        <actions>
+            <name>Ctc_Address_PRI_Remove_DPID</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>DPID is removed as user has entered address which is not validated by DataSan.
+
+ie. Within Console the standard &#39;edit&#39; button; Datasan does not work here.</description>
+        <formula>AND(  OR(   ISCHANGED(MailingCity),   ISCHANGED(MailingCountry),   ISCHANGED(MailingState),   ISCHANGED(MailingStreet),   ISCHANGED(MailingPostalCode)  ),  PRIORVALUE(DPID_Primary_Address__c)=DPID_Primary_Address__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Ctc Address SEC Remove DPID</fullName>
+        <actions>
+            <name>Ctc_Address_SEC_Remove_DPID</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>DPID is removed as user has entered address which is not validated by DataSan.
+
+ie. Within Console the standard &#39;edit&#39; button; Datasan does not work here.</description>
+        <formula>AND(  OR(   ISCHANGED(OtherCity),   ISCHANGED(OtherCountry),   ISCHANGED(OtherState),   ISCHANGED(OtherStreet),   ISCHANGED(OtherPostalCode)  ),  PRIORVALUE(DPID_Secondary_Address__c)=DPID_Secondary_Address__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Ctc Automatically untick Email Invalid</fullName>
+        <actions>
+            <name>Ctc_Automatically_untick_Email_Invalid</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Automatically untick Email Invalid field when Email Invalid is set to &#39;True&#39; and Email is changed on a Contact.</description>
+        <formula>AND( 
+Email_Invalid__c = True, 
+ISCHANGED( Email ) 
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Ctc Copy DPID from Account PRI</fullName>
+        <actions>
+            <name>Ctc_Copy_DPID_from_Account_PRI</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Copy DPID if address of contact = address of account. Cannot use custom links</description>
+        <formula>AND(   OR(     ISCHANGED(MailingCity),     ISCHANGED(MailingCountry),     ISCHANGED(MailingPostalCode),     ISCHANGED(MailingState),     ISCHANGED(MailingStreet)   ),   Account.BillingCity =  MailingCity,   Account.BillingCountry =  MailingCountry,   Account.BillingPostalCode =  MailingPostalCode,   Account.BillingState =  MailingState,   Account.BillingStreet =  MailingStreet,   DPID_Primary_Address__c = &#39;&#39; )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Ctc Copy DPID from Account SEC</fullName>
+        <actions>
+            <name>Ctc_Copy_DPID_from_Account_SEC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Copy DPID if address of contact = address of account. Cannot use custom links</description>
+        <formula>AND(   OR(     ISCHANGED(OtherCity),     ISCHANGED(OtherCountry),     ISCHANGED(OtherPostalCode),     ISCHANGED(OtherState),     ISCHANGED(OtherStreet)   ),   Account.ShippingCity =  OtherCity,   Account.ShippingCountry =  OtherCountry,   Account.ShippingPostalCode =  OtherPostalCode,   Account.ShippingState =  OtherState,   Account.ShippingStreet =  OtherStreet,   DPID_Secondary_Address__c = &#39;&#39; )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Ctc Delay Digital Creation</fullName>
+        <active>true</active>
+        <description>New Contacts during the Digital booking process are marked so that they are not turned Digital automatically (which leads to duplication).
+
+However the User may not turn the Contact to Digital. This allows the automatic routine to fire after 1 hr.</description>
+        <formula>AND(   Delay_Digital_Creation__c )</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Ctc_Unmark_Digital_Creation_Delay</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Ctc Digital Contact Creation</fullName>
+        <actions>
+            <name>Ctc_Digital_Status_To_Requested</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Ctc_Update_Digital_Contact</name>
+            <type>OutboundMessage</type>
+        </actions>
+        <active>true</active>
+        <description>Creates Digital Contact for &#39;Pending&#39; Contacts. Sends WS message, and sets the Contact to Requested
+
+Contact is Digital &#39;Pending&#39; when:
+- Account is made a Digital, its Contacts are set to Digital Status &#39;Pending&#39;. 
+- new Contact for a Digital Account</description>
+        <formula>AND(   /*  Account is an active digital account */    Account.Master_Digital_Status__c,    /*  Contact marked to be converted to Digital */   ISPICKVAL(Digital_Status__c,&#39;Pending&#39;),   ISBLANK(AdPoint_Id__c ),   NOT(Delay_Digital_Creation__c)  )</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Ctc Move Digital Contact</fullName>
+        <actions>
+            <name>Ctc_Reset_Adpoint_ID</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Ctc_Reset_Digital_Status</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Moving Digital Contacts to another Account requires deleting the current Adpoint Contact. A Task linked to the Contact is created for the Owner to perform a Delete. 
+
+Digital fields are cleared, and It will be turned Digital automatically based on Acct</description>
+        <formula>AND(   NOT(ISBLANK(AdPoint_Id__c)),    Account.Master_Digital_Status__c,    ISCHANGED(AccountId) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Ctc Set Contact to Digital</fullName>
+        <actions>
+            <name>Ctc_Digital_Status_to_Pending</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>When a Contact is created under a Digital Account - set it to be turned Digital.</description>
+        <formula>AND(    Account.Master_Digital_Status__c,   ISBLANK(AdPoint_Id__c),   ISPICKVAL(Digital_Status__c, &#39;&#39;),   ISPICKVAL( Contact_Status__c, &#39;Active&#39;),   NOT(Delay_Digital_Creation__c) )</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Ctc Set DNC Status audit field</fullName>
+        <actions>
+            <name>Ctc_Set_DNC_Status_audit</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Populate DNC Status audit field for audit purposes</description>
+        <formula>AND(OR( ISNEW(), ISCHANGED(HomePhone),ISCHANGED( Home_Phone_on_DNC__c),  ISCHANGED(Home_Phone_DNC_Washed_Date__c), ISCHANGED( MobilePhone ),ISCHANGED(  Mobile_on_DNC__c ),  ISCHANGED( Mobile_DNC_Washed_Date__c ), ISCHANGED( OtherPhone ),ISCHANGED(  Other_Phone_on_DNC__c ),  ISCHANGED( Other_Phone_DNC_Washed_Date__c ), ISCHANGED( Phone ),ISCHANGED(  Phone_on_DNC__c ),  ISCHANGED( Phone_DNC_Washed_Date__c ), ISCHANGED( AssistantPhone ),ISCHANGED(  AssistantPhone_on_DNC__c ),  ISCHANGED( AssistantPhone_DNC_Washed_Date__c )  ))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Ctc Set Marketing Preferences audit field</fullName>
+        <actions>
+            <name>Ctc_Set_Marketing_Product_audit</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Populate Marketing Channel and Product Preferences field for audit purposes</description>
+        <formula>AND(OR( ISNEW(), ISCHANGED( Channel_Opt_In_Email__c ),ISCHANGED( Channel_Opt_In_Phone__c ),  ISCHANGED( Channel_Opt_In_SMS__c ), ISCHANGED( Product_Opt_In_Community_Print__c ), ISCHANGED( Product_Opt_In_Digital_Offerings__c ), ISCHANGED( Product_Opt_In_Magazines__c ), ISCHANGED( Product_Opt_In_Metro_Print__c ), ISCHANGED( Product_Opt_In_Regional_Print__c ), ISCHANGED( Product_Opt_In_Seminars_Events__c )  ))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Ctc Update Digital Contact</fullName>
+        <actions>
+            <name>Ctc_Update_Digital_Contact</name>
+            <type>OutboundMessage</type>
+        </actions>
+        <active>true</active>
+        <description>Update an digital contact</description>
+        <formula>AND(    Account.Master_Digital_Status__c,     /*  Contact is an active digital Contact */   ISPICKVAL(Digital_Status__c , &#39;Active&#39;),   NOT(ISBLANK( AdPoint_Id__c )),     OR(   ISCHANGED(AccountId) ,   ISCHANGED(Email) ,   ISCHANGED(Fax) ,     ISCHANGED(FirstName) ,   ISCHANGED(LastName) ,   ISCHANGED(MobilePhone) ,   ISCHANGED(Phone) ,   ISCHANGED(Salutation) ,   ISCHANGED(Title)   /* CATEGORY HERE */  ) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Ctc_AssistPhone_Delete_DNCWashedDate_Status</fullName>
+        <actions>
+            <name>Ctc_Clear_AssistPhone_DNCStatus</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Ctc_Clear_AssistPhone_DNCWashedDate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Where a phone number is deleted, therefore must also delete the washed date and DNC status</description>
+        <formula>ISCHANGED( AssistantPhone )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Ctc_HomePhone_Delete_WashedDateDelete</fullName>
+        <actions>
+            <name>Ctc_HomePhone_Delete_DNCStatusDelete</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Ctc_HomePhone_Delete_WashedDateDelete</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Where a phone number is deleted, therefore must also delete the washed date and DNC status</description>
+        <formula>ISCHANGED(HomePhone) &amp;&amp;  NOT(PRIORVALUE(HomePhone)=HomePhone)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Ctc_Mobile_Delete_WashedDateDelete</fullName>
+        <actions>
+            <name>Ctc_Mobile_Delete_DNCStatusDelete</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Ctc_Mobile_Delete_WashedDateDelete</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Where a phone number is deleted, therefore must also delete the washed date and DNC status</description>
+        <formula>ISCHANGED(MobilePhone) &amp;&amp;  NOT(PRIORVALUE(MobilePhone)=MobilePhone)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Ctc_OtherPhone_Delete_WashedDateDelete</fullName>
+        <actions>
+            <name>Ctc_OtherPhone_Delete_DNCStatusDelete</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Ctc_OtherPhone_Delete_WashedDateDelete</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Where a phone number is deleted, therefore must also delete the washed date and DNC status</description>
+        <formula>ISCHANGED(OtherPhone) &amp;&amp;  NOT(PRIORVALUE(OtherPhone)=OtherPhone)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Ctc_Phone_Delete_WashedDateDelete</fullName>
+        <actions>
+            <name>Ctc_Phone_Delete_DNCStatusDelete</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Ctc_Phone_Delete_WashedDateDelete</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Where a phone number is deleted, therefore must also delete the washed date and DNC status</description>
+        <formula>ISCHANGED(Phone) &amp;&amp;  NOT(PRIORVALUE(Phone)=Phone)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Ctc_Set_Do_Not_Call_False</fullName>
+        <actions>
+            <name>Ctc_Set_Do_Not_Call_False</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Set the standard Do Not Call field</description>
+        <formula>ISCHANGED( DNC_A_Number_Is_Contactable__c ) &amp;&amp; DNC_A_Number_Is_Contactable__c</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Ctc_Set_Do_Not_Call_True</fullName>
+        <actions>
+            <name>Ctc_Set_Do_Not_Call_True</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Set the standard Do Not Call field</description>
+        <formula>ISCHANGED( DNC_A_Number_Is_Contactable__c ) &amp;&amp; NOT(DNC_A_Number_Is_Contactable__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Ctc_Status_Active</fullName>
+        <actions>
+            <name>Ctc_Status_Active</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Updating the status to &#39;Active&#39; will clear the inactive date.</description>
+        <formula>AND(   ISPICKVAL(Contact_Status__c, &quot;Active&quot;),   NOT ISBLANK(Inactive_Date__c) )</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Ctc_Status_Inactive</fullName>
+        <actions>
+            <name>Ctc_Status_Inactive</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Updating the status to &#39;inactive&#39; will timestamp the inactive date.</description>
+        <formula>AND(   ISPICKVAL(Contact_Status__c, &quot;Inactive&quot;),   ISBLANK(Inactive_Date__c) )</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

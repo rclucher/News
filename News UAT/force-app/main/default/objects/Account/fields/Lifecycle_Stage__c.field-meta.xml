@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lifecycle_Stage__c</fullName>
+    <description>Planned - no Bookings, but future business (opps or future bookings) are present
+Recent - recent Booking
+Repeat - multiple Bookings
+At Risk - no future business activities (opps, future bookings)
+Lapsed - no business activities (opportunities/future bookings for a certain period of time)
+None - newly created Accounts with no planned Opportunities or past Bookings</description>
+    <externalId>false</externalId>
+    <label>Business Activity Lifecycle</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Planned business</fullName>
+                <default>false</default>
+                <label>Planned business</label>
+            </value>
+            <value>
+                <fullName>Recent business</fullName>
+                <default>false</default>
+                <label>Recent business</label>
+            </value>
+            <value>
+                <fullName>Repeat business</fullName>
+                <default>false</default>
+                <label>Repeat business</label>
+            </value>
+            <value>
+                <fullName>At Risk</fullName>
+                <default>false</default>
+                <label>At Risk</label>
+            </value>
+            <value>
+                <fullName>Lapsed</fullName>
+                <default>false</default>
+                <label>Lapsed</label>
+            </value>
+            <value>
+                <fullName>None</fullName>
+                <default>true</default>
+                <label>None</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

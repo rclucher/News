@@ -1,0 +1,367 @@
+<apex:page controller="GenesysCTI_Controler">
+    <apex:includeScript value="/support/console/28.0/integration.js"/>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" />   
+    <apex:includeScript value="/support/api/27.0/interaction.js"/> 
+   
+    <script type="text/javascript">
+        //09.11.2015 JN Email Interactions are also ixnType 0. Adding additional condition to fix incorrect IXN tagging. SFE-617
+        //12.03.2014 KZ virtual hold calls has ixnType = 0, set them to 1 so they are as inbound calls
+        //04.03.2014 KZ screenPop and openSubtab fucntions will work with 15 char id's, 18 char id's resul in memory leak
+        //16.02.2014 KZ removed alert for communication failure if not stated with GMMS, also runed of non console mode warning
+        //11/02/2014 KZ removed frame Id reading at javascript
+        // openCTI registered window
+        var openCTI=null;
+                
+        var ixnWindows = [];
+        var tasks = [];
+                
+        j$ = jQuery.noConflict();
+        
+        var showLog = false;
+        var isInConsole = true;
+        
+        j$(document).ready(function () {               
+            
+            j$(document.body).css('background-color', '#DCF3FA');
+            sforce.interaction.isInConsole(function (response) {
+                if (!response.result) {
+                    isInConsole = false;
+                    //alert('User is not in console mode. CTI functionality disabled.');
+                }
+                else
+                {
+                    onChangeLogButtonClick(false);
+                    changeConnectedStatus(false);
+            
+                    // attach listener to determine ability to listen for events from GMMS
+                    if (window.attachEvent)
+                        {
+                            window.attachEvent('onmessage', onEvent);
+                        }
+                    else { 
+                        if (window.addEventListener) 
+                            window.addEventListener('message', onEvent, false);
+                        else 
+                            document.addEventListener('message', onEvent, false);
+                    }                       
+                    
+                    connectToNet();
+                    
+                    sforce.interaction.cti.onClickToDial(function (response) {
+                        if (response.result) {
+                            log('clickToDialListener - ' + response.result);  
+                            var dial = j$.parseJSON(response.result); 
+                            try{                            
+                                window.external.ClickToDial(dial.number, dial.objectId, dial.object);  
+                            } catch(err){                
+                                log('clickToDialListener: Could not send dial to NET - ' + err);
+                            }                                   
+                        }
+                    }); 
+                }
+            });    
+            
+                                                       
+        });
+        
+        
+        function connectToNet(){
+            try{
+                log('connectToNet. Start.');
+                window.external.StartCommunication();
+                log('connectToNet. Finished');
+            }
+            catch(err){                
+                //alert('Can not establish connection to CTI toolbar. Error - ' + err);
+                log('connectToNet. Could not connect to net - ' + err);
+            }                                
+        }        
+        
+        
+        onEvent = function processEvent(event) {
+            log('processEvent: event - ' + event.data);
+            try{
+                var msg = j$.parseJSON(event.data); 
+                
+                var caseId = null;
+                
+                if(msg.activity == undefined)
+                     return;
+                if(msg.activity == 'Connected'){
+                     sforce.interaction.cti.enableClickToDial( function (response) {
+                        if (response.result) {
+                            log('Click to dial was enabled.');
+                        } else {
+                            alert('Error - Click to dial was not enabled.');
+                        }
+                     });
+                     changeConnectedStatus(true);                  
+                     log('processEvent: Connected');
+                     return;
+                }else if(msg.activity == 'OpenObject') {
+                    caseId = msg.objectId;
+                    log('processEvent: OpenObject- ' + msg.objectId);
+                    screenPop(msg.objectId, true);
+                } else if(msg.activity == 'CreateCase') {
+                
+                    if(msg.ixnType != 2){
+                        createCase( msg );
+                    } else {
+                        sforce.console.getFocusedPrimaryTabObjectId( function( response ) {
+                            if ( response.id && (response.id.substr(0, 3) == '500') ) {
+                                msg.objectId = response.id;   
+                                window.external.CaseCreated(response.id, msg.ixnId);
+                            } else {
+                                createCase( msg );
+                            }
+                         });                       
+                    }
+                } else if(msg.activity == 'CreateTask'){
+                    createTask( msg );
+                } else if(msg.activity == 'SetCaseOwner'){                     
+                    log('processEvent: SetCaseOwner - ' + msg.objectId);
+
+                    GenesysCTI_Controler.SetCaseOwner(msg.objectId,
+                         function(result,event) {
+                             log('processEvent: SetCaseOwner result id - ' + result + ', event - ' + event);
+                             screenPop(result , true);
+                         }
+                    );
+
+                } else if(msg.activity == 'Ping')
+                    window.external.Ping();
+                                                                                
+            }
+            catch(err){
+            }
+            
+        }
+        
+        function createCase( msg ) {
+            log('createCase: callType - ' + msg.ixnType +  ', cli - ' + msg.cli + ', connId - ' + msg.connId + ', contactIds - ' + msg.contactIds + ', accountIds - ' + msg.accountIds + ', ixnId - ' + msg.ixnId);
+            
+            if(msg.ixnType == 0){
+                msg.ixnType = 1;
+                log('createCase: virtual hold call, casting it to inbound  call');
+            }
+            
+            GenesysCTI_Controler.CreateCase(msg.ixnType, msg.cli, msg.connId, msg.contactIds,  msg.accountIds,
+                function(result,event) {
+                    log('createCase: Case created id result - ' + result + ', event - ' + event);
+                    caseId = result;
+                    if(caseId != ''){
+                        log('processEvent: Case created id - ' + caseId);                            
+                        window.external.CaseCreated(caseId, msg.ixnId);
+                        screenPop(caseId, true);
+                    }
+                    else
+                        log('createCase: Case could not be created!');
+            }); 
+        }
+        
+        function createTask( msg ) {
+            log('processEvent: CreateTask callType - ' + msg.ixnType +  ', cli - ' + msg.cli + ', objectId - ' + msg.objectId 
+                        + ', objectType - ' + msg.objectType + ', startTime - ' + msg.startTime + ', endTime - ' + msg.endTime
+                        + ', duration - ' + msg.duration + ', ixnId - ' + msg.ixnId + ', callAnswered - ' + msg.callAnswered);
+            
+            if(msg.ixnType == 0 && msg.attachedData.VH_RESULT == "callback"){
+                msg.ixnType = 1;
+                log('CreateTask: Virtual Hold Call, Retagging as Inbound Call');
+            }            
+                        
+            GenesysCTI_Controler.CreateTask(msg.ixnType, msg.cli, msg.objectId,  msg.objectType, msg.startTime,
+                                            msg.endTime, msg.duration,  msg.ixnId, msg.callAnswered,
+                function(result,event) {
+                    log('processEvent: Create Task returned id - ' + result + ', event - ' + event);
+                    if(result != '' && result != null) {  
+     
+                        result = result.replace(/&(l|g|quo)t;/g, function(a,b){
+                                return {
+                                   l   : '<',
+                                   g   : '>',
+                                   quo : '"'
+                                }[b];
+                        });
+
+                        var createdTask = j$.parseJSON(result);
+                        if (! createdTask.screenPop) {
+                            log('processEvent: Create Task parent object was CampaignMember, do not pop task.');
+                        } else {
+                            sforce.console.getPrimaryTabIds( function showTabId(tabs) {                                   
+                                //Display the primary tab IDs
+                                tabs.ids = '' + tabs.ids;                                    
+                                log('processEvent: Create tasks tabs to check - ' + tabs.ids);    
+                                
+                                if(tabs.ids == ''){
+                                    screenPop(createdTask.id, false);
+                                } else {    
+                                    var tabsArr = tabs.ids.split(',');                                
+                                    openSubTab(createdTask, tabsArr);                                    
+                                }
+                            });
+                        }                       
+                    }                                               
+            }); 
+        }
+        
+        //open subtab function
+        function openSubTab(task, primaryTabs){
+            sforce.console.getPageInfo(primaryTabs[0], function showPageInfo(result) {                           
+                var  pageInfo = j$.parseJSON(result.pageInfo);
+                log('openSubTab: taskParentId - ' + task.parentObjectId + ', pageObjectId - ' + pageInfo.objectId);
+                if(task.parentObjectId.indexOf(pageInfo.objectId) == 0){
+                    
+                    if(task.id.length > 15){
+                       task.id= task.id.substr(0, 15);
+                       log('openSubTab: objId more then 15 chars trimed value - ' + task.id);     
+                    }
+                
+                    sforce.console.openSubtab(primaryTabs[0], '/' + task.id , false,
+                      task.type, null, null, null);
+                } else if( primaryTabs.length == 1){
+                    screenPop(task.id, false);
+                } else {
+                    primaryTabs.splice(0, 1);
+                    openSubTab(task, primaryTabs); //recursion
+                }
+                                                               
+            });
+        }
+        
+        //screenpop function
+        function screenPop(objId, focus){
+             // callback function for primary tab open completion state
+                var onScreenPop = function onScreenPop(response) 
+                {
+                    if ((response).success == true) {
+                        log('Primary tab opened successfully with id: ' + result.id);
+                    } else {
+                        //TODO check for errors
+                        log('ERROR: Primary tab could not be opened, error - ' + response.error);
+                    }
+                };
+                
+                if(objId.length > 15){
+                   objId = objId.substr(0, 15);
+                   log('screenPop: objId more then 15 chars trimed value - ' + objId);     
+                }
+                    
+                sforce.interaction.screenPop('/' + objId, focus, onScreenPop);
+        }
+ 
+////////////////////////////////////////////////////////////////////////////////////////        
+       
+        // *** UI functions **** //
+        
+////////////////////////////////////////////////////////////////////////////////////////      
+
+        //change connected status  
+        function changeConnectedStatus(connected){
+            if(connected){
+                var imgUrl = j$('#workspaceConnected').html();
+                j$('#statusTd').html('<img src="' + imgUrl  + '">');     
+            }
+            else if (!connected){
+                var imgUrl = j$('#workspaceDisconnected').html();
+                j$('#statusTd').html('<img src="' + imgUrl  + '">');              
+            }                          
+        }
+
+        // enable/disable log    
+        function onChangeLogButtonClick(show){ 
+                             
+            if(!show){
+                //hidding log
+                var imgUrl = j$('#logShowButton').html();
+                j$('#logTd').html('<img id="logButton" src="' + imgUrl  + '">');                
+                
+                j$('#logButton').click(function() {
+                    onChangeLogButtonClick(true);
+                });
+                
+                sforce.interaction.cti.setSoftphoneHeight(30);
+                sforce.interaction.cti.setSoftphoneWidth(115);       
+                
+                j$('#debug').hide();
+            }
+            else{
+              //showing log
+                var imgUrl = j$('#logHideButton').html();
+                j$('#logTd').html('<img id="logButton" src="' + imgUrl  + '">');
+                
+                j$('#logButton').click(function() {
+                    onChangeLogButtonClick(false);
+                });
+                
+                sforce.interaction.cti.setSoftphoneHeight(330);
+                sforce.interaction.cti.setSoftphoneWidth(300);        
+                j$('#debug').show();
+            }  
+              
+            showLog = show;
+            clearLog();           
+        }
+        
+        /// logs a line to the console component visual log
+        function log(message) {
+            
+            if(!showLog)  //do not show anything if log is switched off
+                return;
+            
+            var id=document.getElementById("log");
+            if(id.innerHTML.length>0)
+                id.innerHTML=id.innerHTML+"<br>" + timestamp() + " " + message;
+            else
+                id.innerHTML=timestamp()+ " " + message;
+        }
+        
+        /// clears the log in the console
+        function clearLog() {
+            j$('#log').html('');
+        }
+        
+        //generate current time for log
+        function timestamp() {
+            var dd = new Date();
+            var hh = dd.getHours();
+            var mm = dd.getMinutes();
+            var ss = dd.getSeconds();
+            return "<span style='color: blue;'>" + ((hh>9)?hh: "0" + hh) + ":" + ((mm>9)?mm: "0" + mm) + ":" + ((ss>9)?ss: "0" + ss) + "</span>";
+        };  
+
+     </script>
+        
+     <div style="background-color: #DCF3FA; width:100%; height:100%;">
+
+            <!-- these divs will store paths to images that will be manipulated by jquery-->
+            <div id="logShowButton" style="display:none;">{!URLFOR($Resource.GenesysCTIResources, 'GenesysCTILogShowButton.png')}</div>
+            <div id="logHideButton" style="display:none;">{!URLFOR($Resource.GenesysCTIResources, 'GenesysCTILogHideButton.png')}</div>
+            <div id="workspaceConnected" style="display:none;">{!URLFOR($Resource.GenesysCTIResources, 'GenesysCTIConnected.png')}</div>
+            <div id="workspaceDisconnected" style="display:none;">{!URLFOR($Resource.GenesysCTIResources, 'GenesysCTIDisconnected.png')}</div>                
+            <!-- end of divs -->            
+            
+            <div>
+                <table>
+                    <tr>
+                        <td id="statusTd">
+                            <!-- these cells witll be filled by jquery -->                        
+                        </td>
+                        <td id="logTd">
+                            <!-- these cells witll be filled by jquery -->                        
+                        </td>
+                    </tr>
+                </table>
+            </div> 
+            <div id="debug" style="display:none; width:100%;">
+                <span id="commStatus" style="margin: 5px;"> 
+                Developer Log:
+                </span>
+                <table style="border: 1px solid dimgray; margin : 5px; background-color: white; ">
+                    <tr>
+                        <td><div id="log" style="width: 275px; height: 265px; overflow: auto;"></div></td>
+                    </tr>
+                </table> 
+            </div>
+        </div>         
+
+</apex:page>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Required_Fields_NewsXtend_When_ClosedWon</fullName>
+    <active>true</active>
+    <description>Payer Account and Contact are required fields when &quot;NewsXtend&quot; is selected in Opportunity Platform and Probability is 100%.</description>
+    <errorConditionFormula>AND( Probability = 1, 
+NOT( $Setup.No_Validation__c.Flag__c),
+INCLUDES(OpportunityGroup__c, &#39;NewsXtend&#39;), 
+OR( RecordType.Name =&#39;Agreement Negotiation&#39;,RecordType.Name =&#39;Brief&#39;,RecordType.Name =&#39;Historical&#39;,RecordType.Name =&#39;Late Space&#39;,RecordType.Name =&#39;Multi-Channel&#39;,RecordType.Name =&#39;Proactive&#39;),
+OR(ISBLANK( Payer_Account__c ), ISBLANK( Contact__c )    ))</errorConditionFormula>
+    <errorDisplayField>Contact__c</errorDisplayField>
+    <errorMessage>Payer Account and Contact are required fields when &quot;NewsXtend&quot; is selected in Opportunity Platform and Probability is 100%.</errorMessage>
+</ValidationRule>

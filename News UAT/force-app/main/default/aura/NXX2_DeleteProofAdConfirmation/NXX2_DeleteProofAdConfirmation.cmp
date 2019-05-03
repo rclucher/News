@@ -1,0 +1,20 @@
+<aura:component controller="NXX2_SocialAdPageController" access="global">
+    <aura:attribute name="displaySpinner" type="Boolean" default="false"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:registerEvent name="closeModal" type="c:NXX2_CloseModal"/>
+    <aura:registerEvent name="AdHasBeenUpdated" type="c:NXX2_AdHasBeenUpdated"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <aura:if isTrue="{!v.displaySpinner}">
+            <lightning:spinner size="medium"/>
+        </aura:if>
+    <div class="confirmation-container">
+        <div class="confirmation-message">
+            Are you sure to delete this proof Ad?
+        </div>
+        <div class="button-container-footer">
+            <lightning:button label="Cancel" title="Neutral action" onclick="{! c.cancelAd }"/>
+            <lightning:button variant="brand" label="Delete Ad" title="Success" onclick="{! c.deleteAd }"/>
+        </div>
+    </div>
+</aura:component>

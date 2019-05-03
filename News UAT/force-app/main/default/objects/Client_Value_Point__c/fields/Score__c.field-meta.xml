@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Score__c</fullName>
+    <description>Negotiation Score returned as the result of the Negotiation Point parameters combination.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Negotiation Score returned as the result of the Negotiation Point parameters combination.</inlineHelpText>
+    <label>Score</label>
+    <precision>18</precision>
+    <required>true</required>
+    <scale>0</scale>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsAllDayEvent__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalDeveloperName>IsAllDayEvent</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>All-Day Event</label>
+    <type>Checkbox</type>
+</CustomField>

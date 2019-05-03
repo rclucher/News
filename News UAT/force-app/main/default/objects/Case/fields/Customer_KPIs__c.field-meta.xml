@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_KPIs__c</fullName>
+    <description>Key performance indicators that the customer will use to measure campaign success</description>
+    <externalId>false</externalId>
+    <inlineHelpText>What are they looking for in particular? (e.g. Reach, conversions, sales?)</inlineHelpText>
+    <label>How will the campaign be measured</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

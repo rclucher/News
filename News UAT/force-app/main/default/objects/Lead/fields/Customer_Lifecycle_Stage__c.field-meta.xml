@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Lifecycle_Stage__c</fullName>
+    <description>Marketo required, read only field</description>
+    <externalId>false</externalId>
+    <label>Customer Lifecycle Stage</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Known</fullName>
+                <default>false</default>
+                <label>Known</label>
+            </value>
+            <value>
+                <fullName>Engaged</fullName>
+                <default>false</default>
+                <label>Engaged</label>
+            </value>
+            <value>
+                <fullName>Marketing Qualified Lead (MQL)</fullName>
+                <default>false</default>
+                <label>Marketing Qualified Lead (MQL)</label>
+            </value>
+            <value>
+                <fullName>Recycled to Marketing</fullName>
+                <default>false</default>
+                <label>Recycled to Marketing</label>
+            </value>
+            <value>
+                <fullName>Sales Accepted Lead (SAL)</fullName>
+                <default>false</default>
+                <label>Sales Accepted Lead (SAL)</label>
+            </value>
+            <value>
+                <fullName>Opportunity</fullName>
+                <default>false</default>
+                <label>Opportunity</label>
+            </value>
+            <value>
+                <fullName>Customer</fullName>
+                <default>false</default>
+                <label>Customer</label>
+            </value>
+            <value>
+                <fullName>Retention</fullName>
+                <default>false</default>
+                <label>Retention</label>
+            </value>
+            <value>
+                <fullName>Advocate</fullName>
+                <default>false</default>
+                <label>Advocate</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

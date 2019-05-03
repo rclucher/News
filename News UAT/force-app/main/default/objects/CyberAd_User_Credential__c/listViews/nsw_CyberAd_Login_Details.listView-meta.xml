@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>nsw_CyberAd_Login_Details</fullName>
+    <columns>User__c</columns>
+    <columns>Active__c</columns>
+    <columns>OBJECT_ID</columns>
+    <columns>NAME</columns>
+    <columns>CyberAd_Password__c</columns>
+    <columns>CyberAd_Username__c</columns>
+    <columns>CyberSell_Divisions__c</columns>
+    <columns>Database__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Division__c</field>
+        <operation>equals</operation>
+        <value>NWN,CNG,DBL</value>
+    </filters>
+    <filters>
+        <field>Active__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>NSW CyberAd Login Details</label>
+    <sharedTo>
+        <roleAndSubordinates>DBL_Classifieds_Manager</roleAndSubordinates>
+    </sharedTo>
+</ListView>

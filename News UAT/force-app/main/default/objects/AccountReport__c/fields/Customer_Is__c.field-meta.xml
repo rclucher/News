@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Is__c</fullName>
+    <description>Based on the Date - Time in Last Digital / Print and XTend Transaction Dates in the last 12 Months</description>
+    <externalId>false</externalId>
+    <formula>IF(AND(	Digital_Last_Transaction_Date__c	&gt;= TODAY() - 365	,	
+Print_Last_Transaction_Date__c	&gt;= TODAY() - 365	,	
+Xtend_Last_Transaction_Date__c	&gt;= TODAY() - 365	),&#39;Digital, Print and Xtend&#39;,IF(AND(	
+Digital_Last_Transaction_Date__c	&gt;= TODAY() - 365	,	
+Print_Last_Transaction_Date__c	&gt;= TODAY() - 365	,	
+Xtend_Last_Transaction_Date__c&lt;TODAY()-365 || ISBLANK(Xtend_Last_Transaction_Date__c)),&#39;Digital and Print&#39;,IF(AND(	
+Digital_Last_Transaction_Date__c	&gt;= TODAY() - 365	,	
+Print_Last_Transaction_Date__c&lt;TODAY()-365 || ISBLANK(Print_Last_Transaction_Date__c),	
+Xtend_Last_Transaction_Date__c	&gt;= TODAY() - 365	)
+,&#39;Digital and Xtend&#39;,IF(AND(	
+Digital_Last_Transaction_Date__c	&gt;= TODAY() - 365	,	
+Print_Last_Transaction_Date__c&lt;TODAY()-365 || ISBLANK(Print_Last_Transaction_Date__c),	
+Xtend_Last_Transaction_Date__c&lt;TODAY()-365 || ISBLANK(Xtend_Last_Transaction_Date__c)	)
+,&#39;Digital&#39;,if(AND(	
+Digital_Last_Transaction_Date__c&lt;TODAY()-365 || ISBLANK(Digital_Last_Transaction_Date__c),	
+Print_Last_Transaction_Date__c	&gt;= TODAY() - 365	,	
+Xtend_Last_Transaction_Date__c	&gt;= TODAY() - 365	)
+,&#39;Print and Xtend&#39;,IF(AND(	
+Digital_Last_Transaction_Date__c&lt;TODAY()-365 || ISBLANK(Digital_Last_Transaction_Date__c),	
+Print_Last_Transaction_Date__c&lt;TODAY()-365 || ISBLANK(Print_Last_Transaction_Date__c),	
+Xtend_Last_Transaction_Date__c	&gt;= TODAY() - 365	)
+,&#39;Xtend&#39;,if(AND(	
+Digital_Last_Transaction_Date__c&lt;TODAY()-365 || ISBLANK(Digital_Last_Transaction_Date__c),	
+Print_Last_Transaction_Date__c&lt;TODAY()-365 || ISBLANK(Print_Last_Transaction_Date__c),	
+Xtend_Last_Transaction_Date__c&lt;TODAY()-365 || ISBLANK(Xtend_Last_Transaction_Date__c))
+,&#39;No Activity in Last 12 Months&#39;,if(AND(	 
+Digital_Last_Transaction_Date__c&lt;TODAY()-365 || ISBLANK(Digital_Last_Transaction_Date__c)	,	
+Print_Last_Transaction_Date__c	&gt;= TODAY() - 365	,	
+Xtend_Last_Transaction_Date__c&lt;TODAY()-365 || ISBLANK(Xtend_Last_Transaction_Date__c))
+,&#39;Print&#39;,&#39;No Activity in Last 12 Months&#39;))))))
+))</formula>
+    <inlineHelpText>Indicates if customer has purchased Print, Digital and/or News Xtend in the past 12 months</inlineHelpText>
+    <label>Customer Is</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

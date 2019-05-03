@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Progress_Notes__c</fullName>
+    <description>NextGen field. Renamed from Current position to progress notes</description>
+    <externalId>false</externalId>
+    <inlineHelpText>A brief summary of major ​changes as the opportunity moves through the sales stages. E.g. Requesting proposal, customer objections and solutions, changes to ​proposed advertising campaign e.g. ​dates and products</inlineHelpText>
+    <label>Progress Notes</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Line_Item_Ad_Types__c</fullName>
+    <description>Unique Ad Types in the Booking Line Items</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Unique Ad Types in the Booking Line Items</inlineHelpText>
+    <label>Line Item Ad Types</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>NXX2_Populate_Default_Val_Of_Proof_Name</fullName>
+        <description>This will update default value of proof name</description>
+        <field>Proof_Name__c</field>
+        <formula>Product_Order__r.Order__r.Name + &#39; - &#39; + CASE(MONTH( Campaign_Start_Date__c ), 
+1, &quot;JAN&quot;, 
+2, &quot;FEB&quot;, 
+3, &quot;MAR&quot;, 
+4, &quot;APR&quot;, 
+5, &quot;MAY&quot;, 
+6, &quot;JUN&quot;, 
+7, &quot;JUL&quot;, 
+8, &quot;AUG&quot;, 
+9, &quot;SEP&quot;, 
+10, &quot;OCT&quot;, 
+11, &quot;NOV&quot;, 
+12, &quot;DEC&quot;, 
+&quot;None&quot;) + &#39; - &#39; + CASE(MONTH( Campaign_End_Date__c ), 
+1, &quot;JAN&quot;, 
+2, &quot;FEB&quot;, 
+3, &quot;MAR&quot;, 
+4, &quot;APR&quot;, 
+5, &quot;MAY&quot;, 
+6, &quot;JUN&quot;, 
+7, &quot;JUL&quot;, 
+8, &quot;AUG&quot;, 
+9, &quot;SEP&quot;, 
+10, &quot;OCT&quot;, 
+11, &quot;NOV&quot;, 
+12, &quot;DEC&quot;, 
+&quot;None&quot;) + &#39; &#39; + TEXT(YEAR( NULLVALUE( Campaign_End_Date__c , TODAY() ) ))</formula>
+        <name>NXX2 Populate Default Val Of Proof Name</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>NXX2_update_visible_to_customer_on_proof</fullName>
+        <description>This will update &#39;Visible To Customer&#39; field on proof</description>
+        <field>Visible_To_Customer__c</field>
+        <literalValue>1</literalValue>
+        <name>NXX2 update visible to customer on proof</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Send_Email</fullName>
+        <field>Send_Approval_Emails__c</field>
+        <literalValue>1</literalValue>
+        <name>Update Send Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>NXX2 Update Proof Name For Default Value</fullName>
+        <actions>
+            <name>NXX2_Populate_Default_Val_Of_Proof_Name</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>SocialCampaign__c.Proof_Name__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <description>This workflow will set default value of proof name if it is blank</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>NXX2 update visible to customer</fullName>
+        <actions>
+            <name>NXX2_update_visible_to_customer_on_proof</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>SocialCampaign__c.Status__c</field>
+            <operation>equals</operation>
+            <value>With Customer</value>
+        </criteriaItems>
+        <description>This workflow rule will run when a proof is set to ready for customer review.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>NXX2_Trigger_Process_To_Sent_Approval_Email</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>SocialCampaign__c.Status__c</field>
+            <operation>equals</operation>
+            <value>With Customer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>SocialCampaign__c.Send_Approval_Emails__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <description>This workflow will be used to trigger the Process builder, which will be used to sent reminder email to customer</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Update_Send_Email</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>SocialCampaign__c.Send_Email_Initiation_Time__c</offsetFromField>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+</Workflow>

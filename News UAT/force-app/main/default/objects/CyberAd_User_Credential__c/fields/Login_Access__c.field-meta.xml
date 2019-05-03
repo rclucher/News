@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Login_Access__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>All users will have a User Account in Adpoint - but only some will be able to log in to Adpoint (and make Bookings).
+
+This field marks those users. Used in Booking UI for access control Adpoint Bookings.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Tick if this User has login access to Adpoint. It will also allow this User to make Adpoint Bookings.</inlineHelpText>
+    <label>Adpoint Login Access</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Populate_Setup_Readiness_Comment_Invalid</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL( Campaign_Ready_for_Setup__c , &#39;No&#39;) &amp;&amp; ( Setup_Readiness_Comment__c ==&#39;&#39; || Setup_Readiness_Comment__c == null)</errorConditionFormula>
+    <errorDisplayField>Setup_Readiness_Comment__c</errorDisplayField>
+    <errorMessage>Please provide more details regarding invalid Campaign Setup</errorMessage>
+</ValidationRule>

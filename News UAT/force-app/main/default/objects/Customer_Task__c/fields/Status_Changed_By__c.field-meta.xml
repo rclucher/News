@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_Changed_By__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>This will Capture the user, who updated the status.</description>
+    <externalId>false</externalId>
+    <label>Status Changed By</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Customer_Tasks</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

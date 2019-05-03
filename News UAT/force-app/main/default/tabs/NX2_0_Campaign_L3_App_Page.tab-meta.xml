@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This Tab should be enabled for only NewsXtend - Campaign L3 Profile, and all other profiles hidden, and Enable for Cloud Sense Fulfilment Lightning App</description>
+    <flexiPage>NX2_0_Campaign_L3_App_Page</flexiPage>
+    <label>Home</label>
+    <mobileReady>false</mobileReady>
+    <motif>Custom19: Wrench</motif>
+</CustomTab>

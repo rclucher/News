@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closed_Won_Reason_c__c</fullName>
+    <externalDeveloperName>Closed_Won_Reason__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Closed Won Reason</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>DMS New</fullName>
+                <default>false</default>
+                <label>DMS New</label>
+            </value>
+            <value>
+                <fullName>DMS Resign</fullName>
+                <default>false</default>
+                <label>DMS Resign</label>
+            </value>
+            <value>
+                <fullName>DMS Upsell</fullName>
+                <default>false</default>
+                <label>DMS Upsell</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

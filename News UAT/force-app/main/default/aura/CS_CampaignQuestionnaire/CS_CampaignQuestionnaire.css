@@ -1,0 +1,53 @@
+.THIS .customClassForTabData {
+    width: 100%;
+}
+
+.THIS .questionInput{
+    width: 70%;
+}
+
+.THIS .tabTitle{
+    font-size: 1em;
+}
+
+@media (max-width: 40em) {
+  .THIS .tabTitle {
+    font-size: 0.5em;
+  }
+}
+
+.THIS .inputCurrency{
+    border: 1px solid rgb(221, 219, 218);
+    max-width: 100%;
+    width: 100%;
+    border-radius: .25rem;
+    background-color: rgb(255, 255, 255);
+    color: rgb(62, 62, 60);
+    -webkit-transition: border .1s linear,background-color .1s linear;
+    transition: border .1s linear,background-color .1s linear;
+    display: inline-block;
+    padding: 0 1rem 0 .75rem;
+    min-height: calc(1.875rem + (1px * 2));
+    line-height: 1.875rem;
+}
+
+.THIS .inputFieldLabel{
+    display: inline-block;
+    color: rgb(107, 109, 112);
+    font-size: .75rem;
+    line-height: 1.5;
+    margin-right: .75rem;
+    margin-bottom: .125rem;
+}
+
+.THIS .messageBox{
+    position: initial;
+}
+
+.THIS .requiredText{
+    color: red;
+}
+
+.THIS .errorMessageBox{
+    display: block;
+}

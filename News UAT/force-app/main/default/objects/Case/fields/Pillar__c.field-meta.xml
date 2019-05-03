@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pillar__c</fullName>
+    <externalId>false</externalId>
+    <label>Pillar</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Account Management</fullName>
+                <default>false</default>
+                <label>Account Management</label>
+            </value>
+            <value>
+                <fullName>Adult</fullName>
+                <default>false</default>
+                <label>Adult</label>
+            </value>
+            <value>
+                <fullName>Business</fullName>
+                <default>false</default>
+                <label>Business</label>
+            </value>
+            <value>
+                <fullName>Careers</fullName>
+                <default>false</default>
+                <label>Careers</label>
+            </value>
+            <value>
+                <fullName>Cars Guide</fullName>
+                <default>false</default>
+                <label>Cars Guide</label>
+            </value>
+            <value>
+                <fullName>Funeral</fullName>
+                <default>false</default>
+                <label>Funeral</label>
+            </value>
+            <value>
+                <fullName>Gen Class</fullName>
+                <default>true</default>
+                <label>Gen Class</label>
+            </value>
+            <value>
+                <fullName>Legal Notices</fullName>
+                <default>false</default>
+                <label>Legal Notices</label>
+            </value>
+            <value>
+                <fullName>LET</fullName>
+                <default>false</default>
+                <label>LET</label>
+            </value>
+            <value>
+                <fullName>Marketplace</fullName>
+                <default>false</default>
+                <label>Marketplace</label>
+            </value>
+            <value>
+                <fullName>Motoring</fullName>
+                <default>false</default>
+                <label>Motoring</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Personal Notices</fullName>
+                <default>false</default>
+                <label>Personal Notices</label>
+            </value>
+            <value>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+                <label>Real Estate</label>
+            </value>
+            <value>
+                <fullName>Trades</fullName>
+                <default>false</default>
+                <label>Trades</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

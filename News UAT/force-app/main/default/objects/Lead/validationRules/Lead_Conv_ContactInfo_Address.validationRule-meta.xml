@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Conv_ContactInfo_Address</fullName>
+    <active>true</active>
+    <description>Ensure that the relevant Contact information is provided based on the selected Channel</description>
+    <errorConditionFormula>AND( 
+  ISBLANK( Street  ), 
+  ISPICKVAL( Channel__c , &#39;Direct Mail&#39;) ,
+  ISPICKVAL( Status, &#39;Qualified&#39;)
+)</errorConditionFormula>
+    <errorDisplayField>Street</errorDisplayField>
+    <errorMessage>The Address must be provided if the Lead Channel is Direct Mail</errorMessage>
+</ValidationRule>

@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Section_in_Product__c</fullName>
+    <externalId>false</externalId>
+    <label>Section in Product</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Arts</fullName>
+                <default>false</default>
+                <label>Arts</label>
+            </value>
+            <value>
+                <fullName>Big Wheels</fullName>
+                <default>false</default>
+                <label>Big Wheels</label>
+            </value>
+            <value>
+                <fullName>Body + Soul</fullName>
+                <default>false</default>
+                <label>Body + Soul</label>
+            </value>
+            <value>
+                <fullName>Business</fullName>
+                <default>false</default>
+                <label>Business</label>
+            </value>
+            <value>
+                <fullName>Career One</fullName>
+                <default>false</default>
+                <label>Career One</label>
+            </value>
+            <value>
+                <fullName>CARSguide</fullName>
+                <default>false</default>
+                <label>CARSguide</label>
+            </value>
+            <value>
+                <fullName>CM2</fullName>
+                <default>false</default>
+                <label>CM2</label>
+            </value>
+            <value>
+                <fullName>Coastal &amp; Country Property</fullName>
+                <default>false</default>
+                <label>Coastal &amp; Country Property</label>
+            </value>
+            <value>
+                <fullName>Commercial Property</fullName>
+                <default>false</default>
+                <label>Commercial Property</label>
+            </value>
+            <value>
+                <fullName>Confidential</fullName>
+                <default>false</default>
+                <label>Confidential</label>
+            </value>
+            <value>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+                <label>Dealer</label>
+            </value>
+            <value>
+                <fullName>Developments</fullName>
+                <default>false</default>
+                <label>Developments</label>
+            </value>
+            <value>
+                <fullName>Education</fullName>
+                <default>false</default>
+                <label>Education</label>
+            </value>
+            <value>
+                <fullName>Entertainment</fullName>
+                <default>false</default>
+                <label>Entertainment</label>
+            </value>
+            <value>
+                <fullName>Escape</fullName>
+                <default>false</default>
+                <label>Escape</label>
+            </value>
+            <value>
+                <fullName>Fashion</fullName>
+                <default>false</default>
+                <label>Fashion</label>
+            </value>
+            <value>
+                <fullName>Filler</fullName>
+                <default>false</default>
+                <label>Filler</label>
+            </value>
+            <value>
+                <fullName>Food &amp; Wine</fullName>
+                <default>false</default>
+                <label>Food &amp; Wine</label>
+            </value>
+            <value>
+                <fullName>Footy Central</fullName>
+                <default>false</default>
+                <label>Footy Central</label>
+            </value>
+            <value>
+                <fullName>Form Guide</fullName>
+                <default>false</default>
+                <label>Form Guide</label>
+            </value>
+            <value>
+                <fullName>General News</fullName>
+                <default>false</default>
+                <label>General News</label>
+            </value>
+            <value>
+                <fullName>Goss &amp; Glam</fullName>
+                <default>false</default>
+                <label>Goss &amp; Glam</label>
+            </value>
+            <value>
+                <fullName>Health &amp; Beauty</fullName>
+                <default>false</default>
+                <label>Health &amp; Beauty</label>
+            </value>
+            <value>
+                <fullName>HiT</fullName>
+                <default>false</default>
+                <label>HiT</label>
+            </value>
+            <value>
+                <fullName>Home</fullName>
+                <default>false</default>
+                <label>Home</label>
+            </value>
+            <value>
+                <fullName>Insider</fullName>
+                <default>false</default>
+                <label>Insider</label>
+            </value>
+            <value>
+                <fullName>Lifestyle</fullName>
+                <default>false</default>
+                <label>Lifestyle</label>
+            </value>
+            <value>
+                <fullName>Manufacture</fullName>
+                <default>false</default>
+                <label>Manufacture</label>
+            </value>
+            <value>
+                <fullName>MegaWrap</fullName>
+                <default>false</default>
+                <label>MegaWrap</label>
+            </value>
+            <value>
+                <fullName>moneysaverHQ</fullName>
+                <default>false</default>
+                <label>moneysaverHQ</label>
+            </value>
+            <value>
+                <fullName>Movies</fullName>
+                <default>false</default>
+                <label>Movies</label>
+            </value>
+            <value>
+                <fullName>Music</fullName>
+                <default>false</default>
+                <label>Music</label>
+            </value>
+            <value>
+                <fullName>Open for Inspection</fullName>
+                <default>false</default>
+                <label>Open for Inspection</label>
+            </value>
+            <value>
+                <fullName>Open House</fullName>
+                <default>false</default>
+                <label>Open House</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Preprint Wrap</fullName>
+                <default>false</default>
+                <label>Preprint Wrap</label>
+            </value>
+            <value>
+                <fullName>Puzzles &amp; Comics</fullName>
+                <default>false</default>
+                <label>Puzzles &amp; Comics</label>
+            </value>
+            <value>
+                <fullName>Reader Feedback</fullName>
+                <default>false</default>
+                <label>Reader Feedback</label>
+            </value>
+            <value>
+                <fullName>Real Estate Guide</fullName>
+                <default>false</default>
+                <label>Real Estate Guide</label>
+            </value>
+            <value>
+                <fullName>Residential Property</fullName>
+                <default>false</default>
+                <label>Residential Property</label>
+            </value>
+            <value>
+                <fullName>Retail</fullName>
+                <default>false</default>
+                <label>Retail</label>
+            </value>
+            <value>
+                <fullName>Scene</fullName>
+                <default>false</default>
+                <label>Scene</label>
+            </value>
+            <value>
+                <fullName>Shares</fullName>
+                <default>false</default>
+                <label>Shares</label>
+            </value>
+            <value>
+                <fullName>Sport</fullName>
+                <default>false</default>
+                <label>Sport</label>
+            </value>
+            <value>
+                <fullName>Supplement</fullName>
+                <default>false</default>
+                <label>Supplement</label>
+            </value>
+            <value>
+                <fullName>Switched On</fullName>
+                <default>false</default>
+                <label>Switched On</label>
+            </value>
+            <value>
+                <fullName>Taste</fullName>
+                <default>false</default>
+                <label>Taste</label>
+            </value>
+            <value>
+                <fullName>TV Pages</fullName>
+                <default>false</default>
+                <label>TV Pages</label>
+            </value>
+            <value>
+                <fullName>Weather</fullName>
+                <default>false</default>
+                <label>Weather</label>
+            </value>
+            <value>
+                <fullName>Weekend</fullName>
+                <default>false</default>
+                <label>Weekend</label>
+            </value>
+            <value>
+                <fullName>Whole Book</fullName>
+                <default>false</default>
+                <label>Whole Book</label>
+            </value>
+            <value>
+                <fullName>Wrap</fullName>
+                <default>false</default>
+                <label>Wrap</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

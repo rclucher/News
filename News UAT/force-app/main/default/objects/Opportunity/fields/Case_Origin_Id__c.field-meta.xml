@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Origin_Id__c</fullName>
+    <description>The Case Id from which the opportunity originated from. Populated and used when a user creates a new opportunity from a Case record with the record type &#39;Referral&#39;. Created for JIRA Item SFE-498.</description>
+    <externalId>false</externalId>
+    <label>Case Origin Id</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

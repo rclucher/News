@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Local_Breakdown__c</fullName>
+    <description>Local Breakdown of Campaign Budget</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Budget breakdown for Local in dollars</inlineHelpText>
+    <label>Local Breakdown</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

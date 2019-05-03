@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IO_Margin__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Product_Node__r.Network__c == &#39;Facebook&#39;, 0.35,  
+IF(Product_Node__r.Network__c == &#39;Acquisio&#39;, 0.2, 
+IF(Product_Node__r.Name  == &#39;NX - Blended programmatic (Display/Mobile/Retargeting) - Media spend - $10000 +&#39;, 0.5, 0)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>IO Margin</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

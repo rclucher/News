@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Unit_Lead_c__c</fullName>
+    <externalDeveloperName>Business_Unit_Lead__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Business Unit Lead</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bay of Plenty</fullName>
+                <default>false</default>
+                <label>Bay of Plenty</label>
+            </value>
+            <value>
+                <fullName>Capital Communities</fullName>
+                <default>false</default>
+                <label>Capital Communities</label>
+            </value>
+            <value>
+                <fullName>Christchurch</fullName>
+                <default>false</default>
+                <label>Christchurch</label>
+            </value>
+            <value>
+                <fullName>Hamilton</fullName>
+                <default>false</default>
+                <label>Hamilton</label>
+            </value>
+            <value>
+                <fullName>Hawkes Bay</fullName>
+                <default>false</default>
+                <label>Hawkes Bay</label>
+            </value>
+            <value>
+                <fullName>Levin/Manawatu</fullName>
+                <default>false</default>
+                <label>Levin/Manawatu</label>
+            </value>
+            <value>
+                <fullName>Northern</fullName>
+                <default>false</default>
+                <label>Northern</label>
+            </value>
+            <value>
+                <fullName>NZ Herald</fullName>
+                <default>false</default>
+                <label>NZ Herald</label>
+            </value>
+            <value>
+                <fullName>NZ Magazines</fullName>
+                <default>false</default>
+                <label>NZ Magazines</label>
+            </value>
+            <value>
+                <fullName>Oamaru</fullName>
+                <default>false</default>
+                <label>Oamaru</label>
+            </value>
+            <value>
+                <fullName>Pahiatua Bush</fullName>
+                <default>false</default>
+                <label>Pahiatua Bush</label>
+            </value>
+            <value>
+                <fullName>Presspak</fullName>
+                <default>false</default>
+                <label>Presspak</label>
+            </value>
+            <value>
+                <fullName>Rotorua</fullName>
+                <default>false</default>
+                <label>Rotorua</label>
+            </value>
+            <value>
+                <fullName>Stratford</fullName>
+                <default>false</default>
+                <label>Stratford</label>
+            </value>
+            <value>
+                <fullName>Te Awamutu</fullName>
+                <default>false</default>
+                <label>Te Awamutu</label>
+            </value>
+            <value>
+                <fullName>Wairarapa</fullName>
+                <default>false</default>
+                <label>Wairarapa</label>
+            </value>
+            <value>
+                <fullName>Wanganui</fullName>
+                <default>false</default>
+                <label>Wanganui</label>
+            </value>
+            <value>
+                <fullName>Whakatane</fullName>
+                <default>false</default>
+                <label>Whakatane</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

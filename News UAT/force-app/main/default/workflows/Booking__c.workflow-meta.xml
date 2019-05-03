@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Bking_Set_Flag</fullName>
+        <description>Unchecks the Flag set by code so Validation Rule will fire on user edit of Quote/Confirmation fields.</description>
+        <field>Quote_or_Confirmation_Flag_Send_Date__c</field>
+        <literalValue>0</literalValue>
+        <name>Bking Set Flag</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Bking_Set_Sent_Date</fullName>
+        <description>Set send date for Quote/Confirmation</description>
+        <field>Quote_or_Confirmation_Sent_Date__c</field>
+        <formula>NOW()</formula>
+        <name>Bking Set Sent Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Bking_Update_Count_Booking_External</fullName>
+        <field>Count_Booking_Outside_of_SFDC__c</field>
+        <literalValue>1</literalValue>
+        <name>Bking Update Count (Booking External)</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_External_Id</fullName>
+        <field>External_Id__c</field>
+        <formula>Calc_External_Id__c</formula>
+        <name>Update External Id</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>Bking Set External Id</fullName>
+        <actions>
+            <name>Update_External_Id</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISBLANK( External_Id__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Bking Set Send Date</fullName>
+        <actions>
+            <name>Bking_Set_Flag</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Bking_Set_Sent_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Booking__c.Quote_or_Confirmation_Flag_Send_Date__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>Booking Set Send Date for Quote/Confirmation</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Bking Update Count %28Booking External to CRM%29</fullName>
+        <actions>
+            <name>Bking_Update_Count_Booking_External</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Updates the checkbox to TRUE if the booking is created outside of CRM (ie. Integration User)</description>
+        <formula>AND(   OR(     ISCHANGED(CreatedById),     ISNEW()   ),   CreatedBy.Profile.Name  = &#39;News Integration&#39; )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

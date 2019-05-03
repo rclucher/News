@@ -1,0 +1,1660 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>CC_Classifieds_ADV_Auto_Response</fullName>
+        <description>DELETE: Case Test Auto Response</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SuppliedEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_NSW_General_Auto_Response</template>
+    </alerts>
+    <alerts>
+        <fullName>Case</fullName>
+        <description>Case send NSW Community Auto-Response</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SuppliedEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_NSW_Community_Auto_Response</template>
+    </alerts>
+    <alerts>
+        <fullName>CaseVICTest</fullName>
+        <description>Case send VIC Auto-Response Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SuppliedEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_VIC_General_Auto_Response</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Email_Creator_and_Customer_Credit_App_Approved</fullName>
+        <description>Case Email Creator and Customer Credit App Approved</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <recipients>
+            <field>ContactEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_Credit_App_Approved</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Email_Creator_and_Customer_Credit_App_Rejected</fullName>
+        <description>Case Email Creator and Customer Credit App Rejected</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <recipients>
+            <field>ContactEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_Credit_App_Rejected</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Email_Creator_of_Complaint_or_DRS</fullName>
+        <description>Case Email Creator of Complaint or DRS</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <senderAddress>nfsscreditapplications@newsltd.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_Complaint_or_DRS_Case_SLA_Exceeded_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_NFSS_Account_Enquiries_Auto_Response</fullName>
+        <description>Case: NFSS Account Enquiries Auto-Response (No Reply)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SuppliedEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_NFSS_Account_Enquiries_Auto_Response</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_NFSS_Credit_Application_Auto_Response</fullName>
+        <description>Case: NFSS Credit Application Auto-Response (No Reply)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SuppliedEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_NFSS_Credit_Application_Auto_Response</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_NFSS_NewsPay_Auto_Response</fullName>
+        <description>Case: NFSS NewsPay Auto-Response (No Reply)</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SuppliedEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_NFSS_NewsPay_Auto_Response</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_RFP_Tier_1_SLA_Exceeded_Notification</fullName>
+        <description>Case RFP Tier 1 SLA Exceeded Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_RFP_Case_SLA_Exceeded_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Tier_2_RFP_SLA_Exceeded_Notification</fullName>
+        <description>Case Tier 2 RFP SLA Exceeded Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_RFP_Case_SLA_Exceeded_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_Tier_3_RFP_SLA_Exceeded_Notification</fullName>
+        <description>Case Tier 3 RFP SLA Exceeded Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_RFP_Case_SLA_Exceeded_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_notify_of_Complaint_DRS_Result</fullName>
+        <description>Case notify of Complaint/DRS Result</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <recipients>
+            <field>ContactEmail</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Error_Made_By_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Team_Leader_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>nfsscreditapplications@newsltd.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_Complaint_or_DRS_Case_Outcome_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_send_General_Auto_Response</fullName>
+        <description>Case send NSW General Auto-Response</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SuppliedEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_NSW_General_Auto_Response</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_send_NLM_Auto_Response</fullName>
+        <description>Case send NLM Auto-Response</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SuppliedEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_NLM_Auto_Response</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_send_NSW_Metro_Auto_Response</fullName>
+        <description>Case send NSW Metro Auto-Response</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SuppliedEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_NSW_Metro_Auto_Response</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_send_QLD_General_Auto_Response_Email</fullName>
+        <description>Case send QLD General Auto-Response Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SuppliedEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_QLD_General_Auto_Response</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_send_QLD_NAB_Web_Help_Auto_Response</fullName>
+        <description>Case send QLD NAB Web Help Auto-Response</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SuppliedEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_QLD_Web_Help_AdPlacer_Auto_Response</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_send_QLD_Not_In_Use_Auto_Response</fullName>
+        <description>Case send QLD Not-In-Use Auto Response</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SuppliedEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_QLD_Not_In_Use_Auto_Response</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_send_SA_General_Auto_Response_Email</fullName>
+        <description>Case send SA General Auto-Response Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SuppliedEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_SA_General_Auto_Response</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_send_Sportsman_Auto_Response</fullName>
+        <description>Case send Sportsman Auto-Response</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SuppliedEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_Sportsman_Auto_Response</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_send_The_Australian_Auto_Response</fullName>
+        <description>Case send The Australian Auto-Response</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SuppliedEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_The_Australian_Auto_Response</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_send_VIC_Auto_Response_Email</fullName>
+        <description>Case send VIC Auto-Response Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SuppliedEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_VIC_General_Auto_Response</template>
+    </alerts>
+    <alerts>
+        <fullName>Case_send_out_Credit_Application</fullName>
+        <description>Case send out Credit Application</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>nfsscreditapplications@newsltd.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_NFSS_Application_for_Commercial_Credit_July_2016</template>
+    </alerts>
+    <alerts>
+        <fullName>Cse_Email_Alert_for_Geelong_Alias_1</fullName>
+        <description>Cse: Email Alert for Geelong Alias 1</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>georgia.clarke@news.com.au</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Email_Alert_for_Geelong_Alias</template>
+    </alerts>
+    <alerts>
+        <fullName>Cse_Email_Alert_for_Geelong_Alias_2</fullName>
+        <description>Cse: Email Alert for Geelong Alias 2</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>georgia.clarke@news.com.au</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Email_Alert_for_Geelong_Alias</template>
+    </alerts>
+    <alerts>
+        <fullName>Cse_Notify_Agent_Case_not_Closed_within_Due_Date</fullName>
+        <description>Cse Notify Agent Case not Closed within Due Date</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_Case_Not_Closed_Within_Due_Date</template>
+    </alerts>
+    <alerts>
+        <fullName>Cse_Notify_Agent_Case_not_Closed_within_SLA_2_hours</fullName>
+        <description>Cse Notify Agent Case not Closed within SLA of 2 hours</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_Case_Not_Closed_Within_SLA_2_hours</template>
+    </alerts>
+    <alerts>
+        <fullName>Cse_Notify_FSAM</fullName>
+        <description>Cse Notify FSAM</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Case_Notifications/Case_Closed_Notification</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>CaseAssignedtoNFSS</fullName>
+        <field>OwnerId</field>
+        <lookupValue>NFSS_Credit_Applications</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Case_Assigned to NFSS Credit Application</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>CaseUntickAutoAssignBox</fullName>
+        <field>AutomaticallyAssignCase__c</field>
+        <literalValue>0</literalValue>
+        <name>Case Untick Auto-Assign Box</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Case_Assigned_to_RFP</fullName>
+        <field>OwnerId</field>
+        <lookupValue>CC_RFP_Requests</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Case_Assigned to RFP</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Case_Assigned_to_RFP_Queue_NSW</fullName>
+        <field>OwnerId</field>
+        <lookupValue>RFP_Queue_NSW</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Case_Assigned to RFP Queue NSW</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Case_Assigned_to_RFP_Queue_QLD</fullName>
+        <field>OwnerId</field>
+        <lookupValue>RFP_Queue_QLD</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Case_Assigned to RFP Queue QLD</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Case_Assigned_to_RFP_Queue_SA</fullName>
+        <field>OwnerId</field>
+        <lookupValue>RFP_Queue_SA</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Case_Assigned to RFP Queue SA</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Case_Assigned_to_RFP_Queue_VIC</fullName>
+        <field>OwnerId</field>
+        <lookupValue>RFP_Queue_VIC</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Case_Assigned to RFP Queue VIC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Case_Assigned_to_RFP_Queue_WA</fullName>
+        <field>OwnerId</field>
+        <lookupValue>RFP_Queue_WA</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Case_Assigned to RFP Queue WA</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Case_Reset_PROD_Checkbox</fullName>
+        <field>Release_PROD__c</field>
+        <literalValue>0</literalValue>
+        <name>Case: Reset PROD Checkbox</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Case_Reset_PROD_Date</fullName>
+        <field>Release_PROD_Date__c</field>
+        <name>Case: Reset PROD Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Case_Reset_SIT1_Checkbox</fullName>
+        <field>Release_SIT1__c</field>
+        <literalValue>0</literalValue>
+        <name>Case: Reset SIT1 Checkbox</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Case_Reset_SIT1_Date</fullName>
+        <field>Release_SIT1_Date__c</field>
+        <name>Case: Reset SIT1 Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Case_Reset_UAT1_Checkbox</fullName>
+        <field>Release_UAT1__c</field>
+        <literalValue>0</literalValue>
+        <name>Case: Reset UAT1 Checkbox</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Case_Reset_UAT1_Date</fullName>
+        <field>Release_UAT1_Date__c</field>
+        <name>Case: Reset UAT1 Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Case_Set_Error_Made_By_Email</fullName>
+        <description>Set the Error Made By Email on a Complaint/DRS Case</description>
+        <field>Error_Made_By_Email__c</field>
+        <formula>Error_Made_By__r.Email</formula>
+        <name>Case Set Error Made By Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Case_Update_Release_PROD_Date</fullName>
+        <field>Release_PROD_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Case: Update Release PROD Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Case_Update_Release_SIT1_Date</fullName>
+        <field>Release_SIT1_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Case: Update Release SIT1 Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Case_Update_Release_UAT1_Date</fullName>
+        <field>Release_UAT1_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Case: Update Release UAT1 Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Change_to_Assigned</fullName>
+        <description>Change Sub Status to Assigned</description>
+        <field>Sub_Status__c</field>
+        <literalValue>Assigned</literalValue>
+        <name>Change to Assigned</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Assign_CC_Classifieds_ADV_Queue</fullName>
+        <description>Assign Queue to Case</description>
+        <field>OwnerId</field>
+        <lookupValue>CC_ADV_Classifieds</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Cse Assign CC Classifieds ADV Queue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Assign_Complaint_DRS_to_DS_Quality_A</fullName>
+        <description>Cse Assign Complaint/DRS to DS Quality Assurance</description>
+        <field>OwnerId</field>
+        <lookupValue>CC_DS_Quality_Assurance</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Cse Assign Complaint/DRS to DS Quality A</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Assign_Complaint_DRS_to_NSW_Customer</fullName>
+        <description>Cse Assign Complaint/DRS to SA CR Queue</description>
+        <field>OwnerId</field>
+        <lookupValue>CC_ADV_Customer_Relations</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Cse Assign Complaint/DRS to NSW Customer</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Assign_Complaint_DRS_to_QLD_Customer</fullName>
+        <description>Assign Complaint/DRS to QLD Queue</description>
+        <field>OwnerId</field>
+        <lookupValue>CC_QLD_Customer_Relations</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Cse Assign Complaint/DRS to QLD Customer</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Assign_Complaint_DRS_to_SA_Customer</fullName>
+        <description>Assign Complaint/DRS to SA CR Queue</description>
+        <field>OwnerId</field>
+        <lookupValue>CC_ADV_Customer_Relations</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Cse Assign Complaint/DRS to SA Customer</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Assign_Complaint_DRS_to_VIC_Customer</fullName>
+        <description>Assign the Complaint/DRS to SA CR Queue</description>
+        <field>OwnerId</field>
+        <lookupValue>CC_ADV_Customer_Relations</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Cse Assign Complaint/DRS to VIC Customer</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Assign_to_NFSS_Refunds_Queue</fullName>
+        <description>Assign Case to NFSS Refunds Queue</description>
+        <field>OwnerId</field>
+        <lookupValue>NFSS_Refunds</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Cse Assign to NFSS Refunds Queue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_AutoResp_Check_Field_If_Sent</fullName>
+        <description>SFE-46 - Where an auto-response has been set, this flag is ticked to prevent further messages. WHY? Because E2C creates the case and our trigger does an update to the case before it sends an &#39;auto-response&#39; therefore this will trigger the email multiples</description>
+        <field>Apex_AutoResponse_Sent__c</field>
+        <literalValue>1</literalValue>
+        <name>Cse AutoResp Check Field If Sent</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Close_Case_Turn_Off_Reply_Flag</fullName>
+        <field>Apex_Cust_Replied_Since_Last_Interaction__c</field>
+        <literalValue>0</literalValue>
+        <name>Cse Close Case Turn Off Reply Flag</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_CustRepliedSinceLastInteraction_OFF</fullName>
+        <description>SFE-46 - Checkbox is updated by workflows by counting Inbound + Outbound Email services. This is to notify agents that the customer has responded to the last agent&#39;s email.</description>
+        <field>Apex_Cust_Replied_Since_Last_Interaction__c</field>
+        <literalValue>0</literalValue>
+        <name>Cse CustRepliedSinceLastInteraction OFF</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_CustRepliedSinceLastInteraction_ON</fullName>
+        <description>SFE-46 - Checkbox is updated by workflows by counting Inbound + Outbound Email services. This is to notify agents that the customer has responded to the last agent&#39;s email.</description>
+        <field>Apex_Cust_Replied_Since_Last_Interaction__c</field>
+        <literalValue>1</literalValue>
+        <name>Cse CustRepliedSinceLastInteraction ON</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Set_Dev_Complete</fullName>
+        <field>Developer_Complete_Date__c</field>
+        <formula>IF(  ISPICKVAL(Status, &#39;Ready for testing&#39;) ,  NOW() , null )</formula>
+        <name>Cse Set Dev Complete</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Set_Email_Case_Origin</fullName>
+        <description>After pushing the Case to the Outbound Message, update the Case Origin</description>
+        <field>Origin</field>
+        <literalValue>Email - Inbound</literalValue>
+        <name>Cse Set Email Case Origin</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Set_Team_Leader_Email</fullName>
+        <description>Set Team Leader Email</description>
+        <field>Team_Leader_Email__c</field>
+        <formula>Team_Leader__r.Email</formula>
+        <name>Cse Set Team Leader Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Type_SetTo_AccountEnquiry</fullName>
+        <field>Type</field>
+        <literalValue>Account Enquiry</literalValue>
+        <name>Cse Type SetTo AccountEnquiry</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Type_SetTo_Advertising</fullName>
+        <description>Set the type = Advertising</description>
+        <field>Type</field>
+        <literalValue>Advertising</literalValue>
+        <name>Cse Type SetTo Advertising</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Type_SetTo_CreditApplication</fullName>
+        <field>Type</field>
+        <literalValue>Credit Application</literalValue>
+        <name>Cse Type SetTo CreditApplication</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Type_SetTo_HoldQueue</fullName>
+        <field>Type</field>
+        <literalValue>Hold Queue</literalValue>
+        <name>Cse Type SetTo HoldQueue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Type_SetTo_NewsPay</fullName>
+        <field>Type</field>
+        <literalValue>NewsPay</literalValue>
+        <name>Cse Type SetTo NewsPay</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Update_Case_Owner</fullName>
+        <field>OwnerId</field>
+        <lookupValue>CC_GAD_Classifieds</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Cse: Update Case Owner</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Update_Description</fullName>
+        <field>Description</field>
+        <formula>&#39;hello&#39;</formula>
+        <name>Cse: Update Description</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Update_Description_Summary</fullName>
+        <description>Update Description Summary on Case</description>
+        <field>Description_Summary__c</field>
+        <formula>LEFT( Description , 100)</formula>
+        <name>Cse Update Description Summary</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Update_Original_Queue</fullName>
+        <description>Update the Original Queue Name based on assignment</description>
+        <field>Original_Queue__c</field>
+        <formula>IF( ISBLANK( Original_Queue__c) , Owner:Queue.QueueName, Original_Queue__c )</formula>
+        <name>Cse Update Original Queue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Update_Status</fullName>
+        <description>Update Case Status to Close</description>
+        <field>Status</field>
+        <literalValue>Closed</literalValue>
+        <name>Cse Update Status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Update_Status_to_Queued</fullName>
+        <description>Set Status to Queue</description>
+        <field>Status</field>
+        <literalValue>Queued</literalValue>
+        <name>Cse Update Status to Queued</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Update_Sub_Type</fullName>
+        <field>Sub_Type__c</field>
+        <literalValue>Tearsheets</literalValue>
+        <name>Cse: Update Sub Type</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Update_SuppliedTo_Field</fullName>
+        <field>SuppliedTo__c</field>
+        <formula>&quot;classifieds@geelongadvertiser.com.au&quot;</formula>
+        <name>Cse: Update SuppliedTo Field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Update_SuppliedTo_Field_in_Case</fullName>
+        <field>SuppliedTo__c</field>
+        <formula>&#39;classifieds@geelongadvertiser.com.au&#39;</formula>
+        <name>Cse: Update SuppliedTo Field in Case</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Update_Supplied_To_Email_for_Alias1</fullName>
+        <field>SuppliedTo__c</field>
+        <formula>&#39;classifieds@geelongadvertiser.com.au&#39;</formula>
+        <name>Cse: Update Supplied To Email for Alias1</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cse_Update_Supplied_To_Email_for_Alias2</fullName>
+        <field>SuppliedTo__c</field>
+        <formula>&#39;classifieds@geelongadvertiser.com.au&#39;</formula>
+        <name>Cse: Update Supplied To Email for Alias2</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Priority_to_Critical</fullName>
+        <description>Set Case Priority to Critical</description>
+        <field>Priority</field>
+        <literalValue>1-Critical</literalValue>
+        <name>Set Priority to Critical</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Case_Owner</fullName>
+        <description>Update Case Owner to the NewsAdds Agent Support queue</description>
+        <field>OwnerId</field>
+        <lookupValue>NewsAdds_Agent_Support</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Update Case Owner</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <outboundMessages>
+        <fullName>Case_Email_for_Assign</fullName>
+        <apiVersion>28.0</apiVersion>
+        <description>Publish Emails to Genesys (via webMethods) for assignment to available agent.</description>
+        <endpointUrl>https://webmethodsuat.newsdev.com.au/ws/news.crm.adapter.wsdl.provider:handleNotification</endpointUrl>
+        <fields>CreatedDate</fields>
+        <fields>Date_Time_Due__c</fields>
+        <fields>Genesys_Case_Type__c</fields>
+        <fields>Id</fields>
+        <fields>Pillar__c</fields>
+        <fields>Queue_Division__c</fields>
+        <fields>SFCaseType__c</fields>
+        <fields>Subject</fields>
+        <fields>SuppliedEmail</fields>
+        <fields>SuppliedTo__c</fields>
+        <includeSessionId>false</includeSessionId>
+        <integrationUser>sf-integrator@news.com.au</integrationUser>
+        <name>Case Email for Assign</name>
+        <protected>false</protected>
+        <useDeadLetterQueue>false</useDeadLetterQueue>
+    </outboundMessages>
+    <rules>
+        <fullName>Case%3A Reset All For Re-Work</fullName>
+        <actions>
+            <name>Case_Reset_PROD_Checkbox</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Case_Reset_PROD_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Case_Reset_SIT1_Checkbox</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Case_Reset_SIT1_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Case_Reset_UAT1_Checkbox</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Case_Reset_UAT1_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Require re-work</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case%3A Set Dev Complete Date</fullName>
+        <actions>
+            <name>Cse_Set_Dev_Complete</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED( Status ) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case%3A Update Release PROD1 Date</fullName>
+        <actions>
+            <name>Case_Update_Release_PROD_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>Release_PROD__c &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case%3A Update Release SIT1 Date</fullName>
+        <actions>
+            <name>Case_Update_Release_SIT1_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>Release_SIT1__c &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Case%3A Update Release UAT1 Date</fullName>
+        <actions>
+            <name>Case_Update_Release_UAT1_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>Release_UAT1__c &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Assign Complaint%2FDRS to DS Quality Assurance</fullName>
+        <actions>
+            <name>Cse_Assign_Complaint_DRS_to_DS_Quality_A</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Cse Assign Complaint/DRS to DS Quality Assurance</description>
+        <formula>AND(OR(ISPICKVAL(Booking_Division__c, &#39;ADN&#39;), ISPICKVAL(Booking_Division__c, &#39;CNG&#39;), ISPICKVAL(Booking_Division__c, &#39;GAD&#39;), ISPICKVAL(Booking_Division__c, &#39;GCP&#39;), ISPICKVAL(Booking_Division__c, &#39;HWT&#39;), ISPICKVAL(Booking_Division__c, &#39;LDR&#39;), ISPICKVAL(Booking_Division__c, &#39;NWN&#39;), ISPICKVAL(Booking_Division__c, &#39;QNP&#39;), ISPICKVAL(Booking_Division__c, &#39;QST&#39;), ISPICKVAL(Booking_Division__c, &#39;MNG&#39;), ISPICKVAL(Booking_Division__c, &#39;CNS&#39;), ISPICKVAL(Booking_Division__c, &#39;NQN&#39;), ISPICKVAL(Booking_Division__c, &#39;DBL&#39;), ISPICKVAL(Booking_Division__c, &#39;PST&#39;), ISPICKVAL(Booking_Division__c, &#39;NT&#39;)), ISPICKVAL(Status, &#39;QA to Investigate&#39;)) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Assign Complaint%2FDRS to NFSS - CC%2C EFT%2C CHQ%2C Casual%2C Monthly Acct</fullName>
+        <actions>
+            <name>Cse_Assign_to_NFSS_Refunds_Queue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Assign Complaint/DRS Cases that have a status of With NFSS and Refund Method of Credit Card, EFT, Cheque, Casual or Monthly Account to the NFSS Refunds queue</description>
+        <formula>AND(ISPICKVAL(Status,&#39;With NFSS&#39;), RecordType.DeveloperName =&#39;Complaint&#39;)&amp;&amp; (ISPICKVAL( Refund_Method__c , &#39;Credit Card Refund&#39;) || ISPICKVAL( Refund_Method__c , &#39;CHQ Refund&#39;) || ISPICKVAL( Refund_Method__c , &#39;EFT Refund&#39;) || ISPICKVAL( Refund_Method__c , &#39;Casual Account&#39;) || ISPICKVAL( Refund_Method__c , &#39;Monthly Account&#39;)) &amp;&amp; 
+NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Assign Complaint%2FDRS to NSW Customer Resolutions</fullName>
+        <actions>
+            <name>Cse_Assign_Complaint_DRS_to_NSW_Customer</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>Cse Assign Complaint/DRS to NSW Customer Resolutions</description>
+        <formula>AND(OR(ISPICKVAL(Booking_Division__c, &#39;CNG&#39;), ISPICKVAL(Booking_Division__c, &#39;NWN&#39;)),  ISPICKVAL(Status, &#39;CR to Investigate&#39;)) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Assign Complaint%2FDRS to QLD Customer Resolutions</fullName>
+        <actions>
+            <name>Cse_Assign_Complaint_DRS_to_QLD_Customer</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>Cse Assign Complaint/DRS to QLD Customer Resolutions</description>
+        <formula>AND(OR(ISPICKVAL(Booking_Division__c, &#39;GCP&#39;), ISPICKVAL(Booking_Division__c, &#39;QNP&#39;), ISPICKVAL(Booking_Division__c, &#39;QST&#39;), ISPICKVAL(Booking_Division__c, &#39;CNS&#39;), ISPICKVAL(Booking_Division__c, &#39;NQN&#39;)),  ISPICKVAL(Status, &#39;CR to Investigate&#39;)) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Assign Complaint%2FDRS to SA Customer Resolutions</fullName>
+        <actions>
+            <name>Cse_Assign_Complaint_DRS_to_SA_Customer</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>Cse Assign Complaint/DRS to SA Customer Resolutions</description>
+        <formula>AND(OR(ISPICKVAL(Booking_Division__c, &#39;ADN&#39;), ISPICKVAL(Booking_Division__c, &#39;MNG&#39;)),  ISPICKVAL(Status, &#39;CR to Investigate&#39;)) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Assign Complaint%2FDRS to VIC Customer Resolutions</fullName>
+        <actions>
+            <name>Cse_Assign_Complaint_DRS_to_VIC_Customer</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>Cse Assign Complaint/DRS to VIC Customer Resolutions</description>
+        <formula>AND(OR(ISPICKVAL(Booking_Division__c, &#39;HWT&#39;), ISPICKVAL(Booking_Division__c, &#39;LDR&#39;), ISPICKVAL(Booking_Division__c, &#39;GAD&#39;)),  ISPICKVAL(Status, &#39;CR to Investigate&#39;)) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Assign Credit Application to NFSS</fullName>
+        <actions>
+            <name>CaseAssignedtoNFSS</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Assign Credit Application Case to NFSS Credit Application team when the Automatically Assign Case checkbox is ticked.</description>
+        <formula>AND(  RecordType.DeveloperName = &#39;Credit_Application&#39; ,  NOT( Owner:Queue.DeveloperName = &#39;NFSS_Credit_Applications&#39;), AutomaticallyAssignCase__c , OR(ISNEW(),ISCHANGED(AutomaticallyAssignCase__c)) ) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Assign RFP Case to RFP</fullName>
+        <actions>
+            <name>Case_Assigned_to_RFP</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>Rule to assign RFP cases with an RFP Team of Other to RFP Queue.</description>
+        <formula>AND( RecordType.DeveloperName = &#39;RFP&#39; , ISPICKVAL( RFP_Team_del__c , &#39;Other&#39;),AutomaticallyAssignCase__c) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Assign RFP NSW Case to RFP Queue NSW</fullName>
+        <actions>
+            <name>Case_Assigned_to_RFP_Queue_NSW</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>Rule to assign RFP cases with an RFP Team of NSW to RFP Queue NSW.</description>
+        <formula>AND( RecordType.DeveloperName = &#39;RFP&#39; , ISPICKVAL( State__c , &#39;NSW&#39;),AutomaticallyAssignCase__c) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Assign RFP QLD Case to RFP Queue NSW</fullName>
+        <actions>
+            <name>Case_Assigned_to_RFP_Queue_QLD</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>Rule to assign RFP cases with an RFP Team of QLD to RFP Queue QLD.</description>
+        <formula>AND( RecordType.DeveloperName = &#39;RFP&#39; , ISPICKVAL( RFP_Team_del__c , &#39;QLD&#39;),AutomaticallyAssignCase__c) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Assign RFP SA Case to RFP Queue SA</fullName>
+        <actions>
+            <name>Case_Assigned_to_RFP_Queue_SA</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>Rule to assign RFP cases with an RFP Team of SA to RFP Queue SA.</description>
+        <formula>AND( RecordType.DeveloperName = &#39;RFP&#39; , ISPICKVAL( RFP_Team_del__c , &#39;SA&#39;),AutomaticallyAssignCase__c) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Assign RFP VIC Case to RFP Queue VIC</fullName>
+        <actions>
+            <name>Case_Assigned_to_RFP_Queue_VIC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>Rule to assign RFP cases with an RFP Team of VIC to RFP Queue VIC.</description>
+        <formula>AND( RecordType.DeveloperName = &#39;RFP&#39; , ISPICKVAL( RFP_Team_del__c , &#39;VIC&#39;),AutomaticallyAssignCase__c) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Assign RFP WA Case to RFP Queue WA</fullName>
+        <actions>
+            <name>Case_Assigned_to_RFP_Queue_WA</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>Rule to assign RFP cases with an RFP Team of WA to RFP Queue WA.</description>
+        <formula>AND( RecordType.DeveloperName = &#39;RFP&#39; , ISPICKVAL( RFP_Team_del__c , &#39;WA&#39;),AutomaticallyAssignCase__c) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse AutoResp NFSS Account Enquiries</fullName>
+        <actions>
+            <name>Case_NFSS_Account_Enquiries_Auto_Response</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Cse_Type_SetTo_Advertising</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Auto-Responses for NFSS Account Enquiries (must use instead of standard Auto-Response due to order of processing).</description>
+        <formula>AND(  ISCHANGED(Apex_Count_Incoming_Emails__c),  Apex_Count_Incoming_Emails__c = 1,   OR(    ISNEW(),    ISCHANGED(SuppliedTo__c)   ),   OR(    Owner:Queue.DeveloperName = &#39;NFSS_Account_Enquiries&#39;   )  ) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse AutoResp NFSS Credit Applications</fullName>
+        <actions>
+            <name>Cse_Type_SetTo_CreditApplication</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Auto-Responses for NFSS Credit Applications (must use instead of standard Auto-Response due to order of processing).</description>
+        <formula>AND(
+NOT(
+OR(
+CONTAINS(SuppliedEmail,&quot;@news.com.au&quot;),
+CONTAINS(SuppliedEmail,&quot;@newsltd.com.au&quot;))),
+ISCHANGED(Apex_Count_Incoming_Emails__c),
+Apex_Count_Incoming_Emails__c=1,
+OR(
+ISNEW(),
+ISCHANGED(SuppliedTo__c)),
+Owner:Queue.DeveloperName=&quot;NFSS_Credit_Applications&quot;) &amp;&amp;
+NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse AutoResp NFSS NewsPay</fullName>
+        <actions>
+            <name>Case_NFSS_NewsPay_Auto_Response</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Cse_Type_SetTo_NewsPay</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Auto-Responses for NFSS_NewsPay (must use instead of standard Auto-Response due to order of processing).</description>
+        <formula>AND(  ISCHANGED(Apex_Count_Incoming_Emails__c),  Apex_Count_Incoming_Emails__c = 1,    OR(   ISNEW(),   ISCHANGED(SuppliedTo__c)  ),  OR(   Owner:Queue.DeveloperName = &#39;CC_NFSS_NewsPay&#39;  ) ) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Close Case Turn Off Reply Flag</fullName>
+        <actions>
+            <name>Cse_Close_Case_Turn_Off_Reply_Flag</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>When a case is closed - this workflow will turn off the &#39;last customer interaction reply flag&#39;</description>
+        <formula>AND(   ISCHANGED(IsClosed),   IsClosed = TRUE,   Apex_Cust_Replied_Since_Last_Interaction__c = FALSE ) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Complaint%2FDRS Notification</fullName>
+        <actions>
+            <name>Case_notify_of_Complaint_DRS_Result</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <description>Notification to Owner, Error Made By, Creator, Contact, and Team Lead based on Resolved status.
+SFE-135 JT 4/3/14 - Deactivated as request from James Coorey. DRS should be resolved and notified by phone call and not emails.</description>
+        <formula>RecordType.DeveloperName = &#39;Complaint&#39; &amp;&amp; OR( ISPICKVAL( Status , &#39;Resolved - Approved&#39;), ISPICKVAL(Status, &#39;Resolved - Rejected&#39;)  )  &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Email Creator and Customer on Credit Application Rejected</fullName>
+        <actions>
+            <name>Case_Email_Creator_and_Customer_Credit_App_Rejected</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Email a notification to Creator and Customer when Credit Application is rejected</description>
+        <formula>RecordType.DeveloperName = &#39;Credit_Application&#39; &amp;&amp;  ISPICKVAL(Status, &#39;Closed - Rejected&#39;)  &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Email Creator and Customer on Credit Application Successful</fullName>
+        <actions>
+            <name>Case_Email_Creator_and_Customer_Credit_App_Approved</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Email a notification to Creator and Customer when Credit Application is successful</description>
+        <formula>RecordType.DeveloperName = &#39;Credit_Application&#39; &amp;&amp;  ISPICKVAL(Status, &#39;Closed - Successful&#39;)  &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Email FSAM on Case Close</fullName>
+        <actions>
+            <name>Cse_Notify_FSAM</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Email a notification to FSAM when Case is Closed</description>
+        <formula>IsClosed &amp;&amp; RecordType.DeveloperName = &#39;RFP&#39; &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Email For Genesys Assmt</fullName>
+        <actions>
+            <name>Cse_Set_Email_Case_Origin</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Cse_Update_Status_to_Queued</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Case_Email_for_Assign</name>
+            <type>OutboundMessage</type>
+        </actions>
+        <active>false</active>
+        <description>Trigger publish of a Case for Assignment by Genesys</description>
+        <formula>AND(OR(ISPICKVAL(Origin , &#39;Email - Inbound for Routing - QLD&#39;),
+            ISPICKVAL(Origin , &#39;Email - Inbound for Routing&#39;)
+           ),
+       Ready_for_Routing__c ,
+       NOT(ISBLANK(SuppliedTo__c)),
+       NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)
+     )</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Email For Genesys Assmt - Old</fullName>
+        <actions>
+            <name>Cse_Set_Email_Case_Origin</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Cse_Update_Status_to_Queued</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Case_Email_for_Assign</name>
+            <type>OutboundMessage</type>
+        </actions>
+        <active>false</active>
+        <description>Trigger publish of a Case for Assignment by Genesys</description>
+        <formula>ISPICKVAL(Origin , &#39;Email - Inbound for Routing&#39;) &amp;&amp; Ready_for_Routing__c &amp;&amp; NOT(ISBLANK(SuppliedTo__c)) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Increase Priority</fullName>
+        <active>false</active>
+        <description>Increase the Priority on a Case (not RFP) if older than 4 hrs
+JT: SFE308 25/3 - Due to bug in code - raising the priority also changes the ownership to the queue. SME has reviewed this particular workflow and needs further analysis before re-activating.</description>
+        <formula>OR( ISPICKVAL(Status, &#39;Pending&#39;) , ISPICKVAL(Status, &#39;Open&#39;) ) &amp;&amp; OR( ISPICKVAL(Sub_Status__c, &#39;Assigned&#39;) , ISPICKVAL(Sub_Status__c, &#39;Unassigned&#39;) ) &amp;&amp; NOT(ISPICKVAL( Priority , &#39;1-Critical&#39;)) &amp;&amp; NOT( RecordType.DeveloperName = &#39;RFP&#39;) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Set_Priority_to_Critical</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Case.CreatedDate</offsetFromField>
+            <timeLength>4</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Cse NFSS Hold Queue</fullName>
+        <actions>
+            <name>Cse_Type_SetTo_HoldQueue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Handling of Cases for NFSS Hold Queue</description>
+        <formula>AND(  OR(ISNEW(),ISCHANGED(SuppliedTo__c)),  OR(Owner:Queue.DeveloperName = &#39;NFSS_Hold_Queue&#39;) ) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse NLM Auto-Response</fullName>
+        <actions>
+            <name>Case_send_NLM_Auto_Response</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Auto-Responses for NLM (must use instead of standard Auto-Response due to order of processing).</description>
+        <formula>AND(  ISCHANGED(SuppliedTo__c),     ISCHANGED(Apex_Count_Incoming_Emails__c),  Apex_Count_Incoming_Emails__c = 1,   OR(   Owner:Queue.DeveloperName = &#39;CC_NWN_Body_Soul&#39;,   Owner:Queue.DeveloperName = &#39;CC_NWN_Country_style&#39;,   Owner:Queue.DeveloperName = &#39;CC_NWN_Country_Style_Emporium&#39;,   Owner:Queue.DeveloperName = &#39;CC_NWN_Delicious&#39;,   Owner:Queue.DeveloperName = &#39;CC_NWN_Fishing&#39;,   Owner:Queue.DeveloperName = &#39;CC_NWN_Gardening_Australia&#39;,   BEGINS(Owner:Queue.DeveloperName, &#39;CC_NWN_Golf_Digest&#39;),   Owner:Queue.DeveloperName = &#39;CC_NWN_Inside_Out&#39;,   Owner:Queue.DeveloperName = &#39;CC_NWN_GQ&#39;,   Owner:Queue.DeveloperName = &#39;CC_NWN_Masterchef&#39;,   Owner:Queue.DeveloperName = &#39;CC_NWN_VET&#39;,   Owner:Queue.DeveloperName = &#39;CC_NWN_Vogue&#39;, Owner:Queue.DeveloperName = &#39;CC_NWN_SFI&#39;, Owner:Queue.DeveloperName = &#39;CC_NWN_Taste&#39;, Owner:Queue.DeveloperName = &#39;CC_NWN_Vogue_Living&#39;  ) )  &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse NSW Community Auto-Response</fullName>
+        <actions>
+            <name>Case</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <description>Auto-Responses for NSW Community (must use instead of standard Auto-Response due to order of processing).
+
+JT: 5/3/14 - Causing double up of emails to customers. The list contains similar of that to &#39;Cse NSW General Auto-Response&#39;. Disabled.</description>
+        <formula>AND(   ISCHANGED(Apex_Count_Incoming_Emails__c),   Apex_Count_Incoming_Emails__c = 1,  ISCHANGED(SuppliedTo__c),   OR(   Owner:Queue.DeveloperName = &#39;CC_CNG_Account_Managers&#39;,   Owner:Queue.DeveloperName = &#39;CC_CNG_Adult&#39;,   Owner:Queue.DeveloperName = &#39;CC_CNG_Campaign&#39;,   Owner:Queue.DeveloperName = &#39;CC_CNG_Classifieds&#39;,   Owner:Queue.DeveloperName = &#39;CC_CNG_CarsGuide&#39;,   Owner:Queue.DeveloperName = &#39;CC_CNG_NWN_Classifieds_Leadpages&#39;,   Owner:Queue.DeveloperName = &#39;CC_CNG_Display&#39;,   Owner:Queue.DeveloperName = &#39;CC_CNG_Funeral_Notices&#39;,   Owner:Queue.DeveloperName = &#39;CC_CNG_Notices&#39;,   Owner:Queue.DeveloperName = &#39;CC_CNG_Realestate&#39;,   Owner:Queue.DeveloperName = &#39;CC_CNG_Shopper&#39;  ) ) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse NSW General Auto-Response</fullName>
+        <actions>
+            <name>Case_send_General_Auto_Response</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Auto-Responses for NSW General (must use instead of standard Auto-Response due to order of processing).</description>
+        <formula>AND(   ISCHANGED(SuppliedTo__c),   ISCHANGED(Apex_Count_Incoming_Emails__c),   Apex_Count_Incoming_Emails__c = 1,    OR(    Owner:Queue.DeveloperName = &#39;CC_CNG_Account_Managers&#39;,    Owner:Queue.DeveloperName = &#39;CC_CNG_Adult&#39;,    Owner:Queue.DeveloperName = &#39;CC_CNG_Agency&#39;,    Owner:Queue.DeveloperName = &#39;CC_CNG_Campaign&#39;,    Owner:Queue.DeveloperName = &#39;CC_CNG_CarsGuide&#39;,    Owner:Queue.DeveloperName = &#39;CC_CNG_Classifieds_Gosford&#39;,    BEGINS(Owner:Queue.DeveloperName, &#39;CC_CNG_Classifieds&#39;),    Owner:Queue.DeveloperName = &#39;CC_CNG_CRR&#39;,    Owner:Queue.DeveloperName = &#39;CC_CNG_Display&#39;,   Owner:Queue.DeveloperName = &#39;CC_CNG_Employment&#39;,   Owner:Queue.DeveloperName = &#39;CC_CNG_Notices&#39;,   Owner:Queue.DeveloperName = &#39;CC_CNG_NWN_Classifieds_Leadpages&#39;,   Owner:Queue.DeveloperName = &#39;CC_CNG_Realestate&#39;,    BEGINS(Owner:Queue.DeveloperName, &#39;CC_CNG_Retail_MM&#39;),    Owner:Queue.DeveloperName = &#39;CC_CNG_Shopper&#39;,   Owner:Queue.DeveloperName = &#39;CC_CNG_Funeral_Notices&#39;,    Owner:Queue.DeveloperName = &#39;CC_NWN_Carsguide&#39;,    Owner:Queue.DeveloperName = &#39;CC_MATP_Employment&#39;,    Owner:Queue.DeveloperName = &#39;CC_NWN_Gold&#39;,    Owner:Queue.DeveloperName = &#39;CC_NWN_Realestate&#39;,    Owner:Queue.DeveloperName = &#39;CC_NWN_Agency&#39;,    Owner:Queue.DeveloperName = &#39;CC_NWN_C1AGENCY&#39;,    Owner:Queue.DeveloperName = &#39;CC_NWN_Directories&#39;,   Owner:Queue.DeveloperName = &#39;CC_NWN_Entertainment&#39;,   Owner:Queue.DeveloperName = &#39;CC_NWN_Funeral_Notices&#39;,    Owner:Queue.DeveloperName = &#39;CC_NWN_Market_Place&#39;, Owner:Queue.DeveloperName = &#39;CC_NWN_Classifieds&#39;, BEGINS(Owner:Queue.DeveloperName, &#39;CC_NWN_Notices&#39;),    Owner:Queue.DeveloperName = &#39;CC_NWN_Short_Escapes&#39;,     Owner:Queue.DeveloperName = &#39;CC_NWN_Travel&#39;, Owner:Queue.DeveloperName = &#39;Go_Big_or_Go_Local&#39;, Owner:Queue.DeveloperName = &#39;CC_NSW_Advertise&#39;, Owner:Queue.DeveloperName = &#39;CC_NSW_MM_Careers&#39;, Owner:Queue.DeveloperName = &#39;CC_NSW_MM_Display&#39;, Owner:Queue.DeveloperName = &#39;CC_NSW_MM_Trades&#39;, Owner:Queue.DeveloperName = &#39;CC_NWN_Trades&#39;, Owner:Queue.DeveloperName = &#39;CC_DS_NSW_Account_Managers&#39;,
+Owner:Queue.DeveloperName = &#39;CC_NWN_FOXTEL_classifieds&#39; ) ) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse NSW Metro Auto-Response</fullName>
+        <actions>
+            <name>Case_send_NSW_Metro_Auto_Response</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <description>Auto-Responses for NSW Metro (must use instead of standard Auto-Response due to order of processing).</description>
+        <formula>AND(  ISCHANGED(Apex_Count_Incoming_Emails__c),  Apex_Count_Incoming_Emails__c = 1,  ISCHANGED(SuppliedTo__c),  OR(  /* JT 7/3/14 - These are not in the XLS mapping spreadsheet under NSW METRO? It is still showing under NSW GENERAL  Owner:Queue.DeveloperName = &#39;CC_NWN_Adult&#39;,  Owner:Queue.DeveloperName = &#39;CC_NWN_Carsguide&#39;,  Owner:Queue.DeveloperName = &#39;CC_NWN_Classifieds&#39;,  Owner:Queue.DeveloperName = &#39;CC_MATP_Employment&#39;,  Owner:Queue.DeveloperName = &#39;CC_NWN_Gold&#39;,  Owner:Queue.DeveloperName = &#39;CC_NWN_Realestate&#39;,  Owner:Queue.DeveloperName = &#39;CC_NWN_Agency&#39;,  Owner:Queue.DeveloperName = &#39;CC_NWN_Business&#39;,  Owner:Queue.DeveloperName = &#39;CC_NWN_Directories&#39;,  Owner:Queue.DeveloperName = &#39;CC_NWN_Entertainment&#39;,  Owner:Queue.DeveloperName = &#39;CC_NWN_Market_Place&#39;,  Owner:Queue.DeveloperName = &#39;CC_NWN_Notices&#39;,  Owner:Queue.DeveloperName = &#39;CC_NWN_Short_Escapes&#39;,  Owner:Queue.DeveloperName = &#39;CC_NWN_Travel&#39;,  Owner:Queue.DeveloperName = &#39;CC_NWN_VIP&#39;  */  )  ) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Notify Agent Case not closed within SLA 2 hours</fullName>
+        <active>true</active>
+        <description>Notify the agent if the case was not closed within the SLA of 2 hours. This rule applies to the cases of type &#39;Email-Inbound&#39; that are not owned by queues.</description>
+        <formula>AND(
+LEFT(Owner:Queue.QueueName , 3) &lt;&gt; &#39;CC &#39;, 
+Owner:Queue.QueueName &lt;&gt; &#39;NFSS NewsPay&#39;, 
+NOT(IsClosed), 
+ISPICKVAL(Origin,&#39;Email - Inbound&#39;), 
+ISBLANK( Date_Time_Due__c ), 
+NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Cse_Notify_Agent_Case_not_Closed_within_SLA_2_hours</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.CreatedDate</offsetFromField>
+            <timeLength>2</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Cse Notify Agent Case not closed within due date</fullName>
+        <active>true</active>
+        <description>Notify the agent if the case was not closed within the due date and time set by the assigner. This rule applies to the cases of type &#39;Email-Inbound&#39; that are not owned by queues.
+19/3/14-SFE-334-Switched off until business review</description>
+        <formula>AND( OR(RecordType.Id = &quot;012O0000000CsjF&quot;, RecordType.Id= &quot;012O0000000Cy9S&quot;) , NOT(IsClosed),  ISPICKVAL(Origin,&#39;Email - Inbound&#39;),  NOT(ISBLANK( Date_Time_Due__c )),  LEFT( Owner:Queue.QueueName , 3) &lt;&gt; &#39;CC &#39;) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Cse_Notify_Agent_Case_not_Closed_within_Due_Date</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.Date_Time_Due__c</offsetFromField>
+            <timeLength>-1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Cse Notify Complaint or DRS Creator on SLA Exceeded</fullName>
+        <active>true</active>
+        <description>Notify the creator of the Complaint/DRS on the SLA being exceeded</description>
+        <formula>RecordType.DeveloperName = &#39;Complaint&#39; &amp;&amp; NOT(Account.RecordType.DeveloperName = &#39;Agency_Account_Type&#39;) &amp;&amp; NOT(OR(ISPICKVAL(Status, &#39;Created in Error&#39;), ISPICKVAL(Status, &#39;Resolved - Rejected&#39;),ISPICKVAL(Status, &#39;Closed&#39;),ISPICKVAL(Status,&#39;Resolved - Approved&#39;))) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_Email_Creator_of_Complaint_or_DRS</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.CreatedDate</offsetFromField>
+            <timeLength>7</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Cse Notify Complaint or DRS Creator on SLA Exceeded for Agency</fullName>
+        <active>true</active>
+        <description>Notify the creator of the Complaint/DRS on the SLA being exceeded for Agency</description>
+        <formula>RecordType.DeveloperName = &#39;Complaint&#39; &amp;&amp;  Account.RecordType.DeveloperName = &#39;Agency_Account_Type&#39; &amp;&amp;  NOT(OR(ISPICKVAL(Status, &#39;Created in Error&#39;), ISPICKVAL(Status, &#39;Resolved - Rejected&#39;),ISPICKVAL(Status, &#39;Closed&#39;),ISPICKVAL(Status,&#39;Resolved - Approved&#39;))) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_Email_Creator_of_Complaint_or_DRS</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.CreatedDate</offsetFromField>
+            <timeLength>28</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Cse Notify Tier 1 SLA passing for RFP Request</fullName>
+        <active>true</active>
+        <description>Based on Tier, notify FSAM if Tier 1 SLA is exceeded.</description>
+        <formula>RecordType.DeveloperName = &#39;RFP&#39; &amp;&amp; NOT(IsClosed) &amp;&amp; ISPICKVAL(Proposal_Type__c ,&#39;Tier 1&#39;) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_RFP_Tier_1_SLA_Exceeded_Notification</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.CreatedDate</offsetFromField>
+            <timeLength>4</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Cse Notify Tier 2 SLA passing for RFP Request</fullName>
+        <active>true</active>
+        <description>Based on Tier, notify FSAM if Tier 2 SLA is exceeded.</description>
+        <formula>RecordType.DeveloperName = &#39;RFP&#39; &amp;&amp;  NOT(IsClosed) &amp;&amp;  ISPICKVAL(Proposal_Type__c ,&#39;Tier 2&#39;) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_Tier_2_RFP_SLA_Exceeded_Notification</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.CreatedDate</offsetFromField>
+            <timeLength>5</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Cse Notify Tier 3 SLA passing for RFP Request</fullName>
+        <active>true</active>
+        <description>Based on Tier, notify FSAM if Tier 3 SLA is exceeded.</description>
+        <formula>RecordType.DeveloperName = &#39;RFP&#39; &amp;&amp;  NOT(IsClosed) &amp;&amp;  ISPICKVAL(Proposal_Type__c ,&#39;Tier 3&#39;) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Case_Tier_3_RFP_SLA_Exceeded_Notification</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Case.CreatedDate</offsetFromField>
+            <timeLength>7</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Cse QLD General Auto-Response</fullName>
+        <actions>
+            <name>Case_send_QLD_General_Auto_Response_Email</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Auto-Responses for QLD General (must use instead of standard Auto-Response due to order of processing).</description>
+        <formula>AND(  ISCHANGED(SuppliedTo__c),   ISCHANGED(Apex_Count_Incoming_Emails__c),   Apex_Count_Incoming_Emails__c = 1,   OR( Owner:Queue.DeveloperName = &#39;CC_CNS_Classifieds&#39;,  Owner:Queue.DeveloperName = &#39;CC_TNS_Classifieds&#39;,  Owner:Queue.DeveloperName = &#39;CC_TSV_Classifieds&#39;,        Owner:Queue.DeveloperName = &#39;CC_NewsAdvantage_Agency&#39;,     Owner:Queue.DeveloperName = &#39;CC_QNP_Classifieds&#39;,     Owner:Queue.DeveloperName = &#39;CC_QNP_Campaigns&#39;,     Owner:Queue.DeveloperName = &#39;CC_QNP_Gold&#39;,     Owner:Queue.DeveloperName = &#39;CC_QNP_Platinum&#39;,     Owner:Queue.DeveloperName = &#39;CC_QST_Classifieds&#39;,     Owner:Queue.DeveloperName = &#39;CC_QST_Platinum&#39;,  Owner:Queue.DeveloperName = &#39;CC_QST_Gold&#39;,  Owner:Queue.DeveloperName = &#39;CC_QST_Advertise&#39;,     Owner:Queue.DeveloperName = &#39;CC_QST_Campaigns&#39;,     Owner:Queue.DeveloperName = &#39;CC_GCP_Classifieds&#39;,     Owner:Queue.DeveloperName = &#39;CC_GCP_Gold&#39;,     Owner:Queue.DeveloperName = &#39;CC_GCP_Platinum&#39;,  Owner:Queue.DeveloperName = &#39;CC_GCB_Advertising&#39;, Owner:Queue.DeveloperName = &#39;CC_GCB_ClassBooking&#39;,    Owner:Queue.DeveloperName = &#39;CC_GCB_Sundirectory&#39;, Owner:Queue.DeveloperName = &#39;CC_QNP_QLD_Advertise&#39;, Owner:Queue.DeveloperName = &#39;CC_QLD_Classifieds_Agency&#39;,
+Owner:Queue.DeveloperName = &#39;CC_QLD_Partner_Fax&#39;, Owner:Queue.DeveloperName = &#39;CC_QNP_QLD_AM_01&#39;, Owner:Queue.DeveloperName = &#39;CC_QNP_QLD_AM_02&#39;, Owner:Queue.DeveloperName = &#39;CC_QNP_QLD_AM_03&#39;, Owner:Queue.DeveloperName = &#39;CC_QNP_QLD_AM_04&#39;, Owner:Queue.DeveloperName = &#39;CC_QNP_QLD_AM_05&#39;, Owner:Queue.DeveloperName = &#39;CC_QNP_QLD_AM_06&#39;  ) )  &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse QLD NAB Web Help Auto-Response</fullName>
+        <actions>
+            <name>Case_send_QLD_NAB_Web_Help_Auto_Response</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Auto-Responses for QLD NAB WebHelp (must use instead of standard Auto-Response due to order of processing).</description>
+        <formula>AND(   ISCHANGED(Apex_Count_Incoming_Emails__c),   Apex_Count_Incoming_Emails__c = 1,  ISCHANGED(SuppliedTo__c),  Owner:Queue.DeveloperName = &#39;CC_NAB_Web_Help&#39; )  &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Record Original Queue</fullName>
+        <actions>
+            <name>Cse_Update_Original_Queue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Record the Queue when Case assigned to Queue</description>
+        <formula>AND(ISCHANGED(OwnerId),ISBLANK(Original_Queue__c))  &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse SA General Auto-Response</fullName>
+        <actions>
+            <name>Case_send_SA_General_Auto_Response_Email</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Auto-Responses for SA General (must use instead of standard Auto-Response due to order of processing).</description>
+        <formula>AND(  ISCHANGED(SuppliedTo__c),   ISCHANGED(Apex_Count_Incoming_Emails__c),   Apex_Count_Incoming_Emails__c = 1,  OR(   Owner:Queue.DeveloperName = &#39;CC_ADV_Account_Managers&#39;,   Owner:Queue.DeveloperName = &#39;CC_ADV_Classifieds&#39;,   Owner:Queue.DeveloperName = &#39;CC_ADV_Display&#39;,   Owner:Queue.DeveloperName = &#39;CC_ADV_Funerals&#39;,   Owner:Queue.DeveloperName = &#39;CC_ADV_Photos&#39;,   Owner:Queue.DeveloperName = &#39;CC_ADV_Real_Estate&#39;,   Owner:Queue.DeveloperName = &#39;CC_MNG_Agency&#39;,   Owner:Queue.DeveloperName = &#39;CC_MNG_Classifieds&#39;,   Owner:Queue.DeveloperName = &#39;CC_MNG_Display&#39;, Owner:Queue.DeveloperName = &#39;CC_MNG_Trades&#39;,
+Owner:Queue.DeveloperName = &#39;CC_ADV_SA_DS_AM_Personals&#39;,   Owner:Queue.DeveloperName = &#39;CC_ADV_SA_DS_Market_Managers&#39;,   Owner:Queue.DeveloperName = &#39;SA_Sales_Rep_02&#39;,   Owner:Queue.DeveloperName = &#39;SA_Sales_Rep_03&#39;, Owner:Queue.DeveloperName = &#39;CC_SA_DS_CareerOne&#39;, Owner:Queue.DeveloperName = &#39;CC_ADV_SA_DS_Motoring&#39;, Owner:Queue.DeveloperName = &#39;CC_ADV_SA_DS_Real_Estate&#39;, Owner:Queue.DeveloperName = &#39;CC_ADV_SA_DS1_Features&#39;, Owner:Queue.DeveloperName = &#39;CC_ADV_SA_DS2_Features&#39;,
+Owner:Queue.DeveloperName = &#39;CC_Proofs&#39;,
+Owner:Queue.DeveloperName = &#39;CC_National_Retail&#39;  ) ) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Send Credit Application</fullName>
+        <actions>
+            <name>Case_send_out_Credit_Application</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Cse_AutoResp_Check_Field_If_Sent</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Send the Credit Application &amp; Direct Debit form to customer when setting to With Customer status</description>
+        <formula>RecordType.DeveloperName = &#39;Credit_Application&#39; &amp;&amp; OR(ISPICKVAL(Type, &#39;Credit Application&#39;), ISPICKVAL(Type, &#39;Direct Debit Application&#39;), ISPICKVAL(Type, &#39;NewsPay Application&#39;)) &amp;&amp; ISPICKVAL(Status, &#39;With Customer&#39;) &amp;&amp; ISPICKVAL(Channel__c, &#39;Email&#39;) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Set Description Summary</fullName>
+        <actions>
+            <name>Cse_Update_Description_Summary</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Set the Initial Case Description Summary</description>
+        <formula>NOT( ISBLANK( Description ) ) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Set Error Made By Email</fullName>
+        <actions>
+            <name>Case_Set_Error_Made_By_Email</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Set the Error Made By user email on the Complaint/DRS Case</description>
+        <formula>NOT( ISBLANK(Error_Made_By__c) ) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Set Status when Wrap Up selected</fullName>
+        <actions>
+            <name>Cse_Update_Status</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Set the case status to Closed when Wrap Up is selected.</description>
+        <formula>Wrap_Up__c  &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Set Sub Status</fullName>
+        <actions>
+            <name>Change_to_Assigned</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>When Owner is Changed and Sub Status = Unassigned, Change to Assigned</description>
+        <formula>AND(ISCHANGED( OwnerId ), ISPICKVAL(Sub_Status__c, &quot;Unassigned&quot;) ) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Set Team Leader Email</fullName>
+        <actions>
+            <name>Cse_Set_Team_Leader_Email</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Set Team Lead Email on Complaint/DRS</description>
+        <formula>NOT(ISBLANK(Team_Leader__c)) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Sportsman Auto-Response</fullName>
+        <actions>
+            <name>Case_send_Sportsman_Auto_Response</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Auto-Responses for The Sportsman (must use instead of standard Auto-Response due to order of processing).</description>
+        <formula>AND(   ISCHANGED(Apex_Count_Incoming_Emails__c),   Apex_Count_Incoming_Emails__c = 1,  ISCHANGED(SuppliedTo__c),  Owner:Queue.DeveloperName = &#39;CC_NWN_The_Sportsman&#39; ) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Test Auto-Response</fullName>
+        <actions>
+            <name>CC_Classifieds_ADV_Auto_Response</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>This workflows allows us to test email routing rules in all other sandboxes
+ie. DEV SIT UAT, TRN etc. This assumes that every time you refresh the sandboxes the routing emails will need to be updated.</description>
+        <formula>AND(   ISCHANGED(Apex_Count_Incoming_Emails__c),   Apex_Count_Incoming_Emails__c = 1,  ISCHANGED(SuppliedTo__c),  OR(   Owner:Queue.DeveloperName = &#39;CC_DEV_Classifieds&#39;,   Owner:Queue.DeveloperName = &#39;CC_DEV_Enquiries&#39;,   Owner:Queue.DeveloperName  = &#39;CC_Test_Classifieds&#39;,   Owner:Queue.DeveloperName  = &#39;CC_SIT_Classifieds&#39;,   Owner:Queue.DeveloperName = &#39;CC_SIT_Enquiries&#39;,   Owner:Queue.DeveloperName = &#39;CC_TRN_Classifieds&#39;,   Owner:Queue.DeveloperName = &#39;CC_TRN_Enquiries&#39;,   Owner:Queue.DeveloperName = &#39;CC_UAT_Classifieds&#39;,   Owner:Queue.DeveloperName = &#39;CC_UAT_Enquiries&#39;,   Owner:Queue.DeveloperName = &#39;Training_NSW_1_Classifieds&#39;,   Owner:Queue.DeveloperName = &#39;Training_NSW_1_Enquiries&#39;,   Owner:Queue.DeveloperName = &#39;Training_SA_1_Classifieds&#39;,   Owner:Queue.DeveloperName = &#39;Training_SA_1_Enquiries&#39;,   Owner:Queue.DeveloperName = &#39;Training_NSW_1_Classifieds&#39;,   Owner:Queue.DeveloperName = &#39;Training_NSW_1_Enquiries&#39;,   Owner:Queue.DeveloperName = &#39;Training_QLD_1_Classifieds&#39;,   Owner:Queue.DeveloperName = &#39;Training_QLD_1_Enquiries&#39;,   Owner:Queue.DeveloperName = &#39;TEST_CC_TRN_DirectSales&#39;,   Owner:Queue.DeveloperName = &#39;TEST_CC_TRN_NFSS&#39;, Owner:Queue.DeveloperName = &#39;TEST_NFSS_Credit_Applications&#39;, Owner:Queue.DeveloperName = &#39;UAT_Test_Queue&#39;  ) )  &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Test Auto-Response SIT UAT TRN</fullName>
+        <actions>
+            <name>CC_Classifieds_ADV_Auto_Response</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <description>DELETE THIS AFTER GO LIVE!!!!</description>
+        <formula>AND(    NOT(ISBLANK(SuppliedTo__c)),   OR(ISNEW(),ISCHANGED(SuppliedTo__c)),   OR(    Owner:Queue.DeveloperName = &#39;UAT_Test_Queue&#39;, Owner:Queue.DeveloperName = &#39;TEST_CC_TRN_DirectSales&#39;, Owner:Queue.DeveloperName = &#39;TEST_CC_TRN_NFSS&#39;, Owner:Queue.DeveloperName = &#39;CC_DEV_Classifieds&#39;,    Owner:Queue.DeveloperName = &#39;CC_DEV_Enquiries&#39;,    Owner:Queue.DeveloperName = &#39;CC_SIT_Classifieds&#39;,    Owner:Queue.DeveloperName = &#39;CC_SIT_Enquiries&#39;,    Owner:Queue.DeveloperName = &#39;CC_TRN_Classifieds&#39;,    Owner:Queue.DeveloperName = &#39;CC_TRN_Enquiries&#39;,    Owner:Queue.DeveloperName = &#39;CC_UAT_Classifieds&#39;,    Owner:Queue.DeveloperName = &#39;CC_UAT_Enquiries&#39;, Owner:Queue.DeveloperName = &#39;Training_NSW_1_Classifieds&#39;, Owner:Queue.DeveloperName = &#39;Training_NSW_1_Enquiries&#39;, Owner:Queue.DeveloperName = &#39;Training_SA_1_Classifieds&#39;, Owner:Queue.DeveloperName = &#39;Training_SA_1_Enquiries&#39;, Owner:Queue.DeveloperName = &#39;Training_NSW_1_Classifieds&#39;, Owner:Queue.DeveloperName = &#39;Training_NSW_1_Enquiries&#39;, Owner:Queue.DeveloperName = &#39;Training_QLD_1_Classifieds&#39;, Owner:Queue.DeveloperName = &#39;Training_QLD_1_Enquiries&#39;    )   )  &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse The Australian Auto-Response</fullName>
+        <actions>
+            <name>Case_send_The_Australian_Auto_Response</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Auto-Responses for The Australian (must use instead of standard Auto-Response due to order of processing).</description>
+        <formula>AND(   ISCHANGED(Apex_Count_Incoming_Emails__c),   Apex_Count_Incoming_Emails__c = 1,  ISCHANGED(SuppliedTo__c),  OR(   Owner:Queue.DeveloperName = &#39;CC_AUS_Advertising&#39;,   Owner:Queue.DeveloperName = &#39;CC_AUS_Agency&#39;,   Owner:Queue.DeveloperName = &#39;CC_AUS_Classifieds&#39;,   Owner:Queue.DeveloperName = &#39;CC_AUS_Fedgovdigital&#39; ) ) &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse Untick auto assign box</fullName>
+        <actions>
+            <name>CaseUntickAutoAssignBox</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Untick Automatically Assign Case checkbox when a RFP case is assigned to a user/queue different from the RFP Queue or when a Credit Application case is assigned to a user/queue different from the NFSS Queue.</description>
+        <formula>AND( ISCHANGED(OwnerId), OR( AND(RecordType.DeveloperName = &#39;RFP&#39;, NOT(Owner:Queue.DeveloperName = &#39;CC_RFP_Requests&#39;)), AND(RecordType.DeveloperName = &#39;Credit_Application&#39; ,NOT(Owner:Queue.DeveloperName = &#39;NFSS_Credit_Applications&#39;)))  &amp;&amp;  NOT($Setup.CCNBatchJobSetting__c.Is_Case_Batch_Running__c))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cse VIC General Auto-Response</fullName>
+        <actions>
+            <name>Case_send_VIC_Auto_Response_Email</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Auto-Responses for VIC General (must use instead of standard Auto-Response due to order of processing).</description>
+        <formula>AND( ISCHANGED(Apex_Count_Incoming_Emails__c), Apex_Count_Incoming_Emails__c = 1, ISCHANGED(	SuppliedTo__c), OR( Owner:Queue.DeveloperName = &#39;CC_GAD_Classifieds&#39;, Owner:Queue.DeveloperName = &#39;CC_GAD_Priority&#39;, Owner:Queue.DeveloperName = &#39;CC_HWT_Gold_Weekly_Times&#39;, Owner:Queue.DeveloperName = &#39;CC_HWT_Classifieds&#39;, Owner:Queue.DeveloperName = &#39;CC_HWT_Campaigns&#39;, Owner:Queue.DeveloperName = &#39;CC_HWT_Customer_Relations&#39;, Owner:Queue.DeveloperName = &#39;CC_HWT_Gold_Classifieds&#39;, Owner:Queue.DeveloperName = &#39;CC_HWT_Priority&#39;, Owner:Queue.DeveloperName = &#39;CC_LDR_Campaigns&#39;, Owner:Queue.DeveloperName = &#39;CC_LDR_Classifieds&#39;, Owner:Queue.DeveloperName = &#39;CC_LDR_Gold_Classifieds&#39;, Owner:Queue.DeveloperName = &#39;CC_Platinum_VIC&#39;,
+Owner:Queue.DeveloperName = &#39;CC_VIC_Features&#39; ))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>NewsAdds Case Owner</fullName>
+        <actions>
+            <name>Update_Case_Owner</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2</booleanFilter>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>notEqual</operation>
+            <value>Resolved - Approved,Resolved - Rejected,Closed,Closed - Rejected,Closed - Successful,Created in Error,Duplicate</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>NewsAdds Agent Support</value>
+        </criteriaItems>
+        <description>Update the Case owner to the NewsAdds Agent Support queue when the Case has been created.</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

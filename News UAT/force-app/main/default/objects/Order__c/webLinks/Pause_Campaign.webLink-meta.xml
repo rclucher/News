@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pause_Campaign</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Pause Campaign</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)} 
+
+if( confirm(&quot;Are you sure you want to pause this campaign?&quot;)) {
+if (&quot;{!Order__c.Status__c}&quot; == &quot;Pending For Pause&quot; || &quot;{!Order__c.Status__c}&quot; == &quot;Paused&quot;) {
+alert (&quot;Campaign is already paused.&quot;);
+}
+else {
+var p = new sforce.SObject(&#39;Order__c&#39;); 
+p.id = &quot;{!Order__c.Id}&quot;; 
+p.Status__c = &quot;Pending For Pause&quot;; 
+result = sforce.connection.update([p]); 
+if (result[0].success==&quot;false&quot;)
+alert(&quot;Something went wrong, please try again.&quot;);
+else
+location.reload(true);
+}
+}</url>
+</WebLink>

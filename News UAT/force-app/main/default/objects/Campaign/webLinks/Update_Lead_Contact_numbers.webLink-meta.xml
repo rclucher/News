@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Update_Lead_Contact_numbers</fullName>
+    <availability>online</availability>
+    <description>Run this after uploading wash data into DNC Wash Register - with the CSV of washed numbers from ACMA.
+
+This update will 
+1. Match each Phone number in the DNC Wash Register to Leads and/or Contacts
+2. Update the DNC status and wash date of the found Leads/Contacts</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Update Lead/Contact numbers</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>/apex/DNCPhoneUpdate?s=true</url>
+</WebLink>

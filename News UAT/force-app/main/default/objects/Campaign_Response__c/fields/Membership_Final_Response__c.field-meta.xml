@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Membership_Final_Response__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Denote whether the Response was the concluding response - Yes or No. This is relevant for Retention campaigns.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Denote whether the Response was the concluding response - Yes or No. This is relevant for Retention campaigns.</inlineHelpText>
+    <label>Membership Final Response</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

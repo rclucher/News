@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Create_View_Briefing_Form</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Create/View Briefing Form</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>if ({!ISPICKVAL( Opportunity.StageName , &#39;Closed Won&#39;)} &amp;&amp; 
+&#39;{!TRIM( Opportunity.Briefing_Form_Status__c)}&#39;==&#39;Completed&#39;) {
+alert (&#39;If you want to view Sales Briefing Form, please click Export Briefing Form button.\nIf you need to amend Sales Briefing Form, please contact assigned Campaign Manager.&#39;);
+}
+else{
+if ({!INCLUDES(Opportunity.OpportunityGroup__c, &#39;NewsXtend&#39;)}){
+if (&#39;{!Opportunity.Briefing_FormId__c}&#39;==&#39;&#39;)
+window.top.location.href = &#39;/apex/CS_ViewBriefingForm?rtName=Sales&amp;oppId=&#39;+&#39;{!Opportunity.Id}&#39;;
+
+else
+window.top.location.href = &#39;/apex/CS_ViewBriefingForm?bfId=&#39;+&#39;{!Opportunity.Briefing_FormId__c}&#39;+ &#39;&amp;oppId=&#39;+&#39;{!Opportunity.Id}&#39;
+}
+else 
+alert (&#39;This briefing form is for NewsXtend only.&#39;);
+}</url>
+</WebLink>

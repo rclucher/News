@@ -1,0 +1,417 @@
+<apex:page Controller="RessignWorkloadCtrl" docType="html-5.0" sidebar="false" id="mainPage">
+<apex:stylesheet value="{!$Resource.TaskList + '/assets/styles/salesforce-lightning-design-system-vf.css'}"/>
+<apex:stylesheet value="/apex/LightningOverrideCss"/>
+<apex:includeLightning />
+<apex:includeScript value="/lightning/lightning.out.js" />
+<apex:includeScript value="/support/console/29.0/integration.js"/>
+<apex:includeScript value="{!URLFOR($Resource.xtendresource,'js/jquery-1.11.1.min.js')}" />
+<apex:includeScript value="{!URLFOR($Resource.xtendresource,'js/bootstrap-datepicker.js')}" />
+
+<apex:includeScript value="{!URLFOR($Resource.select2Resource, '/select2-4.0.3/dist/js/select2.full.js')}" />
+<apex:stylesheet value="{!URLFOR($Resource.select2Resource, '/select2-4.0.3/dist/css/select2.min.css')}"/>
+<apex:stylesheet value="{!URLFOR($Resource.xtendresource,'css/datepicker.css')}" />
+
+
+<style type="text/css">
+    .mainPageWrapper {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        padding: 0.5rem;
+        font-size: 13px;
+        font-family: 'Salesforce Sans',Helvetica,Arial,sans-serif;
+        color: #16325c;
+        -webkit-flex-wrap: wrap;
+        -moz-flex-wrap: wrap;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    .mainPagePanel {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        width: 100%;
+        flex-basis: 100%;
+        background-color: rgb(244, 246, 249);
+        border-bottom: 1px solid rgb(216, 221, 230);
+        padding: 0.5rem 1rem;
+        align-items: center;
+        height: 50px;
+    }
+    .main-viewport {
+        -webkit-box-flex: 1 75%;
+        -moz-box-flex: 1 75%;
+        -webkit-flex: 1 75%;
+        -ms-flex: 1 75%;
+        flex: 1 75%;
+        height: auto;
+        overflow-y: auto;
+    }
+    .wrapper-inner {
+        border: 1px solid #e2e8ed;
+        border-radius: 5px;
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .wrapper-inner.full-width {
+        width: 100%;
+    }
+    .slds .task-wrapper .task-view-actions .slds-button {
+        line-height: 1.5rem;
+    }
+    .slds .task-wrapper .slds-button {
+        padding: 0 1rem;
+        font-weight: 400;
+        font-size: .75rem;
+        display: table-cell;
+        vertical-align: middle;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 370px;
+        line-height: 1.875rem;
+    }
+    .task-subject {
+        margin: 0;
+    }
+    .selectback {
+        width: 100%;
+    }
+    .slds .p {
+        margin-top: 5px;
+    }
+    .headerlable {
+        margin-top: 5px;
+    }
+    .headerPanel {
+        width: 100%;
+    }
+    .submit {
+            padding: 0.25rem 0.5rem;
+            border: 1px solid #d8dde6;
+            border-radius: 0.25rem;
+            background: #fff;
+            cursor: pointer;
+            color: #54698d;
+            font-weight: lighter;
+            white-space: nowrap;
+            font-size: 0.8rem;
+            margin: 0;
+        }
+    }
+    .list-wrapper {
+            -ms-flex: 2 1 40rem;
+            flex: 2 1 40rem;
+            position: relative;
+            overflow-y: auto;
+            border: 1px solid rgb(216, 221, 230);
+            border-top: none;
+            height: calc(100% - 50px);
+            overflow-y: auto;
+        }
+        ul.record-list>li {
+            margin: 0;
+            border: 1px solid transparent;
+            border-bottom: 1px solid rgb(216, 221, 230);
+            /*border-left: 1px solid rgb(216, 221, 230);*/
+            cursor: pointer;
+        }
+        .labelcolumn {
+            width:20%;
+        }
+        .valuecolumn {
+            width: 40%;
+        }
+        tr.spaceUnder > td
+        {
+          padding-bottom: 1em;
+        }
+        .select2-container {
+            width: 100% !important;
+            color: #16325c !important;
+            border-radius: 4px;
+        }
+        .linkNoColor {
+            color: black !important;
+        }
+
+</style>
+        
+        <apex:form id="mainForm" styleClass="main-viewport wrapper-inner slds">
+        <apex:actionFunction name="getmainusers" action="{!testcallback}" rerender="evaluateProductBtn, pb,block1" oncomplete="getUsersList();"/>
+        <apex:actionFunction name="callback" action="{!testcallback}" reRender="pb"/>
+        <div style= "display: none">
+            <apex:pageBlock id="hidden" >
+            <apex:pageBlockSection id="hiddensection">
+            <apex:inputHidden id="hiddenMainUser" value="{!mainUser}"/>
+            <apex:inputHidden id="hiddenRepUser" value="{!replacementUser}"/>
+            <apex:inputHidden id="hiddenDateFrom" value="{!dateFrom}"/>
+            <apex:inputHidden id="hiddenDateTo" value="{!dateTo}"/>
+        </apex:pageBlockSection>
+        </apex:pageBlock>
+        </div>
+        <table style="width: 60%; height: 40%; margin-bottom: 2em;">
+
+        <apex:outputPanel id="headerPanel" layout="block" styleClass="" rendered="true">
+        <tbody>
+        <div class="headerPanel">
+       
+        <tr class="spaceUnder">
+        <div>
+        <td class="labelcolumn">
+            <p class="headerlable">
+                <apex:outputText value="Select user: "/>
+            </p>
+        </td>
+        <td class="valuecolumn">
+            <input id="mainusers" type="hidden" class="selectback" onclick="getUsersList();" />  
+
+        </td>
+        </div>
+        </tr>
+        <tr class="spaceUnder">
+        <div>
+        <td class="labelcolumn">
+            <p class="headerlable">
+                <apex:outputText value="Select user to re-assign: "/>
+            </p>
+        </td>
+        <td class="valuecolumn">
+            <input id="repusers" type="hidden" class="selectback" onclick="getUsersList();" />  
+        </td>
+        </div>
+        </tr>
+         <tr class="spaceUnder">
+            <div>
+            <td class="labelcolumn">
+                <p class="headerlable">
+                    <apex:outputText value="Select item to be re-assigned: "/>
+                </p>
+            </td>
+            <td class="valuecolumn">
+                <apex:selectList value="{!objectLabel}" multiselect="false" size="1" styleClass="slds-select">
+                <apex:actionSupport event="onchange" action="{!actionOnSelectObject}" rerender="listtables" />
+                <apex:selectOptions value="{!items}"/>
+                </apex:selectList>
+            </td>
+            </div>
+        </tr>
+        <!-- <tr class="spaceUnder">
+        <div>
+        <td class="labelcolumn">
+            <p class="headerlable">
+                <apex:outputText value="Date From: "/>
+            </p>
+        </td>
+        <td class="valuecolumn">
+            <input id ="dateFromId" class="datepicker" type="text" style="width:8em;" placeholder="date"/>  
+        </td>
+        </div>
+        </tr>
+        <tr class="spaceUnder">
+        <div>
+        <td class="labelcolumn">
+            <p class="headerlable">
+                <apex:outputText value="Date To: "/>
+            </p>
+        </td>
+        <td class="valuecolumn">
+            <input id= "dateToId" class="datepicker" type="text" style="width:8em;" placeholder="date"/>  
+        </td>
+        </div>
+        </tr> -->
+        
+        </div>
+        </tbody>
+        <tfoot>
+        <tr >
+        <div>
+        <td style="text-align: center;" align="center" colspan="2">
+            <apex:commandButton styleClass="submit" value="Get records" action="{!showRecords}" reRender="listtables,testmsg" oncomplete="setSelectValues();getUsersList();"></apex:commandButton>
+
+            <apex:commandButton styleClass="submit" value="Re-assign" action="{!reassignRecords}" reRender="listtables,testmsg" ></apex:commandButton>
+        </td>
+        </div>
+        </tr>
+        </tfoot>
+        </apex:outputPanel>
+        </table>
+        <apex:outputPanel id="testmsg" >
+            <apex:outputText style="color: green; font-weight: bold; font-size: 20px; " value="Success!" rendered="{!reassignMsg}"/>
+            <apex:outputText style="color: red; font-weight: bold; font-size: 20px;" value="{!warningMsg}" rendered="{!showWarning}"/>
+        </apex:outputPanel>
+        <apex:dataTable id="listtables" style="width: 100%; " value="{!recordWraps}" var="rw">
+        <apex:column style="width: 10%">
+            <apex:facet name="header">
+            <input type="checkbox"  onclick="selectAll()"/> </apex:facet>
+            <apex:inputCheckbox styleClass="checks" value="{!rw.checked}" />
+        </apex:column>
+        <apex:column >
+            <apex:facet name="header" >{!IF(objectlabel == null, 'Name/Subject', IF(objectlabel =='Task', 'Subject', 'Name'))}</apex:facet>
+            <apex:outputPanel rendered="{!objectlabel=='Order__c'}">
+                    <apex:outputField value="{!rw.orderrecord.name}"/>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!objectlabel=='Task'}">
+                    <apex:outputField value="{!rw.taskrecord.subject}"/>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!objectlabel=='Product_Order__c'}">
+                    <apex:outputField value="{!rw.productrecord.name}"/>
+                </apex:outputPanel>
+        </apex:column>
+        <apex:column >
+            <apex:facet name="header">{!IF(objectlabel == null, 'Related To/Account', IF(objectlabel =='Task', 'Related To', 'Account'))}</apex:facet>
+            <apex:outputPanel rendered="{!objectlabel=='Order__c'}">
+                <apex:outputLink styleClass="linkNoColor" target="_top" value="/{!rw.orderrecord.account__r.Id}">
+                    <apex:outputField value="{!rw.orderrecord.account__r.name}"/>
+                </apex:outputLink>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!objectlabel=='Task'}">
+                <apex:outputLink styleClass="linkNoColor"  target="_top" value="/{!rw.taskrecord.whatid}">
+                    <apex:outputField value="{!rw.taskrecord.what.name}"/>
+                </apex:outputLink>
+                </apex:outputPanel>
+
+                <apex:outputPanel rendered="{!objectlabel=='Product_Order__c'}">
+                <apex:outputLink styleClass="linkNoColor"  target="_top" value="/{!rw.productrecord.order__r.account__r.Id}">
+                    <apex:outputField value="{!rw.productrecord.order__r.account__r.name}"/>
+                </apex:outputLink>
+                </apex:outputPanel>
+        </apex:column>
+        <apex:column rendered="{!objectlabel=='Task'}">
+        	<apex:facet name="header">Account</apex:facet>
+            <apex:outputPanel rendered="{!objectlabel=='Task'}">
+                <apex:outputLink styleClass="linkNoColor" target="_top" value="/{!rw.relatedOpportunity.AccountId}">
+                    <apex:outputField value="{!rw.relatedOpportunity.Account.name}"/>
+                </apex:outputLink>
+            </apex:outputPanel>         	
+        </apex:column>
+        
+        <apex:column >
+            <apex:facet name="header">Opportunity</apex:facet>
+            <apex:outputPanel rendered="{!objectlabel=='Order__c'}">
+                <apex:outputLink styleClass="linkNoColor" target="_top" value="/{!rw.orderrecord.opportunity__r.Id}">
+                    <apex:outputField value="{!rw.orderrecord.opportunity__r.name}"/>
+                </apex:outputLink>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!objectlabel=='Task'}">
+                <apex:outputLink styleClass="linkNoColor"  target="_top" value="/{!rw.relatedOpportunity.Id}">
+                    <apex:outputField value="{!rw.relatedOpportunity.name}"/>
+                </apex:outputLink>
+                </apex:outputPanel>
+
+                <apex:outputPanel rendered="{!objectlabel=='Product_Order__c'}">
+                <apex:outputLink styleClass="linkNoColor"  target="_top" value="/{!rw.productrecord.order__r.opportunity__r.Id}">
+                    <apex:outputField value="{!rw.productrecord.order__r.opportunity__r.name}"/>
+                </apex:outputLink>
+                </apex:outputPanel>
+        </apex:column>
+                
+        <apex:column >
+            <apex:facet name="header">Status</apex:facet>
+            <apex:outputPanel rendered="{!objectlabel=='Order__c'}">
+                    <apex:outputField value="{!rw.orderrecord.Status__c}"/>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!objectlabel=='Task'}">
+                    <apex:outputField value="{!rw.taskrecord.status}"/>
+                </apex:outputPanel> 
+                <apex:outputPanel rendered="{!objectlabel=='Product_Order__c'}">
+                    <apex:outputField value="{!rw.productrecord.Status__c}"/>
+                </apex:outputPanel>
+        </apex:column>
+        <apex:column >
+            <apex:facet name="header">{!IF(objectlabel == null, 'Due Date/Proposed Start Date', IF(objectlabel=='Task', 'Due Date', 'Proposed Start Date'))}</apex:facet>
+            <apex:outputPanel rendered="{!objectlabel=='Order__c'}">
+                    <apex:outputField value="{!rw.orderrecord.Proposed_Start_Date__c}"/>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!objectlabel=='Task'}">
+                    <apex:outputField value="{!rw.taskrecord.ActivityDate}"/>
+                </apex:outputPanel> 
+                <apex:outputPanel rendered="{!objectlabel=='Product_Order__c'}">
+                    <apex:outputField value="{!rw.productrecord.order__r.Proposed_Start_Date__c}"/>
+                </apex:outputPanel>
+        </apex:column>
+
+    </apex:dataTable>
+        </apex:form>
+
+<script>
+    $(document).ready(function(){
+        getUsersList();
+        //setDates();
+    });
+
+    function selectAll () {
+        debugger;
+        $('[class="checks"]').each(function(){
+            this.checked = true;
+        });
+    }
+
+    function setDates() {
+        debugger;
+        $('.datepicker').each(function(){
+                      $(this).datepicker({startDate: '+1d'});
+                      $(this).on('changeDate', function() {
+                            var elemVal = $(this).val();
+                            $('#hiddenDateFrom').val(elem);
+                    });
+                });
+     }
+
+    function sendDateValue(field) {
+
+    }
+
+    function getUsers () {
+        jQuery("#mainusers").select2(
+        {
+            allowClear : true,
+            data: queryData
+        }).on ("change", function(){
+            var fieldValue = $("#mainusers").val();
+            var elem = jQuery("[id$='hiddenMainUser']");
+            elem.val(fieldValue); 
+            callback();
+        });
+    }
+
+    function getRepUsers () {
+        jQuery("#repusers").select2(
+        {
+            allowClear : true,
+            data: queryData
+        }).on ("change", function(){
+            var fieldValue = $("#repusers").val();
+            var elem = jQuery("[id$='hiddenRepUser']");
+            elem.val(fieldValue); 
+            callback();
+        });
+    }
+
+
+    function getUsersList () {
+        queryData = [];
+        var json = Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.RessignWorkloadCtrl.getMainUsers}',
+
+            function(result, event) {
+                for (var i =0; i<result.length; i++) {
+                    queryData.push({id: result[i].Id, text: result[i].Name});
+                }
+                getUsers();
+                getRepUsers();
+            });
+    }
+
+    function setSelectValues () {
+        var elemVal = jQuery("[id$='hiddenMainUser']").val();
+        jQuery("#mainusers").val(elemVal);
+
+        elemVal = jQuery("[id$='hiddenRepUser']").val();
+        jQuery("#repusers").val(elemVal);
+    }
+    
+</script>
+</apex:page>

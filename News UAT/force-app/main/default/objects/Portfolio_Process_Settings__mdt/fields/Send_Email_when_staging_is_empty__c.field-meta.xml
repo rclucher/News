@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Email_when_staging_is_empty__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If no records are in scope for batch process, send email to Data Services to reload the records to Portfolio_Staging__c</description>
+    <externalId>false</externalId>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <label>Send Email when staging is empty</label>
+    <type>Checkbox</type>
+</CustomField>

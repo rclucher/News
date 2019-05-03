@@ -1,0 +1,411 @@
+<apex:page standardController="Campaign" extensions="Campaign_ControllerX" showHeader="true" sidebar="true" tabStyle="CampaignMember" title="Campaign Member" readOnly="true" docType="html-5.0">
+    <!-- 21-05-2019 AdSales 272 darshan.gosar@bluewolfgroup.com Added docType as html-5.0 to support date type of inputs -->
+    
+    <apex:includeScript value="/support/console/30.0/integration.js"/>
+    <link rel="stylesheet" href="{!URLFOR($Resource.Campaign_CSS)}"/>
+    
+    <apex:sectionHeader title="Campaign Execution" 
+                            subtitle="{!campaign.Name} - {!campaign.NEWS_Campaign_Type__c}"
+                            description="Description: {!campaign.Description}"/>
+    
+    <apex:form id="theForm">
+        <apex:actionFunction name="RefreshPostMemberResponse" 
+                                action="{!refreshPostMemberResponse}" 
+                                reRender="CampaignTabPanel" 
+                                immediate="true" 
+                                status="status"/>                        
+        <apex:actionStatus id="status">
+            <apex:facet name="start">
+                <div id="loading-background"/>
+                <div id="loading">
+                    <div id="loading-content">
+                    <!--div class="spinner"/-->
+                        <div id="loading-msg">
+                            <img src="/img/loading32.gif" style="float: left; margin: 8px;" />
+                            <span style="display: inline-block; padding: 10px 0px;">Please Wait...</span>
+                        </div>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionStatus>
+        
+        <apex:pageMessages />
+        <!-- Create Tab panel -->  
+        <apex:pageblock >        
+        
+            <!-- 21-05-2019 AdSales 272 darshan.gosar@bluewolfgroup.com 
+            - Added 5 new input filters
+            - Added 5 filter selection dropdown
+            - In order to support UI alignment replace pageblocksectionitem with HTML table -->
+        
+            <table class="detailList" width="100%">
+                <tr>
+                    <td class="labelCol">
+                        <apex:outputLabel value="{!$ObjectType.CampaignMember.fields.Lead_Contact_Name__c.Label}"/>
+                    </td>
+                    <td class="dataCol">
+                        <apex:inputText value="{!searchLead_Contact_Name}"  />
+                    </td>
+                    <td class="labelCol">
+                        <apex:outputLabel value="{!$ObjectType.CampaignMember.fields.Call_Count__c.Label}"/>
+                    </td>
+                    <td class="dataCol">
+                        <apex:selectList id="filterCallCount" value="{!filterCallCount}"
+                                 size="1" required="true">
+                          <apex:selectOptions value="{!filterOption}"/>
+                        </apex:selectList>
+                        <apex:inputText value="{!searchCall_Count}" style="margin-left:5px" />
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="labelCol">
+                        <apex:outputLabel value="{!$ObjectType.CampaignMember.fields.CompanyOrAccount__c.Label}"/>
+                    </td>
+                    <td class="dataCol">
+                        <apex:inputText value="{!searchPre_Completion_Status}"  />
+                    </td>
+                    <td class="labelCol">
+                        <apex:outputLabel value="{!$ObjectType.CampaignMember.fields.Age_in_List__c.Label}"/>
+                    </td>
+                    <td class="dataCol">
+                        <apex:selectList id="filterAgeInLast" value="{!filterAgeInLast}"
+                                 size="1" required="true">
+                          <apex:selectOptions value="{!filterOption}"/>
+                        </apex:selectList>
+                        <apex:inputText value="{!searchCampaign_Membership_Count}" style="margin-left:5px" />
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="labelCol">
+                        <apex:outputLabel value="{!$ObjectType.CampaignMember.fields.Execution_Status__c.Label}"/>
+                    </td>
+                    <td class="dataCol">
+                        <apex:selectList id="searchExecution_Status" value="{!searchExecution_Status}"
+                                 size="1" required="true">
+                            <apex:selectOptions value="{!executionStatus}"/>
+                        </apex:selectList>
+                    </td>
+                    <td class="labelCol">
+                        <apex:outputLabel value="{!$ObjectType.CampaignMember.fields.Last_Booking_Value__c.Label}"/>
+                    </td>
+                    <td class="dataCol">
+                        <apex:selectList id="filterLastBookingValue" value="{!filterLastBookingValue}"
+                                 size="1" required="true">
+                            <apex:selectOptions value="{!filterOption}"/>
+                        </apex:selectList>
+                        <apex:inputText value="{!searchLastBookingValue}" style="margin-left:5px" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="labelCol">
+                        <apex:outputLabel value="{!$ObjectType.CampaignMember.fields.Last_Booking_Line_Item_Publication_Divs__c.Label}"/>
+                    </td>
+                    <td class="dataCol">
+                        <apex:inputText value="{!searchLastPublicationDivision}"/>
+                    </td>
+                    <td class="labelCol">
+                        <apex:outputLabel value="{!$ObjectType.CampaignMember.fields.Response_Datetime__c.Label}"/>
+                    </td>
+                    <td class="dataCol">
+                        <apex:selectList id="filterResponseDateTime" value="{!filterResponseDateTime}"
+                                 size="1" required="true">
+                          <apex:selectOptions value="{!filterOption}"/>
+                        </apex:selectList>
+                        <apex:inputField value="{!tempCampaignMember.Contact_Plan_Date__c}" style="margin-left:5px"/>                        
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="labelCol">
+                        <apex:outputLabel value="{!$ObjectType.CampaignMember.fields.Status.Label}"/>
+                    </td>
+                    <td class="dataCol">
+                        <apex:selectList id="searchStatus" value="{!searchStatus}"
+                             size="1" required="true">
+                      <apex:selectOptions value="{!status}"/>
+                    </apex:selectList>
+                    </td>
+                    <td class="labelCol">
+                        <apex:outputLabel value="{!$ObjectType.CampaignMember.fields.Call_Back_Date__c.Label}"/>
+                    </td>
+                    <td class="dataCol">
+                        <apex:selectList id="filterCallBackDate" value="{!filterCallBackDate}"
+                                 size="1" required="true">
+                          <apex:selectOptions value="{!filterOption}"/>
+                        </apex:selectList>
+                        <apex:inputField value="{!tempCampaignMember1.Contact_Plan_Date__c}" style="margin-left:5px"/>                        
+                    </td>
+                </tr>                                                
+            </table>                                
+
+            <apex:pageblockButtons location="bottom" >
+            <apex:commandButton value="Search" action="{!search}"/>
+            <apex:commandButton value="Reset Search" action="{!resetSearch}"/>
+            </apex:pageblockButtons>
+        </apex:pageblock>
+        
+        <apex:tabPanel switchType="client" 
+                        id="CampaignTabPanel"
+                        value="{!activeTab}">
+            <apex:tab label="To Do {!IF(todoCampaignMemberPaginator.sizeOfList>0,
+                                        '(' & TEXT(todoCampaignMemberPaginator.sizeOfList) & ')',
+                                        '')}" 
+                        name="todoTab" 
+                        id="todoTab"
+                        ontabenter="loadTodoList();">
+                <apex:actionFunction name="loadTodoList" 
+                                        action="{!getTodoCampaignMemberList}" 
+                                        reRender="CampaignTabPanel" 
+                                        immediate="true" 
+                                        status="status"/>                        
+                <c:Campaign_TabBlock CampaignMemberList="{!todoCampaignMemberCurrentList}" 
+                                        CampaignMemberPaginator="{!todoCampaignMemberPaginator}"
+                                        hasProgressCampaignMember="{!hasProgressCampaignMemberInTodo}" 
+                                        cmListType="todo" 
+                                        isDisplayAction="true"
+                                        topController="{!theController}" 
+                                        id="todoComponentBlock" 
+                                        completeFunction="loadTodoList();" />
+
+            </apex:tab>
+
+            <apex:tab label="Not Started {!IF(notStartedCampaignMemberPaginator.sizeOfList>0,
+                                                '(' & TEXT(notStartedCampaignMemberPaginator.sizeOfList) & ')',
+                                                '')}" 
+                        name="notStartedTab" 
+                        id="notStartedTab"
+                        ontabenter="loadNotStartList();">
+                <apex:actionFunction name="loadNotStartList" 
+                                        action="{!getNotStartedCampaignMemberList}" 
+                                        reRender="CampaignTabPanel" 
+                                        immediate="true" 
+                                        status="status"/>                        
+                <c:Campaign_TabBlock CampaignMemberList="{!notStartedCampaignMemberCurrentList}" 
+                                        CampaignMemberPaginator="{!notStartedCampaignMemberPaginator}"
+                                        hasProgressCampaignMember="{!hasProgressCampaignMemberInTodo}" 
+                                        cmListType="notStarted" 
+                                        isDisplayAction="true"
+                                        topController="{!theController}" 
+                                        id="notStartedComponentBlock" 
+                                        completeFunction="loadNotStartList();" />
+            </apex:tab>
+
+            <apex:tab label="My Call to do {!IF(myCampaignMemberPaginator.sizeOfList>0,
+                                                '(' & TEXT(myCampaignMemberPaginator.sizeOfList) & ')',
+                                                '')}" 
+                        name="myTab" 
+                        id="myTab"
+                        ontabenter="loadMyTodoList();">
+                <apex:actionFunction name="loadMyTodoList" 
+                                        action="{!getMyCampaignMemberList}" 
+                                        reRender="CampaignTabPanel" 
+                                        immediate="true" 
+                                        status="status"/>                        
+                <c:Campaign_TabBlock CampaignMemberList="{!myCampaignMemberCurrentList}" 
+                                        CampaignMemberPaginator="{!myCampaignMemberPaginator}"
+                                        hasProgressCampaignMember="{!hasProgressCampaignMemberInTodo}" 
+                                        cmListType="my" 
+                                        isDisplayAction="true"
+                                        topController="{!theController}" 
+                                        id="myComponentBlock" 
+                                        completeFunction="loadMyTodoList();" />
+            </apex:tab>
+
+            <apex:tab label="All Call to do {!IF(allTodoCampaignMemberPaginator.sizeOfList>0,
+                                                '(' & TEXT(allTodoCampaignMemberPaginator.sizeOfList) & ')',
+                                                '')}" 
+                        name="allTodoTab" 
+                        id="allTodoTab"
+                        ontabenter="loadAllTodoList();">
+                <apex:actionFunction name="loadAllTodoList" 
+                                        action="{!getAllTodoCampaignMemberList}" 
+                                        reRender="CampaignTabPanel" 
+                                        immediate="true" 
+                                        status="status"/>                          
+                <c:Campaign_TabBlock CampaignMemberList="{!allTodoCampaignMemberCurrentList}" 
+                                        CampaignMemberPaginator="{!allTodoCampaignMemberPaginator}"
+                                        hasProgressCampaignMember="{!hasProgressCampaignMemberInTodo}" 
+                                        cmListType="allTodo" 
+                                        isDisplayAction="true"
+                                        topController="{!theController}" 
+                                        id="allTodoComponentBlock" 
+                                        completeFunction="loadAllTodoList();" />
+            </apex:tab>
+
+            <apex:tab label="My Completed {!IF(myDoneCampaignMemberPaginator.sizeOfList>0,
+                                                '(' & TEXT(myDoneCampaignMemberPaginator.sizeOfList) & ')',
+                                                '')}" 
+                        name="myDoneTab" 
+                        id="myDoneTab"
+                        ontabenter="loadMyCompleteList();">
+                <apex:actionFunction name="loadMyCompleteList" 
+                                        action="{!getMyDoneCampaignMemberList}" 
+                                        reRender="CampaignTabPanel" 
+                                        immediate="true" 
+                                        status="status"/>
+                <c:Campaign_TabBlock CampaignMemberList="{!myDoneCampaignMemberCurrentList}" 
+                                        CampaignMemberPaginator="{!myDoneCampaignMemberPaginator}"
+                                        hasProgressCampaignMember="true" 
+                                        cmListType="myDone" 
+                                        isDisplayAction="false" 
+                                        topController="{!theController}" 
+                                        id="myDoneComponentBlock" 
+                                        completeFunction="loadMyCompleteList();" />
+            </apex:tab>
+
+            <apex:tab label="Completed {!IF(doneCampaignMemberPaginator.sizeOfList>0,
+                                            '(' & TEXT(doneCampaignMemberPaginator.sizeOfList) & ')',
+                                            '')}" 
+                        name="doneTab" 
+                        id="doneTab"
+                        ontabenter="loadCompleteList();">
+                <apex:actionFunction name="loadCompleteList" 
+                                        action="{!getDoneCampaignMemberList}" 
+                                        reRender="CampaignTabPanel" 
+                                        immediate="true" 
+                                        status="status"/>                        
+                <c:Campaign_TabBlock CampaignMemberList="{!doneCampaignMemberCurrentList}" 
+                                        CampaignMemberPaginator="{!doneCampaignMemberPaginator}"
+                                        hasProgressCampaignMember="true" 
+                                        cmListType="done"
+                                        isDisplayAction="false" 
+                                        topController="{!theController}" 
+                                        id="doneComponentBlock" 
+                                        completeFunction="loadCompleteList();" />
+            </apex:tab>
+
+            <apex:tab label="All {!IF(allCampaignMemberPaginator.sizeOfList>0,
+                                        '(' & TEXT(allCampaignMemberPaginator.sizeOfList) & ')',
+                                        '')}" 
+                        name="allTab" 
+                        id="allTab"
+                        ontabenter="loadAllList();">
+                <apex:actionFunction name="loadAllList" 
+                                        action="{!getAllCampaignMemberList}" 
+                                        reRender="CampaignTabPanel" 
+                                        immediate="true" 
+                                        status="status"/>                        
+                <c:Campaign_TabBlock CampaignMemberList="{!allCampaignMemberCurrentList}" 
+                                        CampaignMemberPaginator="{!allCampaignMemberPaginator}"
+                                        hasProgressCampaignMember="{!hasProgressCampaignMemberInAll}" 
+                                        cmListType="all" 
+                                        isDisplayAction="true"
+                                        topController="{!theController}" 
+                                        id="allComponentBlock" 
+                                        completeFunction="loadAllList();" />
+            </apex:tab>
+        </apex:tabPanel>   
+    </apex:form>
+    
+     <script type="text/javascript">
+ 
+        var currentConsoleTabId;
+ 
+        function initialiseServiceConsoleTab() 
+        {
+            sforce.console.setTabTitle('Campaign Execution');
+        }
+        
+        var previousOnload = window.onload; 
+        window.onload = function() 
+        {
+            if (previousOnload) 
+            {
+                previousOnload();
+            }
+
+            if(sforce.console.isInConsole()) 
+            {
+                setTimeout('initialiseServiceConsoleTab()', '1');
+
+                // 2015-01-10 UserStory16.1 louis.wang@bluewolf.com - added event listener so member response subtab can refresh Campaign Execution subtab
+                var processEvent = function(result)
+                {
+                    var resultMessage = result.message;
+                    if(resultMessage!=null)
+                    {
+                        if(resultMessage=='refresh')
+                        {
+                            // call action function to perform auto refresh function on the server
+                            RefreshPostMemberResponse();
+                        }
+                    }
+                }
+                sforce.console.addEventListener('CampaignExecution_{!Id}', processEvent);
+                //console.log('Campaign CampaignExecution_{!Id}');
+            }
+            // initialise the 1st tab through action function
+            // This line will not be fired even after the refresh call back is processed
+            loadTodoList();
+        }
+
+        // Updated by Bohao Chen on 5/May/2014 for JIRA issue ???
+        function openContactSubtab(contactId, contactName) 
+        {
+            contactName = contactName.replace( '&#39;', '\'');
+
+            //First find the ID of the primary tab to put the new subtab in
+            var url = '/' + contactId;
+
+            if(sforce.console.isInConsole())
+            {
+                sforce.console.getEnclosingPrimaryTabId(function(result) 
+                {            
+                    var primaryTabId = result.id;                                           
+                    sforce.console.openSubtab(primaryTabId , url, true, contactName, null, openSuccess);
+                });
+            }
+            else
+            {
+                
+                window.open(url, '_blank');
+            }
+        }
+        
+        function getCurrentConsoleTab() {
+         sforce.console.getEnclosingTabId(setCurrentConsoleTabId);
+        }
+        
+        
+        var setCurrentConsoleTabId = function setCurrentConsoleTabId(result) {
+            currentConsoleTabId = result.id;
+            //alert(currentConsoleTabId);
+        };
+                
+        // Updated by Bohao Chen on 5/May/2014 for JIRA SFE-510
+        function openActionPageSubtab(campaignMemberId)
+        {
+           
+           
+
+            if(sforce.console.isInConsole())
+            {
+                getCurrentConsoleTab();
+                url += '&refTabId=' + currentConsoleTabId;                                
+                sforce.console.getEnclosingPrimaryTabId(function(result) 
+                {         
+                    var primaryTabId = result.id;                                           
+                    sforce.console.openSubtab(primaryTabId , url, true, 'Member Response');
+                });
+            }
+            else
+            {
+                window.open(url, '_self');
+            }
+        }
+        
+        var openSuccess = function openSuccess(result) 
+        {
+            //Report whether we succeeded in opening the subtab
+            if (result.success == false) 
+            {
+                alert('subtab cannot be opened');
+            }
+        };        
+
+    </script>   
+    
+</apex:page>

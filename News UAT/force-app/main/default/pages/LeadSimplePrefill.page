@@ -1,0 +1,129 @@
+<apex:page standardController="Lead" extensions="SimplePrefill_ControllerX" id="pg" applyHtmlTag="false" showHeader="false">
+<apex:includeScript value="/support/console/28.0/integration.js"/>
+
+<script type="text/javascript">
+    if (!sforce.console.isInConsole()) 
+    {                
+        // detect browser    
+        var browserName = navigator.appName;
+        
+        // stop page from loading and redirect to account creation page if user is in service console
+        if(browserName == "Microsoft Internet Explorer"){
+            document.execCommand('Stop');
+        }
+        else{
+            window.stop();
+        }
+        
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.SimplePrefill_ControllerX.pageRedirect}',
+            function(result, event)
+            {
+                if (event.status) 
+                {
+                    var regexS = "[\\?&]id=([^&#]*)";
+                    var regex = new RegExp(regexS);
+                    var results = regex.exec(window.location.href);
+                    if (results != null)
+                    {
+                        document.location = "/" + results[1] + "/e?retURL=%2F" + results[1];
+                    }
+                    else
+                    {                                              
+                        document.location = result + "uniqueLead";                    
+                    }
+                }
+                else
+                {
+                    alert("Couldn't redirect to account creation page. Please contact your administrator.");
+                    document.location = "/00Q/o";
+                }
+            }, 
+            {escape: true});
+    }
+    function initialiseServiceConsoleTab() 
+    {        
+        sforce.console.setTabTitle('{!sectionTitle}');        
+    }
+    
+    var previousOnload = window.onload; 
+    window.onload = function() 
+    {
+        if (previousOnload) 
+        {
+            previousOnload();
+        }
+        setTimeout('initialiseServiceConsoleTab()', '1');
+    }
+</script>
+
+<apex:sectionHeader title="{!sectionTitle}" subtitle="Address entry"/>
+    <apex:form id="frm">
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlock mode="edit" id="pgb">
+        <apex:pageblockButtons >
+            <apex:commandButton action="{!save}" value="Save" rendered="{!lead.id != null}"/>
+            <apex:commandButton action="{!next}" value="Next" rendered="{!lead.id == null}"/>
+            <apex:commandButton action="{!cancel}" value="Cancel"/>
+            <apex:commandButton action="{!clear}" value="Clear"/>
+        </apex:pageblockButtons>
+        <apex:pageBlockSection title="Address" columns="1" id="pgbsPrimary">      
+                    <apex:pageBlockSectionItem id="pgbsiStreet">
+                        <apex:outputLabel value="Street"/>
+                        <apex:inputText id="Street" value="{!lead.Street}" />
+                    </apex:pageBlockSectionItem>
+    
+                    <apex:pageBlockSectionItem id="pgbsiCity">
+                        <apex:outputLabel value="City"/>
+                        <apex:inputField id="City" value="{!lead.City}" /> 
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem id="pgbsiState">
+                        <apex:outputLabel value="State"/>
+                        <apex:inputField id="State" value="{!lead.State}" /> 
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem id="pgbsiPostcode">
+                        <apex:outputLabel value="Postcode" />
+                        <apex:inputField id="Postcode" value="{!lead.PostalCode}" /> 
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem id="pgbsiCountry">
+                        <apex:outputLabel value="Country" />
+                        <apex:inputField id="Country" value="{!lead.Country}" /> 
+                    </apex:pageBlockSectionItem>
+    
+                    <apex:pageBlockSectionItem id="pgbsiDPID">
+                        <apex:outputLabel value="DPID" />
+                        <apex:inputField id="DPID" value="{!lead.datasan__Address_DPID__c}" />
+                    </apex:pageBlockSectionItem>  
+            </apex:pageBlockSection>
+            
+        </apex:pageBlock>
+    
+      
+    </apex:form>
+    
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://d1c24wnrse4bd3.cloudfront.net/api/sf/1.7/datasan-sf.min.js"></script>
+
+<script>
+var datasan__settings = {
+    key : "nTPhWj59v81re_CN0MMmQXwWVqoI2o6xZlRetkwIfexqv5h_1YknlxBpV4wykmp3", // populate DataSan key
+    addresses : [
+        {  //Add fields IDs. 
+           //To get IDs, run the visual force page first, and then find field IDs by looking at source code 
+           
+           country: "pg:frm:pgb:pgbsPrimary:pgbsiCountry:Country",
+           state: "pg:frm:pgb:pgbsPrimary:pgbsiState:State",
+           city: "pg:frm:pgb:pgbsPrimary:pgbsiCity:City",
+           postalcode: "pg:frm:pgb:pgbsPrimary:pgbsiPostcode:Postcode",
+           street: "pg:frm:pgb:pgbsPrimary:pgbsiStreet:Street",
+           dpid: "pg:frm:pgb:pgbsPrimary:pgbsiDPID:DPID"
+        }
+    ]
+};
+</script>
+
+</apex:page>

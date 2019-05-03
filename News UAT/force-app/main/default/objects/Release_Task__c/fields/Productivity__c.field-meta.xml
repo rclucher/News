@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Productivity__c</fullName>
+    <externalId>false</externalId>
+    <label>Productivity</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Not relevant</fullName>
+                <default>true</default>
+                <label>Not relevant</label>
+            </value>
+            <value>
+                <fullName>Evolution requested has a negative impact on productivity</fullName>
+                <default>false</default>
+                <label>Evolution requested has a negative impact on productivity</label>
+            </value>
+            <value>
+                <fullName>Functional response time or process duration reduced</fullName>
+                <default>false</default>
+                <label>Functional response time or process duration reduced</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

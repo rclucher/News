@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Event_Modified_Date__c</fullName>
+    <description>Date the last related Event record was modified for use with Dormant Account determination</description>
+    <externalId>false</externalId>
+    <label>Last Event Modified Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

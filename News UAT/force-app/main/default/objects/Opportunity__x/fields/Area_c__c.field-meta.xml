@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Area_c__c</fullName>
+    <externalDeveloperName>Area__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Area</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sunshine Coast</fullName>
+                <default>false</default>
+                <label>Sunshine Coast</label>
+            </value>
+            <value>
+                <fullName>Toowoomba Area</fullName>
+                <default>false</default>
+                <label>Toowoomba Area</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

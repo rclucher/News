@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subject__c</fullName>
+    <externalDeveloperName>Subject</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Subject</label>
+    <required>true</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Relationship/Account Management</fullName>
+                <default>false</default>
+                <label>Relationship/Account Management</label>
+            </value>
+            <value>
+                <fullName>New Opportunity</fullName>
+                <default>false</default>
+                <label>New Opportunity</label>
+            </value>
+            <value>
+                <fullName>Opportunity Follow Up</fullName>
+                <default>false</default>
+                <label>Opportunity Follow Up</label>
+            </value>
+            <value>
+                <fullName>Up-sell/cross sell</fullName>
+                <default>false</default>
+                <label>Up-sell/cross sell</label>
+            </value>
+            <value>
+                <fullName>New Business Prospecting</fullName>
+                <default>false</default>
+                <label>New Business Prospecting</label>
+            </value>
+            <value>
+                <fullName>Copy/Material Follow Up</fullName>
+                <default>false</default>
+                <label>Copy/Material Follow Up</label>
+            </value>
+            <value>
+                <fullName>Bookings Follow Up</fullName>
+                <default>false</default>
+                <label>Bookings Follow Up</label>
+            </value>
+            <value>
+                <fullName>Market Appraisals</fullName>
+                <default>false</default>
+                <label>Market Appraisals</label>
+            </value>
+            <value>
+                <fullName>Re-solicitation</fullName>
+                <default>false</default>
+                <label>Re-solicitation</label>
+            </value>
+            <value>
+                <fullName>Marketing /Promotion Activity</fullName>
+                <default>false</default>
+                <label>Marketing /Promotion Activity</label>
+            </value>
+            <value>
+                <fullName>Client Not Available/No Answer</fullName>
+                <default>false</default>
+                <label>Client Not Available/No Answer</label>
+            </value>
+            <value>
+                <fullName>Cold Call</fullName>
+                <default>false</default>
+                <label>Cold Call</label>
+            </value>
+            <value>
+                <fullName>Email</fullName>
+                <default>false</default>
+                <label>Email</label>
+            </value>
+            <value>
+                <fullName>Call</fullName>
+                <default>false</default>
+                <label>Call</label>
+            </value>
+            <value>
+                <fullName>Visit</fullName>
+                <default>false</default>
+                <label>Visit</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

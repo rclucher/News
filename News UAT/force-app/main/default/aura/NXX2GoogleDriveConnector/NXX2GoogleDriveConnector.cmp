@@ -1,0 +1,147 @@
+<aura:component controller='NXX2_GoogleDriveFileBrowserController' implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="folderList" type="List" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="isFolderSelected" type="Boolean" />
+    <aura:attribute name="selectedFolderName" type="String" />
+    <aura:attribute name="proofRecorNumber" type="String" />
+    <aura:attribute name="selectedFilName" type="String" />
+    <aura:attribute name="currentFileIndex" type="Integer" default="0"/>
+    <aura:attribute name="adDetails" type="Map" default="{}"/>
+    <aura:attribute name="uploadConfig" type="Map" default="{
+                                                            'label' : 'Upload Image',
+                                                            'multiple' : false,
+                                                            'accept' : ['.jpg','.png','.jpeg','.mp4']
+                                                            }"/>
+    
+    <aura:attribute name="gdriveFilesList" type="Object[]"/>
+    <aura:attribute name="gdriveFilesListMap" type="Object"/>
+    <!-- create 2 aura handler with waiting and donewaiting events--> 
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+    <aura:attribute name="fileUploadSpinner" type="boolean" default="false"/>
+    <!-- 
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+   -->
+    <!--create a component attributs -->
+    <aura:handler name="googleDriveFileDeleteEvent" event="c:NXX2_GoogleDriveFileDeleteEvent" action="{!c.onFileDelete}"/>
+    <aura:handler name="googleDriveFileUploadEvent" event="c:NXX2_GoogleDriveFileUploadEvent" action="{!c.onFileUpload}"/>
+
+    <aura:attribute name="recordId" type="Id" />
+    
+    <!-- File Id and Name  to be deleted -->
+    <aura:attribute name="fileIdToBeDeleted" type="String" />
+    <aura:attribute name="fileNameToBeDeleted" type="String" />
+
+    <!-- Loading spinner end--> 
+    
+    <div class="c-container">
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem  size="12">
+                <div class="page-section page-main">
+                    <article class="slds-card">
+                        <div class="slds-card__header slds-grid">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                <div class="slds-media__figure">
+                                    <lightning:icon iconName="action:add_file" alternativeText="Add Files" />
+                                </div>
+                                <div class="slds-media__body">
+                                    <h2 class="slds-card__header-title">
+                                        <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="Contacts (1)">
+                                            <span class="slds-text-heading_small">Files</span>
+                                        </a>
+                                    </h2>
+                                </div>
+                                <div class="slds-no-flex">
+                                  <lightning:input 
+                                                     aura:id="fileId1" 
+                                                     onchange="{!c.UploadFileInGoogleDrive}" 
+                                                     type="file" 
+                                                     name="DemoUpload" 
+                                                     label="upload" 
+                                                     accept="{!v.uploadConfig.accept}"
+                                                     multiple="{!v.uploadConfig.multiple}"/>
+                                </div>
+                                <!-- File Component --> 
+                                <!--<aura:if isTrue="{!(v.proofRecorNumber!='')}"> 
+                                    <div class="slds-no-flex">
+                                        <c:NXX2_GoogleDriveFileUploadComponent recordId="{!v.recordId}" proofRecorNumber="{!v.proofRecorNumber}" callShowUploadSpinnerMethodOfParent = "{!c.showOrHideUploadSpinner}"/> 
+                                      </div>
+                                </aura:if>-->
+                                
+                                
+                            </header>
+                        </div>
+                        <div class="slds-card__body">
+                            <table class="slds-table slds-table_fixed-layout slds-table_bordered slds-no-row-hover slds-table_cell-buffer">
+                                <thead>
+                                    <tr class="slds-text-title_caps">
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="">Title</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Download/Preview/Delete"></div>
+                                        </th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!--loading spinner start... style=Brand Medium (blue dots)-->
+                                     <aura:if isTrue="{!v.fileUploadSpinner}">
+                                        <div aura:id="spinnerId" class="slds-spinner_container">
+                                           <lightning:spinner  alternativeText="Loading" size="medium" />
+                                        </div>
+                                     </aura:if>
+                                   
+                                    <aura:if isTrue="{!v.Spinner}">
+                                        <div class="spinner-container">
+                                            <lightning:spinner alternativeText="Loading" size="medium" aura:id="LoadingReport"/>
+                                        </div>
+                                        <aura:set attribute="else">
+                                            <aura:iteration items="{!v.gdriveFilesList}" var="files" indexVar="fileIndex">
+                                                <c:NXX2_GoogleDriveFileComponent files="{!files}" />
+                                            </aura:iteration>
+                                        </aura:set>
+                                    </aura:if>
+                                    <aura:if isTrue="{! and(empty(v.gdriveFilesList),!v.Spinner)}">
+                                        <tr>
+                                            <td colspan="2" class="no-record-msg">No Records To Display</td>
+                                        </tr>
+                                    </aura:if>   
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- Footer -->
+                    </article>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+        <div aura:id="confirmModel"  class="slds-modal slds-fade-in-open hideConfirmDiv" aria-hidden="false" role="dialog">
+            <div class="demo-only" style="height: 640px;">
+                <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <header class="slds-modal__header">
+                            <button class="slds-button slds-button--icon-inverse slds-modal__close" onclick="{!c.cancleFileDeleteOperation}">
+                                <lightning:icon iconName="utility:close" size="medium" variant="bare"/>
+                                <span class="slds-assistive-text">Close</span>
+                            </button>
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Delete File</h2>
+                        </header>
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                            <p>Are you sure you want to delete {!v.fileNameToBeDeleted}</p>
+                        </div>
+                        <footer class="slds-modal__footer">
+                            <button class="slds-button slds-button_neutral" onclick="{!c.cancleFileDeleteOperation}">Cancel</button>
+                            <button class="slds-button slds-button_brand" onclick="{!c.confirmFileDeleteOperation}">Delete</button>
+                        </footer>
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </div>
+            
+        </div>
+        
+      <!--  <c:NXX2_GoogleDriveFileViewer aura:id="googleDriveFileViewer" /> -->
+        
+        <!-- <c:NXX2_ChatterFeedComponent/> -->
+    </div>
+</aura:component>

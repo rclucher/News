@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>First_Booking_Created_Date_Time__c</fullName>
+    <description>Field used for tracking opportunity actual revenue date (populated by workflow rule to be used in roll-up summary field)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Field used for tracking opportunity actual revenue date (populated by workflow rule to be used in roll-up summary field)</inlineHelpText>
+    <label>First Booking Created Date/Time</label>
+    <summarizedField>Booking__c.CreatedDate</summarizedField>
+    <summaryForeignKey>Booking__c.Sales_Order__c</summaryForeignKey>
+    <summaryOperation>min</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

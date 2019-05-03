@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Optimisation_Log</fullName>
+    <active>true</active>
+    <label>Optimisation Log</label>
+    <picklistValues>
+        <picklist>Campaign_Response_Sub_Type__c</picklist>
+        <values>
+            <fullName>Agent Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Booking Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Busy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Call Attempt Limit Reached</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contact Plan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Create Opportunity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Create Sales Order</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Do Not Contact Again</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Financial Constraints</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inappropriate Timing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Left Message</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Answer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Longer in Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone Disconnected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Poor Response</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referred to Credit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Request Call Back - Any Agent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Request Call Back - Same Agent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Request More Information</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retention - Closed and Re-added</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retention%3A Ad Successful</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Too Expensive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unable To Contact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unsuitable Offer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Use Competitor Products</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Use Other NEWS Ltd Products</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Will Attend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Will Not Attend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wrong Phone Number</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Campaign_Response_Type__c</picklist>
+        <values>
+            <fullName>Maybe</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Response</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NVMConnect__Next_Action__c</picklist>
+        <values>
+            <fullName>Bad Number</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Busy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Call in 7 days</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Call tomorrow</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Don%27t call again</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Left Live Message</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Left Voicemail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Answer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>None</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sent Documentation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Set Callback</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transfer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Update contact details</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wrong Number</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Subject</picklist>
+        <values>
+            <fullName>Call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meeting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Send Letter%2FQuote</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Appointment</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Campaign Launch</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Entertainment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meeting - Internal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Presentation</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Wrap_Up_Reason__c</picklist>
+        <values>
+            <fullName>Amend Ad</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancel Ad</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Enquiry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Feedback</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Follow Up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Ad</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quote</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rebook Ad</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transfer external</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transfer internal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Wrap_up_Sub_Reason__c</picklist>
+        <values>
+            <fullName>Achieved Initial Objective</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Awaiting Decision</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Awaiting Influencer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Awaiting News Approval</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Branding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Change Publication or Frequency</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Complaint - Resolved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Complaint -Transfer CR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Complaint- DRS Case Raised</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Compliment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Confirm Details</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Copy or Image</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cust Request Initial Rep</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deadlines</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Decision Maker Unavailable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Distribution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Enhanced solution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Enquiry about Payment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Error in Ad</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finalise Payment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Growing Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internal Error</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maintain Presence</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Material</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NFSS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Product or Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Changes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Official Enquiry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending Authorisation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending Prepayment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proof</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rates</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Request Call Back - Same Agent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Request for Statement%2F Invoice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Seasonal Advertising</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Short Term Cancellation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Short Term Objective</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Spent Budget Elsewhere</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Subscription</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Switchboard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tearsheet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unable to convert</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unhappy With Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unhappy With Product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unhappy With ROI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unhappy With Service</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

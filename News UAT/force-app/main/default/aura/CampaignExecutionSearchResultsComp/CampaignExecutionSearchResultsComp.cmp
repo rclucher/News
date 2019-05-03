@@ -1,0 +1,65 @@
+<aura:component  controller="CampaignExecutionController">
+	
+	<aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="campaign" type="Campaign"/>
+
+	<aura:attribute name="campaignMemberClassificationList" type="SelectOptionWrapper[]"/>
+	<aura:attribute name="campaignMemberListMap" type="Map"/>
+
+	<aura:attribute name="campaignMembersToDo" type="CampaignMember[]" />
+	<aura:attribute name="campaignMembersNotStarted" type="CampaignMember[]" />
+	<aura:attribute name="campaignMembersMyCallsToDo" type="CampaignMember[]" />
+	<aura:attribute name="campaignMembersAllCallsToDo" type="CampaignMember[]" />
+	<aura:attribute name="campaignMembersMyCompleted" type="CampaignMember[]" />
+	<aura:attribute name="campaignMembersAllCompleted" type="CampaignMember[]" />
+	<aura:attribute name="campaignMembersAll" type="CampaignMember[]" />
+
+	<aura:attribute name="campaignMembersGrid" type="CampaignMember[]" />
+	<aura:attribute name="campaignMemberClassificationOption" type="String"/>
+	<aura:attribute name="bInProgressCampaignMember" type="Boolean"/>
+	<aura:attribute name="currentUserId" type="String"/>
+
+	<aura:attribute name="spinner" type="Boolean" default="false"/>
+	
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<article class="slds-card slds-m-around--x-large">
+		<header class="slds-card__header slds-grid">
+			<div class="slds-media slds-media--center slds-has-flexi-truncate">
+				<div class="slds-media__figure">
+					<lightning:icon iconName="standard:campaign_members" alternativeText="Campaign Members"/>
+				</div>
+				<div class="slds-media__body slds-truncate">
+					<span class="slds-text-heading--small">Campaign Members</span>
+				</div>
+			</div>
+		</header>
+		<div class="slds-card__body slds-text-align--left slds-p-around--x-large slds-box slds-theme--default">
+			<div class="slds-grid slds-wrap">
+				<div class="slds-col">
+					<div class="slds-panel__section">
+						<div class="slds-form--horizontal">
+							<div class="slds-form-element">
+								<div class="slds-form-element__control">
+									<lightning:select name="choose-classification" aura:id="choose-classification" label="Choose" value="{!v.campaignMemberClassificationOption}" class="select-auto-width" onchange="{!c.onChooseClassification}">
+										<aura:iteration items="{!v.campaignMemberClassificationList}" var="campaignMemberClassification">
+											<option value="{!campaignMemberClassification.optionValue}">{!campaignMemberClassification.optionLabel}</option>
+										</aura:iteration>
+									</lightning:select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--TABLE-->
+			<c:CampaignExecutionSearchResultsGrid 	campaignMemberClassificationOption="{!v.campaignMemberClassificationOption}"
+                                         			campaignMembersGrid="{!v.campaignMembersGrid}"
+                                         			currentUserId="{!v.currentUserId}"
+                                         			bInProgressCampaignMember="{!v.bInProgressCampaignMember}"
+													campaign = "{!v.campaign}"/>
+			<!--TABLE-->
+		</div>
+	</article>
+	<c:LoadingSpinnerComponent spinner="{!v.spinner}" />
+
+</aura:component>

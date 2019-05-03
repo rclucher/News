@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Change_comment_populated</fullName>
+    <active>true</active>
+    <errorConditionFormula>Related_Order__c != null &amp;&amp; (Change_Comment__c ==&#39;&#39; ||  ISPICKVAL(Change_Category__c, &#39;&#39;))</errorConditionFormula>
+    <errorMessage>Change comment must be populated if there is a related order.</errorMessage>
+</ValidationRule>

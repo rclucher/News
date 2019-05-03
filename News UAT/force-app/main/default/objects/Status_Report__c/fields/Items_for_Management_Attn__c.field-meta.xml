@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Items_for_Management_Attn__c</fullName>
+    <description>Indicate high priority items for management&#39;s consideration here</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Indicate high priority items for management&#39;s consideration here</inlineHelpText>
+    <label>Items for Management Attn</label>
+    <length>3000</length>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>6</visibleLines>
+</CustomField>

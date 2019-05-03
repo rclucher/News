@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Overall__c</fullName>
+    <description>Overall Status Indicator</description>
+    <externalId>false</externalId>
+    <formula>IMAGE( 
+CASE(  Overall_Status__c , 
+&quot;On Schedule&quot;, &quot;/img/samples/flag_green.gif&quot;, 
+&quot;Potential Risk&quot;, &quot;/img/samples/flag_yellow.gif&quot;, 
+&quot;At Risk&quot;, &quot;/img/samples/flag_red.gif&quot;, 
+&quot;/s.gif&quot;), 
+&quot;overall status indicator&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Overall</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

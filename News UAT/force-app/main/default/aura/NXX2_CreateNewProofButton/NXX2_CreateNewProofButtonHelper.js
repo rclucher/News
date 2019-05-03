@@ -1,0 +1,5 @@
+({
+	navigateBack : function(cmp) {
+        
+	}
+})

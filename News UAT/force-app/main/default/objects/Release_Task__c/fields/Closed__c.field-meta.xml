@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closed__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(Status__c  , 
+&quot;Closed (Duplicate)&quot;, &quot;True&quot;,
+&quot;Closed (Working As Designed)&quot;, &quot;True&quot;,
+&quot;Closed (Question Answered)&quot;, &quot;True&quot;,
+&quot;Closed (Verified)&quot;,&quot;True&quot;,
+&quot;Closed (Not An Issue)&quot;,&quot;True&quot;,
+&quot;False&quot;)</formula>
+    <label>Closed</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unique_Selling_Point__c</fullName>
+    <description>Unique Selling Point</description>
+    <externalId>false</externalId>
+    <inlineHelpText>What is the brand or products key point of difference? What makes it different to its competitors? What is it trying to communicate?</inlineHelpText>
+    <label>Unique Selling Point</label>
+    <length>10000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

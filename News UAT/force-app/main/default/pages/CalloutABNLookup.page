@@ -1,0 +1,68 @@
+<apex:page standardController="Account" extensions="CalloutABNLookup_ControllerX" id="thePage" label="ABN"
+                                                    title="ABN" standardStylesheets="false" showHeader="false" sidebar="false"
+                                                    action="{!validateAbn}">
+<apex:includeScript value="{!$Resource.JQuery}"/>
+  <!--  <apex:form id="theForm">
+        <apex:pageBlock mode="inlineEdit" >
+            <apex:outputField value="{!Account.ABN_Number__c}" styleClass="abnSearchInputText" id="abnSearchInputText"/>
+            <apex:commandButton value="Validate" action="{!doABNLookup}" />
+        </apex:pageBlock>
+    </apex:form>
+        <apex:pageBlock mode="inlineEdit" id="thePageBlock">
+            <apex:pageblockButtons location="top">
+                <apex:commandButton value="Validate ABN" onclick="serviceCall(); return false;"/>
+                <apex:commandButton action="{!save}"  value="Update ABN"/>
+            </apex:pageblockButtons>
+            <apex:pageBlockSection columns="2" id="thePageBlockSection">
+                
+                <apex:outputField value="{!Account.ABN_Number__c}" styleClass="abnSearchInputText" id="abnSearchInputText"/>
+
+                <apex:outputField value="{!Account.Registered_Name__c}" id="abnName">
+                    <apex:inlineEditSupport disabled="true"/>                
+                </apex:outputField>
+                <apex:outputField value="{!Account.ABN_Status__c}" id="abnStatus">
+                    <apex:inlineEditSupport disabled="true"/>   
+                </apex:outputField>
+                <apex:outputField value="{!Account.ABN_Validation__c}" id="abnValidation">
+                    <apex:inlineEditSupport disabled="true"/>   
+                </apex:outputField>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:actionFunction name="serviceCall" action="{!doABNLookup}" reRender="theForm"/>
+    </apex:form> -->
+    <script>
+    
+        function validateABN() 
+        {
+        
+         //Alert('validateABN' + isABNValid(jQuery('.abnSearchInputText').val().replace(/ /g,'')));
+         alert(jQuery('{!$Component.abnSearchInputText}').html());
+          var abn = jQuery('.abnSearchInputText').html().replace(/ /g,'');
+          alert(abn);
+          if(isABNValid(abn)) //
+          {
+              alert('valid');
+             serviceCall();
+          }
+          else
+          {
+              alert('else');
+             return false;
+          }  
+        }
+
+        function isABNValid(value)
+        {
+            if (value.length != 11 || isNaN(parseInt(value)))
+                return false;
+    
+            var weighting = [10,1,3,5,7,9,11,13,15,17,19];
+            var tally = (parseInt(value[0]) - 1) * weighting[0];
+            for (var i = 1; i < value.length; i++){
+                tally += (parseInt(value[i]) * weighting[i]);
+            }
+            return (tally % 89) == 0;
+        }
+
+    </script>
+</apex:page>

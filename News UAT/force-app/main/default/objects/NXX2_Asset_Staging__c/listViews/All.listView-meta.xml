@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>External_Id__c</columns>
+    <columns>GUID__c</columns>
+    <columns>Campaign_Id__c</columns>
+    <columns>Parent_Id__c</columns>
+    <columns>Seq_No__c</columns>
+    <columns>Asset_Type__c</columns>
+    <columns>File_Name__c</columns>
+    <columns>Path__c</columns>
+    <columns>Headline__c</columns>
+    <columns>Asset_Size__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

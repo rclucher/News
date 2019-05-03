@@ -1,0 +1,8 @@
+<design:component>
+    <design:attribute name="headerMaxWidth" label="Header Max Width" description="This will be the maximum width of the header container."/>
+    <design:attribute name="heroMaxWidth" label="Hero Max Width" description="This will be the maximum width of the Hero container."/>
+    <design:attribute name="tileMaxWidth" label="Tile Max Width" description="This will be the maximum width of the Tile container."/>
+    <design:attribute name="contentMaxWidth" label="Content Max Width" description="This will be the maximum width of the Content container."/>
+    <design:attribute name="footerMaxWidth" label="Footer Max Width" description="This will be the maximum width of the Footer container."/>
+    <design:attribute name="widthUnit" label="CSS Unit For Width" description="This will be the css unit for width." datasource="px,%" default="px"/>
+</design:component>

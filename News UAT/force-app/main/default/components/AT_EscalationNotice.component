@@ -1,0 +1,7 @@
+<apex:component access="global" controller="AT_SalesOrderApprovals">
+    <apex:attribute assignTo="{!salesOrderID}" description="The ID of the Sales Order record" name="salesOrder" type="String"/>
+    <apex:outputText rendered="{!canEscalate}">
+    	Please approve before&nbsp; {!EscalationTime} (AEDT) otherwise this Sales Order will be escalated to the next approval level for approval.
+        <br/><br/>
+    </apex:outputText>
+</apex:component>

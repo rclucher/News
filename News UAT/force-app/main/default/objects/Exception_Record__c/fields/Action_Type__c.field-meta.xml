@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Action_Type__c</fullName>
+    <description>This field determines what action/batch causes this record failed. It&#39;s very important for trigger/controller/batch to pickup failure records.</description>
+    <externalId>false</externalId>
+    <label>Action Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>TGS</fullName>
+                <default>false</default>
+                <label>TGS</label>
+            </value>
+            <value>
+                <fullName>TCSTAS</fullName>
+                <default>false</default>
+                <label>TCSTAS</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,3 @@
+<apex:page standardController="Product_Order__c" extensions="CS_CampaignPriorityExtension" showQuickActionVfHeader="false" action="{!executeNormalPriorityLogic}">
+    <apex:pageMessages id="showmsg"></apex:pageMessages>
+</apex:page>

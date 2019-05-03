@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Greetings_Card__c</fullName>
+    <description>The automated message that a user sees once entering the Messenger Conversation. We recommend this is created, giving users contacting your brand the best possible experience.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The automated message that a user sees once entering the Messenger Conversation. We recommend this is created, giving users contacting your brand the best possible experience.</inlineHelpText>
+    <label>Greetings Card</label>
+    <length>131072</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Html</type>
+    <visibleLines>25</visibleLines>
+</CustomField>

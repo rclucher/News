@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Proof_Auto_Approved__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will be used by the auto approval process.</description>
+    <externalId>false</externalId>
+    <label>Is Proof Auto Approved</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,316 @@
+<apex:page controller="CS_RulesBySection_Controller" action="{!init}" lightningStylesheets="true" >
+
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+
+<!-- Import the Design System style sheet -->
+<apex:slds />
+
+<!-- REQUIRED SLDS WRAPPER -->
+<body class="slds-scope">
+
+<apex:form id="theForm">
+
+<!-- 
+	<apex:actionPoller action="{!actionReturn}" interval="5" rendered="{!(mp_bPauseAndRedirect)}" />
+	
+	<apex:actionStatus id="status">
+		<apex:facet name="start">
+			<c:Action_Status BackColor="#ffffff"
+							 borderColor="#6B6B6B"
+							 borderSize="1"
+							 height="50px"
+							 width="60px"
+							 margintop="-25px"
+							 marginleft="-60px"
+							 ImageUrl="/img/loading32.gif"
+							 Message="Please wait"/>
+		</apex:facet>
+	</apex:actionStatus>
+-->
+	<apex:pageBlock id="detailBlock" mode="edit" >
+
+		<apex:pageMessages id="pageMessagesId" />
+
+		<apex:pageBlockSection title="Questions and Related Records by Section" columns="2" collapsible="false" id="theSelectionSection" >
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Choose a Section" />
+                <apex:selectList value="{!mp_strSection}" size="1">
+                    <apex:selectOptions value="{!mp_liSections}" />
+                    <apex:actionSupport event="onchange" action="{!actionRebuildSection}" reRender="detailBlock" />
+                </apex:selectList>
+			</apex:pageBlockSectionItem>
+
+		</apex:pageBlockSection>
+
+		<apex:pageBlockSection title="Questions" columns="1" collapsible="false" id="theQuestionSection" rendered="{!mp_bShowLists}" >
+		
+			<apex:outputText value="No Questions defined for this Section" rendered="{!mp_liQuestions.size = 0}" />
+
+			<apex:repeat value="{!mp_liQuestions}" var="q" rendered="{!mp_liQuestions.size > 0}" rows="{!mp_iListSize}" >
+			
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Question" />
+					<apex:outputText value="{!q.QuestionText}" />
+				</apex:pageBlockSectionItem>
+				
+				<apex:outputPanel rendered="{!q.li_Rules.size = 0}" >
+					<apex:outputText value="There are no Rules defined for this Question so it will not be asked. " />
+					<apex:commandLink value="Add a Rule now" action="{!actionAddQuestionRule}" >
+						<apex:param assignTo="{!mp_QuestionId}" name="questionId" value="{!q.QuestionId}"/>
+					</apex:commandLink>
+				</apex:outputPanel>
+
+				<apex:pageBlockTable value="{!q.li_Rules}" var="qc" id="theConfigList" columns="11" rendered="{!q.li_Rules.size > 0}" >
+						 
+					<apex:column headerValue="">
+						<apex:commandLink rendered="{!qc.bShowEdit}" value="Edit  " action="{!actionEdit}" >
+							<apex:param assignTo="{!mp_RuleId}" name="questionId" value="{!qc.Rule.Id}"/>
+						</apex:commandLink>
+						<apex:outputText value=" | " />
+						<apex:commandLink rendered="{!qc.bShowDelete}" value="Delete" action="{!actionDelete}" rerender="detailBlock" >
+							<apex:param assignTo="{!mp_RuleId}" name="questionId" value="{!qc.Rule.Id}"/>
+						</apex:commandLink>
+						<apex:commandLink rendered="{!qc.bShowInactivate}" value="Inactivate" action="{!actionInactivate}" rerender="detailBlock" >
+							<apex:param assignTo="{!mp_RuleId}" name="questionId" value="{!qc.Rule.Id}"/>
+						</apex:commandLink>
+					</apex:column>
+
+					<apex:column >
+						<apex:facet name="header">Sequence</apex:facet>
+						<apex:outputField value="{!qc.Rule.Sequence_Number__c}" />
+					</apex:column>
+
+					<apex:column >
+						<apex:facet name="header">Type</apex:facet>
+						<apex:outputField value="{!qc.Rule.Question_Type__c}" rendered="{!qc.bShowActiveandFT}" />
+					</apex:column>
+
+					<apex:column >
+						<apex:outputText value="AND" rendered="{!NOT(qc.bShowActiveandFT)}" />
+					</apex:column>
+
+					<apex:column >
+						<apex:facet name="header">Object</apex:facet>
+						<apex:outputText value="{!qc.ObjectName}" />
+					</apex:column>
+		
+					<apex:column >
+						<apex:facet name="header">Field</apex:facet>
+						<apex:outputText value="{!qc.FieldName}" />
+					</apex:column>
+<!-- 
+					<apex:column >
+						<apex:facet name="header">Operator</apex:facet>
+						<apex:outputText value="{!qc.Rule.Operator__c}" />
+					</apex:column>
+-->
+					<apex:column >
+						<apex:facet name="header">Value</apex:facet>
+						<apex:outputField value="{!qc.Rule.Field_Value_Text__c}" />
+					</apex:column>
+		
+					<apex:column >
+						<apex:facet name="header">When Asked</apex:facet>
+						<apex:outputField value="{!qc.Rule.When_to_Ask__c}" />
+					</apex:column>
+		
+					<apex:column >
+						<apex:facet name="header">When Viewed</apex:facet>
+						<apex:outputField value="{!qc.Rule.When_to_View__c}" />
+					</apex:column>
+
+					<apex:column >
+						<apex:facet name="header">Field Tracking</apex:facet>
+							<apex:outputField value="{!qc.Rule.Enable_Field_Tracking__c}" rendered="{!qc.bShowActiveandFT}" />
+					</apex:column>
+
+					<apex:column >
+						<apex:facet name="header">Active?</apex:facet>
+						<apex:outputField value="{!qc.Rule.isActive__c}" rendered="{!qc.bShowActiveandFT}" />
+					</apex:column>
+		
+				</apex:pageBlockTable>
+				
+				<apex:commandLink value="Add another Rule" action="{!actionAddQuestionRule}" rendered="{!q.li_Rules.size > 0}" >
+					<apex:param assignTo="{!mp_QuestionId}" name="questionId" value="{!q.QuestionId}"/>
+				</apex:commandLink>
+			
+			</apex:repeat>
+		
+		</apex:pageBlockSection>
+
+		<apex:outputPanel id="theQuestionListNav" rendered="{!mp_liQuestions.size > 0}" >
+			<table width="100%" cellspacing="0" cellpadding="0" border="0" >
+				<tbody>
+					<tr>
+						<td width="35%">
+							<div align="right" >
+								<apex:commandLink value="<< First" 
+									action="{!showFirstPage}" 
+									rerender="theQuestionSection, theQuestionListNav"
+									rendered="{!mp_iPageNumber > 1}" />
+								<apex:outputText value="<< First" rendered="{!NOT(mp_iPageNumber > 1)}" />
+							</div>
+						</td>
+						<td width="10%">
+							<div align="center" >
+								<apex:commandLink value=" <	Previous" 
+									action="{!showPreviousPage}" 
+									rerender="theQuestionSection, theQuestionListNav"
+									rendered="{!mp_iPageNumber > 1}" />
+								<apex:outputText value=" <	Previous" rendered="{!NOT(mp_iPageNumber > 1)}" />
+							</div>
+						</td>
+						<td width="10%">
+							<div align="center" >
+								<apex:outputText value="Page " />
+								<apex:outputText value="{!mp_iPageNumber}" />
+								<apex:outputText value=" of " />
+								<apex:outputText value="{!mp_iTotalPages}" />
+							</div>
+						</td>
+						<td width="10%">
+							<div align="center" >
+								<apex:commandLink value="Next > " 
+									action="{!showNextPage}" 
+									rerender="theQuestionSection, theQuestionListNav"
+									rendered="{!mp_iPageNumber < mp_iTotalPages}" />
+								<apex:outputText value="Next > " rendered="{!NOT(mp_iPageNumber < mp_iTotalPages)}" />
+							</div>
+						</td>
+						<td width="35%">
+							<div align="left" >
+								<apex:commandLink value="Last >>" 
+									action="{!showLastPage}" 
+									rerender="theQuestionSection, theQuestionListNav"
+									rendered="{!mp_iPageNumber < mp_iTotalPages}" />
+								<apex:outputText value="Last >>" rendered="{!NOT(mp_iPageNumber < mp_iTotalPages)}" />
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</apex:outputPanel>
+
+		<apex:pageBlockSection title="Related Records" columns="1" collapsible="false" id="theRelatedRecordsSection" rendered="{!mp_bShowLists}" >
+
+			<apex:outputPanel rendered="{!mp_liRelatedRecords.size = 0}" >
+				<apex:outputText value="There is no data collected from Related Records for this Section. " />
+				<apex:commandLink value="Add some now" action="{!actionAddRelatedRecordRule}" />
+			</apex:outputPanel>
+
+			<apex:pageBlockTable value="{!mp_liRelatedRecords}" var="rr" id="theRelaredRecordList" columns="7" rendered="{!mp_liRelatedRecords.size > 0}" rows="{!mp_iListSizeRR}">
+					 
+				<apex:column headerValue="">
+					<apex:commandLink value="Edit  " action="{!actionEdit}" >
+						<apex:param assignTo="{!mp_RuleId}" name="questionId" value="{!rr.Rule.Id}"/>
+					</apex:commandLink>
+					<apex:outputText value=" | " />
+					<apex:commandLink value="Delete" action="{!actionDelete}" rerender="detailBlock" >
+						<apex:param assignTo="{!mp_RuleId}" name="questionId" value="{!rr.Rule.Id}"/>
+					</apex:commandLink>
+				</apex:column>
+
+				<apex:column >
+					<apex:facet name="header">Sequence</apex:facet>
+					<apex:outputField value="{!rr.Rule.Sequence_Number__c}" />
+				</apex:column>
+
+				<apex:column >
+					<apex:facet name="header">Label</apex:facet>
+					<apex:outputField value="{!rr.Rule.Related_Field_Label__c}" />
+				</apex:column>
+
+				<apex:column >
+					<apex:facet name="header">Object</apex:facet>
+					<apex:outputText value="{!rr.ObjectName}" />
+				</apex:column>
+	
+				<apex:column >
+					<apex:facet name="header">Field</apex:facet>
+					<apex:outputText value="{!rr.FieldName}" />
+				</apex:column>
+	
+				<apex:column >
+					<apex:facet name="header">When Viewed</apex:facet>
+					<apex:outputField value="{!rr.Rule.When_to_View__c}" />
+				</apex:column>
+
+				<apex:column >
+					<apex:facet name="header">Active?</apex:facet>
+					<apex:outputField value="{!rr.Rule.isActive__c}" />
+				</apex:column>
+	
+			</apex:pageBlockTable>
+			
+			<apex:commandLink value="Add more" action="{!actionAddRelatedRecordRule}" rendered="{!mp_liRelatedRecords.size > 0}" />
+		
+		</apex:pageBlockSection>
+
+		<apex:outputPanel id="theRelatedRecordListNav" rendered="{!mp_liRelatedRecords.size > 0}" >
+			<table width="100%" cellspacing="0" cellpadding="0" border="0" >
+				<tbody>
+					<tr>
+						<td width="35%">
+							<div align="right" >
+								<apex:commandLink value="<< First" 
+									action="{!showFirstPageRR}" 
+									rerender="theRelatedRecordsSection, theRelatedRecordListNav"
+									rendered="{!mp_iPageNumberRR > 1}" />
+								<apex:outputText value="<< First" rendered="{!NOT(mp_iPageNumberRR > 1)}" />
+							</div>
+						</td>
+						<td width="10%">
+							<div align="center" >
+								<apex:commandLink value=" <	Previous" 
+									action="{!showPreviousPageRR}" 
+									rerender="theRelatedRecordsSection, theRelatedRecordListNav"
+									rendered="{!mp_iPageNumberRR > 1}" />
+								<apex:outputText value=" <	Previous" rendered="{!NOT(mp_iPageNumberRR > 1)}" />
+							</div>
+						</td>
+						<td width="10%">
+							<div align="center" >
+								<apex:outputText value="Page " />
+								<apex:outputText value="{!mp_iPageNumberRR}" />
+								<apex:outputText value=" of " />
+								<apex:outputText value="{!mp_iTotalPagesRR}" />
+							</div>
+						</td>
+						<td width="10%">
+							<div align="center" >
+								<apex:commandLink value="Next > " 
+									action="{!showNextPageRR}" 
+									rerender="theRelatedRecordsSection, theRelatedRecordListNav"
+									rendered="{!mp_iPageNumberRR < mp_iTotalPagesRR}" />
+								<apex:outputText value="Next > " rendered="{!NOT(mp_iPageNumberRR < mp_iTotalPagesRR)}" />
+							</div>
+						</td>
+						<td width="35%">
+							<div align="left" >
+								<apex:commandLink value="Last >>" 
+									action="{!showLastPageRR}" 
+									rerender="theRelatedRecordsSection, theRelatedRecordListNav"
+									rendered="{!mp_iPageNumberRR < mp_iTotalPagesRR}" />
+								<apex:outputText value="Last >>" rendered="{!NOT(mp_iPageNumberRR < mp_iTotalPagesRR)}" />
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</apex:outputPanel>
+
+        <apex:pageBlockButtons location="bottom" >
+            <apex:commandButton action="{!gotoConfigureRule}" value="New" title="New" />
+            <apex:commandButton action="{!gotoQuestions}" value="View Questions" title="View Questions" />
+        </apex:pageBlockButtons>
+
+	</apex:pageBlock>
+
+</apex:form>
+
+</body>
+
+</html>
+</apex:page>

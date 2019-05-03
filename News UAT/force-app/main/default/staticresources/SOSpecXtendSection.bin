@@ -1,0 +1,95 @@
+{
+  "title": "Xtend Sales Order Details",
+  "isOpen": false,
+  "content": {
+    "col1": [{
+      "name": "Status__c",
+      "label": "Xtend Status (to be catched)",
+      "type": "text"
+    },
+      {
+        "name": "Margin__c",
+        "label": "Margin",
+        "type": "text"
+      }, {
+        "name": "Margin_Flag__c",
+        "label": "Margin Flag",
+        "type": "text"
+      }, {
+        "name": "Total_Impressions__c",
+        "label": "Total Impressions",
+        "type": "text"
+      }, {
+        "name": "Notes__c",
+        "label": "Notes",
+        "type": "text"
+      }, {
+        "name": "Social_URL__c",
+        "label": "Social URL",
+        "type": "text"
+      }, {
+        "name": "Dashboard__c",
+        "label": "Dashboard",
+        "type": "checkbox"
+      }, {
+        "name": "Creative_Services__c",
+        "label": "Creative Services",
+        "type": "checkbox"
+      }, {
+        "name": "Package_Name__c",
+        "label": "Package Name",
+        "type": "text"
+      }
+    ],
+    "col2": [{
+      "name": "Campaign_Name__c",
+      "label": "Campaign Name",
+      "type": "text"
+    },
+      {
+        "name": "Total_Xtend_Price__c",
+        "label": "Xtend Price",
+        "type": "currency"
+      },
+      {
+        "name": "Total_Xtend_GST__c",
+        "label": "Xtend GST",
+        "type": "currency"
+      }, {
+        "name": "Total_Xtend_Price_GST_Inclusive__c",
+        "label": "Xtend Total (GST inclusive)",
+        "type": "currency"
+      },
+      {
+        "name": "One_Off_Price__c",
+        "label": "Xtend One Off Price",
+        "type": "currency"
+      }, {
+        "name": "Recurring_Price__c",
+        "label": "Xtend Recurring Price",
+        "type": "currency"
+      },
+      {
+        "name": "Campaign_Start_Date__c",
+        "label": "Campaign Start Date",
+        "type": "date"
+      }, {
+        "name": "Campaign_Length__c",
+        "label": "Campaign Length (months)",
+        "type": "text"
+      }, {
+        "name": "Campaign_End_Date2__c",
+        "label": "Campaign End Date",
+        "type": "date"
+      }, {
+        "name": "Conversion_Tracking__c",
+        "label": "Conversion Tracking",
+        "type": "checkbox"
+      }, {
+        "name": "Call_Tracking__c",
+        "label": "Call Tracking",
+        "type": "checkbox"
+      }
+    ]
+  }
+}

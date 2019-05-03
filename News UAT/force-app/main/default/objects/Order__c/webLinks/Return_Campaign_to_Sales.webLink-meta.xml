@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Return_Campaign_to_Sales</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Return Campaign to Sales</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)} 
+debugger;
+if( &quot;{!Order__c.Notes_for_Failure__c}&quot; == &#39;&#39;){
+alert(&#39;Notes are mandatory when returning a campaign to sales. Please enter reason for return in Notes for Failure field - this will be visible to the opportunity owner&#39;)
+} 
+else if( confirm(&quot;Are you sure you want to return this campaign to Sales?&quot;))  { 
+
+var p = new sforce.SObject(&#39;Order__c&#39;);
+p.id = &quot;{!Order__c.Id}&quot;; 
+p.Status__c = &quot;Returned to Sales&quot;; 
+result = sforce.connection.update([p]);
+if (result[0].success==&quot;false&quot;) 
+alert(&quot;Something went wrong, please try again.&quot;); 
+else 
+location.reload(true); 
+}</url>
+</WebLink>

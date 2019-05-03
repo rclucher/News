@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PP_City_Special_Character_Check</fullName>
+    <active>true</active>
+    <description>Check if person mailing city contains special characters</description>
+    <errorConditionFormula>NOT(REGEX(PersonMailingCity ,&quot;^[\\x20-\\x7E]*$&quot;))</errorConditionFormula>
+    <errorDisplayField>ABN_Exempt__c</errorDisplayField>
+    <errorMessage>Please remove special characters or extra spaces from Primary City field.</errorMessage>
+</ValidationRule>

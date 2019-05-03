@@ -1,0 +1,556 @@
+<apex:page docType="html-5.0" standardStylesheets="false" title="MLE Tab Product Models" controller="TechnicalProductModelsEditController" showHeader="false" lightningStylesheets="true" sidebar="false">
+    <script>
+        // ES6 Promise polyfill for IE
+        !function(e){function n(){}function t(e,n){return function(){e.apply(n,arguments)}}function o(e){if("object"!=typeof this)throw new TypeError("Promises must be constructed via new");if("function"!=typeof e)throw new TypeError("not a function");this._state=0,this._handled=!1,this._value=void 0,this._deferreds=[],s(e,this)}function i(e,n){for(;3===e._state;)e=e._value;return 0===e._state?void e._deferreds.push(n):(e._handled=!0,void o._immediateFn(function(){var t=1===e._state?n.onFulfilled:n.onRejected;if(null===t)return void(1===e._state?r:u)(n.promise,e._value);var o;try{o=t(e._value)}catch(i){return void u(n.promise,i)}r(n.promise,o)}))}function r(e,n){try{if(n===e)throw new TypeError("A promise cannot be resolved with itself.");if(n&&("object"==typeof n||"function"==typeof n)){var i=n.then;if(n instanceof o)return e._state=3,e._value=n,void f(e);if("function"==typeof i)return void s(t(i,n),e)}e._state=1,e._value=n,f(e)}catch(r){u(e,r)}}function u(e,n){e._state=2,e._value=n,f(e)}function f(e){2===e._state&&0===e._deferreds.length&&o._immediateFn(function(){e._handled||o._unhandledRejectionFn(e._value)});for(var n=0,t=e._deferreds.length;n<t;n++)i(e,e._deferreds[n]);e._deferreds=null}function c(e,n,t){this.onFulfilled="function"==typeof e?e:null,this.onRejected="function"==typeof n?n:null,this.promise=t}function s(e,n){var t=!1;try{e(function(e){t||(t=!0,r(n,e))},function(e){t||(t=!0,u(n,e))})}catch(o){if(t)return;t=!0,u(n,o)}}var a=setTimeout;o.prototype["catch"]=function(e){return this.then(null,e)},o.prototype.then=function(e,t){var o=new this.constructor(n);return i(this,new c(e,t,o)),o},o.all=function(e){var n=Array.prototype.slice.call(e);return new o(function(e,t){function o(r,u){try{if(u&&("object"==typeof u||"function"==typeof u)){var f=u.then;if("function"==typeof f)return void f.call(u,function(e){o(r,e)},t)}n[r]=u,0===--i&&e(n)}catch(c){t(c)}}if(0===n.length)return e([]);for(var i=n.length,r=0;r<n.length;r++)o(r,n[r])})},o.resolve=function(e){return e&&"object"==typeof e&&e.constructor===o?e:new o(function(n){n(e)})},o.reject=function(e){return new o(function(n,t){t(e)})},o.race=function(e){return new o(function(n,t){for(var o=0,i=e.length;o<i;o++)e[o].then(n,t)})},o._immediateFn="function"==typeof setImmediate&&function(e){setImmediate(e)}||function(e){a(e,0)},o._unhandledRejectionFn=function(e){"undefined"!=typeof console&&console&&console.warn("Possible Unhandled Promise Rejection:",e)},o._setImmediateFn=function(e){o._immediateFn=e},o._setUnhandledRejectionFn=function(e){o._unhandledRejectionFn=e},"undefined"!=typeof module&&module.exports?module.exports=o:e.Promise||(e.Promise=o)}(this);
+
+
+
+
+    </script>
+    <!--Salesforce Lightning Design System Static Resource-->
+    <apex:slds />
+    <apex:includeScript value="{!$Resource.cscfga__jQuery_min}" />
+    <style>
+    .disabled-field {
+        background:  transparent;
+        border-color:  #d8dde6;
+        opacity:  0.5;
+        cursor:  default;
+        color:  #aaaaaa;
+        border:  1px solid #d8dde6;
+        border-radius:  .25rem;
+        transition:  border .1s linear,background-color .1s linear;
+        display:  inline-block;
+        padding:  0 1rem 0 0.5rem;
+        line-height:  1.875rem;
+        height:  1.875rem;
+        width:  100%;
+        font-size:  0.8rem;
+    }
+    
+    .editable-field {
+        background-color:  #ffffff;
+        color:  #16325c;
+        border:  1px solid #d8dde6;
+        border-radius:  .25rem;
+        transition:  border .1s linear,background-color .1s linear;
+        display:  inline-block;
+        padding:  0 1rem 0 0.5rem;
+        line-height:  1.875rem;
+        height:  1.875rem;
+        box-sizing:  border-box;
+        font-size:  0.8rem;
+        width:  100%;
+    }
+    
+    .input-area-section {
+        border-bottom:  1px solid #d8dde6;
+        border-radius:  0.2rem 0.2rem 0 0;
+        width:  100%;
+        background-color:  #f4f6f9;
+        color:  #54698d;
+        text-align:  left;
+        font-size:  1rem;
+        line-height:  1.875rem;
+        padding:  0 0.5rem;
+        user-select:  none;
+    }
+    
+    .input-area-section-title {
+        position:  relative;
+        margin:  0 0.25rem;
+        background: none;
+        border:  none;
+    }
+    
+    .label-text {
+        display:  block;
+        color:  #54698d;
+        font-size:  0.75rem;
+        line-height:  1.5;
+        margin-left:  0.25rem;
+        border-spacing:  2px;
+        position:  relative;
+    }
+    
+    .tpe-tab-indicator::after {
+        background-color:#c23934;
+    }
+    .cst-section-tab[aria-expanded="false"]  .cst-section-expand {
+        transform: rotate(-90deg);
+    }
+    .cst-changed {
+        background-color:#ffb75d;
+    }
+    .tab-color {
+        background-color: #d8edff;
+    }
+    .loaderGif {
+        background: url('{!gif}') no-repeat center;
+    }
+    .amp-active {
+        iframe {
+            height: 0;
+            max-height: 100%;
+            max-width: 100%;
+            min-height: 100%;
+            min-width: 100%;
+            width: 0;
+        }
+    }
+    .icon-header-align {
+        display: inline-block;
+        margin-right: 0.5rem;
+        vertical-align: middle;
+    }
+
+    </style>
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <apex:form >
+        <apex:actionFunction name="updatePrint" action="{!refreshPrintFields}" reRender="PrintDisplayFields" />
+    </apex:form>
+    <div id="tabsMain" class="slds-tabs--default slds-sub-tabs">
+        <ul id="tabsList" class="slds-tabs--default__nav" role="tablist">
+        </ul>
+    </div>
+    <div id="sectionsMain" ></div>
+    <div id="htmlTemplates" style="display:none;" >
+        <ul>
+            <li data-el="tabItem" class="slds-tabs--default__item slds-text-heading--label slds-sub-tabs__item slds-grid slds-grid_vertical-align-center tpe-tab" role="presentation">
+
+                <a class="slds-tabs--default__link" style="display:inline" href="javascript:void(0);" role="tab"  tabindex="0" data-def-id="undef">
+                    <button class="slds-button slds-button_icon slds-button_icon slds-button_icon-x-small slds-m-right_x-small" aria-hidden="true" tabindex="-1" title="Collapse" data-el="collapse">
+                        <div class="icon icon-chevronright icon-header-align" aria-hidden="true"></div>
+                        <span class="slds-assistive-text">Expand</span>
+                    </button>
+
+                </a>
+
+                <button class="slds-button slds-button_icon slds-button_icon-container slds-hide" title="Required">
+                    <div class="icon icon-warning icon-header-align slds-icon-text-error" style="color: #c23934"></div>
+                    <span class="slds-assistive-text">Required</span>
+                </button>
+
+                <button class="slds-button slds-button_icon slds-button_icon-container slds-hide btn-delete" title="Delete" data-el="btn-delete">
+                    <div class="icon icon-close icon-header-align"></div>
+                    <span class="slds-assistive-text">Delete</span>
+                </button>
+            </li>
+            <li data-el="moreTabs" class="slds-dropdown-trigger slds-text-heading--label slds-dropdown-trigger_click slds-is-closed slds-tabs_default__item slds-tabs__item_overflow"  title="More tabs" role="presentation">
+                <a style="display:inline" class="slds-button slds-tabs_default__link" href="javascript:void(0);" aria-haspopup="true" data-def-id="undef" data-el="moreTabs">
+                    More
+                    <div class="icon icon-down icon-header-align"></div>
+                </a>
+                <button class="slds-button slds-button_icon slds-button_icon-container slds-hide" data-type="moreTabs" title="Required">
+                    <div class="icon icon-warning icon-header-align"></div>
+                    <span class="slds-assistive-text">Required</span>
+                </button>
+                <button class="slds-button slds-button_icon slds-button_icon-container slds-hide btn-delete" title="Delete" data-el="btn-delete" data-type="moreTabs">
+                    <div class="icon icon-close icon-header-align"></div>
+                    <span class="slds-assistive-text">Delete</span>
+                </button>
+                <div class="slds-dropdown slds-dropdown_right" >
+                    <ul data-el="moreTabsList" class="slds-dropdown__list slds-dropdown_length-with-icon-10" role="menu">
+                    </ul>
+                </div>
+            </li>
+            <li data-el="addTab" class="slds-dropdown__item" role="presentation">
+                <a href="javascript:void(0);" role="menuitem" tabindex="-1" style="display:inline-block;">
+                    <span  class="slds-truncate"></span>
+                </a>
+                <button class="slds-button slds-button_icon slds-button_icon-container slds-hide" title="Required" >
+                    <div class="icon icon-warning icon-header-align"></div>
+                    <span class="slds-assistive-text">Required</span>
+                </button>
+            </li>
+        </ul>
+
+        <div data-el="frameContainer" class="slds-tabs--default__content loaderGif" role="tabpanel" style="padding:0px;">
+            <apex:outputPanel layout="none" id="PrintDisplayFields" rendered="false">
+            <div class="section-summary ng-binding" id="printSODetails">
+                <div class="input-area-section section-summary ng-binding">
+                    <label class="input-area-section-title">
+                        Print Sales Order Details
+                    </label>
+                </div>
+                <apex:form >
+                    <div class="section-details pageBlock" style="display:flex;">
+                        <div class="column2" style="padding: 1rem 1.5% 1rem 2.5%; flex: 1; max-width: 50%; display: inline-block;">
+                            <div class="tableRow ng-scope" style="padding: 0.25rem 0;">
+                                <div class="row-label">
+                                    <label class="label-text slds-form-element__label">Total Print Price ($)</label>
+                                </div>
+                                <div class="row-data">
+                                    <apex:input styleClass="disabled-field ng-pristine ng-untouched ng-valid ng-scope ng-not-empty" id="totalPrintDurationPrice" disabled="true" value="{!totalPrintDurationPrice}"  title="Total Print Duration Price" />
+                                </div>
+                            </div>
+                            <div class="tableRow ng-scope" style="padding: 0.25rem 0;">
+                                <div class="row-label">
+                                    <label class="label-text slds-form-element__label">Proposed Discount (%)</label>
+                                </div>
+                                <div class="row-data">
+                                    <apex:input styleClass="disabled-field ng-pristine ng-untouched ng-valid ng-scope ng-not-empty" disabled="true" id="proposedDiscount" value="{!proposedDiscount}"  title="Proposed Discount (%)" />
+                                </div>
+                            </div>
+                            <div class="tableRow ng-scope" style="padding: 0.25rem 0;">
+                                <div class="row-label">
+                                    <label class="label-text slds-form-element__label">Target Discount (%)</label>
+                                </div>
+                                <div class="row-data">
+                                    <apex:input styleClass="disabled-field ng-pristine ng-untouched ng-valid ng-scope ng-not-empty" disabled="true" id="targetDiscount" value="{!targetDiscount}"  title="Target Discount (%)" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column2" style="padding: 1rem 2.5% 1rem 1.5%; flex: 1; max-width: 50%; display: inline-block;">
+                            <div class="tableRow ng-scope" style="padding: 0.25rem 0;">
+                                <div class="row-label">
+                                    <label class="label-text slds-form-element__label">Total Print Price (GST Inclusive)</label>
+                                </div>
+                                <div class="row-data">
+                                    <apex:input styleClass="disabled-field ng-pristine ng-untouched ng-valid ng-scope ng-not-empty" id="totalPrintPriceGST" disabled="true" value="{!totalPrintPriceGST}"  title="Total Print Price (GST Inclusive)" />
+                                </div>
+                            </div>
+                            <div class="tableRow ng-scope" style="padding: 0.25rem 0;">
+                                <div class="row-label">
+                                    <label class="label-text slds-form-element__label">Proposed Discount ($)</label>
+                                </div>
+                                <div class="row-data">
+                                    <apex:input styleClass="disabled-field ng-pristine ng-untouched ng-valid ng-scope ng-not-empty" id="proposedPrintPriceAmount" disabled="true" value="{!proposedPrintPriceAmount}"  title="Proposed Print Price ($)" />
+                                </div>
+                            </div>
+                            <div class="tableRow ng-scope" style="padding: 0.25rem 0;">
+                                <div class="row-label">
+                                    <label class="label-text slds-form-element__label">Print Price After Discount ($)</label>
+                                </div>
+                                <div class="row-data">
+                                    <apex:input styleClass="disabled-field ng-pristine ng-untouched ng-valid ng-scope ng-not-empty" id="targetPrintPriceAmount" disabled="true" value="{!targetPrintPriceAmount}"  title="Target Print Price ($)" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </apex:form>
+            </div>
+            </apex:outputPanel>
+            <iframe src="" scrolling="yes" frameborder="0" width="100%" style="min-height:250px; width: 1px; min-width: 100%; *width: 100%; overflow:auto;-webkit-overflow-scrolling:touch; height:90VH;" />
+        </div>
+        <div data-el="tabSection" class="slds-tabs--default slds-sub-tabs cst-section-tab" aria-expanded="true">
+            <ul data-el="tabsList" class="slds-tabs--default__nav tab-color tab-font" role="tablist">
+            </ul>
+        </div>
+        <div data-el="chevDown" class="icon icon-chevrondown icon-header-align cst-section-expand" aria-hidden="true"></div>
+    </div>
+    <div class="slds-hide slds-spinner_container" id="spinner_blocker">
+        <div class="slds-spinner slds-spinner--medium slds-spinner_brand" aria-hidden="false" role="alert">
+            <div class="slds-spinner__dot-a" />
+            <div class="slds-spinner__dot-b" />
+        </div>
+    </div>
+    <script>
+
+
+        var renderType = 'tabs';
+
+        function getRemoteActionPromiseId(remoteActionName, param) {
+            return new Promise(function(resolve, reject) {
+                Visualforce.remoting.Manager.invokeAction(remoteActionName, param, function(response, event) {
+                    resolve(response);
+                });
+            });
+        }
+        var parseQueryString = function(url) {
+            var urlParams = {};
+            url.replace(
+                new RegExp("([^?=&]+)(=([^&]*))?", "g"),
+                function($0, $1, $2, $3) {
+                    urlParams[$1] = $3;
+                }
+            );
+            return urlParams;
+        };
+        function onClickTabs(tabLink, moreTabsElement) {
+            return function() {
+                if (jQuery(tabLink).attr('data-def-id') !== jQuery(moreTabsElement).find('a[data-el="moreTabs"]:first').attr('data-def-id')) {
+                    var link = jQuery(moreTabsElement).find('a[data-el="moreTabs"]').attr('data-def-id', jQuery(tabLink).attr('data-def-id')).attr('aria-controls', jQuery(tabLink).attr('aria-controls')).text(jQuery(tabLink).text());
+                    var arrow = jQuery('#htmlTemplates div[data-el="arrowDown"]').clone();
+                    jQuery(link).append(arrow);
+                    var defId = jQuery(tabLink).attr('data-def-id');
+                    var frameDiv = jQuery('div[data-def-id=' + defId + ']');
+                    var divHeight = jQuery(frameDiv).height();
+                    if (jQuery(frameDiv[0]).find("iframe").attr('src') === undefined || jQuery(frameDiv[0]).find("iframe").attr('src') == '') {
+                        jQuery(frameDiv[0]).find("iframe").attr('src', jQuery(frameDiv[0]).attr('data-iframe-url'));
+                        var mleUrl = jQuery(frameDiv[0]).attr('data-iframe-url');
+                        if (mleUrl && mleUrl.indexOf('csmle__Editor') != -1) {
+
+                        }
+                    } else {
+
+                        var mleUrl = jQuery(frameDiv[0]).attr('data-iframe-url');
+                        if (mleUrl && mleUrl.indexOf('csmle__Editor') != -1) {
+
+                        }
+                    }
+                    jQuery(moreTabsElement).parent().find('.slds-tabs--default__link,.slds-tabs--scoped__link').attr('aria-selected', 'false');
+                    jQuery(moreTabsElement).find('a[data-el="moreTabs"]').attr('aria-selected', 'true').attr('tabindex', '0');
+                    jQuery(moreTabsElement).parent().find('.slds-tabs--default__link,.slds-tabs--scoped__link').attr('tabindex', '-1');
+                    jQuery(moreTabsElement).addClass('slds-active').siblings().removeClass('slds-active');
+                    jQuery(moreTabsElement).parent().parent().find('.' + jQuery(moreTabsElement).parent().parent().find('.slds-tabs--default__content,.slds-tabs--scoped__content')[0].classList[0]).removeClass('slds-show').addClass('slds-hide');
+                    jQuery(moreTabsElement).parent().parent().find('#' + jQuery(moreTabsElement).find('a[data-el="moreTabs"]:first').attr('aria-controls')).removeClass('slds-hide').addClass('slds-show');
+                    setIndicatorsExtraTab(defId);
+                }
+            }
+
+        }
+        jQuery(function() {
+            var nonCommercialDefinitions = {!productTabInformationListJson};
+
+            //community support check
+
+            var currentUrl = window.location.href;
+            var firstPart = window.location.href.split('com/');
+            var secondPart = firstPart[1].split('/');
+            var urlPrefix = secondPart[0];
+
+            if (true) {
+                for (var i = 0; i < nonCommercialDefinitions.length; i++) {
+                    var urlArr = nonCommercialDefinitions[i].url.replace(' ', '_');
+                    nonCommercialDefinitions[i].url = urlArr;
+                }
+            }
+
+            var urlToParse = location.search;
+            var resultParams = parseQueryString(urlToParse);
+            var tabNumber = 999;
+            if (resultParams['renderSections'] != undefined) {
+                renderType = 'sections';
+            } else if (resultParams['renderTabs'] != undefined) {
+                tabNumber = parseInt(resultParams['renderTabs']);
+            } else {
+            }
+            if (nonCommercialDefinitions && renderType == 'tabs') {
+                jQuery('#tabsMain').show();
+                if (tabNumber < nonCommercialDefinitions.length) {
+                    var moreTabsElement = jQuery('#htmlTemplates li[data-el="moreTabs"]').clone();
+                    jQuery(moreTabsElement).find('button[data-el="btn-delete"]').on('click', onClickDel(moreTabsElement));
+                    for (var i = 0; i < nonCommercialDefinitions.length; i++) {
+                        var def = nonCommercialDefinitions[i];
+                        definitionDetails[def.name] = {
+                            definitionId: def.htmlId,
+                            number: def.configurationNumber,
+                            changed: def.isValid
+                        };
+
+                        var htmlClone2 = jQuery('#htmlTemplates div[data-el="frameContainer"]').clone();
+                        if (i < tabNumber) {
+                            var htmlClone = jQuery('#htmlTemplates li[data-el="tabItem"]').clone();
+                            jQuery(htmlClone).addClass(def.classAdditionLi).attr('title', def.name);
+                            jQuery(htmlClone).find('a:first').attr('data-def-id', def.htmlId).attr('aria-selected', def.active).attr('aria-controls', 'tab-default-' + def.htmlId).text(def.name);
+
+                            jQuery(htmlClone).appendTo('#tabsList');
+                        } else {
+                            var htmlClone = jQuery('#htmlTemplates li[data-el="addTab"]').clone();
+                            jQuery(htmlClone).addClass(def.classAdditionLi).attr('title', def.name);
+                            var tabLink = jQuery(htmlClone).find('a:first').attr('data-def-id', def.htmlId).attr('aria-selected', def.active).attr('aria-controls', 'tab-default-' + def.htmlId).attr('id', 'tab-default-' + def.htmlId + '_item').text(def.name);
+                            jQuery(htmlClone).appendTo(jQuery(moreTabsElement).find('ul[data-el="moreTabsList"]'));
+                            jQuery(htmlClone).on('click', onClickTabs(tabLink, moreTabsElement));
+                            jQuery(htmlClone2).attr('data-tab', 'more');
+                        }
+
+                        jQuery(htmlClone2).attr('data-iframe-config', def.configurationId).attr('data-iframe-name', def.name).attr('data-iframe-load', def.loadOnSelect).attr('data-def-id', def.htmlId)
+                            .attr('data-iframe-url', def.url).addClass(def.classAdditionTab).attr('id', 'tab-default-' + def.htmlId).attr('aria-labelledby', 'tab-default-' + def.htmlId + '__item');
+                        jQuery(htmlClone2).appendTo('#tabsMain');
+                    }
+                    jQuery(moreTabsElement).appendTo('#tabsList');
+                } else {
+                    for (var i = 0; i < nonCommercialDefinitions.length; i++) {
+                        var def = nonCommercialDefinitions[i];
+                        definitionDetails[def.name] = {
+                            definitionId: def.htmlId,
+                            number: def.configurationNumber,
+                            changed: def.isValid
+                        };
+
+                        var htmlClone = jQuery('#htmlTemplates li[data-el="tabItem"]').clone();
+                        jQuery(htmlClone).addClass(def.classAdditionLi).attr('title', def.name);
+                        jQuery(htmlClone).find('a:first').attr('data-def-id', def.htmlId).attr('aria-selected', def.active).attr('aria-controls', 'tab-default-' + def.htmlId).attr('id', 'tab-default-' + def.htmlId + '_item').text(def.name);
+
+                        var htmlClone2 = jQuery('#htmlTemplates div[data-el="frameContainer"]').clone();
+
+                        jQuery(htmlClone2).attr('data-iframe-config', def.configurationId).attr('data-iframe-name', def.name).attr('data-iframe-load', def.loadOnSelect).attr('data-def-id', def.htmlId)
+                            .attr('data-iframe-url', def.url).attr('id', 'tab-default-' + def.htmlId).addClass(def.classAdditionTab).attr('aria-labelledby', 'tab-default-' + def.htmlId + '__item');
+                        jQuery(htmlClone).appendTo('#tabsList');
+                        jQuery(htmlClone2).appendTo('#tabsMain');
+                    }
+                }
+                var tabsContainers = jQuery('div[data-el="frameContainer"]');
+                for (var k = 0; k < tabsContainers.length; k++) {
+                    var mleUrl = jQuery(tabsContainers[k]).attr('data-iframe-url');
+                    if (mleUrl && mleUrl.indexOf('csmle__Editor') != -1) {
+                        var onLoad = jQuery(tabsContainers[k]).attr('data-iframe-load');
+                        if (k == 0 && onLoad == 'false') {
+                            var defId = jQuery(tabsContainers[k]).attr('data-def-id');
+                            var divHeight = jQuery(tabsContainers[k]).height();
+
+                        }
+                    }
+                }
+                jQuery('#tabsList .slds-tabs--default__link').on('click', function() {
+                    var defId = jQuery(this).attr('data-def-id');
+                    var frameDiv = jQuery('div[data-def-id=' + defId + ']');
+                    if (jQuery(frameDiv[0]).find("iframe").attr('src') === undefined || jQuery(frameDiv[0]).find("iframe").attr('src') == '') {
+                        jQuery(frameDiv[0]).find("iframe").attr('src', jQuery(frameDiv[0]).attr('data-iframe-url'));
+                        var mleUrl = jQuery(frameDiv).attr('data-iframe-url');
+                        if (mleUrl && mleUrl.indexOf('csmle__Editor') != -1) {
+
+                        } else {
+                            var divHeight = jQuery(frameDiv).height();
+
+                        }
+                    } else {
+                        var divHeight = jQuery(frameDiv).height();
+
+                        var mleUrl = jQuery(frameDiv[0]).attr('data-iframe-url');
+                        if (mleUrl && mleUrl.indexOf('csmle__Editor') != -1) {
+
+                        }
+                    }
+
+                    jQuery(this).parent().parent().find('.slds-tabs--default__link,.slds-tabs--scoped__link').attr('aria-selected', 'false');
+                    jQuery(this).attr('aria-selected', 'true');
+                    jQuery(this).parent().parent().find('.slds-tabs--default__link,.slds-tabs--scoped__link').attr('tabindex', '-1');
+                    jQuery(this).attr('tabindex', '0');
+                    jQuery(this).parent().addClass('slds-active').siblings().removeClass('slds-active');
+                    jQuery(this).parent().parent().parent().find('.' + jQuery(this).parent().parent().parent().find('.slds-tabs--default__content,.slds-tabs--scoped__content')[0].classList[0]).removeClass('slds-show').addClass('slds-hide');
+                    jQuery(this).parent().parent().parent().find('#' + jQuery(this).attr('aria-controls')).removeClass('slds-hide').addClass('slds-show');
+                    jQuery('li[data-el="moreTabs"]').removeClass('slds-is-open').addClass('slds-is-closed');
+
+                });
+                jQuery('#tabsList li[data-el="moreTabs"]').on('click', function() {
+                    jQuery(this).addClass('slds-active').toggleClass('slds-is-open').siblings().removeClass('slds-active');
+                    if (jQuery(this).find('a[data-el="moreTabs"]').attr('data-def-id') != 'undef') {
+                        jQuery(this).parent().find('.slds-tabs--default__link,.slds-tabs--scoped__link').attr('aria-selected', 'false');
+                        jQuery(this).find('a[data-el="moreTabs"]').attr('aria-selected', 'true').attr('tabindex', '0');
+                        jQuery(this).parent().find('.slds-tabs--default__link,.slds-tabs--scoped__link').attr('tabindex', '-1');
+                        jQuery(this).addClass('slds-active').siblings().removeClass('slds-active');
+                        jQuery(this).parent().parent().find('.' + jQuery(this).parent().parent().find('.slds-tabs--default__content,.slds-tabs--scoped__content')[0].classList[0]).removeClass('slds-show').addClass('slds-hide');
+                        jQuery(this).parent().parent().find('#' + jQuery(this).find('a[data-el="moreTabs"]:first').attr('aria-controls')).removeClass('slds-hide').addClass('slds-show');
+                        var defId = jQuery(this).find('a[data-el="moreTabs"]').attr('data-def-id');
+                        var divHeight = jQuery('div[data-def-id="' + defId + '"]').height();
+                    }
+                });
+
+
+
+            } else {
+
+            }
+
+            var frames = renderType == 'tabs' ? jQuery('#tabsMain iframe') : jQuery('#sectionsMain iframe');
+            var values = Object.keys(definitionDetails).map(function(e) {
+                return definitionDetails[e]
+            })
+            for (var i = 0; i < frames.length; i++) {
+                var frameUrl = jQuery(frames[i]).parent().attr('data-iframe-url');
+                if (jQuery(frames[i]).parent().attr('data-iframe-load') == 'false') {
+                    jQuery(frames[i]).attr('src', frameUrl);
+                }
+                var defId = jQuery(frames[i]).parent().attr('data-def-id');
+                var conf = values.find(function(x) { return x.definitionId == defId;});
+                if (jQuery(frames[i]).parent().attr('data-iframe-config')) {
+                    toggleDeleteIndicator(defId);
+                }
+            }
+        });
+
+        function SPMSetting(spmSettings) {
+            if(spmSettings.sectionColor) {
+                var styleTag = $('<style>.tab-color { background-color: '+ spmSettings.sectionColor +' !important; }</style>')
+                jQuery('html > head').append(styleTag);
+            }
+            if(spmSettings.tabLinecolor) {
+                var styleTag = $('<style>.tpe-tab:hover::after,.slds-active::after { background-color: '+ spmSettings.tabLinecolor +' !important; }</style>')
+                jQuery('html > head').append(styleTag);
+            }
+            if(spmSettings.requiredLinecolor) {
+                var styleTag = $('<style>.tpe-tab-indicator::after { background-color: '+ spmSettings.requiredLinecolor +' !important; }</style>')
+                jQuery('html > head').append(styleTag);
+            }
+            if(spmSettings.fontColor) {
+                var styleTag = $('<style>.slds-tabs--default__link,.cst-section-expand { color: '+ spmSettings.fontColor +' !important; }</style>')
+                jQuery('html > head').append(styleTag);
+            }
+            if(spmSettings.onchangeColor) {
+                var styleTag = $('<style>.cst-changed { background-color: '+ spmSettings.onchangeColor +' !important; }</style>')
+                jQuery('html > head').append(styleTag);
+            }
+            if(!spmSettings.displayDelete) {
+                var styleTag = $('<style>.btn-delete { display: none !important; }</style>')
+                jQuery('html > head').append(styleTag);
+            }
+        }
+        function hideLoading(frame) {
+            jQuery(frame).parent().find('div[data-el=loading]').addClass('slds-hide');
+        }
+
+        function setIndicatorsExtraTab(defId) {
+            jQuery('li[data-el="moreTabs"]>button[data-type="moreTabs"]').addClass('slds-hide');
+            var frameDiv = jQuery('div[data-def-id="' + defId + '"]');
+            if (frameDiv) {
+                var frameUrl = jQuery(frameDiv).attr('data-iframe-url');
+                if (frameUrl.indexOf('&definitionId') != -1) {
+                    if (jQuery(frameDiv).attr('data-iframe-required') == 'true') {
+                        setRequiredIndicator(defId);
+                    } else {
+                        removeRequiredIndicator(defId);
+                    }
+                } else if (jQuery(frameDiv).attr('data-iframe-config')) {
+                    setDeleteIndicator(defId);
+                } else {
+                    removeDeleteIndicator(defId);
+                }
+            }
+        }
+
+        function toggleDeleteIndicator(defId) {
+			var tabLink = jQuery('a[data-def-id=' + defId + ']');
+			jQuery(tabLink).next().next().toggleClass('slds-hide');
+		}
+
+        function blockUI(param) {
+            if (param) {
+                jQuery('#spinner_blocker').removeClass('slds-hide');
+            } else {
+                jQuery('#spinner_blocker').addClass('slds-hide');
+            }
+        }
+
+        var loadedFrames = {};
+        var definitionDetails = {};
+
+        if (!Array.prototype.find) {
+            Array.prototype.find = function(predicate) {
+                if (this == null) {
+                    throw new TypeError('Array.prototype.find called on null or undefined');
+                }
+                if (typeof predicate !== 'function') {
+                    throw new TypeError('predicate must be a function');
+                }
+                var list = Object(this);
+                var length = list.length >>> 0;
+                var thisArg = arguments[1];
+                var value;
+
+                for (var i = 0; i < length; i++) {
+                    value = list[i];
+                    if (predicate.call(thisArg, value, i, list)) {
+                        return value;
+                    }
+                }
+                return undefined;
+            };
+        }
+
+
+</script>
+    <apex:stylesheet value="{!URLFOR($Resource.csoe_fonts, 'styles.css')}"/>
+    </html>
+</apex:page>

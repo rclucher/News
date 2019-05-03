@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Owner_Division__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(LEFT(Owner.UserRole.Name,14) = &quot;NSW Consortium&quot;, 
+&quot;KAC&quot;, 
+IF(LEFT(Owner.UserRole.Name,16) = &quot;NSW Key Accounts&quot;, 
+&quot;KAC&quot;, 
+IF(LEFT(Owner.UserRole.Name,8) = &quot;Prestige&quot;, 
+&quot;KAC&quot;, 
+IF(Left(Owner.UserRole.Name,7) = &quot;VIC KAM&quot;, 
+&quot;KAC&quot;, 
+IF(Left(Owner.UserRole.Name,16) = &quot;Key Accounts VIC&quot;, 
+&quot;KAC&quot;, 
+IF(Left(Owner.UserRole.Name,14) = &quot;Consortium VIC&quot;, 
+&quot;KAC&quot;, 
+IF(LEFT(Owner.UserRole.Name,7) = &quot;KAC VIC&quot;, 
+&quot;KAC&quot;, 
+IF(Left(Owner.UserRole.Name,7) = &quot;IMA NSW&quot;, 
+&quot;NSW&quot;, 
+IF(Left(Owner.UserRole.Name,7) = &quot;SME NSW&quot;, 
+&quot;NSW&quot;, 
+IF(Left(Owner.UserRole.Name,11) = &quot;SME GSD NSW&quot;, 
+&quot;NSW&quot;, 
+IF(Left(Owner.UserRole.Name,6) = &quot;SME FS&quot;, 
+&quot;NSW&quot;, 
+IF(Left(Owner.UserRole.Name,6) = &quot;EGM SA&quot;, 
+&quot;SA&quot;, 
+IF(Left(Owner.UserRole.Name,21) = &quot;Customer Solutions SA&quot;, 
+&quot;SA&quot;, 
+IF(Left(Owner.UserRole.Name,9) = &quot;IMA GM SA&quot;, 
+&quot;SA&quot;, 
+IF(Left(Owner.UserRole.Name,10) = &quot;IMA GSD SA&quot;, 
+&quot;SA&quot;, 
+IF(Left(Owner.UserRole.Name,10) = &quot;IMA ASM SA&quot;, 
+&quot;SA&quot;, 
+IF(Left(Owner.UserRole.Name,10) = &quot;IMA ISM SA&quot;, 
+&quot;SA&quot;, 
+IF(Left(Owner.UserRole.Name,9) = &quot;SME GM SA&quot;, 
+&quot;SA&quot;, 
+IF(Left(Owner.UserRole.Name,10) = &quot;SME GSD SA&quot;, 
+&quot;SA&quot;, 
+IF(Left(Owner.UserRole.Name,5) = &quot;AE SA&quot;, 
+&quot;SA&quot;, 
+IF(Left(Owner.UserRole.Name,6) = &quot;SME SA&quot;, 
+&quot;SA&quot;, 
+IF(Left(Owner.UserRole.Name,22) = &quot;Customer Solutions VIC&quot;, 
+&quot;VIC&quot;, 
+IF(Left(Owner.UserRole.Name,7) = &quot;EGM VIC&quot;, 
+&quot;VIC&quot;, 
+IF(Left(Owner.UserRole.Name,7) = &quot;IMA VIC&quot;, 
+&quot;VIC&quot;, 
+IF(Left(Owner.UserRole.Name,7) = &quot;SME VIC&quot;, 
+&quot;VIC&quot;, 
+IF(Left(Owner.UserRole.Name,15) = &quot;VSD Real Estate&quot;, 
+&quot;VIC&quot;, 
+IF(Left(Owner.UserRole.Name,21) = &quot;QLD – General Manager&quot;, 
+&quot;QLD&quot;, 
+IF(Left(Owner.UserRole.Name,22) = &quot;QLD – Sales Enablement&quot;, 
+&quot;QLD&quot;, 
+IF(Left(Owner.UserRole.Name,13) = &quot;EGM BNE KIAMA&quot;, 
+&quot;QLD&quot;, 
+IF(Left(Owner.UserRole.Name,11) = &quot;EGM BNE SME&quot;, 
+&quot;QLD&quot;, 
+IF(Left(Owner.UserRole.Name,7) = &quot;IMA BNE&quot;, 
+&quot;QLD&quot;, 
+IF(Left(Owner.UserRole.Name,10) = &quot;KACIMA BNE&quot;, 
+&quot;QLD&quot;, 
+IF(Left(Owner.UserRole.Name,7) = &quot;SME BNE&quot;, 
+&quot;QLD&quot;,
+IF(Left(Owner.UserRole.Name,42) = &quot;Community Newspaper Group Ltd Partner User&quot;, 
+&quot;WA&quot;,
+LEFT(Owner.UserRole.Name, FIND(&#39;-&#39;, Owner.UserRole.Name)-1) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+)
+)
+)
+)
+)
+)
+)
+)
+)</formula>
+    <label>Owner Division</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

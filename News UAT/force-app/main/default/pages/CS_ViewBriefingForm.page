@@ -1,0 +1,446 @@
+<apex:page controller="CS_ViewBriefingFormController" docType="html-5.0">
+<apex:stylesheet value="{!$Resource.Briefing_Form + '/assets/styles/salesforce-lightning-design-system-vf.css'}"/>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+    <script>
+        function showHide(par) 
+        {
+            jQuery(par).closest("div").nextAll("#sectionBody").first().toggle();
+        };
+
+        function showAll() 
+        {
+            jQuery("[id='sectionBody']").show();
+        };
+
+    </script>
+    <style type="text/css">
+        @font-face {
+            font-family: "call-center";
+            src:url("{!$Resource.Briefing_Form+ '/fonts/call-center.eot'}");
+            src:url("{!$Resource.Briefing_Form+ '/fonts/call-center.eot?#iefix'}") format("embedded-opentype"),
+            url("{!$Resource.Briefing_Form+ '/fonts/call-center.woff'}") format("woff"),
+            url("{!$Resource.Briefing_Form+ '/fonts/call-center.ttf'}") format("truetype"),
+            url("{!$Resource.Briefing_Form+ '/fonts/call-center.svg#call-center'}") format("svg");
+            font-weight: normal;
+            font-style: normal;
+        }
+        .icon-prev:before, .icon-next:before {
+            content: "";
+            display: inline-block;
+        }
+        .inputRadio,
+        .inputCheckbox {
+            margin-right: 8px;
+        }
+
+        .inputText,
+        .inputDate,
+        .qform-element textarea {
+            width: 100%;
+            background-color: #fff;
+            text-overflow: ellipsis;
+            color: #16325c;
+            border: 1px solid #d8dde6;
+            border-radius: .25rem;
+            transition: border .1s linear,background-color .1s linear;
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            line-height: 1.25rem;
+            min-height: calc(1.25rem + (1px * 2));
+            box-sizing: border-box;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+        .textAreaClass { width: 100%;
+            background-color: #fff;
+            text-overflow: ellipsis;
+            color: #16325c;
+            border: 1px solid #d8dde6;
+            border-radius: .25rem;
+            transition: border .1s linear,background-color .1s linear;
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            line-height: 1.25rem;
+            min-height: calc(1.25rem + (1px * 2));
+            box-sizing: border-box;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;}
+        .qform-element textarea {
+            resize: vertical;
+            min-height: 1rem;
+        }
+        .qform-element label {
+            font-family: sans-serif;
+            color: #54698d;
+            font-size: 0.9rem;
+        }
+        .qform-element label:after {
+            display: block;
+            content: "";
+        }
+        .icon-prev:before {
+            content: "B";
+        }
+        .icon-next:before {
+            content: "C";
+        }
+        .qform-wrapper button {
+            display: flex;
+            align-items: center;
+        }
+        .qform-wrapper .with-icon:before {
+            vertical-align: text-top;
+            margin-right: 0.25rem;
+        }
+        .qform-wrapper button.with-icon-right {
+            display: flex;
+            align-items: center;
+        }
+        .qform-wrapper button.with-icon-right:before {
+            order: 1;
+            margin-left: 0.25rem;
+        }
+        body .qform-wrapper {
+            margin: 1rem auto;
+        }
+        /* CSS from admin start */
+        .qform-wrapper {
+            border: 1px solid #d8dde6;
+            border-radius: 0.25rem;
+            font-size: 0.9rem;
+            background: #fff;
+            width: 50rem;
+            margin: 0 auto;
+        }
+        .qform-header {
+            border-bottom: 1px solid #d8dde6;
+            padding: 1rem;
+        }
+        .qform-section-header {
+            border-bottom: 1px solid #d8dde6;
+            padding: 1rem;
+            background: #f4f6f9;
+        }
+        .qform-section-header h2 {
+            font-size: 1.25rem;
+            font-weight: lighter;
+            align-items: center;
+            color: #16325c;
+            font-family: sans-serif;
+            display: block;
+        }
+        
+        .qform-section-header h4,
+        .qform-header h2, .qform-header h4 {
+            font-size: 1.25rem;
+            font-weight: lighter;
+            margin: 0;
+            color: #16325c;
+            font-family: sans-serif;
+            display: block;
+        }
+        .qform-header p {
+            color: #16325c;
+            font-family: sans-serif;
+            margin-bottom: 0;
+        }
+        .qform-body {
+            padding: 1rem;
+        }
+        .qform-body p {
+            margin: 0 0 0.5rem 0;
+            font-family: sans-serif;
+            color: #16325c;
+        }
+        .readonly   {
+            white-space: normal;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            margin: 0 0 0.5rem 0;
+            font-family: sans-serif;
+            color: #54698d;
+        }
+        .qform-question {
+            padding: 1rem 0;
+            border-bottom: 1px solid #d8dde6;
+        }
+        .qform-question p {
+            color: #16325c;
+        }
+        .qform-question:first-child {
+            padding-top: 0;
+        }
+        .qform-question:last-child {
+            padding-bottom: 0;
+            border: none;
+        }
+        .qform-element {
+            padding: 0.15rem 0;
+        }
+        .qform-element input[type="radio"],
+        .qform-element input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        .qform-element input[type="number"] {
+            width: 20%;
+            background-color: #fff;
+            text-overflow: ellipsis;
+            color: #16325c;
+            border: 1px solid #d8dde6;
+            border-radius: .25rem;
+            transition: border .1s linear,background-color .1s linear;
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            line-height: 1.25rem;
+            min-height: calc(1.25rem + (1px * 2));
+            box-sizing: border-box;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .qform-element input[type="text"],
+        .qform-element input[type="date"],
+        .qform-element textarea {
+
+            background-color: #fff;
+            text-overflow: ellipsis;
+            color: #16325c;
+            border: 1px solid #d8dde6;
+            border-radius: .25rem;
+            transition: border .1s linear,background-color .1s linear;
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            line-height: 1.25rem;
+            min-height: calc(1.25rem + (1px * 2));
+            box-sizing: border-box;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+        .inputNumber  {
+            width: 30%;
+            background-color: #fff;
+            text-overflow: ellipsis;
+            color: #16325c;
+            border: 1px solid #d8dde6;
+            border-radius: .25rem;
+            transition: border .1s linear,background-color .1s linear;
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            line-height: 1.25rem;
+            min-height: calc(1.25rem + (1px * 2));
+            box-sizing: border-box;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .qform-element textarea {
+            resize: vertical;
+            min-height: 1rem;
+        }
+        .qform-element label {
+            font-family: sans-serif;
+            color: #54698d;
+            font-size: 0.9rem;
+        }
+        .qform-element label:after {
+            display: block;
+            content: "";
+        }
+        .qform-question.error input[type="text"],
+        .qform-question.error input[type="number"],
+        .qform-question.error input[type="date"]
+        .qform-question.error textarea {
+            border-color: #c23934;
+        }
+        .qform-question.error label {
+            color: #c23934;
+        }
+        .qform-footer {
+            border-top: 1px solid #d8dde6;
+            padding: 1rem;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+        }
+        .qform-footer input[type="button"],
+        .qform-footer input[type="submit"],
+        .qform-footer button {
+            padding: 0.25rem 0.5rem;
+            border: 1px solid #d8dde6;
+            border-radius: 0.25rem;
+            background: #fff;
+            cursor: pointer;
+            color: #54698d;
+            font-weight: lighter;
+            white-space: nowrap;
+            font-size: 0.8rem;
+            margin: 0;
+        }
+        .qform-footer input[type="button"].submit,
+        .qform-footer input[type="submit"].submit,
+        .qform-footer button.submit {
+            margin-left: auto;
+        }
+        .qform-footer input[type="button"]:hover,
+        .qform-footer input[type="submit"]:hover,
+        .qform-footer button:hover {
+            color: #33bce7;
+            border-color: #74cde8;
+        }
+        .qform-footer input[type="button"][disabled],
+        .qform-footer input[type="submit"][disabled],
+        .qform-footer button[disabled],
+        .qform-footer input[type="button"].disabled,
+        .qform-footer input[type="submit"].disabled,
+        .qform-footer button.disabled {
+            opacity: 0.5;
+        }
+        .qform-footer input[type="button"][disabled]:hover,
+        .qform-footer input[type="submit"][disabled]:hover,
+        .qform-footer button[disabled]:hover,
+        .qform-footer input[type="button"].disabled:hover,
+        .qform-footer input[type="submit"].disabled:hover,
+        .qform-footer button.disabled:hover {
+            color: #54698d;
+            border-color: #d8dde6;
+            cursor: auto; 
+        }
+        .qform-footer p.error {
+            background: transparent;
+            color: #c23934;
+            margin: 0;
+            text-align: center;
+        }
+
+        .qform-group.required .control-label:after {
+            content:"*";
+            color:red;
+        }
+
+        .qform-closedsection.collapsed
+        {
+        background: transparent url("/resource/1488911654000/TaskList/assets/icons/utility/chevrondown_60.png");
+        background-repeat: no-repeat;
+        padding-left: 20px;
+        display: block;
+        background-size: 18px;
+        background-position: 0% 45%;
+        }
+
+
+        .qform-closedsection
+        {
+        background: transparent url("/resource/1488911654000/TaskList/assets/icons/utility/chevronright_60.png");
+        background-repeat: no-repeat;
+        padding-left: 20px;
+        display: block;
+        background-size: 18px;
+        background-position: 0% 45%;
+        }
+
+        /* CSS from admin end */
+        .hide {
+            visibility: hidden
+        }
+    </style>
+
+    <div class="qform-wrapper">
+        <apex:form id="wholePage">
+
+            <div class="qform-header">
+                <apex:outputPanel rendered="{!viewBF}">
+                    <apex:inputText styleClass="inputText" value="{!briefingForm.Name}"/>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!!viewBF}">
+                    <apex:inputText styleClass="inputText" value="{!briefingForm.Name}" html-placeholder="Enter the briefing form name here"/>
+                </apex:outputPanel>
+                <apex:outputText id="fillmandatory" style="color:red" value="Please populate briefing form name" rendered="{!(briefingForm.Name == '' || briefingForm.Name == null) && !nameFilled}"/>
+            </div>
+
+            <apex:repeat value="{!sections}" var="section">
+                <div id="sectiontitle" class="qform-header" onclick="showHide(this)">
+                    <div class="qform-closedsection collapsible"> 
+                        <h4>{!section}</h4>
+                    </div>
+                </div>
+
+                <div id="sectionBody" style="display:none">
+                    <apex:repeat value="{!sectionQuestions[section]}" var="wrap">
+                        <section>
+                            <div class="qform-body">
+                                <apex:outputPanel rendered="{!wrap.ques.Output_Opportunity_Mapping__c == null}">
+                                    <p>{!wrap.ques.Question_Text__c} <apex:outputtext rendered="{!wrap.questionMandatoryForTier == true}" value=" * " style="color:red; font-weight: bold"></apex:outputtext></p>
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!wrap.ques.Output_Opportunity_Mapping__c != null}">
+                                    <p>{!wrap.ques.Question_Text__c}: <apex:outputtext rendered="{!wrap.questionMandatoryForTier == true}" value=" * " style="color:red; font-weight: bold"></apex:outputtext></p>
+                                </apex:outputPanel>
+                                <div class="qform-element">
+                                    <apex:outputPanel rendered="{!wrap.ques.Output_Opportunity_Mapping__c == null}">
+
+                                        <apex:inputText styleClass="inputText" maxlength="255" value="{!wrap.ans.Selected_Answer__c}" rendered="{!wrap.ques.Answer_Format__c == 'Text'}">
+                                        </apex:inputText>
+
+                                        <apex:inputField id="numberfield" onkeypress="return AllowNumeric(event)" styleClass="inputNumber" value="{!wrap.ans.Selected_Answer__c}"  rendered="{!wrap.ques.Answer_Format__c == 'Number'}">
+                                        </apex:inputField>
+
+                                        <apex:selectRadio styleClass="firstSelect" value="{!wrap.ans.Selected_Answer__c}" rendered="{!wrap.ques.Answer_Format__c == 'Radio Predefined'}">
+                                            <apex:selectOptions value="{!wrap.picklistOptions}"/>
+                                        </apex:selectRadio>
+
+                                        <apex:selectCheckboxes value="{!wrap.multiSelections}" rendered="{!wrap.ques.Answer_Format__c == 'Multi Select'}">
+                                            <apex:selectOptions value="{!wrap.picklistOptions}"/>
+                                        </apex:selectCheckboxes>
+
+                                        <apex:inputcheckbox styleClass="inputCheckbox" value="{!wrap.ans.Selected_Answer__c}" rendered="{!wrap.ques.Answer_Format__c == 'Checkbox'}">
+                                        </apex:inputcheckbox>
+
+                                        <apex:inputTextarea styleClass="textAreaClass" html-maxlength="255" value="{!wrap.ans.Selected_Answer__c}" rendered="{!wrap.ques.Answer_Format__c == 'Text Area'}"></apex:inputTextarea>
+
+                                        
+
+                                    </apex:outputPanel>
+                                    <apex:outputText id="fillmandatory" style="color:red" value="Please fill this mandatory field." rendered="{!wrap.questionMandatoryForTier == true && (wrap.ans.Selected_Answer__c == '' || wrap.ans.Selected_Answer__c == null) &&  !allMandantoryFieldsFilled}"/>
+
+                                    <apex:outputPanel style="margin-left: 0.5rem;" rendered="{!wrap.ques.Output_Opportunity_Mapping__c != null}">
+                                        <apex:outputText styleClass="readonly" value="{!wrap.ans.Selected_Answer__c}" rendered="{!wrap.ques.Answer_Format__c == 'Text'}">
+                                        </apex:outputText>
+                                        <apex:outputText id="label" styleClass="inputNumber" value="{!wrap.ans.Selected_Answer__c}" rendered="{!wrap.ques.Answer_Format__c == 'Number'}">
+                                        </apex:outputText>
+                                        <apex:outputText styleClass="label" value="{!wrap.ans.Selected_Answer__c}" rendered="{!wrap.ques.Answer_Format__c == 'Checkbox'}">
+                                        </apex:outputText>
+                                    </apex:outputPanel>
+                                </div>
+                            </div>
+                        </section>
+                    </apex:repeat>
+                </div>
+            </apex:repeat>
+    
+            <div class="qform-footer">
+               <apex:commandButton styleClass="submit" value="Submit" action="{!submitBF}" reRender="wholePage" oncomplete="showAll()">
+               </apex:commandButton>
+
+               <apex:commandButton styleClass="cancel" value="Save as Draft" action="{!quickSaveBF}" ></apex:commandButton>
+               <apex:commandButton styleClass="cancel" value="Cancel" action="{!CancelBF}" immediate="true" html-formnovalidate="formnovalidate"></apex:commandButton>
+            </div>
+
+
+<script type="text/javascript">
+//allows number only
+function AllowNumeric(e)
+{
+    var a = e.charCode;
+    return (a >= 48 && a <= 57);
+ }
+</script> 
+
+        </apex:form>
+    </div>
+
+</apex:page>

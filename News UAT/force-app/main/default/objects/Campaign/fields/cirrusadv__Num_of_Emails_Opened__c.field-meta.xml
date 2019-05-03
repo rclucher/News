@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cirrusadv__Num_of_Emails_Opened__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label># of Emails Opened</label>
+    <summaryFilterItems>
+        <field>CampaignMember.cirrusadv__Num_of_Opens__c</field>
+        <operation>greaterThan</operation>
+        <value>0</value>
+    </summaryFilterItems>
+    <summaryForeignKey>CampaignMember.CampaignId</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <type>Summary</type>
+</CustomField>

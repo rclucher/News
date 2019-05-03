@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>NXX2_Login_reminder_to_new_community_user</fullName>
+        <description>NXX2 Login reminder to new community user</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/NXX2_New_Customer_Login</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>NXX2_Update_Checkbox_To_Send_Email</fullName>
+        <description>This will update the checkbox to send email reminder for login</description>
+        <field>Send_Reminder_Email_For_Login__c</field>
+        <literalValue>1</literalValue>
+        <name>NXX2 Update Checkbox To Send Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>WF001_Update_Sales_team_to_CNG_WA</fullName>
+        <field>Sales_Team__c</field>
+        <literalValue>WA CNG</literalValue>
+        <name>WF001-Update Sales team to CNG WA</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>NXX2_LoginReminderForNewPortalUser</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>User.Email</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.UserType</field>
+            <operation>notEqual</operation>
+            <value>Standard</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.LastLoginDate</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <description>This will send login reminder for new community user</description>
+        <triggerType>onCreateOnly</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>NXX2_Update_Checkbox_To_Send_Email</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>User.CreatedDate</offsetFromField>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>NXX2_Update_Checkbox_To_Send_Email</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>User.CreatedDate</offsetFromField>
+            <timeLength>2</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>NXX2_Update_Checkbox_To_Send_Email</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>User.CreatedDate</offsetFromField>
+            <timeLength>3</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>WF001-Update Sales team to CNG WA</fullName>
+        <actions>
+            <name>WF001_Update_Sales_team_to_CNG_WA</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>contains</operation>
+            <value>CNG</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

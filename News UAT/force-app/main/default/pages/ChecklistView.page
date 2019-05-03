@@ -1,0 +1,25 @@
+<apex:page standardController="QA_Checklist__c" extensions="ChecklistViewCtrl" showHeader="false" sidebar="false">
+<style type="text/css">
+td {
+	width: 400px;
+}
+</style>
+	<apex:form style="padding-left: 10px">
+	<apex:repeat value="{!listWrap}" var="itemwrap">
+		<apex:panelGrid columns="3" cellpadding="0px" cellspacing="0px ">
+		<apex:outputText value="{!itemwrap.item.Item__c}" />
+		<apex:selectRadio value="{!itemwrap.value}" >
+	        <apex:selectOptions value="{!values}"/>
+	     </apex:selectRadio>
+	     <apex:outputPanel >
+	     <apex:outputLabel title="Note:" value="Note: "/>
+	     <apex:inputText value="{!itemwrap.item.Note__c}" />
+	     </apex:outputPanel>
+		<br />
+		</apex:panelGrid>
+	</apex:repeat>
+	<div align="center" draggable="false" >
+		<apex:commandButton style="width: 60px; " value="Save" action="{!save}" oncomplete="window.top.location='/{!objectid}'"/>
+	</div>
+	</apex:form>
+</apex:page>

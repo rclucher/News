@@ -1,0 +1,24 @@
+<apex:page controller="AT_AccountHierarchy" title="Hierarchy" standardStylesheets="false" sidebar="false" lightningStylesheets="true" name="AT_AccountHierarchy" readOnly="true" showHeader="false">
+  <div id="AT_AccountHierarchyComponent"/>
+  <apex:includeLightning />
+  
+  <script>
+    function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+	var queryID = getUrlVars()["id"];
+    var accountName = getUrlVars()["accName"].replace(/\+/g," ");
+    document.title = 'Hierarchy - '+accountName;
+
+    $Lightning.use("c:AT_AccountHierarchyApp", function() {
+                $Lightning.createComponent(
+                    "c:AT_AccountHierarchy",
+                    {recordId: queryID},
+                    "AT_AccountHierarchyComponent");
+                });
+  </script>
+</apex:page>

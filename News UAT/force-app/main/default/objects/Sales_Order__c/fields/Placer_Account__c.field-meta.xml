@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Placer_Account__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Placer Account on Order</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Placer – The account that places the booking request with us.</inlineHelpText>
+    <label>Placer Account</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Sales Orders (Placer)</relationshipLabel>
+    <relationshipName>Sales_Orders_Placer</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

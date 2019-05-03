@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bug</fullName>
+    <active>true</active>
+    <description>Tracks bugs</description>
+    <label>Bug</label>
+    <picklistValues>
+        <picklist>Business_Value__c</picklist>
+        <values>
+            <fullName>Evolution requested has a negative impact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No impact</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Positive impact on business value</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Communication_needed__c</picklist>
+        <values>
+            <fullName>End User Documentation Update</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Home Page Communication</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Training Webinar</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Data_Accuracy__c</picklist>
+        <values>
+            <fullName>Evolution requested has a negative impact on data quality</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not relevant</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Reduces risk of error on a importance information %28example %3A direct link with cost or revenue%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Derived_Urgency__c</picklist>
+        <values>
+            <fullName>Critical</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low %28Nice to have%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medium</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Design_Impact__c</picklist>
+        <values>
+            <fullName>Communication to Design Team</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gap Analysis with Release</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Workshop</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Development_Component__c</picklist>
+        <values>
+            <fullName>Accounts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cases</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contacts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dashboards</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Opportunities</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reports</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Security Settings</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LOE_Hours__c</picklist>
+        <values>
+            <fullName>%3C 1 hour</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%3E 160 hours</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1 to 8 hours</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>40%2B to 160 hours</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>8%2B to 40 hours</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>New_Process__c</picklist>
+        <values>
+            <fullName>High impact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low impact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not relevant</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority__c</picklist>
+        <values>
+            <fullName>Critical</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medium</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Productivity__c</picklist>
+        <values>
+            <fullName>Evolution requested has a negative impact on productivity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Functional response time or process duration reduced</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not relevant</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Closed %28Duplicate%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed %28Not An Issue%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed %28Question Answered%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed %28Verified%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed %28Working As Designed%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fix Needed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Review %2F In Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>On Hold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Re-Open</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ready for Production</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ready for UAT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Test in Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Work Complete</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Bug Fix</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Feature Request</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gap</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Question</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>User Management</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>User_Friendliness__c</picklist>
+        <values>
+            <fullName>Evolution requested has a negative impact on user friendliness</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not relevant</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Positive impact on user friendliness</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>User_or_Group_Impacted__c</picklist>
+        <values>
+            <fullName>All</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Business Unit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Country</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Individual</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Region</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unknown</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Workaround__c</picklist>
+        <values>
+            <fullName>Difficult workaround %28effort to make it happen%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Existing satisfactory alternative method</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No alternative or unacceptable alternative method</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not relevant</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Reasonable workaround %28effort to make it happen%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

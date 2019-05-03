@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Object_Name__c</fullName>
+    <description>This picklist defines the objects that can be used in a Data Filter
+Please be aware that any changes to the values in this list will require code changes in the CS_Questionnaire_Controller class</description>
+    <externalId>false</externalId>
+    <label>Object Name</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>cscfga__Product_Configuration__c</fullName>
+                <default>false</default>
+                <label>Product Configuration</label>
+            </value>
+            <value>
+                <fullName>Opportunity</fullName>
+                <default>false</default>
+                <label>Opportunity</label>
+            </value>
+            <value>
+                <fullName>csmso__Sales_Order__c</fullName>
+                <default>false</default>
+                <label>Sales Order</label>
+            </value>
+            <value>
+                <fullName>Product_Order__c</fullName>
+                <default>false</default>
+                <label>Product Order</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

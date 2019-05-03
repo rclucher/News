@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Type_c__c</fullName>
+    <externalDeveloperName>Sub_Type__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Sub Type</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Appraisals</fullName>
+                <default>false</default>
+                <label>Appraisals</label>
+            </value>
+            <value>
+                <fullName>Bookings</fullName>
+                <default>false</default>
+                <label>Bookings</label>
+            </value>
+            <value>
+                <fullName>Cold call</fullName>
+                <default>false</default>
+                <label>Cold call</label>
+            </value>
+            <value>
+                <fullName>Proposal/Email/Fax follow up</fullName>
+                <default>false</default>
+                <label>Proposal/Email/Fax follow up</label>
+            </value>
+            <value>
+                <fullName>Proposals</fullName>
+                <default>false</default>
+                <label>Proposals</label>
+            </value>
+            <value>
+                <fullName>Quotes</fullName>
+                <default>false</default>
+                <label>Quotes</label>
+            </value>
+            <value>
+                <fullName>Re-solicitation</fullName>
+                <default>false</default>
+                <label>Re-solicitation</label>
+            </value>
+            <value>
+                <fullName>Up-sell/cross sell</fullName>
+                <default>false</default>
+                <label>Up-sell/cross sell</label>
+            </value>
+            <value>
+                <fullName>Warm calls</fullName>
+                <default>false</default>
+                <label>Warm calls</label>
+            </value>
+            <value>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+                <label>Marketing</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

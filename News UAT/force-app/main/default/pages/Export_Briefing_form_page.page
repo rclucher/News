@@ -1,0 +1,3 @@
+<apex:page standardController="Order__c" extensions="Export_Briefing_Form_ctrl" action="{!Export_Briefing_mthd}">
+    <apex:pageMessages id="showmsg"></apex:pageMessages>
+</apex:page>

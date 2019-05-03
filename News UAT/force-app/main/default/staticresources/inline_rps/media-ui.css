@@ -1,0 +1,22 @@
+.select2-container .select2-choice > .select2-chosen {
+	height: 2rem;
+	font-size: 100%;
+}
+
+.select2-drop.select2-drop-active {
+	overflow: hidden;
+	border-top: 1px solid #5897fb;
+}
+.select2-drop .select2-search {
+	padding-top: 4px;
+}
+.select2-drop.select2-drop-above {
+	border-bottom: 1px solid #5897fb;
+}
+.select2-drop.select2-drop-above .select2-search {
+	padding-top: 0;
+}
+
+article.slds-card .slds-table a.select2-choice {
+	color: #444;
+}

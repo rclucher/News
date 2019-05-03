@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Response_Comment__c</fullName>
+    <description>Response Comment from the latest Campaign Response</description>
+    <externalId>false</externalId>
+    <label>Latest Response Comment</label>
+    <length>1000</length>
+    <type>LongTextArea</type>
+    <visibleLines>4</visibleLines>
+</CustomField>

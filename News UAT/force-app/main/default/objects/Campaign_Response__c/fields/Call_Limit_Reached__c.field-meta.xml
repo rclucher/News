@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Call_Limit_Reached__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Set automatically when the Campaign&#39;s Call Limit is hit by this response</description>
+    <externalId>false</externalId>
+    <label>Call Limit Reached</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

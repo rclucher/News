@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JDE_Publication_Code__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(Owner.Sales_Team__c, 
+  &quot;QLD Metro&quot;, &quot;9006&quot;,
+  &quot;QLD Cairns&quot;,&quot;9007&quot;,
+  &quot;QLD Townsville&quot;,&quot;9008&quot;,
+  &quot;QLD Community&quot;, &quot;9009&quot;,
+  &quot;QLD Gold Coast&quot;, &quot;9010&quot;,
+  &quot;VIC Metro&quot;, &quot;9011&quot;,
+  &quot;VIC Community&quot;, &quot;9012&quot;,
+  &quot;NSW Metro&quot;, &quot;9013&quot;,
+  &quot;NSW Community&quot;, &quot;9014&quot;,
+  &quot;SA Metro&quot;, &quot;9015&quot;,
+  &quot;SA Community&quot;, &quot;9016&quot;,
+  &quot;TAS Hobart&quot;,&quot;9019&quot;, 
+  &quot;NT Northern Territory&quot;,&quot;9020&quot;,
+  &quot;NRM&quot;,&quot;9065&quot;,
+  &quot;VIC Geelong&quot;, &quot;9066&quot;,
+  &quot;Community Newspaper Group - CWA&quot;, &quot;9068&quot;,
+  &quot;The Weekly Times&quot;, &quot;9011&quot;,
+  &quot;NewsAdds - Facebook NSW&quot;, &quot;9014&quot;,
+  &quot;NewsAdds - Facebook QLD&quot;, &quot;9009&quot;, 
+  &quot;NewsAdds - Facebook SA&quot;, &quot;9016&quot;,
+  &quot;NewsAdds - Facebook VIC&quot;, &quot;9012&quot;,
+  &quot;NewsAdds - Facebook WA&quot;, &quot;9068&quot;,
+  &quot;NewsAdds - Facebook NT&quot;, &quot;9020&quot;,
+  &quot;NewsAdds - Facebook TAS&quot;, &quot;9019&quot;,
+  &quot;NewsAdds - Facebook VIC Geelong&quot;, &quot;9066&quot;,
+&quot;&quot;)</formula>
+    <label>JDE Publication Code</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

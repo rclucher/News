@@ -1,0 +1,5 @@
+<apex:page controller="AdPointOrder_Controller" >
+    <apex:includeScript value="{!$Resource.JQuery}"/>
+    <iframe src="{!PageBaseURL}/sfdc/Booking/Orders.aspx" width="100%" height="800px" frameborder="0" />    
+    <c:AdPointIframeResizer ></c:AdPointIframeResizer>    
+</apex:page>

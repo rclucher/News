@@ -1,0 +1,7 @@
+<apex:page standardController="Booking__c" extensions="AdPointOrder_Controller" sidebar="{!showHeaderAndSidebar}" showheader="{!showHeaderAndSidebar}">    
+    <apex:iframe frameborder="false" height="800px" width="100%" 
+            src="{!PageBaseURL}/sfdc/Booking/Order.aspx?OrderID={!Booking__c.Name}" 
+            id="fraMain" 
+            scrolling="true"/>                                
+    <c:AdPointIframeResizer ></c:AdPointIframeResizer>
+</apex:page>

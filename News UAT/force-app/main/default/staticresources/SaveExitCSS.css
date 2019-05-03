@@ -1,0 +1,8 @@
+div.csbtn.Save_Exit {
+ border: none;
+ background-color: transparent;
+ background-image: url("/resource/ExitButton");
+
+ background-repeat: no-repeat;
+ cursor: pointer !important;
+}

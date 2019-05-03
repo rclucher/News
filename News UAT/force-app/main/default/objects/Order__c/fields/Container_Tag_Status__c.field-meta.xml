@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Container_Tag_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Container Tag Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Does Not Exist</fullName>
+                <default>false</default>
+                <label>Does Not Exist</label>
+            </value>
+            <value>
+                <fullName>Exists - Have Access</fullName>
+                <default>false</default>
+                <label>Exists - Have Access</label>
+            </value>
+            <value>
+                <fullName>Exists - No Access</fullName>
+                <default>false</default>
+                <label>Exists - No Access</label>
+            </value>
+            <value>
+                <fullName>N/A: Container Tag Not Needed</fullName>
+                <default>false</default>
+                <label>N/A: Container Tag Not Needed</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

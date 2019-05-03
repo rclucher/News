@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Digital_Status__c</fullName>
+    <description>For creation of the Account in Adpoint. Used to control the digital outbound message process with Adpoint.
+
+Pending - Awaiting outbound message to be sent
+Request - outbound message sent
+Active - Exists in Adpoint</description>
+    <externalId>false</externalId>
+    <inlineHelpText>For creation of the Account in Adpoint.</inlineHelpText>
+    <label>Status (Digital)</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pending</fullName>
+                <default>false</default>
+                <label>Pending</label>
+            </value>
+            <value>
+                <fullName>Requested</fullName>
+                <default>false</default>
+                <label>Requested</label>
+            </value>
+            <value>
+                <fullName>Active</fullName>
+                <default>false</default>
+                <label>Active</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,3 @@
+<apex:page controller="InsertionOrder2ClickApproveController" action="{!insertionOrder2ClickApprove}" showHeader="true" sidebar="true">
+    Processing...
+</apex:page>

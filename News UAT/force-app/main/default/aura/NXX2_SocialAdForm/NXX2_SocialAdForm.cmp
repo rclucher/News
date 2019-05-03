@@ -1,0 +1,114 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes" controller="NXX2_SocialAdPageController" access="global">
+    <aura:attribute name="adStatus" type="String" default="Create"/>
+    <aura:attribute name="adType" type="String"/>
+    <aura:attribute name="adDetails" type="Map" default="{uploadedFiles : []}"/>
+    <aura:attribute name="campaignId" type="String"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="parentSocialAdId" type="String"/>
+    <aura:attribute name="processingRequest" type="Boolean" default="false"/>
+    <aura:attribute name="requestMessage" type="String" default="Processing request."/>
+    <aura:registerEvent name="closeModal" type="c:NXX2_CloseModal"/>
+    <aura:registerEvent name="initialiseFileUpload" type="c:NXX2_InitialiseFileUpload"/>
+    <aura:registerEvent name="AdHasBeenUpdated" type="c:NXX2_AdHasBeenUpdated"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="c:NXX2_FileUploadCompleted" action="{!c.postUploadHandler}"/>
+    <c:NXX2_UploadFiles aura:id="fileUploader"></c:NXX2_UploadFiles>
+    <aura:if isTrue="{!v.processingRequest}">
+        <div class="spinner-container">
+            <lightning:spinner aura:id="mySpinner" size="medium"/>
+        </div>
+        <div class="processMessage-container">
+            <div class="process-description">{!v.requestMessage}</div>
+        </div>
+    </aura:if>
+    <div class="notification-container">
+        <lightning:notificationsLibrary aura:id="notifLib"/>
+    </div>
+    <div aura:id="containerDiv" class="create-edit-ad-container">
+        <aura:if isTrue="{!or(equals(v.adStatus,'Create'),not(empty(v.adDetails)))}">
+            <div class="slds-form slds-form_stacked">
+                <aura:if isTrue="{!equals(v.adType,'Lead Generation')}">
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label question-title" for="input-id-01">
+                            Name
+                        </label>
+                        <div class="slds-form-element__control answer-container">
+                            <lightning:input label="Name" name="Name" maxlength="90" value="{!v.adDetails.Form_Name__c}"/>
+                        </div>
+                    </div>
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label question-title" for="input-id-01">
+                            Privacy policy link
+                        </label>
+                        <div class="slds-form-element__control answer-container">
+                            <lightning:input label="Privacy policy link" name="PrivacyPolicyLink" value="{!v.adDetails.Form_Privacy_Policy_Link__c}"/>
+                        </div>
+                    </div>
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label question-title" for="input-id-01">
+                            Thank you page link
+                        </label>
+                        <div class="slds-form-element__control answer-container">
+                            <lightning:input label="Thank you page link" name="ThankYouPageLink" value="{!v.adDetails.Form_Thank_You_Page_Link__c}"/>
+                        </div>
+                    </div>
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label question-title" for="input-id-01">
+                            Client specified form criteria
+                        </label>
+                        <div class="slds-form-element__control answer-container">
+                            <lightning:inputRichText label="Client specified form criteria" value="{!v.adDetails.Form_Client_Specified_Criteria__c}"/>
+                        </div>
+                    </div>
+                    <aura:set attribute="else">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label question-title" for="input-id-01">
+                                Greetings Card
+                                <lightning:helptext
+                                                    content="The automated message that a user sees once entering the Messenger Conversation. We recommend this is created, giving users contacting your brand the best possible experience."
+                                                    />
+                            </label>
+                            <div class="slds-form-element__control answer-container">
+                                <lightning:inputRichText value="{!v.adDetails.Greetings_Card__c}" placeholder="Greetings Card"/>
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label question-title" for="input-id-01">
+                                Quick Replies
+                                <lightning:helptext
+                                                    content="Quick replies allow the user in the Messenger Conversation to select from populated fields that relate to the nature of their enquiry. This also allows your business to quickly be informed of what the user is wanting to know."
+                                                    />
+                            </label>
+                            <div class="slds-form-element__control answer-container">
+                                <lightning:inputRichText value="{!v.adDetails.Quick_Replies__c}" placeholder="Quick Replies"/>
+                            </div>
+                        </div>
+                    </aura:set>
+                </aura:if>
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label question-title" for="input-id-01">
+                        Screenshots
+                    </label>
+                    <div class="screenshots-container">
+                        <aura:iteration items="{!v.adDetails.uploadedFiles}" var="file" indexVar="index">
+                            <div class="screenshot-image-container">
+                                <span data-adIndex="{!index}" onclick="{!c.removeImage}">
+                                    <lightning:icon iconName="utility:close" size="xx-small" alternativeText="close"/>
+                                </span>
+                                <img src="{!file.fileURL}"/>
+                            </div>
+                        </aura:iteration>
+                        <lightning:input type="file" label="Upload Files" name="uploadFiles" multiple="true" accept="image/*" onchange="{! c.UploadFiles }"/>
+                    </div>
+                </div>
+                <div class="slds-form-element button-container-footer">
+                    <lightning:button label="Cancel" title="Neutral action" onclick="{! c.cancelAd }"/>
+                    <lightning:button variant="success" label="Submit" title="Success" onclick="{! c.saveAd }"/>
+                </div>
+            </div>
+            <aura:set attribute="else">
+                <div class="Message-container">Form doesn't exist.</div>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

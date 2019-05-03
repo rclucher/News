@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Overview__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>In this field include details such as: Business lifecycle, business goals, business future plans etc</inlineHelpText>
+    <label>Account Overview</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

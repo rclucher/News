@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Line_Item_Gross_Price__c</fullName>
+    <description>Line Item Gross Price Rollup</description>
+    <externalId>false</externalId>
+    <label>Line Item Cost GST Excl</label>
+    <summarizedField>Booking_Line_Item__c.Gross_Price__c</summarizedField>
+    <summaryFilterItems>
+        <field>Booking_Line_Item__c.Cancelled__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Booking_Line_Item__c.Booking__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

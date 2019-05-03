@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Walk_In_Opportunies</fullName>
+    <booleanFilter>1 and 2</booleanFilter>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.AMOUNT</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>Closure_Summary__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Opportunity_Type__c</field>
+        <operation>equals</operation>
+        <value>Walk-In</value>
+    </filters>
+    <filters>
+        <field>OPPORTUNITY.CLOSE_DATE</field>
+        <operation>equals</operation>
+        <value>LAST_N_DAYS:14</value>
+    </filters>
+    <label>My Walk In Opportunies</label>
+    <sharedTo>
+        <role>NAUS_VIC_Area_Manager_11</role>
+        <role>NAUS_VIC_Area_Manager_21</role>
+        <role>NAUS_VIC_Area_Manager_31</role>
+        <role>NAUS_VIC_FSAM_11</role>
+        <role>NAUS_VIC_FSAM_21</role>
+        <role>NAUS_VIC_FSAM_31</role>
+        <role>NAUS_VIC_FSAM_41</role>
+        <role>NAUS_VIC_FSAM_51</role>
+        <role>NAUS_VIC_FSAM_61</role>
+        <role>NAUS_VIC_GM1</role>
+        <role>NAUS_VIC_Sales_Manager_11</role>
+        <role>NAUS_VIC_Sales_Manager_21</role>
+        <role>NAUS_VIC_Sales_Manager_31</role>
+        <role>NAUS_VIC_Sales_Manager_41</role>
+        <role>NAUS_VIC_Sales_Manager_51</role>
+        <role>NAUS_VIC_Sales_Manager_61</role>
+    </sharedTo>
+</ListView>

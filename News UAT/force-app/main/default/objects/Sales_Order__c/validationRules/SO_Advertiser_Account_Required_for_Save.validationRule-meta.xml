@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SO_Advertiser_Account_Required_for_Save</fullName>
+    <active>true</active>
+    <description>Ensure Advertiser Account is populated prior to Save.</description>
+    <errorConditionFormula>ISBLANK( Advertiser_Account__c )</errorConditionFormula>
+    <errorMessage>The Sales Order must have an Advertiser Account before saving.</errorMessage>
+</ValidationRule>

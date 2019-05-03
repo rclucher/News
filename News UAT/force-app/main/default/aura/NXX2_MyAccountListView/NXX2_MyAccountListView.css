@@ -1,0 +1,25 @@
+.THIS {
+   /* min-width: 20rem;
+    max-width: 30rem; */
+}
+
+
+.THIS .paddingIcon{
+        padding: 0.5rem;
+}
+
+
+.THIS .custom-modal-for-social-ad .modal-container{
+    min-width : 1000px;
+}
+
+@media (max-width: 1200px) {
+    .THIS .custom-modal-for-social-ad .modal-container{
+        min-width : 900px;
+    }
+}
+@media (max-width: 767px) {
+    .THIS .custom-modal-for-social-ad .modal-container{
+        min-width : 550px;
+    }
+}

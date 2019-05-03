@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Delete_Staging_on_complete__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Enable in the Batch Apex to delete the Portfolio_Staging__c object records once the batch has successfully completed</description>
+    <externalId>false</externalId>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <inlineHelpText>Delete after Batch complete for Portfolio Sync</inlineHelpText>
+    <label>Delete Staging on complete</label>
+    <type>Checkbox</type>
+</CustomField>

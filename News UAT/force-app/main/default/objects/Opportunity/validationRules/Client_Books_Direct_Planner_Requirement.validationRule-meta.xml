@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Client_Books_Direct_Planner_Requirement</fullName>
+    <active>true</active>
+    <description>If Customer Books Direct field equals &quot;No&quot;, then Planner account field become mandatory.</description>
+    <errorConditionFormula>AND(
+ISBLANK( Planner_Account__c ) = TRUE,
+OR(
+TEXT( Customer_Books_Direct__c ) = &quot;No&quot; )  )</errorConditionFormula>
+    <errorDisplayField>Planner_Account__c</errorDisplayField>
+    <errorMessage>Planner Account field is required if the customer does not book direct. Please complete Planner account field.</errorMessage>
+</ValidationRule>

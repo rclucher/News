@@ -1,0 +1,37 @@
+<aura:component access="public" implements="flexipage:availableForAllPageTypes">
+    <aura:attribute access="public" type="String" name="title"/>
+    <aura:attribute access="public" type="List" name="scores"/>
+    
+    	<table class="heatmap" style="width: inherit;">
+            <thead>
+                <tr class="heading">
+                    <td colspan="8" style="text-align: left;"><b>{!v.title}</b></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>Score</td>
+                    
+                    <td>0%</td>
+                    <td>20%</td>
+                    <td>40%</td>
+                    <td>60%</td>
+                    <td>80%</td>
+                    <td>100%</td>
+                </tr>
+                <aura:iteration items="{!v.scores}" var="r">
+                    <tr>
+                        <td class="names">{!r.name}</td>
+                        <td>{!r.score}%</td>
+                        <td colspan = "6" style="text-align: left; padding: 0px;">
+                            <div class="p" style="{!'background-color: green; width: ' + r.score + '%; height: 100%;' }">
+                                &nbsp;
+                            </div>
+                        </td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+    
+</aura:component>

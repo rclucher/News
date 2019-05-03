@@ -1,0 +1,38 @@
+<aura:component access="public" implements="flexipage:availableForAllPageTypes">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute access="public" type="String" name="title" default=""/>
+    
+    <aura:attribute access="public" type="List" name="scores"/>
+    <aura:attribute access="public" type="List" name="headings"/>
+    <aura:attribute access="public" type="Integer" name = "headingCount"/>
+
+    <span>
+    <table class="scorecard">
+        <thead>
+            <tr class="heading">
+                <td colspan="{!(v.headingCount + 1)}" style="text-align: left;"><b>{!v.title}</b></td>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <td>&nbsp;</td>
+                <aura:iteration items="{!v.headings}" var="t">
+                    <td>{!t.name}</td>
+                </aura:iteration>
+            </tr>
+            <aura:iteration items="{!v.scores}" var="r">
+                <tr>
+                    <td class="names">{!r.name}</td>
+                    <aura:iteration items="{!r.data}" var="d">
+                        <td class="{!('bordered ' + d.class)}">
+                            {!d.score}%
+                        </td>
+                    </aura:iteration>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+    </span>
+</aura:component>

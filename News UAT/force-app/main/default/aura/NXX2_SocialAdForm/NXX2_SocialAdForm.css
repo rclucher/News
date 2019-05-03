@@ -1,0 +1,97 @@
+.THIS.processMessage-container{
+    position: absolute;
+    width: 50%;
+    top: 60%;
+    left: 50%;
+    text-align: center;
+    z-index: 9051;
+    transform: translate(-50%, -50%);
+    overflow:hidden;
+}
+.THIS .process-description{
+    padding : 5px;
+}
+.THIS .Message-container{
+    padding: 20px;
+    text-align: center;
+}
+.THIS .question-title{
+    font-size: 20px;
+    font-weight: bolder;
+    color: #535962;
+}
+.THIS .slds-form-element__control{
+    font-size: 16px;
+    color: #555555;
+}
+.THIS .answer-container .slds-form-element__label{
+    display:none;
+}
+.THIS .adContent-container .slds-form-element__label{
+    font-size: 16px;
+    color: #535962;
+    font-weight: bold;
+}
+.THIS .adContent-container input{
+    padding: 6px 12px;
+    font-size: 16px;
+    color: #555555;
+}
+.THIS .adContent-container .slds-form-element{
+    border-bottom: none;
+}
+.THIS .button-container-footer{
+    text-align : right;
+}
+.THIS .button-container-footer .slds-button_neutral{
+    color: #333;
+    font-size: 16px;
+}
+.THIS .button-container-footer .slds-button_success{
+    color: #fff;
+    background-color: #535962;
+    border-color: #474c54;
+    font-size: 16px;
+}
+.THIS .sub-details-button-container .slds-form-element__label{
+    display : inline;
+}
+.THIS .screenshots-container{
+    border: dotted;
+    padding: 10px;
+}
+.THIS .screenshot-image-container{
+    display: inline-block;
+    text-align: right;
+    width: 200px;
+    height: 200px;
+    border: solid 1px lightgray;
+}
+.THIS .screenshots-container img{
+    height : 170px;
+    width : 100%;
+    padding: 5px;
+}
+.THIS.create-edit-ad-container .slds-align-middle{
+    padding: 0px;
+    vertical-align: text-top;
+}
+.THIS .slds-file-selector__dropzone{
+        height: 150px;
+    width: 200px;
+}
+.THIS .slds-file-selector__dropzone .slds-file-selector__body{
+    display : block;
+}
+.THIS .slds-file-selector__dropzone .slds-file-selector__button{
+    display: block;
+    padding: 0;
+}
+.THIS .slds-file-selector__dropzone .slds-file-selector__text{
+    display: block;
+    text-align: center;
+    padding-top: 50px;
+}
+.THIS .slds-file-selector__dropzone slot{
+    display : block;
+}

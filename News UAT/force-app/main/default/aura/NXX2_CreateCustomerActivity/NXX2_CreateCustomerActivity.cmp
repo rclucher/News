@@ -1,0 +1,47 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" access="global" controller="NXX2_OverrideButtonController">
+    <aura:attribute name="recordTypeId" type="String"/>
+    <aura:attribute name="comments" type="String"/>
+    <aura:attribute name="mapOfTypeAndComments" type="Map"/>
+    <aura:attribute name="displaySpinner" type="Boolean" default="true"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <lightning:navigation aura:id="navService"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <div>
+    <aura:if isTrue="{!v.displaySpinner}">
+        	<lightning:spinner size="medium"/>
+    </aura:if>
+    <lightning:recordEditForm recordTypeId = "{!v.recordTypeId}"
+                              onload="{!c.handleLoad}"
+                              onerror="{!c.handleError}"
+                              onsubmit="{!c.handleSubmit}"
+                              objectApiName="Customer_Task__c" 
+                              onsuccess ="{!c.handleSuccess }" >
+        <lightning:messages />
+        <div class="slds-grid slds-wrap slds-gutters">
+        	<div class="slds-col slds-size_1-of-2">        
+                <lightning:inputField fieldName="Type__c" onchange="{!c.getComments}" aura:id='type'/>
+            </div>
+            <div class="slds-col slds-size_1-of-2">        
+                <lightning:inputField fieldName="Due_Date__c"/>
+            </div>
+            <div class="slds-col slds-size_1-of-2">        
+                <lightning:inputField fieldName="Comments__c" value="{!v.comments}" aura:id='comments'/>
+            </div>
+            <div class="slds-col slds-size_1-of-2">        
+                <lightning:inputField fieldName="Status__c" />
+            </div>
+            <div class="hidden-field">        
+                <lightning:inputField fieldName="Product_Order__c" aura:id="productOrderLookup"/>
+            </div>
+            <div class="hidden-field">        
+                <lightning:inputField fieldName="Campaign_Order__c" aura:id="campaignOrderLookup"/>
+            </div>
+        </div>
+        <div class="slds-m-top_medium">
+            <lightning:button name="cancel" label="Cancel" onclick="{!c.closeModal}"/>
+            <lightning:button variant="brand" type="submit" name="save" label="Save" />
+        </div>
+    </lightning:recordEditForm>
+        </div>
+</aura:component>

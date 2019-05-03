@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PubProd_Show_in_confirmation_screen_chec</fullName>
+    <active>true</active>
+    <description>In order to check the &#39;Show in quote/ confirmation screen&#39; checkbox, the ad_type must be &#39;Classified&#39; and &#39;active&#39; checkbox also be true.</description>
+    <errorConditionFormula>AND(
+Show_In_Booking_Confirmation_Pub_Screen__c,
+OR(NOT(Ad_Type__c=&#39;Classified&#39;),NOT(Active__c))
+)</errorConditionFormula>
+    <errorDisplayField>Show_In_Booking_Confirmation_Pub_Screen__c</errorDisplayField>
+    <errorMessage>In order to check the &#39;Show in Booking Confirmation screen&#39; checkbox, the ad type must be &#39;Classified&#39; and the Publication product must be active.</errorMessage>
+</ValidationRule>

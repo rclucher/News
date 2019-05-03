@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Note__c</fullName>
+    <defaultValue>&quot;• If the Alert applies to a single Contact of an Account, fill in the Account and Contact name.&quot; &amp; BR() &amp;
+&quot;•  If the Alert applies to the entire Account (any contacts), only include Account name and leave Contact field blank.&quot;  &amp; BR() &amp;
+&quot;• If the Alert is for a Private Party Account, only include Account name and leave Contact field blank.&quot;</defaultValue>
+    <externalId>false</externalId>
+    <label>.</label>
+    <length>2000</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

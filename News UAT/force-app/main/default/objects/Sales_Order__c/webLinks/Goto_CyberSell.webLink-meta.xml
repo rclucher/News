@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Goto_CyberSell</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Goto CyberSell</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>var wshShell;
+var cyberOpen;
+var cyberVersion;
+var bpStatus;
+var salesOrderId;
+var baNum;
+var bookingNum;
+var cyber;
+var conName;
+var homeNum;
+var placerName;
+var placerNumber;
+var salesRep;
+var intgId;
+var bookingProfileId;
+
+
+
+
+try {
+    wshShell = new ActiveXObject(&quot;WScript.Shell&quot;);
+    cyberVersion = &quot;CyberSell v6&quot;;
+    cyberOpen = wshShell.AppActivate(cyberVersion);
+
+    if (cyberOpen) {
+        bpStatus = &quot;Pending&quot;;
+
+        cyber = new ActiveXObject(&quot;CyberSell.Application&quot;);
+        cyber = cyber.WrappedApplication;
+        salesOrderId = &quot;{!Sales_Order__c.Calc_External_id__c}&quot;;
+
+        // Get all values
+        baNum = &quot;{!Sales_Order__c.Account_No__c}&quot;;
+        bookingNum = &quot;&quot;;
+        conName = &quot;{!Sales_Order__c.Creative_Contact_Name__c}&quot;;
+        homeNum = &quot;{!Sales_Order__c.Creative_Contact_Phone__c}&quot;;
+        placerName = &quot;{!Sales_Order__c.Placer_Account_Name__c}&quot;;
+        placerNumber = &quot;{!Sales_Order__c.Placer_Account_Phone__c}&quot;;
+
+        if (conName.replace(/^\s+|\s+$/g, &#39;&#39;) == &quot;&quot;) {
+            conName = placerName;
+            homeNum = placerNumber;
+        }
+
+        intgId = &quot;{!Sales_Order__c.Calc_External_id__c}&quot;;
+        
+            if (baNum != &quot;&quot;) { //Then go to Cybersell, Locate GBA and Create Booking.
+                cyber.Execute(&quot;LocateAccount&quot;, &quot;[Number] = &#39;&quot; + baNum + &quot;&#39;&quot;);
+                if (cyber.Results.Accounts.Count == 1) {
+                    //Next 2 lines are meant to select the Customers tab and select the first item.
+                    cyber.Results.CurrentTab = 0;
+                    cyber.Results.ListIndex = 1;
+                    cyber.Execute(&quot;NewBooking&quot;);
+
+                    //To check if we are on the correct form.
+                    if ((cyber.CurrentForm != null) &amp;&amp; (cyber.CurrentForm.Booking != null) &amp;&amp; (cyber.CurrentForm.Booking.GetField(&quot;^IsNew&quot;)) &amp;&amp; (cyber.CurrentForm.Booking.Account.AccountNumber == baNum)) {
+                        cyber.CurrentForm.Booking.Caller = placerName;
+                        cyber.CurrentForm.Booking.SetField(&quot;^InsertionSets(1).Attributes([Attribute.Code]=&#39;~MATCON&#39;).Detail&quot;, conName);
+                        cyber.CurrentForm.Booking.SetField(&quot;^InsertionSets(1).Attributes([Attribute.Code]=&#39;~MATCON#&#39;).Detail&quot;, homeNum);
+                        cyber.CurrentForm.Booking.SetField(&quot;^Attributes([Attribute.Code]=&#39;~CLRCON#&#39;).Detail&quot;, placerNumber);
+                        cyber.CurrentForm.Booking.SetField(&quot;^Attributes([Attribute.Code]=&#39;~SIEBSO&#39;).Detail&quot;, intgId);
+                    }
+                }
+                else
+                {
+                	alert(&quot;Invalid Booking account number\n&quot; + baNum + &quot; could not be found&quot;);
+                }
+            }
+            else
+            {
+            	alert(&quot;Invalid Booking account number.&quot;);
+            }
+
+        cyber.UpdateGUI();
+    } else {
+        alert(&quot;Unable to go to Cyber$ell. Please ensure that Cyber$ell is fully opened then try again.&quot;);
+    }
+} catch (e) {
+    // Write the generic error message to screen
+    alert(e.toString() + cyber + e.errText + e.errCode);
+} finally {
+    wshShell = null;
+    cyber = null;
+}</url>
+</WebLink>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IncludedIn__c</fullName>
+    <description>As new items are developed, add the solutions here so we can specify where each survey should appear ie if this survey is only for scorecarding then only NVM Scorecards should be selected.</description>
+    <externalId>false</externalId>
+    <label>Included In</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>NVM Scorecards</fullName>
+                <default>false</default>
+                <label>NVM Scorecards</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>3</visibleLines>
+</CustomField>

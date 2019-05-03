@@ -1,0 +1,36 @@
+<apex:page controller="CS_SetDatesForCSVDocumentController" docType="html-5.0">
+    <head>        
+        <apex:pageBlock title="Please enter the start date and the end date">
+            <apex:pageBlockSection id="searchBlock" title="Search">                
+                <apex:form >
+                    <apex:pageMessages />
+                    <div style="width:40%">
+                        <table style="text-align: center;" >
+                            <tr>
+                                <th style="vertical-align: middle"><apex:outputLabel value="Start Date: "/> </th>                                    
+                                <th><apex:input type="date" value="{!startDate}" /></th>
+                            </tr>
+                            <tr>
+                                <th style="vertical-align: middle"><apex:outputLabel value="End Date: "/></th>
+                                <th><apex:input type="date" value="{!endDate}" /></th>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <apex:commandButton value="Search" action="{!getData}" rerender="showDownloadButton,searchBlock"/>
+                    </div>
+                    <div>
+                        <apex:outputLabel value="{!numberOfRecords}" rendered="{!rendered}"/>
+                    </div>
+                </apex:form>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection id="showDownloadButton" title="CSV download">
+                <apex:form >
+                    <div>
+                        <apex:commandButton value="Download CSV File" action="/apex/CS_DownloadDateBasedCSV" rendered="{!rendered}"/>
+                    </div>
+                </apex:form>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </head>
+</apex:page>

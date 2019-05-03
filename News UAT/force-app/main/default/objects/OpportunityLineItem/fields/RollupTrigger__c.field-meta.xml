@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RollupTrigger__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check this box if the Opportunity or Sales Order is updated and the rollup (Sales Summary) process needs to be fired. There is a workflow that will set it back to false ready to be checked again in the future.</description>
+    <externalId>false</externalId>
+    <label>Rollup Trigger</label>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,27 @@
+<aura:component controller='NXX2_GoogleDriveFileBrowserController' implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="uploadConfig" type="Map" default="{
+                                                            'label' : 'Upload Image',
+                                                            'multiple' : false,
+                                                            'accept' : ['.jpg','.png','.jpeg','.mp4']
+                                                            }"/>
+   <aura:attribute name="gdriveUploadedFilesDTO" type="Object"/>
+   
+   <aura:attribute name="proofRecorNumber" type="String" />
+   <aura:attribute name="recordId" type="String" />
+   <aura:attribute name="googleDriveFileId" type="String" />
+   <aura:attribute name="errorMessage" type="String" />
+   <aura:attribute name="isUpdateIsInProgress" type="Boolean" default="false"/>
+   <aura:registerEvent name="googleDriveFileUploadEvent" type="c:NXX2_GoogleDriveFileUploadEvent"/>
+ 
+    <aura:registerEvent name="callShowUploadSpinnerMethodOfParent" type="c:NXX2_GoogleDriveFileUploadProcessingEvent"/>
+ 
+
+
+    <lightning:input 
+                     aura:id="fileId" 
+                     onchange="{!c.UploadFileInGoogleDrive}" 
+                     type="file" 
+                     name="DemoUpload" 
+                     accept="{!v.uploadConfig.accept}"
+                     multiple="{!v.uploadConfig.multiple}"/>
+</aura:component>

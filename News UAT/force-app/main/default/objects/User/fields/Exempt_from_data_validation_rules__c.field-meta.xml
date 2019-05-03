@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exempt_from_data_validation_rules__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>28/2 JT - Created due to previous bad data from Siebel - allows users to update GBA accounts</description>
+    <externalId>false</externalId>
+    <inlineHelpText>NOTE: This does not exempt from all data validation rules. This only exempts users where the Data Validation rule are using this exception!</inlineHelpText>
+    <label>Exempt from data validation rules</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

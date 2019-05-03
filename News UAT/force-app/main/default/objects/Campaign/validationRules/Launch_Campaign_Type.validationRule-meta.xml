@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Launch_Campaign_Type</fullName>
+    <active>true</active>
+    <description>Campaign Type has to be provided before Launch.</description>
+    <errorConditionFormula>AND(
+  ISPICKVAL(Status, &quot;Launched&quot;),
+  ISPICKVAL(NEWS_Campaign_Type__c , &#39;&#39;)
+)</errorConditionFormula>
+    <errorDisplayField>NEWS_Campaign_Type__c</errorDisplayField>
+    <errorMessage>Campaign Type has to be provided before Launch.</errorMessage>
+</ValidationRule>

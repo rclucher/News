@@ -1,0 +1,96 @@
+.THIS table.slds-table {
+    width: 100%;
+    table-layout: fixed;
+    border-bottom: none;
+}
+
+.THIS table.slds-table thead th {
+    width: 20%;
+    text-align: center;
+    /*text-transform: uppercase;*/
+}
+
+.THIS table.slds-table tbody td.day {
+    width: 20%;
+    
+    white-space: inherit;
+  	
+    vertical-align: top;
+    
+    border-right: 1px solid rgb(221, 219, 218);
+}
+
+.THIS table.slds-table tbody td.day:last-child {
+    border-right: none;
+}
+
+.THIS table.slds-table tbody td div {
+    width: 100%;
+	overflow: wrap;
+    
+    padding-bottom: 8px;
+}
+
+.THIS table.slds-table tbody tr:hover {
+    background-color: transparent;
+}
+
+.THIS table.slds-table tbody td:hover {
+    background-color: transparent;
+}
+
+.THIS .slds-card__header {
+    background-color: rgb(243, 242, 242);
+    margin-bottom: 0px;
+    padding-bottom: 12px;
+}
+
+.THIS table.slds-table tbody td li {
+    margin-bottom: 8px;
+}
+
+.THIS footer {
+    margin: 0px;
+}
+
+.THIS .slds-card__body {
+    margin: 0px;
+}
+
+.THIS .slds-card__footer {
+    padding: 0px;
+}
+
+.THIS table.entry {
+    width: inherit;
+    border: none;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.THIS table.entry td {
+    padding: 0px;
+    border: none;
+    vertical-align: top;
+    margin: 0px;
+}
+
+.THIS table.entry td.icon {
+    padding-right: 4px;
+    padding-bottom: 12px;
+    width: inherit;
+}
+
+.THIS table.entry td.link {
+    padding-bottom: 12px;
+    width: 100%;
+    /*white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;*/
+}
+
+.THIS .slds-table td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

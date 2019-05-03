@@ -1,0 +1,472 @@
+<apex:page controller="CtrlFeatureCalendar" id="FeatureCalendarPage" >
+<!--
+  PAGE - SUMMARY:
+  - FullCalendar and DataTables are the 2 3rd party libraries used for Calendar and List View
+  - The List View (DataTable) leverages the core FullCalendar functionality around View navigation (prev next, today, and 3 views)
+  - Standard jQuery Tabs to show/hide is overridden. It uses display:none, which breaks access to FullCalendar JS. Visibility is used instead
+  - jQuery declaration overrides the Salesforce jQuery
+
+-->
+    <style>
+    /*== FIX and OVERRIDE DataTables CSS ==*/
+        table.dataTable thead .sorting_desc {
+            background: url("{!URLFOR($Resource.dataTables_ZIP,'images/')}sort_desc.png") no-repeat center right;
+        }
+        table.dataTable thead .sorting_asc {
+            background: url("{!URLFOR($Resource.dataTables_ZIP,'images/')}sort_asc.png") no-repeat center right;
+        }
+        table.dataTable thead .sorting_both {
+            background: url("{!URLFOR($Resource.dataTables_ZIP,'images/')}sort_both.png") no-repeat center right;
+        }
+    </style>
+   
+    <apex:stylesheet value="{!$Resource.fullcalendar_CSS}" />
+    <apex:stylesheet value="{!$Resource.dataTables_CSS}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.jQueryUI_1_11_2_StartTheme,'jquery-ui.min.css')}"/>
+    <!--<script src="/resource/1416268214000/fullcalendar_jQuery" />-->
+    <script src="/resource/1415082742000/jQuery_1_11_1" />
+    <script src="/resource/1416526912000/jQueryUI_1_11_2_StartTheme/jquery-ui.min.js" />
+    <script src="/resource/1416442691000/dataTables_JS" />
+    <script src="/resource/1416268166000/fullcalendar_JS" />
+    <script src="/resource/1424043417000/JSON3" />
+    
+    <script>
+    var fc$ = jQuery.noConflict();
+    var listViewTable;
+    var featureCalendar;
+    
+    fc$(function() 
+    {           
+              
+        listViewTable = fc$('#listView');
+        featureCalendar = fc$('#calendarView');
+        
+        listViewTable.dataTable({"scrollX":true});
+        
+        featureCalendar.fullCalendar({
+            // general options
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'year,month,basicWeek'
+            },
+            timezone: 'local',
+            editable: false,
+            // update List View Title and View button highlight
+            viewRender: function( view, element ) {
+                listViewTable.DataTable().draw(); 
+                fc$('#listViewContainer').find('h2').html(view.title);
+                
+                var viewsIdMap = {'year':'listViewYear', 'month':'listViewMonth', 'basicWeek':'listViewWeek'};
+                for(var v in viewsIdMap){
+                    var buttonObj = fc$('#' + viewsIdMap[v]);
+                    
+                    if(v == view.name ){
+                        buttonObj.addClass('fc-state-active');
+                    }
+                    else{
+                        buttonObj.removeClass('fc-state-active');
+                    }
+                        
+                }
+            },
+            eventRender: function(event, element, view)
+            {
+               if(view.name == 'month' && event.start.getMonth() !== view.start.getMonth()) { return false; }
+            },
+            events: function(start, end, callback) {
+                /*
+                 * Hook into FullCalendar's Event Source and Refetch to update Calendar and List Views
+                 */
+            
+                //get Filter values
+                var featureNameFVal = document.getElementById('{!$Component.fcForm.featureNameFilter}').value;
+                var productFVal = document.getElementById('{!$Component.fcForm.productFilter}').value;
+                var sectionFVal = document.getElementById('{!$Component.fcForm.sectionFilter}').value;
+                var startDateFVal = fc$('#startDateFilter').val().replace( /(\d{2})\/(\d{2})\/(\d{4})/, "$3-$2-$1 00:00:00");
+                var endDateFVal = fc$('#endDateFilter').val().replace( /(\d{2})\/(\d{2})\/(\d{4})/, "$3-$2-$1 00:00:00");
+               
+                
+                //Build JSON of CheckboxFilters (checked only)
+                var filterCheckboxes = {};
+                fc$('#filterContainer div .filterBlock').each( function(i, obj1) {
+                    var filterGroup = fc$(obj1).attr('id').replace('filterBlock_','');
+                    filterCheckboxes[filterGroup]={};
+                    
+                    fc$(obj1).find('input:checked').each( function(j, obj2) {
+                        var filter = fc$(obj2).attr('id').replace(filterGroup+'_', '');                      
+                        filterCheckboxes[filterGroup][filter] = fc$(obj2).is(':checked');  
+                    });
+                });    
+
+                //APEX Remote action
+                CtrlFeatureCalendar.getJSONFeatures(start,end,
+                    featureNameFVal,productFVal,sectionFVal, startDateFVal, endDateFVal,
+                    JSON.stringify(filterCheckboxes),
+                    function(result, event){
+                        var showDebug = false;
+                        if (event.status && showDebug) {
+                            document.getElementById('debugFullCalendar').innerHTML = result;
+                        } else if (event.type === 'exception' && showDebug) {
+                            document.getElementById("debugFullCalendar").innerHTML = event.message;
+                        }
+                        
+                        var jsonResult = jQuery.parseJSON(result);
+
+                        //assign each Event's startDate and endDate. endDate was necessary as 'end' is a reserved APEX keyword
+                        var updatedJsonResult = [];
+                        var count = 0;
+                        fc$(jsonResult).each(function(i, obj){
+                            fc$(obj).attr('end', fc$(obj).attr('endDate'));
+                            updatedJsonResult[count] = obj;
+                            count++;
+                        });
+
+                        callback(updatedJsonResult);
+                        
+                        
+                        //update List View
+                        listViewTable.DataTable().clear();
+                        var dataTableArray = []; //reformatted JSON
+                        var count = 0;
+                        
+                        fc$(updatedJsonResult).each(function(i, obj){
+                        
+                            //code to hide events in prev/next month in List View: Month. Does not apply for Year/Week
+                            var hideEvent = false;
+                            var featureCalendarView = featureCalendar.fullCalendar('getView');
+                            if(featureCalendarView.name == 'month'&&
+                                fc$.datepicker.formatDate('m', fc$(obj).attr('start')) != fc$.datepicker.formatDate('m', featureCalendarView.start) ){
+                                hideEvent = true;
+                            }
+                            
+                            if(!hideEvent){
+                                dataTableArray[count] = ['<a href=\''+fc$(obj).attr('url')+'\' target=\'new\'>'+fc$(obj).attr('title')+'</a>', 
+                                                     fc$(obj).attr('product'),
+                                                     '<a href=\'mailto:'+fc$(obj).attr('contactEmail')+'\' class=\'emailLink\'><img src=\'/img/icon/mail16.png\'/></a> '+fc$(obj).attr('contactName'),
+                                                     fc$.datepicker.formatDate('D, dd M yy', new Date(fc$(obj).attr('start'))), 
+                                                     (fc$(obj).attr('materialDeadline') ? fc$.datepicker.formatDate('dd M yy', new Date(fc$(obj).attr('materialDeadline'))) : ''),
+                                                     fc$(obj).attr('category')];
+                                count++;
+                            }
+                        });
+                        
+                        listViewTable.DataTable().rows.add(dataTableArray).draw(); 
+                        fc$('#listViewContainer').find('h2').html(featureCalendar.fullCalendar('getView').title);
+                                      
+                    }
+                    ,{escape:false}
+                );
+            },
+            eventClick: function(event) {
+                if (event.url) {
+                    window.open(event.url);
+                    return false;
+                }
+            }
+        });
+        
+        //jQUERY UI
+        fc$( "#fcViewTab" ).tabs({
+            activate: function( event, ui ) {
+                ui.newPanel.removeClass('visuallyhidden');
+                ui.oldPanel.show();
+                ui.oldPanel.addClass('visuallyhidden'); 
+                featureCalendar.fullCalendar('render');
+                 
+            }
+        });        
+        fc$( "#fcCheckboxFilterTab" ).tabs(); 
+        fc$( ".singleAccordion" ).accordion({collapsible:true,heightStyle:"content"});
+        fc$( ".fcFilterBtn" ).button();
+        fc$( ".fcBasicFilterRightBtn" ).button();
+        fc$( "#startDateFilter" ).datepicker({
+            dateFormat:'dd/mm/yy'
+        });
+        fc$( "#endDateFilter" ).datepicker({
+            dateFormat:'dd/mm/yy'
+        });
+        
+        
+    });
+    
+    function refreshCalendar(){
+        featureCalendar.fullCalendar('refetchEvents');
+    }
+    
+    function checkAll(cb)
+    {
+        var checkboxes = fc$('.'+fc$(cb).attr('class').split(' ')[0]);
+        
+        for(var i in checkboxes){
+            checkboxes[i].checked = cb.checked;  
+        }              
+    }  
+    
+    function clearFilters()
+    {            
+        fc$('.checkFilters').each(function(i, obj){
+            fc$(obj).prop('checked', false);              
+        });  
+        
+        
+        document.getElementById('{!$Component.fcForm.featureNameFilter}').value = '';
+        document.getElementById('{!$Component.fcForm.productFilter}').value = '';
+        document.getElementById('{!$Component.fcForm.sectionFilter}').value = '';
+        fc$('#startDateFilter').val('');
+        fc$('#endDateFilter').val('');
+        
+        refreshCalendar();
+        
+    } 
+    
+    </script>
+    
+    <style>
+
+        
+        #featureCalendar{
+            margin-top:3em;
+        }
+        
+         .fc-event{
+             padding:4px; 
+             font-size:10px;
+         }
+        
+        .fc-header-title{
+            font-size:1.5em;
+        }
+        
+        .fcBasicFilterCenter{
+            text-align:center;
+        }
+        
+        .fcBasicFilterRightBtn{
+            float:right;
+        }
+        
+        .fcBasicFilters{
+            margin-right:1em;
+            margin-bottom:1em;
+        }
+        
+        /* ==== SECTIONS ==== */
+        .divBlock{
+           display:inline-block; 
+           width:100%;
+           margin-bottom:0.5em;
+        }
+        
+        #fcTopBarFilters{
+            margin-bottom:1em;
+        }
+        
+        #fcViewTab{
+           width:78%;
+           max-width:78%;
+           display:inline-block;
+        }
+        
+        #fcCheckboxFilterTab{
+            width: 20%;
+            margin: 0px;
+            float:right;
+        }
+        
+        
+        
+        /* ====CALENDAR VIEW==== */
+        #calendarViewContainer{
+            
+        }
+        
+        #calendarView{
+            margin: 0 auto;
+        }
+        
+        #filterContainer .filterBlock{
+            max-height:15em;
+            overflow-y: scroll;
+            font-size:10px;   
+        }
+        
+        #filterContainer fieldset{
+            
+            margin-bottom:1em;
+        }
+        
+        /*== LIST VIEW==*/
+        #listView{
+            margin-top: 1.5em;
+        }
+        
+        #listView thead td{
+            height:2em;
+        } 
+        
+        <!--#listView .emailLink{
+            font-size:9px;
+        }-->     
+        
+        <!-- == FIXES == -->
+        .visuallyhidden { 
+        <!-- part of override jQuery 'show/hide'  -->
+            position: absolute; 
+            overflow: hidden; 
+            clip: rect(0 0 0 0); 
+            height: 1px; width: 1px; 
+            margin: -1px; padding: 0; border: 0; 
+        }
+        
+        .ui-datepicker{ z-index: 9999 !important;}
+        
+    </style>
+  
+    <!-- Begin Default Content REMOVE THIS -->
+    
+    <apex:form id="fcForm">
+
+    <div id='featureCalendar'>
+    
+    
+    <div id="fcHeaderBar" class="divBlock">  
+        <input id="fcFeatureMgmtBtn" class="fcBasicFilterRightBtn" type="button" value="Feature Management" onclick="window.open('{!URLFOR($Action.Feature__c.List, $ObjectType.Feature__c)}')"/> 
+       
+        
+    </div>
+         
+    <div id='fcTopBarFilters' class="singleAccordion">
+        <h3> <a href="#">Basic Filters</a></h3>
+        <div>
+            Feature Name: <apex:inputText id="featureNameFilter" label="Feature Name" value="{!featureNameFilter}" styleClass="fcBasicFilters"/>
+            Product:
+            <apex:selectList id="productFilter" value="{!productFilter}"
+                     size="1" required="false" styleClass="fcBasicFilters">
+                <apex:selectOptions value="{!productFilterOptions}"/>
+            </apex:selectList>
+            
+            Section:
+            <apex:selectList id="sectionFilter" value="{!sectionFilter}"
+                     size="1" required="false" styleClass="fcBasicFilters">
+                <apex:selectOptions value="{!sectionFilterOptions}"/>
+            </apex:selectList>
+            
+            
+            <input id="fcExportBtn1" class="fcBasicFilterRightBtn" type="button" value="Export/Print (Basic filters)" 
+                onclick="refreshCalendar(); window.open('/00O90000008H8Z1?pv0='+fc$.datepicker.formatDate('mm/dd/yy', featureCalendar.fullCalendar('getView').start)+
+                                                   '&pv1='+fc$.datepicker.formatDate('mm/dd/yy', featureCalendar.fullCalendar('getView').end)+
+                                                   '&pv2='+document.getElementById('{!$Component.fcForm.featureNameFilter}').value+
+                                                   '&pv3='+document.getElementById('{!$Component.fcForm.productFilter}').value+
+                                                   '&pv4='+document.getElementById('{!$Component.fcForm.sectionFilter}').value);" title="Basic Filters only"/>
+
+            
+            <br />
+            Features After Date: <input type="text" id="startDateFilter" size="10" value="{!startDateFilter}" class="fcBasicFilters" />  
+            Features Before Date: <input type="text" id="endDateFilter" size="10" value="{!endDateFilter}" class="fcBasicFilters" />
+            
+            
+            
+            <div class="fcBasicFilterCenter">
+            <input id="fcFilterBtn1" class="fcFilterBtn" type="button" value="Apply All Filters" onclick="refreshCalendar()"/>
+            <input id="fcExportBtn1" class="fcFilterBtn" type="button" value="Clear Filters" onclick="clearFilters()" />
+            </div>
+            
+        </div>
+        
+    </div>
+    
+    <div id="fcCheckboxFilterTab">
+        <ul>
+            <li><a href="#filterContainer">Check Filters</a></li>
+        </ul>
+        <div id="filterContainer">
+
+            <apex:pageBlock >
+                <apex:repeat value="{!checkboxFilterMap}" var="filter">
+                    <fieldset>
+                        <legend><input type="checkbox" id="checkAllFilter_{!filter}" onclick="checkAll(this);" class="filter_{!filter} checkFilters"/>{!filter}</legend>
+                        <div id="filterBlock_{!filter}" class="filterBlock">
+                        <apex:repeat value="{!checkboxFilterMap[filter]}" var="filterOption">
+                            <input type="checkbox" id="{!filter}_{!filterOption}" class="filter_{!filter} checkFilters"/> 
+                            <apex:outputText value="{!LEFT(filterOption, 80)}">
+                            </apex:outputText> <br />
+                        </apex:repeat>
+                        </div>
+                   </fieldset>
+                </apex:repeat>
+                <input class="fcFilterBtn" type="button" value="Apply All Filters" onclick="refreshCalendar()"/>
+            </apex:pageBlock>
+        </div>
+    </div>
+
+        
+        <div id="fcViewTab">
+            <ul>
+                <li><a href="#calendarViewContainer">Calendar View</a></li>
+                <li><a href="#listViewContainer">List View</a></li>
+            </ul>
+            <div id="calendarViewContainer">
+
+                <div id="calendarView"></div>
+                
+                <div id="fcBottomBarLegend" class="singleAccordion">
+                    <h3> <a href="#">Category Colours</a></h3>
+                    <div>
+                        <apex:repeat value="{!categoryColours}" var="category">
+                            <span style="border:1px solid black; background-color:{!categoryColours[category]}; display:inline-block; width:1em; height:1em;"> </span> {!category} <br />
+                        </apex:repeat>
+                    </div>
+                </div>
+            </div>
+            <div id="listViewContainer">
+                <table class="fc-header" style="width:100%">
+                    <tbody>
+                        <tr>
+                            <td class="fc-header-left">
+                                <span class="fc-button fc-button-prev fc-state-default fc-corner-left" unselectable="on" onclick="featureCalendar.fullCalendar('prev')">
+                                    <span class="fc-text-arrow">‹</span>
+                                </span><span class="fc-button fc-button-next fc-state-default fc-corner-right" unselectable="on" onclick="featureCalendar.fullCalendar('next')"><span class="fc-text-arrow">›</span></span>
+                                <span class="fc-header-space"></span>
+                                <span class="fc-button fc-button-today fc-state-default fc-corner-left fc-corner-right fc-state-disabled" unselectable="on" onclick="featureCalendar.fullCalendar('today')">today</span>
+                            </td>
+                            <td class="fc-header-center">
+                                <span class="fc-header-title">
+                                    <h2></h2>
+                                </span>
+                            </td>
+                            <td class="fc-header-right">
+                                <span id="listViewYear" class="fc-button fc-button-year fc-state-default fc-corner-left" unselectable="on" onclick="featureCalendar.fullCalendar('changeView','year')">year</span><span id="listViewMonth" class="fc-button fc-button-month fc-state-default fc-state-active" unselectable="on" onclick="featureCalendar.fullCalendar('changeView','month'); refreshCalendar();">month</span><span id="listViewWeek" class="fc-button fc-button-basicWeek fc-state-default fc-corner-right" unselectable="on" onclick="featureCalendar.fullCalendar('changeView','basicWeek'); refreshCalendar();">week</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <table id="listView" class="stripe row-border order-column" style="padding-top:1.5em;">
+                    <thead class="ui-accordion-header ui-helper-reset ui-state-hover ui-corner-all">
+                        <tr>
+                            <th>Feature Name</th>
+                            <th>Product</th>
+                            <th>Contact</th>
+                            <th>Feature Date</th>
+                            <th>Material Deadline</th>
+                            <th>Category</th>
+                        </tr>
+                    </thead>
+
+                </table>
+            </div>
+        </div>
+        
+        
+    
+    </div>
+    
+    <p>
+    <apex:outputPanel id="out"></apex:outputPanel>
+    <div id='debugFullCalendar'></div>
+    </p>
+    
+    </apex:form>
+  
+</apex:page>

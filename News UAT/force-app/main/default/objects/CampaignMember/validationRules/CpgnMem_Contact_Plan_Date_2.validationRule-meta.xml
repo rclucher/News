@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CpgnMem_Contact_Plan_Date_2</fullName>
+    <active>true</active>
+    <description>A Contact Plan Date cannot be set if the Response Type is &quot;Follow Up&quot; or &quot;No Sales Call&quot;</description>
+    <errorConditionFormula>AND(
+OR( ISPICKVAL( Response_Type__c, &#39;Follow Up&#39;), 
+  ISPICKVAL( Response_Type__c, &#39;No Sales Call&#39;)),
+
+  NOT(ISBLANK( Contact_Plan_Date__c )))</errorConditionFormula>
+    <errorDisplayField>Contact_Plan_Date__c</errorDisplayField>
+    <errorMessage>A Contact Plan Date can only be set for Response Type of &#39;Yes&#39; or &#39;No&#39;.</errorMessage>
+</ValidationRule>

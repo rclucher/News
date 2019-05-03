@@ -1,0 +1,2202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Industry_Code_NZ_c__c</fullName>
+    <externalDeveloperName>Industry_Code_NZ__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Industry Code NZ</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>11 - Bleaches</fullName>
+                <default>false</default>
+                <label>11 - Bleaches</label>
+            </value>
+            <value>
+                <fullName>12 - Disinfectants</fullName>
+                <default>false</default>
+                <label>12 - Disinfectants</label>
+            </value>
+            <value>
+                <fullName>13 - Toilet, Bath</fullName>
+                <default>false</default>
+                <label>13 - Toilet, Bath</label>
+            </value>
+            <value>
+                <fullName>14 - Cleansers</fullName>
+                <default>false</default>
+                <label>14 - Cleansers</label>
+            </value>
+            <value>
+                <fullName>15 - Detergents</fullName>
+                <default>false</default>
+                <label>15 - Detergents</label>
+            </value>
+            <value>
+                <fullName>16 - Laun Det,Softnr</fullName>
+                <default>false</default>
+                <label>16 - Laun Det,Softnr</label>
+            </value>
+            <value>
+                <fullName>1Z - To be allocated</fullName>
+                <default>false</default>
+                <label>1Z - To be allocated</label>
+            </value>
+            <value>
+                <fullName>21 - Appl/Light Ret</fullName>
+                <default>false</default>
+                <label>21 - Appl/Light Ret</label>
+            </value>
+            <value>
+                <fullName>23 - Dishwashers</fullName>
+                <default>false</default>
+                <label>23 - Dishwashers</label>
+            </value>
+            <value>
+                <fullName>24 - Electrical Misc</fullName>
+                <default>false</default>
+                <label>24 - Electrical Misc</label>
+            </value>
+            <value>
+                <fullName>25 - Fridge/Freezer</fullName>
+                <default>false</default>
+                <label>25 - Fridge/Freezer</label>
+            </value>
+            <value>
+                <fullName>26 - Kitchn Applncs</fullName>
+                <default>false</default>
+                <label>26 - Kitchn Applncs</label>
+            </value>
+            <value>
+                <fullName>27 - Ovens,Elec&amp;Gas</fullName>
+                <default>false</default>
+                <label>27 - Ovens,Elec&amp;Gas</label>
+            </value>
+            <value>
+                <fullName>28 - Sound Systems</fullName>
+                <default>false</default>
+                <label>28 - Sound Systems</label>
+            </value>
+            <value>
+                <fullName>29 - TV,Video Rec</fullName>
+                <default>false</default>
+                <label>29 - TV,Video Rec</label>
+            </value>
+            <value>
+                <fullName>2A - Wash Mach,Dryer</fullName>
+                <default>false</default>
+                <label>2A - Wash Mach,Dryer</label>
+            </value>
+            <value>
+                <fullName>2B - Pers Elec Prod</fullName>
+                <default>false</default>
+                <label>2B - Pers Elec Prod</label>
+            </value>
+            <value>
+                <fullName>31 - Bedding</fullName>
+                <default>false</default>
+                <label>31 - Bedding</label>
+            </value>
+            <value>
+                <fullName>32 - Carpet</fullName>
+                <default>false</default>
+                <label>32 - Carpet</label>
+            </value>
+            <value>
+                <fullName>33 - Floor Furn Ret</fullName>
+                <default>false</default>
+                <label>33 - Floor Furn Ret</label>
+            </value>
+            <value>
+                <fullName>34 - Furniture</fullName>
+                <default>false</default>
+                <label>34 - Furniture</label>
+            </value>
+            <value>
+                <fullName>35 - Soft Furnish</fullName>
+                <default>false</default>
+                <label>35 - Soft Furnish</label>
+            </value>
+            <value>
+                <fullName>37 - Furniture Removal</fullName>
+                <default>false</default>
+                <label>37 - Furniture Removal</label>
+            </value>
+            <value>
+                <fullName>41 - Solid Fuels</fullName>
+                <default>false</default>
+                <label>41 - Solid Fuels</label>
+            </value>
+            <value>
+                <fullName>42 - Water Heating</fullName>
+                <default>false</default>
+                <label>42 - Water Heating</label>
+            </value>
+            <value>
+                <fullName>43 - Retail</fullName>
+                <default>false</default>
+                <label>43 - Retail</label>
+            </value>
+            <value>
+                <fullName>44 - Airconditioning</fullName>
+                <default>false</default>
+                <label>44 - Airconditioning</label>
+            </value>
+            <value>
+                <fullName>46 - ElecGasHeat</fullName>
+                <default>false</default>
+                <label>46 - ElecGasHeat</label>
+            </value>
+            <value>
+                <fullName>5A - Air Fresheners</fullName>
+                <default>false</default>
+                <label>5A - Air Fresheners</label>
+            </value>
+            <value>
+                <fullName>5B - Cookware</fullName>
+                <default>false</default>
+                <label>5B - Cookware</label>
+            </value>
+            <value>
+                <fullName>5C - HouseProd- Misc</fullName>
+                <default>false</default>
+                <label>5C - HouseProd- Misc</label>
+            </value>
+            <value>
+                <fullName>5D - Insecticides</fullName>
+                <default>false</default>
+                <label>5D - Insecticides</label>
+            </value>
+            <value>
+                <fullName>5E - Kitchenware</fullName>
+                <default>false</default>
+                <label>5E - Kitchenware</label>
+            </value>
+            <value>
+                <fullName>61 - Bags, Luggage</fullName>
+                <default>false</default>
+                <label>61 - Bags, Luggage</label>
+            </value>
+            <value>
+                <fullName>62 - Personal, Misc</fullName>
+                <default>false</default>
+                <label>62 - Personal, Misc</label>
+            </value>
+            <value>
+                <fullName>63 - Retail</fullName>
+                <default>false</default>
+                <label>63 - Retail</label>
+            </value>
+            <value>
+                <fullName>A1 - Agriculture Srv</fullName>
+                <default>false</default>
+                <label>A1 - Agriculture Srv</label>
+            </value>
+            <value>
+                <fullName>A2 - Animal Remedies</fullName>
+                <default>false</default>
+                <label>A2 - Animal Remedies</label>
+            </value>
+            <value>
+                <fullName>A3 - Chem/Fertiliser</fullName>
+                <default>false</default>
+                <label>A3 - Chem/Fertiliser</label>
+            </value>
+            <value>
+                <fullName>A4 - Corporate</fullName>
+                <default>false</default>
+                <label>A4 - Corporate</label>
+            </value>
+            <value>
+                <fullName>A5 - Farm Bldg/Fence</fullName>
+                <default>false</default>
+                <label>A5 - Farm Bldg/Fence</label>
+            </value>
+            <value>
+                <fullName>A6 - Farm Mach/Equip</fullName>
+                <default>false</default>
+                <label>A6 - Farm Mach/Equip</label>
+            </value>
+            <value>
+                <fullName>A7 - Misc</fullName>
+                <default>false</default>
+                <label>A7 - Misc</label>
+            </value>
+            <value>
+                <fullName>A8 - Retail</fullName>
+                <default>false</default>
+                <label>A8 - Retail</label>
+            </value>
+            <value>
+                <fullName>A9 - Farm Trans Veh</fullName>
+                <default>false</default>
+                <label>A9 - Farm Trans Veh</label>
+            </value>
+            <value>
+                <fullName>AA - Boarding Kennels &amp; Catteries</fullName>
+                <default>false</default>
+                <label>AA - Boarding Kennels &amp; Catteries</label>
+            </value>
+            <value>
+                <fullName>AB - Farm Animals</fullName>
+                <default>false</default>
+                <label>AB - Farm Animals</label>
+            </value>
+            <value>
+                <fullName>AD - Horticulture</fullName>
+                <default>false</default>
+                <label>AD - Horticulture</label>
+            </value>
+            <value>
+                <fullName>AE - Pet Shops</fullName>
+                <default>false</default>
+                <label>AE - Pet Shops</label>
+            </value>
+            <value>
+                <fullName>B1 - Aerated Drinks</fullName>
+                <default>false</default>
+                <label>B1 - Aerated Drinks</label>
+            </value>
+            <value>
+                <fullName>B2 - Beer &amp; Stout</fullName>
+                <default>false</default>
+                <label>B2 - Beer &amp; Stout</label>
+            </value>
+            <value>
+                <fullName>B3 - Coffee</fullName>
+                <default>false</default>
+                <label>B3 - Coffee</label>
+            </value>
+            <value>
+                <fullName>B4 - Fruit Drinks</fullName>
+                <default>false</default>
+                <label>B4 - Fruit Drinks</label>
+            </value>
+            <value>
+                <fullName>B5 - Milk, Cream</fullName>
+                <default>false</default>
+                <label>B5 - Milk, Cream</label>
+            </value>
+            <value>
+                <fullName>B6 - Mineral Water</fullName>
+                <default>false</default>
+                <label>B6 - Mineral Water</label>
+            </value>
+            <value>
+                <fullName>B8 - Spirits</fullName>
+                <default>false</default>
+                <label>B8 - Spirits</label>
+            </value>
+            <value>
+                <fullName>B9 - Powdered Drinks</fullName>
+                <default>false</default>
+                <label>B9 - Powdered Drinks</label>
+            </value>
+            <value>
+                <fullName>BA - Tea</fullName>
+                <default>false</default>
+                <label>BA - Tea</label>
+            </value>
+            <value>
+                <fullName>BB - Wines</fullName>
+                <default>false</default>
+                <label>BB - Wines</label>
+            </value>
+            <value>
+                <fullName>BC-Baby Care</fullName>
+                <default>false</default>
+                <label>BC-Baby Care</label>
+            </value>
+            <value>
+                <fullName>BCC - Misc</fullName>
+                <default>false</default>
+                <label>BCC - Misc</label>
+            </value>
+            <value>
+                <fullName>C1 - Com Consumables</fullName>
+                <default>false</default>
+                <label>C1 - Com Consumables</label>
+            </value>
+            <value>
+                <fullName>C2 - Comp Hardware</fullName>
+                <default>false</default>
+                <label>C2 - Comp Hardware</label>
+            </value>
+            <value>
+                <fullName>C3 - Corporate</fullName>
+                <default>false</default>
+                <label>C3 - Corporate</label>
+            </value>
+            <value>
+                <fullName>C4 - Games</fullName>
+                <default>false</default>
+                <label>C4 - Games</label>
+            </value>
+            <value>
+                <fullName>C5 - Internet</fullName>
+                <default>false</default>
+                <label>C5 - Internet</label>
+            </value>
+            <value>
+                <fullName>C6 - Misc</fullName>
+                <default>false</default>
+                <label>C6 - Misc</label>
+            </value>
+            <value>
+                <fullName>C7 - Network Systems</fullName>
+                <default>false</default>
+                <label>C7 - Network Systems</label>
+            </value>
+            <value>
+                <fullName>C8 - Printers</fullName>
+                <default>false</default>
+                <label>C8 - Printers</label>
+            </value>
+            <value>
+                <fullName>RQ - Computers Ret</fullName>
+                <default>false</default>
+                <label>RQ - Computers Ret</label>
+            </value>
+            <value>
+                <fullName>CA - Software</fullName>
+                <default>false</default>
+                <label>CA - Software</label>
+            </value>
+            <value>
+                <fullName>CB - IT Help Desk &amp; Support</fullName>
+                <default>false</default>
+                <label>CB - IT Help Desk &amp; Support</label>
+            </value>
+            <value>
+                <fullName>CD - Compter Security</fullName>
+                <default>false</default>
+                <label>CD - Compter Security</label>
+            </value>
+            <value>
+                <fullName>CE - Computer Consultants</fullName>
+                <default>false</default>
+                <label>CE - Computer Consultants</label>
+            </value>
+            <value>
+                <fullName>CN-Canned Foods</fullName>
+                <default>false</default>
+                <label>CN-Canned Foods</label>
+            </value>
+            <value>
+                <fullName>D1 - Central Govt</fullName>
+                <default>false</default>
+                <label>D1 - Central Govt</label>
+            </value>
+            <value>
+                <fullName>D2 - Charity Appeals</fullName>
+                <default>false</default>
+                <label>D2 - Charity Appeals</label>
+            </value>
+            <value>
+                <fullName>D3 - Education</fullName>
+                <default>false</default>
+                <label>D3 - Education</label>
+            </value>
+            <value>
+                <fullName>D4 - Elect Suppliers</fullName>
+                <default>false</default>
+                <label>D4 - Elect Suppliers</label>
+            </value>
+            <value>
+                <fullName>D5 - Local Govt</fullName>
+                <default>false</default>
+                <label>D5 - Local Govt</label>
+            </value>
+            <value>
+                <fullName>D6 - Political Party</fullName>
+                <default>false</default>
+                <label>D6 - Political Party</label>
+            </value>
+            <value>
+                <fullName>D7 - Religious Org</fullName>
+                <default>false</default>
+                <label>D7 - Religious Org</label>
+            </value>
+            <value>
+                <fullName>D8 - Community Serv</fullName>
+                <default>false</default>
+                <label>D8 - Community Serv</label>
+            </value>
+            <value>
+                <fullName>DA - Government Health Services</fullName>
+                <default>false</default>
+                <label>DA - Government Health Services</label>
+            </value>
+            <value>
+                <fullName>DB - Childcare &amp; Outside School Hours Care</fullName>
+                <default>false</default>
+                <label>DB - Childcare &amp; Outside School Hours Care</label>
+            </value>
+            <value>
+                <fullName>DD - Children&#39;s Entertainment</fullName>
+                <default>false</default>
+                <label>DD - Children&#39;s Entertainment</label>
+            </value>
+            <value>
+                <fullName>DE - Aged &amp; Disability Support</fullName>
+                <default>false</default>
+                <label>DE - Aged &amp; Disability Support</label>
+            </value>
+            <value>
+                <fullName>DF - Child Welfare, Youth &amp; Family Services</fullName>
+                <default>false</default>
+                <label>DF - Child Welfare, Youth &amp; Family Services</label>
+            </value>
+            <value>
+                <fullName>DH - Churches</fullName>
+                <default>false</default>
+                <label>DH - Churches</label>
+            </value>
+            <value>
+                <fullName>DI - Employment Services</fullName>
+                <default>false</default>
+                <label>DI - Employment Services</label>
+            </value>
+            <value>
+                <fullName>DJ - Justice of the Peace</fullName>
+                <default>false</default>
+                <label>DJ - Justice of the Peace</label>
+            </value>
+            <value>
+                <fullName>DK - Volunteer Work</fullName>
+                <default>false</default>
+                <label>DK - Volunteer Work</label>
+            </value>
+            <value>
+                <fullName>DL - School - Preschool/Kindergarten</fullName>
+                <default>false</default>
+                <label>DL - School - Preschool/Kindergarten</label>
+            </value>
+            <value>
+                <fullName>DM - School - Primary</fullName>
+                <default>false</default>
+                <label>DM - School - Primary</label>
+            </value>
+            <value>
+                <fullName>DN - School - Secondary</fullName>
+                <default>false</default>
+                <label>DN - School - Secondary</label>
+            </value>
+            <value>
+                <fullName>DO - School - Tertiary</fullName>
+                <default>false</default>
+                <label>DO - School - Tertiary</label>
+            </value>
+            <value>
+                <fullName>DQ - Teaching - Vocational</fullName>
+                <default>false</default>
+                <label>DQ - Teaching - Vocational</label>
+            </value>
+            <value>
+                <fullName>DR - Teaching Aides &amp; Special Needs</fullName>
+                <default>false</default>
+                <label>DR - Teaching Aides &amp; Special Needs</label>
+            </value>
+            <value>
+                <fullName>DT - Tutoring</fullName>
+                <default>false</default>
+                <label>DT - Tutoring</label>
+            </value>
+            <value>
+                <fullName>DU - Emergency Services</fullName>
+                <default>false</default>
+                <label>DU - Emergency Services</label>
+            </value>
+            <value>
+                <fullName>DV - Drama/Dance/Music Schools</fullName>
+                <default>false</default>
+                <label>DV - Drama/Dance/Music Schools</label>
+            </value>
+            <value>
+                <fullName>DW - Funeral Directors</fullName>
+                <default>false</default>
+                <label>DW - Funeral Directors</label>
+            </value>
+            <value>
+                <fullName>DX - Environment</fullName>
+                <default>false</default>
+                <label>DX - Environment</label>
+            </value>
+            <value>
+                <fullName>E1 - Amuse/Exhib/Zoo</fullName>
+                <default>false</default>
+                <label>E1 - Amuse/Exhib/Zoo</label>
+            </value>
+            <value>
+                <fullName>E2 - Audio Tapes</fullName>
+                <default>false</default>
+                <label>E2 - Audio Tapes</label>
+            </value>
+            <value>
+                <fullName>E3 - Boat Equip/Ret</fullName>
+                <default>false</default>
+                <label>E3 - Boat Equip/Ret</label>
+            </value>
+            <value>
+                <fullName>E4 - Boats</fullName>
+                <default>false</default>
+                <label>E4 - Boats</label>
+            </value>
+            <value>
+                <fullName>E5 - Books</fullName>
+                <default>false</default>
+                <label>E5 - Books</label>
+            </value>
+            <value>
+                <fullName>E6 - Cinema</fullName>
+                <default>false</default>
+                <label>E6 - Cinema</label>
+            </value>
+            <value>
+                <fullName>E8 - Gyms</fullName>
+                <default>false</default>
+                <label>E8 - Gyms</label>
+            </value>
+            <value>
+                <fullName>E9 - Television</fullName>
+                <default>false</default>
+                <label>E9 - Television</label>
+            </value>
+            <value>
+                <fullName>E10 - Photographers</fullName>
+                <default>false</default>
+                <label>E10 - Photographers</label>
+            </value>
+            <value>
+                <fullName>E11 - Pools</fullName>
+                <default>false</default>
+                <label>E11 - Pools</label>
+            </value>
+            <value>
+                <fullName>E12 - Outdoor Activities</fullName>
+                <default>false</default>
+                <label>E12 - Outdoor Activities</label>
+            </value>
+            <value>
+                <fullName>E13 - Cycle Sales and Service</fullName>
+                <default>false</default>
+                <label>E13 - Cycle Sales and Service</label>
+            </value>
+            <value>
+                <fullName>E14 - Hobby Supplies</fullName>
+                <default>false</default>
+                <label>E14 - Hobby Supplies</label>
+            </value>
+            <value>
+                <fullName>E15 - Outdoor Equipment Retail</fullName>
+                <default>false</default>
+                <label>E15 - Outdoor Equipment Retail</label>
+            </value>
+            <value>
+                <fullName>E16 - Golf Clubs</fullName>
+                <default>false</default>
+                <label>E16 - Golf Clubs</label>
+            </value>
+            <value>
+                <fullName>E17 - Martial Arts</fullName>
+                <default>false</default>
+                <label>E17 - Martial Arts</label>
+            </value>
+            <value>
+                <fullName>E18 - Coaching &amp; Instruction</fullName>
+                <default>false</default>
+                <label>E18 - Coaching &amp; Instruction</label>
+            </value>
+            <value>
+                <fullName>E19 - Tattooists</fullName>
+                <default>false</default>
+                <label>E19 - Tattooists</label>
+            </value>
+            <value>
+                <fullName>E20 - Yoga</fullName>
+                <default>false</default>
+                <label>E20 - Yoga</label>
+            </value>
+            <value>
+                <fullName>EB - Theatre</fullName>
+                <default>false</default>
+                <label>EB - Theatre</label>
+            </value>
+            <value>
+                <fullName>EC - Sport Ass</fullName>
+                <default>false</default>
+                <label>EC - Sport Ass</label>
+            </value>
+            <value>
+                <fullName>ED - Lotteries</fullName>
+                <default>false</default>
+                <label>ED - Lotteries</label>
+            </value>
+            <value>
+                <fullName>EE - Mags / Papers</fullName>
+                <default>false</default>
+                <label>EE - Mags / Papers</label>
+            </value>
+            <value>
+                <fullName>EF - Musical Instr</fullName>
+                <default>false</default>
+                <label>EF - Musical Instr</label>
+            </value>
+            <value>
+                <fullName>EG - Other L&amp;E Ret</fullName>
+                <default>false</default>
+                <label>EG - Other L&amp;E Ret</label>
+            </value>
+            <value>
+                <fullName>EH - Misc</fullName>
+                <default>false</default>
+                <label>EH - Misc</label>
+            </value>
+            <value>
+                <fullName>EI - Photo Equip</fullName>
+                <default>false</default>
+                <label>EI - Photo Equip</label>
+            </value>
+            <value>
+                <fullName>EJ - Sport Equip</fullName>
+                <default>false</default>
+                <label>EJ - Sport Equip</label>
+            </value>
+            <value>
+                <fullName>EK - Sport Goods Ret</fullName>
+                <default>false</default>
+                <label>EK - Sport Goods Ret</label>
+            </value>
+            <value>
+                <fullName>ELT - Toys, Games</fullName>
+                <default>false</default>
+                <label>ELT - Toys, Games</label>
+            </value>
+            <value>
+                <fullName>EP - Wineries/Breweries</fullName>
+                <default>false</default>
+                <label>EP - Wineries/Breweries</label>
+            </value>
+            <value>
+                <fullName>ER - Camping Equipment</fullName>
+                <default>false</default>
+                <label>ER - Camping Equipment</label>
+            </value>
+            <value>
+                <fullName>ES - Adult Entertainment</fullName>
+                <default>false</default>
+                <label>ES - Adult Entertainment</label>
+            </value>
+            <value>
+                <fullName>ET - Fishing</fullName>
+                <default>false</default>
+                <label>ET - Fishing</label>
+            </value>
+            <value>
+                <fullName>EU - Gaming</fullName>
+                <default>false</default>
+                <label>EU - Gaming</label>
+            </value>
+            <value>
+                <fullName>EW - Museum/Galleries</fullName>
+                <default>false</default>
+                <label>EW - Museum/Galleries</label>
+            </value>
+            <value>
+                <fullName>EX - Other Clubs</fullName>
+                <default>false</default>
+                <label>EX - Other Clubs</label>
+            </value>
+            <value>
+                <fullName>F1 - Baby Food</fullName>
+                <default>false</default>
+                <label>F1 - Baby Food</label>
+            </value>
+            <value>
+                <fullName>F2 - Baking aids</fullName>
+                <default>false</default>
+                <label>F2 - Baking aids</label>
+            </value>
+            <value>
+                <fullName>F3 - Biscuits</fullName>
+                <default>false</default>
+                <label>F3 - Biscuits</label>
+            </value>
+            <value>
+                <fullName>F4 - Bread</fullName>
+                <default>false</default>
+                <label>F4 - Bread</label>
+            </value>
+            <value>
+                <fullName>F5 - B&#39;fast Foods</fullName>
+                <default>false</default>
+                <label>F5 - B&#39;fast Foods</label>
+            </value>
+            <value>
+                <fullName>F6 - Butter</fullName>
+                <default>false</default>
+                <label>F6 - Butter</label>
+            </value>
+            <value>
+                <fullName>F7 - Cheese</fullName>
+                <default>false</default>
+                <label>F7 - Cheese</label>
+            </value>
+            <value>
+                <fullName>F8 - Chocolate Bars</fullName>
+                <default>false</default>
+                <label>F8 - Chocolate Bars</label>
+            </value>
+            <value>
+                <fullName>F9 - Confectionery</fullName>
+                <default>false</default>
+                <label>F9 - Confectionery</label>
+            </value>
+            <value>
+                <fullName>F10 - Pasta Noodles</fullName>
+                <default>false</default>
+                <label>F10 - Pasta Noodles</label>
+            </value>
+            <value>
+                <fullName>F11 - Prep Sauces</fullName>
+                <default>false</default>
+                <label>F11 - Prep Sauces</label>
+            </value>
+            <value>
+                <fullName>F12 -Dress,Herbs</fullName>
+                <default>false</default>
+                <label>F12 -Dress,Herbs</label>
+            </value>
+            <value>
+                <fullName>F13 - Meat, Smallg</fullName>
+                <default>false</default>
+                <label>F13 - Meat, Smallg</label>
+            </value>
+            <value>
+                <fullName>F14 - Cake Shops</fullName>
+                <default>false</default>
+                <label>F14 - Cake Shops</label>
+            </value>
+            <value>
+                <fullName>RT - Foodstuffs Distributors</fullName>
+                <default>false</default>
+                <label>RT - Foodstuffs Distributors</label>
+            </value>
+            <value>
+                <fullName>FA - Corporate</fullName>
+                <default>false</default>
+                <label>FA - Corporate</label>
+            </value>
+            <value>
+                <fullName>FB - Crisps,Corn</fullName>
+                <default>false</default>
+                <label>FB - Crisps,Corn</label>
+            </value>
+            <value>
+                <fullName>FC - Desserts</fullName>
+                <default>false</default>
+                <label>FC - Desserts</label>
+            </value>
+            <value>
+                <fullName>FD - Fish</fullName>
+                <default>false</default>
+                <label>FD - Fish</label>
+            </value>
+            <value>
+                <fullName>FF - Petfoods etc</fullName>
+                <default>false</default>
+                <label>FF - Petfoods etc</label>
+            </value>
+            <value>
+                <fullName>FG - Fruit</fullName>
+                <default>false</default>
+                <label>FG - Fruit</label>
+            </value>
+            <value>
+                <fullName>FH - Health</fullName>
+                <default>false</default>
+                <label>FH - Health</label>
+            </value>
+            <value>
+                <fullName>FI - Icecream</fullName>
+                <default>false</default>
+                <label>FI - Icecream</label>
+            </value>
+            <value>
+                <fullName>FJ - Conven Foods</fullName>
+                <default>false</default>
+                <label>FJ - Conven Foods</label>
+            </value>
+            <value>
+                <fullName>FL - Nuts,Rasins</fullName>
+                <default>false</default>
+                <label>FL - Nuts,Rasins</label>
+            </value>
+            <value>
+                <fullName>FM - Canned Food</fullName>
+                <default>false</default>
+                <label>FM - Canned Food</label>
+            </value>
+            <value>
+                <fullName>FN - Poultry</fullName>
+                <default>false</default>
+                <label>FN - Poultry</label>
+            </value>
+            <value>
+                <fullName>FO - Rices,Grains</fullName>
+                <default>false</default>
+                <label>FO - Rices,Grains</label>
+            </value>
+            <value>
+                <fullName>FP - Soups</fullName>
+                <default>false</default>
+                <label>FP - Soups</label>
+            </value>
+            <value>
+                <fullName>FQ - Jams,Spreads</fullName>
+                <default>false</default>
+                <label>FQ - Jams,Spreads</label>
+            </value>
+            <value>
+                <fullName>FS - Vegetables</fullName>
+                <default>false</default>
+                <label>FS - Vegetables</label>
+            </value>
+            <value>
+                <fullName>FT - Dairy Food</fullName>
+                <default>false</default>
+                <label>FT - Dairy Food</label>
+            </value>
+            <value>
+                <fullName>FU - Misc</fullName>
+                <default>false</default>
+                <label>FU - Misc</label>
+            </value>
+            <value>
+                <fullName>FV - Choc Blocks</fullName>
+                <default>false</default>
+                <label>FV - Choc Blocks</label>
+            </value>
+            <value>
+                <fullName>FW - Choc Boxed</fullName>
+                <default>false</default>
+                <label>FW - Choc Boxed</label>
+            </value>
+            <value>
+                <fullName>G1 - Gdn Furn &amp; BBQ</fullName>
+                <default>false</default>
+                <label>G1 - Gdn Furn &amp; BBQ</label>
+            </value>
+            <value>
+                <fullName>RO - Gdn Ctre/Retail</fullName>
+                <default>false</default>
+                <label>RO - Gdn Ctre/Retail</label>
+            </value>
+            <value>
+                <fullName>G3 - Greenhouses</fullName>
+                <default>false</default>
+                <label>G3 - Greenhouses</label>
+            </value>
+            <value>
+                <fullName>G4 - Plants,Seeds</fullName>
+                <default>false</default>
+                <label>G4 - Plants,Seeds</label>
+            </value>
+            <value>
+                <fullName>G5 - Tools/Equip/Mow</fullName>
+                <default>false</default>
+                <label>G5 - Tools/Equip/Mow</label>
+            </value>
+            <value>
+                <fullName>G6 - Landscaping /Gardening Supplies</fullName>
+                <default>false</default>
+                <label>G6 - Landscaping /Gardening Supplies</label>
+            </value>
+            <value>
+                <fullName>H1 - Comm Property</fullName>
+                <default>false</default>
+                <label>H1 - Comm Property</label>
+            </value>
+            <value>
+                <fullName>H2 - Home, Property</fullName>
+                <default>false</default>
+                <label>H2 - Home, Property</label>
+            </value>
+            <value>
+                <fullName>H3 - Property Dev</fullName>
+                <default>false</default>
+                <label>H3 - Property Dev</label>
+            </value>
+            <value>
+                <fullName>H4 - R.E. Agents</fullName>
+                <default>false</default>
+                <label>H4 - R.E. Agents</label>
+            </value>
+            <value>
+                <fullName>H5 - Letting Agents</fullName>
+                <default>false</default>
+                <label>H5 - Letting Agents</label>
+            </value>
+            <value>
+                <fullName>H6 - Property Management</fullName>
+                <default>false</default>
+                <label>H6 - Property Management</label>
+            </value>
+            <value>
+                <fullName>H7 - Rural Real Estate</fullName>
+                <default>false</default>
+                <label>H7 - Rural Real Estate</label>
+            </value>
+            <value>
+                <fullName>H8 - Real Estate Valuers</fullName>
+                <default>false</default>
+                <label>H8 - Real Estate Valuers</label>
+            </value>
+            <value>
+                <fullName>I1 - Fire &amp; General</fullName>
+                <default>false</default>
+                <label>I1 - Fire &amp; General</label>
+            </value>
+            <value>
+                <fullName>I2 - Insur Brokers</fullName>
+                <default>false</default>
+                <label>I2 - Insur Brokers</label>
+            </value>
+            <value>
+                <fullName>I3 - Investment</fullName>
+                <default>false</default>
+                <label>I3 - Investment</label>
+            </value>
+            <value>
+                <fullName>I4 - Life Insurance</fullName>
+                <default>false</default>
+                <label>I4 - Life Insurance</label>
+            </value>
+            <value>
+                <fullName>I5 - Medical</fullName>
+                <default>false</default>
+                <label>I5 - Medical</label>
+            </value>
+            <value>
+                <fullName>I6 - Superannuation</fullName>
+                <default>false</default>
+                <label>I6 - Superannuation</label>
+            </value>
+            <value>
+                <fullName>J1 - Concrete,Cemnt</fullName>
+                <default>false</default>
+                <label>J1 - Concrete,Cemnt</label>
+            </value>
+            <value>
+                <fullName>J2 - Retail</fullName>
+                <default>false</default>
+                <label>J2 - Retail</label>
+            </value>
+            <value>
+                <fullName>J3 - Tools, Equip</fullName>
+                <default>false</default>
+                <label>J3 - Tools, Equip</label>
+            </value>
+            <value>
+                <fullName>J4 - Paper/print eqp</fullName>
+                <default>false</default>
+                <label>J4 - Paper/print eqp</label>
+            </value>
+            <value>
+                <fullName>J5 - Machinery</fullName>
+                <default>false</default>
+                <label>J5 - Machinery</label>
+            </value>
+            <value>
+                <fullName>J6 - Corporate</fullName>
+                <default>false</default>
+                <label>J6 - Corporate</label>
+            </value>
+            <value>
+                <fullName>J7 - Pack Equip</fullName>
+                <default>false</default>
+                <label>J7 - Pack Equip</label>
+            </value>
+            <value>
+                <fullName>J8 - Misc</fullName>
+                <default>false</default>
+                <label>J8 - Misc</label>
+            </value>
+            <value>
+                <fullName>J9 - Forestry</fullName>
+                <default>false</default>
+                <label>J9 - Forestry</label>
+            </value>
+            <value>
+                <fullName>JA - Health, Safety &amp; Environment</fullName>
+                <default>false</default>
+                <label>JA - Health, Safety &amp; Environment</label>
+            </value>
+            <value>
+                <fullName>JB - Import/Export &amp; Customs</fullName>
+                <default>false</default>
+                <label>JB - Import/Export &amp; Customs</label>
+            </value>
+            <value>
+                <fullName>JC - Manufacturing</fullName>
+                <default>false</default>
+                <label>JC - Manufacturing</label>
+            </value>
+            <value>
+                <fullName>JD - Mining</fullName>
+                <default>false</default>
+                <label>JD - Mining</label>
+            </value>
+            <value>
+                <fullName>JE - Natural Resources &amp; Water</fullName>
+                <default>false</default>
+                <label>JE - Natural Resources &amp; Water</label>
+            </value>
+            <value>
+                <fullName>JF - Oil &amp; Gas</fullName>
+                <default>false</default>
+                <label>JF - Oil &amp; Gas</label>
+            </value>
+            <value>
+                <fullName>JG - Picking &amp; Packing</fullName>
+                <default>false</default>
+                <label>JG - Picking &amp; Packing</label>
+            </value>
+            <value>
+                <fullName>JH - Recycling</fullName>
+                <default>false</default>
+                <label>JH - Recycling</label>
+            </value>
+            <value>
+                <fullName>JI - Hardware Supplies</fullName>
+                <default>false</default>
+                <label>JI - Hardware Supplies</label>
+            </value>
+            <value>
+                <fullName>JJ - Biological &amp; Biomedical Sciences</fullName>
+                <default>false</default>
+                <label>JJ - Biological &amp; Biomedical Sciences</label>
+            </value>
+            <value>
+                <fullName>JK - Environmental, Earth &amp; Geosciences</fullName>
+                <default>false</default>
+                <label>JK - Environmental, Earth &amp; Geosciences</label>
+            </value>
+            <value>
+                <fullName>JL - Food Technology &amp; Safety</fullName>
+                <default>false</default>
+                <label>JL - Food Technology &amp; Safety</label>
+            </value>
+            <value>
+                <fullName>JM - Laboratory &amp; Technical Services</fullName>
+                <default>false</default>
+                <label>JM - Laboratory &amp; Technical Services</label>
+            </value>
+            <value>
+                <fullName>JN - Machine Operators</fullName>
+                <default>false</default>
+                <label>JN - Machine Operators</label>
+            </value>
+            <value>
+                <fullName>JO - Math,Stats &amp; Information Sciences</fullName>
+                <default>false</default>
+                <label>JO - Math,Stats &amp; Information Sciences</label>
+            </value>
+            <value>
+                <fullName>JP - Power Generation &amp; Distribution</fullName>
+                <default>false</default>
+                <label>JP - Power Generation &amp; Distribution</label>
+            </value>
+            <value>
+                <fullName>JQ - Surveying</fullName>
+                <default>false</default>
+                <label>JQ - Surveying</label>
+            </value>
+            <value>
+                <fullName>JR - Welders &amp; Boilermakers</fullName>
+                <default>false</default>
+                <label>JR - Welders &amp; Boilermakers</label>
+            </value>
+            <value>
+                <fullName>K1 - Childrenswear</fullName>
+                <default>false</default>
+                <label>K1 - Childrenswear</label>
+            </value>
+            <value>
+                <fullName>K2 - Cloth/Foot ret</fullName>
+                <default>false</default>
+                <label>K2 - Cloth/Foot ret</label>
+            </value>
+            <value>
+                <fullName>K3 - Footwr ex sport</fullName>
+                <default>false</default>
+                <label>K3 - Footwr ex sport</label>
+            </value>
+            <value>
+                <fullName>K4 - Hosiery</fullName>
+                <default>false</default>
+                <label>K4 - Hosiery</label>
+            </value>
+            <value>
+                <fullName>K5 - Jeans</fullName>
+                <default>false</default>
+                <label>K5 - Jeans</label>
+            </value>
+            <value>
+                <fullName>K6 - Menswear</fullName>
+                <default>false</default>
+                <label>K6 - Menswear</label>
+            </value>
+            <value>
+                <fullName>K7 - Misc</fullName>
+                <default>false</default>
+                <label>K7 - Misc</label>
+            </value>
+            <value>
+                <fullName>K8 - Sportwear</fullName>
+                <default>false</default>
+                <label>K8 - Sportwear</label>
+            </value>
+            <value>
+                <fullName>K9 - Underwear/ Ling</fullName>
+                <default>false</default>
+                <label>K9 - Underwear/ Ling</label>
+            </value>
+            <value>
+                <fullName>KA - Womenswear</fullName>
+                <default>false</default>
+                <label>KA - Womenswear</label>
+            </value>
+            <value>
+                <fullName>KB - Fashion Design</fullName>
+                <default>false</default>
+                <label>KB - Fashion Design</label>
+            </value>
+            <value>
+                <fullName>KC - Pattern Makers &amp; Garment Technicians</fullName>
+                <default>false</default>
+                <label>KC - Pattern Makers &amp; Garment Technicians</label>
+            </value>
+            <value>
+                <fullName>KD - Tailors &amp; Dressmakers</fullName>
+                <default>false</default>
+                <label>KD - Tailors &amp; Dressmakers</label>
+            </value>
+            <value>
+                <fullName>KE - Bridal</fullName>
+                <default>false</default>
+                <label>KE - Bridal</label>
+            </value>
+            <value>
+                <fullName>KF - Costume Hire</fullName>
+                <default>false</default>
+                <label>KF - Costume Hire</label>
+            </value>
+            <value>
+                <fullName>L1 - Banks</fullName>
+                <default>false</default>
+                <label>L1 - Banks</label>
+            </value>
+            <value>
+                <fullName>L2 - Bldg Societies</fullName>
+                <default>false</default>
+                <label>L2 - Bldg Societies</label>
+            </value>
+            <value>
+                <fullName>L3 - Credit Cards</fullName>
+                <default>false</default>
+                <label>L3 - Credit Cards</label>
+            </value>
+            <value>
+                <fullName>L4 - Finance Coys</fullName>
+                <default>false</default>
+                <label>L4 - Finance Coys</label>
+            </value>
+            <value>
+                <fullName>L5 - Misc</fullName>
+                <default>false</default>
+                <label>L5 - Misc</label>
+            </value>
+            <value>
+                <fullName>L6 - Debt Collectors</fullName>
+                <default>false</default>
+                <label>L6 - Debt Collectors</label>
+            </value>
+            <value>
+                <fullName>L7 - Stock Brokers</fullName>
+                <default>false</default>
+                <label>L7 - Stock Brokers</label>
+            </value>
+            <value>
+                <fullName>L8 - Valuers</fullName>
+                <default>false</default>
+                <label>L8 - Valuers</label>
+            </value>
+            <value>
+                <fullName>M1 - Auto Services</fullName>
+                <default>false</default>
+                <label>M1 - Auto Services</label>
+            </value>
+            <value>
+                <fullName>M2 - Comm vehicles</fullName>
+                <default>false</default>
+                <label>M2 - Comm vehicles</label>
+            </value>
+            <value>
+                <fullName>M3 - Corp &amp; Assoc</fullName>
+                <default>false</default>
+                <label>M3 - Corp &amp; Assoc</label>
+            </value>
+            <value>
+                <fullName>M4 - Dealer Sale/Srv</fullName>
+                <default>false</default>
+                <label>M4 - Dealer Sale/Srv</label>
+            </value>
+            <value>
+                <fullName>M5 - Equipment Parts</fullName>
+                <default>false</default>
+                <label>M5 - Equipment Parts</label>
+            </value>
+            <value>
+                <fullName>M6 - Equip Parts Ret</fullName>
+                <default>false</default>
+                <label>M6 - Equip Parts Ret</label>
+            </value>
+            <value>
+                <fullName>M7 - Fuels,Oil,Lube</fullName>
+                <default>false</default>
+                <label>M7 - Fuels,Oil,Lube</label>
+            </value>
+            <value>
+                <fullName>M8 - Misc</fullName>
+                <default>false</default>
+                <label>M8 - Misc</label>
+            </value>
+            <value>
+                <fullName>M9 - Oil Coys Corp</fullName>
+                <default>false</default>
+                <label>M9 - Oil Coys Corp</label>
+            </value>
+            <value>
+                <fullName>MA Others + M&#39;bike</fullName>
+                <default>false</default>
+                <label>MA Others + M&#39;bike</label>
+            </value>
+            <value>
+                <fullName>MB - Passenger veh</fullName>
+                <default>false</default>
+                <label>MB - Passenger veh</label>
+            </value>
+            <value>
+                <fullName>MC - Service Stns</fullName>
+                <default>false</default>
+                <label>MC - Service Stns</label>
+            </value>
+            <value>
+                <fullName>MD - Tyres/ Services</fullName>
+                <default>false</default>
+                <label>MD - Tyres/ Services</label>
+            </value>
+            <value>
+                <fullName>MF - Automotive Electrics</fullName>
+                <default>false</default>
+                <label>MF - Automotive Electrics</label>
+            </value>
+            <value>
+                <fullName>MG - Automotive Parts</fullName>
+                <default>false</default>
+                <label>MG - Automotive Parts</label>
+            </value>
+            <value>
+                <fullName>MH - Automotive Repairs</fullName>
+                <default>false</default>
+                <label>MH - Automotive Repairs</label>
+            </value>
+            <value>
+                <fullName>MI - Caravans &amp; Motor Homes</fullName>
+                <default>false</default>
+                <label>MI - Caravans &amp; Motor Homes</label>
+            </value>
+            <value>
+                <fullName>N1 - Acnt, Legal,Tax</fullName>
+                <default>false</default>
+                <label>N1 - Acnt, Legal,Tax</label>
+            </value>
+            <value>
+                <fullName>N2 - Adv.Market Serv</fullName>
+                <default>false</default>
+                <label>N2 - Adv.Market Serv</label>
+            </value>
+            <value>
+                <fullName>N3 - Corporate</fullName>
+                <default>false</default>
+                <label>N3 - Corporate</label>
+            </value>
+            <value>
+                <fullName>N4 - Misc</fullName>
+                <default>false</default>
+                <label>N4 - Misc</label>
+            </value>
+            <value>
+                <fullName>N5 - Psonl/Emp/Train</fullName>
+                <default>false</default>
+                <label>N5 - Psonl/Emp/Train</label>
+            </value>
+            <value>
+                <fullName>N6 - Postal Srvcs</fullName>
+                <default>false</default>
+                <label>N6 - Postal Srvcs</label>
+            </value>
+            <value>
+                <fullName>N7 - Print/Publish</fullName>
+                <default>false</default>
+                <label>N7 - Print/Publish</label>
+            </value>
+            <value>
+                <fullName>N8 - Security Srvcs</fullName>
+                <default>false</default>
+                <label>N8 - Security Srvcs</label>
+            </value>
+            <value>
+                <fullName>NA - Barristers/Solicitors</fullName>
+                <default>false</default>
+                <label>NA - Barristers/Solicitors</label>
+            </value>
+            <value>
+                <fullName>NB - Business Consultants</fullName>
+                <default>false</default>
+                <label>NB - Business Consultants</label>
+            </value>
+            <value>
+                <fullName>NC - Lawyers</fullName>
+                <default>false</default>
+                <label>NC - Lawyers</label>
+            </value>
+            <value>
+                <fullName>ND - Graphic Design</fullName>
+                <default>false</default>
+                <label>ND - Graphic Design</label>
+            </value>
+            <value>
+                <fullName>NE - Litigation &amp; Dispute Resolution</fullName>
+                <default>false</default>
+                <label>NE - Litigation &amp; Dispute Resolution</label>
+            </value>
+            <value>
+                <fullName>NF - Public Relations &amp; Corporate Affairs</fullName>
+                <default>false</default>
+                <label>NF - Public Relations &amp; Corporate Affairs</label>
+            </value>
+            <value>
+                <fullName>NG - Web Design</fullName>
+                <default>false</default>
+                <label>NG - Web Design</label>
+            </value>
+            <value>
+                <fullName>NH - Signs &amp; Signwriters</fullName>
+                <default>false</default>
+                <label>NH - Signs &amp; Signwriters</label>
+            </value>
+            <value>
+                <fullName>NI - Storage Services</fullName>
+                <default>false</default>
+                <label>NI - Storage Services</label>
+            </value>
+            <value>
+                <fullName>NJ - Media</fullName>
+                <default>false</default>
+                <label>NJ - Media</label>
+            </value>
+            <value>
+                <fullName>NK - Production Companies</fullName>
+                <default>false</default>
+                <label>NK - Production Companies</label>
+            </value>
+            <value>
+                <fullName>O1 - Retail</fullName>
+                <default>false</default>
+                <label>O1 - Retail</label>
+            </value>
+            <value>
+                <fullName>O2 - Calculators</fullName>
+                <default>false</default>
+                <label>O2 - Calculators</label>
+            </value>
+            <value>
+                <fullName>O3 - Furn/Fittings</fullName>
+                <default>false</default>
+                <label>O3 - Furn/Fittings</label>
+            </value>
+            <value>
+                <fullName>O4 - Photocopies</fullName>
+                <default>false</default>
+                <label>O4 - Photocopies</label>
+            </value>
+            <value>
+                <fullName>O5 - Stationery</fullName>
+                <default>false</default>
+                <label>O5 - Stationery</label>
+            </value>
+            <value>
+                <fullName>O6 - Misc Equip</fullName>
+                <default>false</default>
+                <label>O6 - Misc Equip</label>
+            </value>
+            <value>
+                <fullName>O6 - Typewriters</fullName>
+                <default>false</default>
+                <label>O6 - Typewriters</label>
+            </value>
+            <value>
+                <fullName>P1 - Chemists</fullName>
+                <default>false</default>
+                <label>P1 - Chemists</label>
+            </value>
+            <value>
+                <fullName>P2 - Cold Remedies</fullName>
+                <default>false</default>
+                <label>P2 - Cold Remedies</label>
+            </value>
+            <value>
+                <fullName>P3 - Corporate</fullName>
+                <default>false</default>
+                <label>P3 - Corporate</label>
+            </value>
+            <value>
+                <fullName>P4 - Diet Slimming</fullName>
+                <default>false</default>
+                <label>P4 - Diet Slimming</label>
+            </value>
+            <value>
+                <fullName>P5 - Dressings</fullName>
+                <default>false</default>
+                <label>P5 - Dressings</label>
+            </value>
+            <value>
+                <fullName>P6 - Health Services</fullName>
+                <default>false</default>
+                <label>P6 - Health Services</label>
+            </value>
+            <value>
+                <fullName>P7 - Tonics/Vitamins</fullName>
+                <default>false</default>
+                <label>P7 - Tonics/Vitamins</label>
+            </value>
+            <value>
+                <fullName>P8 - Sunblock Lotion</fullName>
+                <default>false</default>
+                <label>P8 - Sunblock Lotion</label>
+            </value>
+            <value>
+                <fullName>P9 - Analgesics,ETC</fullName>
+                <default>false</default>
+                <label>P9 - Analgesics,ETC</label>
+            </value>
+            <value>
+                <fullName>PA - Med Cream&amp;Lot</fullName>
+                <default>false</default>
+                <label>PA - Med Cream&amp;Lot</label>
+            </value>
+            <value>
+                <fullName>PB - Miscellaneous</fullName>
+                <default>false</default>
+                <label>PB - Miscellaneous</label>
+            </value>
+            <value>
+                <fullName>PD - Medical Clinics/Hospitals</fullName>
+                <default>false</default>
+                <label>PD - Medical Clinics/Hospitals</label>
+            </value>
+            <value>
+                <fullName>PE - Medical Specialists</fullName>
+                <default>false</default>
+                <label>PE - Medical Specialists</label>
+            </value>
+            <value>
+                <fullName>PI - Midwifery, Neo-Natal, SCN &amp; NICU</fullName>
+                <default>false</default>
+                <label>PI - Midwifery, Neo-Natal, SCN &amp; NICU</label>
+            </value>
+            <value>
+                <fullName>PJ - Natural Therapies &amp; Alternative Medicine</fullName>
+                <default>false</default>
+                <label>PJ - Natural Therapies &amp; Alternative Medicine</label>
+            </value>
+            <value>
+                <fullName>PK - Optometrists</fullName>
+                <default>false</default>
+                <label>PK - Optometrists</label>
+            </value>
+            <value>
+                <fullName>PM - Pharmaceuticals &amp; Medical Devices</fullName>
+                <default>false</default>
+                <label>PM - Pharmaceuticals &amp; Medical Devices</label>
+            </value>
+            <value>
+                <fullName>PN - Physiotherapists</fullName>
+                <default>false</default>
+                <label>PN - Physiotherapists</label>
+            </value>
+            <value>
+                <fullName>PO - Psychology, Counselling &amp; Social Work</fullName>
+                <default>false</default>
+                <label>PO - Psychology, Counselling &amp; Social Work</label>
+            </value>
+            <value>
+                <fullName>PQ - Ambulances</fullName>
+                <default>false</default>
+                <label>PQ - Ambulances</label>
+            </value>
+            <value>
+                <fullName>PS - Chiropractic &amp; Osteopathic</fullName>
+                <default>false</default>
+                <label>PS - Chiropractic &amp; Osteopathic</label>
+            </value>
+            <value>
+                <fullName>PT - Dentists</fullName>
+                <default>false</default>
+                <label>PT - Dentists</label>
+            </value>
+            <value>
+                <fullName>PU - Pathology</fullName>
+                <default>false</default>
+                <label>PU - Pathology</label>
+            </value>
+            <value>
+                <fullName>Q1 -Cosmetics</fullName>
+                <default>false</default>
+                <label>Q1 -Cosmetics</label>
+            </value>
+            <value>
+                <fullName>Q2 - Deodorants</fullName>
+                <default>false</default>
+                <label>Q2 - Deodorants</label>
+            </value>
+            <value>
+                <fullName>Q3 - Facial/T&#39;tissue</fullName>
+                <default>false</default>
+                <label>Q3 - Facial/T&#39;tissue</label>
+            </value>
+            <value>
+                <fullName>Q4 - Perfumes</fullName>
+                <default>false</default>
+                <label>Q4 - Perfumes</label>
+            </value>
+            <value>
+                <fullName>Q5 - Haircare</fullName>
+                <default>false</default>
+                <label>Q5 - Haircare</label>
+            </value>
+            <value>
+                <fullName>Q6 - Male frag.</fullName>
+                <default>false</default>
+                <label>Q6 - Male frag.</label>
+            </value>
+            <value>
+                <fullName>Q7 - Shampoo</fullName>
+                <default>false</default>
+                <label>Q7 - Shampoo</label>
+            </value>
+            <value>
+                <fullName>Q8 -Baby Prod exfood</fullName>
+                <default>false</default>
+                <label>Q8 -Baby Prod exfood</label>
+            </value>
+            <value>
+                <fullName>Q9 - Corp &amp; Misc</fullName>
+                <default>false</default>
+                <label>Q9 - Corp &amp; Misc</label>
+            </value>
+            <value>
+                <fullName>QA - Dental Prod</fullName>
+                <default>false</default>
+                <label>QA - Dental Prod</label>
+            </value>
+            <value>
+                <fullName>QB - Fem Sanitary</fullName>
+                <default>false</default>
+                <label>QB - Fem Sanitary</label>
+            </value>
+            <value>
+                <fullName>QC - Oth Fem Toiltrs</fullName>
+                <default>false</default>
+                <label>QC - Oth Fem Toiltrs</label>
+            </value>
+            <value>
+                <fullName>QD - Oth MaleToiletr</fullName>
+                <default>false</default>
+                <label>QD - Oth MaleToiletr</label>
+            </value>
+            <value>
+                <fullName>QE - Skin Care</fullName>
+                <default>false</default>
+                <label>QE - Skin Care</label>
+            </value>
+            <value>
+                <fullName>QF -Toil Soap&amp;Clnrs</fullName>
+                <default>false</default>
+                <label>QF -Toil Soap&amp;Clnrs</label>
+            </value>
+            <value>
+                <fullName>QG - Beauty</fullName>
+                <default>false</default>
+                <label>QG - Beauty</label>
+            </value>
+            <value>
+                <fullName>R1 - Booksellers</fullName>
+                <default>false</default>
+                <label>R1 - Booksellers</label>
+            </value>
+            <value>
+                <fullName>R2 - Dept Stores</fullName>
+                <default>false</default>
+                <label>R2 - Dept Stores</label>
+            </value>
+            <value>
+                <fullName>R3 - Discount W&#39;hse</fullName>
+                <default>false</default>
+                <label>R3 - Discount W&#39;hse</label>
+            </value>
+            <value>
+                <fullName>R4 - DRTV - Dir Mktg</fullName>
+                <default>false</default>
+                <label>R4 - DRTV - Dir Mktg</label>
+            </value>
+            <value>
+                <fullName>R5 - Dryclean,Lndry</fullName>
+                <default>false</default>
+                <label>R5 - Dryclean,Lndry</label>
+            </value>
+            <value>
+                <fullName>R7 - Function Ctres</fullName>
+                <default>false</default>
+                <label>R7 - Function Ctres</label>
+            </value>
+            <value>
+                <fullName>R9 - Hire Services</fullName>
+                <default>false</default>
+                <label>R9 - Hire Services</label>
+            </value>
+            <value>
+                <fullName>RA - Misc Ret Srvc</fullName>
+                <default>false</default>
+                <label>RA - Misc Ret Srvc</label>
+            </value>
+            <value>
+                <fullName>RB - Sewing Ctres</fullName>
+                <default>false</default>
+                <label>RB - Sewing Ctres</label>
+            </value>
+            <value>
+                <fullName>RC - Shopping Ctres</fullName>
+                <default>false</default>
+                <label>RC - Shopping Ctres</label>
+            </value>
+            <value>
+                <fullName>RD - TV, Video Rent</fullName>
+                <default>false</default>
+                <label>RD - TV, Video Rent</label>
+            </value>
+            <value>
+                <fullName>RG - Jewellers &amp; Watchmakers</fullName>
+                <default>false</default>
+                <label>RG - Jewellers &amp; Watchmakers</label>
+            </value>
+            <value>
+                <fullName>RH - Secondhand Dealers/Antiques</fullName>
+                <default>false</default>
+                <label>RH - Secondhand Dealers/Antiques</label>
+            </value>
+            <value>
+                <fullName>RI - Service Stations</fullName>
+                <default>false</default>
+                <label>RI - Service Stations</label>
+            </value>
+            <value>
+                <fullName>RJ - Weddings</fullName>
+                <default>false</default>
+                <label>RJ - Weddings</label>
+            </value>
+            <value>
+                <fullName>RL - Music/Video</fullName>
+                <default>false</default>
+                <label>RL - Music/Video</label>
+            </value>
+            <value>
+                <fullName>RM - Health &amp; Beauty</fullName>
+                <default>false</default>
+                <label>RM - Health &amp; Beauty</label>
+            </value>
+            <value>
+                <fullName>S1 - Anti Amoking</fullName>
+                <default>false</default>
+                <label>S1 - Anti Amoking</label>
+            </value>
+            <value>
+                <fullName>S2 - Smoking Prods</fullName>
+                <default>false</default>
+                <label>S2 - Smoking Prods</label>
+            </value>
+            <value>
+                <fullName>SZ - To be allocated</fullName>
+                <default>false</default>
+                <label>SZ - To be allocated</label>
+            </value>
+            <value>
+                <fullName>T1 - Accom Domestic</fullName>
+                <default>false</default>
+                <label>T1 - Accom Domestic</label>
+            </value>
+            <value>
+                <fullName>T2 - Accom Internat</fullName>
+                <default>false</default>
+                <label>T2 - Accom Internat</label>
+            </value>
+            <value>
+                <fullName>T3 - Airlines</fullName>
+                <default>false</default>
+                <label>T3 - Airlines</label>
+            </value>
+            <value>
+                <fullName>T4 - Railways</fullName>
+                <default>false</default>
+                <label>T4 - Railways</label>
+            </value>
+            <value>
+                <fullName>T5 - Rental Cars</fullName>
+                <default>false</default>
+                <label>T5 - Rental Cars</label>
+            </value>
+            <value>
+                <fullName>T6 - Ships, Cruises</fullName>
+                <default>false</default>
+                <label>T6 - Ships, Cruises</label>
+            </value>
+            <value>
+                <fullName>T7 - Taxis, Busses</fullName>
+                <default>false</default>
+                <label>T7 - Taxis, Busses</label>
+            </value>
+            <value>
+                <fullName>T8 - Tourism Promot</fullName>
+                <default>false</default>
+                <label>T8 - Tourism Promot</label>
+            </value>
+            <value>
+                <fullName>T9 - Travel Agents</fullName>
+                <default>false</default>
+                <label>T9 - Travel Agents</label>
+            </value>
+            <value>
+                <fullName>TA - Tour Opers Dom</fullName>
+                <default>false</default>
+                <label>TA - Tour Opers Dom</label>
+            </value>
+            <value>
+                <fullName>TB - Tour Opers Int</fullName>
+                <default>false</default>
+                <label>TB - Tour Opers Int</label>
+            </value>
+            <value>
+                <fullName>TC - Holiday Accommodation</fullName>
+                <default>false</default>
+                <label>TC - Holiday Accommodation</label>
+            </value>
+            <value>
+                <fullName>TD - Holiday Parks &amp; Camping Grounds</fullName>
+                <default>false</default>
+                <label>TD - Holiday Parks &amp; Camping Grounds</label>
+            </value>
+            <value>
+                <fullName>TE - Hotels &amp; Taverns</fullName>
+                <default>false</default>
+                <label>TE - Hotels &amp; Taverns</label>
+            </value>
+            <value>
+                <fullName>TF - Motels &amp; Lodges</fullName>
+                <default>false</default>
+                <label>TF - Motels &amp; Lodges</label>
+            </value>
+            <value>
+                <fullName>U1 - Bathroom</fullName>
+                <default>false</default>
+                <label>U1 - Bathroom</label>
+            </value>
+            <value>
+                <fullName>U2 - Bricks,Paving</fullName>
+                <default>false</default>
+                <label>U2 - Bricks,Paving</label>
+            </value>
+            <value>
+                <fullName>U3 - Bldg, L&#39;scapes</fullName>
+                <default>false</default>
+                <label>U3 - Bldg, L&#39;scapes</label>
+            </value>
+            <value>
+                <fullName>U4 - Bldg Mat Misc</fullName>
+                <default>false</default>
+                <label>U4 - Bldg Mat Misc</label>
+            </value>
+            <value>
+                <fullName>U5 - Bldg Mat Tools</fullName>
+                <default>false</default>
+                <label>U5 - Bldg Mat Tools</label>
+            </value>
+            <value>
+                <fullName>U6 - Doors,Wndws</fullName>
+                <default>false</default>
+                <label>U6 - Doors,Wndws</label>
+            </value>
+            <value>
+                <fullName>U7 - Garages</fullName>
+                <default>false</default>
+                <label>U7 - Garages</label>
+            </value>
+            <value>
+                <fullName>U8 - Kitch Home Imp</fullName>
+                <default>false</default>
+                <label>U8 - Kitch Home Imp</label>
+            </value>
+            <value>
+                <fullName>U9  - Misc</fullName>
+                <default>false</default>
+                <label>U9  - Misc</label>
+            </value>
+            <value>
+                <fullName>UA - Paint, Adhesive</fullName>
+                <default>false</default>
+                <label>UA - Paint, Adhesive</label>
+            </value>
+            <value>
+                <fullName>UB - Pools, Spas</fullName>
+                <default>false</default>
+                <label>UB - Pools, Spas</label>
+            </value>
+            <value>
+                <fullName>UC - Repairs</fullName>
+                <default>false</default>
+                <label>UC - Repairs</label>
+            </value>
+            <value>
+                <fullName>UD - Retail</fullName>
+                <default>false</default>
+                <label>UD - Retail</label>
+            </value>
+            <value>
+                <fullName>UE - Roofing</fullName>
+                <default>false</default>
+                <label>UE - Roofing</label>
+            </value>
+            <value>
+                <fullName>UF - Security</fullName>
+                <default>false</default>
+                <label>UF - Security</label>
+            </value>
+            <value>
+                <fullName>UG - Timber&amp;Prods</fullName>
+                <default>false</default>
+                <label>UG - Timber&amp;Prods</label>
+            </value>
+            <value>
+                <fullName>UH - Wallpaper</fullName>
+                <default>false</default>
+                <label>UH - Wallpaper</label>
+            </value>
+            <value>
+                <fullName>UI - Architects</fullName>
+                <default>false</default>
+                <label>UI - Architects</label>
+            </value>
+            <value>
+                <fullName>UJ - Builders</fullName>
+                <default>false</default>
+                <label>UJ - Builders</label>
+            </value>
+            <value>
+                <fullName>UK - Carpentry &amp; Cabinet Making</fullName>
+                <default>false</default>
+                <label>UK - Carpentry &amp; Cabinet Making</label>
+            </value>
+            <value>
+                <fullName>UL - Electricians/Electrical Engineering</fullName>
+                <default>false</default>
+                <label>UL - Electricians/Electrical Engineering</label>
+            </value>
+            <value>
+                <fullName>UM - Engineering/Civil Engineering</fullName>
+                <default>false</default>
+                <label>UM - Engineering/Civil Engineering</label>
+            </value>
+            <value>
+                <fullName>UN - Glass Merchants &amp; Glaziers</fullName>
+                <default>false</default>
+                <label>UN - Glass Merchants &amp; Glaziers</label>
+            </value>
+            <value>
+                <fullName>UO - Maintenance &amp; Handyman Services</fullName>
+                <default>false</default>
+                <label>UO - Maintenance &amp; Handyman Services</label>
+            </value>
+            <value>
+                <fullName>UP - Painters &amp; Decorators</fullName>
+                <default>false</default>
+                <label>UP - Painters &amp; Decorators</label>
+            </value>
+            <value>
+                <fullName>UQ - Plumbers</fullName>
+                <default>false</default>
+                <label>UQ - Plumbers</label>
+            </value>
+            <value>
+                <fullName>UR - Arborists</fullName>
+                <default>false</default>
+                <label>UR - Arborists</label>
+            </value>
+            <value>
+                <fullName>US - Rubbish Bin Hire</fullName>
+                <default>false</default>
+                <label>US - Rubbish Bin Hire</label>
+            </value>
+            <value>
+                <fullName>UT - Interior Design</fullName>
+                <default>false</default>
+                <label>UT - Interior Design</label>
+            </value>
+            <value>
+                <fullName>UU - Home &amp; Garden</fullName>
+                <default>false</default>
+                <label>UU - Home &amp; Garden</label>
+            </value>
+            <value>
+                <fullName>V1 - Cellph, Mobile</fullName>
+                <default>false</default>
+                <label>V1 - Cellph, Mobile</label>
+            </value>
+            <value>
+                <fullName>V2 - Corporate</fullName>
+                <default>false</default>
+                <label>V2 - Corporate</label>
+            </value>
+            <value>
+                <fullName>V3 - Misc</fullName>
+                <default>false</default>
+                <label>V3 - Misc</label>
+            </value>
+            <value>
+                <fullName>V4 - Office Com,PABX</fullName>
+                <default>false</default>
+                <label>V4 - Office Com,PABX</label>
+            </value>
+            <value>
+                <fullName>V5 - Retail</fullName>
+                <default>false</default>
+                <label>V5 - Retail</label>
+            </value>
+            <value>
+                <fullName>V6 - Phone H/W Serv</fullName>
+                <default>false</default>
+                <label>V6 - Phone H/W Serv</label>
+            </value>
+            <value>
+                <fullName>VZ - To be allocated</fullName>
+                <default>false</default>
+                <label>VZ - To be allocated</label>
+            </value>
+            <value>
+                <fullName>W1 - Couriers</fullName>
+                <default>false</default>
+                <label>W1 - Couriers</label>
+            </value>
+            <value>
+                <fullName>W2 - Freight Srvcs</fullName>
+                <default>false</default>
+                <label>W2 - Freight Srvcs</label>
+            </value>
+            <value>
+                <fullName>W3 - Misc</fullName>
+                <default>false</default>
+                <label>W3 - Misc</label>
+            </value>
+            <value>
+                <fullName>W4 - Public Transport</fullName>
+                <default>false</default>
+                <label>W4 - Public Transport</label>
+            </value>
+            <value>
+                <fullName>W5 - Transport Operators</fullName>
+                <default>false</default>
+                <label>W5 - Transport Operators</label>
+            </value>
+            <value>
+                <fullName>WY - Not required</fullName>
+                <default>false</default>
+                <label>WY - Not required</label>
+            </value>
+            <value>
+                <fullName>WZ - To Be Allocated</fullName>
+                <default>false</default>
+                <label>WZ - To Be Allocated</label>
+            </value>
+            <value>
+                <fullName>X1 - Misc</fullName>
+                <default>false</default>
+                <label>X1 - Misc</label>
+            </value>
+            <value>
+                <fullName>XZ - To be allocated</fullName>
+                <default>false</default>
+                <label>XZ - To be allocated</label>
+            </value>
+            <value>
+                <fullName>YC - Closed</fullName>
+                <default>false</default>
+                <label>YC - Closed</label>
+            </value>
+            <value>
+                <fullName>YP - Private Party</fullName>
+                <default>false</default>
+                <label>YP - Private Party</label>
+            </value>
+            <value>
+                <fullName>YY - Unassigned</fullName>
+                <default>false</default>
+                <label>YY - Unassigned</label>
+            </value>
+            <value>
+                <fullName>EV - Home Entertainment</fullName>
+                <default>false</default>
+                <label>EV - Home Entertainment</label>
+            </value>
+            <value>
+                <fullName>EO - Outdoor Events/Concerts</fullName>
+                <default>false</default>
+                <label>EO - Outdoor Events/Concerts</label>
+            </value>
+            <value>
+                <fullName>5X - Pet Products</fullName>
+                <default>false</default>
+                <label>5X - Pet Products</label>
+            </value>
+            <value>
+                <fullName>RK - T&#39;Comms Retail</fullName>
+                <default>false</default>
+                <label>RK - T&#39;Comms Retail</label>
+            </value>
+            <value>
+                <fullName>RZ - Accessories Ret</fullName>
+                <default>false</default>
+                <label>RZ - Accessories Ret</label>
+            </value>
+            <value>
+                <fullName>R8 - Agriculture Retail</fullName>
+                <default>false</default>
+                <label>R8 - Agriculture Retail</label>
+            </value>
+            <value>
+                <fullName>QH - Beauticians</fullName>
+                <default>false</default>
+                <label>QH - Beauticians</label>
+            </value>
+            <value>
+                <fullName>RN - Chemists</fullName>
+                <default>false</default>
+                <label>RN - Chemists</label>
+            </value>
+            <value>
+                <fullName>RW - Supermarkets</fullName>
+                <default>false</default>
+                <label>RW - Supermarkets</label>
+            </value>
+            <value>
+                <fullName>RV - Foodstores</fullName>
+                <default>false</default>
+                <label>RV - Foodstores</label>
+            </value>
+            <value>
+                <fullName>RE - Home Heating</fullName>
+                <default>false</default>
+                <label>RE - Home Heating</label>
+            </value>
+            <value>
+                <fullName>RY - Home Improv</fullName>
+                <default>false</default>
+                <label>RY - Home Improv</label>
+            </value>
+            <value>
+                <fullName>DY - Driving Schools</fullName>
+                <default>false</default>
+                <label>DY - Driving Schools</label>
+            </value>
+            <value>
+                <fullName>DG - Public Transport</fullName>
+                <default>false</default>
+                <label>DG - Public Transport</label>
+            </value>
+            <value>
+                <fullName>RX - Hardware Supplies</fullName>
+                <default>false</default>
+                <label>RX - Hardware Supplies</label>
+            </value>
+            <value>
+                <fullName>RU - Specialty Foods &amp; Deli</fullName>
+                <default>false</default>
+                <label>RU - Specialty Foods &amp; Deli</label>
+            </value>
+            <value>
+                <fullName>RS - Sport Goods Ret</fullName>
+                <default>false</default>
+                <label>RS - Sport Goods Ret</label>
+            </value>
+            <value>
+                <fullName>RR - Photo - Retail</fullName>
+                <default>false</default>
+                <label>RR - Photo - Retail</label>
+            </value>
+            <value>
+                <fullName>RP - Liquor Retail</fullName>
+                <default>false</default>
+                <label>RP - Liquor Retail</label>
+            </value>
+            <value>
+                <fullName>FK - Milk, Cream</fullName>
+                <default>false</default>
+                <label>FK - Milk, Cream</label>
+            </value>
+            <value>
+                <fullName>54 - Electrical Misc</fullName>
+                <default>false</default>
+                <label>54 - Electrical Misc</label>
+            </value>
+            <value>
+                <fullName>52 - Batteries</fullName>
+                <default>false</default>
+                <label>52 - Batteries</label>
+            </value>
+            <value>
+                <fullName>3E - Kitchenware</fullName>
+                <default>false</default>
+                <label>3E - Kitchenware</label>
+            </value>
+            <value>
+                <fullName>3B - Cookware</fullName>
+                <default>false</default>
+                <label>3B - Cookware</label>
+            </value>
+            <value>
+                <fullName>RF - Fast Fd Restaurants Cafe</fullName>
+                <default>false</default>
+                <label>RF - Fast Fd Restaurants Cafe</label>
+            </value>
+            <value>
+                <fullName>E7 - Clubs Cabaret Bars</fullName>
+                <default>false</default>
+                <label>E7 - Clubs Cabaret Bars</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

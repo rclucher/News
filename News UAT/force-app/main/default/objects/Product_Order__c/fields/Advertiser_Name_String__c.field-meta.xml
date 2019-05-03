@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Advertiser_Name_String__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( ISBLANK( Advertiser_Name_Override__c ) ,  Account_Name__c , Advertiser_Name_Override__c) &amp; 
+&quot; [&quot; &amp;   Sales_Team__c  &amp; &quot;]&quot;</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Advertiser Name String</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

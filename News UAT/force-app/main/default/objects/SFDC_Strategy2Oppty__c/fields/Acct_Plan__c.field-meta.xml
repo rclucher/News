@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Acct_Plan__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>NB: Not necessary to display on screen!!! This lookup field is used to allow the Opportunities to be linked to the overall Account Plan. NOTE: This field is also updated via a trigger when the user creates a new opty from the strategy.</inlineHelpText>
+    <label>Acct Plan</label>
+    <referenceTo>SFDC_Acct_Plan__c</referenceTo>
+    <relationshipLabel>Associated Opportunities</relationshipLabel>
+    <relationshipName>Strategy2Oppty</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Targeted_Release__c</fullName>
+    <externalId>false</externalId>
+    <label>Targeted Release</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Release 1</fullName>
+                <default>false</default>
+                <label>Release 1</label>
+            </value>
+            <value>
+                <fullName>Release 2</fullName>
+                <default>false</default>
+                <label>Release 2</label>
+            </value>
+            <value>
+                <fullName>Release TBD</fullName>
+                <default>false</default>
+                <label>Release TBD</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

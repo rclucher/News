@@ -1,0 +1,8 @@
+div.csbtn.Attach_IO {
+ border: none;
+ background-color: transparent;
+ background-image: url("/resource/SignedButton");
+
+ background-repeat: no-repeat;
+ cursor: pointer !important;
+}

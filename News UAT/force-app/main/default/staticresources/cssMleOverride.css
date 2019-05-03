@@ -1,0 +1,7 @@
+.buttons-wrapper .cs-btn:first-child {
+  display: none;
+}
+
+.icon-remove-3:before {
+   content: "d" !important;
+}

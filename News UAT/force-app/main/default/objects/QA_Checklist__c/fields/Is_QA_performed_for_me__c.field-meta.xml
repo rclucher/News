@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_QA_performed_for_me__c</fullName>
+    <externalId>false</externalId>
+    <formula>QA_Performed_For__r.Id = $User.Id</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is QA performed for me</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

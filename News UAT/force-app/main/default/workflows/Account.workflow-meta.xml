@@ -1,0 +1,998 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>ABN_Exempt</fullName>
+        <description>Field to be updated if country of customer is not Australia.</description>
+        <field>ABN_Exempt__c</field>
+        <literalValue>1</literalValue>
+        <name>ABN Exempt</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ABN_Non_exempt</fullName>
+        <description>Account is not exempt as it is in Australia</description>
+        <field>ABN_Exempt__c</field>
+        <literalValue>0</literalValue>
+        <name>ABN Non-exempt</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ABN_Non_exempt1</fullName>
+        <description>ABN Non-exempt if based in Australia</description>
+        <field>ABN_Exempt__c</field>
+        <literalValue>0</literalValue>
+        <name>ABN Non-exempt</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Account_Reset_Loyalty_Program_End_Date</fullName>
+        <field>Loyalty_Program_End_Date__c</field>
+        <name>Account: Reset Loyalty Program End Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Account_Reset_Loyalty_Program_Flag</fullName>
+        <field>Loyalty_Program__c</field>
+        <literalValue>0</literalValue>
+        <name>Account: Reset Loyalty Program Flag</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Account_Reset_Loyalty_Program_Start_Date</fullName>
+        <field>Loyalty_Program_Start_Date__c</field>
+        <name>Account:Reset Loyalty Program Start Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>AcctPersn_Address_PRI_Remove_DPID</fullName>
+        <field>DPID_Primary_Address__pc</field>
+        <name>AcctPersn Address PRI Remove DPID</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>AcctPersn_Address_SEC_Remove_DPID</fullName>
+        <field>DPID_Secondary_Address__pc</field>
+        <name>AcctPersn Address SEC Remove DPID</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>AcctPersn_Auto_untick_Email_Invalid</fullName>
+        <field>Email_Invalid__pc</field>
+        <literalValue>0</literalValue>
+        <name>AcctPersn Auto untick Email Invalid</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>AcctPersn_ClearHomePhoneDNCStatus</fullName>
+        <description>Clear DNC Status when Phone number changes.
+Re-evaluate Workflow Rules to trigger audit</description>
+        <field>Home_Phone_on_DNC__pc</field>
+        <literalValue>0</literalValue>
+        <name>AcctPersn_Clear_HomePhone_DNCStatus</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>AcctPersn_Clear_AssistPhone_DNCStatus</fullName>
+        <description>Clear DNC Status when Phone number changes.
+Re-evaluate Workflow Rules to trigger audit</description>
+        <field>AssistantPhone_on_DNC__pc</field>
+        <literalValue>0</literalValue>
+        <name>AcctPersn_Clear_AssistPhone_DNCStatus</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>AcctPersn_Clear_HomePhone_DNCWashedDate</fullName>
+        <description>Clear DNC Washed Date when Phone number changes.
+Re-evaluate Workflow Rules to trigger audit</description>
+        <field>Home_Phone_DNC_Washed_Date__pc</field>
+        <name>AcctPersn_Clear_HomePhone_DNCWashedDate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>AcctPersn_Clear_Mobile_DNCStatus</fullName>
+        <description>Clear DNC Status when Phone number changes.
+Re-evaluate Workflow Rules to trigger audit</description>
+        <field>Mobile_on_DNC__pc</field>
+        <literalValue>0</literalValue>
+        <name>AcctPersn_Clear_Mobile_DNCStatus</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>AcctPersn_Clear_Mobile_DNCWashedDate</fullName>
+        <description>Clear DNC Washed Date when Phone number changes.
+Re-evaluate Workflow Rules to trigger audit</description>
+        <field>Mobile_DNC_Washed_Date__pc</field>
+        <name>AcctPersn_Clear_Mobile_DNCWashedDate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>AcctPersn_Clear_OtherPhone_DNCStatus</fullName>
+        <description>Clear DNC Status when Phone number changes.
+Re-evaluate Workflow Rules to trigger audit</description>
+        <field>Other_Phone_on_DNC__pc</field>
+        <literalValue>0</literalValue>
+        <name>AcctPersn_Clear_OtherPhone_DNCStatus</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>AcctPersn_Clear_OtherPhone_DNCWashedDate</fullName>
+        <description>Clear DNC Washed Date when Phone number changes.
+Re-evaluate Workflow Rules to trigger audit</description>
+        <field>Other_Phone_DNC_Washed_Date__pc</field>
+        <name>AcctPersn_Clear_OtherPhone_DNCWashedDate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>AcctPersn_Set_DNC_Status_audit_field</fullName>
+        <description>Set DNC Status audit field for PersonAccount. 
+Other conditions were added because workflow rules are not re-evaluated correctly for person accounts.</description>
+        <field>DNC_Status_Audit__pc</field>
+        <formula>&#39;Phone: &#39;&amp; If(Phone_DNC_Contactable__c &amp;&amp; !ISCHANGED(Phone),&#39;Contactable&#39;,&#39;Not contactable&#39;)&amp;&#39; - &#39;&amp;IF(!ISBLANK(Phone_DNC_Washed_Date__pc),&#39;Washed @&#39;&amp;TEXT(Phone_DNC_Washed_Date__pc),&#39;No washed date&#39;)&amp;BR()&amp; 
+&#39;Mobile: &#39;&amp;If( Mobile_DNC_Contactable__c &amp;&amp; !ISCHANGED(PersonMobilePhone),&#39;Contactable&#39;,&#39;Not contactable&#39;)&amp;&#39; - &#39;&amp;IF(!ISBLANK(Mobile_DNC_Washed_Date__pc) &amp;&amp; !ISCHANGED(PersonMobilePhone),&#39;Washed @&#39;&amp;TEXT(Mobile_DNC_Washed_Date__pc),&#39;No washed date&#39;)&amp;BR()&amp; 
+&#39;Home Phone: &#39;&amp;If( Home_Phone_DNC_Contactable__c &amp;&amp; !ISCHANGED(PersonHomePhone),&#39;Contactable&#39;,&#39;Not contactable&#39;)&amp;&#39; - &#39;&amp;IF(!ISBLANK(Home_Phone_DNC_Washed_Date__pc) &amp;&amp; !ISCHANGED(PersonHomePhone),&#39;Washed @&#39;&amp;TEXT(Home_Phone_DNC_Washed_Date__pc),&#39;No washed date&#39;)&amp;BR()&amp; 
+&#39;Other Phone: &#39;&amp;If( Other_Phone_DNC_Contactable__c &amp;&amp; !ISCHANGED(PersonOtherPhone),&#39;Contactable&#39;,&#39;Not contactable&#39;)&amp;&#39; - &#39;&amp;IF(!ISBLANK(Other_Phone_DNC_Washed_Date__pc) &amp;&amp; !ISCHANGED(PersonOtherPhone),&#39;Washed @&#39;&amp;TEXT(Other_Phone_DNC_Washed_Date__pc),&#39;No washed date&#39;)&amp;BR()&amp; 
+&#39;Assist. Phone: &#39;&amp;If( AssistantPhone_DNC_Contactable__c &amp;&amp; !ISCHANGED(PersonAssistantPhone),&#39;Contactable&#39;,&#39;Not contactable&#39;)&amp;&#39; - &#39;&amp;IF(!ISBLANK(AssistantPhone_DNC_Washed_Date__pc) &amp;&amp; !ISCHANGED(PersonAssistantPhone),&#39;Washed @&#39;&amp;TEXT(AssistantPhone_DNC_Washed_Date__pc),&#39;No washed date&#39;)</formula>
+        <name>AcctPersn_Set DNC Status audit field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>AcctPersn_Set_Marketing_Preferences</fullName>
+        <field>Marketing_Preferences__pc</field>
+        <formula>&#39;Phone: &#39;&amp;BLANKVALUE(TEXT( Channel_Opt_In_Phone__pc) ,&#39;None&#39;) &amp;BR()&amp; 
+&#39;SMS: &#39;&amp;BLANKVALUE(TEXT( Channel_Opt_In_SMS__pc ) ,&#39;None&#39;) &amp;BR()&amp; 
+&#39;Email: &#39;&amp;BLANKVALUE(TEXT(Channel_Opt_In_Email__pc) ,&#39;None&#39;)&amp;BR()&amp;&#39;Metro Print: &#39;&amp;BLANKVALUE(TEXT( Product_Opt_In_Metro_Print__pc ) ,&#39;None&#39;)&amp;BR()&amp; 
+&#39;Community Print: &#39;&amp;BLANKVALUE(TEXT(Product_Opt_In_Community_Print__pc) ,&#39;None&#39;)&amp;BR()&amp; 
+&#39;Regional Print: &#39;&amp;BLANKVALUE(TEXT( Product_Opt_In_Regional_Print__pc) ,&#39;None&#39;)&amp; BR()&amp; 
+&#39;Digital Offerings: &#39;&amp;BLANKVALUE(TEXT(Product_Opt_In_Digital_Offerings__pc ) ,&#39;None&#39;)&amp;BR()&amp; 
+&#39;Magazines: &#39;&amp;BLANKVALUE(TEXT(Product_Opt_In_Magazines__pc ) ,&#39;None&#39;)&amp;BR()&amp; 
+&#39;Seminars + Events: &#39;&amp;BLANKVALUE(TEXT(Product_Opt_In_Seminars_Events__pc) ,&#39;None&#39;)</formula>
+        <name>AcctPersn_Set Marketing Preferences</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_ABNStatus_Null</fullName>
+        <field>ABN_Status__c</field>
+        <name>Acct_ABNStatus_Null</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_ABNStatus_SetToNotValidated</fullName>
+        <field>ABN_Status__c</field>
+        <formula>&#39;Not Validated&#39;</formula>
+        <name>Acct_ABNStatus_SetToNotValidated</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_ABNValidation_Date_Null</fullName>
+        <field>ABN_Validation__c</field>
+        <name>Acct_ABNValidation_Date_Null</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_Address_PRI_Remove_DPID</fullName>
+        <field>DPID_Primary_Address__c</field>
+        <name>Acct Address PRI Remove DPID</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_Address_SEC_Remove_DPID</fullName>
+        <field>DPID_Secondary_Address__c</field>
+        <name>Acct Address SEC Remove DPID</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_Billing_Address_DPID_Update_PP</fullName>
+        <field>datasan__Billing_Address_DPID__c</field>
+        <formula>DPID_Primary_Address__c</formula>
+        <name>Acct Billing Address DPID Update_PP</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_Clear_AssistPhone_DNCWashedDate</fullName>
+        <description>Re-evaluate Workflow Rules to trigger audit</description>
+        <field>AssistantPhone_DNC_Washed_Date__pc</field>
+        <name>Acct_Clear_AssistPhone_DNCWashedDate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_ConvertedLeadABN_To_RealABNField</fullName>
+        <description>Lead Conversion cannot map to standard Account fields, and the ABN field is using the standard AccountNumber field (due to DataSAN&#39;s only mapping to certain standard fields)</description>
+        <field>AccountNumber</field>
+        <formula>ConvertFromLeadABN__c</formula>
+        <name>Acct_ConvertedLeadABN_To_RealABNField</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_DPID_Primary_Address_Update</fullName>
+        <field>DPID_Primary_Address__c</field>
+        <formula>datasan__Billing_Address_DPID__c</formula>
+        <name>Acct DPID - Primary Address Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_DPID_Primary_Address_Update_PP</fullName>
+        <field>DPID_Primary_Address__pc</field>
+        <formula>datasan__Billing_Address_DPID__c</formula>
+        <name>Acct DPID Primary Address Update PP</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_Inactivate_Date</fullName>
+        <description>Set the Status to Inactive</description>
+        <field>Status__c</field>
+        <literalValue>Inactive</literalValue>
+        <name>Acct_Inactivate_Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_Mailing_City_Update</fullName>
+        <description>When address is updated for Private Party Accounts, update Mailing City with Billing City so that Primary City is populated in Create GBA or Booking UI.</description>
+        <field>PersonMailingCity</field>
+        <formula>BillingCity</formula>
+        <name>Acct Mailing City Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_Mailing_Country_Update</fullName>
+        <description>When address is updated for Private Party Accounts, update Mailing Country with Billing Country so that Primary Country is populated in Create GBA or Booking UI.</description>
+        <field>PersonMailingCountry</field>
+        <formula>BillingCountry</formula>
+        <name>Acct Mailing Country Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_Mailing_Postcode_Update</fullName>
+        <description>Copy Billing Postcode to Mailing Postcode for Private Party Accounts</description>
+        <field>PersonMailingPostalCode</field>
+        <formula>BillingPostalCode</formula>
+        <name>Acct Mailing Postcode Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_Mailing_State_Update</fullName>
+        <description>When address is updated for Private Party Accounts, update Mailing State with Billing State so that Primary State is populated in Create GBA or Booking UI.</description>
+        <field>PersonMailingState</field>
+        <formula>BillingState</formula>
+        <name>Acct Mailing State Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_Mailing_Street_Update</fullName>
+        <description>When address is updated in Accounts, update Mailing Street with Billing Street so that Primary Street is populated in Create GBA or Booking UI.</description>
+        <field>PersonMailingStreet</field>
+        <formula>BillingStreet</formula>
+        <name>Acct Mailing Street Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_Parent_Acct_Checked_If_No_Parent</fullName>
+        <description>Acct Parent Acct Checked If No Parent</description>
+        <field>No_Parent_Account__c</field>
+        <literalValue>1</literalValue>
+        <name>Acct Parent Acct Checked If No Parent</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_RegisteredName_Null</fullName>
+        <field>Registered_Name__c</field>
+        <name>Acct_RegisteredName_Null</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_Set_EmployeeCount</fullName>
+        <field>NumberOfEmployees</field>
+        <formula>IF( ISPICKVAL(Business_Size__c , &#39;1-2&#39;), 2,
+  IF( ISPICKVAL(Business_Size__c , &#39;3-9&#39;), 9,
+    IF( ISPICKVAL(Business_Size__c , &#39;10-49&#39;), 49,
+      IF( ISPICKVAL(Business_Size__c , &#39;50+&#39;), 100, NULL)
+    )
+  )
+)</formula>
+        <name>Acct_Set_EmployeeCount</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_Set_Lead_Convert_Time</fullName>
+        <field>ConvertedFromLeadTime__c</field>
+        <formula>NOW()</formula>
+        <name>Acct_Set_Lead_Convert_Time</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_Status_Active</fullName>
+        <field>Inactive_Date__c</field>
+        <name>Acct_Status_Active</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_Status_Inactive</fullName>
+        <field>Inactive_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Acct_Status_Inactive</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_Type_PrivateParty</fullName>
+        <field>Type</field>
+        <literalValue>Non Account Managed</literalValue>
+        <name>Acct_Type_PrivateParty</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_Type_PrivateParty_Sub</fullName>
+        <field>Account_Type__c</field>
+        <literalValue>Private Party</literalValue>
+        <name>Acct_Type_PrivateParty_Sub</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_Update_Digital_Status_To_Pending</fullName>
+        <description>Update account digital status to pending</description>
+        <field>Digital_Status__c</field>
+        <literalValue>Pending</literalValue>
+        <name>Acct Update Digital Status To Pending</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Acct_Update_Digital_Status_To_Requested</fullName>
+        <description>Update account digital status to requested</description>
+        <field>Digital_Status__c</field>
+        <literalValue>Requested</literalValue>
+        <name>Acct Update Digital Status To Requested</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Ultimate_Parent_Id</fullName>
+        <description>Set ultimate parent id as its account id if current account doesn&#39;t have parent</description>
+        <field>Ultimate_Parent_Id__c</field>
+        <formula>Id</formula>
+        <name>Set Ultimate Parent Id</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Account_Last_Modified</fullName>
+        <description>update Account last modified datetime when TCS or TAS or parent being updated</description>
+        <field>Account_Last_Modified__c</field>
+        <formula>NOW()</formula>
+        <name>Update Account Last Modified</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <outboundMessages>
+        <fullName>Acct_Update_Digital_Account</fullName>
+        <apiVersion>29.0</apiVersion>
+        <description>Used for create and update of a digital account in AdPoint.
+Note: PersonAccounts are not allowed to be created in AdPoint.</description>
+        <endpointUrl>https://webmethodsuat.newsdev.com.au/ws/news.crm.adapter.wsdl.provider:handleNotification</endpointUrl>
+        <fields>AccountNumber</fields>
+        <fields>Account_Type__c</fields>
+        <fields>AdPoint_Id__c</fields>
+        <fields>AdPoint_User_Id__c</fields>
+        <fields>BillingCity</fields>
+        <fields>BillingCountry</fields>
+        <fields>BillingPostalCode</fields>
+        <fields>BillingState</fields>
+        <fields>BillingStreet</fields>
+        <fields>Blacklist_Reason_Digital__c</fields>
+        <fields>Creative_Agency_AdPoint_Id__c</fields>
+        <fields>Customer_Books_Direct__c</fields>
+        <fields>Fax</fields>
+        <fields>GST_Exempt_Check__c</fields>
+        <fields>GST_Exempt__c</fields>
+        <fields>Id</fields>
+        <fields>Is_Agency__c</fields>
+        <fields>Is_on_Black_List_Digital_Media__c</fields>
+        <fields>Media_Agency_AdPoint_Id__c</fields>
+        <fields>Name</fields>
+        <fields>OwnerId</fields>
+        <fields>Phone</fields>
+        <fields>Revenue_Group__c</fields>
+        <fields>ShippingCity</fields>
+        <fields>ShippingCountry</fields>
+        <fields>ShippingPostalCode</fields>
+        <fields>ShippingState</fields>
+        <fields>ShippingStreet</fields>
+        <fields>Status__c</fields>
+        <fields>Website</fields>
+        <includeSessionId>false</includeSessionId>
+        <integrationUser>sf-integrator@news.com.au</integrationUser>
+        <name>Acct Update Digital Account</name>
+        <protected>false</protected>
+        <useDeadLetterQueue>false</useDeadLetterQueue>
+    </outboundMessages>
+    <rules>
+        <fullName>Account - ABN Exempt</fullName>
+        <actions>
+            <name>ABN_Exempt</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>ABN Exempt tickbox is checked only if the country is NOT Australia.</description>
+        <formula>IF(CASE(RecordType.Name, &quot;IMA&quot;, 0, &quot;SME&quot;, 0, &quot;KAC&quot;, 0, &quot;The Aus/Regional&quot;, 0, &quot;Real Estate&quot;, 0, 1) == 1,
+			AND(ISBLANK(AccountNumber),
+							OR((BillingCountry != &quot;AUSTRALIA&quot;),
+						(RecordType.Name == &quot;Private Party&quot;))),
+			false)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Account - ABN Non-Exempt</fullName>
+        <actions>
+            <name>ABN_Non_exempt1</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>ABN Non-Exempt if account is in Australia</description>
+        <formula>IF(CASE(RecordType.Name, &quot;IMA&quot;, 0, &quot;SME&quot;, 0, &quot;KAC&quot;, 0, &quot;The Aus/Regional&quot;, 0, &quot;Real Estate&quot;, 0, 1) == 1, (BillingCountry == &quot;AUSTRALIA&quot;), false)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Account - Reset Loyalty Program Flag</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Loyalty_Program__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Loyalty_Program_End_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>When an Account is on a Loyalty Program that has expired, untick the Loyalty Program box</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Account_Reset_Loyalty_Program_End_Date</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Account_Reset_Loyalty_Program_Flag</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>Account_Reset_Loyalty_Program_Start_Date</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Account.Loyalty_Program_End_Date__c</offsetFromField>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Acct Address PRI Remove DPID</fullName>
+        <actions>
+            <name>Acct_Address_PRI_Remove_DPID</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>DPID is removed as user has entered address which is not validated by DataSan.
+
+ie. Within Console the standard &#39;edit&#39; button; Datasan does not work here.</description>
+        <formula>AND(  OR(   ISCHANGED(BillingCity),   ISCHANGED(BillingCountry),   ISCHANGED(BillingState),   ISCHANGED(BillingStreet),   ISCHANGED(BillingPostalCode)  ),  PRIORVALUE(DPID_Primary_Address__c) =  DPID_Primary_Address__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Acct Address SEC Remove DPID</fullName>
+        <actions>
+            <name>Acct_Address_SEC_Remove_DPID</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>DPID is removed as user has entered address which is not validated by DataSan.
+
+ie. Within Console the standard &#39;edit&#39; button; Datasan does not work here.</description>
+        <formula>AND(  OR(   ISCHANGED(ShippingCity),   ISCHANGED(ShippingCountry),   ISCHANGED(ShippingState),   ISCHANGED(ShippingStreet),   ISCHANGED(ShippingPostalCode)  ),  PRIORVALUE(DPID_Secondary_Address__c)=DPID_Secondary_Address__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Acct Address Update DPID - Primary Address</fullName>
+        <actions>
+            <name>Acct_DPID_Primary_Address_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.datasan__Billing_Address_DPID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.DPID_Primary_Address__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <description>Copy Billing Address DPID to DPID - Primary Address when it is null</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Acct Address Update DPID Primary Address %28Private Party%29</fullName>
+        <actions>
+            <name>Acct_DPID_Primary_Address_Update_PP</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Private Party</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.datasan__Billing_Address_DPID__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.DPID_Primary_Address__pc</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <description>Copy Billing Address DPID to DPID Primary Address for Private Party Accounts</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Acct Parent Acct Checked If  From Lead</fullName>
+        <actions>
+            <name>Acct_Parent_Acct_Checked_If_No_Parent</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.ConvertedFromLead__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>Automatically check &quot;No Parent Account&quot; when account is converted from a lead.</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Acct Parent Acct Checked If No Parent</fullName>
+        <actions>
+            <name>Acct_Parent_Acct_Checked_If_No_Parent</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>Acct Parent Acct Checked If No Parent Account associated
+JT: 3/1 INACTIVE. Made to enforce rules. Please delete this workflow after deployment.</description>
+        <formula>AND(   ISCHANGED(ParentId),   ParentId = &#39;&#39; )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Acct Set Digital Status To Pending</fullName>
+        <actions>
+            <name>Acct_Update_Digital_Status_To_Pending</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Is_Digital__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Digital_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Active,Requested</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.AdPoint_Id__pc</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </criteriaItems>
+        <description>Set an account digital status to pending and send outbound message to webmethods to create a digital account</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Acct Set Digital Status To Requested</fullName>
+        <actions>
+            <name>Acct_Update_Digital_Status_To_Requested</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Acct_Update_Digital_Account</name>
+            <type>OutboundMessage</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Is_Digital__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Digital_Status__c</field>
+            <operation>equals</operation>
+            <value>Pending</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.AdPoint_Id__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </criteriaItems>
+        <description>Change account digital status to requested after outbound message is sent</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Acct Update Digital Account</fullName>
+        <actions>
+            <name>Acct_Update_Digital_Account</name>
+            <type>OutboundMessage</type>
+        </actions>
+        <active>true</active>
+        <description>Any time a change on specific fields for Adpoint sync; this will trigger an outbound message update.</description>
+        <formula>AND(    Master_Digital_Status__c,  OR(   ISCHANGED(AccountNumber),    ISCHANGED(GST_Exempt__c),   ISCHANGED(Account_Type__c),   ISCHANGED(AdPoint_Id__c),   ISCHANGED(BillingCity),   ISCHANGED(BillingCountry),   ISCHANGED(BillingPostalCode),   ISCHANGED(BillingState),   ISCHANGED(BillingStreet),   ISCHANGED(Fax),   ISCHANGED(Industry_Code__c),   ISCHANGED(Name),   ISCHANGED(Phone),   ISCHANGED(ShippingCity),   ISCHANGED(ShippingCountry),   ISCHANGED(ShippingPostalCode),   ISCHANGED(ShippingState),   ISCHANGED(ShippingStreet),   ISCHANGED(Status__c),   ISCHANGED(Website),   ISCHANGED(Creative_Agency_For_Digital_Customer__c),   ISCHANGED(Media_Agency_For_Digital_Customer__c),   ISCHANGED(Is_on_Black_List_Digital_Media__c),   ISCHANGED(Blacklist_Reason_Digital__c),     AND(ISCHANGED( Customer_Books_Direct__c ),  ISPICKVAL(Customer_Books_Direct__c , &#39;Yes&#39;))  ) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>AcctPersn Address PRI Remove DPID</fullName>
+        <actions>
+            <name>AcctPersn_Address_PRI_Remove_DPID</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>DPID is removed as user has entered address which is not validated by DataSan.
+
+ie. Within Console the standard &#39;edit&#39; button; Datasan does not work here.</description>
+        <formula>AND(  OR(   ISCHANGED(PersonMailingCity),   ISCHANGED(PersonMailingCountry),   ISCHANGED(PersonMailingState),   ISCHANGED(PersonMailingStreet),   ISCHANGED(PersonMailingPostalCode)  ),  PRIORVALUE(DPID_Primary_Address__pc)=DPID_Primary_Address__pc )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>AcctPersn Address SEC Remove DPID</fullName>
+        <actions>
+            <name>AcctPersn_Address_SEC_Remove_DPID</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>DPID is removed as user has entered address which is not validated by DataSan.
+
+ie. Within Console the standard &#39;edit&#39; button; Datasan does not work here.</description>
+        <formula>AND(  OR(   ISCHANGED(PersonOtherCity),   ISCHANGED(PersonOtherCountry),   ISCHANGED(PersonOtherState),   ISCHANGED(PersonOtherStreet),   ISCHANGED(PersonOtherPostalCode)  ),  PRIORVALUE(DPID_Secondary_Address__pc)=DPID_Secondary_Address__pc )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>AcctPersn Automatically untick Email Invalid</fullName>
+        <actions>
+            <name>AcctPersn_Auto_untick_Email_Invalid</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Automatically untick Email Invalid field when Email Invalid is set to &#39;True&#39; and Email is changed on a Private Party Account.</description>
+        <formula>AND( 
+Email_Invalid__pc = True, 
+ISCHANGED( PersonEmail ) 
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>AcctPersn_AssistPhone_Delete_DNCWashedDate_Status</fullName>
+        <actions>
+            <name>AcctPersn_Clear_AssistPhone_DNCStatus</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Acct_Clear_AssistPhone_DNCWashedDate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Clear the Assistant Phone Washed Date and DNC if the Assistant Phone number value is updated</description>
+        <formula>ISCHANGED(   PersonAssistantPhone   )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>AcctPersn_HomePhone_Delete_DNCWashedDate_Status</fullName>
+        <actions>
+            <name>AcctPersn_ClearHomePhoneDNCStatus</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>AcctPersn_Clear_HomePhone_DNCWashedDate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Clear the Home Phone Washed Date and DNC if the Phone number value is updated</description>
+        <formula>ISCHANGED( PersonHomePhone )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>AcctPersn_MobilePhone_Delete_DNCWashedDate_Status</fullName>
+        <actions>
+            <name>AcctPersn_Clear_Mobile_DNCStatus</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>AcctPersn_Clear_Mobile_DNCWashedDate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Clear the Mobile Phone Washed Date and DNC if the Mobile Phone number value is updated</description>
+        <formula>ISCHANGED( PersonMobilePhone )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>AcctPersn_OtherPhone_Delete_DNCWashedDate_Status</fullName>
+        <actions>
+            <name>AcctPersn_Clear_OtherPhone_DNCStatus</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>AcctPersn_Clear_OtherPhone_DNCWashedDate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Clear the Other Phone Washed Date and DNC if the Other Phone number value is updated</description>
+        <formula>ISCHANGED(  PersonOtherPhone  )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>AcctPersn_Set DNC Status audit field</fullName>
+        <actions>
+            <name>AcctPersn_Set_DNC_Status_audit_field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Populate DNC Status audit field for audit purposes</description>
+        <formula>AND( IsPersonAccount, RecordType.DeveloperName = &#39;Private_Party&#39;, OR( ISNEW(),   ISCHANGED(PersonHomePhone), ISCHANGED(Home_Phone_DNC_Washed_Date__pc),  ISCHANGED( PersonMobilePhone ), ISCHANGED( Mobile_DNC_Washed_Date__pc ),  ISCHANGED( PersonOtherPhone ), ISCHANGED( Other_Phone_DNC_Washed_Date__pc ),  ISCHANGED( Phone ), ISCHANGED( Phone_DNC_Washed_Date__pc ),  ISCHANGED( PersonAssistantPhone ), ISCHANGED( AssistantPhone_DNC_Washed_Date__pc )  )  )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>AcctPersn_Set Marketing Preferences audit field</fullName>
+        <actions>
+            <name>AcctPersn_Set_Marketing_Preferences</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Populate Marketing Channel and Product Preferences field for audit purposes</description>
+        <formula>AND(IsPersonAccount, OR( ISNEW(),  ISCHANGED( Channel_Opt_In_Email__pc ),ISCHANGED( Channel_Opt_In_Phone__pc ),  ISCHANGED( Channel_Opt_In_SMS__pc ),  ISCHANGED( Product_Opt_In_Community_Print__pc ),  ISCHANGED( Product_Opt_In_Digital_Offerings__pc ),  ISCHANGED( Product_Opt_In_Magazines__pc ),  ISCHANGED( Product_Opt_In_Metro_Print__pc ),  ISCHANGED( Product_Opt_In_Regional_Print__pc ),  ISCHANGED( Product_Opt_In_Seminars_Events__pc )  ))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Acct_ABN_UpdatedToNull_RemoveValidationDetails</fullName>
+        <actions>
+            <name>Acct_ABNStatus_Null</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Acct_ABNValidation_Date_Null</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Acct_RegisteredName_Null</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Where ABN is removed, this will clear the ABN fields. The user will need to click on the &#39;validate&#39; button to initiate the process.</description>
+        <formula>AND(   ISCHANGED(AccountNumber),   ISBLANK(AccountNumber) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Acct_ABN_UpdatedToSomething_RemoveValidationDetails</fullName>
+        <actions>
+            <name>Acct_ABNStatus_SetToNotValidated</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Acct_ABNValidation_Date_Null</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Acct_RegisteredName_Null</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Where ABN is updated, this will clear the ABN fields and populate the ABN Status to &#39;Not Validated&#39;. The user will need to click on the &#39;validate&#39; button to initiate the process.</description>
+        <formula>AND(   ISCHANGED(AccountNumber),   NOT ISBLANK(AccountNumber) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Acct_ConvertedLeadABN_To_RealABNField</fullName>
+        <actions>
+            <name>Acct_ConvertedLeadABN_To_RealABNField</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Pushes Lead ABN across to Account ABN
+
+Lead Conversion cannot map to standard Account fields, and the ABN field is using the standard AccountNumber field (due to DataSAN&#39;s only mapping to certain standard fields)</description>
+        <formula>NOT(ISBLANK( ConvertFromLeadABN__c ))</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Acct_Set_EmployeeCount</fullName>
+        <actions>
+            <name>Acct_Set_EmployeeCount</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Set the standard Employee Count field based on NEWS&#39; Business Size picklist</description>
+        <formula>ISCHANGED( Business_Size__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Acct_Set_Lead_Convert_Time</fullName>
+        <actions>
+            <name>Acct_Set_Lead_Convert_Time</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Set the time that the Lead is Converted. 
+
+Useful for Account Validation Rules, disabling them during Lead Conversion</description>
+        <formula>ConvertedFromLead__c</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Acct_Status_Active</fullName>
+        <actions>
+            <name>Acct_Status_Active</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Updating the status to &#39;Active&#39; will clear the inactive date.</description>
+        <formula>AND(   ISPICKVAL(Status__c, &quot;Active&quot;),   NOT ISBLANK(Inactive_Date__c) )</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Acct_Status_Inactive</fullName>
+        <actions>
+            <name>Acct_Status_Inactive</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Updating the status to &#39;Inactive&#39; will set the Inactive date.</description>
+        <formula>AND(  ISPICKVAL(Status__c, &quot;Inactive&quot;),  ISBLANK(Inactive_Date__c)  )</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Acct_Type_PrivateParty</fullName>
+        <actions>
+            <name>Acct_Type_PrivateParty</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Acct_Type_PrivateParty_Sub</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>When a new private party is created. The system will default the account type and account sub-type.</description>
+        <formula>AND(   RecordType.Name = &#39;Private Party&#39;,   OR(     ISCHANGED(RecordTypeId),     ISNEW()   ) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Ultimate Parent Id</fullName>
+        <actions>
+            <name>Set_Ultimate_Parent_Id</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.No_Parent_Account__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>Set ultimate parent id to its account id when there is no parent for this account</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Account Last Modified</fullName>
+        <actions>
+            <name>Update_Account_Last_Modified</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>this rule will update Account Last Modified datetime when TCS or TAS or parent being updated</description>
+        <formula>OR(ISCHANGED(Total_Agency_Spend__c),ISCHANGED(Total_Customer_Spend__c), ISCHANGED( ParentId ))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

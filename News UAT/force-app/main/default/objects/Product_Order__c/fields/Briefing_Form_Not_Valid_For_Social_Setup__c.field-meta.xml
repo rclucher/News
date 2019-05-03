@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Briefing_Form_Not_Valid_For_Social_Setup__c</fullName>
+    <externalId>false</externalId>
+    <label>Briefing Form Not Valid For Social Setup</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Not enough information</fullName>
+                <default>false</default>
+                <label>Not enough information</label>
+            </value>
+            <value>
+                <fullName>Link not working</fullName>
+                <default>false</default>
+                <label>Link not working</label>
+            </value>
+            <value>
+                <fullName>Customer number incorrect</fullName>
+                <default>false</default>
+                <label>Customer number incorrect</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

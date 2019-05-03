@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Creative_Services_Deliverable__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Creative Services Deliverables</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>$Source.Campaign__c</field>
+            <operation>equals</operation>
+            <valueField>Creative_Services_Deliverables__c.Campaign__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Creative_Services_Deliverables__c</referenceTo>
+    <relationshipLabel>Creative Services Team</relationshipLabel>
+    <relationshipName>Creative_Services_Team</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

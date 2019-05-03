@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Count_Sales_Order_Line_Item__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Field only used for reporting. This field should not be displayed in page layouts.
+Once a sales order is listed on the opportunity, the opportunity reporting type is BOOKED. If the opportunity is still pipeline its &#39;forecast&#39;. Exceptions if walkin/target</inlineHelpText>
+    <label>Count: Sales Order Line Item</label>
+    <summaryFilterItems>
+        <field>OpportunityLineItem.Has_Sales_Order__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>OpportunityLineItem.OpportunityId</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

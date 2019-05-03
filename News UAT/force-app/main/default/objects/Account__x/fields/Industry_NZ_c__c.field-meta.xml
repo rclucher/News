@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Industry_NZ_c__c</fullName>
+    <externalDeveloperName>Industry_NZ__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Industry NZ</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>A - Agriculture</fullName>
+                <default>false</default>
+                <label>A - Agriculture</label>
+            </value>
+            <value>
+                <fullName>B - Beverages</fullName>
+                <default>false</default>
+                <label>B - Beverages</label>
+            </value>
+            <value>
+                <fullName>C - Computers</fullName>
+                <default>false</default>
+                <label>C - Computers</label>
+            </value>
+            <value>
+                <fullName>D - Govt Departments</fullName>
+                <default>false</default>
+                <label>D - Govt Departments</label>
+            </value>
+            <value>
+                <fullName>E - Leisure, Enter</fullName>
+                <default>false</default>
+                <label>E - Leisure, Enter</label>
+            </value>
+            <value>
+                <fullName>F - Foodstuffs</fullName>
+                <default>false</default>
+                <label>F - Foodstuffs</label>
+            </value>
+            <value>
+                <fullName>G - Gardening</fullName>
+                <default>false</default>
+                <label>G - Gardening</label>
+            </value>
+            <value>
+                <fullName>H - Real Estate</fullName>
+                <default>false</default>
+                <label>H - Real Estate</label>
+            </value>
+            <value>
+                <fullName>I - Insurance</fullName>
+                <default>false</default>
+                <label>I - Insurance</label>
+            </value>
+            <value>
+                <fullName>J - Industrial</fullName>
+                <default>false</default>
+                <label>J - Industrial</label>
+            </value>
+            <value>
+                <fullName>K - Clothing</fullName>
+                <default>false</default>
+                <label>K - Clothing</label>
+            </value>
+            <value>
+                <fullName>L - Invest/Fin/Bank</fullName>
+                <default>false</default>
+                <label>L - Invest/Fin/Bank</label>
+            </value>
+            <value>
+                <fullName>M - Automotive</fullName>
+                <default>false</default>
+                <label>M - Automotive</label>
+            </value>
+            <value>
+                <fullName>N - Business Serv</fullName>
+                <default>false</default>
+                <label>N - Business Serv</label>
+            </value>
+            <value>
+                <fullName>O - Office</fullName>
+                <default>false</default>
+                <label>O - Office</label>
+            </value>
+            <value>
+                <fullName>P - Pharmaceuticals</fullName>
+                <default>false</default>
+                <label>P - Pharmaceuticals</label>
+            </value>
+            <value>
+                <fullName>Q - Toiletry, Cosmet</fullName>
+                <default>false</default>
+                <label>Q - Toiletry, Cosmet</label>
+            </value>
+            <value>
+                <fullName>R - Retail</fullName>
+                <default>false</default>
+                <label>R - Retail</label>
+            </value>
+            <value>
+                <fullName>S - Smoking</fullName>
+                <default>false</default>
+                <label>S - Smoking</label>
+            </value>
+            <value>
+                <fullName>T - Travel</fullName>
+                <default>false</default>
+                <label>T - Travel</label>
+            </value>
+            <value>
+                <fullName>U - Home Improve</fullName>
+                <default>false</default>
+                <label>U - Home Improve</label>
+            </value>
+            <value>
+                <fullName>V - T&#39;communication</fullName>
+                <default>false</default>
+                <label>V - T&#39;communication</label>
+            </value>
+            <value>
+                <fullName>W - Transportation</fullName>
+                <default>false</default>
+                <label>W - Transportation</label>
+            </value>
+            <value>
+                <fullName>X - Miscellaneous</fullName>
+                <default>false</default>
+                <label>X - Miscellaneous</label>
+            </value>
+            <value>
+                <fullName>1 - H&#39;holdClean Prod</fullName>
+                <default>false</default>
+                <label>1 - H&#39;holdClean Prod</label>
+            </value>
+            <value>
+                <fullName>2 - H&#39;hold Elec Prod</fullName>
+                <default>false</default>
+                <label>2 - H&#39;hold Elec Prod</label>
+            </value>
+            <value>
+                <fullName>3 - H&#39;hold Furnish</fullName>
+                <default>false</default>
+                <label>3 - H&#39;hold Furnish</label>
+            </value>
+            <value>
+                <fullName>4 - H&#39;hold Home Heat</fullName>
+                <default>false</default>
+                <label>4 - H&#39;hold Home Heat</label>
+            </value>
+            <value>
+                <fullName>5 - H&#39;hold Items</fullName>
+                <default>false</default>
+                <label>5 - H&#39;hold Items</label>
+            </value>
+            <value>
+                <fullName>6 - Accessories</fullName>
+                <default>false</default>
+                <label>6 - Accessories</label>
+            </value>
+            <value>
+                <fullName>Y - Unassigned</fullName>
+                <default>false</default>
+                <label>Y - Unassigned</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Retention_Calls_Completed__c</fullName>
+    <description>For Reporting, uses the Campaign Responses</description>
+    <externalId>false</externalId>
+    <label>Total Retention Calls Completed</label>
+    <summaryFilterItems>
+        <field>Campaign_Response__c.Membership_Final_Response__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Campaign_Response__c.Campaign__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <type>Summary</type>
+</CustomField>

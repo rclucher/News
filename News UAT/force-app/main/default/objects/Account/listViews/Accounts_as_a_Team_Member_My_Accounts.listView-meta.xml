@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accounts_as_a_Team_Member_My_Accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.RECORDTYPE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>ACCOUNT.LAST_ACTIVITY</columns>
+    <columns>Primary_Address__c</columns>
+    <columns>Data_Quality_Score__c</columns>
+    <columns>Status__c</columns>
+    <columns>Acct_Alert_Status__c</columns>
+    <columns>Last_Booking_Number__c</columns>
+    <filterScope>Team</filterScope>
+    <label>~Accounts as a Team Member + My Accounts</label>
+</ListView>

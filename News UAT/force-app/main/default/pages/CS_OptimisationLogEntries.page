@@ -1,0 +1,188 @@
+<apex:page controller="CS_OptimisationLogEntries_Controller" showHeader="true" sidebar="true">
+    <apex:form id="formId">
+        Dates to Search:
+        <apex:selectList id="searchDates" value="{!searchNumberOfDays}" size="1">
+            <apex:selectOption itemValue="7" itemLabel="7 days"/>
+            <apex:selectOption itemValue="30" itemLabel="30 days"/>
+            <apex:selectOption itemValue="-1" itemLabel="All Time"/>
+            <apex:actionSupport event="onchange" reRender="pageBlockTable" />
+        </apex:selectList>
+
+        <apex:pageBlock title="List of Optimisation Tasks">
+            <apex:pageMessages />
+            <apex:pageBlockTable id="pageBlockTable" columns="9" value="{!OptimisationTaskWrapperList}" var="optimisationTask">
+                <apex:column >
+                    <apex:facet name="header" >
+                    <apex:commandLink value="Date" reRender="pageBlockTable">
+                         <apex:param name="sortOrder" value="{!IF(sortOrder == 'DESC', 'ASC','DESC')}" assignTo="{!sortOrder}" />
+                    </apex:commandLink>
+                    </apex:facet>
+                    <apex:outputText value="{0,date,dd'/'MM'/'yyyy}">
+                        <apex:param value="{!IF(optimisationTask.allowCreatingLogInLine == true, '', optimisationTask.createdDate)}"/> 
+                    </apex:outputText>
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header" >
+                        <apex:outputText escape="false" value="CO"></apex:outputText>
+                    </apex:facet>
+                    <apex:outputLink value="{!IF(optimisationTask.allowCreatingLogInLine == true || optimisationTask.campaignOrderId==null,'',URLFOR($Action.Order__c.View, optimisationTask.campaignOrderId))}">{!IF(optimisationTask.allowCreatingLogInLine == true,'',optimisationTask.campaignOrderName)}</apex:outputLink>
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header" >
+                        <apex:outputText escape="false" value="Account/Product Order"></apex:outputText>
+                    </apex:facet>
+                    <apex:outputLink value="{!IF(optimisationTask.allowCreatingLogInLine == true,IF(optimisationTask.productOrderId==null,'',URLFOR($Action.Product_Order__c.View, optimisationTask.productOrderId)),IF(optimisationTask.accountId==null,'',URLFOR($Action.Account.View, optimisationTask.accountId)))}">{!IF(optimisationTask.allowCreatingLogInLine == true,optimisationTask.productOrderName,optimisationTask.accountName)}</apex:outputLink>
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header" >
+                        <apex:outputText escape="false" value="Type Of Change"></apex:outputText>
+                    </apex:facet>
+                    <apex:selectlist id="logActionGoal" rendered="{!optimisationTask.allowCreatingLogInLine}" value="{!optimisationTask.logActionGoal}" onchange="updateActionGoalInWrapper(document.getElementById('{!$Component.logActionGoal}').value,'{!optimisationTask.task.id}')" disabled="{!optimisationTask.disableOptimisationTask}" multiselect="false" size="1">
+                        <apex:selectoptions value="{!ActionGoalItems}" />
+                    </apex:selectlist>
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header" >
+                        <apex:outputText escape="false" value="Log Entry"></apex:outputText>
+                    </apex:facet>
+                    <apex:inputTextarea html-maxlength="600" id="logEntry" rendered="{!optimisationTask.allowCreatingLogInLine}" value="{!optimisationTask.logEntry}" onchange="updateLogEntryInWrapper(document.getElementById('{!$Component.logEntry}').value,'{!optimisationTask.task.id}')" disabled="{!optimisationTask.disableOptimisationTask}"></apex:inputTextarea>
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header" >
+                        <apex:outputText escape="false" value="Task"></apex:outputText>
+                    </apex:facet>
+                    <apex:outputLink value="{!IF(optimisationTask.allowCreatingLogInLine == true,URLFOR($Action.Task.View, optimisationTask.task.Id),'')}">{!IF(optimisationTask.allowCreatingLogInLine == true,optimisationTask.task.Subject,'')}</apex:outputLink>
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header" >
+                        <apex:outputText escape="false" value="@Mention"></apex:outputText>
+                    </apex:facet>
+                    <apex:selectlist id="mentions" rendered="{!optimisationTask.allowCreatingLogInLine}" value="{!optimisationTask.listOfMentions}" onchange="UpdateMentionsJS(document.getElementById('{!$Component.mentions}'),'{!optimisationTask.task.id}')" disabled="{!optimisationTask.disableOptimisationTask}" multiselect="true" size="3">
+                        <apex:selectoptions value="{!optimisationTask.lstMentionUsers}" />
+                    </apex:selectlist>
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header" >
+                        <apex:outputText escape="false" value="Submit Log"></apex:outputText>
+                    </apex:facet>
+                    <apex:commandbutton value="Submit Log" id="submitLogButton" rendered="{!optimisationTask.allowCreatingLogInLine}" rerender="none" onclick="checkIfLogEntryIsEmpty(document.getElementById('{!$Component.logEntry}').value,document.getElementById('{!$Component.mentions}'),'{!optimisationTask.task.Id}',document.getElementById('{!$Component.logActionGoal}').value)" disabled="{!optimisationTask.disableOptimisationTask}">
+                    </apex:commandbutton>
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header" >
+                        <apex:outputText escape="false" value="Campaign Manager"></apex:outputText>
+                    </apex:facet>
+                    <apex:outputLink value="{!IF(optimisationTask.allowCreatingLogInLine == true || optimisationTask.campaignManagerId==null ,'',URLFOR($Action.User.View, optimisationTask.campaignManagerId))}">{!IF(optimisationTask.allowCreatingLogInLine == true,'',optimisationTask.campaignManagerName)}</apex:outputLink>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        <apex:actionFunction name="updateLogEntryInWrapper" action="{!UpdateLogEntryInWrapper}" rerender="none">
+            <apex:param name="firstParam" value="" assignTo="{!onChangeUpdateLogEntry}"/>
+            <apex:param name="secondParam" value="" assignTo="{!onChangeUpdateTaskId}"/>
+        </apex:actionFunction>
+
+        <apex:actionFunction name="updateActionGoalInWrapper" action="{!UpdateActionGoalInWrapper}" rerender="none">
+            <apex:param name="firstParam" value="" assignTo="{!onChangeUpdateActionGoal}"/>
+            <apex:param name="secondParam" value="" assignTo="{!onChangeUpdateTaskId}"/>
+        </apex:actionFunction>
+
+        <script>
+            function UpdateMentionsJS(selObj,taskId)
+            {
+                var i;
+                var selectedusers='';
+                var count=0;
+
+                for (i=0; i<selObj.options.length; i++)
+                {
+                    if (selObj.options[i].selected)
+                    {
+                        if (count==0)
+                            selectedusers = selObj.options[i].value;
+                        else
+                            selectedusers = selectedusers + ',' + selObj.options[i].value;
+
+                        ++count;
+                    }
+                }
+
+                updateMentionsInWrapper(selectedusers,taskId);
+
+                //alert(selectedusers);
+            }
+        </script>
+
+        <apex:actionFunction name="updateMentionsInWrapper" action="{!UpdateMentionsInnWrapper}" rerender="none">
+            <apex:param name="firstParam" value="" assignTo="{!onChangeUpdateMentions}"/>
+            <apex:param name="secondParam" value="" assignTo="{!onChangeUpdateTaskId}"/>
+        </apex:actionFunction>
+
+
+
+        <apex:actionFunction name="SubmitLog" action="{!submitLog}" rerender="pageBlockTable" oncomplete="validateOptimisationLogInsertion('{!errorMessage}');">
+            <apex:param name="firstParam" value="" assignTo="{!submitLogEntry}"/>
+            <apex:param name="secondParam" value="" assignTo="{!submitLogMentions}"/>
+            <apex:param name="thirdParam" value="" assignTo="{!submitLogTaskId}"/>
+            <apex:param name="fourthParam" value="" assignTo="{!submitActionGoal}"/>
+        </apex:actionFunction>  
+    </apex:form>
+
+    <script>
+        function checkIfLogEntryIsEmpty(logEntry,selObj,taskId,logActionGoal){
+            if(logEntry==''){
+                alert('The log entry you submitted cannot be empty')
+            }else{
+
+                    var selectedusers='';
+                    selectedusers=ExtractSelectedUsersMentions(selObj);
+
+                    SubmitLog(logEntry,selectedusers,taskId,logActionGoal);
+            }
+        }
+
+        function validateOptimisationLogInsertion(errorMessage){
+            if(errorMessage!=''){
+                alert('There was an error during the Optimisation Log:\n'+errorMessage);
+            }else{
+                alert('The Optimisation Log was successfully submitted');
+            }
+        }
+
+        function UpdateMentionsJS(selObj,taskId)
+        {
+
+            var selectedusers='';
+            selectedusers=ExtractSelectedUsersMentions(selObj);
+
+            //alert(selectedusers);
+            updateMentionsInWrapper(selectedusers,taskId);
+        }
+
+        function ExtractSelectedUsersMentions(selObj)
+        {
+            var i;
+            var selectedusers='';
+            var count=0;
+
+            for (i=0; i<selObj.options.length; i++)
+            {
+                if (selObj.options[i].selected)
+                {
+                    if (count==0)
+                        selectedusers = selObj.options[i].value;
+                    else
+                        selectedusers = selectedusers + ',' + selObj.options[i].value;
+
+                    ++count;
+                }
+            }
+
+            //alert(selectedusers);
+
+            return(selectedusers);
+        }
+
+
+
+    </script>
+</apex:page>

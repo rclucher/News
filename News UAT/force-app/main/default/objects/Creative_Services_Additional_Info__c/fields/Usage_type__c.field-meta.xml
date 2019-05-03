@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Usage_type__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Where will the shots be appearing? Our mags? External mags? Online?</inlineHelpText>
+    <label>Usage type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>NLM Assets</fullName>
+                <default>false</default>
+                <label>NLM Assets</label>
+            </value>
+            <value>
+                <fullName>Client Assets</fullName>
+                <default>false</default>
+                <label>Client Assets</label>
+            </value>
+            <value>
+                <fullName>NewsCorp Assets</fullName>
+                <default>false</default>
+                <label>NewsCorp Assets</label>
+            </value>
+            <value>
+                <fullName>Other (specify)</fullName>
+                <default>false</default>
+                <label>Other (specify)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

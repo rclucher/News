@@ -1,0 +1,6 @@
+<aura:component controller="DNCPhone_Helper"
+	implements="force:lightningQuickAction,force:hasRecordId" >
+    <!--lightning:button label="DNC Wash" onClick="{!c.echo}"/>-->
+     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	Phone numbers have been pushed to DNC register, please do manual wash from there
+</aura:component>

@@ -1,0 +1,24 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name='filePreview' type='Object' />  
+    <aura:attribute name='isVideo' type='boolean' default='false'/>
+   <ltng:require styles="{!join(',', $Resource.CustomCSSForSocialAd )}" />
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+
+    <!-- set up the aura:method for to Open Viewer -->
+    <aura:method name="openFileViewer" description="Open File Viewer">
+        <aura:attribute name="file" type="Object"/>
+    </aura:method>
+    <div aura:id="containerDiv" class="create-edit-ad-container">
+        
+            <aura:if isTrue="{!v.isVideo}">
+                    <div>
+                            <iframe src="{!v.filePreview.embedLink}" frameborder="0" scrolling="no" width="100%" height="100%" onload="resizeIframe(this)" />
+                   </div>
+                    <aura:set attribute="else">
+                        <div>
+                            <iframe src="{!v.filePreview.embedLink}" frameborder="0" scrolling="no" width="100%" height="100%"/>
+                   </div>
+                    </aura:set>
+                </aura:if>
+    </div>
+</aura:component>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Role__c</fullName>
+    <description>Role corresponding to Contact Role in the Contact Roles Object</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Select role corresponding to Contact Role in the Contact Roles Object</inlineHelpText>
+    <label>Contact Role</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>NewsXtend Agency</fullName>
+                <default>false</default>
+                <label>NewsXtend Agency</label>
+            </value>
+            <value>
+                <fullName>NewsXtend Customer - Mgmt</fullName>
+                <default>false</default>
+                <label>NewsXtend Customer - Mgmt</label>
+            </value>
+            <value>
+                <fullName>NewsXtend Customer - Non Mgmt</fullName>
+                <default>false</default>
+                <label>NewsXtend Customer - Non Mgmt</label>
+            </value>
+            <value>
+                <fullName>NewsXtend Web Developer</fullName>
+                <default>false</default>
+                <label>NewsXtend Web Developer</label>
+            </value>
+            <value>
+                <fullName>NewsXtend NRM Sales Rep</fullName>
+                <default>false</default>
+                <label>NewsXtend NRM Sales Rep</label>
+            </value>
+            <value>
+                <fullName>NewsXtend CNG Sales Rep</fullName>
+                <default>false</default>
+                <label>NewsXtend CNG Sales Rep</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

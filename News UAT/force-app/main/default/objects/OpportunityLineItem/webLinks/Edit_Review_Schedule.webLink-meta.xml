@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Edit_Review_Schedule</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Edit Revenue Schedule</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/oppitm/scheduleedit.jsp?
+id={!OpportunityLineItem.Id}
+&amp;sUrl=%2F{!OpportunityLineItem.Id}
+&amp;retURL=%2F{!OpportunityLineItem.Id}</url>
+</WebLink>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Approval_Emails__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will be used by the Work Flow to trigger Send Email Process Builder, which will actually handle approval emails</description>
+    <externalId>false</externalId>
+    <label>Send Approval Emails</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

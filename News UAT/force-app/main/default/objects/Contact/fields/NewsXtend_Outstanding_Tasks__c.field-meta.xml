@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NewsXtend_Outstanding_Tasks__c</fullName>
+    <description>This field will be used by Batch Application, to update the Oustanding Task List, so that this can be plugged in Template and send to customer</description>
+    <externalId>false</externalId>
+    <label>NewsXtend Outstanding Tasks</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Html</type>
+    <visibleLines>25</visibleLines>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NSW_Trade_Marketing_Case</fullName>
+    <filterScope>Queue</filterScope>
+    <label>NSW Trade Marketing</label>
+    <queue>NSW_Trade_Marketing</queue>
+    <sharedTo>
+        <group>NSW_Trade_Marketing</group>
+    </sharedTo>
+</ListView>

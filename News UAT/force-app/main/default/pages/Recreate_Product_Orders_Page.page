@@ -1,0 +1,12 @@
+<apex:page standardController="Order__c" extensions="recreate_tag" showQuickActionVfHeader="false" lightningStylesheets="true">
+    <apex:pageMessages id="showmsg"></apex:pageMessages>
+    <apex:form style="slds-scope">
+    <apex:pageBlock >
+     <apex:pageBlockButtons location="bottom">
+      <label class="slds-form-element__label" >Are you sure you want to recreate product orders?</label>
+        <apex:commandButton action="{!executeRecreateLogic}" value="Yes" styleClass="slds-button slds-button_info"/> 
+        <apex:commandButton action="{!cancel}" value="No" styleClass="slds-button slds-button_info"/> 
+     </apex:pageBlockButtons>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

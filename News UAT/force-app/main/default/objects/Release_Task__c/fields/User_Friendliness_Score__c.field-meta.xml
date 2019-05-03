@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>User_Friendliness_Score__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( User_Friendliness__c , &quot;Evolution requested has a negative impact on user friendliness&quot;, -20, &quot;Positive impact on user friendliness&quot;, 20,0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>User Friendliness Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

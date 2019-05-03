@@ -1,0 +1,107 @@
+.THIS .slds-theme_info {
+    background-color: #009cdb; 
+}
+
+.THIS .ticker-table {
+    width: 100%;
+}
+
+.THIS .ticker-cell {
+    width: 100%;
+    background-color: white;
+    padding-right: 10px;
+    border-radius: 0px 4px 4px 0px;
+}
+
+
+.THIS .ticker-label {
+    padding-left: 10px;
+    background-color: #009cdb;
+    color: white;
+    font-weight: bold;
+    
+    border-radius: 4px 0px 0px 4px;
+}
+
+.THIS .arrow-cell {
+    width: 25px;
+    background-color: white;
+}
+
+.THIS .ticker-arrow {
+  width: 0; 
+  height: 0; 
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: none;
+  border-left: 15px solid #009cdb;
+}
+
+.THIS .ticker-wrap {
+  overflow: hidden;
+  position: relative;
+  height: 20px;  
+}
+
+.THIS .ticker-wrap .ticker {
+    color: black;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    /*line-height: 40px;
+    text-align: center;
+    Starting position */
+    -moz-transform:translateX(100%);
+    -webkit-transform:translateX(100%);	
+    transform:translateX(100%);
+    /* Apply animation to this element */
+    -moz-animation: ticker 40s linear infinite;
+    -webkit-animation: ticker 40s linear infinite;
+    animation: ticker 40s linear infinite;
+}
+
+.THIS .ticker-wrap .ticker:hover {
+    -moz-animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+.THIS .ticker-wrap .ticker span {
+    display: inline;
+    padding: 0px;
+    margin: 0px;
+    margin-left: 12px;
+    padding-right: 12px;
+    
+    white-space: nowrap;
+    
+    border-right: 1px solid black;
+}
+
+.THIS .ticker-wrap .ticker span:last-child {    
+    border-right: none;
+}
+
+/* Move it (define the animation) */
+@-moz-keyframes ticker {
+ 0%   { -moz-transform: translateX(100%); }
+ 100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes ticker {
+ 0%   { -webkit-transform: translateX(100%); }
+ 100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes ticker {
+ 0%   { 
+ -moz-transform: translateX(100%); /* Firefox bug fix */
+ -webkit-transform: translateX(100%); /* Firefox bug fix */
+ transform: translateX(100%); 		
+ }
+ 100% { 
+ -moz-transform: translateX(-100%); /* Firefox bug fix */
+ -webkit-transform: translateX(-100%); /* Firefox bug fix */
+ transform: translateX(-100%); 
+ }
+}

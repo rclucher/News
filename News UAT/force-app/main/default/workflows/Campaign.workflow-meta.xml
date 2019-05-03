@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Campaign_Launching_Reminder</fullName>
+        <description>Campaign Launching Reminder</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Campaign_Team_Lead__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Campaign_Notifications/Campaign_Launching_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Cpgn_Ending_Reminder</fullName>
+        <description>Cpgn_Ending_Reminder</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Campaign_Team_Lead__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Campaign_Notifications/Campaign_Ending_Notification_14day</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Cpgn_Set_Active</fullName>
+        <description>Set the standard Campaign Active field</description>
+        <field>IsActive</field>
+        <literalValue>1</literalValue>
+        <name>Cpgn_Set_Active</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cpgn_Set_Inactive</fullName>
+        <description>Set the standard Campaign Active field to inactive</description>
+        <field>IsActive</field>
+        <literalValue>0</literalValue>
+        <name>Cpgn_Set_Inactive</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>Cpgn_Ending_Reminder</fullName>
+        <active>true</active>
+        <description>Alert the Team Lead 2 weeks before the Campaign End Date of a Launched campaign - to review the Campaign for any Members with Status &#39;Maybe&#39; for followup and closure.</description>
+        <formula>AND(    NOT(ISNULL(EndDate)), EndDate &gt;= (TODAY() + 14),    ISPICKVAL( Status , &#39;Launched&#39;),   NOT(ISNULL(  Owner.Id )) )</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Cpgn_Ending_Reminder</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Campaign.EndDate</offsetFromField>
+            <timeLength>-14</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Cpgn_Launching_Reminder</fullName>
+        <active>true</active>
+        <description>Email the Campaign Lead on the Campaign Start Date.</description>
+        <formula>AND(    NOT(ISNULL(StartDate)),    StartDate &gt;= (TODAY()),    Notify_Group_On_Launch__c,   ISPICKVAL(Status, &quot;Launched&quot;) )</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Campaign_Launching_Reminder</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Campaign.StartDate</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Cpgn_Set_Active</fullName>
+        <actions>
+            <name>Cpgn_Set_Active</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.Status</field>
+            <operation>equals</operation>
+            <value>Launched</value>
+        </criteriaItems>
+        <description>Set standard Campaign Active field</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Cpgn_Set_Inactive</fullName>
+        <actions>
+            <name>Cpgn_Set_Inactive</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.Status</field>
+            <operation>equals</operation>
+            <value>Cancelled</value>
+        </criteriaItems>
+        <description>Set standard Campaign Active field to inactive</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

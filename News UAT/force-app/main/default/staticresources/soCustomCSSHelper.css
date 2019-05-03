@@ -1,0 +1,35 @@
+/*
+* used to hide the package create button
+*
+*/
+.btnLE[title="Generate Insertion Order"] {
+    display: none !important;
+}
+
+
+/*
+ * Helper css for no approval required message
+ */
+.processMessage.preapproved {
+    background: #54698d;
+    color: #ffffff;
+}
+
+.processMessage.preapproved:before {
+    content: "\6d";
+    color: white;
+}
+
+/*
+ * Helper css for better readibility of disabled inputfields
+ * using values that match config screen
+ */
+.salesOrderFields .section-details input[disabled="disabled"] {
+    background: #e0e5ee !important;
+}
+
+.salesOrder input[disabled="disabled"] {
+    color: #000000 !important;
+    border-color: #a8b7c7 !important;
+}
+

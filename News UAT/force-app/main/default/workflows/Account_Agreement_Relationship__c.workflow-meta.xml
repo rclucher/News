@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Agmnt_update_Denormalized_Status</fullName>
+        <description>Update denormalized status</description>
+        <field>Junction_Status__c</field>
+        <formula>Status__c</formula>
+        <name>Agmnt update Denormalized Status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>Agmnt update Denormalized Status</fullName>
+        <actions>
+            <name>Agmnt_update_Denormalized_Status</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>Update the denormalized status on Junction of Agreement</description>
+        <formula>ISCHANGED( Status__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

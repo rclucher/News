@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Site_NZ_c__c</fullName>
+    <externalDeveloperName>Site_NZ__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Site NZ</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>NZ Herald</fullName>
+                <default>false</default>
+                <label>NZ Herald</label>
+            </value>
+            <value>
+                <fullName>NZ Magazines</fullName>
+                <default>false</default>
+                <label>NZ Magazines</label>
+            </value>
+            <value>
+                <fullName>NZ Online</fullName>
+                <default>false</default>
+                <label>NZ Online</label>
+            </value>
+            <value>
+                <fullName>NZ Herald NSM</fullName>
+                <default>false</default>
+                <label>NZ Herald NSM</label>
+            </value>
+            <value>
+                <fullName>Northern Advocate</fullName>
+                <default>false</default>
+                <label>Northern Advocate</label>
+            </value>
+            <value>
+                <fullName>Bay of Plenty Times</fullName>
+                <default>false</default>
+                <label>Bay of Plenty Times</label>
+            </value>
+            <value>
+                <fullName>Rotorua Daily Post</fullName>
+                <default>false</default>
+                <label>Rotorua Daily Post</label>
+            </value>
+            <value>
+                <fullName>Hawkes Bay Today</fullName>
+                <default>false</default>
+                <label>Hawkes Bay Today</label>
+            </value>
+            <value>
+                <fullName>Wanganui Chronicle</fullName>
+                <default>false</default>
+                <label>Wanganui Chronicle</label>
+            </value>
+            <value>
+                <fullName>Wairarapa Times Age</fullName>
+                <default>false</default>
+                <label>Wairarapa Times Age</label>
+            </value>
+            <value>
+                <fullName>Christchurch Star</fullName>
+                <default>false</default>
+                <label>Christchurch Star</label>
+            </value>
+            <value>
+                <fullName>Presspak</fullName>
+                <default>false</default>
+                <label>Presspak</label>
+            </value>
+            <value>
+                <fullName>CCN</fullName>
+                <default>false</default>
+                <label>CCN</label>
+            </value>
+            <value>
+                <fullName>Hamilton</fullName>
+                <default>false</default>
+                <label>Hamilton</label>
+            </value>
+            <value>
+                <fullName>Manawatu Guardian</fullName>
+                <default>false</default>
+                <label>Manawatu Guardian</label>
+            </value>
+            <value>
+                <fullName>Stratford Press</fullName>
+                <default>false</default>
+                <label>Stratford Press</label>
+            </value>
+            <value>
+                <fullName>Oamaru Mail</fullName>
+                <default>false</default>
+                <label>Oamaru Mail</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

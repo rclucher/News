@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Country_Special_Character_Check</fullName>
+    <active>true</active>
+    <description>check if country contains special characters</description>
+    <errorConditionFormula>NOT(REGEX(Country__c ,&quot;^[\\x20-\\x7E]*$&quot;))</errorConditionFormula>
+    <errorMessage>Please remove all special characters from Country field</errorMessage>
+</ValidationRule>

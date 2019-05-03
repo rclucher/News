@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Acct_Primary_Address_Mandatory_INT</fullName>
+    <active>false</active>
+    <description>On an account, the primary address is always mandatory
+- For Australian addresses
+- Partial for International addresses</description>
+    <errorConditionFormula>OR(
+  AND(
+    RecordType.DeveloperName = &#39;Private_Party&#39;,
+    NOT (PersonMailingCountry = &#39;Australia&#39; || PersonMailingCountry = &#39;Au&#39; || PersonMailingCountry = &#39;Aus&#39; || PersonMailingCountry = &#39;&#39;),
+    OR(
+      PersonMailingCity = &#39;&#39;,
+      PersonMailingStreet = &#39;&#39;
+    )
+  ),
+ 
+  AND(
+    NOT(RecordType.DeveloperName = &#39;Private_Party&#39;),
+    NOT( BillingCountry = &#39;Australia&#39; || BillingCountry = &#39;Au&#39; || BillingCountry = &#39;Aus&#39; || BillingCountry = &#39;&#39;),
+    OR(
+      BillingCity = &#39;&#39;,
+      BillingStreet = &#39;&#39;
+    )
+  )
+  
+  /*,
+
+ AND(
+  NOT CONTAINS($Profile.Name, &#39;System Administrat&#39;),
+  NOT CONTAINS($Profile.Name, &#39;IT Administrat&#39;),
+  NOT CONTAINS($Profile.Name, &#39;Integrat&#39;)
+ )
+ */
+)</errorConditionFormula>
+    <errorMessage>For any international addresses (where country NOT = Australia), please complete the Street and City fields as a minimum.</errorMessage>
+</ValidationRule>

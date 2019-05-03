@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Preferences__c</fullName>
+    <defaultValue>&quot;Phone: None&quot;&amp;BR()&amp;
+&quot;SMS: None&quot;&amp;BR()&amp;
+&quot;Email: None&quot;&amp;BR()&amp;
+&quot;Metro Print: None&quot;&amp;BR()&amp;
+&quot;Community Print: None&quot;&amp;BR()&amp;
+&quot;Regional Print: None&quot;&amp;BR()&amp;
+&quot;Digital Offerings: None&quot;&amp;BR()&amp;
+&quot;Magazines: None&quot;&amp;BR()&amp;
+&quot;Seminars + Events: None&quot;</defaultValue>
+    <description>Field populated by workflow rule for history tracking purposes</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Field populated by workflow rule for history tracking purposes</inlineHelpText>
+    <label>Marketing Preferences</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>TextArea</type>
+</CustomField>

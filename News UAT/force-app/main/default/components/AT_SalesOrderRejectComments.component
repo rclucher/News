@@ -1,0 +1,4 @@
+<apex:component controller="AT_SalesOrderApprovals" access="global">
+    <apex:attribute name="salesOrderID" description="Record ID of Sales Order" type="String" assignTo="{!salesOrderRecordID}" access="global"/>
+    {!RejectComments}
+</apex:component>

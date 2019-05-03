@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_Won_Lost__c</fullName>
+    <externalId>false</externalId>
+    <label>Reason Won/Lost</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Alternative Media</fullName>
+                <default>false</default>
+                <label>Alternative Media</label>
+            </value>
+            <value>
+                <fullName>Below the Line</fullName>
+                <default>false</default>
+                <label>Below the Line</label>
+            </value>
+            <value>
+                <fullName>Editorial</fullName>
+                <default>false</default>
+                <label>Editorial</label>
+            </value>
+            <value>
+                <fullName>Inventory Limitation</fullName>
+                <default>false</default>
+                <label>Inventory Limitation</label>
+            </value>
+            <value>
+                <fullName>Lack of Colour</fullName>
+                <default>false</default>
+                <label>Lack of Colour</label>
+            </value>
+            <value>
+                <fullName>Masthead Reputation</fullName>
+                <default>false</default>
+                <label>Masthead Reputation</label>
+            </value>
+            <value>
+                <fullName>No budget</fullName>
+                <default>false</default>
+                <label>No budget</label>
+            </value>
+            <value>
+                <fullName>Positioning</fullName>
+                <default>false</default>
+                <label>Positioning</label>
+            </value>
+            <value>
+                <fullName>Price</fullName>
+                <default>false</default>
+                <label>Price</label>
+            </value>
+            <value>
+                <fullName>Product/Environment</fullName>
+                <default>false</default>
+                <label>Product/Environment</label>
+            </value>
+            <value>
+                <fullName>Reach</fullName>
+                <default>false</default>
+                <label>Reach</label>
+            </value>
+            <value>
+                <fullName>Relationship</fullName>
+                <default>false</default>
+                <label>Relationship</label>
+            </value>
+            <value>
+                <fullName>Response Rate %</fullName>
+                <default>false</default>
+                <label>Response Rate %</label>
+            </value>
+            <value>
+                <fullName>Share of Voice</fullName>
+                <default>false</default>
+                <label>Share of Voice</label>
+            </value>
+            <value>
+                <fullName>Synergy Lost</fullName>
+                <default>false</default>
+                <label>Synergy Lost</label>
+            </value>
+            <value>
+                <fullName>Target audience</fullName>
+                <default>false</default>
+                <label>Target audience</label>
+            </value>
+            <value>
+                <fullName>Timing</fullName>
+                <default>false</default>
+                <label>Timing</label>
+            </value>
+            <value>
+                <fullName>Track Record</fullName>
+                <default>false</default>
+                <label>Track Record</label>
+            </value>
+            <value>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+                <label>Withdrawn</label>
+            </value>
+            <value>
+                <fullName>Created In Error</fullName>
+                <default>false</default>
+                <label>Created In Error</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Client Objective</fullName>
+                <default>false</default>
+                <label>Client Objective</label>
+            </value>
+            <value>
+                <fullName>Audience</fullName>
+                <default>false</default>
+                <label>Audience</label>
+            </value>
+            <value>
+                <fullName>Connection</fullName>
+                <default>false</default>
+                <label>Connection</label>
+            </value>
+            <value>
+                <fullName>Platform</fullName>
+                <default>false</default>
+                <label>Platform</label>
+            </value>
+            <value>
+                <fullName>Impact</fullName>
+                <default>false</default>
+                <label>Impact</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

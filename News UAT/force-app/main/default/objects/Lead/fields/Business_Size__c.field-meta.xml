@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Size__c</fullName>
+    <description>Instead of the standard field No of Employees</description>
+    <externalId>false</externalId>
+    <label>Business Size</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1-2</fullName>
+                <default>false</default>
+                <label>1-2</label>
+            </value>
+            <value>
+                <fullName>3-9</fullName>
+                <default>false</default>
+                <label>3-9</label>
+            </value>
+            <value>
+                <fullName>10-49</fullName>
+                <default>false</default>
+                <label>10-49</label>
+            </value>
+            <value>
+                <fullName>50+</fullName>
+                <default>false</default>
+                <label>50+</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

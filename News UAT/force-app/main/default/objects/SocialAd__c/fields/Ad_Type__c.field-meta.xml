@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ad_Type__c</fullName>
+    <description>These are the available ad types for facebook ad</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This ad type will be used as an objective for facebook ad.</inlineHelpText>
+    <label>Ad Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Brand Awareness</fullName>
+                <default>false</default>
+                <label>Brand Awareness</label>
+            </value>
+            <value>
+                <fullName>Conversion</fullName>
+                <default>false</default>
+                <label>Conversion</label>
+            </value>
+            <value>
+                <fullName>Event Response</fullName>
+                <default>false</default>
+                <label>Event Response</label>
+            </value>
+            <value>
+                <fullName>Engagement</fullName>
+                <default>false</default>
+                <label>Engagement</label>
+            </value>
+            <value>
+                <fullName>Lead Generation</fullName>
+                <default>false</default>
+                <label>Lead Generation</label>
+            </value>
+            <value>
+                <fullName>Reach</fullName>
+                <default>false</default>
+                <label>Reach</label>
+            </value>
+            <value>
+                <fullName>Traffic</fullName>
+                <default>false</default>
+                <label>Traffic</label>
+            </value>
+            <value>
+                <fullName>Video Views</fullName>
+                <default>false</default>
+                <label>Video Views</label>
+            </value>
+            <value>
+                <fullName>Messenger</fullName>
+                <default>false</default>
+                <label>Messenger</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prospecting_Account_Plan</fullName>
+    <active>true</active>
+    <description>Account Plans for prospecting accounts that are not yet business accounts</description>
+    <label>Prospecting Account Plan</label>
+    <picklistValues>
+        <picklist>News_Corp_Target_Audience__c</picklist>
+        <values>
+            <fullName>Alex Small Business Owner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Belinda Women 25-39</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eddie and Jane 18-24s</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>George and Anne Baby Boomers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Grace Mums with young kids</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Henry and Frances Over 65s</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jack and Sarah_rural</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>James Men 18-34</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Joe and Kate Home Owners</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kai Young Gamer 18-24</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kenneth Male Sports fans 25-54</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Luke the tradie</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Margaret Empty Nester 65%2B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Matt Passive Job Seekers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mel and Ben All People 25-54</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mike and Amanda ABs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mrs Swinburne Mums with kids 5%2B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Paul and Tess Home Buyers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renae Women 25-54</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rob Men 25-54</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>The Bradshaw family Car Buyers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>The Ross Clan Families</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tim Male Grocery Buyer</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Plan_Status__c</picklist>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Draft</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Started</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Review</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Planning_Year__c</picklist>
+        <values>
+            <fullName>FY2011</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FY2012</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FY2013</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FY2014</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>FY2015</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FY2016</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FY2017</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FY2018</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FY2019</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

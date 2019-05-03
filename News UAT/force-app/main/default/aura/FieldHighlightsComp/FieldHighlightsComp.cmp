@@ -1,0 +1,32 @@
+<aura:component implements="force:hasRecordId,force:hasSObjectName,flexipage:availableForAllPageTypes" controller="FieldHighlightsController">
+
+	<aura:attribute name="field" type="String"/>
+	<aura:attribute name="isFieldSet" type="Boolean" default="false"/>
+	<aura:attribute name="title" type="String"/>
+	<aura:attribute name="showLabel" type="Boolean" default="true"/>
+	<aura:attribute name="fields" type="String[]" />
+
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+	<lightning:recordViewForm recordId="{!v.recordId}" objectApiName="{!v.sObjectName}">
+
+		<div class="slds-box slds-theme--default">
+			<aura:if isTrue="{!v.isFieldSet}">
+
+				<div class="slds-text-heading_large">{!v.title}</div>
+
+				<aura:iteration items="{!v.fields}" var="fieldName">
+					<lightning:outputField fieldName="{!fieldName}" variant="{!v.showLabel == true ? 'standard' : 'label-hidden'}"/>
+				</aura:iteration>
+
+				<aura:set attribute="else">
+					<div class="slds-text-heading_medium">{!v.title}</div>
+					<lightning:outputField fieldName="{!v.field}" variant="{!v.showLabel == true ? 'standard' : 'label-hidden'}"/>
+				</aura:set>
+
+			</aura:if>
+			</div>
+		
+	</lightning:recordViewForm>
+	
+</aura:component>

@@ -1,0 +1,76 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="SalesTargetController">
+	<aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    
+    <aura:attribute type="List" name="targetColumns"/>
+    <aura:attribute type="Object" name="targetData"/>
+        
+    <aura:attribute name="total" type="Decimal" />
+
+    <article class="slds-card">
+      <div class="slds-card__header slds-grid">
+        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+          <div class="slds-media__figure">
+            <span class="slds-icon_container slds-icon-partner-marketing-budget" title="My Sales Targets">
+              <lightning:icon iconName="standard:partner_marketing_budget"/>&nbsp;&nbsp;<b></b>
+            </span>
+          </div>
+          <div class="slds-media__body">
+            <h2>
+                <b>My Sales Targets</b>
+            </h2>
+          </div>
+        </header>
+      </div>
+      <div class="slds-card__body slds-card__body_inner" style = "padding: 0px;">
+      	<aura:if isTrue="{!v.loading}">
+        	<lightning:spinner variant="brand" size="medium"/>
+        
+            <aura:set attribute="else">
+                    <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_resizable-cols" style="width: 100%; table-layout: fixed;">
+                      <thead>
+                            <tr class="">
+                                <aura:iteration items="{!v.targetColumns}" var="col">
+                                  <th scope="col">
+                                    <div class="slds-truncate heading-cell" title="{!col.label}">{!col.label}</div>
+                                  </th>
+                                </aura:iteration>
+                            </tr>
+                      </thead>
+                      <tbody>
+                          <aura:iteration items="{!v.targetData}" var="row">
+                              <tr>
+                                  <td class="slds-truncate">
+                                      <div class="slds-truncate">
+                                          {!row.Month}
+                                      </div>
+                                  </td>
+                                  <td class="slds-truncate">
+                                      <div class="slds-truncate">
+                                          <lightning:formattedNumber value="{!row.Print}" style="currency" maximumFractionDigits="0" minimumFractionDigits="0"/>
+                                      </div>
+                                  </td>
+                                  <td class="slds-truncate">
+                                      <div class="slds-truncate">
+                                          <lightning:formattedNumber value="{!row.Digital}" style="currency" maximumFractionDigits="0" minimumFractionDigits="0"/>
+                                      </div>
+                                  </td>
+                                  <td class="slds-truncate">
+                                      <div class="slds-truncate">
+                                          <lightning:formattedNumber value="{!row.Combined}" style="currency" maximumFractionDigits="0" minimumFractionDigits="0"/>
+                                      </div>
+                                  </td>
+                              </tr>
+                          </aura:iteration>
+                      </tbody>
+                    </table>
+            </aura:set>
+        </aura:if>  
+      </div>
+    </article>
+
+        <!--lightning:datatable columns="{!v.targetColumns}"
+                             data="{!v.targetData}"
+                             keyField="Month"
+                             hideCheckboxColumn="true"/ -->
+
+</aura:component>

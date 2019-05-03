@@ -1,0 +1,23 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="NXX2_UploadFilesController" access="global">
+    <aura:method name="UploadFiles" action="{!c.uploadFiles}" access="PUBLIC">
+        <aura:attribute name="files" type="List" />
+        <aura:attribute name="recordId" type="String" />
+    </aura:method>
+    <aura:attribute name="filesUploadStatus" type="List" default="[]"/>
+    <aura:attribute name="totalFiles" type="Integer" default="1"/>
+    <aura:attribute name="currentFileCount" type="Integer" default="1"/>
+    <aura:attribute name="progress" type="Integer" default="10"/>
+    <aura:attribute name="uploading" type="Boolean" default="false"/>
+    <aura:registerEvent name="fileUploadCompleted" type="c:NXX2_FileUploadCompleted"/>
+    <aura:if isTrue="{!v.uploading}">
+        <div class="spinner-container">
+            <lightning:spinner aura:id="mySpinner" size="medium"/>
+        </div>
+        <div class="progressBar-container">
+            <div class="progress-description">Uploading {!add(v.currentFileCount,1)} of {!v.totalFiles}</div>
+            <div class="empty-progress-bar">
+                <span class="filled-progress-bar" style="{! 'width:'+v.progress+'%;'}"></span>
+            </div>
+        </div>
+    </aura:if>
+</aura:component>

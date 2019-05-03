@@ -1,0 +1,5 @@
+<apex:page standardController="Opportunity" extensions="OpportunitySalesOrderIntegration" showHeader="false" sidebar="false" action="{!generateSalesOrder}" >
+    <div style="display:none">
+    {!Opportunity.AccountId} 
+    </div>
+</apex:page>

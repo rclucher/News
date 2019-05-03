@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resource_Status__c</fullName>
+    <description>Resource Status</description>
+    <externalId>false</externalId>
+    <label>Resource Status</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>On Schedule</fullName>
+                <default>false</default>
+                <label>On Schedule</label>
+            </value>
+            <value>
+                <fullName>Potential Risk</fullName>
+                <default>false</default>
+                <label>Potential Risk</label>
+            </value>
+            <value>
+                <fullName>At Risk</fullName>
+                <default>false</default>
+                <label>At Risk</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,131 @@
+<apex:page standardController="Account" sidebar="false" id="pg">
+
+<!-- {!URLFOR($Action.Account.New)} -->
+<!-- New page URL = https://newslimited--dev1.cs5.my.salesforce.com/001/e 
+SObject so = m_sc.getRecord();
+string s = '/' + ('' + so.get('Id')).subString(0, 3) + '/e?';
+-->
+
+<apex:sectionHeader title="Account" subtitle="Edit Address"/>
+
+<apex:form id="frm">
+    <apex:pageBlock mode="edit" id="pgb">
+        <apex:pageBlockSection title="Primary Address" columns="1" id="pgbsPrimary">
+        
+        <!---Create five input fields: Street,City, State, Postcode, Country and DPID--->
+       
+                <apex:pageBlockSectionItem id="pgbsiStreet">
+                    <apex:outputLabel value="Street"/>
+                    <apex:inputText id="Street" value="{!Account.BillingStreet}"/> 
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem id="pgbsiCity">
+                    <apex:outputLabel value="City"/>
+                    <apex:inputText id="City" value="{!Account.BillingCity}"/> 
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem id="pgbsiState">
+                    <apex:outputLabel value="State"/>
+                    <apex:inputText id="State" value="{!Account.BillingState}"/> 
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem id="pgbsiPostcode">
+                    <apex:outputLabel value="Postcode" />
+                    <apex:inputText id="Postcode" value="{!Account.BillingPostalCode}"/> 
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem id="pgbsiCountry">
+                    <apex:outputLabel value="Country" />
+                    <apex:inputText id="Country" value="{!Account.BillingCountry}"/> 
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem id="pgbsiDPID">
+                    <apex:outputLabel value="DPID" />
+                    <apex:inputText id="DPID"/> 
+                </apex:pageBlockSectionItem>  
+                
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection title="Secondary Address" columns="1" id="pgbsSecondary">
+        
+        <!---Create five input fields: Street,City, State, Postcode, Country and DPID--->
+        
+                <apex:pageBlockSectionItem id="pgbsiStreet">
+                    <apex:outputLabel value="Street"/>
+                    <apex:inputText id="Street" value="{!Account.ShippingStreet}"/> 
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem id="pgbsiCity">
+                    <apex:outputLabel value="City"/>
+                    <apex:inputText id="City" value="{!Account.ShippingCity}"/> 
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem id="pgbsiState">
+                    <apex:outputLabel value="State"/>
+                    <apex:inputText id="State" value="{!Account.ShippingState}"/> 
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem id="pgbsiPostcode">
+                    <apex:outputLabel value="Postcode" />
+                    <apex:inputText id="Postcode" value="{!Account.ShippingPostalCode}"/> 
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem id="pgbsiCountry">
+                    <apex:outputLabel value="Country" />
+                    <apex:inputText id="Country" value="{!Account.ShippingCountry}"/> 
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem id="pgbsiDPID">
+                    <apex:outputLabel value="DPID" />
+                    <apex:inputText id="DPID"/> 
+                </apex:pageBlockSectionItem>  
+                
+        </apex:pageBlockSection>
+        
+    </apex:pageBlock>
+  <apex:commandButton action="{!save}" value="Save"/>
+  <apex:commandButton action="{!cancel}" value="Cancel"/>
+  
+  <apex:outputLink value="{!URLFOR($Action.Account.New)}" id="theLink">New Account
+  <!-- <apex:param name="acc2" value="bird"/> -->
+  </apex:outputLink>
+  
+</apex:form>
+
+<!---
+1. Include sidebar="false" in <apex:page>.
+2. Add javascript references to jQuery and DataSan</apex:page>
+3. Add javascript code to define DataSan key and address fields ids.
+--->
+ 
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://d1c24wnrse4bd3.cloudfront.net/api/sf/1.7/datasan-sf.min.js"></script>
+
+<script>
+var datasan__settings = {
+    key : "nTPhWj59v81re_CN0MMmQXwWVqoI2o6xZlRetkwIfexqv5h_1YknlxBpV4wykmp3", // populate DataSan key
+    addresses : [
+        {  //Add fields IDs. 
+           //To get IDs, run the visual force page first, and then find field IDs by looking at source code 
+           
+           country: "pg:frm:pgb:pgbsPrimary:pgbsiCountry:Country",
+           state: "pg:frm:pgb:pgbsPrimary:pgbsiState:State",
+           city: "pg:frm:pgb:pgbsPrimary:pgbsiCity:City",
+           postalcode: "pg:frm:pgb:pgbsPrimary:pgbsiPostcode:Postcode",
+           street: "pg:frm:pgb:pgbsPrimary:pgbsiStreet:Street",
+           dpid: "pg:frm:pgb:pgbsPrimary:pgbsiDPID:DPID"
+        },
+        {
+           country: "pg:frm:pgb:pgbsSecondary:pgbsiCountry:Country",
+           state: "pg:frm:pgb:pgbsSecondary:pgbsiState:State",
+           city: "pg:frm:pgb:pgbsSecondary:pgbsiCity:City",
+           postalcode: "pg:frm:pgb:pgbsSecondary:pgbsiPostcode:Postcode",
+           street: "pg:frm:pgb:pgbsSecondary:pgbsiStreet:Street",
+           dpid: "pg:frm:pgb:pgbsSecondary:pgbsiDPID:DPID"
+        }
+    ]
+};
+</script>
+
+</apex:page>

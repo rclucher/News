@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Opportunity</fullName>
+    <availability>online</availability>
+    <description>New opportunity button on referral case</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>New Opportunity</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/006/e?&amp;retURL=%2F{!Case.Id}&amp;cancelURL=%2F{!Case.Id}&amp;RecordType=012O0000000CtJh&amp;conid={!Case.ContactId}&amp;opp4_lkid={!Case.AccountId}&amp;opp4={!Case.Account}&amp;opp11=&quot;Qualify Opportunity&quot;&amp;CF00NO0000000zxqm_lkid={!Case.ContactId}&amp;CF00NO0000000zxqm={!Case.Contact}&amp;saveURL={!Case.Id}&amp;00NO00000018gDs={!Case.Id}</url>
+</WebLink>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VIC_DS_Campaigns1</fullName>
+    <columns>CAMPAIGN.NAME</columns>
+    <columns>Publication_Division__c</columns>
+    <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+    <columns>CAMPAIGN.STATUS</columns>
+    <columns>CAMPAIGN.CREATED_DATE</columns>
+    <columns>CAMPAIGN.START_DATE</columns>
+    <columns>CAMPAIGN.END_DATE</columns>
+    <columns>CAMPAIGN.NUM_LEADS</columns>
+    <columns>CAMPAIGN.NUM_CONTACTS</columns>
+    <columns>Allow_DNC_Calls__c</columns>
+    <columns>Wash_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CAMPAIGN.NAME</field>
+        <operation>startsWith</operation>
+        <value>VIC DS</value>
+    </filters>
+    <filters>
+        <field>CAMPAIGN.STATUS</field>
+        <operation>equals</operation>
+        <value>In Planning,Launched</value>
+    </filters>
+    <label>VIC DS Active Campaigns</label>
+    <sharedTo>
+        <roleAndSubordinates>VIC_Head_Direct_Sales</roleAndSubordinates>
+    </sharedTo>
+</ListView>

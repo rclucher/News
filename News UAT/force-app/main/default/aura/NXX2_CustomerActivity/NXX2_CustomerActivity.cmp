@@ -1,0 +1,133 @@
+<aura:component controller='NXX2_CustomerActivitiesListController'  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" >
+    <aura:attribute name="customerTask" type="Object" />
+    <aura:attribute name="warningColor" type="String" />
+    <aura:attribute name="view" type="String" />
+    <aura:attribute name="externalUser" type="Boolean" default="false"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+	<lightning:notificationsLibrary aura:id="notifLib"/>
+    <aura:registerEvent name="handleCustomerActivitiesDetailView" type="c:NXX2_HandleCustomerActivitiesDetailViewEvent"/>
+    <tr class="slds-hint-parent">
+        <aura:if isTrue="{!(v.view!='Full')}"> 
+            <td>
+                <div class="slds-card__body slds-card__body_inner">
+                    <ul class="slds-grid slds-wrap slds-grid_pull-padded">
+                        <li class="slds-p-horizontal_medium">
+                            <article class="slds-tile slds-media slds-card__tile slds-hint-parent">
+                                <div class="slds-media__figure">
+                                    <div  class="TestCircle"  style="{! 'background-color:' + v.warningColor }" >
+                                        <!-- ngIf: $ctrl.task.isApproved() -->
+                                    </div>
+                                </div>  
+                                <div class="slds-media__body customMinWidth">
+                                    <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                                        <div>
+                                                <h2 class="slds-grid flex-alignCenter">
+                                                    <span class="slds-text-heading--small" onclick="{!c.showActivityDetails}" >{!v.customerTask.Type__c}</span>
+                                                    <div class="slds-is-relative flex-alignCenter helptext show-md-down slds-p-horizontal_x-small ">
+                                                        <c:NXX2_ToolTip helpLink="Help" helpText="{!v.customerTask.Comments__c}"/>
+                                                    </div>
+                                                </h2>
+                                            </div>
+                                    </div>
+                                    <div class="slds-tile__detail">
+                                        <dl class="slds-list_horizontal slds-wrap">
+                                            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Label">Due Date:</dt>
+                                            <dd class="slds-item_detail slds-truncate" title="Description for first label"><ui:outputDate format="d/M/yyyy" value="{!v.customerTask.Due_Date__c}" /></dd>
+                                            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Status:</dt>
+                                            <dd class="slds-item_detail slds-truncate" title="Description for second label">{!v.customerTask.Status__c}</dd>
+                                        </dl>
+                                    </div>
+                                </div> 
+                            </article>
+                        </li>
+                    </ul>
+                </div>
+            </td>
+            <td>
+                <aura:if isTrue="{!(v.customerTask.Status__c!='Completed')}"> 
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                            <span>
+                                <lightning:buttonMenu aura:id="menu" onselect="{! c.handleMenuSelect }" alternativeText="Show menu">
+                                    <lightning:menuItem value="Completed" label="Mark Completed" />
+                                    <aura:if isTrue="{! not(v.externalUser)}">
+                                        <lightning:menuItem value="Edit" label="Edit" />
+                                        <aura:if isTrue="{!equals(v.customerTask.Status__c,'With Client')}">
+                                            <lightning:menuItem value="ResetToCustomer" label="Reset To Customer" />
+                                        </aura:if>
+                                    </aura:if>
+                                </lightning:buttonMenu>
+                            </span>
+                        </div>
+                        <div class="slds-col">
+                            <!-- <span> <lightning:spinner alternativeText="Loading" size="small" class="customProcessing<"/></span> -->
+                        </div>
+                    </div>
+                </aura:if>
+            </td>
+            <aura:set attribute="else">
+                <td scope="row" class="slds-cell-wrap">
+                    <div  title="Test Activity Subject" >
+                        <div class="slds-grid slds-gutters">
+                            <div  class="TestCircle"  style="{! 'background-color:' + v.warningColor }" >
+                            </div>
+                            <h2 class="slds-grid flex-alignCenter">
+                                <span class="slds-text-heading--small" onclick="{!c.showActivityDetails}" >{!v.customerTask.Type__c}</span>
+                                <div class="slds-is-relative flex-alignCenter helptext show-md-down slds-p-horizontal_x-small ">
+                                    <c:NXX2_ToolTip helpLink="Help" helpText="{!v.customerTask.Comments__c}"/>
+                                </div>
+                            </h2>
+                        </div>
+                    </div> 
+                </td>
+                <td>
+                    <div class="slds-truncate" >
+                        <div class="slds-button-group" role="group">
+                            <div class="slds-truncate" title="Company One">
+                                <ui:outputDate format="d/M/yyyy" value="{!v.customerTask.Due_Date__c}" />
+                            </div>  
+                            
+                        </div>
+                        
+                    </div>
+                    
+                </td>
+                <td>
+                    <div class="slds-truncate" >
+                        <div class="slds-button-group" role="group">
+                            <div class="slds-truncate" title="Company One">
+                                {!v.customerTask.Status__c}
+                            </div>  
+                            
+                        </div>
+                        
+                    </div>
+                    
+                </td>
+                <td>
+                    <aura:if isTrue="{!(v.customerTask.Status__c!='Completed')}"> 
+                        <div class="slds-grid slds-gutters">
+                            <div class="slds-col">
+                                <span>
+                                    <lightning:buttonMenu aura:id="menu" onselect="{! c.handleMenuSelect }" alternativeText="Show menu">
+                                        <lightning:menuItem value="Completed" label="Mark Completed" />
+                                        <aura:if isTrue="{! not(v.externalUser)}">
+                                            <lightning:menuItem value="Edit" label="Edit" />
+                                            <aura:if isTrue="{!equals(v.customerTask.Status__c,'With Client')}">
+                                                <lightning:menuItem value="ResetToCustomer" label="Resend To Customer" />
+                                            </aura:if>
+                                        </aura:if>
+                                    </lightning:buttonMenu>
+                                </span>
+                            </div>
+                            <div class="slds-col">
+                                <!-- <span> <lightning:spinner alternativeText="Loading" size="small" class="customProcessing<"/></span> -->
+                            </div>
+                        </div>
+                    </aura:if>
+                </td>
+            </aura:set>
+        </aura:if>
+    </tr>
+</aura:component>

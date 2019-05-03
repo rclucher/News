@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Campaign_Pillar__c</fullName>
+    <externalId>false</externalId>
+    <label>Campaign Pillar</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Adult Services</fullName>
+                <default>false</default>
+                <label>Adult Services</label>
+            </value>
+            <value>
+                <fullName>Employment</fullName>
+                <default>false</default>
+                <label>Employment</label>
+            </value>
+            <value>
+                <fullName>Education</fullName>
+                <default>false</default>
+                <label>Education</label>
+            </value>
+            <value>
+                <fullName>Marketplace</fullName>
+                <default>false</default>
+                <label>Marketplace</label>
+            </value>
+            <value>
+                <fullName>Motoring</fullName>
+                <default>false</default>
+                <label>Motoring</label>
+            </value>
+            <value>
+                <fullName>Personal Notices</fullName>
+                <default>false</default>
+                <label>Personal Notices</label>
+            </value>
+            <value>
+                <fullName>Public Notices</fullName>
+                <default>false</default>
+                <label>Public Notices</label>
+            </value>
+            <value>
+                <fullName>Retail, Amusements &amp; National Other</fullName>
+                <default>false</default>
+                <label>Retail, Amusements &amp; National Other</label>
+            </value>
+            <value>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+                <label>Real Estate</label>
+            </value>
+            <value>
+                <fullName>Trades and Services</fullName>
+                <default>false</default>
+                <label>Trades and Services</label>
+            </value>
+            <value>
+                <fullName>Account Managed</fullName>
+                <default>false</default>
+                <label>Account Managed</label>
+            </value>
+            <value>
+                <fullName>General</fullName>
+                <default>false</default>
+                <label>General</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

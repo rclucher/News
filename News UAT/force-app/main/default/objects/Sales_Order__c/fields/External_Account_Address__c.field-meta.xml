@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>External_Account_Address__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISBLANK(External_Account__r.Street__c), &#39;&#39;, External_Account__r.Street__c + &#39;, &#39;) + IF(ISBLANK(External_Account__r.Suburb__c), &#39;&#39;, External_Account__r.Suburb__c + &#39;, &#39;) + IF(ISBLANK(External_Account__r.State__c ), &#39;&#39;, External_Account__r.State__c + &#39;, &#39;) + IF(ISBLANK(External_Account__r.Post_Code__c), &#39;&#39;, External_Account__r.Post_Code__c + &#39;, &#39;) + IF(ISBLANK(External_Account__r.Country__c), &#39;&#39;, External_Account__r.Country__c)</formula>
+    <label>Booking System Account Address</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,5 @@
+<design:component >
+	<design:attribute name="title" label="Title"/>
+    <design:attribute name="icon" label="Icon"/>
+    <design:attribute name="configList" label="List View Configs"/>
+</design:component>

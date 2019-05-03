@@ -1,0 +1,11 @@
+<design:component label="Four Card Column Layout">
+
+	<flexipage:template >
+		<flexipage:region name="headerCard1" defaultWidth="Large" />
+		<flexipage:region name="headerCard2" defaultWidth="Large" />
+		<flexipage:region name="headerCard3" defaultWidth="Large" />
+		<flexipage:region name="headerCard4" defaultWidth="Large" />
+		<flexipage:region name="leftColumn" defaultWidth="MEDIUM"/>
+		<flexipage:region name="rightColumn" defaultWidth="Small" />
+	</flexipage:template>
+</design:component>

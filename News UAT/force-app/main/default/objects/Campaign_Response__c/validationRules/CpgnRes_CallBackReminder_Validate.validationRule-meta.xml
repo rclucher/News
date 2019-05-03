@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CpgnRes_CallBackReminder_Validate</fullName>
+    <active>true</active>
+    <description>A Call Back Reminder can only be set if there is a Call back date - AND the Response type is &#39;Follow Up&#39;. Other Response types does not determine who should call back, and so a Reminder is not applicable.</description>
+    <errorConditionFormula>AND( 
+OR( Call_Back_Reminder__c,NOT( ISBLANK( Call_Back_Date__c ))), 
+OR( 
+
+(ISPICKVAL(Response_Type__c, &#39;Yes&#39;)),(ISPICKVAL(Response_Type__c, &#39;No&#39;)),(ISPICKVAL(Response_Type__c, &#39;No Sales Call&#39;)), 
+(ISPICKVAL(Response_Type__c, &#39;&#39;))) 
+)</errorConditionFormula>
+    <errorDisplayField>Call_Back_Reminder__c</errorDisplayField>
+    <errorMessage>Call Back Reminder only allowed for Response type &#39;Follow Up&#39;, and Call Back Date provided</errorMessage>
+</ValidationRule>

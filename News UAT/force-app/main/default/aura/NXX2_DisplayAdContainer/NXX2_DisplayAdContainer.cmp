@@ -1,0 +1,121 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,lightning:isUrlAddressable,force:hasRecordId" controller="NXX2_SocialAdPageController" access="global">
+    <aura:attribute name="allAds" type="List"/>
+    <aura:attribute name="proof" type="Object"/>
+    <aura:attribute name="isExternalUser" type="Boolean" default="false"/>
+    <aura:attribute name="overlay" type="Object"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="displaySpinner" type="Boolean" default="true"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="c:NXX2_CloseModal" action="{!c.handleClodeModal}" includeFacets="true"/>
+    <aura:handler event="c:NXX2_AdHasBeenUpdated" action="{!c.doInit}"/>
+    <ltng:require styles="{!join(',', $Resource.CustomCSSForSocialAd )}" />
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <force:recordData aura:id="socialProofLoader"
+                      recordId="{!v.recordId}"
+                      fields="Status__c,Campaign_Start_Date__c,Campaign_End_Date__c"
+                      targetFields ="{!v.proof}"
+                      />
+    <div class="slds-box">
+        <aura:if isTrue="{!v.displaySpinner}">
+            <lightning:spinner size="medium"/>
+        </aura:if>
+        <aura:if isTrue="{!not(v.isExternalUser)}">
+            <div class="create-button-container">
+                <lightning:button variant="brand" label="Create Ad" title="Create Ad" onclick="{! c.createAd }" />
+            </div>
+        </aura:if>
+        <aura:iteration items="{!v.allAds}" var="ad" indexVar="index">
+            <div class="ad-container">
+                <div class="slds-grid slds-wrap slds-gutters ad-info-container">
+                    <div class="slds-col slds-size_1-of-3">
+                        <span class="custom-label">
+                            Start Date : 
+                        </span>
+                        <span class="custom-value">
+                            {!ad.Start_Date__c}
+                        </span>
+                    </div>
+                    <div class="slds-col slds-size_1-of-3">
+                        <span class="custom-label">
+                            End Date : 
+                        </span>
+                        <span class="custom-value">
+                            {!ad.End_Date__c}
+                        </span>
+                    </div>
+                    <div class="slds-col slds-size_1-of-3">
+                        <span class="custom-label">
+                            Status : 
+                        </span>
+                        <span class="custom-value">
+                            {!ad.Status__c}
+                        </span>
+                    </div>
+                </div>
+                <div class="ad-details">
+                    <div class="control-section">
+                        <div class="icon-container">
+                            <span class="ad-count">{!add(index,1)}</span>
+                        </div>
+                        <aura:if isTrue="{!and(v.isExternalUser,equals(ad.Status__c,'With Customer'))}">
+                            <div class="edit-icon-container icon-container" data-adIndex="{!index}" onclick="{!c.editAd}">
+                                <lightning:icon iconName="utility:edit" size="x-small" alternativeText="Edit"/>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!and(not(v.isExternalUser),notequals(ad.Status__c,'Approved'))}">
+                            <div class="edit-icon-container icon-container" data-adIndex="{!index}" onclick="{!c.editAd}">
+                                <lightning:icon iconName="utility:edit" size="x-small" alternativeText="Edit"/>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{and(not(v.isExternalUser),notequals(ad.Status__c,'Approved'))}">
+                            <div class="delete-icon-container icon-container" data-adIndex="{!index}" onclick="{!c.deleteDisplayAd}">
+                                <lightning:icon iconName="utility:delete" size="x-small" alternativeText="Delete"/>
+                            </div>
+                        </aura:if>
+                    </div>
+                    <div class="{!if(v.isExternalUser, 'details-section wide', 'details-section')}">
+                        <article class="display-ad-container slds-card slds-p-around_small">
+                            <aura:if isTrue="{!v.isExternalUser}">
+                                <div class="link-label">Instructions</div>
+                                <div class="link-text">Review your proofs, then approve or reject them below.</div>
+                                <div class="link-text"><b>Note:</b> Your proofs may take some time to download and display. When they do display, scroll to view all of them.</div>
+                                <div class="link-preview">
+                                    <iframe src="{!ad.Display_Ad_Link__c}" width="100%" height="500px"></iframe>
+                                </div>
+                                <aura:set attribute="else">
+                                    <div class="link-label">Link</div>
+                                    <div class="link-text">{!ad.Display_Ad_Link__c}</div>
+                                    <div data-link="{!ad.Display_Ad_Link__c}">
+                                        <lightning:button label="View Link" title="View Link" onclick="{! c.viewLink }"/>
+                                    </div>
+                                </aura:set>
+                            </aura:if>
+                        </article>
+                    </div>
+                    <div class="{!if(or(notequals(ad.Status__c,'Approved'),not(v.isExternalUser)), 'comments-section', 'comments-section disabled')}">
+                        <lightning:tabset selectedTabId="Comments">
+                            <lightning:tab label="Comments" id="Comments">
+                                <article class="slds-card slds-p-around_small">
+                                    <aura:if isTrue="{!or(notequals(ad.Status__c,'Approved'),not(v.isExternalUser))}">
+                                        <forceChatter:publisher context="RECORD" recordId="{!ad.Id}"/>
+                                    </aura:if>
+                                    <forceChatter:feed type="Record" subjectId="{!ad.Id}" feedDesign="DEFAULT"/>
+                                    <!--<c:NXX2_AddCommentToAdPreview recordId="{!ad.Id}"></c:NXX2_AddCommentToAdPreview>-->
+                                </article>
+                            </lightning:tab>
+                            <aura:if isTrue="{!not(v.isExternalUser)}">
+                                <lightning:tab label="History" id="History">
+                                    <c:NXX2_ProofAdHistoryComponent ParentId="{!ad.Id}"></c:NXX2_ProofAdHistoryComponent>
+                                </lightning:tab>
+                            </aura:if>
+                        </lightning:tabset>
+                    </div>
+                </div>
+            </div>
+        </aura:iteration>
+        <aura:if isTrue="{!empty(v.allAds)}">
+            No ad to display!
+        </aura:if>
+    </div>
+</aura:component>

@@ -1,0 +1,40 @@
+<aura:component implements="forceCommunity:themeLayout" access="global" description="Custom Portal Theme Layout">
+    <aura:attribute name="pageHeader" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="hero" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="tileMenu" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="footer" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="headerMaxWidth" type="Integer"/>
+    <aura:attribute name="heroMaxWidth" type="Integer"/>
+    <aura:attribute name="tileMaxWidth" type="Integer"/>
+    <aura:attribute name="contentMaxWidth" type="Integer" default="1200"/>
+    <aura:attribute name="footerMaxWidth" type="Integer"/>
+    <aura:attribute name="widthUnit" type="String" default="px"/>
+    <aura:html tag="style">
+        :root {
+        --headerMaxWidth: {!concat(v.headerMaxWidth,v.widthUnit)};
+        --heroMaxWidth: {!concat(v.heroMaxWidth,v.widthUnit)};
+        --tileMaxWidth: {!concat(v.tileMaxWidth,v.widthUnit)};
+        --contentMaxWidth: {!concat(v.contentMaxWidth,v.widthUnit)};
+        --footerMaxWidth: {!concat(v.footerMaxWidth,v.widthUnit)};
+        }
+    </aura:html>
+    <center>
+        <div class="HeaderContainer">
+            {!v.pageHeader}
+        </div>
+        <div class="HeroContainer">
+            {!v.hero}
+        </div>
+        <div class="TileMenuContainer">
+            {!v.tileMenu}
+        </div>
+        <div class="contentContainer">
+            <div class="mainContentArea">
+                {!v.body}
+            </div>
+        </div>
+        <div class="FooterContainer">
+            {!v.footer}
+        </div>
+    </center>
+</aura:component>

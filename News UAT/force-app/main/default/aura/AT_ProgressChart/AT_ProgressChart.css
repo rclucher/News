@@ -1,0 +1,35 @@
+.THIS table.heatmap td.topic {
+    cursor: help;
+    text-align: center;
+    padding-left: 6px;
+}
+
+.THIS table.heatmap td.topic:nth-child(even) {
+    background: #dfdfdf;
+}
+
+.THIS table.heatmap td {
+    border-bottom: 1px solid black;
+    padding: 2px;
+    padding-right: 6px;
+}
+
+.THIS table.heatmap td.p{
+    background: green;
+}
+
+.THIS table.heatmap td.i{
+    background: orange;
+}
+
+.THIS table.heatmap td.e{
+    background: pink;
+}
+
+.THIS table.heatmap td.bordered {
+    border: 1px solid black;
+}
+
+.THIS table.heatmap tr.heading td {
+    border-bottom: 3px solid black;
+}

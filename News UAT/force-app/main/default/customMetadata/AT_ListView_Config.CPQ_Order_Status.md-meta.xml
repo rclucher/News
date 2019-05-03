@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>My CPQ Orders Status</label>
+    <protected>false</protected>
+    <values>
+        <field>Compact_FieldSet__c</field>
+        <value xsi:type="xsd:string">CPQ_Order_Status</value>
+    </values>
+    <values>
+        <field>Compact_View_Only__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Full_FieldSet__c</field>
+        <value xsi:type="xsd:string">CPQ_Order_Status</value>
+    </values>
+    <values>
+        <field>Icon__c</field>
+        <value xsi:type="xsd:string">custom:custom17</value>
+    </values>
+    <values>
+        <field>Object__c</field>
+        <value xsi:type="xsd:string">csmso__Sales_Order__c</value>
+    </values>
+    <values>
+        <field>Order_By__c</field>
+        <value xsi:type="xsd:string">csmso__Status__c</value>
+    </values>
+    <values>
+        <field>Order_Direction__c</field>
+        <value xsi:type="xsd:string">Ascending</value>
+    </values>
+    <values>
+        <field>Ownership__c</field>
+        <value xsi:type="xsd:string">Directly Owned</value>
+    </values>
+    <values>
+        <field>Query_filter__c</field>
+        <value xsi:type="xsd:string">(Opportunity_Stage__c IN (&#39;Discover Needs&#39;, &#39;Develop/Present Solution&#39;, &#39;Review/Reaffirm Value&#39;, &#39;Confirmed/Awaiting Bookings&#39;)) AND (csmso__Status__c NOT IN (&#39;Draft&#39;, &#39;Withdrawn&#39;, &#39;Approved&#39;, &#39;Killed&#39;,&#39;Manually Approved&#39;,&#39;Automatically Approved&#39;, &#39;Externally Approved&#39;, &#39;Internally Approved&#39;))</value>
+    </values>
+    <values>
+        <field>Record_Types__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NTN_FS_Campaigns6</fullName>
+    <columns>CAMPAIGN.NAME</columns>
+    <columns>CAMPAIGN.START_DATE</columns>
+    <columns>CAMPAIGN.END_DATE</columns>
+    <columns>CAMPAIGN.STATUS</columns>
+    <columns>CAMPAIGN.EXP_REVENUE</columns>
+    <columns>CAMPAIGN.NUM_OPPORTUNITIES</columns>
+    <columns>CAMPAIGN.NUM_WON_OPPORTUNITIES</columns>
+    <columns>NEWS_Campaign_Type__c</columns>
+    <columns>AMOUNT_WON</columns>
+    <columns>AMOUNT_ALL</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>CAMPAIGN.NUM_LEADS</columns>
+    <columns>CAMPAIGN.NUM_CONVERTED_LEADS</columns>
+    <columns>CAMPAIGN.NUM_CONTACTS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CAMPAIGN.NAME</field>
+        <operation>contains</operation>
+        <value>NTN FS</value>
+    </filters>
+    <label>NTN FS Campaigns</label>
+    <sharedTo>
+        <roleAndSubordinates>IMA_SME_NT_GM</roleAndSubordinates>
+    </sharedTo>
+</ListView>

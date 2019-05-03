@@ -1,0 +1,4 @@
+<design:component >
+	<design:attribute name="title" label="Title"/>
+    <design:attribute name="listSize" label="List Size" description="Number of accounts to show"/>
+</design:component>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_Quality_Description__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( Data_Quality_Score__c =100, 
+&quot;All Account Details Captured&quot;, 
+&quot;Missing: &quot;&amp;IF(IsPersonAccount, 
+
+IF(ISBLANK(FirstName), &#39;First Name, &#39;, &#39;&#39;) 
+&amp;IF(ISBLANK(PersonMailingStreet), &#39;Street Address, &#39;,&#39;&#39;) 
+&amp;IF(ISBLANK(DPID_Primary_Address__pc ), &#39;DPID, &#39;, &#39;&#39;) 
+&amp;IF(ISBLANK(PersonEmail), &#39;Email, &#39;,&#39;&#39;) 
+&amp;IF(ISBLANK(Phone), &#39;Phone&#39;,&#39;&#39;), 
+
+IF(ABN_Exempt__c == false, 
+IF(ISBLANK(AccountNumber),&#39;ABN, &#39;, &#39;&#39;) 
+&amp;IF(ABN_Status__c != &#39;Active&#39;,&#39;Active ABN Status, &#39;, &#39;&#39;) 
+&amp;IF(ISBLANK( Registered_Name__c ),&#39;Registered Name, &#39;,&#39;&#39;) 
+&amp;IF(ISBLANK(TEXT(Type)),&#39;Type, &#39;, &#39;&#39;) 
+&amp;IF(ISBLANK(Phone), &#39;Phone, &#39;, &#39;&#39;) 
+&amp;IF(ISBLANK(BillingStreet),&#39;Street Address, &#39;, &#39;&#39;) 
+&amp;IF(ISBLANK(DPID_Primary_Address__c),&#39;DPID, &#39;, &#39;&#39;) 
+&amp;IF(ISBLANK(Industry_Code__c),&#39;Industry, &#39;, &#39;&#39;) 
+&amp;IF(ISBLANK(TEXT( Revenue_Group__c )),&#39;Revenue Group&#39;, &#39;&#39;), 
+
+IF(ISBLANK(TEXT(Type)),&#39;Type, &#39;, &#39;&#39;) 
+&amp;IF(ISBLANK(Phone), &#39;Phone, &#39;, &#39;&#39;) 
+&amp;IF(ISBLANK(BillingStreet),&#39;Street Address, &#39;, &#39;&#39;) 
+&amp;IF(ISBLANK(DPID_Primary_Address__c),&#39;DPID, &#39;, &#39;&#39;) 
+&amp;IF(ISBLANK(Industry_Code__c),&#39;Industry, &#39;, &#39;&#39;) 
+&amp;IF(ISBLANK(TEXT( Revenue_Group__c )),&#39;Revenue Group&#39;, &#39;&#39;)) 
+))</formula>
+    <label>Account Data Quality Description</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

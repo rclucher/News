@@ -1,0 +1,4 @@
+<apex:component access="global" controller="EmailTemplate_Controller">
+    <apex:attribute name="division" description="Publishing division for billing address" type="string" assignTo="{!divisionName}" />
+    <apex:outputText value="{!divisionAddress}"></apex:outputText>    
+</apex:component>

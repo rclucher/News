@@ -1,0 +1,299 @@
+<apex:page standardController="Case" extensions="BookingQuoteConfirmationVF_Ext" id="bookingQuoteConfirmationPage" cache="false">
+ <apex:includeScript value="/support/console/28.0/integration.js"/> 
+    <apex:includeScript value="{!$Resource.JQuery}"/>
+    <script>
+        function messageChangeWarning()
+        {
+            return confirm('The quote/confirmation message is about to change. Do you want to proceed?');
+        }
+    
+        function checkEmail(email) {
+        var regExp = /(^[a-z]([a-z0-9_\.]*)@([a-z0-9_\.]*)([.][a-z]{3})$)|(^[a-z]([a-z0-9_\.]*)@([a-z0-9_\.]*)(\.[a-z]{3})(\.[a-z]{2})*$)/i;
+
+        return regExp.test(email);
+        }
+         
+        function checkEmails(obj){
+        
+            var emails = obj.value;
+
+            jQuery(obj).siblings('.errorMsg').remove();
+            jQuery(obj).removeClass("error");
+
+            if(emails.trim().length>0)
+            {
+                console.log(emails);
+
+                var emailString = emails.trim().replace(",",";");
+                var emailArray = emailString.split(";");
+                var invEmails = "";
+
+                if(emailArray.length <=25)
+                {
+                    for(i = 0; i <= (emailArray.length - 1); i++){
+                        if(emailArray[i].trim().length>0 && !checkEmail(emailArray[i].trim())){
+                            invEmails += emailArray[i].trim() + "\n";
+                        }
+                    }
+
+                    if(invEmails != ""){
+                        console.log("Invalid emails:\n" + invEmails);
+                        jQuery(obj).addClass("error");
+                        jQuery(obj).after('<div class="errorMsg"><strong>Invalid email:</strong>' + invEmails + '</div>');
+
+                        return false;
+                    }
+                }
+                else
+                {
+                    jQuery(obj).after('<div class="errorMsg"><strong>Error:</strong> maximum of 25 emails allowed</div>');     
+                }
+            }
+            return true;
+
+        }
+    </script>
+
+    <apex:outputText id="forRefresh"></apex:outputText>
+    <apex:form id="theForm">
+        <apex:pageMessages id="msg"></apex:pageMessages>
+        
+        <apex:pageblock title="Quote/Confirmation" id="bookingQuoteConfirmationPageblock">
+            <apex:pageblockButtons location="top">
+                <apex:outputPanel id="pageBtnsSection">
+                    <apex:commandButton value="Send Adproof"
+                                        action="{!save}"                                    
+                                        oncomplete="closeCurrentTabWithNoError();return false;"
+                                        disabled="{!ISBLANK(booking.Placer_Contact__c) ||
+                                                    (booking.Send_Channel__c == 'Email' && ISBLANK(booking.Placer_Contact__r.Email)) ||
+                                                    (booking.Send_Channel__c == 'Fax' && ISBLANK(booking.Quote_Confirmation_Fax__c))}"
+                                        reRender="msg"
+                                        />
+                    <apex:commandButton value="Cancel"
+                                        action="{!cancel}"
+                                        oncomplete="closeCurrentTab();return false;"/>                                    
+                </apex:outputPanel>
+            </apex:pageblockButtons>
+            
+            <apex:pageblockSection >
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Booking"></apex:outputLabel>
+                    <apex:outputPanel >
+                        <apex:selectList value="{!bookingId}" rendered="{!hasBookings}" size="1" multiselect="false" required="true">
+                            <apex:actionSupport event="onchange" action="{!changeBooking}"/>
+                            <apex:selectOptions value="{!bookingOptions}"></apex:selectOptions>                            
+                        </apex:selectList>
+                        <apex:outputText value="No Booking" rendered="{!NOT(hasBookings)}"></apex:outputText>
+                    </apex:outputPanel>
+                </apex:pageblockSectionItem>
+           </apex:pageblockSection>
+            
+            
+            <apex:pageblockSection >
+             
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.Booking__c.fields.AdProof_Required__c.label}"/> 
+                    <apex:outputPanel >
+
+                    
+
+                    <apex:inputCheckbox rendered="{!NOT(hasBookings)}" disabled="true" />
+                        <apex:inputField value="{!booking.AdProof_Required__c}" rendered="{!hasBookings}" id="adProofRequired">
+                            <apex:actionSupport event="onchange" action="{!changeFieldValueOnPage}" onsubmit="if(!messageChangeWarning()){return};"/>
+                        </apex:inputField>    
+                        
+                        <!--Jack added on 21/02/2014   
+                        SFE39 –  When creating a NEW booking confirmation - the Adproof checkbox should be ticked.------
+                            1. Thus: create boolean field on Booking: 'Apex: Adproof Previously Sent__c'
+                                The first time a fax or email confirmation is sent (with or without errorrs) - we check this checkbox.
+                            2. Next time the user views the booking confirmation for this booking; it will check this field and ensure the 'Adproof required' checkbox should be defaulted.
+                        -->
+                        <apex:outputtext rendered="{!if(booking.Apex_Adproof_Previously_Sent__c==true,true,false)}">
+                            <script>
+                                document.getElementById("{!$Component.adProofRequired}").checked=true;
+                            </script>
+                        </apex:outputtext>
+                        
+                    </apex:outputPanel>                    
+                </apex:pageblockSectionItem>      
+
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.Booking__c.fields.Quote_Confirmation__c.label}"/> 
+                    <apex:outputPanel >
+                        <apex:outputText value="N/A" rendered="{!NOT(hasBookings)}"/>
+                        <apex:inputField value="{!booking.Quote_Confirmation__c}" rendered="{!hasBookings}" required="true">
+                            <apex:actionSupport event="onchange" action="{!changeFieldValueOnPage}" onsubmit="if(!messageChangeWarning()){return};"/>
+                        </apex:inputField>  
+                    </apex:outputPanel>       
+                </apex:pageblockSectionItem>     
+                         
+    
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Send via" />
+
+                        <apex:outputPanel >                    
+                            <apex:outputText rendered="{!NOT(hasBookings)}" value="N/A"/>
+                            <apex:inputField value="{!booking.Send_Channel__c}" rendered="{!hasBookings}" required="true">
+                                <apex:actionSupport event="onchange" action="{!onChnageSelectedMedia}" reRender="emailFields, faxFields, msg, pageBtnsSection, resend" status="mediaSelection"/>
+                            </apex:inputField>
+                            <apex:actionStatus startText="loading..." id="mediaSelection"/>
+                        </apex:outputPanel>
+
+                </apex:pageBlockSectionItem>   
+                
+            </apex:pageblockSection>
+
+<!-- Email Fields Start -->
+
+            <apex:outputPanel id="emailFields" layout="none">
+            <apex:pageblockSection rendered="{!booking.Send_Channel__c=='Email'}" columns="2">
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="From email"/> 
+                    <apex:outputText value="{!fromEmail}" />                    
+                </apex:pageblockSectionItem>  
+
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="To:" />
+                    <apex:outputText value="{!booking.Placer_Contact__r.Name} ({!booking.Placer_Contact__r.Email})" rendered="{!booking != null}" />
+                </apex:pageblockSectionItem>
+
+
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Reply To Address"></apex:outputLabel>
+                    <apex:outputPanel id="fromAddress">
+                        <apex:outputText value="N/A" rendered="{!NOT(hasBookings)}" />
+
+                        <apex:selectList value="{!booking.Quote_or_Confirmation_From_Email__c}" styleClass="fromAddress" rendered="{!hasBookings}" size="1" style="width: 250px;" required="true">
+                            <apex:selectOptions value="{!fromEmailAddressOptions}"></apex:selectOptions>
+                        </apex:selectList>            
+
+                        <apex:inputText styleClass="fromAddressFilter" value="{!filterFromEmail}" rendered="{!hasBookings}" />
+                        <apex:commandbutton image="/img/requiredfilter16.gif" action="{!doFilterFromEmailAddressOptions}" rerender="fromAddress"  rendered="{!hasBookings}" style="vertical-align: middle;"/>
+                    </apex:outputPanel>       
+                </apex:pageblockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.Booking__c.fields.Quote_Confirmation_cc__c.label}" />
+                    <apex:inputField value="{!booking.Quote_Confirmation_cc__c}" onblur="checkEmails(this);" style="min-width: 390px;" />
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.Booking__c.fields.Quote_Confirmation_bcc__c.label}" />
+                    <apex:inputField value="{!booking.Quote_Confirmation_bcc__c}" onblur="checkEmails(this);" style="min-width: 390px;" />
+                </apex:pageBlockSectionItem>
+            </apex:pageblockSection>
+            </apex:outputPanel>
+<!-- Email Fields End -->
+
+<!-- Fax Fields Start -->
+            <apex:outputPanel id="faxFields" layout="none">
+            <apex:pageblockSection rendered="{!booking.Send_Channel__c=='Fax'}" columns="2">
+                    <apex:inputField value="{!booking.Quote_Confirmation_Fax__c}">
+                        <apex:actionSupport event="onchange" reRender="pageBtnsSection" status="mediaSelection"/>
+                        <apex:actionStatus startText="loading..." id="mediaSelection"/>
+                    </apex:inputField>
+                    
+            </apex:pageblockSection>
+            </apex:outputPanel>
+<!-- Fax Fields End -->
+               
+            <apex:outputPanel id="resend" layout="none">   
+            <apex:pageblockSection >
+            <!-- Jack added on 24th Feb 2014 to change how "Resend" button is displayed on page -->
+            <!-- 
+                <apex:pageblockSectionItem rendered="{!NOT(ISBLANK(booking.Quote_or_Confirmation_Sent_Date__c))}">
+                    <apex:outputLabel value="{!$ObjectType.Booking__c.fields.Resend_Pick__c.label}"/> 
+
+                    <apex:inputField value="{!booking.Resend_Pick__c}" rendered="{!hasBookings}">
+                        <apex:actionSupport event="onchange" action="{!resetFields}" onsubmit="if(!messageChangeWarning()){return};"/>
+                    </apex:inputField> 
+               
+                </apex:pageblockSectionItem>
+                <apex:outputText rendered="{!booking.Quote_or_Confirmation_Sent_Date__c != null}" />
+            -->
+                <apex:pageblockSectionItem rendered="{!OR(AND(booking.Send_Channel__c = 'Email', hasPreviouslySentEmail), AND(booking.Send_Channel__c = 'Fax', hasPreviouslySentFax))}">
+                    <apex:outputLabel value="{!$ObjectType.Booking__c.fields.Resend_Pick__c.label}"/> 
+
+                    <apex:inputField value="{!booking.Resend_Pick__c}" rendered="{!hasBookings}">
+                        <apex:actionSupport event="onchange" action="{!resetFields}" onsubmit="if(!messageChangeWarning()){return};"/>
+                    </apex:inputField> 
+               
+                </apex:pageblockSectionItem>
+            </apex:pageblockSection>
+            </apex:outputPanel>
+            
+            <apex:pageblockSection columns="2">
+                <apex:pageblockSectionItem rendered="{!booking.Quote_Confirmation__c = 'Quote'}">
+                    <apex:outputLabel value="Publications"/>
+                    <apex:outputPanel >
+                        <apex:outputPanel layout="block" style="max-height:150px;overflow:scroll;" rendered="{!publications.size > 0}">
+                        <apex:pageblockTable value="{!publications}" var="publication">
+                            <apex:column headerValue="Action">
+                                <apex:inputCheckbox value="{!publication.isSelect}"/>
+                            </apex:column>
+                            <apex:column value="{!publication.publication}" headerValue="Publication"/>
+                        </apex:pageblockTable>
+                        </apex:outputPanel>
+                        <apex:outputText value="There is no publication based on current booking division." rendered="{!NOT(publications.size > 0)}"/>
+                    </apex:outputPanel>
+                </apex:pageblockSectionItem>
+
+
+                <apex:pageblockSectionItem rendered="{!booking.Quote_Confirmation__c = 'Confirmation' && hasBookings}">
+                    <apex:outputLabel value="Publications"/>
+                    <apex:outputPanel >
+                        <apex:variable var="publicationsList" value="{!publicationNamesByBookingId[booking.Id]}"/>
+                        <apex:outputPanel layout="block" style="max-height:150px;overflow:scroll;" rendered="{!AND(NOT(ISBLANK(publicationsList)), publicationsList.size > 0)}">
+                            <apex:pageblockTable value="{!publicationsList}" var="publicationName">
+                                <apex:column value="{!publicationName}" headerValue="Publication"></apex:column>
+                            </apex:pageblockTable>
+                        </apex:outputPanel>       
+                        <apex:outputText value="Bookings lines have not yet returned for this booking." rendered="{!OR(ISBLANK(publicationsList), AND(NOT(ISBLANK(publicationsList)), publicationsList.size = 0))}" />
+                    </apex:outputPanel>
+                </apex:pageblockSectionItem>
+
+                <apex:pageblockSectionItem rendered="{!booking.Quote_Confirmation__c = 'Confirmation' && hasBookings}">
+                    <apex:outputLabel value="Classifications"/>
+                    <apex:outputPanel >
+                        <apex:variable var="classificationsList" value="{!classificationsByBookingId[booking.Id]}"/>
+                        <apex:outputPanel layout="block" style="max-height:150px;overflow:scroll;" rendered="{!AND(NOT(ISBLANK(classificationsList)),classificationsList.size>0)}" >
+                            <apex:pageblockTable value="{!classificationsList}" var="classification">
+                                <apex:column value="{!classification}" headerValue="Classification"></apex:column>
+                            </apex:pageblockTable>
+                        </apex:outputPanel>
+                        <apex:outputText value="Bookings lines have not yet returned for this booking." rendered="{!OR(ISBLANK(classificationsList), AND(NOT(ISBLANK(classificationsList)), classificationsList.size = 0))}" />
+                    </apex:outputPanel>
+                </apex:pageblockSectionItem>
+
+
+
+            </apex:pageblockSection>
+           
+            <apex:pageblockSection columns="1">
+                <apex:inputField value="{!booking.Quote_Confirmation_Message__c}"/>
+            </apex:pageblockSection>
+        
+        </apex:pageblock>
+    </apex:form>
+
+
+    <script type="text/javascript">
+        function closeCurrentTabWithNoError() 
+        {        
+            if (!jQuery('.messageTable').length > 0)
+            {
+                sforce.console.getEnclosingTabId(closeSubtab);
+            }
+        }
+        
+        function closeCurrentTab()
+        {
+            sforce.console.getEnclosingTabId(closeSubtab);
+        }
+        
+        var closeSubtab = function closeSubtab(result) {
+            var tabId = result.id;
+            sforce.console.closeTab(tabId);
+        };  
+    </script>
+</apex:page>

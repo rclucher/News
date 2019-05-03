@@ -1,0 +1,27 @@
+.THIS table.slds-table td {
+    vertical-align: top;
+}
+
+.THIS table.slds-table th.numbers {
+    text-align: right;
+}
+
+.THIS table.slds-table td.numbers {
+    text-align: right;
+}
+
+.THIS table.slds-table th.percentage {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.THIS table.slds-table td.percentage {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.THIS .slds-card__header {
+    background-color: rgb(243, 242, 242);
+    margin-bottom: 0px;
+    padding-bottom: 12px;
+}

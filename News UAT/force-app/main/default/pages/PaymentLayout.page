@@ -1,0 +1,87 @@
+<apex:page standardController="Payment__c" extensions="Order_PaymentSchedulerController" cache="true" docType="html-5.0">
+    <apex:stylesheet value="{!URLFOR($Resource.SLDS, 'assets/styles/salesforce-lightning-design-system-vf.css')}"/>
+    
+    <style>
+        .rightAligned { text-align: right; }
+        td.total { border-bottom-color: black; }
+        circle { stroke: green; }
+        .h2Border {
+        padding-bottom: 5px !important;
+        border-bottom: 1px solid rgb(8, 116, 211);
+        }
+        .slds .slds-page-header__title {
+        margin-top: .125rem;
+        font-weight: 300;
+        font-size: 1.125rem;
+        line-height: 1.25;
+        }
+        .slds [hidden], .slds template {
+        display: block;
+        }
+        @media (min-width: 48em) {
+        .slds .slds-page-header__title {
+        margin-top: 0;
+        font-size: 1.5rem;
+        }
+        }
+        .vf-reset .vf-surface tspan {
+        font-weight: normal;
+        }
+    </style>
+    
+    <apex:form >
+        <div class="slds">
+            <div class="slds-page-header">
+                <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate">
+                        <div class="slds-media"></div>
+                        <div class="slds-media-body">
+                            <p class="slds-page-header__title slds-truncate slds-align-middle">Modify Payment Line Items</p>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-no-flex slds-align-bottom">
+                        <div class="slds-button-group">
+                            <apex:commandButton value="Save" action="{!savelineItem}" reRender="pageBlockTableRefresh" styleClass="slds-button slds-button--neutral" />
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <apex:pageBlock id="pageBlockTableRefresh">  
+                <section class="slds-m-bottom--xx-small slds-p-top--x-small">
+                    <apex:pageBlockTable width="100%" value="{!paymentScheduleList}" var="paymentRecord" id="tableId" styleClass="slds-table slds-table--bordered">
+                        <apex:column width="30%" value="{!paymentRecord.Name}" headerValue="Payment Schedule" headerClass="slds-text-heading--label"/>
+                        <apex:column width="40%" HeaderValue="Payment Line Items" headerClass="slds-text-heading--label">
+                            <apex:pageBlockTable value="{!paymentLineMap[paymentRecord.id]}" var="paymentLineRecord" >
+                                <apex:column value="{!paymentLineRecord.Name}" headerValue="Name" />
+                                <apex:column headerValue="Current Price">
+                                    <apex:outputText value="{0, number, 00.00}">
+                                        <apex:param value="{!currentpriceMap[paymentLineRecord.id]}" />
+                                    </apex:outputText>
+                                </apex:column>
+                                <apex:column headerValue="New Price" >
+                                    <apex:inputtext size="6" id="newPrice" value="{!paymentLineRecord.Price__c}" >
+                                        <apex:actionSupport event="onblur" action="{!paymentPriceCalculation}" rerender="displayChanges"/>
+                                    </apex:inputtext> 
+                                </apex:column>
+                            </apex:pageBlockTable>
+                        </apex:column>
+                        <apex:column width="5%" headerClass="slds-text-heading--label"> 
+                            <apex:commandLink style="width:40%;"   dir="Copy to Others" reRender="pageBlockTableRefresh" rendered="{!showcopyPricingButton}" title="Copy to Others" action="{!copyPricingValue}" id="theButtonForUpdatePrice">
+                                <apex:param id="priceValue" name="priceValue" value="{!paymentRecord.id}" assignTo="{!copyPricingVal}"/>
+                                <img src="{!$Resource.CopyImage}" Class="slds-avatar slds-avatar--medium" alt="Copy to Others" />
+                            </apex:commandLink>
+                        </apex:column>
+                        <apex:column id="calculateAmount" width="30%" headerValue="Total Amount" headerClass="slds-text-heading--label">
+                           <apex:outputLabel >Total Before : <apex:outputText value="{0, number, 00.00}"><apex:param value="{!paymentRecord.Amount__c}" /></apex:outputText></apex:outputLabel><br/>
+                            <apex:outputPanel id="displayChanges">
+                                Total After : <apex:outputLabel id="displayValue"> <apex:outputText value="{0, number, 00.00}"><apex:param value="{!priceMap[paymentRecord.id]}"/></apex:outputText></apex:outputLabel>
+                                <apex:pageMessage rendered="{!showErrorMessageMap[paymentRecord.id]}" severity="Error" id="errormsg" >Total Price Before and After is not equal</apex:pageMessage>                    
+                            </apex:outputPanel>
+                        </apex:column>
+                        
+                    </apex:pageBlockTable> 
+                </section>
+            </apex:pageBlock>
+        </div>
+    </apex:form>    
+</apex:page>

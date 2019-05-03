@@ -1,0 +1,17 @@
+<apex:page controller="CS_AnswersDownload_Controller" action="{!Init}" cache="true" contentType="text/tab-separated-values#CampaignBrief.csv" title="Saving to file..." language="en-US">
+
+Extracted by {!mp_UserName} on {!mp_Timestamp}
+
+Section
+<apex:repeat value="{!mp_liAnswers}" var="sec" >
+
+
+{!sec.SectionName}
+
+Question,Answer
+<apex:repeat value="{!sec.AnswerWrappers}" var="ans" >
+{!ans.QuestionText},{!ans.AnswerText}
+</apex:repeat>
+
+</apex:repeat>
+</apex:page>

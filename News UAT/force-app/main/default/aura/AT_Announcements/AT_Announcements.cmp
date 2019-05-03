@@ -1,0 +1,25 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="AT_Announcements">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    
+    <aura:attribute type="Object[]" name="announcements"/>
+
+    <table class="ticker-table">
+        <tbody>
+            <tr>
+                <td class="ticker-label">Announcements</td>
+                <td class="arrow-cell"><div class="ticker-arrow"/></td>
+                <td class="ticker-cell">
+                    <div class="ticker-wrap">
+                        <div class="ticker">
+                            <aura:iteration items="{!v.announcements}" var="ancmnt">
+                                <span class="message"><aura:unescapedHtml value="{!ancmnt.text}"/></span>
+                            </aura:iteration>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</aura:component>

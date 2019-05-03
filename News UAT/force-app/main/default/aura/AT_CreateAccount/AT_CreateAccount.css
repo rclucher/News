@@ -1,0 +1,50 @@
+.THIS article.slds-card {
+    width: inherit;
+}
+
+.THIS .inherit-width {
+    width: inherit;
+}
+
+.THIS div.cardBody {
+    /*margin-top: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    border-radius: 8px;*/
+}
+
+.THIS div.section {
+    margin: 20px;
+    margin-right: 20px;
+    /*border: 1px solid black;
+    border-radius: 5px;*/
+    padding: 0px;
+    /*padding-top: 10px;*/
+}
+
+.THIS span.sectionTitle {
+    margin: 20px;
+    display: none;
+}
+
+.THIS div.slds-card__footer {
+    text-align: right;
+}
+
+.THIS div.recordTypeList {
+    height: 300px;
+    overflow: scroll;
+    border: 1px solid #333;
+    
+    padding: 4px;
+}
+
+.THIS div.duplicates {
+    margin: 20px;
+}
+
+.THIS lightning-button-menu {
+    display: none;
+}

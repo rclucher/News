@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Start_Fulfilment</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Start Fulfilment</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!requireScript(&quot;/soap/ajax/37.0/connection.js&quot;)} 
+{!requireScript(&quot;/soap/ajax/37.0/apex.js&quot;)} 
+
+var connection = sforce.connection; 
+var po = new sforce.SObject(&quot;Product_Order__c&quot;); 
+po.Id = &quot;{!Product_Order__c.Id}&quot;; 
+po.Status__c = &quot;Fulfilment Started&quot;;
+result = sforce.connection.update([po]); 
+location.reload(true);</url>
+</WebLink>

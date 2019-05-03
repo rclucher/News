@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OpLine_Products_Required_At_Review</fullName>
+    <active>true</active>
+    <description>NextGen - Product lines become mandatory when reaches Review/Reaffirm Value</description>
+    <errorConditionFormula>AND(
+  Product_Line_Count__c &lt;= 0,
+
+  OR(
+    TEXT(StageName) = &quot;Review/Reaffirm Value&quot;,
+    TEXT(StageName) = &quot;Awaiting Bookings&quot;,
+				TEXT(StageName) = &quot;Confirmed/Awaiting Bookings&quot;,
+    TEXT(StageName) = &quot;Closed Won&quot;
+  ),
+OR( RecordType.Name== &quot;KAC&quot;,
+RecordType.Name== &quot;IMA&quot;,
+RecordType.Name== &quot;Real Estate&quot;,
+RecordType.Name== &quot;The Aus/Regional&quot;,
+RecordType.Name== &quot;SME&quot;
+    )
+)</errorConditionFormula>
+    <errorDisplayField>StageName</errorDisplayField>
+    <errorMessage>Products are required when the opportunity reaches the Review stage to closed won. Please add products before updating the stage.</errorMessage>
+</ValidationRule>

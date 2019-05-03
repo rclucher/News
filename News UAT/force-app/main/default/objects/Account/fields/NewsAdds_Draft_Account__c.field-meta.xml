@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NewsAdds_Draft_Account__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Field is updated from NewsAdds platform. When the field is checked, the record will require some more fields to be automatically updated from NewsAdds.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Field is updated from NewsAdds platform. When the field is checked, the record will require some more fields to be automatically updated from NewsAdds.</inlineHelpText>
+    <label>NewsAdds Draft Account</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

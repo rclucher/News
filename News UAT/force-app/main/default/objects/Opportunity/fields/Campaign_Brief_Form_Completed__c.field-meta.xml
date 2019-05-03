@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Campaign_Brief_Form_Completed__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicate if the all the required fields in the Campaign Brief Form have been filled</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Indicate if the all the required fields in the Campaign Brief Form have been filled</inlineHelpText>
+    <label>Campaign Brief Form Completed</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

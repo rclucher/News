@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Questionnaire_Action__c</fullName>
+    <externalId>false</externalId>
+    <label>Questionnaire Action</label>
+    <referenceTo>Questionnaire_Action__c</referenceTo>
+    <relationshipLabel>Questionnaire Action Results</relationshipLabel>
+    <relationshipName>Questionnaire_Action_Results</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

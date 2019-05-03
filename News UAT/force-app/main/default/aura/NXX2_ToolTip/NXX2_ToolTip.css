@@ -1,0 +1,11 @@
+/*toggleCss.css*/
+.THIS.toggle {
+    display: none;
+  }
+ .THIS.help-tooltip{
+     top: 50%;
+     left: calc(100% + 15px);
+     transform: translate(0, -50%);
+     white-space: pre-wrap;
+     min-width: 12rem;
+ }

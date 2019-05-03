@@ -1,0 +1,186 @@
+{
+    "Name": "SO-0001",
+    "standardButtons":{
+          "clickApprove": {"target": "_self"},
+          "downloadUploadedInsertion": {"target": "_blank"},
+          "downloadGeneratedInsertion": {"target": "_top"}
+    },
+    "defaultTab": "Fields",
+    "defaultTabWithLineItems": "Fields",
+    "tabs": [
+        {
+            "name": "LineItems",
+            "type": "LineItems",
+            "labelKey": "Sales_Order_Tab_Line_Items"
+        },
+        {
+			"name": "MLE",
+			"label": "MLE",
+			"sections": [
+                    {
+                        "type": "fields",
+                        "title": "Print Sales Order Details",
+                        "isOpen": true,
+                        "product": "Print Display",
+                        "content": {
+                            "col1": [
+                            {
+                                "name": "Total_Print_Duration_Price__c",
+                                "label": "Total Print Value (ex. GST)",
+                                "type": "currency"
+                            },
+                            {
+                                "name": "Proposed_Print_Price__c",
+                                "label": "Proposed Discount ($)",
+                                "type": "currency"
+                            },
+                            {
+                                "name": "Target_Print_Price__c",
+                                "label": "Total Print Price (ex. GST)",
+                                "type": "currency"
+                            }
+                            ],
+                            "col2": [
+                            {
+                                "name": "Target_Discount__c",
+                                "label": "Target Discount (%)",
+                                "type": "number"
+                            },
+                            {
+                                "name": "Proposed_Print_Discount__c",
+                                "label": "Proposed Discount (%)",
+                                "type": "number"
+                            }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "iframe",
+                        "src": "/apex/c__MLETabProductModel",
+                        "height": "680",
+                        "width": "1500",
+                        "displayInMobile": false
+                    }
+            ]
+        },
+        { 
+			"name": "RelatedItems", 
+			"label": "Related Items", 
+			"sections": 
+			[ 
+		{ 
+			"type": "fields",
+			"title": "Additional Notes with IO", 
+			"isOpen": true,
+			"content": {
+					"col1": [
+						{
+						"name": "Additional_Notes__c",
+						"type": "textarea",
+						"rows": "4"
+						}
+					]	 
+				}
+		},
+		{ 
+			"name": "RelatedItems", 
+			"type": "RelatedItems" 
+		} 
+			] 
+    } 
+    ],
+	"sections": [{
+		"title": "Sales Order Main",
+		"isOpen": true,
+		"content": {
+			"col1": [
+			    {
+                    "name": "Advertiser__c",
+                    "objectName": "Account",
+                    "label": "Advertiser",
+                    "narratorInfo": "phone,website,AccountNumber,Primary_Address__c",
+                    "fieldNamesCSV": "",
+                    "filterCriteria": "",
+                    "orderByCriteria": "",
+                    "type": "select2",
+                    "recordLimit": "5"
+                },
+                {
+                    "name": "Payer_Account__c",
+                    "label": "Payer Account",
+                    "type": "text"
+                },
+                {
+                    "name": "Planner_Account__c",
+                    "label": "Planner",
+                    "objectName": "Account",
+                    "type": "text"
+                },
+				{
+                    "name": "Total_Monthly_Price__c",
+                    "label": "Price (ex. GST per month)",
+                    "type": "currency"
+                }
+			],
+			"col2": [
+				{
+					"name": "Opportunity__c",
+					"objectName": "Opportunity",
+					"label": "Opportunity",
+					"narratorInfo": "StageName",
+					"fieldNamesCSV": "Account.Name",
+					"orderByCriteria": "Name",
+					"type": "select2",
+					"columns": [
+						"Account.Name"
+					]
+				},
+				{
+					"name": "Status__c",
+					"label": "Order Status",
+					"type": "text"
+				},
+				{
+                    "name": "Payment_Method__c",
+                    "label": "Payment Method",
+                    "type": "select2picklist"
+                },
+                {
+                    "name": "Total_Duration_Price_Display__c",
+                    "label": "Total Price (ex. GST)",
+                    "type": "currency"
+                }, 
+				{
+					"name": "Booking_Contact__c",
+					"type": "select2",
+					"objectName": "Contact",
+					"label": "Booking Contact",
+					"narratorInfo": "Title,Email,Phone",
+					"parent": "Advertiser__c",
+					"parentFieldName": "AccountId",
+					"fieldNamesCSV": "Account.Name,Title,Email,Phone",
+					"orderByCriteria": "Name"
+				},
+               {
+                    "name": "Billing_Contact__c",
+                    "hidden": true,
+                    "columns": ["Account"],
+                    "objectName": "Contact",
+                    "label": "Billing Contact",
+                    "parent": "Advertiser__c",
+                    "parentFieldName": "AccountId",
+                    "type": "select2"
+                },				
+				{
+                    "name": "Creative_Contact__c",
+                    "hidden": true,
+                    "columns": ["Account"],
+                    "objectName": "Contact",
+                    "label": "Creative Contact",
+                    "parent": "Advertiser__c",
+                    "parentFieldName": "AccountId",
+                    "type": "select2"
+                }
+			]
+		}
+	}

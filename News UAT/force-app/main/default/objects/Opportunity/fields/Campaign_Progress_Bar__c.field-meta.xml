@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Campaign_Progress_Bar__c</fullName>
+    <externalId>false</externalId>
+    <formula>&quot;Please contact the Campaign Helpline with any questions&quot;+ 
+IF(Campaign_Status__c = &quot;&quot;, IMAGE(&quot;/servlet/servlet.FileDownload?file=0159000000FFz0O&quot;,&quot;Not Applicable&quot;)+ &quot;Campaign is not created&quot;, 
+IF(Campaign_Status__c = &quot;Draft&quot;, IMAGE(&quot;/servlet/servlet.FileDownload?file=0159000000FFz0P&quot;, &quot;Draft&quot;)+ &quot;Your Campaign has been received and is being allocated to a Digital Campaign Coordinator&quot;, 
+IF(Campaign_Status__c = &quot;Returned to Sales&quot;, IMAGE(&quot;/servlet/servlet.FileDownload?file=0159000000FFz0T&quot;, &quot;Returned to Sales&quot;)+&quot;Your Campaign has been allocated to a DCC and reviewed but there is an issue with the information provided. The Opportunity has been returned to Awaiting Bookings and requires action. Please review and correct prior to returning to Closed Won.&quot;, 
+IF(Campaign_Status__c = &quot;Rejected&quot;, IMAGE(&quot;/servlet/servlet.FileDownload?file=0159000000FFz0N&quot;, &quot;Rejected&quot;)+ &quot;Your Campaign has been allocated to a DCC and reviewed but there was an issue with the information provided. The issue(s) could not be resolved and so the Opportunity has been marked as Closed Lost by Sales&quot;, 
+IF(Campaign_Status__c = &quot;Ready for Review&quot;, IMAGE(&quot;/servlet/servlet.FileDownload?file=0159000000FFz0R&quot;, &quot;Ready for Review&quot;)+&quot;Your Campaign has been allocated to a DCC and is currently going through the draft review process where all information provided is checked and alignment of product and budget objective is assessed.&quot;, 
+IF(Campaign_Status__c = &quot;In Progress&quot;, IMAGE(&quot;/servlet/servlet.FileDownload?file=0159000000FFz0S&quot;, &quot;In Progress&quot;)+ &quot;Your Campaign has been allocated to a DCC and the draft review has been completed. Set up requirements are now being confirmed in preparation for fulfilment.&quot;, 
+IF(Campaign_Status__c = &quot;Fulfilment Started&quot;, IMAGE(&quot;/servlet/servlet.FileDownload?file=0159000000FFz0U&quot;, &quot;Fulfilment Started&quot;)+ &quot;The campaign products are set up by the DCC and Fulfilment teams, and creatives are being built. Please check the X2 Customer Portal for progress of customer approvals and actions&quot;, 
+IF(Campaign_Status__c = &quot;Fulfilment Ready&quot;, IMAGE(&quot;/servlet/servlet.FileDownload?file=0159000000FFz0V&quot;, &quot;Fulfilment Ready&quot;)+&quot;Fulfilment is now complete and final checks are being carried out in preparation for Go Live.&quot;, 
+IF(Campaign_Status__c = &quot;Campaign Live&quot;, IMAGE(&quot;/servlet/servlet.FileDownload?file=0159000000FFz0Q&quot;, &quot;Campaign Live&quot;)+ &quot;Your Campaign is now live! The customer will receive their dashboard access in two-four weeks&quot;, 
+IMAGE(&quot;/servlet/servlet.FileDownload?file=0159000000FFz0Q&quot;, &quot;Campaign Live&quot;)+ &quot;Your Campaign is now live!&quot; 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Campaign Progress Bar</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RFP_Team_del__c</fullName>
+    <externalId>false</externalId>
+    <label>RFP Team</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>State__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>KAC</fullName>
+                <default>false</default>
+                <label>KAC</label>
+            </value>
+            <value>
+                <fullName>IAMA</fullName>
+                <default>false</default>
+                <label>IAMA</label>
+            </value>
+            <value>
+                <fullName>SME</fullName>
+                <default>false</default>
+                <label>SME</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>NSW</controllingFieldValue>
+            <controllingFieldValue>VIC</controllingFieldValue>
+            <valueName>KAC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NSW</controllingFieldValue>
+            <controllingFieldValue>VIC</controllingFieldValue>
+            <valueName>IAMA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NSW</controllingFieldValue>
+            <controllingFieldValue>VIC</controllingFieldValue>
+            <valueName>SME</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

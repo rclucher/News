@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OptyLine_Unit_GreaterThanZero</fullName>
+    <active>false</active>
+    <description>&#39;Unit&#39; for scheduling must be greater than &#39;0&#39;</description>
+    <errorConditionFormula>of_Periods__c &gt;=1</errorConditionFormula>
+    <errorDisplayField>of_Periods__c</errorDisplayField>
+    <errorMessage>The number of periods must be equal or greater than &#39;1&#39;. Please review your data entry.</errorMessage>
+</ValidationRule>

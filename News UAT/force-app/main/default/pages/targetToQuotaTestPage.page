@@ -1,0 +1,11 @@
+<apex:page controller="targetToQuotaTestPageController" showChat="false" showHeader="false" sidebar="false" rendered="{!isVisible}">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Load/Update Quota" action="{!loadTarget}"/>        
+                <apex:commandLink value="Check Batch Job Status" onclick="window.location('/apexpages/setup/listAsyncApexJobs.apexp')" target="_blank"></apex:commandLink> 
+            </apex:pageBlockButtons>
+           
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

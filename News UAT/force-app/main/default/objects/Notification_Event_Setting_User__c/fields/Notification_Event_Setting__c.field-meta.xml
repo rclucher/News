@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Notification_Event_Setting__c</fullName>
+    <externalId>false</externalId>
+    <label>Notification Event Setting</label>
+    <referenceTo>Notification_Event_Setting__c</referenceTo>
+    <relationshipLabel>Notification Event Setting Users</relationshipLabel>
+    <relationshipName>Notification_Event_Setting_Users</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

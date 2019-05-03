@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Previous_Sales_Order_Start_Date__c</fullName>
+    <description>Previous sales order start date before the sales order got retracted</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Previous sales order start date before the sales order got retracted</inlineHelpText>
+    <label>Previous Sales Order Start Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

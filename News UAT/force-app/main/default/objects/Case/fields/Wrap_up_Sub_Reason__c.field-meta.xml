@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Wrap_up_Sub_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Wrap up Sub Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Achieved Initial Objective</fullName>
+                <default>false</default>
+                <label>Achieved Initial Objective</label>
+            </value>
+            <value>
+                <fullName>Branding</fullName>
+                <default>false</default>
+                <label>Branding</label>
+            </value>
+            <value>
+                <fullName>Change Publication or Frequency</fullName>
+                <default>false</default>
+                <label>Change Publication or Frequency</label>
+            </value>
+            <value>
+                <fullName>Complaint- DRS Case Raised</fullName>
+                <default>false</default>
+                <label>Complaint- DRS Case Raised</label>
+            </value>
+            <value>
+                <fullName>Complaint - Resolved</fullName>
+                <default>false</default>
+                <label>Complaint - Resolved</label>
+            </value>
+            <value>
+                <fullName>Complaint -Transfer CR</fullName>
+                <default>false</default>
+                <label>Complaint -Transfer CR</label>
+            </value>
+            <value>
+                <fullName>Compliment</fullName>
+                <default>false</default>
+                <label>Compliment</label>
+            </value>
+            <value>
+                <fullName>Confirm Details</fullName>
+                <default>false</default>
+                <label>Confirm Details</label>
+            </value>
+            <value>
+                <fullName>Copy or Image</fullName>
+                <default>false</default>
+                <label>Copy or Image</label>
+            </value>
+            <value>
+                <fullName>CR</fullName>
+                <default>false</default>
+                <label>CR</label>
+            </value>
+            <value>
+                <fullName>Cust Request Initial Rep</fullName>
+                <default>false</default>
+                <label>Cust Request Initial Rep</label>
+            </value>
+            <value>
+                <fullName>Deadlines</fullName>
+                <default>false</default>
+                <label>Deadlines</label>
+            </value>
+            <value>
+                <fullName>Distribution</fullName>
+                <default>false</default>
+                <label>Distribution</label>
+            </value>
+            <value>
+                <fullName>Enhanced solution</fullName>
+                <default>false</default>
+                <label>Enhanced solution</label>
+            </value>
+            <value>
+                <fullName>Enquiry about Payment</fullName>
+                <default>false</default>
+                <label>Enquiry about Payment</label>
+            </value>
+            <value>
+                <fullName>Error in Ad</fullName>
+                <default>false</default>
+                <label>Error in Ad</label>
+            </value>
+            <value>
+                <fullName>Finalise Payment</fullName>
+                <default>false</default>
+                <label>Finalise Payment</label>
+            </value>
+            <value>
+                <fullName>Growing Business</fullName>
+                <default>false</default>
+                <label>Growing Business</label>
+            </value>
+            <value>
+                <fullName>Internal Error</fullName>
+                <default>false</default>
+                <label>Internal Error</label>
+            </value>
+            <value>
+                <fullName>Maintain Presence</fullName>
+                <default>false</default>
+                <label>Maintain Presence</label>
+            </value>
+            <value>
+                <fullName>Material</fullName>
+                <default>false</default>
+                <label>Material</label>
+            </value>
+            <value>
+                <fullName>New Product or Service</fullName>
+                <default>false</default>
+                <label>New Product or Service</label>
+            </value>
+            <value>
+                <fullName>NFSS</fullName>
+                <default>false</default>
+                <label>NFSS</label>
+            </value>
+            <value>
+                <fullName>No Changes</fullName>
+                <default>false</default>
+                <label>No Changes</label>
+            </value>
+            <value>
+                <fullName>Official Enquiry</fullName>
+                <default>false</default>
+                <label>Official Enquiry</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Pending Authorisation</fullName>
+                <default>false</default>
+                <label>Pending Authorisation</label>
+            </value>
+            <value>
+                <fullName>Pending Prepayment</fullName>
+                <default>false</default>
+                <label>Pending Prepayment</label>
+            </value>
+            <value>
+                <fullName>Proof</fullName>
+                <default>false</default>
+                <label>Proof</label>
+            </value>
+            <value>
+                <fullName>Rates</fullName>
+                <default>false</default>
+                <label>Rates</label>
+            </value>
+            <value>
+                <fullName>Request for Statement/ Invoice</fullName>
+                <default>false</default>
+                <label>Request for Statement/ Invoice</label>
+            </value>
+            <value>
+                <fullName>Seasonal Advertising</fullName>
+                <default>false</default>
+                <label>Seasonal Advertising</label>
+            </value>
+            <value>
+                <fullName>Short Term Cancellation</fullName>
+                <default>false</default>
+                <label>Short Term Cancellation</label>
+            </value>
+            <value>
+                <fullName>Short Term Objective</fullName>
+                <default>false</default>
+                <label>Short Term Objective</label>
+            </value>
+            <value>
+                <fullName>Spent Budget Elsewhere</fullName>
+                <default>false</default>
+                <label>Spent Budget Elsewhere</label>
+            </value>
+            <value>
+                <fullName>Subscription</fullName>
+                <default>false</default>
+                <label>Subscription</label>
+            </value>
+            <value>
+                <fullName>Switchboard</fullName>
+                <default>false</default>
+                <label>Switchboard</label>
+            </value>
+            <value>
+                <fullName>Tearsheet</fullName>
+                <default>false</default>
+                <label>Tearsheet</label>
+            </value>
+            <value>
+                <fullName>Unable to convert</fullName>
+                <default>false</default>
+                <label>Unable to convert</label>
+            </value>
+            <value>
+                <fullName>Unhappy With Price</fullName>
+                <default>false</default>
+                <label>Unhappy With Price</label>
+            </value>
+            <value>
+                <fullName>Unhappy With Product</fullName>
+                <default>false</default>
+                <label>Unhappy With Product</label>
+            </value>
+            <value>
+                <fullName>Unhappy With ROI</fullName>
+                <default>false</default>
+                <label>Unhappy With ROI</label>
+            </value>
+            <value>
+                <fullName>Unhappy With Service</fullName>
+                <default>false</default>
+                <label>Unhappy With Service</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

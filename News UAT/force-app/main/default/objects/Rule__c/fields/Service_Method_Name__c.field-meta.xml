@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Method_Name__c</fullName>
+    <externalId>false</externalId>
+    <label>Service Method Name</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Service_Class_Name__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>findNearbyPostalCodes</fullName>
+                <default>false</default>
+                <label>findNearbyPostalCodes</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>CS_GeoNames_Utilities</controllingFieldValue>
+            <valueName>findNearbyPostalCodes</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

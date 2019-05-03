@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Call_Recording_Links__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&quot;https://cloud12.contact-world.net/callcentre/callAnalytics/playaudiomatch.aspx?guid=&quot;&amp;CallObject&amp;&quot;&amp;start=0&amp;matched=&quot;, &quot;Call Recording&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Call Recording Links</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

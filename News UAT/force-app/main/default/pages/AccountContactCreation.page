@@ -1,0 +1,273 @@
+<!-- 
+SFE-143 - Salesforce enahance: When multiple matches, open the matching screen, alongside case details sub-tab
+Updated by: LMancilla
+May 22 2014
+ -->
+<apex:page standardController="Case" extensions="AccountContactCreation_Controller" showHeader="{!refTabId=null}">
+<apex:includeScript value="/support/console/29.0/integration.js"/>
+<apex:includeScript value="/support/api/29.0/interaction.js" />
+
+<body>
+    <!-- Updated by: Bohao Chen for JIRA SFE-143 on 04/06/2014 -->
+    <apex:sectionHeader title="{!currCase.CaseNumber}" subtitle="Find account/contact" rendered="{!isVf}"/>
+    <!-- End -->
+<apex:form id="formAccountContactCreation">
+    <apex:pageMessages id="messages" escape="false"/>
+    <apex:pageBlock >
+        <!-- Updated by: Bohao Chen for JIRA SFE-143 on 04/06/2014 -->
+        <!-- Updated by Tim Fabros 05 / 06 / 2014 - SFE-143 
+            // Removed the 'Save (Embedded page)' button
+        -->
+        <apex:pageBlockButtons id="buttons">
+            <apex:commandButton action="{!save}" value="Save" 
+                                oncomplete="refreshRefTabById();closeCurrentTab();return false;"
+                                disabled="{!(currCase.AccountId!=null && currCase.ContactId==null && selectedAccount.recordType.DeveloperName=='Private_Party') ||
+                                            (currCase.AccountId==null && currCase.ContactId==null) }"
+                                rerender="formAccountContactCreation" rendered="{!isVf}"/>
+            <apex:commandButton oncomplete="closeCurrentTab();return false;"
+                                action="{!cancel}"
+                                value="Cancel"
+                                rerender="formAccountContactCreation"
+                                rendered="{!isVf}"/>
+        </apex:pageBlockButtons>
+
+        <apex:pageBlockSection title="Case" columns="1" id="caseDetails" rendered="{!isVf}">
+        <!-- End -->
+
+            <apex:outputField value="{!currCase.CaseNumber}" />
+            <apex:outputField value="{!currCase.Origin}" />
+            <apex:outputField value="{!currCase.CLI__c}" rendered="{!currCase.Origin = 'Call - Inbound'}" />
+            <apex:outputField value="{!currCase.SuppliedFromEmail_Text__c}" rendered="{!currCase.Origin = 'Email - Inbound'}" />
+            <apex:outputField value="{!currCase.AccountId}" />
+            <apex:outputField value="{!currCase.ContactId}" />      
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="Potential account"
+                                columns="1"  
+                                rendered="{!AND(NOT(ISBLANK(accountsFound)), accountsFound.size > 0) && OR(ISBLANK(contactsFound), contactsFound.size=0)}">
+            <apex:pageBlockTable value="{!accountsFound}" var="a"  id="AccountList" >
+                <apex:column >
+                    <apex:facet name="footer">
+                    </apex:facet>  
+
+                    <!-- added by Tim Fabros 06 / 06 / 2014 - SFE-143 
+                            added a loading gif to indicate processing. -->
+                    <!-- BEGIN: -->
+                    <apex:actionStatus id="accountAddLoadingStatus" stopText="">
+                        <apex:facet name="start">
+                            <apex:outputPanel layout="block">
+                                <apex:commandButton value="Add Account" disabled="true" />
+                                <img src="/img/loading.gif" />
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:facet name="stop">
+                            <apex:commandButton value="Add Account" action="{!doSelectAccount}" rerender="formAccountContactCreation,caseDetails" oncomplete="pageRefresh(); return false;" status="accountAddLoadingStatus">
+                                <apex:param id="selectedAccountId" name="selectedAccountId" value="{!a.Id}"/>
+                            </apex:commandButton>
+                        </apex:facet>
+                    </apex:actionStatus>
+                    <!-- END: -->
+
+                </apex:column>
+                <apex:column value="{!a.Name}" />
+                <apex:column value="{!a.Phone}" />
+                <apex:column value="{!a.PersonEmail}" />
+                <apex:column value="{!a.BillingStreet}" />
+                <apex:column value="{!a.BillingCountry}" />
+                <apex:column value="{!a.BillingPostalCode}" />
+                <apex:column value="{!a.BillingState}" />
+                <apex:column value="{!a.BillingCity}" />
+                <apex:column value="{!a.AccountNumber}" />
+            </apex:pageBlockTable>
+            
+            <apex:outputPanel rendered="{!AccountListSize > 0}" layout="block" style="width:95%; text-align:center; padding: 10px 0px" id="accountPagination">>
+                <apex:commandLink value="Previous" action="{!AccountPreviousPage}" rendered="{!AccountListHasPrevious}" rerender="AccountList,accountPagination"/>
+                <apex:outputLabel value="Previous" rendered="{!NOT(AccountListHasPrevious)}"/>                                                      
+                &nbsp;
+                <apex:outputLabel value=" page {!AccountListCurrentPage} of {!AccountListSize} " />
+                &nbsp;
+                <apex:commandLink value="Next" action="{!AccountNextPage}" rendered="{!AccountListHasNext}" rerender="AccountList,accountPagination"/>
+                <apex:outputLabel value="Next" rendered="{!Not(AccountListHasNext)}"/>
+            </apex:outputPanel>
+
+        </apex:pageBlockSection>
+
+
+                <apex:outputPanel id="pnlCustomer">
+                
+
+                
+                    <apex:outputPanel rendered="{!currCase.AccountId = null &&
+                                                    (OR(ISBLANK(accountsFound), accountsFound.size < 1) 
+                                                        && OR(ISBLANK(contactsFound), contactsFound.size=0))}">
+                                                                                        
+                        <c:AccountSearch debugMode="false"
+                                            rerenderAreas="formAccountContactCreation"
+                                            rerenderAreasOnSearch="pnlCreateCustomer"
+                                            vfPageController="{!this}"
+                                            vfkey="accountSearch"/>
+
+                
+                        <apex:outputPanel id="pnlCreateCustomer">                   
+                                <c:AccountCreate sectionTitle="Add new Account"
+                                                rerenderAreas="formAccountContactCreation"
+                                                vfPageController="{!this}"
+                                                vfkey="accountCreate"
+                                                rendered="{!hasSearched}"/>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+
+                </apex:outputPanel>
+
+        <apex:pageBlockSection title="Potential contact(s)" columns="1"   rendered="{!AND(NOT(ISBLANK(contactsFound)), contactsFound.size>0)}">
+            <apex:pageBlockTable value="{!contactsFound}" var="c" id="contactList">
+                <apex:column >
+                    <apex:facet name="footer">                      
+                        <apex:commandButton value="Add new contact" 
+                                            action="{!showAddNewContactFlag}"
+                                            rerender="formAccountContactCreation"
+                                            rendered="{!currCase.accountId=null || (currCase.accountId!=null && selectedAccount.RecordType.DeveloperName != 'Private_Party')}"
+                                            immediate="true"/>
+                    </apex:facet>
+                    
+                    <!-- added by Tim Fabros 06 / 06 / 2014 - SFE-143 
+                            added a loading gif to indicate processing. -->
+                    <!-- BEGIN: -->
+                    <apex:actionStatus id="contactAddLoadingStatus" stopText="">
+                        <apex:facet name="start">
+                            <apex:outputPanel layout="block">
+                                <apex:commandButton value="Add Contact" disabled="true" />
+                                <img src="/img/loading.gif" />
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:facet name="stop">
+                            <apex:commandButton value="Add Contact" action="{!doSelectContact}" rerender="formAccountContactCreation" oncomplete="pageRefresh(); return false;" status="contactAddLoadingStatus">
+                                <apex:param id="selectedContactId" name="selectedContactId" value="{!c.id}"/>   
+                                <apex:param id="selectedAccountId" name="selectedAccountId" value="{!c.accountId}"/>
+                            </apex:commandButton>
+                        </apex:facet>
+                    </apex:actionStatus>
+                    <!-- END: -->
+
+                </apex:column>
+
+                <apex:column value="{!c.Name}" />
+                <apex:column value="{!c.account.Name}" />
+                <apex:column value="{!c.Phone}" />
+                <apex:column value="{!c.Email}" />
+                <apex:column value="{!c.Email_Secondary__c}" />
+                <apex:column value="{!c.MobilePhone}" />    
+                <apex:column value="{!c.MailingStreet}" />
+                <apex:column value="{!c.MailingCountry}" />
+                <apex:column value="{!c.MailingPostalCode}" />
+                <apex:column value="{!c.MailingState}" />
+                <apex:column value="{!c.MailingCity}" />
+            </apex:pageBlockTable>
+
+            <apex:outputPanel rendered="{!contactListSize > 0}" layout="block" style="width:95%; text-align:center; padding: 10px 0px" id="contactPagination">
+                <apex:commandLink value="Previous" action="{!contactPreviousPage}" rendered="{!contactListHasPrevious}" rerender="contactList, contactPagination"/>
+                <apex:outputLabel value="Previous" rendered="{!NOT(contactListHasPrevious)}"/>                                                      
+                &nbsp;
+                <apex:outputLabel value=" page {!contactListCurrentPage} of {!contactListSize} " />
+                &nbsp;
+                <apex:commandLink value="Next" action="{!contactNextPage}" rendered="{!contactListHasNext}" rerender="contactList,contactPagination"/>
+                <apex:outputLabel value="Next" rendered="{!Not(contactListHasNext)}"/>
+            </apex:outputPanel>
+
+        </apex:pageBlockSection>
+
+            <apex:actionRegion >
+            <apex:outputPanel id="oppnewContact">
+                <apex:pageBlockSection columns="1"
+                                        rendered="{!showAddnewContactFlag}"
+                                        title="Add new Contact">
+                    <apex:inputField value="{!newContact.accountId}" required="true" rendered="{!ISBLANK(newContact.accountId)}"/>
+                    <apex:outputField value="{!newContact.accountId}" rendered="{!NOT(ISBLANK(newContact.accountId))}"/>
+                    <apex:inputField value="{!newContact.FirstName}" required="true"/>
+                    <apex:inputField value="{!newContact.LastName}"  required="true"/>
+                    <apex:inputField value="{!newContact.Phone}"  required="true"/>
+                    <!-- modified by Tim Fabros 2014-10-23: SFE-643
+                         changed email to be non-required
+                    -->
+                    <apex:inputField value="{!newContact.Email}" />
+        
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel />
+                        <apex:outputPanel layout="none">
+                            <!-- 2016-06-10   Shri K       Update
+                             Item-00083 2015-12-15 shrinivas.kalkote@blueswolfgroup.com added code for console refresh-->
+                            <apex:commandButton action="{!saveAddnewContact}" value="Save and Select" reRender="caseDetails,oppnewContact, messages" oncomplete="pageRefresh(); return false;"/>
+                            <apex:commandButton action="{!cancelAddnewContact}" value="Cancel" reRender="oppnewContact" immediate="true" oncomplete="pageRefresh(); return false;"/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+        
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+            </apex:actionRegion>
+
+
+    </apex:pageBlock>
+
+
+        <apex:actionFunction name="doSelectAccount"  action="{!doSelectAccount}" rerender="formAccountContactCreation, caseDetails">
+            <apex:param id="selectedAccountId" name="selectedAccountId" value=""/>
+        </apex:actionFunction>
+
+</apex:form>
+
+    <apex:outputpanel id="javascripts">
+        <script type="text/javascript">
+            function closeCurrentTab() {
+                //alert('closeCurrentTab');
+                sforce.console.getEnclosingTabId(closeSubtab);
+            }
+            
+            var closeSubtab = function closeSubtab(result) {
+                //alert('closeSubtab');
+                var tabId = result.id;
+                sforce.console.closeTab(tabId);
+            };
+            
+            function refreshRefTabById() {
+                //alert('refreshRefTabById: {!refTabId}');
+                sforce.console.refreshSubtabById('{!refTabId}', false);
+            }
+            
+            var refreshSuccess = function refreshSuccess(result) {
+                //alert('refreshSuccess');
+                if (result.success == true) {
+                    alert('Sub tab refreshed successfully');
+                } else {
+                    alert('Sub did not refresh');
+                }
+            };
+
+            // Updated by Bohao Chen for JIRA SFE-143
+            function refreshTab() 
+            {
+                sforce.console.getEnclosingPrimaryTabId(function(result)
+                {
+                    sforce.console.refreshPrimaryTabById(result.id, true);
+                });
+            }
+            // End        
+
+            // added by Tim Fabros 05 / 06 / 2014 - SFE-143
+            // fixes refresh so that page refreshes if not in console
+            // BEGIN:
+            function pageRefresh() 
+            {
+                if (sforce.console.isInConsole()) 
+                {
+                    refreshTab();
+                } 
+                else 
+                {
+                    window.parent.location = document.referrer;
+                }
+            }   
+            // END:
+        </script>   
+    </apex:outputpanel>
+       
+</body>
+</apex:page>

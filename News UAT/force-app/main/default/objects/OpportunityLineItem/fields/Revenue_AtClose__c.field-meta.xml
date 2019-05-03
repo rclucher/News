@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Revenue_AtClose__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Revenue for opportunity product line at the time the opportunity has Closed Won/ Lost.</inlineHelpText>
+    <label>Revenue At Close</label>
+    <precision>16</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <type>Currency</type>
+</CustomField>

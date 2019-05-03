@@ -1,0 +1,440 @@
+<apex:component controller="ExternalAccountForm_Controller" allowDML="true">
+    
+    <apex:attribute name="isIndirect"
+                    assignTo="{!isAgency}"
+                    type="Boolean"
+                    required="true" 
+                    description="Is Booking of the type Indirect or Agency" />
+    
+    <apex:attribute name="showCancelButton"
+                    type="Boolean"
+                    required="false" 
+                    description="If cancel button is dosplayed" />
+    
+    <apex:attribute name="showSaveButton"
+                    type="Boolean"
+                    required="false" 
+                    default="true"
+                    description="To control whether to display Save button. Save can otherwise be achieved through Page level controller call. Default is to display." />
+
+    <apex:attribute name="advertiser"
+                    assignTo="{!selectedAdvertiser}"
+                    type="Account"
+                    required="true"
+                    description="Advertiser account" />
+    
+    
+    <apex:attribute name="payer"
+                    assignTo="{!selectedPayer}"
+                    type="Account"
+                    required="true"
+                    description="Payer account" />
+    <!-- 
+<apex:attribute name="isShowing"
+assignTo="{!showAddNewGBAFlag}"
+type="Boolean"
+description="Whether or not the form is being displayed" />
+-->
+    
+    <apex:attribute name="redirect"
+                    assignTo="{!redirectToPage}"
+                    type="Boolean"
+                    required="true"
+                    default="false"
+                    description="Redirects to External Account view page on save, default False" />
+    
+    
+    <apex:attribute name="rerenderAreas"
+                    type="String"
+                    description="Areas IDs to rerender on Save or Cancel" />
+    
+    <apex:attribute name="vfkey"
+                    type="String"
+                    assignTo="{!Key}"
+                    description="The key given to this component so the page can easily get access to it" />
+    
+    <apex:attribute name="vfPageController"
+                    type="PageControllerBase"
+                    assignTo="{!pageController}"
+                    description="The controller for the page." />
+    
+        <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" loadOnReady="false"/>
+        <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js" loadOnReady="false"/>
+        <apex:includeScript value="https://d1c24wnrse4bd3.cloudfront.net/api/js/1.1/datasan.min.js" loadOnReady="false"/>
+    
+    
+    
+    <apex:pageMessages id="newGBAMessages" />
+    
+    <apex:outputPanel id="pnlNewGBA"
+                      rendered="{!showAddNewGBAFlag}">
+        
+        
+        
+        <apex:actionRegion >
+            <apex:pageBlockSection columns="1"
+                                   title="Add new Booking Account">
+                
+                <apex:selectList id="lstParentBookingAccounts" size="1" required="true"
+                                 value="{!gbaAccount.External_Account__c}"
+                                 rendered="{!AND(IsAgency)}">
+                    <apex:selectOptions value="{!ParentBookingAccounts}" />
+                    <apex:actionSupport event="onchange"
+                                        action="{!onParentAccountSelection}"
+                                        rerender="pbsType,pbsDivisions"
+                                        status="onTypeSelectionStatus"
+                                        focus="gbaPhoneCountryCode"/>
+                </apex:selectList>
+            </apex:pageBlockSection>
+        </apex:actionRegion>
+        
+        <apex:actionRegion >
+            <apex:pageBlockSection columns="1"  id="pbsNewGBA">
+                
+                <apex:inputField value="{!gbaAccount.Name}" required="true"/>
+                
+                
+                
+                
+                
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel value="Phone" />
+                    <apex:outputPanel >
+                        <table id="gbaPhoneTable">
+                            <tr>
+                                <td><apex:inputField value="{!gbaAccount.GBA_Phone_Country_Code__c}" style="width:15px; display:inline-block"  required="true" id="gbaPhoneCountryCode"/></td>
+                                <td><apex:inputField value="{!gbaAccount.GBA_Phone_Area_Code__c}" style="width:15px; display:inline-block"  required="true"/></td>
+                                <td><apex:inputField value="{!gbaAccount.GBA_Phone__c}"  required="true"/></td>
+                                <td><apex:outputText value=" ({!payer.Phone})" rendered="{!NOT(ISBLANK(payer.Phone))}" /></td>
+                            </tr>
+                        </table>
+                        <script>
+                        jQuery('table#gbaPhoneTable .errorMsg').hide();
+                        </script>
+                        
+                    </apex:outputPanel>
+                </apex:pageblockSectionItem>
+                
+                
+                
+                <apex:inputField value="{!gbaAccount.Email_Confirmation_Address__c}"  required="true"/>
+                
+            </apex:pageBlockSection>
+        </apex:actionRegion>
+        <apex:actionRegion >
+            
+            <apex:pageBlockSection columns="1" id="pbsType">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.External_Account__c.Fields.Account_Type__c.Label}" />
+                    <apex:outputPanel >
+                        
+                        <apex:selectList id="lstBookingAccounts" size="1" value="{!gbaAccount.Account_Type__c}"
+                                         rendered="{!gbaAccountTypeOptionsForSelectAdvertiser.size > 0}"
+                                         required="true">
+                            <apex:selectOptions value="{!gbaAccountTypeOptionsForSelectAdvertiser}" />
+                            <apex:actionSupport event="onchange" rerender="pbsDivisions,pbsABN,newGBAMessages,gbaFirstName,gbaLastName" action="{!onAccountTypeSelection}" status="onTypeSelectionStatus"/>
+                        </apex:selectList>
+                        
+                        
+                        <apex:actionStatus id="onTypeSelectionStatus">
+                            <apex:facet name="start">
+                                <apex:outputPanel >
+                                    <apex:image value="/img/loading.gif"/>
+                                </apex:outputPanel>
+                            </apex:facet>
+                        </apex:actionStatus>
+                        
+                    </apex:outputPanel>
+                    
+                    
+                </apex:pageBlockSectionItem>
+                
+            </apex:pageBlockSection>
+        </apex:actionRegion>
+        <apex:actionRegion >
+            <apex:pageBlockSection columns="1" id="pbsDivisions">
+                <apex:inputText value="{!gbaAccount.First_Name__c}" id="gbaFirstName" rendered="{!gbaAccount.Account_Type__c=='Private Party'}"/>
+                <apex:inputText value="{!gbaAccount.Last_Name__c}" id="gbaLastName" rendered="{!gbaAccount.Account_Type__c=='Private Party'}" />
+                
+                <apex:pageBlockSectionItem id="pbsilstDivisions" rendered="{!showDivisions}">
+                    <apex:outputLabel value="{!$ObjectType.External_Account__c.Fields.Division__c.Label}" />
+                    <apex:selectList id="lstDivisions" multiselect="true" size="3" value="{!selectedDivisions}" rendered="{!gbaDivisionOptions.size > 1}">
+                        <apex:selectOptions value="{!gbaDivisionOptions}" />
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem id="pbsilstOwningCreditDivisions" rendered="{!showOwningCreditDivisions}">
+                    <apex:outputLabel value="{!$ObjectType.External_Account__c.Fields.Owning_Credit_Division__c.Label}" />
+                    <apex:selectList id="lstDivisions" multiselect="false" size="1" value="{!gbaAccount.Owning_Credit_Division__c}" rendered="{!gbaDivisionOptions.size > 1}" required="true">
+                        <apex:selectOptions value="{!gbaDivisionOptions}" />
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:actionRegion>
+        
+        <apex:pageBlockSection columns="1" id="pbsRevenueGroup">
+            <apex:selectList value="{!gbaAccount.Default_Revenue_Group__c}" multiselect="false"  size="1" required="true">
+                <apex:selectOptions value="{!gbadefaultRevenueGroupGeneraOptions}"/>
+            </apex:selectList>
+        </apex:pageBlockSection>
+        
+        
+        <apex:actionRegion >
+            
+            <apex:pageBlockSection columns="1" id="pbsABN">
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="ABN:"/>
+                    
+                    <apex:outputPanel layout="none">
+                        <apex:inputField value="{!gbaAccount.ABN_Number__c}" styleClass="abnSearchInputText" required="{!isABNRequired}"/>
+                        <div style='width:12px;display:inline-block;' class='invalidABNIconSpaceHolder'/>
+                        <apex:image value="/img/func_icons/remove12_on.gif" styleClass="invalidABNIcon" id="invalidABNIcon" rendered="{!abn.isInvalid}"/>
+                        
+                        <apex:actionStatus id="abnValidationStatus">
+                            <apex:facet name="stop">
+                                <apex:commandButton action="{!doABNLookup}" rerender="abnInfo, newGBAMessages" value="Validate" status="abnValidationStatus"/>
+                            </apex:facet>
+                            <apex:facet name="start">
+                                <apex:outputPanel >
+                                    <apex:commandButton value="Validating..." status="abnValidationStatus" disabled="true"/>
+                                    <apex:image value="/img/loading.gif"/>
+                                </apex:outputPanel>
+                            </apex:facet>
+                        </apex:actionStatus>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                
+                
+                
+                <apex:outputPanel id="abnInfo" layout="none">
+                    <apex:pageBlockSection columns="2"  rendered="{!AND(NOT(ISNULL(abn)),NOT(abn.isInvalid))}">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Name:"/>
+                            <apex:outputText value="{!abn.Name}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Is active:"/>
+                            <apex:outputText value="{!abn.isActive}"/>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+                
+            </apex:pageBlockSection>
+        </apex:actionRegion>
+        
+        <apex:pageBlockSection columns="1">
+         
+        <apex:pageBlockSectionItem />
+                    
+                <apex:pageBlockSectionItem id="cityInputItem">
+                    <apex:outputLabel value="Enter City or Postcode" for="cityInput" />
+                    <apex:inputText id="cityInput" tabindex="0" />
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem id="streetInputItem">
+                    <apex:outputLabel value="Enter Street" for="streetInput"/>
+                    <apex:inputText id="streetInput" tabindex="0" />
+                </apex:pageBlockSectionItem>        
+                                
+         <apex:pageBlockSectionItem />
+                
+                    <apex:pageBlockSectionItem id="newAccountBillignStreet">
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.BillingStreet.Label}" />
+                        <apex:inputText id="newAccountBillingStreet" value="{!gbaAccount.Street__c}"  html-readonly="true" tabindex="1"/>
+                    </apex:pageBlockSectionItem>  
+
+                    <apex:pageBlockSectionItem id="newAccountBillingCity">
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.BillingCity.Label}" />
+                        <apex:inputText id="newAccountBillingCity" value="{!gbaAccount.Suburb__c}"  html-readonly="true" tabindex="1"/>
+                    </apex:pageBlockSectionItem>  
+
+                    <apex:pageBlockSectionItem id="newAccountBillingState">
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.BillingState.Label}" />
+                        <apex:inputText id="newAccountBillingState" value="{!gbaAccount.State__c}"  html-readonly="true" tabindex="1"/>
+                    </apex:pageBlockSectionItem> 
+                    
+                    <apex:pageBlockSectionItem id="newAccountBillingPostalCode">
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.BillingPostalCode.Label}" />
+                        <apex:inputText id="newAccountBillingPostalCode" value="{!gbaAccount.Post_Code__c}" html-readonly="true" tabindex="1"/>
+                    </apex:pageBlockSectionItem>                     
+                   
+                    <apex:pageBlockSectionItem id="newAccountBillingCountry">
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.BillingCountry.Label}" />
+                        <apex:inputText id="newAccountBillingCountry" value="{!gbaAccount.Country__c}" html-readonly="true" tabindex="1"/>
+                    </apex:pageBlockSectionItem>         
+                    
+                    <apex:pageBlockSectionItem id="newAccountBillingDPID">
+                        <apex:outputLabel value="{!$ObjectType.Account.fields.datasan__Billing_Address_DPID__c.Label}" />
+                        <apex:inputText id="newAccountBillingDPID" value="{!gbaAccount.DPID__c}"  html-readonly="true" tabindex="1"/>
+                    </apex:pageBlockSectionItem>    
+
+
+
+
+                <script>                                            
+                        datasan.autoCompleteLocality(
+                            "{!$Component.cityInputItem.cityInput}", 
+                            {   
+                                select: [
+                                    {id: "{!$Component.newAccountBillingCity.newAccountBillingCity}",    value: "{locality_name}"},
+                                    {id: "{!$Component.newAccountBillingPostalCode.newAccountBillingPostalCode}",     value: "{postcode}"},
+                                    {id: "{!$Component.newAccountBillingState.newAccountBillingState}",   value: "{state}"}
+                                ]
+                            }
+                        );
+                        datasan.autoCompleteAddress (
+                            "{!$Component.streetInputItem.streetInput}",
+                            {   locality : {city : "{!$Component.newAccountBillingCity.newAccountBillingCity}", postcode : "{!$Component.newAccountBillingPostalCode.newAccountBillingPostalCode}" },
+                             menu  : {label: "<b>{address_line_1}</b><br/>{locality_name} {state}, {postcode}", value: "{address_line_1}"},
+                             select: [
+                                 {id: "{!$Component.newAccountBillingCity.newAccountBillingCity}",    value: "{locality_name}"},
+                                 {id: "{!$Component.newAccountBillingPostalCode.newAccountBillingPostalCode}",     value: "{postcode}"},
+                                 {id: "{!$Component.newAccountBillingState.newAccountBillingState}",   value: "{state}"},
+                                 {id: "{!$Component.newAccountBillignStreet.newAccountBillingStreet}",  value: "{address_line_1}"},
+                                 {id: "{!$Component.newAccountBillingCountry.newAccountBillingCountry}",  value: "{country}"},
+                                 {id: "{!$Component.newAccountBillingDPID.newAccountBillingDPID}",  value: "{delivery_point_id}"}
+                             ]
+                            }
+                        ); 
+   
+                        jQuery(document).ready(function() {                      
+                            datasan.init({
+                                key : "nTPhWj59v81re_CN0MMmQXwWVqoI2o6xZlRetkwIfexqv5h_1YknlxBpV4wykmp3",
+                                theme : "flick"
+                            });
+                        });
+                            
+                </script> 
+
+        <!--
+            <apex:inputField id="gbaAccountStreet" value="{!gbaAccount.Street__c}" required="true"/>
+            <apex:inputField id="gbaAccountSuburb" value="{!gbaAccount.Suburb__c}" required="true" />
+            <apex:inputField id="gbaAccountState" value="{!gbaAccount.State__c}" required="true" />           
+            <apex:inputField id="gbaAccountPost_Code" value="{!gbaAccount.State__c}" required="true" />
+            <apex:inputField id="gbaAccountCountry" value="{!gbaAccount.Country__c}" required="true" />
+            <apex:inputField id="gbaAccountDPID" value="{!gbaAccount.DPID__c}" />
+            
+                <script>
+                datasan.autoCompleteAddress("{!$Component.gbaAccountStreet}",
+                                            {   
+                                                menu  : {label: "<b>{address_line_1}</b><br/>{locality_name} {state}, {postcode}", value: "{address_line_1}"},
+                                                select: [
+                                                    {id: "{!$Component.gbaAccountSuburb}",  value: "{locality_name}"},
+                                                    {id: "{!$Component.saPostcode}",        value: "{postcode}"},
+                                                    {id: "{!$Component.gbaAccountState}",   value: "{state}"},
+                                                    {id: "{!$Component.gbaAccountStreet}",  value: "{address_line_1}"},
+                                                    {id: "{!$Component.gbaAccountCountry}", value: "{country}"},
+                                                    {id: "{!$Component.gbaAccountDPID}",    value: "{delivery_point_id}"}
+                                                ]
+                                            }
+                                           ); 
+                </script>    
+            
+        -->
+
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection columns="1" id="buttons">
+            
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel />
+                <apex:outputPanel layout="none">
+                    
+                    
+                    
+                    
+                    <apex:actionStatus id="saveButtonStatus">
+                        <apex:facet name="stop">
+                            <apex:commandButton action="{!saveNewGBAAndRedirect}" rerender="pnlNewGBA,pbsNewGBA,newGBAMessages,{!rerenderAreas}" value="Save" status="saveButtonStatus" rendered="{!showSaveButton}"/>
+                        </apex:facet>
+                        <apex:facet name="start">
+                            <apex:outputPanel >
+                                <apex:commandButton value="Processing..." disabled="true"  status="saveButtonStatus"/>
+                                <apex:image value="/img/loading.gif"/>                  
+                            </apex:outputPanel>                             
+                        </apex:facet>
+                    </apex:actionStatus>
+                    
+                    
+                    
+                    
+                    
+                    <apex:commandButton action="{!cancelNewGBA}" value="Cancel" immediate="true" status="newGBALoadingStatus" rendered="{!showCancelButton}"/>
+                    
+                </apex:outputPanel>
+                
+            </apex:pageBlockSectionItem>
+            
+            
+            
+        </apex:pageBlockSection>
+        
+    </apex:outputPanel>
+    
+    
+    <script>
+        jQuery(document).ready(function() {  
+            datasan.init({
+                key : "nTPhWj59v81re_CN0MMmQXwWVqoI2o6xZlRetkwIfexqv5h_1YknlxBpV4wykmp3",
+                theme : "flick"
+            });
+        })
+    </script>    
+    
+    
+    
+    <script>
+    
+    jQuery(function() {
+        
+        jQuery('.abnSearchInputText').keyup(function() {
+            if(isABNValid(jQuery(this).val().replace(/ /g,''))) //
+            {
+                jQuery('.invalidABNIcon').remove();
+            }
+            else
+            {
+                if(!(jQuery('.invalidABNIcon').length>0))
+                {
+                    jQuery(this).parent().append('<img src=\'/img/func_icons/remove12_on.gif\' class=\'invalidABNIcon\' />');
+                }
+            }
+        });
+        
+        
+        jQuery('.abnSearchInputText').keyup(function() {
+            if(isABNValid(jQuery(this).val().replace(/ /g,''))) //
+            {
+                jQuery('.invalidABNIcon').remove();
+            }
+            else
+            {
+                if(!(jQuery('.invalidABNIcon').length>0))
+                {
+                    jQuery(this).parent().append('<img src=\'/img/func_icons/remove12_on.gif\' class=\'invalidABNIcon\' />');
+                }
+            }
+        });
+        
+        
+        function isABNValid(value)
+        {
+            if (value.length != 11 || isNaN(parseInt(value)))
+                return false;
+            
+            var weighting = [10,1,3,5,7,9,11,13,15,17,19];
+            var tally = (parseInt(value[0]) - 1) * weighting[0];
+            for (var i = 1; i < value.length; i++){
+                tally += (parseInt(value[i]) * weighting[i]);
+            }
+            return (tally % 89) == 0;
+        }
+        
+    });
+    
+    </script>
+    
+    
+    
+</apex:component>

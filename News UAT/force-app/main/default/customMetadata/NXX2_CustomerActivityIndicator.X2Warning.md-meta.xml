@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>X2Warning</label>
+    <protected>false</protected>
+    <values>
+        <field>DueDateExceeding_ColorNotification__c</field>
+        <value xsi:type="xsd:string">#ffcc00</value>
+    </values>
+    <values>
+        <field>DueDateExceeds_ColorNotification__c</field>
+        <value xsi:type="xsd:string">#cc3300</value>
+    </values>
+    <values>
+        <field>DueDateNotExceeds_ColorNotification__c</field>
+        <value xsi:type="xsd:string">#99cc33</value>
+    </values>
+    <values>
+        <field>Number_Of_Days_For_Warning__c</field>
+        <value xsi:type="xsd:double">2.0</value>
+    </values>
+</CustomMetadata>

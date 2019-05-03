@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Creative_Agency_For_Digital_Customer__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>Preferred Creative Agency for digital media customer.</inlineHelpText>
+    <label>Creative Agency (For Digital Customer)</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>It must be an Agency that is Digital (Digital Status is Active)</errorMessage>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Agency Account</value>
+        </filterItems>
+        <filterItems>
+            <field>Account.Digital_Status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </filterItems>
+        <infoMessage>Only Agencies that have been turned Digital is displayed</infoMessage>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Accounts Creative Agency (For Digital Customer)</relationshipLabel>
+    <relationshipName>Accounts_CreativeAgencyDigital</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

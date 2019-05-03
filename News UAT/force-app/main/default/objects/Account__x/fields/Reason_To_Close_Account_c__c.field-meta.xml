@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_To_Close_Account_c__c</fullName>
+    <externalDeveloperName>Reason_To_Close_Account__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Reason To Close Account</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Duplicate Account</fullName>
+                <default>false</default>
+                <label>Duplicate Account</label>
+            </value>
+            <value>
+                <fullName>Business Closed Down</fullName>
+                <default>false</default>
+                <label>Business Closed Down</label>
+            </value>
+            <value>
+                <fullName>Lapsed Advertiser</fullName>
+                <default>false</default>
+                <label>Lapsed Advertiser</label>
+            </value>
+            <value>
+                <fullName>Business Sold</fullName>
+                <default>false</default>
+                <label>Business Sold</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

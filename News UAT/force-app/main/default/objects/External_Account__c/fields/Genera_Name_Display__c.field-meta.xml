@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Genera_Name_Display__c</fullName>
+    <description>Modified by Tim Fabros - 17 / 06 / 2014 - SFE-535.
+- added account type to be displayed in the GBA picklist.</description>
+    <externalId>false</externalId>
+    <formula>Account_No__c + &#39; &#39; +  Name + &#39; (&#39; + Address__c + &#39;) - &#39; +  TEXT(Account_Type__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Genera Name Display</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

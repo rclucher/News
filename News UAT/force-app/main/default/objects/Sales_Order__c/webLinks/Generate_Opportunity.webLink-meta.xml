@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Generate_Opportunity</fullName>
+    <availability>online</availability>
+    <description>This button is used to generate opportunity, opportunity line items and opportunity schedule items if booking is made from external systems</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Generate Opportunity</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>sforce.apex.execute( &quot;SalesOrderDetails_Helper&quot;, &quot;createOpportunityAndLineItems&quot;, {salesOrderId:&quot;{!Sales_Order__c.Id}&quot;}, 
+{onSuccess: function(OpptName){ 
+alert(&#39;Opportunity \&#39;&#39; + OpptName + &#39;\&#39; has been generated successfully&#39;);
+window.location.reload();
+}, 
+onFailure: function(error){ 
+alert(&#39;Error: &#39; + error.faultstring)} 
+});</url>
+</WebLink>

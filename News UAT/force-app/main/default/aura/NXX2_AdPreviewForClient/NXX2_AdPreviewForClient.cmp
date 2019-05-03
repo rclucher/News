@@ -1,0 +1,210 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,lightning:isUrlAddressable,force:hasRecordId" controller="NXX2_SocialAdPageController" access="global">
+    <aura:attribute name="allAds" type="List"/>
+    <aura:attribute name="proof" type="Object"/>
+    <aura:attribute name="isExternalUser" type="Boolean" default="false"/>
+    <aura:attribute name="UserType" type="String" default="Internal"/>
+    <aura:attribute name="overlay" type="Object"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="message" type="String"/>
+    <aura:attribute name="displaySpinner" type="Boolean" default="true"/>
+    <aura:registerEvent name="closeModal" type="c:NXX2_CloseModal"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="c:NXX2_CloseModal" action="{!c.handleClodeModal}"/>
+    <aura:handler event="c:NXX2_AdHasBeenUpdated" action="{!c.refreshComp}"/>
+    <ltng:require styles="{!join(',', $Resource.CustomCSSForSocialAd )}" />
+    <force:recordData aura:id="socialProofLoader"
+                      recordId="{!v.recordId}"
+                      fields="Status__c,Campaign_Start_Date__c,Campaign_End_Date__c"
+                      targetFields ="{!v.proof}"
+                      />
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <div class="slds-box">
+        <aura:if isTrue="{!v.displaySpinner}">
+            <lightning:spinner size="medium"/>
+        </aura:if>
+        <aura:if isTrue="{!and(notequals(v.proof.Status__c,'Approved'),not(v.isExternalUser))}">
+            <div class="create-button-container">
+                <lightning:button variant="brand" label="Create Ad" title="Create Ad" onclick="{! c.createAd }" />
+            </div>
+        </aura:if>
+        <aura:iteration items="{!v.allAds}" var="ad" indexVar="index">
+            <div class="ad-container">
+                <h1>{!ad.Ad_Type__c}</h1>
+                <aura:if isTrue="{!and(or(equals(ad.Ad_Type__c,'Lead Generation'),equals(ad.Ad_Type__c,'Messenger')),empty(ad.socialForm))}">
+                    <div class="create-form-container" data-adIndex='{!index}' data-adType='{!ad.Ad_Type__c}'>
+                        <lightning:button variant="brand" label="Create Form" title="Create Form" onclick="{! c.createForm }" />
+                    </div>
+                </aura:if>
+                <div class="slds-grid slds-wrap slds-gutters ad-info-container">
+                    <div class="slds-col slds-size_1-of-3">
+                        <span class="custom-label">
+                            Start Date : 
+                        </span>
+                        <span class="custom-value">
+                            {!ad.Start_Date__c}
+                        </span>
+                    </div>
+                    <div class="slds-col slds-size_1-of-3">
+                        <span class="custom-label">
+                            End Date : 
+                        </span>
+                        <span class="custom-value">
+                            {!ad.End_Date__c}
+                        </span>
+                    </div>
+                    <div class="slds-col slds-size_1-of-3">
+                        <span class="custom-label">
+                            Status : 
+                        </span>
+                        <span class="custom-value">
+                            {!ad.Status__c}
+                        </span>
+                    </div>
+                </div>
+                <div class="ad-details">
+                    <div class="control-section">
+                        <div class="icon-container">
+                            <aura:if isTrue="{!not(v.isExternalUser)}">
+                                <span class="ad-count">
+                                    {!add(index,1)}-V{!ad.Version_Number__c}
+                                </span>
+                                <aura:set attribute="else">
+                                    <span class="ad-count">
+                                        {!add(index,1)}
+                                    </span>
+                                </aura:set>
+                            </aura:if>
+                        </div>
+                        <aura:if isTrue="{!and(not(equals(ad.Version_Number__c,1)),not(v.isExternalUser))}">
+                            <div class="icon-container">
+                                <span class="ad-count all-button" data-parentId="{!ad.Parent_Social_Ad__c}" onclick="{!c.showAllVersion}">
+                                    All
+                                </span>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!and(v.isExternalUser,equals(ad.Status__c,'With Customer'))}">
+                            <div class="edit-icon-container icon-container" data-adIndex="{!index}" onclick="{!c.editAd}">
+                                <lightning:icon iconName="utility:edit" size="x-small" alternativeText="Edit"/>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!not(v.isExternalUser)}">
+                            <aura:if isTrue="{!notequals(ad.Status__c,'Approved')}">
+                                <div class="edit-icon-container icon-container" data-adIndex="{!index}" onclick="{!c.editAd}">
+                                    <lightning:icon iconName="utility:edit" size="x-small" alternativeText="Edit"/>
+                                </div>
+                                <aura:set attribute="else">
+                                    <div class="edit-icon-container icon-container" data-adIndex="{!index}" onclick="{!c.createNewVersion}">
+                                        <lightning:icon iconName="utility:copy" size="x-small" alternativeText="New V" title="Create new version"/>
+                                    </div>
+                                </aura:set>
+                            </aura:if>
+                        </aura:if>
+                        <aura:if isTrue="{!and(not(v.isExternalUser),notequals(ad.Status__c,'Approved'))}">
+                            <div class="delete-icon-container icon-container" data-adIndex="{!index}" onclick="{!c.deleteAd}">
+                                <lightning:icon iconName="utility:delete" size="x-small" alternativeText="Delete"/>
+                            </div>
+                        </aura:if>
+                    </div>
+                    <div class="details-section">
+                        <article class="slds-card slds-p-around_small">
+                            <c:NXX2_PreviewFacebookAd aura:id="previewComp" adDetails="{!ad}"></c:NXX2_PreviewFacebookAd>
+                        </article>
+                    </div>
+                    <div class="{!if(or(notequals(ad.Status__c,'Approved'),not(v.isExternalUser)), 'comments-section', 'comments-section disabled')}">
+                        <lightning:tabset selectedTabId="Comments">
+                            <lightning:tab label="Comments" id="Comments">
+                                <article class="slds-card slds-p-around_small">
+                                    <aura:if isTrue="{!or(notequals(ad.Status__c,'Approved'),not(v.isExternalUser))}">
+                                        <forceChatter:publisher context="RECORD" recordId="{!ad.Id}"/>
+                                    </aura:if>
+                                    <forceChatter:feed type="Record" subjectId="{!ad.Id}" feedDesign="DEFAULT"/>
+                                    <!--<c:NXX2_AddCommentToAdPreview recordId="{!ad.Id}"></c:NXX2_AddCommentToAdPreview>-->
+                                </article>
+                            </lightning:tab>
+                            <aura:if isTrue="{!not(v.isExternalUser)}">
+                                <lightning:tab label="History" id="History">
+                                    <c:NXX2_ProofAdHistoryComponent ParentId="{!ad.Id}"></c:NXX2_ProofAdHistoryComponent>
+                                </lightning:tab>
+                            </aura:if>
+                        </lightning:tabset>
+                    </div>
+                </div>
+            </div>
+            <aura:if isTrue="{!not(empty(ad.socialForm))}">
+                <div class="ad-container">
+                    <aura:if isTrue="{!equals(ad.Ad_Type__c,'Lead Generation')}">
+                    	<h1>Facebook Form Fill</h1>
+                        <aura:set attribute='else'>
+                    		<h1>Greeting Cards &amp; Quick Replies</h1>
+                        </aura:set>
+                    </aura:if>
+                    <div class="create-form-container" data-formId='{!ad.socialForm.Id}' data-adIndex='{!index}' data-adType='{!ad.Ad_Type__c}'>
+                        <aura:if isTrue="{! notequals(ad.Status__c,'Approved')}">
+                        <lightning:button variant="brand" label="Update Form" title="Update Form" onclick="{! c.updateForm }" />
+                        </aura:if>
+                    </div>
+                    <div class="ad-details">
+                        <aura:if isTrue="{!equals(ad.Ad_Type__c,'Lead Generation')}">
+                            <div class="details-section">
+                                <article class="slds-card slds-p-around_small ad-form-container">
+                                    <div class="form-label">Name</div>
+                                    <div class="form-value">{!ad.socialForm.Form_Name__c}</div>
+                                    <aura:if isTrue="{!not(empty(ad.socialForm.Form_Privacy_Policy_Link__c))}">
+                                        <div class="form-label">Privacy policy link</div>
+                                        <div class="form-value">
+                                            <lightning:formattedUrl value="{!ad.socialForm.Form_Privacy_Policy_Link__c}" />
+                                        </div>
+                                    </aura:if>
+                                    <aura:if isTrue="{!not(empty(ad.socialForm.Form_Thank_You_Page_Link__c))}">
+                                        <div class="form-label">Thank you page link</div>
+                                        <div class="form-value">
+                                            <lightning:formattedUrl value="{!ad.socialForm.Form_Thank_You_Page_Link__c}" />
+                                        </div>
+                                    </aura:if>
+                                    <aura:if isTrue="{!not(empty(ad.socialForm.Form_Client_Specified_Criteria__c))}">
+                                        <div class="form-label">Client specified form criteria</div>
+                                        <div class="form-value">
+                                            <lightning:formattedRichText value="{!ad.socialForm.Form_Client_Specified_Criteria__c}" />
+                                        </div>
+                                    </aura:if>
+                                    <aura:iteration items="{!ad.socialForm.uploadedFiles}" var="file">
+                                        <div class="form-images"><img src="{!file.fileURL}"></img></div>
+                                    </aura:iteration>
+                                </article>
+                            </div>
+                            <aura:set attribute='else'>
+                                <div class="details-section">
+                                    <article class="slds-card slds-p-around_small ad-form-container">
+                                        <div class="form-label">Greetings Card</div>
+                                        <div class="form-value">
+                                            <lightning:formattedRichText value="{!ad.socialForm.Greetings_Card__c}"></lightning:formattedRichText>
+                                        </div>
+                                        <div class="form-label">Quick Replies</div>
+                                        <div class="form-value">
+                                            <lightning:formattedRichText value="{!ad.socialForm.Quick_Replies__c}"></lightning:formattedRichText>
+                                        </div>
+                                        <aura:iteration items="{!ad.socialForm.uploadedFiles}" var="file">
+                                            <div class="form-images"><img src="{!file.fileURL}"></img></div>
+                                        </aura:iteration>
+                                    </article>
+                                </div>
+                            </aura:set>
+                        </aura:if>
+                        <div class="comments-section">
+                            <b class="comment-lable">Comments</b>
+                            <article class="slds-card slds-p-around_small">
+                                <forceChatter:publisher context="RECORD" recordId="{!ad.socialForm.Id}"/>
+                                <forceChatter:feed type="Record" subjectId="{!ad.socialForm.Id}" feedDesign="DEFAULT"/>
+                                <!--<c:NXX2_AddCommentToAdPreview recordId="{!ad.Id}"></c:NXX2_AddCommentToAdPreview>-->
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </aura:if>
+        </aura:iteration>
+        <aura:if isTrue="{!empty(v.allAds)}">
+            No social ad to display!
+        </aura:if>
+    </div>
+</aura:component>

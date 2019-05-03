@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="This will be fired when a request goes to server.">
+    <aura:attribute name="requestMessage" type="String" />
+</aura:event>

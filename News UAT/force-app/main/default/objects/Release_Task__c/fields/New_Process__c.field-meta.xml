@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Process__c</fullName>
+    <externalId>false</externalId>
+    <label>New Process</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Not relevant</fullName>
+                <default>true</default>
+                <label>Not relevant</label>
+            </value>
+            <value>
+                <fullName>Low impact</fullName>
+                <default>false</default>
+                <label>Low impact</label>
+            </value>
+            <value>
+                <fullName>High impact</fullName>
+                <default>false</default>
+                <label>High impact</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

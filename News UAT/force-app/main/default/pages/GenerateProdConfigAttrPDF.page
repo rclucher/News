@@ -1,0 +1,83 @@
+<apex:page standardController="csmso__Sales_Order__c" extensions="GenerateProdConfigAttr" renderAs="pdf" cache="true">
+    <body>
+        <div class="CSwrapper">
+            <apex:stylesheet value="{!URLFOR($Resource.OrderCSS)}"/>    
+            <!-- define static resource for logo-->
+           <!-- <apex:image value="{!URLFOR($Resource.MediaPlatformLogo)}"/> -->
+            <!-- defines a sales order name-->
+            <apex:panelGrid columns="1" styleClass="companyTable" width="100%">
+                <apex:outputText value="{!$Organization.Name}" styleClass="companyName"/>
+                <apex:outputText value="{!$Organization.Street}"/>
+                <apex:outputText value="{!$Organization.City}, {!$Organization.State} {!$Organization.PostalCode}"/>
+                <apex:outputText value="{!$Organization.Phone}"/>
+            </apex:panelGrid>
+            <apex:outputPanel layout="block" styleClass="line"/>
+            <apex:panelGrid columns="1" styleClass="summary centered" width="100%">
+                <apex:panelGrid columns="1" width="100%" cellpadding="0" cellspacing="0" columnClasses="left,right">
+                    <strong><apex:outputText value="Sales Order: {!csmso__Sales_Order__c.Name}"/></strong>
+                    
+                    <strong><apex:outputText value="User:"/></strong>
+                    <apex:outputText value="Account Owner Name: {!csmso__Sales_Order__c.csmso__Advertiser__r.Owner.Name}"/>
+                    <apex:outputText value="Account Owner Phone: {!csmso__Sales_Order__c.csmso__Advertiser__r.Phone}"/><br/>
+                    
+                    <strong><apex:outputText value="Customer Contact Details:"/></strong>                  
+                    <apex:outputText value="Customer Contact Name: {!csmso__Sales_Order__c.csmso__Booking_Contact__r.Name}"/>
+                    <apex:outputText value="Customer Contact Phone: {!csmso__Sales_Order__c.csmso__Booking_Contact__r.Phone}"/>
+                    <apex:outputText value="Customer Contact Email: {!csmso__Sales_Order__c.csmso__Booking_Contact__r.Email}"/><br/>
+                   
+                    <strong><apex:outputText value="Agreement/Deal Close Details:"/></strong>
+                    <apex:outputText value="Account: {!csmso__Sales_Order__c.csmso__Advertiser__r.Name}"/>
+                    <apex:outputText value="Business Address-"/>
+                    <apex:outputText value="Country: {!csmso__Sales_Order__c.csmso__Advertiser__r.BillingCountry}"/>
+                    <apex:outputText value="State: {!csmso__Sales_Order__c.csmso__Advertiser__r.BillingState}"/>
+                    <apex:outputText value="City: {!csmso__Sales_Order__c.csmso__Advertiser__r.BillingCity}"/>
+                    <apex:outputText value="Street: {!csmso__Sales_Order__c.csmso__Advertiser__r.BillingStreet}"/>
+                    <apex:outputText value="PostalCode: {!csmso__Sales_Order__c.csmso__Advertiser__r.BillingPostalCode}"/>
+                    <apex:outputText value="Business ABN#: {!csmso__Sales_Order__c.csmso__Advertiser__r.AccountNumber}"/>
+                    <apex:outputText value="Web Address URL: {!csmso__Sales_Order__c.csmso__Advertiser__r.Website}"/>
+                    
+                                    
+                    <apex:outputText value="Campaign Start Date: {!csmso__Sales_Order__c.Campaign_Start_Date__c}"/>
+                    
+                    <!--Commented for field type switch Start -->
+                    <apex:outputText value="Campaign End Date: {!csmso__Sales_Order__c.Campaign_End_Date2__c}"/>
+                    <!--Commented for field type switch End -->
+                    
+                    <apex:outputText value="Campaign Lenght: {!csmso__Sales_Order__c.Campaign_Length__c}"/>
+                    <apex:outputText value="" style="text-align:right"/>
+                    
+                    <apex:panelGroup >
+                        <apex:outputText value="{!csmso__Sales_Order__c.csmso__Booking_Contact__r.MailingCity}"/>
+                        <apex:outputText value="{!csmso__Sales_Order__c.csmso__Booking_Contact__r.MailingState}"/>
+                        <apex:outputText value="{!csmso__Sales_Order__c.csmso__Booking_Contact__r.MailingPostalCode}"/>
+                    </apex:panelGroup>
+                    <apex:outputText value="" style="text-align:right"/>        
+                    <apex:outputText value="." styleClass="blankLine"/>  
+                    <apex:outputText value="" style="text-align:right"/>  
+                </apex:panelGrid>     
+            </apex:panelGrid>
+            <apex:outputText value="Ad Point Booking Information" styleClass="companyName"/><br/>
+            <apex:outputPanel layout="block" styleClass="line"/>
+            <apex:outputText value="" style="text-align:right"/><br/> 
+            
+            <apex:variable var="i" value="{!1}"/>
+            <apex:repeat value="{!prodConfigs}" var="prodConfig">
+                {!i}.
+                <apex:variable var="i" value="{!i+1}"/>
+                <strong><apex:outputText value="{!prodConfig.Name}" styleClass="companyName"/></strong><br/><br/>
+                <table border="1" style="width:100%">
+                    <tr>
+                    <apex:repeat value="{!prodConfig.cscfga__Attributes__r}" var="attr">
+                    <th>{!attr.Name}</th>
+                    </apex:repeat>
+                    </tr>
+                    <tr> 
+                    <apex:repeat value="{!prodConfig.cscfga__Attributes__r}" var="attr">
+                    <td>{!attr.cscfga__Value__c}</td>
+                    </apex:repeat>   
+                    </tr>                   
+                </table><br/><br/>
+            </apex:repeat>
+        </div>
+    </body>
+</apex:page>

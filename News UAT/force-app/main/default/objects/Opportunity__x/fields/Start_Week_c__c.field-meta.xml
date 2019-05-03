@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Start_Week_c__c</fullName>
+    <externalDeveloperName>Start_Week__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Start Week</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Jan, Week 1</fullName>
+                <default>false</default>
+                <label>Jan, Week 1</label>
+            </value>
+            <value>
+                <fullName>Jan, Week 2</fullName>
+                <default>false</default>
+                <label>Jan, Week 2</label>
+            </value>
+            <value>
+                <fullName>Jan, Week 3</fullName>
+                <default>false</default>
+                <label>Jan, Week 3</label>
+            </value>
+            <value>
+                <fullName>Jan, Week 4</fullName>
+                <default>false</default>
+                <label>Jan, Week 4</label>
+            </value>
+            <value>
+                <fullName>Jan, Week 5</fullName>
+                <default>false</default>
+                <label>Jan, Week 5</label>
+            </value>
+            <value>
+                <fullName>Feb, Week 1</fullName>
+                <default>false</default>
+                <label>Feb, Week 1</label>
+            </value>
+            <value>
+                <fullName>Feb, Week 2</fullName>
+                <default>false</default>
+                <label>Feb, Week 2</label>
+            </value>
+            <value>
+                <fullName>Feb, Week 3</fullName>
+                <default>false</default>
+                <label>Feb, Week 3</label>
+            </value>
+            <value>
+                <fullName>Feb, Week 4</fullName>
+                <default>false</default>
+                <label>Feb, Week 4</label>
+            </value>
+            <value>
+                <fullName>Mar, Week 1</fullName>
+                <default>false</default>
+                <label>Mar, Week 1</label>
+            </value>
+            <value>
+                <fullName>Mar, Week 2</fullName>
+                <default>false</default>
+                <label>Mar, Week 2</label>
+            </value>
+            <value>
+                <fullName>Mar, Week 3</fullName>
+                <default>false</default>
+                <label>Mar, Week 3</label>
+            </value>
+            <value>
+                <fullName>Mar, Week 4</fullName>
+                <default>false</default>
+                <label>Mar, Week 4</label>
+            </value>
+            <value>
+                <fullName>Apr, Week 1</fullName>
+                <default>false</default>
+                <label>Apr, Week 1</label>
+            </value>
+            <value>
+                <fullName>Apr, Week 2</fullName>
+                <default>false</default>
+                <label>Apr, Week 2</label>
+            </value>
+            <value>
+                <fullName>Apr, Week 3</fullName>
+                <default>false</default>
+                <label>Apr, Week 3</label>
+            </value>
+            <value>
+                <fullName>Apr, Week 4</fullName>
+                <default>false</default>
+                <label>Apr, Week 4</label>
+            </value>
+            <value>
+                <fullName>Apr, Week 5</fullName>
+                <default>false</default>
+                <label>Apr, Week 5</label>
+            </value>
+            <value>
+                <fullName>May, Week 1</fullName>
+                <default>false</default>
+                <label>May, Week 1</label>
+            </value>
+            <value>
+                <fullName>May, Week 2</fullName>
+                <default>false</default>
+                <label>May, Week 2</label>
+            </value>
+            <value>
+                <fullName>May, Week 3</fullName>
+                <default>false</default>
+                <label>May, Week 3</label>
+            </value>
+            <value>
+                <fullName>May, Week 4</fullName>
+                <default>false</default>
+                <label>May, Week 4</label>
+            </value>
+            <value>
+                <fullName>Jun, Week 1</fullName>
+                <default>false</default>
+                <label>Jun, Week 1</label>
+            </value>
+            <value>
+                <fullName>Jun, Week 2</fullName>
+                <default>false</default>
+                <label>Jun, Week 2</label>
+            </value>
+            <value>
+                <fullName>Jun, Week 3</fullName>
+                <default>false</default>
+                <label>Jun, Week 3</label>
+            </value>
+            <value>
+                <fullName>Jun, Week 4</fullName>
+                <default>false</default>
+                <label>Jun, Week 4</label>
+            </value>
+            <value>
+                <fullName>Jul, Week 1</fullName>
+                <default>false</default>
+                <label>Jul, Week 1</label>
+            </value>
+            <value>
+                <fullName>Jul, Week 2</fullName>
+                <default>false</default>
+                <label>Jul, Week 2</label>
+            </value>
+            <value>
+                <fullName>Jul, Week 3</fullName>
+                <default>false</default>
+                <label>Jul, Week 3</label>
+            </value>
+            <value>
+                <fullName>Jul, Week 4</fullName>
+                <default>false</default>
+                <label>Jul, Week 4</label>
+            </value>
+            <value>
+                <fullName>Jul, Week 5</fullName>
+                <default>false</default>
+                <label>Jul, Week 5</label>
+            </value>
+            <value>
+                <fullName>Aug, Week 1</fullName>
+                <default>false</default>
+                <label>Aug, Week 1</label>
+            </value>
+            <value>
+                <fullName>Aug, Week 2</fullName>
+                <default>false</default>
+                <label>Aug, Week 2</label>
+            </value>
+            <value>
+                <fullName>Aug, Week 3</fullName>
+                <default>false</default>
+                <label>Aug, Week 3</label>
+            </value>
+            <value>
+                <fullName>Aug, Week 4</fullName>
+                <default>false</default>
+                <label>Aug, Week 4</label>
+            </value>
+            <value>
+                <fullName>Sep, Week 1</fullName>
+                <default>false</default>
+                <label>Sep, Week 1</label>
+            </value>
+            <value>
+                <fullName>Sep, Week 2</fullName>
+                <default>false</default>
+                <label>Sep, Week 2</label>
+            </value>
+            <value>
+                <fullName>Sep, Week 3</fullName>
+                <default>false</default>
+                <label>Sep, Week 3</label>
+            </value>
+            <value>
+                <fullName>Sep, Week 4</fullName>
+                <default>false</default>
+                <label>Sep, Week 4</label>
+            </value>
+            <value>
+                <fullName>Oct, Week 1</fullName>
+                <default>false</default>
+                <label>Oct, Week 1</label>
+            </value>
+            <value>
+                <fullName>Oct, Week 2</fullName>
+                <default>false</default>
+                <label>Oct, Week 2</label>
+            </value>
+            <value>
+                <fullName>Oct, Week 3</fullName>
+                <default>false</default>
+                <label>Oct, Week 3</label>
+            </value>
+            <value>
+                <fullName>Oct, Week 4</fullName>
+                <default>false</default>
+                <label>Oct, Week 4</label>
+            </value>
+            <value>
+                <fullName>Oct, Week 5</fullName>
+                <default>false</default>
+                <label>Oct, Week 5</label>
+            </value>
+            <value>
+                <fullName>Nov, Week 1</fullName>
+                <default>false</default>
+                <label>Nov, Week 1</label>
+            </value>
+            <value>
+                <fullName>Nov, Week 2</fullName>
+                <default>false</default>
+                <label>Nov, Week 2</label>
+            </value>
+            <value>
+                <fullName>Nov, Week 3</fullName>
+                <default>false</default>
+                <label>Nov, Week 3</label>
+            </value>
+            <value>
+                <fullName>Nov, Week 4</fullName>
+                <default>false</default>
+                <label>Nov, Week 4</label>
+            </value>
+            <value>
+                <fullName>Dec, Week 1</fullName>
+                <default>false</default>
+                <label>Dec, Week 1</label>
+            </value>
+            <value>
+                <fullName>Dec, Week 2</fullName>
+                <default>false</default>
+                <label>Dec, Week 2</label>
+            </value>
+            <value>
+                <fullName>Dec, Week 3</fullName>
+                <default>false</default>
+                <label>Dec, Week 3</label>
+            </value>
+            <value>
+                <fullName>Dec, Week 4</fullName>
+                <default>false</default>
+                <label>Dec, Week 4</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

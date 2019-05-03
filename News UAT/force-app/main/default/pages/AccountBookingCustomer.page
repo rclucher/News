@@ -1,0 +1,28 @@
+<apex:page standardController="Account" extensions="AccountBookingCustomer_ControllerX">
+    <apex:form id="frmAccount" >
+        <apex:pageBlock id="pgbMatch">
+        <apex:pageBlockSection columns="2">
+            <apex:actionRegion >
+            <apex:pageBlockSection id="pgbsMatch" columns="1">
+                <apex:outputField value="{!ac.RecordType.Name}">
+                    <apex:actionSupport event="onkeyup" action="{!doSearch}" reRender="pgbResults" />
+                </apex:outputField>
+                    <apex:inputText value="{!nameSearch}" label="Account Name" >
+                        <apex:actionSupport event="onkeyup" action="{!doSearch}" reRender="pgbResults" />
+                    </apex:inputText>
+                    <apex:inputText value="{!phoneSearch}" label="Phone" >
+                        <apex:actionSupport event="onkeyup" action="{!doSearch}" reRender="pgbResults" />
+                    </apex:inputText>
+            </apex:pageBlockSection>
+            </apex:actionRegion>
+            <apex:pageBlock id="pgbResults">
+                <apex:pageBlockTable id="pgbtResults" value="{!searchResults}" var="a">
+                    <apex:column value="{!a.Name}"/>
+                    <apex:column value="{!a.Phone}"/>
+                    <apex:column value="{!a.BillingState}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+            </apex:pageBlockSection>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

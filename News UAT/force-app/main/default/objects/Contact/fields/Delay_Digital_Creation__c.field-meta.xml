@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Delay_Digital_Creation__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Marker to delay the automatic Digital creation of a Contact.
+
+This is set by the Booking UI if a Contact is created during the Booking. In this case the Contact should not be automatically turned Digital.</description>
+    <externalId>false</externalId>
+    <label>Delay Digital Creation</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

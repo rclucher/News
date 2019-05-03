@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <defaultLandingTab>standard-home</defaultLandingTab>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Cloudsense Fulfilment</label>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Opportunity</tabs>
+    <tabs>Order__c</tabs>
+    <tabs>Product_Order__c</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>Re_Assign_Workload</tabs>
+    <tabs>cspmb__Add_On_Price_Item__c</tabs>
+    <tabs>cspmb__Price_Item_Add_On_Price_Item_Association__c</tabs>
+    <tabs>cspmb__Price_Item__c</tabs>
+    <tabs>AccountReport__c</tabs>
+    <tabs>OpportunityReport__c</tabs>
+</CustomApplication>

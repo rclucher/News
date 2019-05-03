@@ -1,0 +1,75 @@
+.THIS .c-container {
+}
+.THIS .page-section {
+  /*  border: solid 1px #fff;
+    padding: 0.5rem; */
+}
+.THIS .page-header,
+.THIS .page-footer {
+    height: 50px;
+}
+.THIS .page-main {
+   /* background: #f8f8f8; */
+}
+.THIS .page-left,
+.THIS .page-right {
+    background: #ffffff;
+}
+.THIS .slds-file-selector__dropzone{ /*the border around*/
+    /* border: none;
+    padding-left: 3rem; */
+}
+.THIS .slds-file-selector__dropzone .slds-file-selector__text{ /*the right label*/
+    display: none;
+}
+.THIS .custom-slds-modal__footer {
+    padding: .75rem 1rem;
+    text-align: right;
+}
+
+.THIS .custom-avatar {
+    overflow: hidden;
+    width: 3.5rem;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 0.25rem;
+    line-height: 1;
+    color: rgb(255, 255, 255);
+}
+.THIS.slds-spinner_container {  
+  z-index: 10000;
+  position: fixed;   
+}
+
+.THIS .no-record-msg{
+    text-align : center;
+}
+
+.THIS .spinner-container{
+    min-height : 150px;
+}
+.THIS .hideConfirmDiv {
+    display: none;
+}
+/*.THIS .slds-file-selector__dropzone{
+        height: 150px;
+    width: 200px;
+}
+.THIS .slds-file-selector__dropzone .slds-file-selector__body{
+    display : block;
+}
+.THIS .slds-file-selector__dropzone .slds-file-selector__button{
+    display: block;
+    padding: 0;
+}
+.THIS .slds-file-selector__dropzone .slds-file-selector__text{
+    display: block;
+    text-align: center;
+    padding-top: 50px;
+}
+.THIS .slds-file-selector__dropzone slot{
+    display : block;
+}*/
+.THIS .slds-form-element__label{
+    display : none;
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Specialist_Media_Account_Manager_c__c</fullName>
+    <externalDeveloperName>Specialist_Media_Account_Manager__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Specialist Media Account Manager</label>
+    <length>1300</length>
+    <readOnlyProxy>true</readOnlyProxy>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

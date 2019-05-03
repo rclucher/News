@@ -1,0 +1,218 @@
+.THIS .preview-container{
+    text-align : center;
+    padding-top:10px;
+    padding-bottom:10px;
+    width: 100%;
+}
+.THIS .hidden-input{
+    display : none;
+}
+.THIS .slds-card{
+    padding : 10px !important;
+}
+.THIS .slds-card__header lightning-icon{
+    padding: 0px;
+}
+.THIS .slds-media__body{
+    text-align : left;
+    max-height : 300px;
+}
+.THIS .single-image-container{
+    padding : 10px;
+}
+.THIS .slds-media__body h3{
+    font-weight: bold;
+    color: #141823;
+    font-size: 14px;
+}
+.THIS .slds-card__body{
+    padding-left : 5px;
+    padding-right : 5px;
+}
+.THIS .slds-card__body .image-container{
+    box-shadow: 1px 1px 1px 1px lightgrey;
+    border-radius: 5px;
+    overflow:hidden;
+}
+.THIS .single-image-container{
+    height : 250px;
+}
+.THIS .slds-card__body .image-container img{
+    height: auto;
+    max-height: 220px;
+}
+.THIS .slds-card__body .ad-text{
+    font-size: 14px;
+    text-align: left;
+    padding: 5px 0px;
+    color: #141823;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.THIS .slds-card__body .no-image-div{
+    background-color : #3b5998;
+    color: white;
+    font-size : 20px;
+    font-weight : bold;
+    padding-top : 80px;
+    height : 180px;
+}
+.THIS .slds-card__body .ad-text.headline{
+    font-weight: bold;
+    padding: 0px 5px;
+}
+.THIS .slds-card__body .ad-text.desc{
+    padding: 0px 5px;
+        font-size: 12px;
+    color: gray;
+}
+.THIS .slds-media__body .sub-header{
+    color: #9197a3;
+    font-size: 12px;
+}
+.THIS .slds-media__body .header-menu{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+.THIS .slds-card__footer{
+    text-align : center;
+    font-weight : bold;
+    color: #5e5e5e;
+    font-size: 12px;
+}
+.THIS .fb-icons{
+    padding: 2px;
+    position: absolute;
+}
+.THIS .fb-sub-icon-container{
+    border-bottom: solid 1px lightgray;
+    padding-bottom: 5px;
+}
+.THIS .fb-sub-icon-container .icon-with-background{
+    display: inline-block;
+    color: white;
+    background: blue;
+    border-radius: 50%;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-top: 1px;
+    margin-right: 5px;
+}
+.THIS .fb-sub-icon-container .fb-sub-content{
+    text-align: right;
+    font-size: 11px;
+    line-height: 20px;
+    color: #898f9c;
+}
+.THIS .fb-icon-container{
+    display: inline-block;
+    padding: 2px 20px;
+    text-align: initial;
+}
+.THIS .fb-icon-container.Like{
+    width: 30%;
+}
+.THIS .fb-icon-container.Comment{
+    width: 40%;
+    padding-left: 7%;
+}
+.THIS .fb-icon-container.Share{
+    width: 30%;
+}
+.THIS .fb-sub-icon-container .fb-sub-content span{
+    margin-right: 10px;
+}
+.THIS .slds-card__footer .fb-bottom-buttons{
+    padding-top: 5px;
+}
+.THIS .slds-carousel {
+    padding : 10px;
+}
+.THIS .custom-carousel-container{
+    position: relative;
+    overflow-x: scroll;
+    height: 300px;
+    padding:10px;
+}
+.THIS .custom-carousel{
+    position: absolute;
+        height: 100%;
+    overflow-y: hidden;
+}
+.THIS .custom-carousel img{
+    width : 230px;
+    height : 200px;
+}
+.THIS .slide-individual-container{
+        width: 240px;
+    margin-right: 5px;
+    margin-left : 5px;
+    float: left;
+    display: inline-block;
+     padding: 5px;
+    box-shadow: 1px 1px 1px 1px lightgrey;
+}
+.THIS .slide-individual-container .image-container{
+        height: 180px;
+    position : relative;
+}
+.THIS .preview-container .slds-button{
+    width: 100%;
+    overflow: hidden;
+    background: #f6f7f8 linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    white-space: nowrap;
+    padding: 0;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), inset 0 -1px 1px 0 rgba(0, 0, 0, 0.03);
+    color: #4e5665;
+    border-radius: 4px;
+    border: 1px solid rgba(78, 86, 101, 0.2);
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 28px;
+}
+.THIS .footer-details{
+    border-top:1px solid lightgray;
+        min-height: 50px;
+}
+.THIS .slds-carousel{
+    height : 300px;
+}
+.THIS .slds-carousel__content{
+    display : none;
+}
+.THIS .slds-carousel__panel div,.THIS .slds-carousel__panel a,.THIS .slds-carousel__panel img{
+    height : 100%;
+}
+.THIS .video-container{
+        border: none;
+    height: 100%;
+    width: 100%;
+}
+.THIS .slideshow-container{
+    height : 250px;
+}
+.THIS .footer-details .slds-col{
+    padding : 0px;
+}
+.THIS .footer-details .fb-button-container{
+    padding-right: 5px;
+}
+.THIS .image-vertical-align {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.THIS .download-icon-container{
+    position: absolute;
+    background: white;
+    padding: 5px;
+    right: 15px;
+    bottom: 170px;
+}
+.THIS .custom-carousel .download-icon-container{
+    bottom: 155px;
+}

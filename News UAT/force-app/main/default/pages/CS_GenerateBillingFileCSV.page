@@ -1,0 +1,3 @@
+<apex:page standardController="Billing_File__c" extensions="CS_GenerateBillingFileCSVController" action="{!generateCSV}">
+
+</apex:page>

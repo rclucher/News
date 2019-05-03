@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Print_Negotiation_Points</fullName>
+    <columns>NAME</columns>
+    <columns>Platform__c</columns>
+    <columns>Value__c</columns>
+    <columns>Name__c</columns>
+    <columns>Score__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Platform__c</field>
+        <operation>equals</operation>
+        <value>Print</value>
+    </filters>
+    <label>Print Negotiation Points</label>
+</ListView>

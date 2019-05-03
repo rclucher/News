@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AssistantPhone_DNC_Contactable__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( 
+AssistantPhone_on_DNC__c = FALSE &amp;&amp; 
+NOT ISBLANK(AssistantPhone_DNC_Washed_Date__c) &amp;&amp; 
+TODAY() - AssistantPhone_DNC_Washed_Date__c &lt; 31, 
+TRUE, FALSE 
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>AssistantPhone DNC Contactable</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

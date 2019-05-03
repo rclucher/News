@@ -1,0 +1,39 @@
+<apex:page standardcontroller="cspmb__Price_Item__c" extensions="PriceItemCloning" lightningStylesheets="true" action="{!refreshForecastResult}">
+    <apex:form id="formId">
+        <apex:pageBlock title="Bundle Manager" id="pgBlockId">
+            <apex:pageMessages id="pgMsgs"/>
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!cancel}" value="Cancel"/>
+        		<apex:commandButton action="{!clonePriceItems}" value="Create New Instance"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Select Operation" columns="2" collapsible="false">
+                <apex:selectList value="{!selectedOperation}" multiselect="false" size="1" title="Select new instance type" label="Select New Instance Type">
+                    <apex:selectOptions value="{!operations}"/>
+                    <apex:actionSupport event="onchange" action="{!refreshForecastResult}" reRender="pbForecastPriceItem,operationDescription,pgBlockId"/>
+                </apex:selectList>
+                <apex:outputText label="New Instance Type Description" id="operationDescription" escape="false"
+                                 value="{!IF(selectedOperation="newVersion",
+                                        'Creates new Price Item that will replace selected Price item (new version of the same bundle).<br/>See New Instance Price Item section for simulated output.',
+                                        'Creates new Price Item that will use selected Price Item as a template.<br/>See New Instance Price Item section for simulated output.')}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Selected Price Item" columns="2" collapsible="false" id="originalPriceItem">
+                <apex:outputField value="{!cspmb__Price_Item__c.name}"/>
+                <apex:outputField value="{!cspmb__Price_Item__c.cspmb__Effective_Start_Date__c}"/>
+                <apex:outputField value="{!cspmb__Price_Item__c.cspmb__Is_Active__c}"/>
+                <apex:outputField value="{!cspmb__Price_Item__c.cspmb__Effective_End_Date__c}"/>
+                <apex:outputField value="{!cspmb__Price_Item__c.Old_Instance__c}"/>
+                <apex:outputField value="{!cspmb__Price_Item__c.New_Instance__c}"/>
+                <apex:outputField value="{!cspmb__Price_Item__c.ExternalID__c}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="New Instance Price Item" columns="2" collapsible="false" id="pbForecastPriceItem">
+                <apex:outputField value="{!forecastResult.name}"/>
+                <apex:outputField value="{!forecastResult.cspmb__Effective_Start_Date__c}"/>
+                <apex:outputField value="{!forecastResult.cspmb__Is_Active__c}"/>
+                <apex:outputField value="{!forecastResult.cspmb__Effective_End_Date__c}"/>
+                <apex:outputField value="{!forecastResult.Old_Instance__c}"/>
+                <apex:outputField value="{!forecastResult.New_Instance__c}"/>
+                <apex:outputField value="{!forecastResult.ExternalID__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+	</apex:form>
+</apex:page>

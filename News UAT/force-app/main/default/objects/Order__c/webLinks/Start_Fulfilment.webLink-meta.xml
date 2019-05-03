@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Start_Fulfilment</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Start All Fulfilment</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/22.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/22.0/apex.js&quot; )} 
+debugger; 
+if( confirm(&quot;Are you sure you want to start fulfilment?&quot;)) { 
+
+var result= sforce.apex.execute(&#39;GenericWebServices&#39;,&#39;startFulfilment&#39;,{ orderId: &#39;{!Order__c.Id}&#39;}); 
+
+alert(result); 
+window.location.reload(); 
+}</url>
+</WebLink>

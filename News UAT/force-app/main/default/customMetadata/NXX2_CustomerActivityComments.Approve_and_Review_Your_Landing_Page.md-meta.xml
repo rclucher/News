@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Approve and Review Your Landing Page</label>
+    <protected>false</protected>
+    <values>
+        <field>Comments__c</field>
+        <value xsi:type="xsd:string">Please click the task link above to review your ads. 
+
+Click the ‘Approve’ button if you are happy with your ads. 
+
+Should you require any revisions please click ‘Request Change’ and outline your feedback. Click ‘Submit’ once complete.</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">Approve and Review Your Landing Page</value>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,5 @@
+<apex:page standardController="Contact">
+  <flow:interview name="Contact_Update_Detais_and_get_an_Appointment" finishLocation="/{!Contact.Id}">
+      <apex:param name="ContactId" value="{!Contact.Id}" />
+  </flow:interview>
+</apex:page>

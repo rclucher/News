@@ -1,0 +1,20 @@
+<apex:component access="global" controller="EmailTemplate_Controller">
+    <apex:attribute name="division" description="Publishing division for the disclaimer" type="string" assignTo="{!divisionName}" />
+    <apex:attribute name="divisionFullName" description="Division Full Name" type="string" />
+    
+    <apex:outputText escape="false" value="{!Disclaimer}" />
+
+    <!--
+    <apex:outputText id="NA" rendered="{!division = 'NA'}" >
+        DISCLAIMER: This Ad is a QUOTE ONLY and WILL NOT PUBLISH, unless you contact us before the specified deadline. {!divisionFullName} reserves the right to change position, cancel, refuse, omit or postpone publication of any advertisement in any issue. No responsibility is taken for any loss due to the failure of an advertisement to appear according to any instructions. This communication and any attached content are intended solely for the named addressee, are confidential and may contain legally privileged information. The copying or distribution of them or any information they contain by any other than the addressee, is prohibited. If you have received this communication in error, please let us know by telephone, and then return it by mail to the address above. ABN: {!abn}
+    </apex:outputText>
+    
+    <apex:outputText id="NAUS" rendered="{!division = 'NAUS'}" >
+        DISCLAIMER: This Ad is a QUOTE ONLY and WILL NOT PUBLISH, unless you contact us before the specified deadline. {!divisionFullName} reserves the right to change position, cancel, refuse, omit or postpone publication of any advertisement in any issue. No responsibility is taken for any loss due to the failure of an advertisement to appear according to any instructions. This communication and any attached content are intended solely for the named addressee, are confidential and may contain legally privileged information. The copying or distribution of them or any information they contain by any other than the addressee, is prohibited. If you have received this communication in error, please let us know by telephone, and then return it by mail to the address above. ABN: {!abn} 
+    </apex:outputText>
+    
+    <apex:outputText id="ADV" rendered="{!division = 'ADV'}" >
+        DISCLAIMER: This Ad is a QUOTE ONLY and WILL NOT PUBLISH, unless you contact us before the specified deadline. {!divisionFullName} reserves the right to change position, cancel, refuse, omit or postpone publication of any advertisement in any issue. No responsibility is taken for any loss due to the failure of an advertisement to appear according to any instructions. This communication and any attached content are intended solely for the named addressee, are confidential and may contain legally privileged information. The copying or distribution of them or any information they contain by any other than the addressee, is prohibited. If you have received this communication in error, please let us know by telephone, and then return it by mail to the address above. ABN: {!abn} 
+    </apex:outputText>
+    -->
+</apex:component>

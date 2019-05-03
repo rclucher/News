@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NLM_Category__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>NLM Categorisation of products</inlineHelpText>
+    <label>NLM Category</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Other</fullName>
+                <default>true</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Style</fullName>
+                <default>false</default>
+                <label>Style</label>
+            </value>
+            <value>
+                <fullName>Food &amp; Family</fullName>
+                <default>false</default>
+                <label>Food &amp; Family</label>
+            </value>
+            <value>
+                <fullName>Homes</fullName>
+                <default>false</default>
+                <label>Homes</label>
+            </value>
+            <value>
+                <fullName>Premium Living</fullName>
+                <default>false</default>
+                <label>Premium Living</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

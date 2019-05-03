@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Custom settings used to switch NLM functionality on / off based on profile.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>NLM Global Settings</label>
+    <visibility>Protected</visibility>
+</CustomObject>

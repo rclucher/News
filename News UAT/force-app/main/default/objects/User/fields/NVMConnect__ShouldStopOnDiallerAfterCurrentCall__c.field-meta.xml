@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NVMConnect__ShouldStopOnDiallerAfterCurrentCall__c</fullName>
+    <defaultValue>false</defaultValue>
+    <deprecated>false</deprecated>
+    <description>Flag to indicate that a user should stop on the dialler after the current call.</description>
+    <externalId>false</externalId>
+    <label>Stop on Dialler after Current Call</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

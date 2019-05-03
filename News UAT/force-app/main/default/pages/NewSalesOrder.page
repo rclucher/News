@@ -1,0 +1,54 @@
+<apex:page standardController="csmso__Sales_Order__c" recordSetVar="SalesOrders" extensions="NewSalesOrderController" action="{!opptyValidation}">
+<apex:stylesheet value="{!URLFOR($Resource.SLDS, 'assets/styles/salesforce-lightning-design-system-vf.css')}"/>
+    
+    <style>
+        .rightAligned { text-align: right; }
+        td.total { border-bottom-color: black; }
+        circle { stroke: green; }
+        .h2Border {
+        padding-bottom: 5px !important;
+        border-bottom: 1px solid rgb(8, 116, 211);
+        }
+        .slds .slds-page-header__title {
+        margin-top: .125rem;
+        font-weight: 300;
+        font-size: 1.125rem;
+        line-height: 1.25;
+        }
+        .slds [hidden], .slds template {
+        display: block;
+        }
+        @media (min-width: 48em) {
+        .slds .slds-page-header__title {
+        margin-top: 0;
+        font-size: 1.5rem;
+        }
+        }
+        .vf-reset .vf-surface tspan {
+        font-weight: normal;
+        }
+    </style>
+    
+    <!--<apex:outputPanel styleClass="slds-page-header" layout="block">-->
+    <apex:form > 
+        <div class="slds">
+            <div class="slds-page-header">
+                <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate">
+                        <div class="slds-media"></div>
+                        <div class="slds-media-body">
+                            <p class="slds-page-header__title slds-truncate slds-align-middle"> 
+                                <apex:pageMessages escape="false"></apex:pageMessages>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-no-flex slds-align-bottom">
+                        <div class="slds-button-group">
+                            <apex:commandButton value="Back to Opportunity" action="{!redirectToOppotunity}" styleClass="slds-button slds-button--neutral" />
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,149 @@
+<apex:page standardController="Product_Order__c" extensions="MilestoneController" id="page">
+
+
+<style type="text/css">
+                
+        .single-line {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-height: 30px;
+        }
+        
+        .inline-block {
+            display: inline-block;
+            vertical-align: top;
+        }
+        
+        .normal-margin {
+            margin: 20px;
+        }
+        
+        .normal-padding {
+            padding: 10px;
+        }
+        
+        .rounded-top {
+            -moz-border-radius-topleft: 15px;
+            border-top-left-radius: 15px;
+            -moz-border-radius-topright: 15px;
+            border-top-right-radius: 15px;
+        }
+        
+        .rounded-bottom {
+            -moz-border-radius-bottomleft: 15px;
+            border-bottom-left-radius: 15px;
+            -moz-border-radius-bottomright: 15px;
+            border-bottom-right-radius: 15px;
+        }
+        
+        
+        .milestone-visualizer {
+            display: block;
+            overflow-x: visible;
+            overflow-y: hidden;
+            font-family: Arial;
+            min-height: 20px;
+        }
+        
+        .milestone {
+            margin: 10px 0;
+            width: 130px;
+            border: 1px solid rgba(128,128,128, .3);
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        .milestone .header {
+            /*background: #00BFFF;*/
+            padding: 10px 0;
+            font-size: 12px;
+            color: white;
+        }
+        
+        
+        .milestone .body {
+            height: 80px;
+            font-size: 10px;
+            color: gray;
+            white-space: normal;
+            padding: 10px;    
+            overflow: hidden;
+        }
+        
+        .milestone .body:hover {
+            //height: auto;
+            //min-height: 160px;
+        }
+        
+        .arrow {
+            padding-top: 60px;
+            font-size: 25px;
+        }
+        
+        .milestone.in-progress .header{
+            background: rgb(202,202,202); /* Old browsers */
+            background: -moz-linear-gradient(top,  rgba(202,202,202,1) 0%, rgba(172,172,172,1) 6%, rgba(142,142,142,1) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(202,202,202,1)), color-stop(6%,rgba(172,172,172,1)), color-stop(100%,rgba(142,142,142,1))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  rgba(202,202,202,1) 0%,rgba(172,172,172,1) 6%,rgba(142,142,142,1) 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  rgba(202,202,202,1) 0%,rgba(172,172,172,1) 6%,rgba(142,142,142,1) 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top,  rgba(202,202,202,1) 0%,rgba(172,172,172,1) 6%,rgba(142,142,142,1) 100%); /* IE10+ */
+            background: linear-gradient(top,  rgba(202,202,202,1) 0%,rgba(172,172,172,1) 6%,rgba(142,142,142,1) 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cacaca', endColorstr='#8e8e8e',GradientType=0 ); /* IE6-9 */
+        }
+        
+        .milestone.completed .header{
+            background: rgb(159,204,65); /* Old browsers */
+            background: -moz-linear-gradient(top,  rgba(159,204,65,1) 0%, rgba(139,184,45,1) 6%, rgba(119,164,25,1) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(159,204,65,1)), color-stop(6%,rgba(139,184,45,1)), color-stop(100%,rgba(119,164,25,1))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  rgba(159,204,65,1) 0%,rgba(139,184,45,1) 6%,rgba(119,164,25,1) 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  rgba(159,204,65,1) 0%,rgba(139,184,45,1) 6%,rgba(119,164,25,1) 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top,  rgba(159,204,65,1) 0%,rgba(139,184,45,1) 6%,rgba(119,164,25,1) 100%); /* IE10+ */
+            background: linear-gradient(top,  rgba(159,204,65,1) 0%,rgba(139,184,45,1) 6%,rgba(119,164,25,1) 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9fcc41', endColorstr='#77a419',GradientType=0 ); /* IE6-9 */
+        }
+        
+        .milestone.waiting .header {
+            background: rgb(202,202,202); /* Old browsers */
+            background: -moz-linear-gradient(top,  rgba(202,202,202,1) 0%, rgba(172,172,172,1) 6%, rgba(142,142,142,1) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(202,202,202,1)), color-stop(6%,rgba(172,172,172,1)), color-stop(100%,rgba(142,142,142,1))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  rgba(202,202,202,1) 0%,rgba(172,172,172,1) 6%,rgba(142,142,142,1) 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  rgba(202,202,202,1) 0%,rgba(172,172,172,1) 6%,rgba(142,142,142,1) 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top,  rgba(202,202,202,1) 0%,rgba(172,172,172,1) 6%,rgba(142,142,142,1) 100%); /* IE10+ */
+            background: linear-gradient(top,  rgba(202,202,202,1) 0%,rgba(172,172,172,1) 6%,rgba(142,142,142,1) 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cacaca', endColorstr='#8e8e8e',GradientType=0 ); /* IE6-9 */
+        }
+        
+        .shadow {
+            -moz-box-shadow: 4px 4px 5px rgba(128,128,128, .3);
+            -webkit-box-shadow: 4px 4px 5px rgba(128,128,128, .3);
+            box-shadow: 4px 4px 5px rgba(128,128,128, .3);
+        }
+</style>
+    <apex:form >
+        <!--- Order process page block -->
+        <apex:outputPanel id="milestonesPanel" rendered="{!hasProcesses}">
+                <apex:selectlist value="{!selectedProcess}" size="1">
+                    <apex:selectOptions value="{!processOptions}" />
+                    <apex:actionSupport event="onchange" reRender="milestonesForProcessPanel"/>
+                </apex:selectlist>
+                <apex:outputPanel id="milestonesForProcessPanel">
+                    <div class="milestone-visualizer normal-padding" >
+                    <apex:repeat value="{!milestonesPerProcess[selectedProcess]}" var="milestoneProcesses" id="milestoneProcesses">
+                        <apex:repeat value="{!milestoneProcesses}" var="Milestone" id="Milestones">
+                            <div class="inline-block arrow">&rarr;</div>
+                            <div class="milestone inline-block rounded-top rounded-bottom shadow {!Milestone.cssClass} ">
+                                    <div class="header center rounded-top single-line"><apex:outputText value="{!Milestone.step.CSPOFA__Milestone_Label__c}" /></div>
+                                    <div class="body rounded-bottom">
+                                        <apex:outputText rendered="{!Milestone.step.CSPOFA__Status__c = 'Complete'}" value="{!Milestone.step.CSPOFA__Milestone_Description__c}" /> 
+                                    </div>
+                            </div>         
+                        </apex:repeat>
+                        <br/>
+                    </apex:repeat>
+                    </div>
+                </apex:outputPanel>
+        </apex:outputPanel>   
+    </apex:form>
+</apex:page>

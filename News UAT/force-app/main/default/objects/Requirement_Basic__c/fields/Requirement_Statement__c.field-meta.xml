@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Requirement_Statement__c</fullName>
+    <description>Description of business requirement</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Description of business requirement</inlineHelpText>
+    <label>Requirement Statement</label>
+    <length>32000</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

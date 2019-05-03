@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>First_Contact_in_Account__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>System-managed field, marks the first contact added in an account. 
+
+Used in Marketo for Account Segmentation - only one Contact needs to be contacted for an Account, but standard Marketo will pull all of the Account&#39;s Contacts (which is not ideal, repetition)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>System-managed field, marks the first contact added in an account.</inlineHelpText>
+    <label>First Contact in Account</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

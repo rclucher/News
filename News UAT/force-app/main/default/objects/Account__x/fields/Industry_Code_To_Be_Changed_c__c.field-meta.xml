@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Industry_Code_To_Be_Changed_c__c</fullName>
+    <externalDeveloperName>Industry_Code_To_Be_Changed__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Change Industry Code To</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>RE- Agents</fullName>
+                <default>false</default>
+                <label>RE- Agents</label>
+            </value>
+            <value>
+                <fullName>RE- Developers</fullName>
+                <default>false</default>
+                <label>RE- Developers</label>
+            </value>
+            <value>
+                <fullName>RE- Project Builders</fullName>
+                <default>false</default>
+                <label>RE- Project Builders</label>
+            </value>
+            <value>
+                <fullName>Truck/Heavy Vehicles</fullName>
+                <default>false</default>
+                <label>Truck/Heavy Vehicles</label>
+            </value>
+            <value>
+                <fullName>MV- New</fullName>
+                <default>false</default>
+                <label>MV- New</label>
+            </value>
+            <value>
+                <fullName>MV- Used</fullName>
+                <default>false</default>
+                <label>MV- Used</label>
+            </value>
+            <value>
+                <fullName>MV- Caravans</fullName>
+                <default>false</default>
+                <label>MV- Caravans</label>
+            </value>
+            <value>
+                <fullName>Transport &amp; Storage</fullName>
+                <default>false</default>
+                <label>Transport &amp; Storage</label>
+            </value>
+            <value>
+                <fullName>Banking &amp; Finance</fullName>
+                <default>false</default>
+                <label>Banking &amp; Finance</label>
+            </value>
+            <value>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+                <label>Insurance</label>
+            </value>
+            <value>
+                <fullName>Beauty &amp; Hair</fullName>
+                <default>false</default>
+                <label>Beauty &amp; Hair</label>
+            </value>
+            <value>
+                <fullName>Clothes/Shoes/Jewels</fullName>
+                <default>false</default>
+                <label>Clothes/Shoes/Jewels</label>
+            </value>
+            <value>
+                <fullName>Department Stores</fullName>
+                <default>false</default>
+                <label>Department Stores</label>
+            </value>
+            <value>
+                <fullName>Electrical/Computing</fullName>
+                <default>false</default>
+                <label>Electrical/Computing</label>
+            </value>
+            <value>
+                <fullName>Food/Groceries</fullName>
+                <default>false</default>
+                <label>Food/Groceries</label>
+            </value>
+            <value>
+                <fullName>Furniture/FloorCover</fullName>
+                <default>false</default>
+                <label>Furniture/FloorCover</label>
+            </value>
+            <value>
+                <fullName>Garden &amp; Landscape</fullName>
+                <default>false</default>
+                <label>Garden &amp; Landscape</label>
+            </value>
+            <value>
+                <fullName>General Retail</fullName>
+                <default>false</default>
+                <label>General Retail</label>
+            </value>
+            <value>
+                <fullName>Hardware/Home Improv</fullName>
+                <default>false</default>
+                <label>Hardware/Home Improv</label>
+            </value>
+            <value>
+                <fullName>Machinery</fullName>
+                <default>false</default>
+                <label>Machinery</label>
+            </value>
+            <value>
+                <fullName>Marine/Boats/Fishing</fullName>
+                <default>false</default>
+                <label>Marine/Boats/Fishing</label>
+            </value>
+            <value>
+                <fullName>Newsagents</fullName>
+                <default>false</default>
+                <label>Newsagents</label>
+            </value>
+            <value>
+                <fullName>Office/Business Equi</fullName>
+                <default>false</default>
+                <label>Office/Business Equi</label>
+            </value>
+            <value>
+                <fullName>Petrol Service Statn</fullName>
+                <default>false</default>
+                <label>Petrol Service Statn</label>
+            </value>
+            <value>
+                <fullName>Pharmacies</fullName>
+                <default>false</default>
+                <label>Pharmacies</label>
+            </value>
+            <value>
+                <fullName>Pubs/Liquor</fullName>
+                <default>false</default>
+                <label>Pubs/Liquor</label>
+            </value>
+            <value>
+                <fullName>Rental Hire</fullName>
+                <default>false</default>
+                <label>Rental Hire</label>
+            </value>
+            <value>
+                <fullName>Rural</fullName>
+                <default>false</default>
+                <label>Rural</label>
+            </value>
+            <value>
+                <fullName>Shopping Centre</fullName>
+                <default>false</default>
+                <label>Shopping Centre</label>
+            </value>
+            <value>
+                <fullName>Sport/Leisure/Touris</fullName>
+                <default>false</default>
+                <label>Sport/Leisure/Touris</label>
+            </value>
+            <value>
+                <fullName>Rowes</fullName>
+                <default>false</default>
+                <label>Rowes</label>
+            </value>
+            <value>
+                <fullName>PB-Profile Builder</fullName>
+                <default>false</default>
+                <label>PB-Profile Builder</label>
+            </value>
+            <value>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+                <label>Telecommunications</label>
+            </value>
+            <value>
+                <fullName>Advertising Agency</fullName>
+                <default>false</default>
+                <label>Advertising Agency</label>
+            </value>
+            <value>
+                <fullName>Animals/Vets/Grooming</fullName>
+                <default>false</default>
+                <label>Animals/Vets/Grooming</label>
+            </value>
+            <value>
+                <fullName>Commercial Printing</fullName>
+                <default>false</default>
+                <label>Commercial Printing</label>
+            </value>
+            <value>
+                <fullName>Courier/Cargo</fullName>
+                <default>false</default>
+                <label>Courier/Cargo</label>
+            </value>
+            <value>
+                <fullName>Education/Coll/Tuit</fullName>
+                <default>false</default>
+                <label>Education/Coll/Tuit</label>
+            </value>
+            <value>
+                <fullName>Employ/Recruit Agcy</fullName>
+                <default>false</default>
+                <label>Employ/Recruit Agcy</label>
+            </value>
+            <value>
+                <fullName>Funeral Directors</fullName>
+                <default>false</default>
+                <label>Funeral Directors</label>
+            </value>
+            <value>
+                <fullName>Heavy Industry</fullName>
+                <default>false</default>
+                <label>Heavy Industry</label>
+            </value>
+            <value>
+                <fullName>Light Industry</fullName>
+                <default>false</default>
+                <label>Light Industry</label>
+            </value>
+            <value>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+                <label>Manufacturing</label>
+            </value>
+            <value>
+                <fullName>Medical/Dr/Hosp/Care</fullName>
+                <default>false</default>
+                <label>Medical/Dr/Hosp/Care</label>
+            </value>
+            <value>
+                <fullName>Mining/Resources</fullName>
+                <default>false</default>
+                <label>Mining/Resources</label>
+            </value>
+            <value>
+                <fullName>Professional Services</fullName>
+                <default>false</default>
+                <label>Professional Services</label>
+            </value>
+            <value>
+                <fullName>Trades &amp; Services</fullName>
+                <default>false</default>
+                <label>Trades &amp; Services</label>
+            </value>
+            <value>
+                <fullName>Utilities/Enrg/Watr</fullName>
+                <default>false</default>
+                <label>Utilities/Enrg/Watr</label>
+            </value>
+            <value>
+                <fullName>Entertain/Hotels/Rest</fullName>
+                <default>false</default>
+                <label>Entertain/Hotels/Rest</label>
+            </value>
+            <value>
+                <fullName>Travel &amp; Accommodation</fullName>
+                <default>false</default>
+                <label>Travel &amp; Accommodation</label>
+            </value>
+            <value>
+                <fullName>Arts &amp; Crafts</fullName>
+                <default>false</default>
+                <label>Arts &amp; Crafts</label>
+            </value>
+            <value>
+                <fullName>Comm Grp/Charit/Club</fullName>
+                <default>false</default>
+                <label>Comm Grp/Charit/Club</label>
+            </value>
+            <value>
+                <fullName>Gambling/Gaming</fullName>
+                <default>false</default>
+                <label>Gambling/Gaming</label>
+            </value>
+            <value>
+                <fullName>Media/Radio/TV/etc</fullName>
+                <default>false</default>
+                <label>Media/Radio/TV/etc</label>
+            </value>
+            <value>
+                <fullName>Religious/churches</fullName>
+                <default>false</default>
+                <label>Religious/churches</label>
+            </value>
+            <value>
+                <fullName>Miscellaneous</fullName>
+                <default>false</default>
+                <label>Miscellaneous</label>
+            </value>
+            <value>
+                <fullName>Private Party</fullName>
+                <default>false</default>
+                <label>Private Party</label>
+            </value>
+            <value>
+                <fullName>House Ads</fullName>
+                <default>false</default>
+                <label>House Ads</label>
+            </value>
+            <value>
+                <fullName>Elections-Federal</fullName>
+                <default>false</default>
+                <label>Elections-Federal</label>
+            </value>
+            <value>
+                <fullName>Elections-Local</fullName>
+                <default>false</default>
+                <label>Elections-Local</label>
+            </value>
+            <value>
+                <fullName>Elections- State</fullName>
+                <default>false</default>
+                <label>Elections- State</label>
+            </value>
+            <value>
+                <fullName>Government- Federal</fullName>
+                <default>false</default>
+                <label>Government- Federal</label>
+            </value>
+            <value>
+                <fullName>Government- Local</fullName>
+                <default>false</default>
+                <label>Government- Local</label>
+            </value>
+            <value>
+                <fullName>Government- State</fullName>
+                <default>false</default>
+                <label>Government- State</label>
+            </value>
+            <value>
+                <fullName>Political</fullName>
+                <default>false</default>
+                <label>Political</label>
+            </value>
+            <value>
+                <fullName>MV- Accessories</fullName>
+                <default>false</default>
+                <label>MV- Accessories</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

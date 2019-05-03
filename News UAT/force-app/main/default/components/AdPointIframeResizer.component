@@ -1,0 +1,13 @@
+<apex:component >
+  <!-- 
+  # Lineup Systems
+  # Craig Steen July 2013
+  # Componnt to resize iframes to the size of the users window (minus the space for the toolbars etc)
+  #
+   -->   
+    <script type="text/javascript" language="javascript"> 
+        $(document).ready(function() {        
+          $('IFRAME').css('height', ($(window).height()) -180 +'px');
+        });    
+    </script>
+</apex:component>

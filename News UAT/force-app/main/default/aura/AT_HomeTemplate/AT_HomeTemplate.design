@@ -1,0 +1,10 @@
+<design:component label="NextGen Home Page Layout">
+    <flexipage:template >
+        <flexipage:region name="ticker" defaultWidth="LARGE" />
+        <flexipage:region name="corner" defaultWidth="SMALL" />
+        <flexipage:region name="top" defaultWidth="LARGE" />
+        <flexipage:region name="bodyLeft" defaultWidth="MEDIUM" />
+        <flexipage:region name="bodyMiddle" defaultWidth="MEDIUM" />
+        <flexipage:region name="bodyRight" defaultWidth="SMALL" />
+	</flexipage:template>
+</design:component>

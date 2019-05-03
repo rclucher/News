@@ -1,0 +1,35 @@
+.THIS .slds-table {
+    width: 100%;
+}
+
+.THIS .slds-table th {
+    vertical-align: top;
+}
+
+.THIS .slds-table td {
+    vertical-align: top;
+}
+
+.THIS div.itemList {
+    white-space: normal;
+}
+
+.THIS div.itemList span.owners::after {
+    content: ', ';
+}
+
+.THIS div.itemList span.owners:last-child::after {
+    content: none;
+}
+
+.THIS div.itemList span.accountNumbers {
+    display: inline;
+}
+
+.THIS div.itemList span.accountNumbers::after {
+    content: ', ';
+}
+
+.THIS div.itemList span.accountNumbers:last-child::after {
+    content: none;
+}

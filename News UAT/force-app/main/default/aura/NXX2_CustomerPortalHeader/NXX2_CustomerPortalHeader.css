@@ -1,0 +1,43 @@
+header.THIS {
+    text-align : center;
+    height: 65px;
+    padding : 10px;
+    border-bottom : solid 2px lightgray;
+}
+.THIS .main-menu-container{
+    float : left;
+    display : none;
+    padding: 5px 0px;
+}
+.THIS .portal_logo{
+    float : left;
+    display : inline-block;
+}
+.THIS .portal_logo img{
+    width: 150px;
+    height: 38px;
+}
+.THIS .profile-menu-container{
+    float : right;
+    padding: 5px 0px;
+    display : inline-block;
+}
+.THIS .header_title{
+    float : left;
+    padding : 10px 20px;
+    display : inline-block;
+}
+.THIS .header_title a{
+    border-bottom: 2px solid rgba(0, 0, 0, 0.7);
+}
+@media (max-width: 767px) {
+    .THIS .main-menu-container{
+        display : inline-block;
+    }
+    .THIS .header_title{
+        display : none;
+    }
+    .THIS .portal_logo{
+        float: none;
+    }
+}

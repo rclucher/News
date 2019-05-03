@@ -1,0 +1,17 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" >
+<aura:attribute name="account" type="Object" />
+<aura:attribute name="iconName" type="String" />
+
+
+<tr class="slds-hint-parent">
+        <th scope="row">
+           <div class="slds-truncate" title="{!v.account.Name}">
+            <a href="javascript:void(0);" onclick="{!c.redirectToAccountPage}"  tabindex="-1">{!v.account.Name}</a>
+            </div>
+        </th>
+        <!-- <td role="gridcell">
+            <div class="slds-truncate" title="{!v.account.RecordType.Name}">{!v.account.RecordType.Name}</div>
+         </td> -->
+</tr>
+</aura:component>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NewsXtend_Queue_Action_Task</fullName>
+    <columns>Action_Plan__c</columns>
+    <columns>Action_Task_Group__c</columns>
+    <columns>Action_Task_Sub_Group__c</columns>
+    <columns>OWNER.FIRST_NAME</columns>
+    <columns>OWNER.LAST_NAME</columns>
+    <columns>Task_Assigned_Date__c</columns>
+    <columns>OWNER.ALIAS</columns>
+    <filterScope>Queue</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>notEqual</operation>
+        <value>Action_Task__c.Admin_Data</value>
+    </filters>
+    <label>NewsXtend Queue</label>
+    <queue>NewsXtend_Queue</queue>
+    <sharedTo>
+        <allInternalUsers/>
+    </sharedTo>
+</ListView>

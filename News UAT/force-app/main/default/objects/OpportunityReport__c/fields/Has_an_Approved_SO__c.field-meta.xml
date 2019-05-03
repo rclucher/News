@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Has_an_Approved_SO__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Field that is populated with Trigger when there is an Approved CS Sales Order linked to the Opportunity.</description>
+    <externalId>false</externalId>
+    <label>Has an Approved SO</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

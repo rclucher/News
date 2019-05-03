@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Opportunity_Linked_Feature</fullName>
+    <availability>online</availability>
+    <description>Creates and saves a new Opportunity, automatically linked to filter</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>New Opportunity (linked to Feature)</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&#39;/soap/ajax/31.0/connection.js&#39;)}
+ 
+getDate = function(dateObj){
+
+var dd = dateObj.getDate();
+var mm = dateObj.getMonth()+1; //January is 0!
+var yyyy = dateObj.getFullYear();
+
+if(dd&lt;10) {
+    dd=&#39;0&#39;+dd
+} 
+
+if(mm&lt;10) {
+    mm=&#39;0&#39;+mm
+} 
+
+return yyyy+&#39;-&#39;+mm+&#39;-&#39;+dd;
+}
+ 
+var oppty = new sforce.SObject(&#39;Opportunity&#39;);
+var featureName = &quot;{!Feature__c.Name}&quot;;
+
+oppty.Name = &#39;Opportunity for Feature - &#39; + featureName;
+oppty.StageName = &#39;Identify Prospects&#39;;
+oppty.CloseDate = getDate(new Date);
+
+ 
+opptyResult = sforce.connection.create([oppty]);
+ 
+if(opptyResult[0].success == &#39;true&#39;){
+    alert(&#39;New Opportunity created - &quot;&#39; + oppty.Name + &#39;&quot;&#39;);
+   
+     
+    var opptyFeature = new sforce.SObject(&#39;OpportunityFeature__c&#39;);
+    opptyFeature.Opportunity__c = opptyResult[0].id;
+    opptyFeature.Feature__c = &#39;{!Feature__c.Id}&#39;;
+
+  ofResult = sforce.connection.create([opptyFeature]);
+    
+
+  if(ofResult[0].success == &#39;true&#39;){
+    window.open(&#39;/&#39;+opptyResult[0].id);
+    location.reload();
+  }
+  else{
+    alert(&#39;Error - linking new Opportunity. Opening new Opportunity&#39;);
+    window.open(&#39;/&#39;+opptyResult[0].Id);
+  }
+}</url>
+</WebLink>

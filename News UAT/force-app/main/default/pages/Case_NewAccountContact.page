@@ -1,0 +1,265 @@
+<apex:page standardController="Case" extensions="Case_NewAccountContact" 
+            showHeader="false" sidebar="false"
+            title="New {!typeOfRecord}" 
+            action="{!init}">
+
+    <style>
+    .CursorPointer {cursor: pointer;}
+    .CursorPointer input {cursor: pointer;}
+    .CursorPointer label {cursor: pointer;}
+    input[type=radio] + label {display:inline-block; padding:7px 0 0 7px; width: 115px;}
+    .bPageBlock .pbTitle {width:50%;}
+    </style>
+    
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" loadOnReady="false"/>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js" loadOnReady="false"/>
+
+    <apex:PageMessages id="Pagemessages-Block"/>
+
+    <apex:form id="form" rendered="{!NOT(isParamError)}">
+        <apex:outputPanel rendered="{!typeOfRecord=='account'}" >
+            <apex:pageBlock title="New Account">
+                <apex:pageBlockSection columns="1" rendered="{!lastKeyword!=null}">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Last Keyword Used" />
+                        <apex:outputText value="{!lastKeyword}" />
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection columns="1">
+                    <b>Please select a record type:</b>
+                    <apex:actionRegion >
+                        <apex:selectRadio value="{!recordTypeSelected}" styleClass="CursorPointer" layout="pageDirection">
+                            <apex:selectOptions value="{!recordTypeList}" />
+                            <apex:actionSupport event="onclick" reRender="Account_Pages, Pagemessages-Block" status="Loading_Selected_Page" action="{!refreshPage}" />
+                        </apex:selectRadio>
+
+                        <center>
+                            <apex:actionStatus id="Loading_Selected_Page">
+                                <apex:facet name="start">
+                                    <apex:image url="/img/loading.gif" />
+                                </apex:facet>                          
+                            </apex:actionStatus>            
+                        </center>
+                    </apex:actionRegion>
+                </apex:pageBlockSection>
+                <apex:pageBlockButtons location="top" >
+                    <apex:commandButton value="Cancel" action="{!cancelNewRecord}" immediate="true" />
+                </apex:pageBlockButtons>
+            </apex:pageBlock>
+
+            <apex:outputPanel id="Account_Pages">
+                <apex:pageBlock title="Account Detail" rendered="{!recordTypeSelected!=null}">
+                    <apex:pageBlockSection id="BA_Page" rendered="{!recordTypeSelected!=personAccountRTId}" columns="1">
+                        <apex:inputField value="{!acct.Name}" required="true" />
+                        <apex:inputField value="{!acct.Phone}" required="true" />
+                        <apex:inputField value="{!acct.Type}" required="true" />
+                        <apex:inputField value="{!acct.Account_Type__c}" required="true" />                        
+                        <apex:inputField value="{!acct.Revenue_Group__c}" required="true" />
+                        <apex:inputField value="{!acct.AccountNumber}" />
+                        <apex:inputField value="{!acct.Industry_Code__c}" required="true" />
+                    </apex:pageBlockSection>
+
+                    <apex:pageBlockSection title="Primary Address" rendered="{!recordTypeSelected!=personAccountRTId}" columns="1"> 
+
+                        <apex:pageBlockSectionItem id="cityInputItem">
+                            <apex:outputLabel value="Enter City or Postcode" for="cityInput" />
+                            <apex:inputText id="cityInput" tabindex="0" />
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem id="streetInputItem">
+                            <apex:outputLabel value="Enter Street" for="streetInput"/>
+                            <apex:inputText id="streetInput" tabindex="0" />
+                        </apex:pageBlockSectionItem> 
+
+
+                        <apex:pageBlockSectionItem id="BillingStreet">
+                            <apex:outputLabel value="{!$ObjectType.Account.fields.BillingStreet.Label}" />
+                            <apex:inputText id="BillingStreetInput" value="{!acct.BillingStreet}"  html-readonly="true" tabindex="1"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem id="BillingCity">
+                            <apex:outputLabel value="{!$ObjectType.Account.fields.BillingCity.Label}" />
+                            <apex:inputText id="BillingCityInput" value="{!acct.BillingCity}"  html-readonly="true" tabindex="1"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem id="BillingPostalCode">
+                            <apex:outputLabel value="{!$ObjectType.Account.fields.BillingPostalCode.Label}" />
+                            <apex:inputText id="BillingPostalCodeInput" value="{!acct.BillingPostalCode}"  html-readonly="true" tabindex="1"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem id="BillingState">
+                            <apex:outputLabel value="{!$ObjectType.Account.fields.BillingState.Label}" />
+                            <apex:inputText id="BillingStateInput" value="{!acct.BillingState}"  html-readonly="true" tabindex="1"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem id="BillingCountry">
+                            <apex:outputLabel value="{!$ObjectType.Account.fields.BillingCountry.Label}" />
+                            <apex:inputText id="BillingCountryInput" value="{!acct.BillingCountry}"  html-readonly="true" tabindex="1"/>
+                        </apex:pageBlockSectionItem>
+
+                        <apex:pageBlockSectionItem id="BillingDpid">
+                            <apex:outputLabel value="{!$ObjectType.Account.fields.datasan__Billing_Address_DPID__c.Label}" />
+                            <apex:inputText id="BillingDpidInput" value="{!acct.datasan__Billing_Address_DPID__c}"  html-readonly="true" tabindex="1"/>
+                        </apex:pageBlockSectionItem>
+
+                        <apex:includeScript value="https://d1c24wnrse4bd3.cloudfront.net/api/js/1.1/datasan.min.js" loadOnReady="false"/>
+
+                        <script>                                            
+                                datasan.autoCompleteLocality(
+                                    "{!$Component.cityInputItem.cityInput}", 
+                                    {   
+                                        select: [
+                                            {id: "{!$Component.BillingCity.BillingCityInput}",    value: "{locality_name}"},
+                                            {id: "{!$Component.BillingPostalCode.BillingPostalCodeInput}",     value: "{postcode}"},
+                                            {id: "{!$Component.BillingState.BillingStateInput}",   value: "{state}"}
+                                        ]
+                                    }
+                                );
+                                datasan.autoCompleteAddress (
+                                    "{!$Component.streetInputItem.streetInput}",
+                                    {   locality : {city : "{!$Component.BillingCity.BillingCityInput}", postcode : "{!$Component.BillingPostalCode.BillingPostalCodeInput}" },
+                                     menu  : {label: "<b>{address_line_1}</b><br/>{locality_name} {state}, {postcode}", value: "{address_line_1}"},
+                                     select: [
+                                         {id: "{!$Component.BillingCity.BillingCityInput}",    value: "{locality_name}"},
+                                         {id: "{!$Component.BillingPostalCode.BillingPostalCodeInput}",     value: "{postcode}"},
+                                         {id: "{!$Component.BillingState.BillingStateInput}",   value: "{state}"},
+                                         {id: "{!$Component.BillingStreet.BillingStreetInput}",  value: "{address_line_1}"},
+                                         {id: "{!$Component.BillingCountry.BillingCountryInput}",  value: "{country}"},
+                                         {id: "{!$Component.BillingDpid.BillingDpidInput}",  value: "{delivery_point_id}"}
+                                     ]
+                                    }
+                                ); 
+           
+                                jQuery(document).ready(function() {                      
+                                    datasan.init({
+                                        key : "nTPhWj59v81re_CN0MMmQXwWVqoI2o6xZlRetkwIfexqv5h_1YknlxBpV4wykmp3",
+                                        theme : "flick"
+                                    });
+                                });
+                                    
+                        </script> 
+
+                    </apex:pageBlockSection>
+
+                    <apex:pageBlockSection id="PA_Page" rendered="{!recordTypeSelected==personAccountRTId}" columns="1">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="First Name" />
+                            <apex:outputPanel styleClass="requiredInput" layout="block">
+                                <apex:outputPanel styleClass="requiredBlock" layout="block"/>
+                                <apex:inputText value="{!firstNameString}" maxlength="40" />
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Last Name" />
+                            <apex:outputPanel styleClass="requiredInput" layout="block">
+                                <apex:outputPanel styleClass="requiredBlock" layout="block"/>                            
+                                <apex:inputText value="{!lastNameString}" maxlength="80" />
+                            </apex:outputPanel>                            
+                        </apex:pageBlockSectionItem>                        
+                        <apex:inputField value="{!acct.Phone}" required="true" />
+                        <apex:inputField value="{!acct.PersonEmail}" />
+                    </apex:pageBlockSection>
+
+                    <apex:pageBlockSection title="Primary Address" rendered="{!recordTypeSelected==personAccountRTId}" columns="1"> 
+
+                        <apex:pageBlockSectionItem id="PersonCityInputItem">
+                            <apex:outputLabel value="Enter City or Postcode" for="cityInput" />
+                            <apex:inputText id="cityInput" tabindex="0" />
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem id="PersonStreetInputItem">
+                            <apex:outputLabel value="Enter Street" for="streetInput"/>
+                            <apex:inputText id="streetInput" tabindex="0" />
+                        </apex:pageBlockSectionItem>        
+                                    
+                        <apex:pageBlockSectionItem />
+
+                        <apex:pageBlockSectionItem id="PersonMailingStreet">
+                            <apex:outputLabel value="{!$ObjectType.Account.fields.PersonMailingStreet.Label}" />
+                            <apex:inputText id="PersonMailingStreetInput" value="{!acct.PersonMailingStreet}"  html-readonly="true" tabindex="1"/>
+                        </apex:pageBlockSectionItem>  
+
+                        <apex:pageBlockSectionItem id="PersonMailingCity">
+                            <apex:outputLabel value="{!$ObjectType.Account.fields.PersonMailingCity.Label}" />
+                            <apex:inputText id="PersonMailingCityInput" value="{!acct.PersonMailingCity}"  html-readonly="true" tabindex="1"/>
+                        </apex:pageBlockSectionItem> 
+
+                        <apex:pageBlockSectionItem id="PersonMailingPostalCode">
+                            <apex:outputLabel value="{!$ObjectType.Account.fields.PersonMailingPostalCode.Label}" />
+                            <apex:inputText id="PersonMailingPostalCodeInput" value="{!acct.PersonMailingPostalCode}"  html-readonly="true" tabindex="1"/>
+                        </apex:pageBlockSectionItem> 
+
+                        <apex:pageBlockSectionItem id="PersonMailingState">
+                            <apex:outputLabel value="{!$ObjectType.Account.fields.PersonMailingState.Label}" />
+                            <apex:inputText id="PersonMailingStateInput" value="{!acct.PersonMailingState}"  html-readonly="true" tabindex="1"/>
+                        </apex:pageBlockSectionItem> 
+
+                        <apex:pageBlockSectionItem id="PersonMailingCountry">
+                            <apex:outputLabel value="{!$ObjectType.Account.fields.PersonMailingCountry.Label}" />
+                            <apex:inputText id="PersonMailingCountryInput" value="{!acct.PersonMailingCountry}"  html-readonly="true" tabindex="1"/>
+                        </apex:pageBlockSectionItem> 
+
+                        <apex:pageBlockSectionItem id="PersonMailingDpid">
+                            <apex:outputLabel value="{!$ObjectType.Account.fields.DPID_Primary_Address__pc.Label}" />
+                            <apex:inputText id="PersonMailingDpidInput" value="{!acct.DPID_Primary_Address__pc}"  html-readonly="true" tabindex="1"/>
+                        </apex:pageBlockSectionItem>
+
+                        <apex:includeScript value="https://d1c24wnrse4bd3.cloudfront.net/api/js/1.1/datasan.min.js" loadOnReady="false"/>
+
+                        <script>                                            
+                                datasan.autoCompleteLocality(
+                                    "{!$Component.PersonCityInputItem.cityInput}", 
+                                    {   
+                                        select: [
+                                            {id: "{!$Component.PersonMailingCity.PersonMailingCityInput}",    value: "{locality_name}"},
+                                            {id: "{!$Component.PersonMailingPostalCode.PersonMailingPostalCodeInput}",     value: "{postcode}"},
+                                            {id: "{!$Component.PersonMailingState.PersonMailingStateInput}",   value: "{state}"}
+                                        ]
+                                    }
+                                );
+                                datasan.autoCompleteAddress (
+                                    "{!$Component.PersonStreetInputItem.streetInput}",
+                                    {   locality : {city : "{!$Component.PersonMailingCity.PersonMailingCityInput}", postcode : "{!$Component.PersonMailingPostalCode.PersonMailingPostalCodeInput}" },
+                                     menu  : {label: "<b>{address_line_1}</b><br/>{locality_name} {state}, {postcode}", value: "{address_line_1}"},
+                                     select: [
+                                         {id: "{!$Component.PersonMailingCity.PersonMailingCityInput}",    value: "{locality_name}"},
+                                         {id: "{!$Component.PersonMailingPostalCode.PersonMailingPostalCodeInput}",     value: "{postcode}"},
+                                         {id: "{!$Component.PersonMailingState.PersonMailingStateInput}",   value: "{state}"},
+                                         {id: "{!$Component.PersonMailingStreet.PersonMailingStreetInput}",  value: "{address_line_1}"},
+                                         {id: "{!$Component.PersonMailingCountry.PersonMailingCountryInput}",  value: "{country}"},
+                                         {id: "{!$Component.PersonMailingDpid.PersonMailingDpidInput}",  value: "{delivery_point_id}"}
+                                     ]
+                                    }
+                                ); 
+           
+                                jQuery(document).ready(function() {                      
+                                    datasan.init({
+                                        key : "nTPhWj59v81re_CN0MMmQXwWVqoI2o6xZlRetkwIfexqv5h_1YknlxBpV4wykmp3",
+                                        theme : "flick"
+                                    });
+                                });
+                                    
+                        </script> 
+                    </apex:pageBlockSection>
+
+                    <apex:pageBlockButtons location="top">
+                        <apex:commandButton value="Save" action="{!saveAccount}" />
+                    </apex:pageBlockButtons> 
+                </apex:pageBlock>
+            </apex:outputPanel>
+        </apex:outputPanel>
+
+        <apex:outputPanel rendered="{!typeOfRecord=='contact'}" >
+            <apex:pageBlock title="New Contact">
+                <apex:pageBlockSection id="Contact_Page" columns="1">
+                    <apex:inputField value="{!cont.FirstName}" required="true" />
+                    <apex:inputField value="{!cont.LastName}" required="true" />
+                    <apex:inputField value="{!cont.Phone}" required="true" />
+                    <apex:inputField value="{!cont.Email}" />
+                </apex:pageBlockSection>
+
+                <apex:pageBlockButtons location="top">
+                    <apex:commandButton value="Cancel" action="{!cancelNewRecord}" immediate="true" />
+                    <apex:commandButton value="Save" action="{!saveContact}" />
+                </apex:pageBlockButtons>
+            </apex:pageBlock>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reporting_Type_L1__c</fullName>
+    <description>Field is used for reporting to filter target vs forecast
+Another field Type L2 is used to filter forecast to - booked vs pipeline.</description>
+    <externalId>false</externalId>
+    <label>Reporting Type L1</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Target</fullName>
+                <default>false</default>
+                <label>Target</label>
+            </value>
+            <value>
+                <fullName>Forecast</fullName>
+                <default>true</default>
+                <label>Forecast</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

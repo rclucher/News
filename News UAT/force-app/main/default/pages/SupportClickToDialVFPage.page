@@ -1,0 +1,12 @@
+<apex:page standardController="CampaignMember" showHeader="true">
+
+    <apex:includeScript value="/support/console/42.0/integration.js"/>
+
+ 
+
+    <h1>Visualforce Page</h1>
+
+    <support:clickToDial number="1234" entityId="001p000000UOGsS" />
+
+ 
+</apex:page>

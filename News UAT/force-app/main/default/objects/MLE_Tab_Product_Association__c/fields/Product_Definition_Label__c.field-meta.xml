@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Definition_Label__c</fullName>
+    <description>Product Definition Label</description>
+    <externalId>false</externalId>
+    <formula>Associated_Product_Definition__r.cscfga__Label__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Product Definition Label</inlineHelpText>
+    <label>Product Definition Label</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

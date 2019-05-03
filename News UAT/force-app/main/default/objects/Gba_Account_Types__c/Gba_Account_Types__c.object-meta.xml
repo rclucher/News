@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>External account types require Parent GBA Number.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Gba Account Types</label>
+    <visibility>Protected</visibility>
+</CustomObject>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CNS_DSP_Own</fullName>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>OPPORTUNITY.AMOUNT</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>open</value>
+    </filters>
+    <label>CNS ALL DSP as Owners</label>
+    <sharedTo>
+        <role>QLD_CNS_Direct_Sales_Team_1</role>
+        <role>QLD_CNS_Direct_Sales_Team_Leader_1</role>
+        <role>QLD_CNS_FSAM_4</role>
+        <role>QLD_CNS_FSAM_5</role>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,25 @@
+<aura:component controller='NXX2_SocialAdHistoryController' implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="ParentId" type="String" />
+    <aura:attribute name="sObjectName" type="String"  default='SocialAd__c'/>
+    <aura:attribute name="iconName" type="String" />
+    <aura:attribute name="socialAdHistoryList" type="List" />
+    <aura:attribute name="displaySpinner" type="Boolean" default="true"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:if isTrue="{!v.displaySpinner}">
+        <lightning:spinner size="medium"/>
+    </aura:if>
+    <lightning:card variant="Narrow" title="Social Ad History" iconName="{!v.iconName}" footer=""> 
+        <p class="slds-p-horizontal_small">
+            <aura:if isTrue="{!(v.socialAdHistoryList.length>0)}">
+                <aura:iteration items="{!v.socialAdHistoryList}" var="socialAdHistory">
+                    <div class="bottomBorder">
+                        <c:NXX2_SocialAdHistoryRecordComponent socialAdHistory="{!socialAdHistory}" />
+                    </div>
+                </aura:iteration>
+                <aura:set attribute="else">
+                    No History Records 
+                </aura:set>
+            </aura:if> 
+        </p>
+    </lightning:card>         
+</aura:component>

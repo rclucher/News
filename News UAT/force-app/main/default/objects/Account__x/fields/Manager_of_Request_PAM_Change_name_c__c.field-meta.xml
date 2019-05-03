@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manager_of_Request_PAM_Change_name_c__c</fullName>
+    <externalDeveloperName>Manager_of_Request_PAM_Change_name__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Manager of &#39;Request PAM Change&#39; name</label>
+    <length>1300</length>
+    <readOnlyProxy>true</readOnlyProxy>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Set_Reservation_Expired_Date</fullName>
+        <description>Set Reservation Expired Date when the status of the booking line item is set to Reservation Expired.</description>
+        <field>Reservation_Expired_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Set Reservation Expired Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Booking_confirmed_date</fullName>
+        <description>Update_Booking_confirmed_date</description>
+        <field>Confirmed_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Update Booking confirmed date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Cancellation_Date</fullName>
+        <description>Update Cancellation Date</description>
+        <field>Cancellation_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Update Cancellation Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Cancellation_Date_to_Null</fullName>
+        <description>Update Cancellation Date to Null</description>
+        <field>Cancellation_Date__c</field>
+        <name>Update Cancellation Date to Null</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Gross_Price_Change_Datetime</fullName>
+        <field>Gross_Price_Change_Datetime__c</field>
+        <formula>NOW()</formula>
+        <name>Update Gross Price Change Datetime</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Reservation_Counter</fullName>
+        <description>Update Reservation counter whenever the Status is set to Reserved.</description>
+        <field>Reservation_Counter__c</field>
+        <formula>Reservation_Counter__c + 1</formula>
+        <name>Update Reservation Counter</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Reservation_Date</fullName>
+        <description>Update reservation date when the status is set to Reserved.</description>
+        <field>Reserved_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Update Reservation Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Reservation_Exp_Date_to_Null</fullName>
+        <description>Update Reservation Exp Date to Null</description>
+        <field>Reservation_Expired_Date__c</field>
+        <name>Update Reservation Exp Date to Null</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_first_Reserved_date</fullName>
+        <description>Update First Reserved Date</description>
+        <field>First_Reserved_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Update first Reserved date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>Set Booking confirmed date</fullName>
+        <actions>
+            <name>Update_Booking_confirmed_date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Booking_Line_Item__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Confirmed</value>
+        </criteriaItems>
+        <description>Update Booking confirmed date</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Cancellation Date</fullName>
+        <actions>
+            <name>Update_Cancellation_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Booking_Line_Item__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Cancelled</value>
+        </criteriaItems>
+        <description>Update cancellation date on booking line item when a cancellation is made</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Reservation Expired Date</fullName>
+        <actions>
+            <name>Set_Reservation_Expired_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Booking_Line_Item__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Reservation Expired</value>
+        </criteriaItems>
+        <description>Set Reservation Expired Date when Status is set to Reservation Expired</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set first Reserved date</fullName>
+        <actions>
+            <name>Update_first_Reserved_date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Booking_Line_Item__c.First_Reserved_Date__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Booking_Line_Item__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Reserved</value>
+        </criteriaItems>
+        <description>Update first Reserved date - when a booking item is first reserved.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Gross Price Change Datetime</fullName>
+        <actions>
+            <name>Update_Gross_Price_Change_Datetime</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Set field to current date if Booking_Line_Item__c.Gross_Price__c is changed</description>
+        <formula>ISCHANGED(Gross_Price__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Reservation Counter</fullName>
+        <actions>
+            <name>Update_Cancellation_Date_to_Null</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Reservation_Counter</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Reservation_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Reservation_Exp_Date_to_Null</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Booking_Line_Item__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Reserved</value>
+        </criteriaItems>
+        <description>Update Reservation counter whenever a Reservation is made</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

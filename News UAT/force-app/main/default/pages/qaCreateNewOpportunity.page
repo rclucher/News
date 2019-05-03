@@ -1,0 +1,200 @@
+<apex:page standardController="Account" extensions="clsCreateOpportunityExtension" showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">
+
+      <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+        <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="x-ua-compatible" content="ie=edge" />
+            <title>Create New Opportunity</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+            <script type='text/javascript' src='/canvas/sdk/js/publisher.js'></script> 
+            <script> 
+                // Activate 'Save button' when the panel shows up 
+                if('{!bRecordTypeSelected}' == 'true'){
+                    Sfdc.canvas.publisher.subscribe({name: "publisher.showPanel", onData:function(e) { 
+                        Sfdc.canvas.publisher.publish({name:"publisher.setValidForSubmit", payload:"true"}); 
+                    }});
+                }
+                // Subscribe to the Save button to influence cusotm logic 
+                Sfdc.canvas.publisher.subscribe({ name: "publisher.post", onData: function(e) { 
+                
+                    //Validate and Save Data.
+                    if(validateFields()){
+                        fnSaveOpportunity();
+                    }
+                }}); 
+            
+            </script>
+            <script>
+            function validateFields(){
+                var qaPopupOpportunityName = document.getElementById("j_id0:j_id6:qaPopupOpportunityName").value;
+                var qaPopupCloseDate = document.getElementById("j_id0:j_id6:qaPopupCloseDate").value;
+                var qaPopupStageName = document.getElementById("j_id0:j_id6:qaPopupStageName").value;
+                
+                var bValid = true;
+                var sErrorMessage = "These required fields must be completed: ";
+                if(qaPopupOpportunityName == null || qaPopupOpportunityName == "") {
+                    sErrorMessage += "Opportunity Name";
+                    bValid = false;
+                }
+                if(qaPopupCloseDate == null || qaPopupCloseDate == "") {
+                    if(!bValid)
+                        sErrorMessage += ", ";
+                    sErrorMessage += "Close Date";
+                    bValid = false;
+                }
+                if(qaPopupStageName == null || qaPopupStageName == "") {
+                    if(!bValid)
+                        sErrorMessage += ", ";
+                    sErrorMessage += "Stage";
+                    bValid = false;
+                }
+                
+                if(!bValid){
+                    document.getElementById("qaValidationMessage").innerText = sErrorMessage;
+                    document.getElementById("qaValidationMessageContainer").setAttribute("class", "slds-notify_container slds-visible");
+                }
+                    return bValid;
+             }
+            
+            function fnProcessReturnedValue(returnValue){
+                if(returnValue != ''){
+                    document.getElementById("qaValidationMessage").innerText = returnValue;
+                    document.getElementById("qaValidationMessageContainer").setAttribute("class", "slds-notify_container slds-visible");
+                }
+                else{
+                    
+                    //alert success
+                    var sSuccessMessage = "Opportunity {!sSavedOpportunity} was created successfully.";
+                    document.getElementById("qaValidationMessage").innerText = sSuccessMessage;
+                    document.getElementById("qaValidationMessageHeader").innerText = "Success";
+                    document.getElementById("qaAlertContainer").setAttribute("class", "slds-notify slds-notify--toast slds-theme--success");
+                    document.getElementById("qaValidationMessageContainer").setAttribute("class", "slds-notify_container slds-visible");
+                    // Gracefully close the popup when user taps save
+                    var delayInMilliseconds = 3000; //3 second
+                    setTimeout(function() {
+                      //your code to be executed after 3 second
+                      Sfdc.canvas.publisher.publish({ name: "publisher.close", payload:{ refresh:"true" }});
+                    }, delayInMilliseconds);
+                    
+                }
+            }
+            </script>
+            <apex:slds />           
+        </head> 
+        <body class="slds-scope">
+            <div class="slds-page-header">
+              <div class="slds-media">
+                  <div class="slds-media__figure">
+                      <svg aria-hidden="true" class="slds-icon slds-icon-standard-opportunity">
+                          <use xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/standard-sprite/svg/symbols.svg#opportunity')}"></use>
+                      </svg>
+                  </div>
+                  <apex:outputPanel id="opPageHeader">
+                      <div class="slds-media__body">
+                        <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="New Opportunity">New Opportunity {!selectedRecordTypeName}</h1>
+                      </div>
+                  </apex:outputPanel>
+              </div>
+              <div class="slds-notify_container slds-hidden" id="qaValidationMessageContainer">
+                <div class="slds-notify slds-notify--toast slds-theme--error" role="alert" id="qaAlertContainer">
+                    <span class="slds-assistive-text">Error</span>
+                    <div class="slds-notify__content slds-grid">
+                        <div class="slds-col slds-align-middle">
+                            <h2 class="slds-text-heading--small" id="qaValidationMessageHeader">Review the errors on this page.</h2>
+                            <div id="qaValidationMessage" class="slds-text-body_small">These required fields must be completed: Close Date, Opportunity Name, Stage</div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            </div>
+            
+            <apex:form >
+                <div class="slds-panel__section">
+                    <apex:outputPanel id="opRecordType" rendered="{!NOT bRecordTypeSelected}">
+                        <div class="slds-form-element slds-hint-parent slds-align--absolute-center">
+                            <span class="slds-form-element__label"><strong><abbr class="slds-required" title="required">*</abbr></strong>Select a Record Type</span>
+                            <div class="slds-form-element__control">
+                                <apex:selectList value="{!selectedRecordType}" size="1">
+                                    <apex:selectOptions value="{!recordTypes}"/>
+                                </apex:selectList>
+                            </div>
+                        </div>
+                        <div class="slds-p-horizontal--small slds-m-top--medium slds-size--1-of-1 slds-align--absolute-center">
+                            <apex:commandButton styleClass="slds-button slds-button--neutral" value="Cancel" onclick="Sfdc.canvas.publisher.publish({ name: 'publisher.close', payload:{ refresh:'true' }});" rendered="false" />
+                            <apex:commandButton styleClass="slds-button slds-button--brand" value="Next" action="{!createOpportunity}" />
+                        </div>
+                    </apex:outputPanel>
+                    <apex:outputPanel id="opOpportunity" rendered="{!bRecordTypeSelected}">
+                    
+                        <div class="slds-form-element slds-hint-parent">
+                            <span class="slds-form-element__label"><strong><abbr class="slds-required" title="required">*</abbr></strong>Opportunity Name</span>
+                            <div class="slds-form-element__control">
+                                <apex:inputField styleClass="slds-input" id="qaPopupOpportunityName" label="Opportunity Name"
+                                          value="{!objNewOpportunity.Name}" required="true"/>
+                            </div>
+                        </div> 
+        
+                        <div class="slds-form-element slds-hint-parent">
+                            <span class="slds-form-element__label"><strong><abbr class="slds-required" title="required">*</abbr></strong>Close Date</span>
+                            <div class="slds-form-element__control">
+                                <apex:inputField styleClass="slds-input" id="qaPopupCloseDate" label="Close Date" type="date"
+                                         value="{!objNewOpportunity.CloseDate}" required="true"/>
+                            </div>
+                        </div>
+                                
+                        <div class="slds-form-element slds-hint-parent">
+                            <span class="slds-form-element__label"><strong><abbr class="slds-required" title="required">*</abbr></strong>Stage</span>
+                            <div class="slds-form-element__control">
+                                <apex:inputField styleClass="slds-input" id="qaPopupStageName" label="Stage"
+                                         value="{!objNewOpportunity.StageName}" required="true" />
+                            </div>
+                        </div>
+        
+                        <div class="slds-form-element slds-hint-parent">
+                            <span class="slds-form-element__label">Amount GST Excl</span>
+                            <div class="slds-form-element__control">
+                                <apex:inputField styleClass="slds-input" id="qaPopupAmount" label="Amount"
+                                         value="{!objNewOpportunity.Amount}"/>
+                            </div>
+                        </div>
+        
+                        <div class="slds-form-element slds-hint-parent">
+                            <span class="slds-form-element__label">Classification</span>
+                            <div class="slds-form-element__control">
+                                <apex:inputField styleClass="slds-input" label="Classification"
+                                         value="{!objNewOpportunity.Classification__c}" />
+                            </div>
+                        </div>
+        
+                        <div class="slds-form-element slds-hint-parent">
+                            <span class="slds-form-element__label">Opportunity Summary</span>
+                            <div class="slds-form-element__control">
+                                <apex:inputField styleClass="slds-input"  label="Opportunity Summary"
+                                         value="{!objNewOpportunity.Description}" />
+                            </div>
+                        </div>
+        
+                        <div class="slds-form-element slds-hint-parent">
+                            <apex:inputField id="Created_via_Salesforce1" label="Created via Salesforce1?" 
+                                         value="{!objNewOpportunity.Created_via_Salesforce1__c}"  />
+                                <label class="slds-checkbox__label" for="Created_via_Salesforce1__c">
+                                    <span class="slds-checkbox_faux"></span>
+                                    <span class="slds-form-element__label">Created via Salesforce1?</span>
+                                </label>
+                        </div>
+                        <div class="slds-p-horizontal--small slds-m-top--medium slds-size--1-of-1 slds-align--absolute-center">
+                            <apex:commandButton styleClass="slds-button slds-button--neutral" value="Cancel" onclick="Sfdc.canvas.publisher.publish({ name: 'publisher.close', payload:{ refresh:'true' }});" rendered="false" />
+                            <apex:commandButton styleClass="slds-button slds-button--brand" value="Save" action="{!saveOpportunity}" rendered="false" />
+                        </div>
+                    </apex:outputPanel>
+                </div>
+                
+                <apex:actionFunction action="{!saveOpportunity}" name="fnSaveOpportunity" oncomplete="fnProcessReturnedValue('{!sErrorMessage}');" > 
+                </apex:actionFunction>
+
+            </apex:form>
+        </body>
+    </html>
+</apex:page>

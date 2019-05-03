@@ -1,0 +1,12 @@
+div.csbtn.Get_PDF{
+ border: none;
+ background-color: transparent;
+ background-image: url("/resource/1460617010000/GenerateSalesOrderButton");
+
+ background-repeat: no-repeat;
+ cursor: pointer !important;
+}
+
+.select2-container.select2-container-disabled .select2-choice .select2-chosen {
+    color: #888 !important;
+}

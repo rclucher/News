@@ -1,0 +1,50 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute type="String" name="title" default=""/>
+    <aura:attribute type="String" name="subtitle" default=""/>
+    <aura:attribute type="String" name="label" default=""/>
+    
+    <aura:attribute type="List" name="scores"/>
+    <aura:attribute type="List" name="headings"/>
+    <aura:attribute type="Integer" name = "headingCount"/>
+
+    <span>
+    <table class="heatmap">
+        <thead>
+            <tr class="heading">
+                <aura:if isTrue="{!(v.subtitle != '')}">
+                    <td>{!v.subtitle}</td>
+                    <td>&nbsp;</td>
+                    <td colspan="{!v.headingCount}" style="text-align: left;"><b>{!v.title}</b></td>
+                    
+                    <aura:set attribute="else">
+                        <td colspan="{!(v.headingCount + 2)}" style="text-align: left;"><b>{!v.title}</b></td>
+                    </aura:set>
+                </aura:if>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <td>{!v.label}</td>
+                <td>Score</td>
+                <aura:iteration items="{!v.headings}" var="t">
+                    <td class="topic"><span title="{!t.name}">{!t.id}</span></td>
+                </aura:iteration>
+            </tr>
+            <aura:iteration items="{!v.scores}" var="r">
+                <tr>
+                    <td class="names">{!r.name}</td>
+                    <td>{!r.score}%</td>
+                    <aura:iteration items="{!r.data}" var="d">
+                        <td class="{!d}">
+                            &nbsp;&nbsp;
+                        </td>
+                    </aura:iteration>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+    </span>
+</aura:component>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>CPQ Sales Orders Requiring Approval</label>
+    <protected>false</protected>
+    <values>
+        <field>Compact_FieldSet__c</field>
+        <value xsi:type="xsd:string">CPQ_Order_Status</value>
+    </values>
+    <values>
+        <field>Compact_View_Only__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Full_FieldSet__c</field>
+        <value xsi:type="xsd:string">CPQ_Order_Status</value>
+    </values>
+    <values>
+        <field>Icon__c</field>
+        <value xsi:type="xsd:string">custom:custom17</value>
+    </values>
+    <values>
+        <field>Object__c</field>
+        <value xsi:type="xsd:string">csmso__Sales_Order__c</value>
+    </values>
+    <values>
+        <field>Order_By__c</field>
+        <value xsi:type="xsd:string">csmso__Status__c</value>
+    </values>
+    <values>
+        <field>Order_Direction__c</field>
+        <value xsi:type="xsd:string">Ascending</value>
+    </values>
+    <values>
+        <field>Ownership__c</field>
+        <value xsi:type="xsd:string">All Accessible</value>
+    </values>
+    <values>
+        <field>Query_filter__c</field>
+        <value xsi:type="xsd:string">(csmso__Status__c IN (&#39;Sent For Internal Approval&#39;) And (Current_User_is_Approver__c = TRUE))</value>
+    </values>
+    <values>
+        <field>Record_Types__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

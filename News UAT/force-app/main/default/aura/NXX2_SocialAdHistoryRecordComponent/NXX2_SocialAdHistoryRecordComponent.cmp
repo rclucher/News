@@ -1,0 +1,38 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId">
+    <!-- Replace the record ID with your own -->
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="record" type="Object" />
+    <aura:attribute name="error" type="String" />
+    <aura:attribute name="socialAdHistory" type="Object" />
+    <aura:if isTrue="{!not(empty(v.socialAdHistory))}"> 
+            <lightning:tile label="" href="#"> 
+            <dl class="slds-dl_horizontal">
+                <dt class="slds-dl_horizontal__label">
+                    <p class="slds-truncate" title="Date">Date:</p>
+                </dt>
+                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                    <ui:outputDate format="YYYY/MM/DD h:mm a" value="{!v.socialAdHistory.createdDate}"/> 
+                </dd>
+                <dt class="slds-dl_horizontal__label">
+                    <p class="slds-truncate" title="Field">Field:</p>
+                </dt>
+                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                    <p class="slds-truncate" title="{!v.socialAdHistory.Field}">{!v.socialAdHistory.Field}</p>
+                </dd>
+                <dt class="slds-dl_horizontal__label">
+                    <p class="slds-truncate" title="Original Value">Original Value:</p>
+                </dt>
+                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                    <p class="slds-truncate" title="{!v.socialAdHistory.OldValue}">{!v.socialAdHistory.OldValue}</p>
+                </dd>
+                <dt class="slds-dl_horizontal__label">
+                    <p class="slds-truncate" title="New Value">New Value:</p>
+                </dt>
+                <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                    <p class="slds-truncate" title="{!v.socialAdHistory.NewValue}">{!v.socialAdHistory.NewValue}</p> 
+                </dd>
+            </dl>
+        </lightning:tile>
+  </aura:if> 
+       
+</aura:component>

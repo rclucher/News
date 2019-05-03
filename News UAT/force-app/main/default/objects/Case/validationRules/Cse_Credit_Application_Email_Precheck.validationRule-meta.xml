@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cse_Credit_Application_Email_Precheck</fullName>
+    <active>true</active>
+    <description>When opening a credit application - and depending on the channel selected, the system will data validate if the contact has an email or fax</description>
+    <errorConditionFormula>AND(
+  RecordType.DeveloperName = &#39;Credit_Application&#39;,
+  ISPICKVAL(Channel__c, &#39;Email&#39;),
+  NOT(ContactId = &#39;&#39;),
+  Contact.Email = &#39;&#39;
+)</errorConditionFormula>
+    <errorDisplayField>ContactId</errorDisplayField>
+    <errorMessage>Where the channel is set to email, the contact person listed must have a valid email. Please open the contact in another tab and enter an email within their primary email address before completing this form.</errorMessage>
+</ValidationRule>

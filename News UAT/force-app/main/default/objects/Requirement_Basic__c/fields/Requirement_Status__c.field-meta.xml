@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Requirement_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Requirement Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New</fullName>
+                <default>true</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>Need More Information</fullName>
+                <default>false</default>
+                <label>Need More Information</label>
+            </value>
+            <value>
+                <fullName>Pending Confirmation</fullName>
+                <default>false</default>
+                <label>Pending Confirmation</label>
+            </value>
+            <value>
+                <fullName>Lockdown</fullName>
+                <default>false</default>
+                <label>Lockdown</label>
+            </value>
+            <value>
+                <fullName>Configuration In Progress</fullName>
+                <default>false</default>
+                <label>Configuration In Progress</label>
+            </value>
+            <value>
+                <fullName>Ready for Testing</fullName>
+                <default>false</default>
+                <label>Ready for Testing</label>
+            </value>
+            <value>
+                <fullName>Completed</fullName>
+                <default>false</default>
+                <label>Completed</label>
+            </value>
+            <value>
+                <fullName>Future Release</fullName>
+                <default>false</default>
+                <label>Future Release</label>
+            </value>
+            <value>
+                <fullName>Out of Scope - Change Order</fullName>
+                <default>false</default>
+                <label>Out of Scope - Change Order</label>
+            </value>
+            <value>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <label>Cancelled</label>
+            </value>
+            <value>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+                <label>Duplicate</label>
+            </value>
+            <value>
+                <fullName>Training / Process</fullName>
+                <default>false</default>
+                <label>Training / Process</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

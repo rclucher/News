@@ -1,0 +1,159 @@
+<apex:page standardController="Payment__c" extensions="CreditAdjustmentController" cache="true" docType="html-5.0">
+    <apex:stylesheet value="{!URLFOR($Resource.SLDS, 'assets/styles/salesforce-lightning-design-system-vf.css')}"/>
+    
+    <style>
+        .rightAligned { text-align: right; }
+        td.total { border-bottom-color: black; }
+        circle { stroke: green; }
+        .h2Border {
+        padding-bottom: 5px !important;
+        border-bottom: 1px solid rgb(8, 116, 211);
+        }
+        .slds .slds-page-header__title {
+        margin-top: .125rem;
+        font-weight: 300;
+        font-size: 1.125rem;
+        line-height: 1.25;
+        }
+        .slds [hidden], .slds template {
+        display: block;
+        }
+        @media (min-width: 48em) {
+        .slds .slds-page-header__title {
+        margin-top: 0;
+        font-size: 1.5rem;
+        }
+        }
+        .vf-reset .vf-surface tspan {
+        font-weight: normal;
+        }
+    </style>
+    
+    <apex:form >
+        <!-- Need this variables for totals generation -->
+        <apex:variable value="{!0}" var="total1"/>
+        <apex:variable value="{!0}" var="total2"/>
+        <div class="slds">
+            <div class="slds-page-header">
+                <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate">
+                        <div class="slds-media"></div>
+                        <div class="slds-media-body">
+                            <p class="slds-page-header__title slds-truncate slds-align-middle">Credit Adjustments</p>
+                            <apex:pageMessages escape="false"></apex:pageMessages>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-no-flex slds-align-bottom">
+                        <div class="slds-button-group">
+                            
+                            <apex:actionStatus startText=" Saving " stopText=" Done " id="counterStatus" > 
+                                    <apex:facet name="start" > 
+                                        <div class="slds-spinner_container">
+                                          <div class="slds-spinner--brand slds-spinner slds-spinner--large" role="alert">
+                                            <span class="slds-assistive-text">Saving...</span>
+                                            <div class="slds-spinner__dot-a"></div>
+                                            <div class="slds-spinner__dot-b"></div>
+                                          </div>
+                                        </div>
+                                    </apex:facet> 
+                                
+                                <div class="slds-col slds-no-flex slds-align-bottom">
+                                    <div class="slds-button-group">
+                                        <apex:facet name="stop"> 
+                                        <apex:commandButton title="Save" value="Save" action="{!savelineItem}" status="counterStatus" rerender="counterStatus" styleClass="slds-button slds-button--neutral">
+                                        </apex:commandButton> 
+                                        </apex:facet> 
+                                    </div>
+                               </div> 
+                            </apex:actionStatus>
+                            <!--<apex:commandButton value="Save" action="{!savelineItem}" reRender="pageBlockTableRefresh" styleClass="slds-button slds-button--neutral" />-->
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <apex:pageBlock id="pageBlockTableRefresh">  
+                <section class="slds-m-bottom--xx-small slds-p-top--x-small">
+                   <!-- <apex:pageBlockTable width="100%" value="{!paymentScheduleList}" var="paymentRecord" id="tableId" styleClass="slds-table slds-table--bordered">
+                        <apex:column width="30%" value="{!paymentRecord.Name}" headerValue="Payment Schedule" headerClass="slds-text-heading--label"/>
+                        <apex:column width="70%" HeaderValue="Payment Line Items" headerClass="slds-text-heading--label">-->
+                        <h2 class="slds-text-heading--small slds-m-top--small slds-m-bottom--small h2Border">Payment Line Items</h2>
+                        
+                            <apex:pageBlockTable value="{!paymentLineItemList}" var="paymentLineRecord" id="tableId" styleClass="slds-table slds-table--bordered">
+                                
+                                <apex:column style="width:400px" value="{!paymentLineRecord.Name}" headerValue="Name" />
+                                <apex:column headerValue="Old Price">
+                                    <apex:outputText value="{0, number, 00.00}" >
+                                        <apex:param value="{!currentpriceMap[paymentLineRecord.id]}" />
+                                    </apex:outputText>
+                            
+                                    <!-- Generating a first total -->
+                                    <apex:variable var="total1" value="{!total1 + currentpriceMap[paymentLineRecord.id]}" />
+                            
+                                    <!-- Footer of the first Cell -->
+                                    <apex:facet name="footer">
+                                       <apex:outputText styleClass="t1" value="{0, number, 00.00}">
+                                            <apex:param value="{!total1}"/>
+                                        </apex:outputText>
+                                    </apex:facet>
+                                </apex:column>
+                                
+                                        
+                                   
+                                <apex:column headerValue="Credit"  >
+                               
+                                    <apex:inputtext size="6" id="newPrice" value="{!paymentLineRecord.Price__c}" >
+                                        <apex:actionSupport event="onchange" status="actStatusId"  rerender="pageBlockTableRefresh"/>
+                                        </apex:inputtext>
+                                         <apex:variable var="total2" value="{!total2 + paymentLineRecord.Price__c}" />
+                                        <apex:facet name="footer">
+                                               
+                                               <apex:outputText styleClass="t2" value="{0, number, 00.00}">
+                                                    <apex:param value="{!total2}" />
+                                               </apex:outputText>
+                                            </apex:facet>
+                                            <apex:actionStatus id="actStatusId" >
+                                                <apex:facet name="start" >
+                                                  <img src="/img/loading.gif" />                    
+                                                </apex:facet>
+                                            </apex:actionStatus> 
+                                                                           
+                                </apex:column>
+                                <apex:column id="calculateAmount" width="30%" headerValue="New Price">
+                                
+                                    <apex:outputPanel id="displayChanges">
+                                       <apex:outputText id="displayValue" value="{0, number, 00.00}">
+                                           <apex:param value="{!(currentpriceMap[paymentLineRecord.id]-IF(paymentLineRecord.Price__c != null, paymentLineRecord.Price__c, 0))}" />
+                                       </apex:outputText>                    
+                                    </apex:outputPanel>
+                                    <apex:facet name="footer">
+                                               <apex:outputText value="{0, number, 00.00}">
+                                                    <apex:param value="{!total1-total2}" />
+                                               </apex:outputText>
+                                            </apex:facet>
+                                </apex:column>
+                         <!--   </apex:pageBlockTable>
+                        </apex:column>-->
+                        
+                    </apex:pageBlockTable> 
+                    
+                </section>
+            </apex:pageBlock>
+            
+        </div>
+        <script>
+           document.getElementsByClassName('t1')[0].innerHTML = '{!total1}';
+            document.getElementsByClassName('t2')[0].innerHTML = '{!total2}';
+         /*   function calculateTotalAmount(newvalue,oldvalue){
+           var totalVal = '{!total2}';
+           alert(totalVal );
+           alert(parseInt(totalVal) + parseInt(newvalue));
+           
+            var totPrice = (parseInt(totalVal) + parseInt(newvalue))-oldvalue;
+         alert('hi...'+totPrice+'---'+newvalue+'---'+oldvalue);
+            // Here we will set the generated subtotals to the footer cells
+            document.getElementsByClassName('t1')[0].innerHTML = '{!total1}';
+            document.getElementsByClassName('t2')[0].innerHTML = totPrice;
+           }*/
+        </script>
+    </apex:form>    
+</apex:page>

@@ -1,0 +1,181 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'self' data: gap: https://nx2dev-newscorpaustralia.cs58.force.com 'unsafe-eval'; style-src http://* 'self' 'unsafe-inline'; media-src * blob:"/>
+    <aura:method name="updateAdDetails" action="{!c.updateAdDetails}" access="PUBLIC">
+        <aura:attribute name="adDetails" type="Map" />
+    </aura:method>
+    <aura:attribute name="mode" type="String" default="view"/>
+    <aura:attribute name="adDetails" type="Map" default="{}"/>
+    <aura:attribute name="customCarouselWidth" type="Integer"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.adDetails}" action="{!c.handleChangeInAdContent}" />
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col preview-container">
+            <article class="slds-card" aura:id="cardForPreview">
+                <div class="slds-card__header slds-grid">
+                    <div class="slds-media slds-media_center">
+                        <div class="slds-media__figure">
+                            <span class="slds-avatar slds-avatar_large">
+                                <lightning:icon iconName="action:fallback" size="large" alternativeText="Logo"/>
+                            </span>
+                        </div>
+                        <div class="slds-media__body">
+                            <h3>Your Page Name</h3>
+                            <span class="sub-header">
+                                Sponsored
+                                <lightning:icon iconName="utility:world" size="x-small" alternativeText="world"/>
+                            </span> 
+                            <span class="header-menu">
+                                <lightning:icon iconName="utility:threedots" size="x-small" alternativeText="menu"/>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-card__body">
+                    <div class="ad-text">{!v.adDetails.Ad_Text__c}</div>
+                    <div class="image-container">
+                        <aura:if isTrue="{!not(empty(v.adDetails.uploadedFiles))}">
+                            <aura:if isTrue="{!equals(v.adDetails.Creative_Type__c,'Single image')}">
+                                <div class="single-image-container">
+                                <aura:iteration items="{!v.adDetails.uploadedFiles}" var="file">
+                                    <aura:if isTrue="{! notequals(file.type,'Text')}">
+                                        <a class="download-icon-container icon-container" href="{!file.downloadUrl}">
+                                            <lightning:icon iconName="utility:download" size="x-small" alternativeText="Download"/>
+                                        </a>
+                                        <span class="image-vertical-align"></span>
+                                        <img src="{!file.fileURL}"></img>
+                                        <aura:set attribute="else">
+                                            <div class="no-image-div">{!file.content}</div>
+                                        </aura:set>
+                                    </aura:if>
+                                </aura:iteration>
+                                    </div>
+                            </aura:if>
+                            <aura:if isTrue="{!equals(v.adDetails.Creative_Type__c,'Video')}">
+                                <aura:iteration items="{!v.adDetails.uploadedFiles}" var="file">
+                                    <aura:if isTrue="{! notequals(file.type,'Text')}">
+                                        <div id="{!concat(v.mode,'-video-container')}" data-fileURL="{!file.fileURL}">
+                                            <a class="download-icon-container icon-container" href="{!file.downloadUrl}">
+                                                <lightning:icon iconName="utility:download" size="x-small" alternativeText="Download"/>
+                                            </a>
+                                            <aura:if isTrue="{!and(not(empty(file.hasEmbedLink)),file.hasEmbedLink)}">
+                                                <iframe width="100%" src="{!file.fileURL}">
+                                                </iframe>
+                                                <aura:set attribute="else">
+                                                    <iframe width="100%" src="{!$Resource.VideoPlayer2}"></iframe>
+                                                </aura:set>
+                                            </aura:if>
+                                        </div>
+                                        <!--<video id="videoTag" autoplay="false" controls="true" class="video-container" src="{!file.fileURL}"></video>-->
+                                        <aura:set attribute="else">
+                                            <div class="no-image-div">{!file.content}</div>
+                                        </aura:set>
+                                    </aura:if>
+                                </aura:iteration>
+                            </aura:if>
+                            <aura:if isTrue="{!equals(v.adDetails.Creative_Type__c,'Slideshow')}">
+                                <div class="slideshow-container">
+                                	<c:NXX2_SlideShow files="{!v.adDetails.uploadedFiles}" autoPlay="true" timeInterval="2000"></c:NXX2_SlideShow>
+                                </div>
+                            </aura:if>
+                            <aura:if isTrue="{!equals(v.adDetails.Creative_Type__c,'Carousel')}">
+                                <div class="custom-carousel-container">
+                                    <div class="custom-carousel" style="{! 'width:'+v.customCarouselWidth+'px;'}">
+                                        <aura:iteration items="{!v.adDetails.uploadedFiles}" var="file">
+                                            <div class="slide-individual-container">
+                                                <aura:if isTrue="{! notequals(file.type,'Text')}">
+                                                    <div class="image-container">
+                                                        <a class="download-icon-container icon-container" href="{!file.downloadUrl}">
+                                                            <lightning:icon iconName="utility:download" size="x-small" alternativeText="Download"/>
+                                                        </a>
+                                                        <span class="image-vertical-align"></span>
+                                                    	<img src="{!file.fileURL}"></img>
+                                                    </div>
+                                                    <aura:set attribute="else">
+                                                        <div class="no-image-div">No Image</div>
+                                                    </aura:set>
+                                                </aura:if>
+                                                <div class="slds-grid slds-grid_vertical-align-center footer-details">
+                                                    <div class="slds-col slds-size_2-of-3">
+                                                        <div class="ad-text headline">{!file.adHeadline}</div>
+                                                        <div class="ad-text desc">{!file.adNewsfeedDesc}</div>
+                                                    </div>
+                                                    <div class="slds-col slds-size_1-of-3 fb-button-container">
+                                                        <aura:if isTrue="{! not(empty(v.adDetails.Button_Type__c))}">
+                                                            <lightning:button variant="neutral" label="{!v.adDetails.Button_Type__c}" value="{!file.adLink}" onclick="{!c.openLink}"/>
+                                                        </aura:if>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </aura:iteration>
+                                    </div>
+                                </div>
+                            </aura:if>
+                            <aura:set attribute="else">
+                                <aura:if isTrue="{!v.adDetails.loadingDetails}">
+                                    <lightning:spinner size="medium"/>
+                                    <aura:set attribute="else">
+                                		<div class="no-image-div">Upload to preview</div>
+                                    </aura:set>
+                                </aura:if>
+                            </aura:set>
+                        </aura:if>
+                        <aura:if isTrue="{!not(equals(v.adDetails.Creative_Type__c,'Carousel'))}">
+                            <div class="slds-grid slds-grid_vertical-align-center footer-details">
+                                <div class="slds-col slds-size_7-of-12">
+                                    <aura:if isTrue="{!notequals(v.adDetails.Ad_Type__c,'Event Response')}">
+                                        <div class="ad-text headline">{!v.adDetails.Ad_Headline__c}</div>
+                                        <div class="ad-text desc">{!v.adDetails.Ad_Newsfeed_Link_Description__c}</div>
+                                        <aura:set attribute="else">
+                                            <div class="ad-text headline">{!v.adDetails.Event_Name__c}</div>
+                                        </aura:set>
+                                    </aura:if>
+                                </div>
+                                <div class="slds-col slds-size_5-of-12 fb-button-container">
+                                    <aura:if isTrue="{! and(not(empty(v.adDetails.Button_Type__c)),not(empty(v.adDetails.Ad_Link__c)))}">
+                                        <lightning:button variant="neutral" label="{!v.adDetails.Button_Type__c}" value="{!v.adDetails.Ad_Link__c}" onclick="{!c.openLink}"/>
+                                    </aura:if>
+                                </div>
+                            </div>
+                        </aura:if>
+                    </div>
+                </div>
+                <footer class="slds-card__footer">
+                    <div class="slds-grid slds-gutters fb-sub-icon-container">
+                        <aura:if isTrue="{!notequals(v.adDetails.Ad_Type__c,'Event Response')}">
+                            <div class="slds-col slds-size_1-of-5">
+                                <span class="icon-with-background slds-current-color">
+                                    <lightning:icon iconName="utility:like" size="xx-small" alternativeText="world"/>
+                                </span>
+                                <span class="fb-icons">45</span>
+                            </div>
+                            <div class="slds-col slds-size_4-of-5 fb-sub-content">
+                                <span>132 Comments</span>
+                                <span>36 Shares</span>
+                            </div>
+                            <aura:set attribute="else">
+                                <div class="slds-col slds-size_1-of-1 fb-sub-content">
+                                    <span>111 People interested</span>
+                                    <span>36 going</span>
+                                </div>
+                            </aura:set>
+                        </aura:if>
+                    </div>
+                    <div class="fb-bottom-buttons">
+                        <div class="fb-icon-container Like">
+                            <lightning:icon iconName="utility:like" size="x-small" alternativeText="world"/>
+                            <span class="fb-icons">Like</span>
+                        </div>
+                        <div class="fb-icon-container Comment">
+                            <lightning:icon iconName="utility:comments" size="x-small" alternativeText="world"/>
+                            <span class="fb-icons">Comment</span>
+                        </div>
+                        <div class="fb-icon-container Share">
+                            <lightning:icon iconName="utility:internal_share" size="x-small" alternativeText="world"/>
+                            <span class="fb-icons">Share</span>
+                        </div>
+                    </div>
+                </footer>
+            </article>
+        </div>
+    </div>
+</aura:component>

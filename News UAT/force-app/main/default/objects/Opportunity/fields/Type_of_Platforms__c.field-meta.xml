@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_of_Platforms__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(INCLUDES(OpportunityGroup__c,&quot;NewsXtend&quot;), 
+IF(OR(INCLUDES(OpportunityGroup__c,&quot;Digital&quot;),INCLUDES(OpportunityGroup__c,&quot;Inserts&quot;),INCLUDES(OpportunityGroup__c,&quot;Newspaper&quot;), INCLUDES(OpportunityGroup__c,&quot;Magazine&quot;)),&quot;NewsXtend + Others&quot;, &quot;NewsXtend Only&quot;)
+, &quot;Not NewsXtend&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Type of Platforms</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

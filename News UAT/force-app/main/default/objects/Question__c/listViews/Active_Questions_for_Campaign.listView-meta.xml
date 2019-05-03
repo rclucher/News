@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active_Questions_for_Campaign</fullName>
+    <columns>Section_Name__c</columns>
+    <columns>NAME</columns>
+    <columns>Question_Text__c</columns>
+    <columns>Mandatory__c</columns>
+    <columns>Output_Opportunity_Mapping__c</columns>
+    <columns>Sequence__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Briefing_Form__c</field>
+        <operation>includes</operation>
+        <value>Campaign</value>
+    </filters>
+    <filters>
+        <field>Active__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Active Questions for Campaign</label>
+</ListView>

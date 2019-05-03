@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project_Objective__c</fullName>
+    <description>What project objective will this requirement help meet?  These could be the Business Value drivers defined during the BVA and/or business objectives captured during the pre-sales cycle.  Sample BVA business objectives have been included.</description>
+    <externalId>false</externalId>
+    <label>Project Objective</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Improve New Customer Acquisition</fullName>
+                <default>false</default>
+                <label>Improve New Customer Acquisition</label>
+            </value>
+            <value>
+                <fullName>Increase Sales to Existing Customers</fullName>
+                <default>false</default>
+                <label>Increase Sales to Existing Customers</label>
+            </value>
+            <value>
+                <fullName>Increase Retention of Existing Customers</fullName>
+                <default>false</default>
+                <label>Increase Retention of Existing Customers</label>
+            </value>
+            <value>
+                <fullName>Improve Sales Effectiveness</fullName>
+                <default>false</default>
+                <label>Improve Sales Effectiveness</label>
+            </value>
+            <value>
+                <fullName>Avoid Strategic Project Costs</fullName>
+                <default>false</default>
+                <label>Avoid Strategic Project Costs</label>
+            </value>
+            <value>
+                <fullName>Reduce Business Operation Costs</fullName>
+                <default>false</default>
+                <label>Reduce Business Operation Costs</label>
+            </value>
+            <value>
+                <fullName>Remove Risk of Legacy Platform Use</fullName>
+                <default>false</default>
+                <label>Remove Risk of Legacy Platform Use</label>
+            </value>
+            <value>
+                <fullName>Reduce Risk from Regulatory Compliance</fullName>
+                <default>false</default>
+                <label>Reduce Risk from Regulatory Compliance</label>
+            </value>
+            <value>
+                <fullName>Improve Customer Interactions &amp; Insight</fullName>
+                <default>false</default>
+                <label>Improve Customer Interactions &amp; Insight</label>
+            </value>
+            <value>
+                <fullName>Improve User Interaction</fullName>
+                <default>false</default>
+                <label>Improve User Interaction</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

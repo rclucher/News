@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Original_Completion_Date__c</fullName>
+    <description>As defined by the original project timeline during the planning stage of the project</description>
+    <externalId>false</externalId>
+    <inlineHelpText>As defined by the original project timeline during the planning stage of the project</inlineHelpText>
+    <label>Original Completion Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

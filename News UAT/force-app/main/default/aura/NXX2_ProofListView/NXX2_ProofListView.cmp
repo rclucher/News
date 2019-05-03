@@ -1,0 +1,70 @@
+<aura:component controller='NXX2_SocialAdPageController' implements="force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="proofList" type="List" />
+    <aura:attribute name="iconName" type="String" />
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+    <lightning:card variant="Narrow" title="{!join('','Proofs (',v.proofList.length,')')}" iconName="{!v.iconName}" >
+        <p class="slds-p-horizontal_small">
+            <div class="slds-card__body">
+                <table class="slds-table slds-table_cell-buffer slds-no-row-hover slds-table_bordered slds-table_fixed-layout" role="grid">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="slds-text-title_caps" scope="col" style="width:50%">
+                                <div class="slds-truncate" title="Name">Name</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="Id">Status</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="Name">Start Date</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="Id">End Date</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:if isTrue="{!v.Spinner}">
+                            <div class="spinner-container">
+                                <lightning:spinner alternativeText="Loading" size="medium" aura:id="LoadingReport"/>
+                            </div>
+                            <aura:set attribute="else">
+                                <aura:iteration items="{!v.proofList}" var="proof" indexVar="fileIndex">
+                                    <tr class="slds-hint-parent">
+                                        <td scope="row" style="width:50%">
+                                            <div class="slds-truncate" title="{!proof.Proof_Name__c}">
+                                                <a href="javascript:void(0);" onclick="{!c.redirectToProofPage}" data-proofid="{!proof.Id}" tabindex="-1">{!proof.Proof_Name__c}</a>
+                                            </div>
+                                        </td>
+                                        <td scope="row">
+                                            <div class="slds-truncate" title="{!proof.Status__c}">
+                                                {!proof.Status__c}
+                                            </div>
+                                        </td>
+                                        <td scope="row">
+                                            <div class="slds-truncate" title="{!proof.Campaign_Start_Date__c}">
+                                                {!proof.Campaign_Start_Date__c}
+                                            </div>
+                                        </td>
+                                        <td scope="row">
+                                            <div class="slds-truncate" title="{!proof.Campaign_End_Date__c}">
+                                                {!proof.Campaign_End_Date__c}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </aura:iteration>
+                            </aura:set>
+                        </aura:if>
+                        <aura:if isTrue="{! and(empty(v.proofList),!v.Spinner)}">
+                            <tr>
+                                <td colspan="2" class="no-record-msg">No Records To Display</td>
+                            </tr>
+                        </aura:if> 
+                    </tbody>
+                </table>
+            </div>
+            
+        </p>
+    </lightning:card>
+    
+</aura:component>

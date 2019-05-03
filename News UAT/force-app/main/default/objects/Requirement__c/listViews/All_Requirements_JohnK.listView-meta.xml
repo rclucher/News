@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Requirements_JohnK</fullName>
+    <columns>NAME</columns>
+    <columns>External_ID__c</columns>
+    <columns>High_Level_Requirement__c</columns>
+    <columns>Functional_Requirement__c</columns>
+    <columns>Proposed_Approach__c</columns>
+    <columns>Use_Case__c</columns>
+    <columns>Comments__c</columns>
+    <columns>Assigned_To__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Implemented_by_Other_Team__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>New,In Progress,Ready For Build,Ready For Test,Re-work Required</value>
+    </filters>
+    <filters>
+        <field>Scope__c</field>
+        <operation>equals</operation>
+        <value>In-Scope (As-Is),In-Scope (Manual),In-Scope (Automated)</value>
+    </filters>
+    <label>All Requirements - John K Review</label>
+</ListView>

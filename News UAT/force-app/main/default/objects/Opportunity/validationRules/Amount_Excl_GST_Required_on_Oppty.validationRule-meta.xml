@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Amount_Excl_GST_Required_on_Oppty</fullName>
+    <active>true</active>
+    <description>When opportunity moves to Review/Reaffirm Value stage to closed won, the Amount Excl GST field becomes mandatory.</description>
+    <errorConditionFormula>AND(
+ISBLANK( Amount ) = TRUE,
+OR(
+TEXT(StageName) = &quot;Review/Reaffirm Value&quot;,
+TEXT(StageName) = &quot;Confirmed/Awaiting Bookings&quot;,
+TEXT(StageName) = &quot;Closed Won&quot;))</errorConditionFormula>
+    <errorMessage>Amount Excl GST is required when the opportunity reaches Review/Reaffirm Value to Closed won. Please complete the Amount Excl GST field.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,110 @@
+<apex:page title="New Account" tabStyle="Account" standardController="Account" extensions="AT_CreateAccount" showHeader="true" sidebar="true" action="{!checkAccess}">
+    <apex:sectionHeader title="New Account"/>
+    
+    <style>
+        .pbButton {
+        	text-align: right;
+        }
+        
+        .pbButtonb {
+        	text-align: right;
+        }
+    </style>
+    
+    <apex:form >
+        
+        <apex:pageBlock >
+            <apex:pageBlockButtons id="buttons">
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <apex:commandButton value="Continue" action="{!validate}"/>
+            </apex:pageBlockButtons>
+            
+            <table>
+                <tr>
+                	<td rowspan="3">
+                    	<b>Record Type</b>
+                        <apex:selectRadio value="{!recordTypeID}" layout="pageDirection">
+                            <apex:selectOption itemLabel="{!defaultName}" itemValue="{!defaultID}"/>
+                            <apex:selectOptions value="{!recordTypes}"/>
+                        </apex:selectRadio>
+                    </td>
+                    <td>
+                    	<b>Account Name</b>
+                        <br/>
+                        <apex:inputField value="{!acc.Name}" required="false"/>
+                    </td>
+                    <td rowspan="3">
+                        <b>Country</b>
+                        <br/>
+                        <apex:selectList required="true" value="{!country}" size="1">
+                            <apex:selectOptions value="{!countries}"/>
+                            <apex:actionSupport event="onchange" rerender="addressSearch"/>
+                        </apex:selectList>
+                        
+                        <br/>
+                        <apex:outputPanel id="addressSearch">
+                            <apex:outputPanel rendered="{!(country != 'AUSTRALIA')}">
+                                <br/>
+                                <i>Enter address manually on the next screen</i>
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{!(country == 'AUSTRALIA')}">
+                                <br/>
+                                <b>Search Address</b>
+                                <br/>
+                                <apex:inputText value="{!addressSearch}"/><apex:commandButton value="Search" action="{!searchAddress}" rerender="addresses"/>
+                                
+                                <apex:outputPanel id="addresses">
+                                    <apex:outputPanel rendered="{!(addressCount > 0)}">
+                                        <br/><br/>
+                                		<b>Matching Addresses</b>
+                                        <br/>
+                                        <apex:selectList value="{!selectedAddress}" size="6">
+                                            <apex:selectOptions value="{!addresses}"/>
+                                        </apex:selectList>
+                                    </apex:outputPanel>
+                                </apex:outputPanel>
+                                
+                            </apex:outputPanel>
+                        </apex:outputPanel>
+                    </td>
+                </tr>
+                <tr>
+                	<td>
+                        <apex:outputPanel id="abnInput">
+                            <apex:outputPanel rendered="{!(exemptReason == 'RQ')}">
+                                <b>Company ABN</b>
+                                <br/>
+                                <apex:inputField value="{!acc.AccountNumber}"/><apex:commandButton value="Check" action="{!checkABN}" rerender="abn"/>
+                                <br/>
+                                <br/>
+                                <apex:outputPanel id="abn">
+                                    <apex:outputPanel >
+                                        Registered Name: {!registeredName}
+                                        <br/>
+                                        ABN Status: {!abnStatus}
+                                        <br/><br/>
+                                    </apex:outputPanel>
+                                </apex:outputPanel>
+                            </apex:outputPanel>
+                        </apex:outputPanel>
+                    </td>
+                </tr>
+                <tr>
+                	<td>
+                    	<b>ABN Exempt</b>
+                        <br/>
+                        <apex:selectList value="{!exemptReason}" size="1">
+                            <apex:selectOptions value="{!exemptReasons}"/>
+                            <apex:actionSupport event="onchange" rerender="abnInput"/>
+                        </apex:selectList>
+                        <br/>
+                        <i>
+                            * Account is ABN exempt if client is:<br/>&nbsp;&nbsp;Private Party (less than 75k turnover), Not for Profit or an Overseas Client
+                        </i>
+                    </td>
+                </tr>
+            </table>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

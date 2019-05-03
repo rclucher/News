@@ -1,0 +1,154 @@
+<!--
+	This is the first of many lightning components to provide the Campaign Execution functionality in Lightning Sales Console.
+
+	Author: LBK
+	Date: 	2018-10-16
+-->
+<aura:component controller="CampaignExecutionController"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:hasRecordId">
+    <ltng:require styles="/resource/SDLS220/assets/styles/salesforce-lightning-design-system-ltng.css" />
+
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="campaign" type="Campaign"/>
+    
+    <!-- attributes related to search component -->
+    <aura:attribute name="searchLead_Contact_Name" type="String" />
+	<aura:attribute name="searchCompanyOrAccount" type="String" />
+	<aura:attribute name="searchExecution_Status" type="String" />
+	<aura:attribute name="searchLast_Booking_Line_Item_Publication_Divs" type="String" />
+	<aura:attribute name="searchStatus" type="String" />
+	<aura:attribute name="filterCall_Count" type="String" />
+	<aura:attribute name="searchCall_Count" type="String" />
+	<aura:attribute name="filterAge_In_List" type="String" />
+	<aura:attribute name="searchAge_In_List" type="String" />	
+	<aura:attribute name="filterLast_Booking_Value" type="String" />
+	<aura:attribute name="searchLast_Booking_Value" type="String" />
+	<aura:attribute name="filterResponse_DateTime" type="String" />
+	<aura:attribute name="filterCall_Back_Date" type="String" />
+	<aura:attribute name="searchCall_Back_Date" type="Date" />
+	<aura:attribute name="searchResponse_DateTime" type="Date" />
+	<aura:attribute name="campaignExecutionSearchWrapper" type="CampaignExecutionSearchWrapper" />
+
+	<aura:attribute name="executionStatusList" type="SelectOptionWrapper[]" description="picklist values for execution statuses"/>
+	<aura:attribute name="statusList" type="SelectOptionWrapper[]" description="picklist values for statuses"/>
+	<aura:attribute name="filterOptions" type="String[]" description="picklist values for filter options"/>
+
+	<aura:attribute name="campaignMemberListMap" type="Map"/>
+	<aura:attribute name="campaignMemberClassificationList" type="SelectOptionWrapper[]"/>
+	<aura:attribute name="campaignMembersToDo" type="CampaignMember[]" />
+	<aura:attribute name="campaignMembersNotStarted" type="CampaignMember[]" />
+	<aura:attribute name="campaignMembersMyCallsToDo" type="CampaignMember[]" />
+	<aura:attribute name="campaignMembersAllCallsToDo" type="CampaignMember[]" />
+	<aura:attribute name="campaignMembersMyCompleted" type="CampaignMember[]" />
+	<aura:attribute name="campaignMembersAllCompleted" type="CampaignMember[]" />
+	<aura:attribute name="campaignMembersAll" type="CampaignMember[]" />
+	<aura:attribute name="campaignMembersGrid" type="CampaignMember[]" />
+
+	<aura:attribute name="currentUserId" type="String"/>
+	<aura:attribute name="bInProgressCampaignMember" type="Boolean"/>
+
+    <!--attributes to control the navigation bar-->
+    <aura:attribute name="hideSearch" type="Boolean" default="false"/>
+	<aura:attribute name="hideRefresh" type="Boolean" default="true"/>
+	<aura:attribute name="hideResetSort" type="Boolean" default="true"/>
+	<aura:attribute name="hideResetSearch" type="Boolean" default="false"/>
+	<aura:attribute name="hideClose" type="Boolean" default="true"/>
+	
+	<aura:attribute name="disableRefresh" type="Boolean" default="false"/>
+	<aura:attribute name="disableResetSort" type="Boolean" default="false"/>
+	<aura:attribute name="disableSearch" type="Boolean" default="false"/>
+	<aura:attribute name="disableResetSearch" type="Boolean" default="false"/>
+	<aura:attribute name="disableClose" type="Boolean" default="false"/>
+
+	<aura:attribute name="spinner" type="Boolean" default="false"/>
+
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div class="newsslds">         
+        
+        <div class="slds-page-header slds-m-bottom--large" role="banner">
+            <div class="slds-grid">
+                <div class="slds-col slds-has-flexi-truncate">
+                    <div class="slds-media slds-no-space slds-grow">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-standard-record">
+                                <!-- <c:svg xlinkHref="/resource/SLDS203/assets/icons/standard-sprite/svg/symbols.svg#campaign" ariaHidden="true" class="slds-icon slds-icon- -medium"/> -->
+                            </span>
+                        </div>
+                    
+                        <div class="slds-media__body">
+                            <p class="slds-text-title--caps slds-line-height--reset">Campaigns</p>
+                            <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate" title="Campaign Execution">Campaign Execution</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col slds-no-flex slds-grid slds-align-top">
+                    <c:CampaignExecutionNavigationComp 	hideSearch="{!v.hideSearch}"
+                                             			hideRefresh="{!v.hideRefresh}"
+                                             			hideResetSort="{!v.hideResetSort}"
+                                             			hideResetSearch="{!v.hideResetSearch}"
+                                             			hideClose="{!v.hideClose}"
+                                             			disableRefresh="{!v.disableRefresh}"
+                                             			disableResetSort="{!v.disableResetSort}"
+                                             			disableSearch="{!v.disableSearch}"
+                                             			disableResetSearch="{!v.disableResetSearch}"
+                                             			disableClose="{!v.disableClose}"
+                                             			onRefresh="{!c.onRefresh}"
+                                             			onResetSort="{!c.onResetSort}"
+                                             			onSearch="{!c.onSearch}"
+                                             			onResetSearch="{!c.onResetSearch}"
+                                             			onClose="{!c.onClose}"/>
+                </div>                
+            </div>            
+    	</div>                 
+    	<c:CampaignExecutionSearchComp  		searchLead_Contact_Name = "{!v.searchLead_Contact_Name}"
+												searchCompanyOrAccount = "{!v.searchCompanyOrAccount}"
+												searchExecution_Status = "{!v.searchExecution_Status}"
+												searchLast_Booking_Line_Item_Publication_Divs = "{!v.searchLast_Booking_Line_Item_Publication_Divs}"
+												searchStatus = "{!v.searchStatus}"
+												filterCall_Count = "{!v.filterCall_Count}"
+												searchCall_Count = "{!v.searchCall_Count}"
+												filterAge_In_List = "{!v.filterAge_In_List}"
+												searchAge_In_List = "{!v.searchAge_In_List}"
+												filterResponse_DateTime = "{!v.filterResponse_DateTime}"
+												filterCall_Back_Date = "{!v.filterCall_Back_Date}"
+												searchResponse_DateTime = "{!v.searchResponse_DateTime}"
+												searchCall_Back_Date = "{!v.searchCall_Back_Date}"
+												executionStatusList = "{!v.executionStatusList}"
+												statusList = "{!v.statusList}"
+												filterOptions = "{!v.filterOptions}"/>
+												
+    	<c:CampaignExecutionSearchResultsComp 	campaignMemberListMap = "{!v.campaignMemberListMap}"
+												campaignMemberClassificationList = "{!v.campaignMemberClassificationList}"
+												campaignMembersToDo = "{!v.campaignMembersToDo}"													
+												campaignMembersNotStarted = "{!v.campaignMembersNotStarted}"
+												campaignMembersMyCallsToDo = "{!v.campaignMembersMyCallsToDo}"
+												campaignMembersAllCallsToDo = "{!v.campaignMembersAllCallsToDo}"
+												campaignMembersMyCompleted = "{!v.campaignMembersMyCompleted}"
+												campaignMembersAllCompleted = "{!v.campaignMembersAllCompleted}"
+												campaignMembersAll = "{!v.campaignMembersAll}"
+												campaignMembersGrid = "{!v.campaignMembersGrid}"
+												recordId = "{!v.recordId}"
+												campaign = "{!v.campaign}"
+												currentUserId="{!v.currentUserId}"
+												bInProgressCampaignMember="{!v.bInProgressCampaignMember}"/>
+		<div class="footer-section">
+			<c:CampaignExecutionNavigationComp 	hideRefresh="{!v.hideRefresh}"
+                                     			hideResetSort="{!v.hideResetSort}"
+                                     			hideSearch="{!v.hideSearch}"
+                                     			hideResetSearch="{!v.hideResetSearch}"
+                                     			hideClose="{!v.hideClose}"
+                                     			disableRefresh="{!v.disableRefresh}"
+                                     			disableResetSort="{!v.disableResetSort}"
+                                     			disableSearch="{!v.disableSearch}"
+                                     			disableResetSearch="{!v.disableResetSearch}"
+                                     			disableClose="{!v.disableClose}"
+                                     			onRefresh="{!c.onRefresh}"
+                                     			onResetSort="{!c.onResetSort}"
+                                     			onSearch="{!c.onSearch}"
+                                     			onResetSearch="{!c.onResetSearch}"
+                                     			onClose="{!c.onClose}"/>
+		</div>
+		<c:LoadingSpinnerComponent spinner="{!v.spinner}" />
+    </div>    
+</aura:component>

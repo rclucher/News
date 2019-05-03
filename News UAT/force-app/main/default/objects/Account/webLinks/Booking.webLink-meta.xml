@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Booking</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Booking</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>try
+{
+srcUp(&#39;/apex/{!$Setup.Visualforce_Target__c.BookingUI__c}?acctId={!Account.Id}&amp;retURL=/{!Account.Id}&#39;);
+}
+catch(ex)
+{
+window.location.href = &#39;/apex/{!$Setup.Visualforce_Target__c.BookingUI__c}?acctId={!Account.Id}&amp;s=true&amp;retURL=/{!Account.Id}&#39;;
+}</url>
+</WebLink>

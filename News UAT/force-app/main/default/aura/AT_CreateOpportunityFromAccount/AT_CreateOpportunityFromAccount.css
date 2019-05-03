@@ -1,0 +1,31 @@
+.THIS #selectLabel {
+    white-space: nowrap;
+    vertical-align: top;
+    padding-left: 40px;
+    padding-right: 20px;
+}
+
+.THIS .description {
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+/*.THIS .modal-body {
+    height: 200px;
+    max-height: 400px;
+    overflow-y: auto !important;
+}
+
+.THIS .cuf-content {
+    padding: 0 0rem !important;
+}
+
+.THIS .slds-p-around--medium {
+    padding: 0rem !important;
+}
+
+.THIS .slds-modal__content {
+    overflow-y: hidden !important;
+    height: unset !important;
+    max-height: unset !important;
+}*/

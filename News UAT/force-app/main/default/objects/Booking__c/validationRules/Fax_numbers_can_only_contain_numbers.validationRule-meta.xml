@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fax_numbers_can_only_contain_numbers</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ OR(
+  ISCHANGED(Quote_Confirmation_Fax__c),
+  ISCHANGED(Send_Channel__c)
+ ),
+ ISPICKVAL(Send_Channel__c, &quot;Fax&quot;),
+ OR(
+  If(ISNUMBER(Quote_Confirmation_Fax__c),false,true),
+  Quote_Confirmation_Fax__c = &quot;&quot;
+ )
+)</errorConditionFormula>
+    <errorDisplayField>Quote_Confirmation_Fax__c</errorDisplayField>
+    <errorMessage>Fax numbers can only contain numbers. Please check the fax number.</errorMessage>
+</ValidationRule>

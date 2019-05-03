@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Expiry_Stop_on_Web_Date__c</fullName>
+    <description>Max Data on the Booking Line Item: &quot;Stop on Web Date&quot;</description>
+    <externalId>false</externalId>
+    <label>Last Expiry - Stop on Web Date</label>
+    <summarizedField>Booking_Line_Item__c.Stop_On_Web_Date__c</summarizedField>
+    <summaryFilterItems>
+        <field>Booking_Line_Item__c.Cancelled__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Booking_Line_Item__c.Booking__c</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

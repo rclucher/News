@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RecurrenceRegeneratedType__c</fullName>
+    <externalDeveloperName>RecurrenceRegeneratedType</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Repeat This Task</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>RecurrenceRegenerateAfterDueDate</fullName>
+                <default>false</default>
+                <label>RecurrenceRegenerateAfterDueDate</label>
+            </value>
+            <value>
+                <fullName>RecurrenceRegenerateAfterToday</fullName>
+                <default>false</default>
+                <label>RecurrenceRegenerateAfterToday</label>
+            </value>
+            <value>
+                <fullName>RecurrenceRegenerated</fullName>
+                <default>false</default>
+                <label>RecurrenceRegenerated</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

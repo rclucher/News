@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Publication_5_c__c</fullName>
+    <externalDeveloperName>Publication_5__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Publication 5</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New Zealand Herald</fullName>
+                <default>false</default>
+                <label>New Zealand Herald</label>
+            </value>
+            <value>
+                <fullName>Herald on Sunday</fullName>
+                <default>false</default>
+                <label>Herald on Sunday</label>
+            </value>
+            <value>
+                <fullName>The Aucklander</fullName>
+                <default>false</default>
+                <label>The Aucklander</label>
+            </value>
+            <value>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+                <label>Real Estate</label>
+            </value>
+            <value>
+                <fullName>Motoring</fullName>
+                <default>false</default>
+                <label>Motoring</label>
+            </value>
+            <value>
+                <fullName>Entertainment</fullName>
+                <default>false</default>
+                <label>Entertainment</label>
+            </value>
+            <value>
+                <fullName>Employment</fullName>
+                <default>false</default>
+                <label>Employment</label>
+            </value>
+            <value>
+                <fullName>Agency</fullName>
+                <default>false</default>
+                <label>Agency</label>
+            </value>
+            <value>
+                <fullName>Retail</fullName>
+                <default>false</default>
+                <label>Retail</label>
+            </value>
+            <value>
+                <fullName>The Listener</fullName>
+                <default>false</default>
+                <label>The Listener</label>
+            </value>
+            <value>
+                <fullName>Crème</fullName>
+                <default>false</default>
+                <label>Crème</label>
+            </value>
+            <value>
+                <fullName>NZ Womans Weekly</fullName>
+                <default>false</default>
+                <label>NZ Womans Weekly</label>
+            </value>
+            <value>
+                <fullName>Simply You</fullName>
+                <default>false</default>
+                <label>Simply You</label>
+            </value>
+            <value>
+                <fullName>Simply You Living</fullName>
+                <default>false</default>
+                <label>Simply You Living</label>
+            </value>
+            <value>
+                <fullName>NZ Herald Online</fullName>
+                <default>false</default>
+                <label>NZ Herald Online</label>
+            </value>
+            <value>
+                <fullName>The Northern Advocate</fullName>
+                <default>false</default>
+                <label>The Northern Advocate</label>
+            </value>
+            <value>
+                <fullName>The Whangarei Report</fullName>
+                <default>false</default>
+                <label>The Whangarei Report</label>
+            </value>
+            <value>
+                <fullName>The Bay of Plenty Times</fullName>
+                <default>false</default>
+                <label>The Bay of Plenty Times</label>
+            </value>
+            <value>
+                <fullName>The Bay News</fullName>
+                <default>false</default>
+                <label>The Bay News</label>
+            </value>
+            <value>
+                <fullName>The Rotorua Daily Post</fullName>
+                <default>false</default>
+                <label>The Rotorua Daily Post</label>
+            </value>
+            <value>
+                <fullName>Thermal News</fullName>
+                <default>false</default>
+                <label>Thermal News</label>
+            </value>
+            <value>
+                <fullName>Hawkes Bay Today</fullName>
+                <default>false</default>
+                <label>Hawkes Bay Today</label>
+            </value>
+            <value>
+                <fullName>Drive Time</fullName>
+                <default>false</default>
+                <label>Drive Time</label>
+            </value>
+            <value>
+                <fullName>The Wanganui Chronicle</fullName>
+                <default>false</default>
+                <label>The Wanganui Chronicle</label>
+            </value>
+            <value>
+                <fullName>The Wanganui Midweek</fullName>
+                <default>false</default>
+                <label>The Wanganui Midweek</label>
+            </value>
+            <value>
+                <fullName>The Wairarapa Times Age</fullName>
+                <default>false</default>
+                <label>The Wairarapa Times Age</label>
+            </value>
+            <value>
+                <fullName>The Wairarapa Midweek</fullName>
+                <default>false</default>
+                <label>The Wairarapa Midweek</label>
+            </value>
+            <value>
+                <fullName>The Christchurch Star</fullName>
+                <default>false</default>
+                <label>The Christchurch Star</label>
+            </value>
+            <value>
+                <fullName>The Pegasus News</fullName>
+                <default>false</default>
+                <label>The Pegasus News</label>
+            </value>
+            <value>
+                <fullName>Custom Publications</fullName>
+                <default>false</default>
+                <label>Custom Publications</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

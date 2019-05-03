@@ -1,0 +1,13 @@
+.THIS h2.slds-truncate {
+    overflow: visible;
+}
+
+.THIS td.slds-p-around_small {
+    vertical-align: top;
+    
+    padding: 6px;
+}
+
+.THIS td.homeContainer {
+    vertical-align: top;
+}

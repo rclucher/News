@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lock_QuoteORConfirmation_Fields</fullName>
+    <active>true</active>
+    <description>Lock Quote/Confirmation Fields when Send Email/Send Fax is checked.</description>
+    <errorConditionFormula>AND(
+	NOT(ISNULL(Quote_or_Confirmation_Sent_Date__c )),
+	OR(
+		ISCHANGED( Quote_Confirmation__c ),
+		ISCHANGED(AdProof_Required__c),
+		ISCHANGED( Quote_Confirmation_Message__c ) , 
+		ISCHANGED( Send_Channel__c ))
+	)</errorConditionFormula>
+    <errorMessage>The Quote/Confirmation information cannot be edited until Resend is selected.</errorMessage>
+</ValidationRule>

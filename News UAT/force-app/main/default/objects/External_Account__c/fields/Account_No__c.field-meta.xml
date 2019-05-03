@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_No__c</fullName>
+    <description>Used to store the Billing/Booking Account Number</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Used to store the Billing/Booking Account Number</inlineHelpText>
+    <label>Account #</label>
+    <length>30</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

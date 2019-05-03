@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OA_Retract_Product_Type_LiveChat</fullName>
+    <description>Used in Order Amendments retraction process. This is matching the &quot;Product type&quot; on the Product Order&#39;s related Product Node. Type is appended with removed whitespace i.e. &quot;Live Chat&quot; is appended as &quot;LiveChat&quot;</description>
+    <displayedFields>
+        <field>Approved_By_Client__c</field>
+        <isFieldManaged>false</isFieldManaged>
+        <isRequired>false</isRequired>
+    </displayedFields>
+    <label>OA Retract Live Chat Product Type</label>
+</FieldSet>

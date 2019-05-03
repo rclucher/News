@@ -1,0 +1,231 @@
+<apex:page standardController="Case" extensions="Case_EnhancedAccountSearch"
+            showHeader="false" sidebar="false"
+            title="Enhanced Account Search" 
+            action="{!init}">
+
+    <apex:form rendered="{!caseRecord!=null}" id="theForm">
+
+    <style>
+    .bPageBlock .pbTitle {width:50%;}
+    </style>
+
+    <apex:includeScript value="/support/console/22.0/integration.js"/>
+    <script type="text/javascript">
+        function openSubtab(url,label,name,openimmediately) 
+        {
+            if(sforce.console.isInConsole())
+            {
+                sforce.console.getEnclosingPrimaryTabId(function(primarytab){
+                    sforce.console.openSubtab(primarytab.id , url, openimmediately, label, null, function(result){
+                        // Report if there is issue to open Subtab
+                        if (result.success == false) 
+                        {
+                            alert('The particular record cannot be opened in the Subtab. (It may be already opened.)');
+                        }
+                    }, name);
+                });             
+            }
+            else
+            {                
+                window.open(url, '_blank'); 
+            }
+        }
+
+        function PerformAllSearch()
+        {
+            PerformSearch_Booking();
+            PerformSearch_Case();
+            PerformSearch_Account();
+            PerformSearch_Contact();             
+            return false;                                                
+        }        
+    </script>   
+
+    <apex:PageMessages id="Pagemessages-Block"/>    
+        <apex:outputPanel id="rerenderDummy">
+            <apex:actionFunction name="applySelection" 
+                                action="{!applySelection}" 
+                                reRender="rerenderDummy" >
+                <apex:param name="tempAccountId" value=""  />
+                <apex:param name="tempContactId" value=""  />
+                <apex:param name="tempBookingId" value=""  />
+                <apex:param name="tempCaseId" value="" />
+                <apex:param name="tempIsPersonAccount" value="" />
+                <apex:param name="tempSelectedType" value="" />
+            </apex:actionFunction>            
+        </apex:outputPanel>
+            
+        <apex:pageBlock title="Account Search">
+            <apex:pageBlockSection columns="2">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Keyword" />                    
+                    <apex:inputText value="{!keywordString}" id="txtSearchKeyword" />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Search" 
+                                        onclick="PerformAllSearch();return false;" />            
+                <apex:commandButton value="Cancel" 
+                                        action="{!gotoAccountInfoPage}" 
+                                        rendered="{!caseRecord.AccountId!=null}" />
+                <apex:commandButton value="New Account" 
+                                        action="{!createNewAccount}" />
+
+                <apex:actionStatus id="Loading_Search_Result">
+                    <apex:facet name="start">
+                        <apex:image url="/img/loading.gif" />
+                    </apex:facet>                          
+                </apex:actionStatus>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+
+        <apex:actionFunction name="PerformSearch_Booking" 
+                                action="{!searchNow_Booking}" 
+                                status="booking-Loading_Search_Result" 
+                                reRender="booking-block" />
+        <apex:actionFunction name="PerformSearch_Case" 
+                                action="{!searchNow_Case}" 
+                                status="case-Loading_Search_Result" 
+                                reRender="case-block" />
+        <apex:actionFunction name="PerformSearch_Account" 
+                                action="{!searchNow_Account}" 
+                                status="account-Loading_Search_Result" 
+                                rerender="account-block" />
+        <apex:actionFunction name="PerformSearch_Contact" 
+                                action="{!searchNow_Contact}" 
+                                status="contact-Loading_Search_Result" 
+                                reRender="contact-block" />
+
+        <apex:outputPanel id="Search_Result">
+            <apex:pageblock title="Bookings">
+                <apex:actionStatus id="booking-Loading_Search_Result">
+                    <apex:facet name="start">
+                        <apex:image url="/img/loading.gif" />
+                    </apex:facet>
+                </apex:actionStatus>
+
+                <apex:outputPanel id="booking-block">
+                    <apex:pageBlockTable value="{!bookingList}" var="b" rendered="{!NOT(bookingList.Empty)}">
+                        <apex:column headerClass="left" headerValue="Action" width="50px">
+                            <apex:outputPanel rendered="{!NOT(b.Advertiser_Account__c==null)}">
+                                <a href="#"
+                                    onclick="applySelection('{!b.Advertiser_Account__c}', '{!b.Advertiser_Account__r.PersonContactId}', '{!b.Id}', '', '{!b.Advertiser_Account__r.IsPersonAccount}', 'booking');"
+                                    class="btn"
+                                    style="text-decoration:none">
+                                    Use
+                                </a>
+                            </apex:outputPanel>
+                        </apex:column>
+                        <apex:column headerClass="left" headerValue="Booking #">
+                            <apex:outputLink onclick="openSubtab('/{!b.Id}', '{!JSENCODE(b.Name)}', '{!b.Id}', true);return false;">{!b.Name}</apex:outputLink>
+                        </apex:column>
+                        <apex:column headerClass="left" headerValue="Advertiser Account">
+                            <apex:outputLink onclick="openSubtab('/{!b.Advertiser_Account__c}', '{!JSENCODE(b.Advertiser_Account__r.Name)}', '{!b.Advertiser_Account__c}', true);return false;">{!b.Advertiser_Account__r.Name}</apex:outputLink>
+                        </apex:column>
+                        <apex:column headerClass="left" value="{!b.CyberAd_Classification__c}" />
+                        <apex:column headerClass="left" value="{!b.Line_Item_Publications__c}" headerValue="Publications"/>
+                    </apex:pageBlockTable>
+                    <apex:outputLabel value="No records to display" rendered="{!bookingList.Empty}" styleClass="noRowsHeader" />
+                </apex:outputPanel>                
+            </apex:pageblock>
+
+            <apex:pageblock title="Cases">
+                <apex:actionStatus id="case-Loading_Search_Result">
+                    <apex:facet name="start">
+                        <apex:image url="/img/loading.gif" />
+                    </apex:facet> 
+                </apex:actionStatus>
+
+                <apex:outputPanel id="case-block">
+               	
+                    <apex:pageBlockTable value="{!caseList}" var="c" rendered="{!NOT(caseList.Empty)}">
+                        <apex:column headerClass="left" headerValue="Action" width="50px">
+                            <apex:outputPanel rendered="{!NOT(c.AccountId==null)}">
+                                <a href="#"
+                                    onclick="applySelection('{!c.AccountId}', '{!c.Account.PersonContactId}', '', '{!c.Id}', '{!c.Account.IsPersonAccount}', 'case');"
+                                    class="btn"
+                                    style="text-decoration:none">
+                                    Use
+                                </a>
+                            </apex:outputPanel>
+                        </apex:column>
+                        <apex:column headerClass="left" headerValue="Case #">
+                            <apex:outputLink onclick="openSubtab('/{!c.Id}', '{!JSENCODE(c.CaseNumber)}', '{!c.Id}', true);return false;" rendered="{!c.Id!=caseRecord.Id}">{!c.CaseNumber}</apex:outputLink>
+                            <apex:outputField value="{!c.CaseNumber}" rendered="{!c.Id==caseRecord.Id}" />
+                        </apex:column>
+                        <apex:column headerClass="left" value="{!c.Type}" />
+                        <apex:column headerClass="left" headerValue="Account">
+                            <apex:outputLink onclick="openSubtab('/{!c.AccountId}', '{!JSENCODE(c.Account.Name)}', '{!c.AccountId}', true);return false;">{!c.Account.Name}</apex:outputLink>
+                        </apex:column>
+                        <apex:column headerClass="left" value="{!c.Subject}" />
+                    </apex:pageBlockTable>
+                    <apex:outputLabel value="No records to display" rendered="{!caseList.Empty}" styleClass="noRowsHeader" />
+                </apex:outputPanel>                
+            </apex:pageblock>
+
+            <apex:pageblock title="Accounts">
+                <apex:actionStatus id="account-Loading_Search_Result">
+                    <apex:facet name="start">
+                        <apex:image url="/img/loading.gif" />
+                    </apex:facet>
+                </apex:actionStatus>
+
+                <apex:outputPanel id="account-block">
+                    <apex:pageBlockTable value="{!accountList}" var="a" rendered="{!NOT(accountList.Empty)}">
+                        <apex:column headerClass="left" headerValue="Action" width="50px">
+                            <apex:outputPanel >
+                                <a href="#"
+                                    onclick="applySelection('{!a.Id}', '{!a.PersonContactId}','', '', '{!a.IsPersonAccount}', 'account');"
+                                    class="btn"
+                                    style="text-decoration:none">
+                                    Use
+                                </a>
+                            </apex:outputPanel>
+                        </apex:column>
+                        <apex:column headerClass="left" headerValue="Name">
+                            <apex:outputLink onclick="openSubtab('/{!a.Id}', '{!JSENCODE(a.Name)}', '{!a.Id}', true);return false;">{!a.Name}</apex:outputLink>
+                        </apex:column>
+                        <apex:column headerClass="left" value="{!a.Phone}" />
+                        <apex:column headerClass="left" value="{!a.AccountNumber}" />
+                        <apex:column headerClass="left" value="{!a.Owner.Name}" headerValue="Owner"/>
+                        <apex:column headerClass="left" headerValue="Suburb">{!a.PersonMailingCity}{!a.BillingCity}</apex:column>
+                    </apex:pageBlockTable>
+                    <apex:outputLabel value="No records to display" rendered="{!accountList.Empty}" styleClass="noRowsHeader" />
+                </apex:outputPanel> 
+            </apex:pageblock>
+
+            <apex:pageblock title="Contacts">
+                <apex:actionStatus id="contact-Loading_Search_Result">
+                    <apex:facet name="start">
+                        <apex:image url="/img/loading.gif" />
+                    </apex:facet> 
+                </apex:actionStatus>
+
+                <apex:outputPanel id="contact-block">
+                    <apex:pageBlockTable value="{!contactList}" var="cont" rendered="{!NOT(contactList.Empty)}">
+                        <apex:column headerClass="left" headerValue="Action" width="50px">
+                            <apex:outputPanel rendered="{!NOT(cont.AccountId==null)}" >
+                                <a href="#"
+                                    onclick="applySelection('{!cont.AccountId}','{!cont.Id}','', '', 'false', 'contact');"
+                                    class="btn"
+                                    style="text-decoration:none">
+                                    Use
+                                </a>
+                            </apex:outputPanel>                            
+                        </apex:column>
+                        <apex:column headerClass="left" headerValue="Name">
+                            <apex:outputLink onclick="openSubtab('/{!cont.Id}', '{!JSENCODE(cont.Name)}', '{!cont.Id}', true);return false;">{!cont.Name}</apex:outputLink>
+                        </apex:column>
+                        <apex:column headerClass="left" headerValue="Account">
+                            <apex:outputLink onclick="openSubtab('/{!cont.AccountId}', '{!JSENCODE(cont.Account.Name)}', '{!cont.AccountId}', true);return false;">{!cont.Account.Name}</apex:outputLink>
+                        </apex:column>
+                        <apex:column headerClass="left" headerValue="Phone/Mobile">{!cont.Phone}<br/>{!cont.MobilePhone}<br />{!cont.HomePhone}<br />{!cont.OtherPhone}</apex:column>
+                        <apex:column headerClass="left" value="{!cont.Email}" />
+                    </apex:pageBlockTable>
+                    <apex:outputLabel value="No records to display" rendered="{!contactList.Empty}" styleClass="noRowsHeader" />
+                </apex:outputPanel>
+            </apex:pageblock>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

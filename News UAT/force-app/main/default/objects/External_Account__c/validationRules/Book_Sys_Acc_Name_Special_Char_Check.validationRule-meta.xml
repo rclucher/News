@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Book_Sys_Acc_Name_Special_Char_Check</fullName>
+    <active>true</active>
+    <description>check if name contains special characters</description>
+    <errorConditionFormula>NOT(REGEX(Name ,&quot;^[\\x20-\\x7E]*$&quot;))</errorConditionFormula>
+    <errorMessage>Please remove all special characters in Name field.</errorMessage>
+</ValidationRule>

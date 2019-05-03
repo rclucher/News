@@ -1,0 +1,35 @@
+<aura:component  implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes" controller="NXX2_SocialAdPageController" access="global">
+    <aura:attribute name="socialProof" type="Object"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="overlay" type="Object"/>
+    <aura:handler event="c:NXX2_AdHasBeenUpdated" action="{!c.refreshComp}"/>
+    <aura:handler event="c:NXX2_CloseFeedbackForm" action="{!c.handleClodeModal}"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <div class="slds-page-header  s1FixedTop forceHighlightsStencilDesktop">
+        <div class="slds-grid slds-wrap primaryFieldRow" style="transform: translate3d(0px, 0px, 0px);">
+            <div class="slds-grid slds-size_1-of-1 slds-large-size_8-of-12 slds-col slds-has-flexi-truncate slds-media--center">
+                <lightning:icon iconName="custom:custom5" alternativeText="Proof" />
+                <div class="slds-media__body">
+                    <p class="entityNameTitle slds-breadcrumb__item slds-line-height--reset" style="opacity: 1;">
+                        Proof
+                    </p>
+                    <h1 class="slds-page-header__title slds-m-right--small slds-truncate slds-align-middle" title="{!v.socialProof.Proof_Name__c}">
+                        <span class="uiOutputText" data-aura-class="uiOutputText">
+                            {!v.socialProof.Proof_Name__c}
+                        </span>
+                    </h1>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_4-of-12 slds-no-flex slds-grid slds-align-middle actionsContainer">
+                <lightning:button variant="destructive" label="Request Change" title="Reject" onclick="{! c.requestChange }" disabled="{!notequals(v.socialProof.Status__c,'With Customer')}"/>
+                <lightning:button variant="success" label="Approve" title="Approve" onclick="{! c.approve }" disabled="{!notequals(v.socialProof.Status__c,'With Customer')}"/>
+            </div>
+        </div>
+    </div>
+    <force:recordData aura:id="socialProofLoader"
+        recordId="{!v.recordId}"
+        fields="Proof_Name__c,Status__c"
+        targetFields ="{!v.socialProof}"
+    />
+</aura:component>

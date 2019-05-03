@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Keyword_Match</fullName>
+    <columns>NAME</columns>
+    <columns>Input_Keyword__c</columns>
+    <columns>Input_Object__c</columns>
+    <columns>Output_Object__c</columns>
+    <columns>Output_Object_Field__c</columns>
+    <columns>Output_Object_Field_String__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Keyword Match</label>
+</ListView>

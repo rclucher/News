@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ops_Error__c</fullName>
+    <description>Ops Error for Complaint/DRS</description>
+    <externalId>false</externalId>
+    <label>Ops Error</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ACCOUNTS</fullName>
+                <default>false</default>
+                <label>ACCOUNTS</label>
+            </value>
+            <value>
+                <fullName>NON OP</fullName>
+                <default>false</default>
+                <label>NON OP</label>
+            </value>
+            <value>
+                <fullName>PAGINATION</fullName>
+                <default>false</default>
+                <label>PAGINATION</label>
+            </value>
+            <value>
+                <fullName>PRE-MEDIA</fullName>
+                <default>false</default>
+                <label>PRE-MEDIA</label>
+            </value>
+            <value>
+                <fullName>PRODUCTION</fullName>
+                <default>false</default>
+                <label>PRODUCTION</label>
+            </value>
+            <value>
+                <fullName>SAVED CREDIT</fullName>
+                <default>false</default>
+                <label>SAVED CREDIT</label>
+            </value>
+            <value>
+                <fullName>N/A</fullName>
+                <default>false</default>
+                <label>N/A</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

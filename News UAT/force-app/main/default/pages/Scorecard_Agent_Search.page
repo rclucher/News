@@ -1,0 +1,342 @@
+<apex:page controller="ScorecardAgentSearchExtension" sidebar="false" title="Scorecards: Call Recording Search">
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+    <style type="text/css">
+        /*.filterWindow {
+            width: 18%;
+            float: left;
+            padding: 10px 5px 5px 5px;
+        }
+        .content {
+            width:75%;
+            float:left;
+            padding:10px;
+            margin-left:40px;
+        }*/
+        .bPageTitle .content{
+            margin-left:0px !important;
+        }
+        .fields {
+            width: 180px;
+        }
+        .dateFields {
+            width: 100px;
+        }
+        .searchTable tbody tr th{
+            max-width:60px;
+            white-space: normal !important;
+        }
+        .bPageTitle{
+            padding: 15px 0px 0px 0px !important;
+        }
+        .filterBtns{
+            text-align:right;
+            padding:0px 5px 0px 0px;
+        }
+        .filterWindow .apexp{
+            min-width: 350px;
+        }
+        .lookupInput input[type=text]{
+            max-width:160px;
+        }
+        
+        @media only screen and (min-width: 30em) {
+            .content { width: 70%; }
+            .sidebar { width: 30%; }
+        }
+        
+        .row .row { margin:  0 -1.5em; }
+        .col      { padding: 0  1.5em; }
+        
+        .row:after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        
+        @media only screen { .col {
+            float: left;
+            /*width: 100%;*/
+            box-sizing: border-box;
+        }}
+        
+        /*Item-00627 DD*/
+        .loading {
+            position: fixed;
+            z-index: 999;
+            height: 2em;
+            width: 2em;
+            overflow: show;
+            margin: auto;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+        
+        /* Transparent Overlay */
+        .loading:before {
+            content: '';
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.3);
+        }
+        
+        /* :not(:required) hides these rules from IE9 and below */
+        .loading:not(:required) {
+        /* hide "loading..." text */
+            font: 0/0 a;
+            color: transparent;
+            text-shadow: none;
+            background-color: transparent;
+            border: 0;
+        }
+        
+        .loading:not(:required):after {
+            content: '';
+            display: block;
+            font-size: 10px;
+            width: 1em;
+            height: 1em;
+            margin-top: -0.5em;
+            -webkit-animation: spinner 1500ms infinite linear;
+            -moz-animation: spinner 1500ms infinite linear;
+            -ms-animation: spinner 1500ms infinite linear;
+            -o-animation: spinner 1500ms infinite linear;
+            animation: spinner 1500ms infinite linear;
+            border-radius: 0.5em;
+            -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+            box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+        }
+        
+        /* Animation */
+        
+        @-webkit-keyframes spinner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        @-moz-keyframes spinner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        @-o-keyframes spinner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes spinner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        /*END Item-00627 DD*/
+    </style>
+    
+    <script>
+    function setFocusOnLoad() {}
+    
+    function showLoadingDiv(){
+        $(".loading").show();
+    }
+    
+    function hideLoadingDiv(){
+        $(".loading").hide();
+    }
+    
+    $(document).ready(function() {
+        hideLoadingDiv();
+    });
+    </script>
+    
+    <!-- Item-00627 DD -->
+    <div class="loading">Loading&#8230;</div>
+    
+    <apex:sectionHeader title="Scorecards" subtitle="Call Recording Search"/>
+    
+    <apex:form >
+        
+        <div class="row">
+            <div class="col sidebar">
+                <apex:outputpanel id="filterWindow" styleclass="filterWindow">
+                    <apex:pageBlock title="Search">
+                        
+                        <table cellpadding="10" class="searchTable">
+                            <tr>
+                                <th>
+                                    <apex:outputLabel value="Agents"></apex:outputLabel>
+                                </th>
+                                <td>
+                                    <apex:selectlist value="{!selectedAgents}" multiselect="true" size="5" styleclass="fields">
+                                        <apex:selectoptions value="{!agentSelect}" />
+                                    </apex:selectlist>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <apex:outputlabel value="Date Start"></apex:outputlabel>
+                                </th>
+                                <td>
+                                    <apex:inputfield value="{!dummyCallSummary.NVMStatsSF__CallTime__c}" styleclass="dateFields"></apex:inputfield>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <apex:outputlabel value="Date End"></apex:outputlabel>
+                                </th>
+                                <td>
+                                    <apex:inputfield value="{!dummyCallSummary.NVMStatsSF__CallEndTime__c}" styleclass="dateFields"></apex:inputfield>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <apex:outputlabel value="Last X Days"></apex:outputlabel>
+                                </th>
+                                <td>
+                                    <apex:inputfield value="{!dummyCase.NVMContactWorld__NVMOverrideCaseOwnerTimeoutLoggedIn__c}" styleclass="fields"></apex:inputfield>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <apex:outputlabel value="Minimum Duration"></apex:outputlabel>
+                                </th>
+                                <td>
+                                    <apex:inputfield value="{!dummyCallSummary.NVMStatsSF__Total_Call_Duration__c}" styleclass="fields"></apex:inputfield>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <apex:outputlabel value="Maximum Duration"></apex:outputlabel>
+                                </th>
+                                <td>
+                                    <apex:inputfield value="{!dummyCallSummary.NVMStatsSF__Agent_Ring_Duration__c}" styleclass="fields"></apex:inputfield>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <apex:outputlabel value="Origin" styleclass="fields"></apex:outputlabel>
+                                </th>
+                                <td>
+                                    <apex:inputfield value="{!dummyCase.Origin}"></apex:inputfield>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        <div class="filterBtns">
+                            
+                            <apex:commandbutton value="Clear" onclick="this.form.reset()" rerender="nuthin" style="margin-right:5px;"></apex:commandbutton>
+                            <apex:commandbutton value="Search" action="{!search}" rerender="content" onclick="showLoadingDiv()" oncomplete="hideLoadingDiv()"></apex:commandbutton>
+                            
+                        </div>
+                        
+                    </apex:pageBlock>
+                    
+                </apex:outputpanel>
+            </div>
+            <div class="col content">
+                <apex:outputPanel styleclass="content" id="content">
+                    
+                    
+                    <apex:outputPanel >
+                        <apex:pageblock id="taskList" rendered="{!tasks.size < (TASKLIMIT + 1)}">
+                            <apex:pageblocktable value="{!tasks}" var="task">
+                                <apex:column headervalue="Task Id">
+                                    <apex:outputlink value="../{!task.Id}">{!task.Id}</apex:outputlink>
+                                </apex:column>
+                                <apex:column headervalue="Agent">
+                                    <apex:outputfield value="{!task.Owner.Name}"></apex:outputfield>
+                                </apex:column>
+                                <apex:column headervalue="Date">
+                                    <apex:outputfield value="{!task.ActivityDate}"></apex:outputfield>
+                                </apex:column>
+                                <apex:column headervalue="Call Duration">
+                                    <!-- 675 ND 20/12/16 -->
+                                    <!--<apex:outputfield value="{!callData[task].NVMStatsSF__Total_Call_Duration__c}"></apex:outputfield>-->                  
+                                    <apex:outputfield value="{!callData[task].News_Talk_Time__c}"></apex:outputfield>                                
+                                </apex:column>
+                                <apex:column headervalue="Time Of Call">
+                                    <apex:outputfield value="{!callData[task].NVMStatsSF__CallTime__c }"></apex:outputfield>
+                                </apex:column>
+                                <apex:column headervalue="Origin">
+                                    <apex:outputfield value="{!callData[task].NVMStatsSF__Related_Case__r.Origin}"></apex:outputfield>
+                                </apex:column>
+                                <apex:column headervalue="State">
+                                    <apex:outputfield value="{!callData[task].NVMStatsSF__Related_Case__r.State__c}"></apex:outputfield>
+                                </apex:column>
+                                <apex:column headervalue="Skill">
+                                    <apex:outputfield value="{!callData[task].NVMStatsSF__Related_Case__r.NVMContactWorld__Skills__c}"></apex:outputfield>
+                                </apex:column>
+                                <apex:column headervalue="Reviewed">
+                                    <apex:outputfield value="{!task.Reviewed__c}"></apex:outputfield>
+                                </apex:column>
+                                <!--apex:column headervalue="Transferred">
+                                    <!-- <apex:outputText rendered="{!!ISBLANK(callData[task].NVMStatsSF__Agent2__c)}" 
+                                                     value="{!callData[task].NVMStatsSF__Agent__r.Name +' to '+ callData[task].NVMStatsSF__Agent2__r.Name}"/> >
+                                    <apex:outputText value="{!callData[task].CallTransferred__c}"/>
+                                </apex:column -->                        
+                            </apex:pageblocktable>
+                        </apex:pageblock>
+                    </apex:outputPanel>
+                    
+                    
+                    <apex:outputpanel rendered="{!tasks.size < 1}" id="noTasks">
+                        <strong>{!noTasksFound}</strong>
+                    </apex:outputpanel>
+                    <apex:outputpanel rendered="{!tooManyTasks}" id="tooManyTasks">
+                        <br />
+                        <strong>Too many tasks found, please add more filter criteria.</strong>
+                    </apex:outputpanel>
+                </apex:outputPanel>
+            </div>
+        </div>
+    </apex:form>
+    
+</apex:page>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ad_Newsfeed_Link_Description__c</fullName>
+    <description>This field will have Newsfeed Link Description for facebook ad</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field will have Newsfeed Link Description for facebook ad</inlineHelpText>
+    <label>Ad Newsfeed Link Description</label>
+    <length>220</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

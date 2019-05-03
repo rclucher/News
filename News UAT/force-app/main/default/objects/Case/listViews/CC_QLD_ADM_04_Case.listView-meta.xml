@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CC_QLD_ADM_04_Case</fullName>
+    <filterScope>Queue</filterScope>
+    <label>CC QLD ADM 04</label>
+    <queue>CC_QLD_ADM_04</queue>
+    <sharedTo>
+        <allInternalUsers/>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Advertising_Elsewhere_Details_c__c</fullName>
+    <externalDeveloperName>Advertising_Elsewhere_Details__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Advertising Elsewhere Details</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Lead Referral - Hi Pages</fullName>
+                <default>false</default>
+                <label>Lead Referral - Hi Pages</label>
+            </value>
+            <value>
+                <fullName>Lead Referral - Service Seeking</fullName>
+                <default>false</default>
+                <label>Lead Referral - Service Seeking</label>
+            </value>
+            <value>
+                <fullName>Lead Referral - One Flare</fullName>
+                <default>false</default>
+                <label>Lead Referral - One Flare</label>
+            </value>
+            <value>
+                <fullName>Lead Referral - Other</fullName>
+                <default>false</default>
+                <label>Lead Referral - Other</label>
+            </value>
+            <value>
+                <fullName>Online - Facebook Page</fullName>
+                <default>false</default>
+                <label>Online - Facebook Page</label>
+            </value>
+            <value>
+                <fullName>Online - Facebook Advertising (Paid)</fullName>
+                <default>false</default>
+                <label>Online - Facebook Advertising (Paid)</label>
+            </value>
+            <value>
+                <fullName>Online - Gumtree</fullName>
+                <default>false</default>
+                <label>Online - Gumtree</label>
+            </value>
+            <value>
+                <fullName>Online - Google Business Profile</fullName>
+                <default>false</default>
+                <label>Online - Google Business Profile</label>
+            </value>
+            <value>
+                <fullName>Online - SEM (AdWords)</fullName>
+                <default>false</default>
+                <label>Online - SEM (AdWords)</label>
+            </value>
+            <value>
+                <fullName>Online - True Local</fullName>
+                <default>false</default>
+                <label>Online - True Local</label>
+            </value>
+            <value>
+                <fullName>Online - Own Website</fullName>
+                <default>false</default>
+                <label>Online - Own Website</label>
+            </value>
+            <value>
+                <fullName>Online - Yellow Pages</fullName>
+                <default>false</default>
+                <label>Online - Yellow Pages</label>
+            </value>
+            <value>
+                <fullName>Online - Other</fullName>
+                <default>false</default>
+                <label>Online - Other</label>
+            </value>
+            <value>
+                <fullName>Outdoor</fullName>
+                <default>false</default>
+                <label>Outdoor</label>
+            </value>
+            <value>
+                <fullName>Print - Flyers/Letterbox Drops</fullName>
+                <default>false</default>
+                <label>Print - Flyers/Letterbox Drops</label>
+            </value>
+            <value>
+                <fullName>Print - Local Directories</fullName>
+                <default>false</default>
+                <label>Print - Local Directories</label>
+            </value>
+            <value>
+                <fullName>Print - Competitor Newspapers</fullName>
+                <default>false</default>
+                <label>Print - Competitor Newspapers</label>
+            </value>
+            <value>
+                <fullName>Radio</fullName>
+                <default>false</default>
+                <label>Radio</label>
+            </value>
+            <value>
+                <fullName>TV</fullName>
+                <default>false</default>
+                <label>TV</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

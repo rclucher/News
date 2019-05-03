@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New</fullName>
+                <default>true</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+                <label>On Hold</label>
+            </value>
+            <value>
+                <fullName>In Review / In Progress</fullName>
+                <default>false</default>
+                <label>In Review / In Progress</label>
+            </value>
+            <value>
+                <fullName>Fix Needed</fullName>
+                <default>false</default>
+                <label>Fix Needed</label>
+            </value>
+            <value>
+                <fullName>Work Complete</fullName>
+                <default>false</default>
+                <label>Work Complete</label>
+            </value>
+            <value>
+                <fullName>Test in Progress</fullName>
+                <default>false</default>
+                <label>Test in Progress</label>
+            </value>
+            <value>
+                <fullName>Re-Open</fullName>
+                <default>false</default>
+                <label>Re-Open</label>
+            </value>
+            <value>
+                <fullName>Ready for UAT</fullName>
+                <default>false</default>
+                <label>Ready for UAT</label>
+            </value>
+            <value>
+                <fullName>Ready for Production</fullName>
+                <default>false</default>
+                <label>Ready for Production</label>
+            </value>
+            <value>
+                <fullName>Closed (Duplicate)</fullName>
+                <default>false</default>
+                <label>Closed (Duplicate)</label>
+            </value>
+            <value>
+                <fullName>Closed (Working As Designed)</fullName>
+                <default>false</default>
+                <label>Closed (Working As Designed)</label>
+            </value>
+            <value>
+                <fullName>Closed (Question Answered)</fullName>
+                <default>false</default>
+                <label>Closed (Question Answered)</label>
+            </value>
+            <value>
+                <fullName>Closed (Verified)</fullName>
+                <default>false</default>
+                <label>Closed (Verified)</label>
+            </value>
+            <value>
+                <fullName>Closed (Not An Issue)</fullName>
+                <default>false</default>
+                <label>Closed (Not An Issue)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

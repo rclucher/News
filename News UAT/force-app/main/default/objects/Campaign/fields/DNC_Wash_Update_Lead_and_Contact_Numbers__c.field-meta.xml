@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DNC_Wash_Update_Lead_and_Contact_Numbers__c</fullName>
+    <description>Run this after uploading wash data into DNC Wash Register - with the CSV of washed numbers from ACMA.
+
+This update will 
+1. Match each Phone number in the DNC Wash Register to Leads and/or Contacts
+2. Update the DNC status and wash date of the found Leads/Contacts</description>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&quot;javascript:if(typeof(srcUp)==&#39;function&#39;) {srcUp(&#39;/apex/DNCPhoneUpdate?s=false&#39;); } else {window.location.assign(&#39;/apex/DNCPhoneUpdate?s=true&#39;) }&quot;, &quot;Open new window, click Update button&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Run this after uploading wash data into DNC Wash Register - with the CSV of washed numbers from ACMA.</inlineHelpText>
+    <label>Update Lead/Contact numbers</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

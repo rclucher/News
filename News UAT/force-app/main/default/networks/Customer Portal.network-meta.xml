@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Network xmlns="http://soap.sforce.com/2006/04/metadata">
+    <allowInternalUserLogin>true</allowInternalUserLogin>
+    <allowMembersToFlag>false</allowMembersToFlag>
+    <changePasswordTemplate>unfiled$public/NXX2_New_Customer_Login</changePasswordTemplate>
+    <communityRoles/>
+    <disableReputationRecordConversations>false</disableReputationRecordConversations>
+    <emailSenderAddress>ahmed.saad@news.com.au</emailSenderAddress>
+    <emailSenderName>Customer Portal</emailSenderName>
+    <enableCustomVFErrorPageOverrides>false</enableCustomVFErrorPageOverrides>
+    <enableDirectMessages>true</enableDirectMessages>
+    <enableGuestChatter>false</enableGuestChatter>
+    <enableGuestFileAccess>true</enableGuestFileAccess>
+    <enableInvitation>false</enableInvitation>
+    <enableKnowledgeable>false</enableKnowledgeable>
+    <enableNicknameDisplay>false</enableNicknameDisplay>
+    <enablePrivateMessages>false</enablePrivateMessages>
+    <enableReputation>false</enableReputation>
+    <enableShowAllNetworkSettings>true</enableShowAllNetworkSettings>
+    <enableSiteAsContainer>true</enableSiteAsContainer>
+    <enableTalkingAboutStats>true</enableTalkingAboutStats>
+    <enableTopicAssignmentRules>true</enableTopicAssignmentRules>
+    <enableTopicSuggestions>true</enableTopicSuggestions>
+    <enableUpDownVote>true</enableUpDownVote>
+    <forgotPasswordTemplate>unfiled$public/NXX2_New_Customer_Login</forgotPasswordTemplate>
+    <gatherCustomerSentimentData>true</gatherCustomerSentimentData>
+    <logoutUrl>https://nx2dev-newscorpaustralia.cs58.force.com/customerportal/s/log-out</logoutUrl>
+    <navigationLinkSet>
+        <navigationMenuItem>
+            <label>Knowledge Center</label>
+            <position>0</position>
+            <publiclyAvailable>false</publiclyAvailable>
+            <target>/toparticles</target>
+            <type>InternalLink</type>
+        </navigationMenuItem>
+        <navigationMenuItem>
+            <label>Support</label>
+            <position>1</position>
+            <publiclyAvailable>false</publiclyAvailable>
+            <target>/contactsupport</target>
+            <type>InternalLink</type>
+        </navigationMenuItem>
+    </navigationLinkSet>
+    <networkMemberGroups>
+        <permissionSet>Customer_Portal_Community</permissionSet>
+        <profile>Admin</profile>
+        <profile>NewsXtend - Campaign L1</profile>
+        <profile>NewsXtend - Campaign L2</profile>
+        <profile>NewsXtend - Campaign L3</profile>
+        <profile>NewsXtend - Programmatic L1</profile>
+        <profile>NewsXtend - Social L2</profile>
+        <profile>NewsXtend - Programmatic L3</profile>
+        <profile>NewsXtend - SEM L1</profile>
+        <profile>NewsXtend - SEM L2</profile>
+        <profile>NewsXtend - SEM L3</profile>
+        <profile>NewsXtend - Social L1</profile>
+        <profile>NewsXtend - Social L3</profile>
+        <profile>NewsXtend - Programmatic L2</profile>
+        <profile>NewsXtend My Account Community Read Only</profile>
+        <profile>Partner Community Login Read Only</profile>
+        <profile>Partner Community User Custom</profile>
+        <profile>Partner Community User</profile>
+    </networkMemberGroups>
+    <networkPageOverrides>
+        <changePasswordPageOverrideSetting>Standard</changePasswordPageOverrideSetting>
+        <forgotPasswordPageOverrideSetting>Designer</forgotPasswordPageOverrideSetting>
+        <homePageOverrideSetting>Designer</homePageOverrideSetting>
+        <loginPageOverrideSetting>Designer</loginPageOverrideSetting>
+        <selfRegProfilePageOverrideSetting>Designer</selfRegProfilePageOverrideSetting>
+    </networkPageOverrides>
+    <newSenderAddress>noreply@news.com.au</newSenderAddress>
+    <picassoSite>Customer_Portal_C</picassoSite>
+    <selfRegProfile>newsxtend my account community read only</selfRegProfile>
+    <selfRegistration>false</selfRegistration>
+    <sendWelcomeEmail>true</sendWelcomeEmail>
+    <site>Customer_Portal</site>
+    <status>Live</status>
+    <tabs>
+        <customTab>Activity</customTab>
+        <customTab>Order__c</customTab>
+        <customTab>Product_Order__c</customTab>
+        <customTab>Briefing_Form__c</customTab>
+        <defaultTab>Chatter</defaultTab>
+        <standardTab>Chatter</standardTab>
+        <standardTab>Contact</standardTab>
+        <standardTab>Knowledge</standardTab>
+    </tabs>
+    <urlPathPrefix>customerportal</urlPathPrefix>
+    <welcomeTemplate>unfiled$public/NXX2_New_Customer_Log_in_to_My_Account</welcomeTemplate>
+</Network>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Discount_Threshold</fullName>
+    <columns>NAME</columns>
+    <columns>Segment__c</columns>
+    <columns>Platform__c</columns>
+    <columns>Customer_Tier__c</columns>
+    <columns>Discount_Level_1__c</columns>
+    <columns>Discount_Level_2__c</columns>
+    <columns>Discount_Level_3__c</columns>
+    <columns>Discount_Level_4__c</columns>
+    <columns>Amount_Level_1__c</columns>
+    <columns>Amount_Level_2__c</columns>
+    <columns>Amount_Level_3__c</columns>
+    <columns>Amount_Level_4__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Discount Threshold</label>
+</ListView>

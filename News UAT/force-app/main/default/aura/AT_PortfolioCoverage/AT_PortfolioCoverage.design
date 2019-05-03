@@ -1,0 +1,5 @@
+<design:component>
+	<design:attribute name="title" label="Title"/>
+    <design:attribute name="icon" label="Icon"/>
+    <design:attribute name="mode" label="Mode" required="true" datasource="SME/RE,IMA/KAC"/>
+</design:component>

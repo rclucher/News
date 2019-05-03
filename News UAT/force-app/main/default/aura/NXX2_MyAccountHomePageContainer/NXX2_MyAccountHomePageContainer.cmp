@@ -1,0 +1,58 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+
+	
+	<aura:handler name="loadRelatedCustomerActivity" event="c:NXX2_HandleCustomerActivitiesDetailView" action="{!c.openAccountRelatedCustomerActivity}"/>
+	
+    <div class="c-container">
+        <lightning:layout multipleRows="true">
+          <!--  <lightning:layoutItem padding="around-small" size="12">
+                <div class="page-section page-header">
+                    <h2>Header</h2>
+                </div>
+            </lightning:layoutItem>
+        -->
+            <lightning:layoutItem padding="customPadding" size="12">
+                <lightning:layout>
+                    <lightning:layoutItem class="customPadding" size="12">
+                        <div class="page-section page-right">
+                            <!--<h2>Left Sidebar</h2> -->
+                            <p>
+                            	<c:NXX2_MyAccountListView/>
+                            </p>
+                        </div>
+                    </lightning:layoutItem>
+                   <!-- <lightning:layoutItem class="customPadding" size="8">
+                        <div class="page-section page-main">
+                            <p><c:NXX2_CustomerActivitiesListView aura:id="customerActivitiesListView"/></p>
+                        </div>
+                    </lightning:layoutItem>
+                -->
+                  <!--  <lightning:layoutItem padding="around-small" size="3">
+                        <div class="page-section page-right">
+                            <h2>Right Sidebar</h2>
+                            <ul>
+                                <li><a href="#">Archive 1</a>
+                                </li>
+                                <li><a href="#">Archive 2</a>
+                                </li>
+                                <li><a href="#">Archive 3</a>
+                                </li>
+                                <li><a href="#">Archive 4</a>
+                                </li>
+                                <li><a href="#">Archive 5</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </lightning:layoutItem>
+                -->
+                </lightning:layout>
+            </lightning:layoutItem>
+            <!--<lightning:layoutItem flexibility="auto" padding="around-small" size="12">
+                <div class="page-footer page-section">
+                    <h2>Footer</h2>
+                </div>
+            </lightning:layoutItem>
+        -->
+        </lightning:layout>
+    </div>
+</aura:component>

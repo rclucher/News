@@ -1,0 +1,11 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="NXX2_SocialAdPageController">    
+    <aura:attribute name="communityBaseUrl" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <h1>Thank you for visiting NewsXtend</h1>
+    
+    <p style = "padding-top:30px;"> 
+        <a href="{!concat(v.communityBaseUrl,'/s/')}" style = "color:blue; " >
+            NewsXtend Login
+        </a>
+    </p>
+</aura:component>

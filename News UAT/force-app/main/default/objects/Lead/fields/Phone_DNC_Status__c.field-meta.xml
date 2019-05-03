@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Phone_DNC_Status__c</fullName>
+    <description>Displays traffic light icons so that Agents can easily determine if a phone number is in DNC
+
+Uses the &#39;Phone Contactable&#39; formula field
+Works the same way as the DNC fields in Contact</description>
+    <externalId>false</externalId>
+    <formula>IF( 
+Phone_DNC_Is_Contactable__c = TRUE, 
+IMAGE(&#39;/img/func_icons/util/checkmark16.gif&#39;,&#39;&#39;,16,16) &amp; &quot; Washed @ &quot; &amp; TEXT(Phone_DNC_Washed_Date__c), 
+
+IF( 
+Phone_DNC_Is_Contactable__c = FALSE &amp;&amp; NOT ISBLANK(Phone_DNC_Washed_Date__c), 
+IMAGE(&#39;/img/func_icons/remove12.gif&#39;,&#39;&#39;,12,12) &amp; &quot; Washed @&quot; &amp; TEXT(Phone_DNC_Washed_Date__c), 
+
+IF( 
+Phone_DNC_Is_Contactable__c = FALSE &amp;&amp; ISBLANK(Phone_DNC_Washed_Date__c), 
+IMAGE(&#39;/img/func_icons/remove12.gif&#39;,&#39;&#39;,12,12) &amp; &quot; - But no washed date&quot;, 
+&quot;&quot; 
+) 
+) 
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Phone DNC Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

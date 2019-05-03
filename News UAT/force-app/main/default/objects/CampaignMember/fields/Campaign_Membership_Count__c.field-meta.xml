@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Campaign_Membership_Count__c</fullName>
+    <description>System-driven field to count the number of times a Member has been added in the campaign. For Retention and Contact Plans</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Members can be appear in Retention and Contact Plan campaigns multiple times</inlineHelpText>
+    <label>Campaign Membership Count</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

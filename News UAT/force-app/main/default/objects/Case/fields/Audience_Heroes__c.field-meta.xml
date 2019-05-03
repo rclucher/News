@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Audience_Heroes__c</fullName>
+    <description>Audience heroes which best describes your client&#39;s primary target audience</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Audience heroes which best describes your client&#39;s primary target audience (you can select more than one). If not sure, click the link to the right.</inlineHelpText>
+    <label>Audience Heroes</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>GRACE (Grocery Buying Mums w/ Kids 0-5)</fullName>
+                <default>false</default>
+                <label>GRACE (Grocery Buying Mums w/ Kids 0-5)</label>
+            </value>
+            <value>
+                <fullName>HENRY &amp; FRANCES (Over 65s)</fullName>
+                <default>false</default>
+                <label>HENRY &amp; FRANCES (Over 65s)</label>
+            </value>
+            <value>
+                <fullName>MRS SWINBURNE(GrocerBuyMumsw/Kids&lt;18)</fullName>
+                <default>false</default>
+                <label>MRS SWINBURNE(GrocerBuyMumsw/Kids&lt;18)</label>
+            </value>
+            <value>
+                <fullName>THE ROSS CLAN (Family w/ Children &lt;18)</fullName>
+                <default>false</default>
+                <label>THE ROSS CLAN (Family w/ Children &lt;18)</label>
+            </value>
+            <value>
+                <fullName>MARGARET (Female Empty Nester 25-54)</fullName>
+                <default>false</default>
+                <label>MARGARET (Female Empty Nester 25-54)</label>
+            </value>
+            <value>
+                <fullName>KENNETH (Male Sports Enthusiast 25-54)</fullName>
+                <default>false</default>
+                <label>KENNETH (Male Sports Enthusiast 25-54)</label>
+            </value>
+            <value>
+                <fullName>MEL &amp; BEN (25-54)</fullName>
+                <default>false</default>
+                <label>MEL &amp; BEN (25-54)</label>
+            </value>
+            <value>
+                <fullName>JOE &amp; KATE (Homeowners)</fullName>
+                <default>false</default>
+                <label>JOE &amp; KATE (Homeowners)</label>
+            </value>
+            <value>
+                <fullName>MATT (Passive Jobseeker)</fullName>
+                <default>false</default>
+                <label>MATT (Passive Jobseeker)</label>
+            </value>
+            <value>
+                <fullName>TIM (Male Grocery Buyer 25-54)</fullName>
+                <default>false</default>
+                <label>TIM (Male Grocery Buyer 25-54)</label>
+            </value>
+            <value>
+                <fullName>ROB (Men 25-54)</fullName>
+                <default>false</default>
+                <label>ROB (Men 25-54)</label>
+            </value>
+            <value>
+                <fullName>MIKE &amp; AMANDA (AB&#39;s)</fullName>
+                <default>false</default>
+                <label>MIKE &amp; AMANDA (AB&#39;s)</label>
+            </value>
+            <value>
+                <fullName>RENAE (Women 25-54)</fullName>
+                <default>false</default>
+                <label>RENAE (Women 25-54)</label>
+            </value>
+            <value>
+                <fullName>PAUL &amp; TESS (Homebuyers)</fullName>
+                <default>false</default>
+                <label>PAUL &amp; TESS (Homebuyers)</label>
+            </value>
+            <value>
+                <fullName>THE BRADSHAWS (Family/Car Buyers)</fullName>
+                <default>false</default>
+                <label>THE BRADSHAWS (Family/Car Buyers)</label>
+            </value>
+            <value>
+                <fullName>BELINDA (Female 25-39)</fullName>
+                <default>false</default>
+                <label>BELINDA (Female 25-39)</label>
+            </value>
+            <value>
+                <fullName>GEORGE &amp; ANNE (Baby Boomers)</fullName>
+                <default>false</default>
+                <label>GEORGE &amp; ANNE (Baby Boomers)</label>
+            </value>
+            <value>
+                <fullName>EDDIE &amp; JANE (Young People 18-24)</fullName>
+                <default>false</default>
+                <label>EDDIE &amp; JANE (Young People 18-24)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>10</visibleLines>
+</CustomField>

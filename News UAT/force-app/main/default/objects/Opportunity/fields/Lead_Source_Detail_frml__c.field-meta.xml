@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Source_Detail_frml__c</fullName>
+    <externalId>false</externalId>
+    <formula>Contact__r.Lead_Source_Detail__c</formula>
+    <inlineHelpText>From the Contact</inlineHelpText>
+    <label>Lead Source Detail</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Platform_Required_on_Oppty</fullName>
+    <active>false</active>
+    <description>When opportunity moves to Develop/Present Solution stage, the Opportunity Platform field becomes mandatory.</description>
+    <errorConditionFormula>AND(
+ISBLANK( OpportunityGroup__c ) = TRUE,
+OR(
+TEXT(StageName) = &quot;Develop/Present Solution&quot;,
+TEXT(StageName) = &quot;Review/Reaffirm Value&quot;,
+TEXT(StageName) = &quot;Confirmed/Awaiting Bookings&quot;,
+TEXT(StageName) = &quot;Closed Won&quot; )  )</errorConditionFormula>
+    <errorMessage>Opportunity Platform is required when the opportunity reaches the Develop/Present Solution stage to closed won. Please complete this field.</errorMessage>
+</ValidationRule>

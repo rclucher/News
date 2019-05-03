@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Type__c</fullName>
+    <description>Sub Type of Case</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Sub Type of Case</inlineHelpText>
+    <label>Sub Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Type</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Ad Content &amp; Design</fullName>
+                <default>false</default>
+                <label>Ad Content &amp; Design</label>
+            </value>
+            <value>
+                <fullName>AdPoint Reservations</fullName>
+                <default>false</default>
+                <label>AdPoint Reservations</label>
+            </value>
+            <value>
+                <fullName>Agent</fullName>
+                <default>false</default>
+                <label>Agent</label>
+            </value>
+            <value>
+                <fullName>Agreement</fullName>
+                <default>false</default>
+                <label>Agreement</label>
+            </value>
+            <value>
+                <fullName>Amend Booking</fullName>
+                <default>false</default>
+                <label>Amend Booking</label>
+            </value>
+            <value>
+                <fullName>Billing/Invoice (DRS)</fullName>
+                <default>false</default>
+                <label>Billing/Invoice (DRS)</label>
+            </value>
+            <value>
+                <fullName>Cancel Booking</fullName>
+                <default>false</default>
+                <label>Cancel Booking</label>
+            </value>
+            <value>
+                <fullName>Colour</fullName>
+                <default>false</default>
+                <label>Colour</label>
+            </value>
+            <value>
+                <fullName>Complaint</fullName>
+                <default>false</default>
+                <label>Complaint</label>
+            </value>
+            <value>
+                <fullName>Compliment</fullName>
+                <default>false</default>
+                <label>Compliment</label>
+            </value>
+            <value>
+                <fullName>Contract</fullName>
+                <default>false</default>
+                <label>Contract</label>
+            </value>
+            <value>
+                <fullName>Credit Application Enquiry</fullName>
+                <default>false</default>
+                <label>Credit Application Enquiry</label>
+            </value>
+            <value>
+                <fullName>Credit Limit Increase</fullName>
+                <default>false</default>
+                <label>Credit Limit Increase</label>
+            </value>
+            <value>
+                <fullName>Customer Spend Reduction</fullName>
+                <default>false</default>
+                <label>Customer Spend Reduction</label>
+            </value>
+            <value>
+                <fullName>Dept. of Fair Trading</fullName>
+                <default>false</default>
+                <label>Dept. of Fair Trading</label>
+            </value>
+            <value>
+                <fullName>Editorial</fullName>
+                <default>false</default>
+                <label>Editorial</label>
+            </value>
+            <value>
+                <fullName>Face-to-Face visit request</fullName>
+                <default>false</default>
+                <label>Face-to-Face visit request</label>
+            </value>
+            <value>
+                <fullName>Lapsed Portfolio Client</fullName>
+                <default>false</default>
+                <label>Lapsed Portfolio Client</label>
+            </value>
+            <value>
+                <fullName>Legal</fullName>
+                <default>false</default>
+                <label>Legal</label>
+            </value>
+            <value>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+                <label>Marketing</label>
+            </value>
+            <value>
+                <fullName>Material Instructions</fullName>
+                <default>false</default>
+                <label>Material Instructions</label>
+            </value>
+            <value>
+                <fullName>New Booking</fullName>
+                <default>false</default>
+                <label>New Booking</label>
+            </value>
+            <value>
+                <fullName>Online</fullName>
+                <default>false</default>
+                <label>Online</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Placement</fullName>
+                <default>false</default>
+                <label>Placement</label>
+            </value>
+            <value>
+                <fullName>Police</fullName>
+                <default>false</default>
+                <label>Police</label>
+            </value>
+            <value>
+                <fullName>Premedia - Cannot Resupply</fullName>
+                <default>false</default>
+                <label>Premedia - Cannot Resupply</label>
+            </value>
+            <value>
+                <fullName>Premedia - Incorrect Material</fullName>
+                <default>false</default>
+                <label>Premedia - Incorrect Material</label>
+            </value>
+            <value>
+                <fullName>Premedia - Late Material</fullName>
+                <default>false</default>
+                <label>Premedia - Late Material</label>
+            </value>
+            <value>
+                <fullName>Premedia - Size</fullName>
+                <default>false</default>
+                <label>Premedia - Size</label>
+            </value>
+            <value>
+                <fullName>Price/Product Enquiry</fullName>
+                <default>false</default>
+                <label>Price/Product Enquiry</label>
+            </value>
+            <value>
+                <fullName>Production</fullName>
+                <default>false</default>
+                <label>Production</label>
+            </value>
+            <value>
+                <fullName>Rates</fullName>
+                <default>false</default>
+                <label>Rates</label>
+            </value>
+            <value>
+                <fullName>Readership and Circulation</fullName>
+                <default>false</default>
+                <label>Readership and Circulation</label>
+            </value>
+            <value>
+                <fullName>Response</fullName>
+                <default>false</default>
+                <label>Response</label>
+            </value>
+            <value>
+                <fullName>Shape</fullName>
+                <default>false</default>
+                <label>Shape</label>
+            </value>
+            <value>
+                <fullName>Size</fullName>
+                <default>false</default>
+                <label>Size</label>
+            </value>
+            <value>
+                <fullName>Tearsheets</fullName>
+                <default>false</default>
+                <label>Tearsheets</label>
+            </value>
+            <value>
+                <fullName>Verify Digital Availability</fullName>
+                <default>false</default>
+                <label>Verify Digital Availability</label>
+            </value>
+            <value>
+                <fullName>Verify Print Availability</fullName>
+                <default>false</default>
+                <label>Verify Print Availability</label>
+            </value>
+            <value>
+                <fullName>Verify Print &amp; Digital Availability</fullName>
+                <default>false</default>
+                <label>Verify Print &amp; Digital Availability</label>
+            </value>
+            <value>
+                <fullName>Account Set Up/Credit Application</fullName>
+                <default>false</default>
+                <label>Account Set Up/Credit Application</label>
+            </value>
+            <value>
+                <fullName>Create/Update Schedule ​</fullName>
+                <default>false</default>
+                <label>Create/Update Schedule ​</label>
+            </value>
+            <value>
+                <fullName>Create/Update Proposal</fullName>
+                <default>false</default>
+                <label>Create/Update Proposal</label>
+            </value>
+            <value>
+                <fullName>Create Digital Booking</fullName>
+                <default>false</default>
+                <label>Create Digital Booking</label>
+            </value>
+            <value>
+                <fullName>Create Print Booking</fullName>
+                <default>false</default>
+                <label>Create Print Booking</label>
+            </value>
+            <value>
+                <fullName>Create Print &amp; Digital Booking</fullName>
+                <default>false</default>
+                <label>Create Print &amp; Digital Booking</label>
+            </value>
+            <value>
+                <fullName>Modify Digital Booking</fullName>
+                <default>false</default>
+                <label>Modify Digital Booking</label>
+            </value>
+            <value>
+                <fullName>Modify Print Booking</fullName>
+                <default>false</default>
+                <label>Modify Print Booking</label>
+            </value>
+            <value>
+                <fullName>Cancel Print Booking</fullName>
+                <default>false</default>
+                <label>Cancel Print Booking</label>
+            </value>
+            <value>
+                <fullName>Cancel Digital Booking</fullName>
+                <default>false</default>
+                <label>Cancel Digital Booking</label>
+            </value>
+            <value>
+                <fullName>Cancel Print &amp; Digital Booking</fullName>
+                <default>false</default>
+                <label>Cancel Print &amp; Digital Booking</label>
+            </value>
+            <value>
+                <fullName>Chase client payment</fullName>
+                <default>false</default>
+                <label>Chase client payment</label>
+            </value>
+            <value>
+                <fullName>Coordinate Ad Creative</fullName>
+                <default>false</default>
+                <label>Coordinate Ad Creative</label>
+            </value>
+            <value>
+                <fullName>Coordinate Layouts</fullName>
+                <default>false</default>
+                <label>Coordinate Layouts</label>
+            </value>
+            <value>
+                <fullName>Communicate or confirm layouts</fullName>
+                <default>false</default>
+                <label>Communicate or confirm layouts</label>
+            </value>
+            <value>
+                <fullName>Materiel Instructions</fullName>
+                <default>false</default>
+                <label>Materiel Instructions</label>
+            </value>
+            <value>
+                <fullName>Positioning</fullName>
+                <default>false</default>
+                <label>Positioning</label>
+            </value>
+            <value>
+                <fullName>Digital Campaign Optimisation</fullName>
+                <default>false</default>
+                <label>Digital Campaign Optimisation</label>
+            </value>
+            <value>
+                <fullName>Post-campaign analysis</fullName>
+                <default>false</default>
+                <label>Post-campaign analysis</label>
+            </value>
+            <value>
+                <fullName>Review bookings pre-go-live</fullName>
+                <default>false</default>
+                <label>Review bookings pre-go-live</label>
+            </value>
+            <value>
+                <fullName>Collate Tearsheets/Screenshots</fullName>
+                <default>false</default>
+                <label>Collate Tearsheets/Screenshots</label>
+            </value>
+            <value>
+                <fullName>Liaise Internal Department</fullName>
+                <default>false</default>
+                <label>Liaise Internal Department</label>
+            </value>
+            <value>
+                <fullName>Sales Reporting</fullName>
+                <default>false</default>
+                <label>Sales Reporting</label>
+            </value>
+            <value>
+                <fullName>Client Communication</fullName>
+                <default>false</default>
+                <label>Client Communication</label>
+            </value>
+            <value>
+                <fullName>Real Estate Non-Booking</fullName>
+                <default>false</default>
+                <label>Real Estate Non-Booking</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Referral for Field Sales</controllingFieldValue>
+            <valueName>Face-to-Face visit request</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Referral for Field Sales</controllingFieldValue>
+            <controllingFieldValue>Referral for Direct Sales</controllingFieldValue>
+            <valueName>Price/Product Enquiry</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Referral for Direct Sales</controllingFieldValue>
+            <valueName>Customer Spend Reduction</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Referral for Direct Sales</controllingFieldValue>
+            <valueName>Lapsed Portfolio Client</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NX Booking</controllingFieldValue>
+            <controllingFieldValue>Advertising</controllingFieldValue>
+            <valueName>Cancel Booking</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NX Booking</controllingFieldValue>
+            <controllingFieldValue>Advertising</controllingFieldValue>
+            <valueName>New Booking</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pre Sales</controllingFieldValue>
+            <valueName>Verify Digital Availability</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pre Sales</controllingFieldValue>
+            <valueName>Verify Print Availability</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pre Sales</controllingFieldValue>
+            <valueName>Verify Print &amp; Digital Availability</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pre Sales</controllingFieldValue>
+            <valueName>Account Set Up/Credit Application</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pre Sales</controllingFieldValue>
+            <valueName>Create/Update Schedule ​</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pre Sales</controllingFieldValue>
+            <valueName>Create/Update Proposal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Booking</controllingFieldValue>
+            <valueName>Create Digital Booking</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Booking</controllingFieldValue>
+            <valueName>Create Print Booking</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Booking</controllingFieldValue>
+            <valueName>Create Print &amp; Digital Booking</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Booking</controllingFieldValue>
+            <valueName>Modify Digital Booking</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Booking</controllingFieldValue>
+            <valueName>Modify Print Booking</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Booking</controllingFieldValue>
+            <valueName>Cancel Print Booking</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Booking</controllingFieldValue>
+            <valueName>Cancel Digital Booking</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Booking</controllingFieldValue>
+            <valueName>Cancel Print &amp; Digital Booking</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Booking</controllingFieldValue>
+            <valueName>Chase client payment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fulfilment</controllingFieldValue>
+            <valueName>Coordinate Ad Creative</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fulfilment</controllingFieldValue>
+            <valueName>Coordinate Layouts</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fulfilment</controllingFieldValue>
+            <valueName>Communicate or confirm layouts</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fulfilment</controllingFieldValue>
+            <valueName>Materiel Instructions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fulfilment</controllingFieldValue>
+            <controllingFieldValue>Advertising</controllingFieldValue>
+            <valueName>Positioning</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Campaign Management</controllingFieldValue>
+            <valueName>Digital Campaign Optimisation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Campaign Management</controllingFieldValue>
+            <valueName>Post-campaign analysis</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Campaign Management</controllingFieldValue>
+            <valueName>Review bookings pre-go-live</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Campaign Management</controllingFieldValue>
+            <valueName>Collate Tearsheets/Screenshots</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Feedback</controllingFieldValue>
+            <valueName>AdPoint Reservations</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Feedback</controllingFieldValue>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Complaint</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Feedback</controllingFieldValue>
+            <valueName>Compliment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>Liaise Internal Department</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>Sales Reporting</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>Client Communication</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <valueName>Real Estate Non-Booking</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Advertising</controllingFieldValue>
+            <valueName>Amend Booking</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Advertising</controllingFieldValue>
+            <valueName>Material Instructions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Advertising</controllingFieldValue>
+            <valueName>Tearsheets</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Credit Application</controllingFieldValue>
+            <controllingFieldValue>RFP</controllingFieldValue>
+            <controllingFieldValue>Direct Debit Application</controllingFieldValue>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <controllingFieldValue>Customer Enquiry</controllingFieldValue>
+            <controllingFieldValue>Accounts/Credit (DRS)</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Ad Content &amp; Design</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Agent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Colour</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Editorial</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Placement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Premedia - Cannot Resupply</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Premedia - Incorrect Material</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Premedia - Late Material</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Premedia - Size</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Production</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Response</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Shape</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Size</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Customer Enquiry</controllingFieldValue>
+            <controllingFieldValue>Accounts/Credit (DRS)</controllingFieldValue>
+            <valueName>Contract</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Customer Enquiry</controllingFieldValue>
+            <valueName>Legal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Customer Enquiry</controllingFieldValue>
+            <valueName>Marketing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Customer Enquiry</controllingFieldValue>
+            <valueName>Rates</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Customer Enquiry</controllingFieldValue>
+            <valueName>Readership and Circulation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Official Enquiry</controllingFieldValue>
+            <valueName>Dept. of Fair Trading</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Official Enquiry</controllingFieldValue>
+            <valueName>Police</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>OSCA</controllingFieldValue>
+            <valueName>Online</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Accounts/Credit (DRS)</controllingFieldValue>
+            <valueName>Agreement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Accounts/Credit (DRS)</controllingFieldValue>
+            <valueName>Billing/Invoice (DRS)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Accounts/Credit (DRS)</controllingFieldValue>
+            <valueName>Credit Application Enquiry</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Accounts/Credit (DRS)</controllingFieldValue>
+            <valueName>Credit Limit Increase</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

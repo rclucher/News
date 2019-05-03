@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CSPOFA__Orchestration_Step_Close_Reason__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Orchestration Step Close Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Completed successfully</fullName>
+                <default>false</default>
+                <label>Completed successfully</label>
+            </value>
+            <value>
+                <fullName>Could not be completed</fullName>
+                <default>false</default>
+                <label>Could not be completed</label>
+            </value>
+            <value>
+                <fullName>Resolved</fullName>
+                <default>false</default>
+                <label>Resolved</label>
+            </value>
+            <value>
+                <fullName>Cannot Fix</fullName>
+                <default>false</default>
+                <label>Cannot Fix</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

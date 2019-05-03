@@ -1,0 +1,5 @@
+({
+	fireFormSubmit : function(component) {
+
+	}
+})

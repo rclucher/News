@@ -1,0 +1,9 @@
+<apex:page controller="CS_QuestionsDownload_Controller" action="{!Init}" cache="true" contentType="text/csv#AllQuestions.csv" title="Saving to file..." language="en-US">
+
+Extracted by {!mp_UserName} on {!mp_Timestamp}
+
+'Section', 'Question', 'Active?'
+<apex:repeat value="{!mp_liQuestions}" var="q" >
+{!q.Section__c},{!q.Question_Text__c},{!q.isActive__c}
+</apex:repeat>
+</apex:page>

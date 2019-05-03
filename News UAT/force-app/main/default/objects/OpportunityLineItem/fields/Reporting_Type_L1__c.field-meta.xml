@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reporting_Type_L1__c</fullName>
+    <description>Field is used for reporting to filter target vs forecast 
+Another field Type L2 is used to filter forecast to - booked vs pipeline.</description>
+    <externalId>false</externalId>
+    <formula>IF(CONTAINS(PricebookEntry.Product2.Name, &quot;Target&quot;),
+  &quot;Target&quot;,
+  IF(CONTAINS(PricebookEntry.Product2.Name, &quot;Walk-In&quot;),
+    &quot;Forecast&quot;,
+    IF(Opportunity.Count_Sales_Order_Line_Item__c &gt;=1, &quot;Forecast&quot;, &quot;Forecast&quot;)
+
+  /* Essentially all opportunity lines are considered &#39;forecast&#39;. Reporting Type 2 - allows a finer categorisation between booked vs actual */
+  )
+)</formula>
+    <label>Reporting Type L1</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

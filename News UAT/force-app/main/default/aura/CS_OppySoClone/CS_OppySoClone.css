@@ -1,0 +1,11 @@
+.THIS.slds-spinner_container{
+	position: static !important;
+}
+
+.THIS .slds-notify_container{
+	position: relative !important;
+}
+
+.THIS .instructionText{
+	color: grey;
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Acquisition_Members_to_Call__c</fullName>
+    <description>For Reports - all members including ones that are DNC</description>
+    <externalId>false</externalId>
+    <label>Total Acquisition Members to Call</label>
+    <summaryForeignKey>CampaignMember.CampaignId</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <type>Summary</type>
+</CustomField>

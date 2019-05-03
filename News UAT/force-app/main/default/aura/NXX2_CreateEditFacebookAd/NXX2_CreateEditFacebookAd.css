@@ -1,0 +1,203 @@
+.THIS .Message-container{
+    padding: 20px;
+    text-align: center;
+}
+.THIS .slds-form-element{
+    padding : 10px;
+    border-bottom: solid 1px lightgray;
+}
+.THIS .question-title{
+    font-size: 20px;
+    font-weight: bolder;
+    color: #535962;
+    display: block;
+}
+.THIS .question-count{
+    border-radius: 50%;
+    border: 1px solid #666;
+    display: inline-block;
+    height: 32px;
+    margin-right: 1em;
+    text-align: center;
+    width: 32px;
+}
+.THIS .slds-form-element__control{
+    font-size: 16px;
+    color: #555555;
+}
+.THIS .answer-container .slds-form-element{
+    padding : 10px 0px;
+    border-bottom: none;
+}
+.THIS .answer-container .slds-form-element__label{
+    display:none;
+}
+.THIS .adContent-container .slds-form-element__label{
+    font-size: 16px;
+    color: #535962;
+    font-weight: bold;
+}
+.THIS .adContent-container input{
+    padding: 6px 12px;
+    font-size: 16px;
+    color: #555555;
+}
+.THIS .adContent-container .slds-form-element{
+    border-bottom: none;
+}
+.THIS .button-container-footer{
+    text-align : right;
+}
+.THIS .button-container-footer .slds-button_neutral{
+    color: #333;
+    font-size: 16px;
+}
+.THIS .button-container-footer .slds-button_success{
+    color: #fff;
+    background-color: #535962;
+    border-color: #474c54;
+    font-size: 16px;
+}
+.THIS .file-counter{
+    padding-left : 40px;
+}
+.THIS .file-counter li{
+    color: #333;
+    border: solid 1px #adadad;
+    border-right: none;
+    display: inline-block;
+    padding: 2px;
+    font-size: 16px;
+    cursor: pointer;
+    height: 40px;
+    line-height: 32px;
+    text-align: center;
+    width: 40px;
+}
+.THIS .file-counter li img{
+    height : 100%;
+}
+.THIS .file-counter li:hover{
+    opacity: 0.8;
+}
+.THIS .file-counter li:first-child{
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.THIS .file-counter li:last-child{
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-right : solid 1px #adadad;
+}
+.THIS .file-counter li.active{
+    background-color: #e6e6e6;
+    box-shadow : inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    cursor:default;
+    pointer-events: none;
+}
+/*.THIS .slds-file-selector__dropzone{
+width: 150px;
+height: 150px;
+}
+.THIS .slds-file-selector__button{
+position: absolute;
+bottom: 20px;
+}
+.THIS .slds-file-selector__text{
+padding-top: 40px;
+width: 100%;
+text-align: center;
+}*/
+.THIS .sub-details-container{
+    padding : 10px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.THIS .sub-details-container .upload-image-section{
+    display: inline-block;
+    border: dashed 2px lightgray;
+    padding: 5px;
+    margin-left: 10px;
+    text-align: center;
+}
+.THIS .sub-details-container .remove-image-icon-container{
+    text-align: right;
+    min-height: 20px;
+}
+.THIS .sub-details-container .remove-image-icon-container .slds-icon{
+    fill : #d9534f;
+}
+.THIS .sub-details-container .image-preview-container div{
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    padding-top: 60px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: lightgray;
+}
+.THIS .sub-details-container .image-preview-container img{
+    width: 150px;
+    height: auto;
+    max-height: 200px;
+}
+.THIS .sub-details-container .remove-sub-detail{
+    font-size: 16px;
+    color: #535962;
+    display: inline;
+    position: absolute;
+    right: 20px;
+    cursor:pointer;
+}
+.THIS .sub-details-container .remove-sub-detail:hover{
+    opacity : 0.8;
+    text-decoration: underline;
+}
+.THIS .sub-details-container .slds-form-element__label{
+    display : none;
+}
+.THIS .sub-details-button-container .slds-form-element__label{
+    display : inline;
+}
+.THIS.edit .select-ad-type select,.THIS.edit .select-creative-type select{
+    background: lightgray;
+    pointer-events: none;
+}
+.THIS .version-number-container{
+    display: inline-block;
+    padding: 5px 10px;
+    background: black;
+    margin: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+}
+.THIS .slds-file-selector__dropzone{
+        height: 150px;
+    width: 200px;
+}
+.THIS .slds-file-selector__dropzone .slds-file-selector__body{
+    display : block;
+}
+.THIS .slds-file-selector__dropzone .slds-file-selector__button{
+    display: block;
+    padding: 0;
+}
+.THIS .slds-file-selector__dropzone .slds-file-selector__text{
+    display: block;
+    text-align: center;
+    padding-top: 50px;
+}
+.THIS .slds-file-selector__dropzone slot{
+    display : block;
+}
+.THIS .CharCount{
+    right: 10px;
+    padding: 10px 15px;
+    position: absolute;
+    color: lightgray;
+}

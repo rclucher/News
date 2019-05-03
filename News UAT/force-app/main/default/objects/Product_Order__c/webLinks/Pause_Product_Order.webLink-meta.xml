@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pause_Product_Order</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Pause Product Order</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)} 
+
+
+if(confirm(&quot;Are you sure you want to pause this product?&quot;)) {
+if (&quot;{!Product_Order__c.Status__c}&quot; == &quot;Pending For Pause&quot; || &quot;{!Product_Order__c.Status__c}&quot; == &quot;Paused&quot;) { 
+alert (&quot;Product is already paused.&quot;); }
+else {
+var p = new sforce.SObject(&#39;Product_Order__c&#39;); 
+p.id = &quot;{!Product_Order__c.Id}&quot;; 
+p.Status__c = &quot;Pending For Pause&quot;; 
+result = sforce.connection.update([p]); 
+location.reload(true);
+}
+}</url>
+</WebLink>

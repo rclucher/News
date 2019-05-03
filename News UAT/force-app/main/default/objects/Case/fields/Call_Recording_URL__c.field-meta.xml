@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Call_Recording_URL__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&quot;http://nsgshscrhub01/ultra/DynaAsp/vCRMQuery.aspx?STime=01/01/2010%2000:00:00&amp;ETime=01/01/2099%2000:00:00&amp;world=ETM&amp;switchcallid=&quot; &amp; Call_ID__c, &quot;Open Call Recording&quot;, &quot;_blank&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Call Recording URL</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

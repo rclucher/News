@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Aborted</fullName>
+                <default>false</default>
+                <label>Aborted</label>
+            </value>
+            <value>
+                <fullName>Cannot Be Met</fullName>
+                <default>false</default>
+                <label>Cannot Be Met</label>
+            </value>
+            <value>
+                <fullName>Done</fullName>
+                <default>false</default>
+                <label>Done</label>
+            </value>
+            <value>
+                <fullName>Information Only</fullName>
+                <default>false</default>
+                <label>Information Only</label>
+            </value>
+            <value>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+                <label>In Progress</label>
+            </value>
+            <value>
+                <fullName>Lockdown</fullName>
+                <default>false</default>
+                <label>Lockdown</label>
+            </value>
+            <value>
+                <fullName>New</fullName>
+                <default>true</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>Not A Requirement</fullName>
+                <default>false</default>
+                <label>Not A Requirement</label>
+            </value>
+            <value>
+                <fullName>Open Issue Remains</fullName>
+                <default>false</default>
+                <label>Open Issue Remains</label>
+            </value>
+            <value>
+                <fullName>Pending Review</fullName>
+                <default>false</default>
+                <label>Pending Review</label>
+            </value>
+            <value>
+                <fullName>Ready For Build</fullName>
+                <default>false</default>
+                <label>Ready For Build</label>
+            </value>
+            <value>
+                <fullName>Ready for Deploy</fullName>
+                <default>false</default>
+                <label>Ready for Deploy</label>
+            </value>
+            <value>
+                <fullName>Ready For Test</fullName>
+                <default>false</default>
+                <label>Ready For Test</label>
+            </value>
+            <value>
+                <fullName>Re-work Requireed</fullName>
+                <default>false</default>
+                <label>Re-work Requireed</label>
+            </value>
+            <value>
+                <fullName>Waiting on Business</fullName>
+                <default>false</default>
+                <label>Waiting on Business</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

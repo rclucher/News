@@ -1,0 +1,1358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>ACTION_REQUIRED_opportunity_name_requires_News_Xtend_Briefing_Form</fullName>
+        <description>ACTION_REQUIRED_opportunity_name_requires_News_Xtend_Briefing_Form</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>News_Xtend/ACTION_REQUIRED_opportunity_name_requires_News_Xtend_Briefing_Form</template>
+    </alerts>
+    <alerts>
+        <fullName>NLM_Email_Opportunity_Team_Closed_Lost</fullName>
+        <description>NLM Email Opportunity Team - Closed Lost</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>NLM Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services Traffic Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Digital Product Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Implementation Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Insights</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Lead Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Operations</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Sales Producer</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>NLM_Email_Templates/NLM_CS_Briefing_Closed_Lost</template>
+    </alerts>
+    <alerts>
+        <fullName>NLM_Email_Opportunity_Team_Closed_Won</fullName>
+        <description>NLM Email Opportunity Team - Closed Won</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>NLM Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services Traffic Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Digital Product Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Implementation Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Insights</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Lead Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Operations</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Sales Producer</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>NLM_Email_Templates/NLM_Creative_Services_Briefing_100</template>
+    </alerts>
+    <alerts>
+        <fullName>NLM_Email_to_Opportunity_Team_90_win_probability</fullName>
+        <description>NLM Email to Opportunity Team - 90% win probability</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>NLM Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services Traffic Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Digital Product Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Implementation Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Insights</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Lead Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Operations</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Sales Producer</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>NLM_Email_Templates/NLM_Creative_Services_Briefing_90</template>
+    </alerts>
+    <alerts>
+        <fullName>NLM_Opportunity_Email_Alert_to_BS_Manager_Submit_for_Approval</fullName>
+        <description>NLM Opportunity Email Alert to BS Manager - Submit for Approval</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>NLM Lead Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>NLM_Email_Templates/NLM_CS_Briefing_Submit_for_Approval</template>
+    </alerts>
+    <alerts>
+        <fullName>NLM_Opportunity_Email_Alert_to_CS_Manager_Submit_for_Approval</fullName>
+        <description>NLM Opportunity Email Alert to CS Manager - Submit for Approval</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>NLM Creative Services Traffic Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>NLM_Email_Templates/NLM_CS_Briefing_Submit_for_Approval</template>
+    </alerts>
+    <alerts>
+        <fullName>NLM_Opportunity_Email_Alert_to_Opportunity_Owner_Approved</fullName>
+        <description>NLM Opportunity Email Alert to Opportunity Owner - Approved</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>NLM_Email_Templates/NLM_Creative_Services_Briefing_Approved</template>
+    </alerts>
+    <alerts>
+        <fullName>NLM_Opportunity_Email_Alert_to_Opportunity_Owner_Rejected</fullName>
+        <description>NLM Opportunity Email Alert to Opportunity Owner - Rejected</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>NLM_Email_Templates/NLM_Creative_Services_Briefing_Rejected</template>
+    </alerts>
+    <alerts>
+        <fullName>NLM_Opportunity_Email_Alert_to_Opportunity_Team_Approved</fullName>
+        <description>NLM Opportunity Email Alert to Opportunity Team - Approved</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>NLM Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services Traffic Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Digital Product Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Implementation Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Insights</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Lead Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Operations</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Sales Producer</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>NLM_Email_Templates/NLM_Creative_Services_Briefing_Approved</template>
+    </alerts>
+    <alerts>
+        <fullName>NLM_Opportunity_Email_Alert_to_Opportunity_Team_Rejected</fullName>
+        <description>NLM Opportunity Email Alert to Opportunity Team - Rejected</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>NLM Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services Traffic Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Digital Product Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Implementation Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Insights</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Lead Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Operations</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Sales Producer</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>NLM_Email_Templates/NLM_Creative_Services_Briefing_Rejected</template>
+    </alerts>
+    <alerts>
+        <fullName>NLM_Opportunity_Email_Alert_to_Opportunity_Team_no_BS_Approved</fullName>
+        <description>NLM Opportunity Email Alert to Opportunity Team (no BS) - Approved</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>NLM Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services Traffic Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Digital Product Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Implementation Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Insights</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Operations</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Sales Producer</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>NLM_Email_Templates/NLM_Creative_Services_Briefing_Approved</template>
+    </alerts>
+    <alerts>
+        <fullName>NLM_Opportunity_Email_Alert_to_Opportunity_Team_no_BS_Rejected</fullName>
+        <description>NLM Opportunity Email Alert to Opportunity Team (no BS) - Rejected</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>NLM Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services Traffic Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Digital Product Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Implementation Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Insights</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Operations</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Sales Producer</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>NLM_Email_Templates/NLM_Creative_Services_Briefing_Rejected</template>
+    </alerts>
+    <alerts>
+        <fullName>NLM_Opportunity_Email_Alert_to_Opportunity_Team_no_BS_Submit_for_Approval</fullName>
+        <description>NLM Opportunity Email Alert to Opportunity Team (no BS) - Submit for Approval</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>NLM Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services Traffic Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Digital Product Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Implementation Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Insights</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Operations</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Sales Producer</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>NLM_Email_Templates/NLM_CS_Briefing_Submit_for_Approval</template>
+    </alerts>
+    <alerts>
+        <fullName>NLM_Opportunity_Email_Alert_to_Opportunity_Team_no_CS_Approved</fullName>
+        <description>NLM Opportunity Email Alert to Opportunity Team (no CS) - Approved</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>NLM Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Digital Product Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Implementation Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Insights</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Lead Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Operations</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Sales Producer</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>NLM_Email_Templates/NLM_Creative_Services_Briefing_Approved</template>
+    </alerts>
+    <alerts>
+        <fullName>NLM_Opportunity_Email_Alert_to_Opportunity_Team_no_CS_Rejected</fullName>
+        <description>NLM Opportunity Email Alert to Opportunity Team (no CS) - Rejected</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>NLM Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Digital Product Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Implementation Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Insights</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Lead Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Operations</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Sales Producer</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>NLM_Email_Templates/NLM_Creative_Services_Briefing_Rejected</template>
+    </alerts>
+    <alerts>
+        <fullName>NLM_Opportunity_Email_Alert_to_Opportunity_Team_no_CS_Submit_for_Approval</fullName>
+        <description>NLM Opportunity Email Alert to Opportunity Team (no CS) - Submit for Approval</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>NLM Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Digital Product Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Implementation Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Insights</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Lead Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Operations</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Sales Producer</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>NLM_Email_Templates/NLM_CS_Briefing_Submit_for_Approval</template>
+    </alerts>
+    <alerts>
+        <fullName>NLM_Opportunity_Email_Alert_to_Opportunity_Team_no_Ops_Approved</fullName>
+        <description>NLM Opportunity Email Alert to Opportunity Team (no Ops) - Approved</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>NLM Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services Traffic Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Digital Product Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Implementation Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Insights</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Lead Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Sales Producer</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>NLM_Email_Templates/NLM_Creative_Services_Briefing_Approved</template>
+    </alerts>
+    <alerts>
+        <fullName>NLM_Opportunity_Email_Alert_to_Opportunity_Team_no_Ops_Rejected</fullName>
+        <description>NLM Opportunity Email Alert to Opportunity Team (no Ops) - Rejected</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>NLM Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services Traffic Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Digital Product Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Implementation Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Insights</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Lead Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Sales Producer</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>NLM_Email_Templates/NLM_Creative_Services_Briefing_Rejected</template>
+    </alerts>
+    <alerts>
+        <fullName>NLM_Opportunity_Email_Alert_to_Opportunity_Team_no_Ops_Submit_for_Approval</fullName>
+        <description>NLM Opportunity Email Alert to Opportunity Team (no Ops) - Submit for Approval</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>NLM Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Creative Services Traffic Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Digital Product Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Implementation Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Insights</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Lead Brand Strategy Manager</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <recipients>
+            <recipient>NLM Sales Producer</recipient>
+            <type>opportunityTeam</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>NLM_Email_Templates/NLM_CS_Briefing_Submit_for_Approval</template>
+    </alerts>
+    <alerts>
+        <fullName>New_Account_Credit_Check</fullName>
+        <description>New Account Credit Check</description>
+        <protected>false</protected>
+        <recipients>
+            <type>accountOwner</type>
+        </recipients>
+        <recipients>
+            <recipient>Finance</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>NextGen/Account_Credit_Check</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>ClearOut_Has_Approved_SO</fullName>
+        <field>Has_an_Approved_SO__c</field>
+        <literalValue>0</literalValue>
+        <name>ClearOut Has Approved SO</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>NLM_Oppty_Mgmt_RT_Approvals</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>NLM_Management_Approvals</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>NLM Oppty Mgmt RT Approvals</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>NLM_Oppty_Mgmt_RT_No_Approvals</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>NLM_Management</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>NLM Oppty Mgmt RT No Approvals</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>NLM_Oppty_Trade_Mkt_RT_Approvals</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>NLM_Trade_Marketing_Approvals</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>NLM Oppty Trade Mkt RT Approvals</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>NLM_Oppty_Trade_Mkt_RT_No_Approvals</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>NLM_Trade_Marketing</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>NLM Oppty Trade Mkt RT No Approvals</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opty_Push_Counter</fullName>
+        <description>Increment the Push Counter by 1</description>
+        <field>Push_Counter__c</field>
+        <formula>IF( 
+ISNULL( Push_Counter__c ), 
+1, 
+Push_Counter__c + 1 
+)</formula>
+        <name>Opty Push Counter</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opty_StageChange_to_Probability_05pc</fullName>
+        <description>Update probability to 5%</description>
+        <field>Probability</field>
+        <formula>0.05</formula>
+        <name>Opty -StageChange to Probability 05pc</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opty_StageChange_to_Probability_20pc</fullName>
+        <description>Update probability to 20pc</description>
+        <field>Probability</field>
+        <formula>0.20</formula>
+        <name>Opty -StageChange to Probability 20pc</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opty_StageChange_to_Probability_40pc</fullName>
+        <description>Update probability to 40%</description>
+        <field>Probability</field>
+        <formula>0.40</formula>
+        <name>Opty -StageChange to Probability 40pc</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opty_StageChange_to_Probability_60pc</fullName>
+        <description>Update probability to 60%</description>
+        <field>Probability</field>
+        <formula>0.60</formula>
+        <name>Opty -StageChange to Probability 60pc</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opty_UpdateRecordType_Brief</fullName>
+        <description>Update recordtype to brief</description>
+        <field>RecordTypeId</field>
+        <lookupValue>Brief</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Opty -UpdateRecordType -Brief</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opty_UpdateRecordType_Contract</fullName>
+        <description>Update recordtype to Contract</description>
+        <field>RecordTypeId</field>
+        <lookupValue>Contractual_Negotiation</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Opty -UpdateRecordType -Contract</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opty_UpdateRecordType_Historical</fullName>
+        <description>Updates recordtype</description>
+        <field>RecordTypeId</field>
+        <lookupValue>Historical</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Opty -UpdateRecordType -Historical</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opty_UpdateRecordType_LateSpace</fullName>
+        <description>Update recordtype to latespace</description>
+        <field>RecordTypeId</field>
+        <lookupValue>Late_Space</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Opty -UpdateRecordType -LateSpace</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opty_UpdateRecordType_MultiChannel</fullName>
+        <description>Update recordtype</description>
+        <field>RecordTypeId</field>
+        <lookupValue>Multi_Channel</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Opty -UpdateRecordType -MultiChannel</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opty_UpdateRecordType_Proactive</fullName>
+        <description>Update recordtype</description>
+        <field>RecordTypeId</field>
+        <lookupValue>Proactive</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Opty -UpdateRecordType -Proactive</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opty_UpdateRecordType_Promotions</fullName>
+        <description>Update recordtype to promotions</description>
+        <field>RecordTypeId</field>
+        <lookupValue>Promotions</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Opty -UpdateRecordType -Promotions</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opty_UpdateRecordType_Self_Service</fullName>
+        <description>Update recordtype</description>
+        <field>RecordTypeId</field>
+        <lookupValue>Self_Service</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Opty -UpdateRecordType -Self Service</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opty_UpdateRecordType_Synergy_Transitn</fullName>
+        <description>Update record type</description>
+        <field>Opportunity_Type__c</field>
+        <literalValue>Synergy Transition</literalValue>
+        <name>Opty -UpdateRecordType -Synergy Transitn</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opty_UpdateRecordType_Walk_In</fullName>
+        <description>Update recordtype</description>
+        <field>RecordTypeId</field>
+        <lookupValue>Walk_In</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Opty -UpdateRecordType -Walk-In</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Opty_UpdateRecordType_Walk_In_Forecast</fullName>
+        <field>Opportunity_Type__c</field>
+        <literalValue>Walk-In Forecast</literalValue>
+        <name>Opty -UpdateRecordType -Walk-In Forecast</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Uncheck_Campaign_Brief_Complete_Checkbox</fullName>
+        <description>Uncheck Campaign Brief Complete Checkbox</description>
+        <field>Campaign_Brief_Form_Completed__c</field>
+        <literalValue>0</literalValue>
+        <name>Uncheck Campaign Brief Complete Checkbox</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Campaign_Start_Date_Changed_Chkbx</fullName>
+        <field>Is_Campaign_Start_Date_Changed__c</field>
+        <literalValue>1</literalValue>
+        <name>Update Campaign Start Date Changed Chkbx</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Close_Date_Changed_Checkbox</fullName>
+        <field>Is_Close_Date_Changed__c</field>
+        <literalValue>1</literalValue>
+        <name>Update Close Date Changed Checkbox</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_NLM_Brief_Opportunity_Record_Type</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>NLM_Brief_Approvals</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>NLM Oppty Brief RT Approvals</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_NLM_Brief_Oppy_RT_to_NLM_Brief</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>NLM_Brief</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>NLM Oppty Brief RT No Approvals</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_NLM_Proac_Opportunity_Record_Type</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>NLM_Proactive_Approvals</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>NLM Oppty Proac RT Approvals</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_NLM_Proac_Oppy_RT_to_NLM_Proac</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>NLM_Proactive</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>NLM Oppty Proac RT No Approvals</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Owner_Current_Role_Opportunity</fullName>
+        <description>Owner current role reflected in the opportunity</description>
+        <field>OwnerCurrentRole__c</field>
+        <formula>Owner.UserRole.Name</formula>
+        <name>Update Owner Current Role (Opportunity)</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>Clear Campaign Brief Complete Checkbox On Cloned Opportunity</fullName>
+        <actions>
+            <name>Uncheck_Campaign_Brief_Complete_Checkbox</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.Campaign_Brief_Form_Completed__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>Clear Campaign Brief Complete Checkbox when an opportunity gets cloned</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>NLM Brief Opportunity Update for approvals</fullName>
+        <actions>
+            <name>Update_NLM_Brief_Opportunity_Record_Type</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Updates the NLM Opportunity record types to allow KAM&#39;s to submit for approval</description>
+        <formula>AND(   $Setup.NLM_Global_Settings__c.Fire_NLM_Workflows__c,     (RecordType.Name = &#39;NLM Brief&#39;),  (   (NLM_Opportunity_Team_Member_1__c &lt;&gt; NULL ||    NLM_Opportunity_Team_Member_1__c &lt;&gt; &#39;&#39; ||    NLM_Opportunity_Team_Member_2__c &lt;&gt; NULL ||    NLM_Opportunity_Team_Member_2__c &lt;&gt; &#39;&#39;) &amp;&amp;     (      ISPICKVAL(StageName, &#39;Submit Opportunity for BS Approval&#39;) ||      ISPICKVAL(StageName, &#39;Submit to BS for final concept approval&#39;)      ) ) ||  (   (NLM_Opportunity_Team_Member_3__c &lt;&gt; NULL ||    NLM_Opportunity_Team_Member_3__c &lt;&gt; &#39;&#39; ||    NLM_Opportunity_Team_Member_2__c &lt;&gt; NULL ||    NLM_Opportunity_Team_Member_2__c &lt;&gt; &#39;&#39;) &amp;&amp;     (      ISPICKVAL(StageName, &#39;Submit Opportunity for CS Approval&#39;) ||     ISPICKVAL(StageName, &#39;Closed Won&#39;)     ) )  )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>NLM Brief Opportunity Update for no approvals</fullName>
+        <actions>
+            <name>Update_NLM_Brief_Oppy_RT_to_NLM_Brief</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Updates the NLM Opportunity record types to NOT allow KAM&#39;s to submit for approval</description>
+        <formula>AND(   $Setup.NLM_Global_Settings__c.Fire_NLM_Workflows__c,     (RecordType.Name = &#39;NLM Brief Approvals&#39;),    (    (NLM_Opportunity_Team_Member_1__c == NULL ||    NLM_Opportunity_Team_Member_1__c == &#39;&#39;) &amp;&amp;    (NLM_Opportunity_Team_Member_2__c == NULL ||    NLM_Opportunity_Team_Member_2__c == &#39;&#39;) &amp;&amp;    (NLM_Opportunity_Team_Member_3__c == NULL ||    NLM_Opportunity_Team_Member_3__c == &#39;&#39;)    ) ||    (   NOT(ISPICKVAL(StageName, &#39;Submit Opportunity for BS Approval&#39;)) &amp;&amp;   NOT(ISPICKVAL(StageName, &#39;Submit to BS for final concept approval&#39;)) &amp;&amp;   NOT(ISPICKVAL(StageName, &#39;Submit Opportunity for CS Approval&#39;)) &amp;&amp;   NOT(ISPICKVAL(StageName, &#39;Closed Won&#39;))   )   )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>NLM Management Opportunity Update for approvals</fullName>
+        <actions>
+            <name>NLM_Oppty_Mgmt_RT_Approvals</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Updates the NLM Opportunity record types to allow KAM&#39;s to submit for approval</description>
+        <formula>AND(   $Setup.NLM_Global_Settings__c.Fire_NLM_Workflows__c,     (RecordType.Name = &#39;NLM Management&#39;),  (   (NLM_Opportunity_Team_Member_1__c &lt;&gt; NULL ||    NLM_Opportunity_Team_Member_1__c &lt;&gt; &#39;&#39; ||    NLM_Opportunity_Team_Member_2__c &lt;&gt; NULL ||    NLM_Opportunity_Team_Member_2__c &lt;&gt; &#39;&#39;) &amp;&amp;     (      ISPICKVAL(StageName, &#39;Submit Opportunity for BS Approval&#39;) ||      ISPICKVAL(StageName, &#39;Submit to BS for final concept approval&#39;)      ) ) ||  (   (NLM_Opportunity_Team_Member_3__c &lt;&gt; NULL ||    NLM_Opportunity_Team_Member_3__c &lt;&gt; &#39;&#39; ||    NLM_Opportunity_Team_Member_2__c &lt;&gt; NULL ||    NLM_Opportunity_Team_Member_2__c &lt;&gt; &#39;&#39;) &amp;&amp;     (      ISPICKVAL(StageName, &#39;Submit Opportunity for CS Approval&#39;) ||     ISPICKVAL(StageName, &#39;Closed Won&#39;)     ) )  )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>NLM Management Opportunity Update for no approvals</fullName>
+        <actions>
+            <name>NLM_Oppty_Mgmt_RT_No_Approvals</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Updates the NLM Opportunity record types to NOT allow KAM&#39;s to submit for approval</description>
+        <formula>AND(   $Setup.NLM_Global_Settings__c.Fire_NLM_Workflows__c,     (RecordType.Name = &#39;NLM Management Approvals&#39;),    (    (NLM_Opportunity_Team_Member_1__c == NULL ||    NLM_Opportunity_Team_Member_1__c == &#39;&#39;) &amp;&amp;    (NLM_Opportunity_Team_Member_2__c == NULL ||    NLM_Opportunity_Team_Member_2__c == &#39;&#39;) &amp;&amp;    (NLM_Opportunity_Team_Member_3__c == NULL ||    NLM_Opportunity_Team_Member_3__c == &#39;&#39;)    ) ||    (   NOT(ISPICKVAL(StageName, &#39;Submit Opportunity for BS Approval&#39;)) &amp;&amp;   NOT(ISPICKVAL(StageName, &#39;Submit to BS for final concept approval&#39;)) &amp;&amp;   NOT(ISPICKVAL(StageName, &#39;Submit Opportunity for CS Approval&#39;)) &amp;&amp;   NOT(ISPICKVAL(StageName, &#39;Closed Won&#39;))   )   )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>NLM Opportunity Email Alert at 90%25 probability</fullName>
+        <actions>
+            <name>NLM_Email_to_Opportunity_Team_90_win_probability</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>An email alert to everyone on the opportunity team when the opportunity probability reaches 90%</description>
+        <formula>AND($Setup.NLM_Global_Settings__c.Fire_NLM_Workflows__c,   Probability = 0.9)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>NLM Opportunity Email Alert at Closed Lost</fullName>
+        <actions>
+            <name>NLM_Email_Opportunity_Team_Closed_Lost</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>An email alert to everyone on the opportunity team when the opportunity has been closed lost (0%)</description>
+        <formula>AND($Setup.NLM_Global_Settings__c.Fire_NLM_Workflows__c,   Probability = 0)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>NLM Opportunity Email Alert at Closed Won</fullName>
+        <actions>
+            <name>NLM_Email_Opportunity_Team_Closed_Won</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>An email alert to everyone on the opportunity team when the opportunity has been closed won (100%)</description>
+        <formula>AND($Setup.NLM_Global_Settings__c.Fire_NLM_Workflows__c,   Probability = 1)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>NLM Proactive Opportunity Update for approvals</fullName>
+        <actions>
+            <name>Update_NLM_Proac_Opportunity_Record_Type</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Updates the NLM Opportunity record types to allow KAM&#39;s to submit for approval</description>
+        <formula>AND(   $Setup.NLM_Global_Settings__c.Fire_NLM_Workflows__c,     (RecordType.Name = &#39;NLM Proactive&#39;),  (   (NLM_Opportunity_Team_Member_1__c &lt;&gt; NULL ||    NLM_Opportunity_Team_Member_1__c &lt;&gt; &#39;&#39; ||    NLM_Opportunity_Team_Member_2__c &lt;&gt; NULL ||    NLM_Opportunity_Team_Member_2__c &lt;&gt; &#39;&#39;) &amp;&amp;     (      ISPICKVAL(StageName, &#39;Submit Opportunity for BS Approval&#39;) ||      ISPICKVAL(StageName, &#39;Submit to BS for final concept approval&#39;)      ) ) ||  (   (NLM_Opportunity_Team_Member_3__c &lt;&gt; NULL ||    NLM_Opportunity_Team_Member_3__c &lt;&gt; &#39;&#39; ||    NLM_Opportunity_Team_Member_2__c &lt;&gt; NULL ||    NLM_Opportunity_Team_Member_2__c &lt;&gt; &#39;&#39;) &amp;&amp;     (      ISPICKVAL(StageName, &#39;Submit Opportunity for CS Approval&#39;) ||     ISPICKVAL(StageName, &#39;Closed Won&#39;)     ) )  )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>NLM Proactive Opportunity Update for no approvals</fullName>
+        <actions>
+            <name>Update_NLM_Proac_Oppy_RT_to_NLM_Proac</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Updates the NLM Opportunity record types to NOT allow KAM&#39;s to submit for approval</description>
+        <formula>AND(   $Setup.NLM_Global_Settings__c.Fire_NLM_Workflows__c,     (RecordType.Name = &#39;NLM Proactive Approvals&#39;),    (    (NLM_Opportunity_Team_Member_1__c == NULL ||   NLM_Opportunity_Team_Member_1__c == &#39;&#39;) &amp;&amp;    (NLM_Opportunity_Team_Member_2__c == NULL ||   NLM_Opportunity_Team_Member_2__c == &#39;&#39;) &amp;&amp;    (NLM_Opportunity_Team_Member_3__c == NULL ||   NLM_Opportunity_Team_Member_3__c == &#39;&#39;)    ) ||    (   NOT(ISPICKVAL(StageName, &#39;Submit Opportunity for BS Approval&#39;)) &amp;&amp;   NOT(ISPICKVAL(StageName, &#39;Submit to BS for final concept approval&#39;)) &amp;&amp;   NOT(ISPICKVAL(StageName, &#39;Submit Opportunity for CS Approval&#39;)) &amp;&amp;   NOT(ISPICKVAL(StageName, &#39;Closed Won&#39;))   )   )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>NLM Trade Marketing Opportunity Update for approvals</fullName>
+        <actions>
+            <name>NLM_Oppty_Trade_Mkt_RT_Approvals</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Updates the NLM Opportunity record types to allow KAM&#39;s to submit for approval</description>
+        <formula>AND(   $Setup.NLM_Global_Settings__c.Fire_NLM_Workflows__c,     (RecordType.Name = &#39;NLM Trade Marketing&#39;),  (   (NLM_Opportunity_Team_Member_1__c &lt;&gt; NULL ||    NLM_Opportunity_Team_Member_1__c &lt;&gt; &#39;&#39; ||    NLM_Opportunity_Team_Member_2__c &lt;&gt; NULL ||    NLM_Opportunity_Team_Member_2__c &lt;&gt; &#39;&#39;) &amp;&amp;     (      ISPICKVAL(StageName, &#39;Submit Opportunity for BS Approval&#39;) ||      ISPICKVAL(StageName, &#39;Submit to BS for final concept approval&#39;)      ) ) ||  (   (NLM_Opportunity_Team_Member_3__c &lt;&gt; NULL ||    NLM_Opportunity_Team_Member_3__c &lt;&gt; &#39;&#39; ||    NLM_Opportunity_Team_Member_2__c &lt;&gt; NULL ||    NLM_Opportunity_Team_Member_2__c &lt;&gt; &#39;&#39;) &amp;&amp;     (      ISPICKVAL(StageName, &#39;Submit Opportunity for CS Approval&#39;) ||     ISPICKVAL(StageName, &#39;Closed Won&#39;)     ) )  )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>NLM Trade Marketing Opportunity Update for no approvals</fullName>
+        <actions>
+            <name>NLM_Oppty_Trade_Mkt_RT_No_Approvals</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Updates the NLM Opportunity record types to NOT allow KAM&#39;s to submit for approval</description>
+        <formula>AND(   $Setup.NLM_Global_Settings__c.Fire_NLM_Workflows__c,     (RecordType.Name = &#39;NLM Trade Marketing Approvals&#39;),    (    (NLM_Opportunity_Team_Member_1__c == NULL ||    NLM_Opportunity_Team_Member_1__c == &#39;&#39;) &amp;&amp;    (NLM_Opportunity_Team_Member_2__c == NULL ||    NLM_Opportunity_Team_Member_2__c == &#39;&#39;) &amp;&amp;    (NLM_Opportunity_Team_Member_3__c == NULL ||    NLM_Opportunity_Team_Member_3__c == &#39;&#39;)    ) ||    (   NOT(ISPICKVAL(StageName, &#39;Submit Opportunity for BS Approval&#39;)) &amp;&amp;   NOT(ISPICKVAL(StageName, &#39;Submit to BS for final concept approval&#39;)) &amp;&amp;   NOT(ISPICKVAL(StageName, &#39;Submit Opportunity for CS Approval&#39;)) &amp;&amp;   NOT(ISPICKVAL(StageName, &#39;Closed Won&#39;))   )   )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>New Account Credit Check</fullName>
+        <actions>
+            <name>New_Account_Credit_Check</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <description>NextGen - New account veda credit check</description>
+        <formula>Account.Has_Credit_Checked__c = FALSE</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opportunity - Current Owner Role</fullName>
+        <actions>
+            <name>Update_Owner_Current_Role_Opportunity</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.OwnerModifiedRecord__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>If the owner modifies the opportunity, ensure that their role is in the current role field (used for AdSales Sales Summary roll up)</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Oppty - Contract Negotiations omitted</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Agreement Negotiation</value>
+        </criteriaItems>
+        <description>Contract negotiation omitted from forecast.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opty -StageDevelopSolution -BriefHistorical</fullName>
+        <actions>
+            <name>Opty_StageChange_to_Probability_40pc</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Where stage = Develop Solution/ Proposal for Brief/Historical - then update probability to 40%</description>
+        <formula>AND(   OR(     ISCHANGED(StageName),     ISCHANGED(Opportunity_Type__c),     ISNEW()   ),        ISPICKVAL(Opportunity_Type__c, &#39;Agreement Negotiation&#39;) ||     ISPICKVAL(Opportunity_Type__c, &#39;Historical&#39;) ||     ISPICKVAL(Opportunity_Type__c, &#39;Walk-In Forecast&#39;),     ISPICKVAL(StageName, &#39;Develop Solution/ Proposal&#39;) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opty -StageDevelopSolution -MultiChannel</fullName>
+        <actions>
+            <name>Opty_StageChange_to_Probability_20pc</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Where stage = Develop Solution for Multi-Channel - then update probability to 20%</description>
+        <formula>AND(   OR(     ISCHANGED(StageName),     ISCHANGED(Opportunity_Type__c),     ISNEW()   ),   ISPICKVAL(Opportunity_Type__c,&#39;Multi-Channel&#39;),   ISPICKVAL(StageName, &#39;Develop Solution/ Proposal&#39;) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opty -StagePresentSolution -BriefHistorical</fullName>
+        <actions>
+            <name>Opty_StageChange_to_Probability_60pc</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Where stage = Present Solution/ Proposal for Brief/Historical - then update probability to 60%</description>
+        <formula>AND(   OR(     ISCHANGED(StageName),     ISCHANGED(Opportunity_Type__c),     ISNEW()   ),      ISPICKVAL(Opportunity_Type__c, &#39;Agreement Negotiation&#39;) ||     ISPICKVAL(Opportunity_Type__c, &#39;Historical&#39;) ||     ISPICKVAL(Opportunity_Type__c, &#39;Walk-In Forecast&#39;),     ISPICKVAL(StageName, &#39;Present Solution/ Proposal&#39;)  )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opty -StagePresentSolution -MultiChannel</fullName>
+        <actions>
+            <name>Opty_StageChange_to_Probability_40pc</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Where stage = Present Solution/ Proposal for Multi-Channel - then update probability to 40%</description>
+        <formula>AND(   OR(     ISCHANGED(StageName),     ISCHANGED(Opportunity_Type__c),     ISNEW()   ),   ISPICKVAL(Opportunity_Type__c,&#39;Multi-Channel&#39;),   ISPICKVAL(StageName, &#39;Present Solution/ Proposal&#39;) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opty -StageQualifyOpty -MultiChannel</fullName>
+        <actions>
+            <name>Opty_StageChange_to_Probability_05pc</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Where stage = Qualify Opty for Multi-Channel - then update probability to 05%</description>
+        <formula>AND(   OR(     ISCHANGED(StageName),     ISCHANGED(Opportunity_Type__c),     ISNEW()   ),   ISPICKVAL(Opportunity_Type__c,&#39;Multi-Channel&#39;),   ISPICKVAL(StageName, &#39;Discover Needs&#39;) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opty -StageReaffirmValue -MultiChannel</fullName>
+        <actions>
+            <name>Opty_StageChange_to_Probability_60pc</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Where stage = Re-affirm Value/Negotiate for Multi-Channel - then update probability to 30%</description>
+        <formula>AND(   OR(     ISCHANGED(StageName),     ISCHANGED(Opportunity_Type__c),     ISNEW()   ),   ISPICKVAL(Opportunity_Type__c,&#39;Multi-Channel&#39;),   ISPICKVAL(StageName, &#39;Review/ Negotiate&#39;) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opty -StageSelectProductNStage</fullName>
+        <actions>
+            <name>Opty_StageChange_to_Probability_05pc</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Where stage = Select Products &amp; Update Stage (for Multi-Channel) - then update probability to 05%</description>
+        <formula>AND(   OR(     ISCHANGED(StageName),     ISCHANGED(Opportunity_Type__c),     ISNEW()   ),   ISPICKVAL(Opportunity_Type__c,&#39;Multi-Channel&#39;),   ISPICKVAL(StageName, &#39;Select Product(s) and Update Stage&#39;) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opty -UpdateRecordType -Brief</fullName>
+        <actions>
+            <name>Opty_UpdateRecordType_Brief</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update recordtype to brief</description>
+        <formula>AND(   ISPICKVAL(Opportunity_Type__c,&#39;Brief&#39;),   ISCHANGED(Opportunity_Type__c),  ( RecordType.DeveloperName   =  &#39;Brief&#39; ) ||  ( RecordType.DeveloperName   =  &#39;Historical&#39; ) || ( RecordType.DeveloperName   =  &#39;Late Space&#39; )  || ( RecordType.DeveloperName   =  &#39;Agreement Negotiation&#39; ) || ( RecordType.DeveloperName   =  &#39;MultiChannel&#39; ) || ( RecordType.DeveloperName   =  &#39;Proactive&#39; ) || ( RecordType.DeveloperName   =  &#39;Promotions&#39; ) || ( RecordType.DeveloperName   =  &#39;Self Service&#39; ) || ( RecordType.DeveloperName   =  &#39;Walk-In&#39; ) || ( RecordType.DeveloperName   =  &#39;Walk-In Forecast&#39; ) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opty -UpdateRecordType -Contract</fullName>
+        <actions>
+            <name>Opty_UpdateRecordType_Contract</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update recordtype to Contract</description>
+        <formula>AND(   ISPICKVAL(Opportunity_Type__c,&#39;Agreement Negotiation&#39;),   ISCHANGED(Opportunity_Type__c),  ( RecordType.DeveloperName   =  &#39;Brief&#39; ) ||  ( RecordType.DeveloperName   =  &#39;Historical&#39; ) || ( RecordType.DeveloperName   =  &#39;Late Space&#39; )  || ( RecordType.DeveloperName   =  &#39;Agreement Negotiation&#39; ) || ( RecordType.DeveloperName   =  &#39;MultiChannel&#39; ) || ( RecordType.DeveloperName   =  &#39;Proactive&#39; ) || ( RecordType.DeveloperName   =  &#39;Promotions&#39; ) || ( RecordType.DeveloperName   =  &#39;Self Service&#39; ) || ( RecordType.DeveloperName   =  &#39;Walk-In&#39; ) || ( RecordType.DeveloperName   =  &#39;Walk-In Forecast&#39; ) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opty -UpdateRecordType -Historical</fullName>
+        <actions>
+            <name>Opty_UpdateRecordType_Historical</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update recordtype to Historical</description>
+        <formula>AND(   ISPICKVAL(Opportunity_Type__c,&#39;Historical&#39;),   ISCHANGED(Opportunity_Type__c),  ( RecordType.DeveloperName   =  &#39;Brief&#39; ) ||  ( RecordType.DeveloperName   =  &#39;Historical&#39; ) || ( RecordType.DeveloperName   =  &#39;Late Space&#39; )  || ( RecordType.DeveloperName   =  &#39;Agreement Negotiation&#39; ) || ( RecordType.DeveloperName   =  &#39;MultiChannel&#39; ) || ( RecordType.DeveloperName   =  &#39;Proactive&#39; ) || ( RecordType.DeveloperName   =  &#39;Promotions&#39; ) || ( RecordType.DeveloperName   =  &#39;Self Service&#39; ) || ( RecordType.DeveloperName   =  &#39;Walk-In&#39; ) || ( RecordType.DeveloperName   =  &#39;Walk-In Forecast&#39; ) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opty -UpdateRecordType -LateSpace</fullName>
+        <actions>
+            <name>Opty_UpdateRecordType_LateSpace</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update recordtype to LateSpace</description>
+        <formula>AND(   ISPICKVAL(Opportunity_Type__c,&#39;Late Space&#39;),   ISCHANGED(Opportunity_Type__c),  ( RecordType.DeveloperName   =  &#39;Brief&#39; ) ||  ( RecordType.DeveloperName   =  &#39;Historical&#39; ) || ( RecordType.DeveloperName   =  &#39;Late Space&#39; )  || ( RecordType.DeveloperName   =  &#39;Agreement Negotiation&#39; ) || ( RecordType.DeveloperName   =  &#39;MultiChannel&#39; ) || ( RecordType.DeveloperName   =  &#39;Proactive&#39; ) || ( RecordType.DeveloperName   =  &#39;Promotions&#39; ) || ( RecordType.DeveloperName   =  &#39;Self Service&#39; ) || ( RecordType.DeveloperName   =  &#39;Walk-In&#39; ) || ( RecordType.DeveloperName   =  &#39;Walk-In Forecast&#39; ) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opty -UpdateRecordType -MultiChannel</fullName>
+        <actions>
+            <name>Opty_UpdateRecordType_MultiChannel</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update recordtype to Multi-Channel</description>
+        <formula>AND(   ISPICKVAL(Opportunity_Type__c,&#39;MultiChannel&#39;),   ISCHANGED(Opportunity_Type__c),  ( RecordType.DeveloperName   =  &#39;Brief&#39; ) ||  ( RecordType.DeveloperName   =  &#39;Historical&#39; ) || ( RecordType.DeveloperName   =  &#39;Late Space&#39; )  || ( RecordType.DeveloperName   =  &#39;Agreement Negotiation&#39; ) || ( RecordType.DeveloperName   =  &#39;MultiChannel&#39; ) || ( RecordType.DeveloperName   =  &#39;Proactive&#39; ) || ( RecordType.DeveloperName   =  &#39;Promotions&#39; ) || ( RecordType.DeveloperName   =  &#39;Self Service&#39; ) || ( RecordType.DeveloperName   =  &#39;Walk-In&#39; ) || ( RecordType.DeveloperName   =  &#39;Walk-In Forecast&#39; ) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opty -UpdateRecordType -Proactive</fullName>
+        <actions>
+            <name>Opty_UpdateRecordType_Proactive</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update recordtype to Proactive</description>
+        <formula>AND(   ISPICKVAL(Opportunity_Type__c,&#39;Proactive&#39;),   ISCHANGED(Opportunity_Type__c),  ( RecordType.DeveloperName   =  &#39;Brief&#39; ) ||  ( RecordType.DeveloperName   =  &#39;Historical&#39; ) || ( RecordType.DeveloperName   =  &#39;Late Space&#39; )  || ( RecordType.DeveloperName   =  &#39;Agreement Negotiation&#39; ) || ( RecordType.DeveloperName   =  &#39;MultiChannel&#39; ) || ( RecordType.DeveloperName   =  &#39;Proactive&#39; ) || ( RecordType.DeveloperName   =  &#39;Promotions&#39; ) || ( RecordType.DeveloperName   =  &#39;Self Service&#39; ) || ( RecordType.DeveloperName   =  &#39;Walk-In&#39; ) || ( RecordType.DeveloperName   =  &#39;Walk-In Forecast&#39; ) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opty -UpdateRecordType -Promotions</fullName>
+        <actions>
+            <name>Opty_UpdateRecordType_Promotions</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update recordtype to Promotions</description>
+        <formula>AND(   ISPICKVAL(Opportunity_Type__c,&#39;Promotions&#39;),   ISCHANGED(Opportunity_Type__c),  ( RecordType.DeveloperName   =  &#39;Brief&#39; ) ||  ( RecordType.DeveloperName   =  &#39;Historical&#39; ) || ( RecordType.DeveloperName   =  &#39;Late Space&#39; )  || ( RecordType.DeveloperName   =  &#39;Agreement Negotiation&#39; ) || ( RecordType.DeveloperName   =  &#39;MultiChannel&#39; ) || ( RecordType.DeveloperName   =  &#39;Proactive&#39; ) || ( RecordType.DeveloperName   =  &#39;Promotions&#39; ) || ( RecordType.DeveloperName   =  &#39;Self Service&#39; ) || ( RecordType.DeveloperName   =  &#39;Walk-In&#39; ) || ( RecordType.DeveloperName   =  &#39;Walk-In Forecast&#39; ) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opty -UpdateRecordType -Self Service</fullName>
+        <actions>
+            <name>Opty_UpdateRecordType_Self_Service</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update recordtype to Self-Service</description>
+        <formula>AND(   ISPICKVAL(Opportunity_Type__c,&#39;Self Service&#39;),   ISCHANGED(Opportunity_Type__c),  ( RecordType.DeveloperName   =  &#39;Brief&#39; ) ||  ( RecordType.DeveloperName   =  &#39;Historical&#39; ) || ( RecordType.DeveloperName   =  &#39;Late Space&#39; )  || ( RecordType.DeveloperName   =  &#39;Agreement Negotiation&#39; ) || ( RecordType.DeveloperName   =  &#39;MultiChannel&#39; ) || ( RecordType.DeveloperName   =  &#39;Proactive&#39; ) || ( RecordType.DeveloperName   =  &#39;Promotions&#39; ) || ( RecordType.DeveloperName   =  &#39;Self Service&#39; ) || ( RecordType.DeveloperName   =  &#39;Walk-In&#39; ) || ( RecordType.DeveloperName   =  &#39;Walk-In Forecast&#39; ) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opty -UpdateRecordType -Synergy Transition</fullName>
+        <actions>
+            <name>Opty_UpdateRecordType_Synergy_Transitn</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update recordtype</description>
+        <formula>AND(   ISPICKVAL(Opportunity_Type__c,&#39;Synergy Transition&#39;),   ISCHANGED(Opportunity_Type__c),  ( RecordType.DeveloperName   =  &#39;Brief&#39; ) ||  ( RecordType.DeveloperName   =  &#39;Historical&#39; ) || ( RecordType.DeveloperName   =  &#39;Late Space&#39; )  || ( RecordType.DeveloperName   =  &#39;Agreement Negotiation&#39; ) || ( RecordType.DeveloperName   =  &#39;MultiChannel&#39; ) || ( RecordType.DeveloperName   =  &#39;Proactive&#39; ) || ( RecordType.DeveloperName   =  &#39;Promotions&#39; ) || ( RecordType.DeveloperName   =  &#39;Self Service&#39; ) || ( RecordType.DeveloperName   =  &#39;Walk-In&#39; ) || ( RecordType.DeveloperName   =  &#39;Walk-In Forecast&#39; ) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opty -UpdateRecordType -Walk-In</fullName>
+        <actions>
+            <name>Opty_UpdateRecordType_Walk_In</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update recordtype to Walk-In</description>
+        <formula>AND(   ISPICKVAL(Opportunity_Type__c,&#39;Walk-In&#39;),   ISCHANGED(Opportunity_Type__c),  ( RecordType.DeveloperName   =  &#39;Brief&#39; ) ||  ( RecordType.DeveloperName   =  &#39;Historical&#39; ) || ( RecordType.DeveloperName   =  &#39;Late Space&#39; )  || ( RecordType.DeveloperName   =  &#39;Agreement Negotiation&#39; ) || ( RecordType.DeveloperName   =  &#39;MultiChannel&#39; ) || ( RecordType.DeveloperName   =  &#39;Proactive&#39; ) || ( RecordType.DeveloperName   =  &#39;Promotions&#39; ) || ( RecordType.DeveloperName   =  &#39;Self Service&#39; ) || ( RecordType.DeveloperName   =  &#39;Walk-In&#39; ) || ( RecordType.DeveloperName   =  &#39;Walk-In Forecast&#39; ) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opty -UpdateRecordType -Walk-In Forecast</fullName>
+        <actions>
+            <name>Opty_UpdateRecordType_Walk_In_Forecast</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update recordtype</description>
+        <formula>AND(   ISPICKVAL(Opportunity_Type__c,&#39;Walk-In Forecast&#39;),   ISCHANGED(Opportunity_Type__c),  ( RecordType.DeveloperName   =  &#39;Brief&#39; ) ||  ( RecordType.DeveloperName   =  &#39;Historical&#39; ) || ( RecordType.DeveloperName   =  &#39;Late Space&#39; )  || ( RecordType.DeveloperName   =  &#39;Agreement Negotiation&#39; ) || ( RecordType.DeveloperName   =  &#39;MultiChannel&#39; ) || ( RecordType.DeveloperName   =  &#39;Proactive&#39; ) || ( RecordType.DeveloperName   =  &#39;Promotions&#39; ) || ( RecordType.DeveloperName   =  &#39;Self Service&#39; ) || ( RecordType.DeveloperName   =  &#39;Walk-In&#39; ) || ( RecordType.DeveloperName   =  &#39;Walk-In Forecast&#39; ) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opty Push Counter</fullName>
+        <actions>
+            <name>Opty_Push_Counter</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Increment the Push Counter field by 1</description>
+        <formula>IF( CloseDate &gt; PRIORVALUE( CloseDate ), IF( CloseDate &lt;&gt; PRIORVALUE( CloseDate ) , TRUE, FALSE), FALSE)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Campaign Start Date Checkbox on Opportunity</fullName>
+        <actions>
+            <name>Update_Campaign_Start_Date_Changed_Chkbx</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED( Campaign_Start_Date__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Cloned Opportunity</fullName>
+        <actions>
+            <name>ClearOut_Has_Approved_SO</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>Has_an_Approved_SO__c</formula>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Close Date Checkbox on Opportunity</fullName>
+        <actions>
+            <name>Update_Close_Date_Changed_Checkbox</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISCHANGED(CloseDate)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

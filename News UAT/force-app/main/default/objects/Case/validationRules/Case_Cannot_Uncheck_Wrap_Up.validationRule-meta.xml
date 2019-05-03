@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Cannot_Uncheck_Wrap_Up</fullName>
+    <active>true</active>
+    <description>Once a Case is marked as Wrap-Up it cannot be unchecked.</description>
+    <errorConditionFormula>AND(
+ ISCHANGED( Wrap_Up__c ),
+ PRIORVALUE( Wrap_Up__c ) = true,
+
+ AND(
+  NOT CONTAINS($Profile.Name, &#39;System Administrator&#39;),
+  NOT CONTAINS($Profile.Name, &#39;IT Administrator&#39;),
+  NOT CONTAINS($Profile.Name, &#39;Integration&#39;)
+ )
+)</errorConditionFormula>
+    <errorDisplayField>Wrap_Up__c</errorDisplayField>
+    <errorMessage>Once a Case is marked as Wrap-Up it cannot be unchecked.</errorMessage>
+</ValidationRule>

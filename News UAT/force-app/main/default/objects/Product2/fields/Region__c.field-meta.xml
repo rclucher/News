@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Region__c</fullName>
+    <externalId>false</externalId>
+    <label>Region</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Admin</fullName>
+                <default>false</default>
+                <label>Admin</label>
+            </value>
+            <value>
+                <fullName>Airlie Beach</fullName>
+                <default>false</default>
+                <label>Airlie Beach</label>
+            </value>
+            <value>
+                <fullName>Australian Golf Digest</fullName>
+                <default>false</default>
+                <label>Australian Golf Digest</label>
+            </value>
+            <value>
+                <fullName>Best Recipes</fullName>
+                <default>false</default>
+                <label>Best Recipes</label>
+            </value>
+            <value>
+                <fullName>Big League</fullName>
+                <default>false</default>
+                <label>Big League</label>
+            </value>
+            <value>
+                <fullName>Big League Specials</fullName>
+                <default>false</default>
+                <label>Big League Specials</label>
+            </value>
+            <value>
+                <fullName>Biloela</fullName>
+                <default>false</default>
+                <label>Biloela</label>
+            </value>
+            <value>
+                <fullName>Birth</fullName>
+                <default>false</default>
+                <label>Birth</label>
+            </value>
+            <value>
+                <fullName>Body &amp; Soul</fullName>
+                <default>false</default>
+                <label>Body &amp; Soul</label>
+            </value>
+            <value>
+                <fullName>Bundaberg</fullName>
+                <default>false</default>
+                <label>Bundaberg</label>
+            </value>
+            <value>
+                <fullName>Buro247</fullName>
+                <default>false</default>
+                <label>Buro247</label>
+            </value>
+            <value>
+                <fullName>Cairns</fullName>
+                <default>false</default>
+                <label>Cairns</label>
+            </value>
+            <value>
+                <fullName>Careers</fullName>
+                <default>false</default>
+                <label>Careers</label>
+            </value>
+            <value>
+                <fullName>Carsguide</fullName>
+                <default>false</default>
+                <label>Carsguide</label>
+            </value>
+            <value>
+                <fullName>Chadstone Fashion Capital</fullName>
+                <default>false</default>
+                <label>Chadstone Fashion Capital</label>
+            </value>
+            <value>
+                <fullName>Chinchilla-Surrat</fullName>
+                <default>false</default>
+                <label>Chinchilla-Surrat</label>
+            </value>
+            <value>
+                <fullName>Coffs Harbour</fullName>
+                <default>false</default>
+                <label>Coffs Harbour</label>
+            </value>
+            <value>
+                <fullName>Community Mastheads</fullName>
+                <default>false</default>
+                <label>Community Mastheads</label>
+            </value>
+            <value>
+                <fullName>Country Style</fullName>
+                <default>false</default>
+                <label>Country Style</label>
+            </value>
+            <value>
+                <fullName>Country Style Specials</fullName>
+                <default>false</default>
+                <label>Country Style Specials</label>
+            </value>
+            <value>
+                <fullName>Courier Mail</fullName>
+                <default>false</default>
+                <label>Courier Mail</label>
+            </value>
+            <value>
+                <fullName>Daily Telegraph</fullName>
+                <default>false</default>
+                <label>Daily Telegraph</label>
+            </value>
+            <value>
+                <fullName>Delicious</fullName>
+                <default>false</default>
+                <label>Delicious</label>
+            </value>
+            <value>
+                <fullName>Delicious.com.au</fullName>
+                <default>false</default>
+                <label>Delicious.com.au</label>
+            </value>
+            <value>
+                <fullName>Diakrit</fullName>
+                <default>false</default>
+                <label>Diakrit</label>
+            </value>
+            <value>
+                <fullName>Donna Hay</fullName>
+                <default>false</default>
+                <label>Donna Hay</label>
+            </value>
+            <value>
+                <fullName>Donna Hay Specials</fullName>
+                <default>false</default>
+                <label>Donna Hay Specials</label>
+            </value>
+            <value>
+                <fullName>Emerald</fullName>
+                <default>false</default>
+                <label>Emerald</label>
+            </value>
+            <value>
+                <fullName>Escape.com.au</fullName>
+                <default>false</default>
+                <label>Escape.com.au</label>
+            </value>
+            <value>
+                <fullName>Facebook</fullName>
+                <default>false</default>
+                <label>Facebook</label>
+            </value>
+            <value>
+                <fullName>Finda Enhanced</fullName>
+                <default>false</default>
+                <label>Finda Enhanced</label>
+            </value>
+            <value>
+                <fullName>Finda Featured</fullName>
+                <default>false</default>
+                <label>Finda Featured</label>
+            </value>
+            <value>
+                <fullName>Finda Premium</fullName>
+                <default>false</default>
+                <label>Finda Premium</label>
+            </value>
+            <value>
+                <fullName>Finda Reload</fullName>
+                <default>false</default>
+                <label>Finda Reload</label>
+            </value>
+            <value>
+                <fullName>Finda Standard</fullName>
+                <default>false</default>
+                <label>Finda Standard</label>
+            </value>
+            <value>
+                <fullName>Find Your Local</fullName>
+                <default>false</default>
+                <label>Find Your Local</label>
+            </value>
+            <value>
+                <fullName>Food Apps</fullName>
+                <default>false</default>
+                <label>Food Apps</label>
+            </value>
+            <value>
+                <fullName>Foxtel</fullName>
+                <default>false</default>
+                <label>Foxtel</label>
+            </value>
+            <value>
+                <fullName>Fraser Coast</fullName>
+                <default>false</default>
+                <label>Fraser Coast</label>
+            </value>
+            <value>
+                <fullName>Gardening Australia</fullName>
+                <default>false</default>
+                <label>Gardening Australia</label>
+            </value>
+            <value>
+                <fullName>Gatton</fullName>
+                <default>false</default>
+                <label>Gatton</label>
+            </value>
+            <value>
+                <fullName>Geelong</fullName>
+                <default>false</default>
+                <label>Geelong</label>
+            </value>
+            <value>
+                <fullName>Gladstone</fullName>
+                <default>false</default>
+                <label>Gladstone</label>
+            </value>
+            <value>
+                <fullName>Gold Coast</fullName>
+                <default>false</default>
+                <label>Gold Coast</label>
+            </value>
+            <value>
+                <fullName>Google Adwords</fullName>
+                <default>false</default>
+                <label>Google Adwords</label>
+            </value>
+            <value>
+                <fullName>Google Display</fullName>
+                <default>false</default>
+                <label>Google Display</label>
+            </value>
+            <value>
+                <fullName>GQ</fullName>
+                <default>false</default>
+                <label>GQ</label>
+            </value>
+            <value>
+                <fullName>GQ Australia</fullName>
+                <default>false</default>
+                <label>GQ Australia</label>
+            </value>
+            <value>
+                <fullName>GQ Events</fullName>
+                <default>false</default>
+                <label>GQ Events</label>
+            </value>
+            <value>
+                <fullName>GQ Online Shopping Night</fullName>
+                <default>false</default>
+                <label>GQ Online Shopping Night</label>
+            </value>
+            <value>
+                <fullName>Grafton</fullName>
+                <default>false</default>
+                <label>Grafton</label>
+            </value>
+            <value>
+                <fullName>Gympie</fullName>
+                <default>false</default>
+                <label>Gympie</label>
+            </value>
+            <value>
+                <fullName>Herald Sun</fullName>
+                <default>false</default>
+                <label>Herald Sun</label>
+            </value>
+            <value>
+                <fullName>Homelife</fullName>
+                <default>false</default>
+                <label>Homelife</label>
+            </value>
+            <value>
+                <fullName>Inside Out</fullName>
+                <default>false</default>
+                <label>Inside Out</label>
+            </value>
+            <value>
+                <fullName>Ipswich</fullName>
+                <default>false</default>
+                <label>Ipswich</label>
+            </value>
+            <value>
+                <fullName>Kids News</fullName>
+                <default>false</default>
+                <label>Kids News</label>
+            </value>
+            <value>
+                <fullName>Kidspot</fullName>
+                <default>false</default>
+                <label>Kidspot</label>
+            </value>
+            <value>
+                <fullName>Kingaroy</fullName>
+                <default>false</default>
+                <label>Kingaroy</label>
+            </value>
+            <value>
+                <fullName>Leader</fullName>
+                <default>false</default>
+                <label>Leader</label>
+            </value>
+            <value>
+                <fullName>Lifestyle Apps</fullName>
+                <default>false</default>
+                <label>Lifestyle Apps</label>
+            </value>
+            <value>
+                <fullName>Lismore</fullName>
+                <default>false</default>
+                <label>Lismore</label>
+            </value>
+            <value>
+                <fullName>Mackay</fullName>
+                <default>false</default>
+                <label>Mackay</label>
+            </value>
+            <value>
+                <fullName>Mansion</fullName>
+                <default>false</default>
+                <label>Mansion</label>
+            </value>
+            <value>
+                <fullName>Messenger</fullName>
+                <default>false</default>
+                <label>Messenger</label>
+            </value>
+            <value>
+                <fullName>Moshtix</fullName>
+                <default>false</default>
+                <label>Moshtix</label>
+            </value>
+            <value>
+                <fullName>mX</fullName>
+                <default>false</default>
+                <label>mX</label>
+            </value>
+            <value>
+                <fullName>National</fullName>
+                <default>false</default>
+                <label>National</label>
+            </value>
+            <value>
+                <fullName>National Sundry</fullName>
+                <default>false</default>
+                <label>National Sundry</label>
+            </value>
+            <value>
+                <fullName>Network Performance</fullName>
+                <default>false</default>
+                <label>Network Performance</label>
+            </value>
+            <value>
+                <fullName>news.com.au</fullName>
+                <default>false</default>
+                <label>news.com.au</label>
+            </value>
+            <value>
+                <fullName>Newslocal</fullName>
+                <default>false</default>
+                <label>Newslocal</label>
+            </value>
+            <value>
+                <fullName>NRM Mastheads</fullName>
+                <default>false</default>
+                <label>NRM Mastheads</label>
+            </value>
+            <value>
+                <fullName>NSW</fullName>
+                <default>false</default>
+                <label>NSW</label>
+            </value>
+            <value>
+                <fullName>NT</fullName>
+                <default>false</default>
+                <label>NT</label>
+            </value>
+            <value>
+                <fullName>NXLITE</fullName>
+                <default>false</default>
+                <label>NXLITE</label>
+            </value>
+            <value>
+                <fullName>Off Network</fullName>
+                <default>false</default>
+                <label>Off Network</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Other NLM Custom</fullName>
+                <default>false</default>
+                <label>Other NLM Custom</label>
+            </value>
+            <value>
+                <fullName>Perth Now</fullName>
+                <default>false</default>
+                <label>Perth Now</label>
+            </value>
+            <value>
+                <fullName>Primped</fullName>
+                <default>false</default>
+                <label>Primped</label>
+            </value>
+            <value>
+                <fullName>Qantas</fullName>
+                <default>false</default>
+                <label>Qantas</label>
+            </value>
+            <value>
+                <fullName>Qantas Ipad</fullName>
+                <default>false</default>
+                <label>Qantas Ipad</label>
+            </value>
+            <value>
+                <fullName>QLD</fullName>
+                <default>false</default>
+                <label>QLD</label>
+            </value>
+            <value>
+                <fullName>Quest</fullName>
+                <default>false</default>
+                <label>Quest</label>
+            </value>
+            <value>
+                <fullName>Q-Weekend</fullName>
+                <default>false</default>
+                <label>Q-Weekend</label>
+            </value>
+            <value>
+                <fullName>Regional Mastheads</fullName>
+                <default>false</default>
+                <label>Regional Mastheads</label>
+            </value>
+            <value>
+                <fullName>Rockhampton</fullName>
+                <default>false</default>
+                <label>Rockhampton</label>
+            </value>
+            <value>
+                <fullName>Run of Category/Network</fullName>
+                <default>false</default>
+                <label>Run of Category/Network</label>
+            </value>
+            <value>
+                <fullName>Rural Weekly</fullName>
+                <default>false</default>
+                <label>Rural Weekly</label>
+            </value>
+            <value>
+                <fullName>SA</fullName>
+                <default>false</default>
+                <label>SA</label>
+            </value>
+            <value>
+                <fullName>Seniors</fullName>
+                <default>false</default>
+                <label>Seniors</label>
+            </value>
+            <value>
+                <fullName>Stanthorpe</fullName>
+                <default>false</default>
+                <label>Stanthorpe</label>
+            </value>
+            <value>
+                <fullName>Stellar</fullName>
+                <default>false</default>
+                <label>Stellar</label>
+            </value>
+            <value>
+                <fullName>STM WA</fullName>
+                <default>false</default>
+                <label>STM WA</label>
+            </value>
+            <value>
+                <fullName>Style Apps</fullName>
+                <default>false</default>
+                <label>Style Apps</label>
+            </value>
+            <value>
+                <fullName>Sunday Style</fullName>
+                <default>false</default>
+                <label>Sunday Style</label>
+            </value>
+            <value>
+                <fullName>Sunshine Coast</fullName>
+                <default>false</default>
+                <label>Sunshine Coast</label>
+            </value>
+            <value>
+                <fullName>Super Food Ideas</fullName>
+                <default>false</default>
+                <label>Super Food Ideas</label>
+            </value>
+            <value>
+                <fullName>TAS</fullName>
+                <default>false</default>
+                <label>TAS</label>
+            </value>
+            <value>
+                <fullName>Taste</fullName>
+                <default>false</default>
+                <label>Taste</label>
+            </value>
+            <value>
+                <fullName>Taste.com.au Magazine</fullName>
+                <default>false</default>
+                <label>Taste.com.au Magazine</label>
+            </value>
+            <value>
+                <fullName>Taste Cookbooks</fullName>
+                <default>false</default>
+                <label>Taste Cookbooks</label>
+            </value>
+            <value>
+                <fullName>The Advertiser</fullName>
+                <default>false</default>
+                <label>The Advertiser</label>
+            </value>
+            <value>
+                <fullName>The Australian</fullName>
+                <default>false</default>
+                <label>The Australian</label>
+            </value>
+            <value>
+                <fullName>Toowoomba</fullName>
+                <default>false</default>
+                <label>Toowoomba</label>
+            </value>
+            <value>
+                <fullName>Townsville</fullName>
+                <default>false</default>
+                <label>Townsville</label>
+            </value>
+            <value>
+                <fullName>Tributes</fullName>
+                <default>false</default>
+                <label>Tributes</label>
+            </value>
+            <value>
+                <fullName>Tweed</fullName>
+                <default>false</default>
+                <label>Tweed</label>
+            </value>
+            <value>
+                <fullName>VIC</fullName>
+                <default>false</default>
+                <label>VIC</label>
+            </value>
+            <value>
+                <fullName>Vogue</fullName>
+                <default>false</default>
+                <label>Vogue</label>
+            </value>
+            <value>
+                <fullName>Vogue.com.au</fullName>
+                <default>false</default>
+                <label>Vogue.com.au</label>
+            </value>
+            <value>
+                <fullName>Vogue Australia</fullName>
+                <default>false</default>
+                <label>Vogue Australia</label>
+            </value>
+            <value>
+                <fullName>Vogue Australia Events</fullName>
+                <default>false</default>
+                <label>Vogue Australia Events</label>
+            </value>
+            <value>
+                <fullName>Vogue Australia Specials</fullName>
+                <default>false</default>
+                <label>Vogue Australia Specials</label>
+            </value>
+            <value>
+                <fullName>Vogue Brides</fullName>
+                <default>false</default>
+                <label>Vogue Brides</label>
+            </value>
+            <value>
+                <fullName>Vogue Living</fullName>
+                <default>false</default>
+                <label>Vogue Living</label>
+            </value>
+            <value>
+                <fullName>Vogue Living Tab Apps</fullName>
+                <default>false</default>
+                <label>Vogue Living Tab Apps</label>
+            </value>
+            <value>
+                <fullName>WA</fullName>
+                <default>false</default>
+                <label>WA</label>
+            </value>
+            <value>
+                <fullName>Warwick</fullName>
+                <default>false</default>
+                <label>Warwick</label>
+            </value>
+            <value>
+                <fullName>Whimn</fullName>
+                <default>false</default>
+                <label>Whimn</label>
+            </value>
+            <value>
+                <fullName>YOU Queensland</fullName>
+                <default>false</default>
+                <label>YOU Queensland</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

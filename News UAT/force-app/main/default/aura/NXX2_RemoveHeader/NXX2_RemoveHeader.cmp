@@ -1,0 +1,4 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+	<ltng:require styles="{!join(',', 
+		$Resource.NXX2_customCSS)}" />
+</aura:component>

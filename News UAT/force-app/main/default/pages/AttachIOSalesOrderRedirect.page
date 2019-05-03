@@ -1,0 +1,8 @@
+<apex:page standardController="csmso__Sales_Order__c" extensions="AttachIOSalesOrderRedirect">
+  <apex:form >
+      <apex:pageBlock title="Upload Signed Insertion Order">
+            <apex:inputFile style="width:100%" id="fileToUpload" value="{!fileBody}" filename="{!fileName}" />
+            <apex:commandButton value="Upload Attachment" action="{!UploadFile}"/>
+       </apex:pageBlock>
+  </apex:form>
+</apex:page>

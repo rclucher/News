@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Visualforce page for getting CSV document with Sales Orders field values set between two dates</description>
+    <label>Export Product Data</label>
+    <mobileReady>false</mobileReady>
+    <motif>Custom27: Laptop</motif>
+    <page>CS_SetDatesForCSVDocument</page>
+</CustomTab>

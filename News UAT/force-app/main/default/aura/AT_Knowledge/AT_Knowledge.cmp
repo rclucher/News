@@ -1,0 +1,137 @@
+<aura:component controller="AT_Knowledge" implements="flexipage:availableForAllPageTypes,force:hasRecordId,lightning:isUrlAddressable">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="title" type="String" default="Knowledge Articles" />
+    <aura:attribute name="iconColour" type="String" default="#0070D2"/>
+    
+    <aura:attribute name="pageSize" type="Integer" default="5" />
+    
+	<aura:attribute name="filterField" type="String" default="Content_Type__c" />
+    <aura:attribute name="filterValue" type="String" />
+    
+    <aura:attribute name="showSearch" type="Boolean" default="true" />
+    
+    <aura:attribute name="loaded" type="Boolean" default="false" />
+    <aura:attribute name="search" type="String" />
+    <aura:attribute name="searching" type="Boolean" default="false" />
+    <aura:attribute name="knowledge" type="Object[]" />
+    <aura:attribute name="filtered" type="Object[]" />
+    <aura:attribute name="contentTypes" type="String[]" />
+    <aura:attribute name="multipleContentTypes" type="Boolean" default="false" />
+    <aura:attribute name="contentMenuVariant" type="String" default="brand" />
+    <aura:attribute name="selectedContentType" type="String" />
+    
+    <aura:attribute name="pageData" type="Object[]" />
+    <aura:attribute name="pageCount" type="Integer" default="1" />
+    <aura:attribute name="currentPage" type="Integer" default="1" />
+    <aura:attribute name="disablePrevious" type="Boolean" default="false" />
+    <aura:attribute name="disableNext" type="Boolean" default="false" />
+    <aura:attribute name="multiplePages" type="Boolean" default="false" />
+    
+    <aura:attribute name="showContent" type="Boolean" default="false" />
+    <aura:attribute name="contentTitle" type="String" />
+    <aura:attribute name="contentURL" type="String" />
+    
+    <article class="slds-card">
+      <div class="slds-card__header slds-grid" style="margin-bottom: 0px;">
+        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+            <aura:if isTrue="{!v.recordId == null}">
+                <div style="width: 150px; margin-bottom: 5px;">
+          			<img src="{!$Resource.NewsCorpWayLogo}"/>
+                </div>
+                
+                <aura:set attribute="else">
+                	<table style="width: 100%;">
+                    	<tr>
+                        	<td style="padding-right: 25px;">
+                                <div style="width: 150px;">
+                                    <img src="{!$Resource.NewsCorpWayLogo}"/>
+                                </div>
+                            </td>
+                            <td style="vertical-align: top; width: 60%;">
+                            	<lightning:input type="search" variant="label-hidden" value="{!v.search}" placeholder="Search Articles" onchange="{!c.handleSearch}"/>
+                            </td>
+                        </tr>
+                    </table>
+                </aura:set>
+            </aura:if>
+        </header>
+          <aura:if isTrue="{!v.multipleContentTypes}">
+              <div class="slds-no-flex">
+                  <lightning:buttonMenu onselect="{!c.selectContentType}" menuAlignment="right" title="Choose Content Type" alternativeText="Choose Content Type">
+                      <lightning:menuItem label="- All Content Types -" value="-"/>
+                      <aura:iteration items="{!v.contentTypes}" var="type">
+                          <lightning:menuItem label="{!type}" value="{!type}" checked="{!(type == v.selectedContentType)}"/>
+                      </aura:iteration>
+                  </lightning:buttonMenu>
+              </div>
+          </aura:if>
+      </div>
+      <div class="slds-card__body slds-card__body_inner">
+        <aura:renderIf isTrue="{!v.loaded}">
+            <aura:if isTrue="{!and(and(v.showSearch, or(v.searching, v.multiplePages)), (v.recordId == null))}">
+                <lightning:input type="search" variant="label-hidden" value="{!v.search}" placeholder="Search Articles" onchange="{!c.handleSearch}"/>
+            </aura:if>
+            <aura:if isTrue="{!v.searching}">
+                <table class="knowledge">
+                    <tbody>
+                        <aura:iteration items="{!v.pageData}" var="knowl">
+                            <tr class="{!knowl.rowClass}">
+                                <td>
+                                    <lightning:icon iconName="{!knowl.icon}" class="{!knowl.iconClass}" variant="inverse" size="x-small" />
+                                </td>
+                                <td>
+                                    <aura:if isTrue="{!knowl.hasLink}">
+                                        <button class="slds-button article-button" name="{!knowl.label}" value="{!knowl.link}" onclick="{!c.selectArticle}">
+                                            <aura:unescapedHtml value="{!knowl.title}"/>
+                                        </button>
+                                        <aura:set attribute="else">
+                                            <aura:unescapedHtml value="{!knowl.title}"/>
+                                        </aura:set>
+                                    </aura:if>
+                                </td>
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+        
+                <aura:if isTrue="{!v.multiplePages}">
+                    <br/>
+                    
+                    <lightning:buttonIcon variant="brand" iconName="utility:back" alternativeText="Previous" onclick="{!c.previousPage}" disabled="{!v.disablePrevious}"/>
+                    &nbsp;{!v.currentPage} / {!v.pageCount}
+                    <lightning:buttonIcon variant="brand" iconName="utility:forward" alternativeText="Next" onclick="{!c.nextPage}" disabled="{!v.disableNext}"/>
+                </aura:if>
+                
+                <aura:set attribute="else">
+                    <div style="font-style: italic; text-align: center; padding-top: 10px;">Search for News Corp Way resources here</div>
+                </aura:set>
+            </aura:if>
+        </aura:renderIf>
+      </div>
+    </article>
+    
+    <aura:if isTrue="{!v.showContent}">
+    	<div role="dialog" tabindex="-1" aria-label="{!v.contentTitle}" aria-modal="true" aria-describedby="modal-content-body" class="slds-modal slds-modal_large slds-fade-in-open" style = "width: 100%; padding: 20px; margin-bottom: 70px;">
+            <div class="slds-modal__container" style = "width: 100%; margin-top: 100px;">
+              <header class="slds-modal__header slds-modal__header_empty" />
+              <div class="slds-modal__content slds-p-around_medium" id="modal-content-body" style = "width: 100%; height: 100%; padding: 10px;">
+              	<table style = "width: 100%; height: 100%;">
+                      <tbody>
+                      	<tr>
+                            <td style="text-align: left;"><h2 id="contentHeader" class="slds-text-heading--medium">{!v.contentTitle}</h2></td>
+                            <td style="text-align: right;"><lightning:buttonIcon alternativeText="Close" variant="neutral" iconName="utility:close" onclick="{!c.closeArticle}"/></td>
+                        </tr>
+                          <tr>
+                              <td style = "width: 100%; height: 100%; padding-top: 5px;" colspan = "2">
+                                  <iframe style = "width: 100%; height: 100%;" src = "{!v.contentURL}" />
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+            </div>
+		</div>
+      	<div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+</aura:component>

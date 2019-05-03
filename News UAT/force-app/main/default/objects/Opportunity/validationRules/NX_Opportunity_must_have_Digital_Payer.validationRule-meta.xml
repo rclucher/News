@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NX_Opportunity_must_have_Digital_Payer</fullName>
+    <active>true</active>
+    <description>When an Opportunity has NewsXtend as a platform, the Payer Account must be digital and have an Active Adpoint Id.</description>
+    <errorConditionFormula>AND(Opportunity_Platform_NewsXtend__c = True,
+NOT( $Setup.No_Validation__c.Flag__c),
+				 Has_an_Approved_SO__c = True,
+				OR(Payer_Account__r.Is_Digital__c = False,
+							TEXT(Payer_Account__r.Digital_Status__c) &lt;&gt; &quot;Active&quot;,
+							ISBLANK(Payer_Account__r.AdPoint_Id__c)))</errorConditionFormula>
+    <errorDisplayField>Payer_Account__c</errorDisplayField>
+    <errorMessage>When an Opportunity has a Platform of NewsXtend, the Payer Account must be Digital, Active and have an Adpoint Id</errorMessage>
+</ValidationRule>

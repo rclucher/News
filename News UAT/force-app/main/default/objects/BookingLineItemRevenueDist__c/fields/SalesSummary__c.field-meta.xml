@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SalesSummary__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Sales Summary</label>
+    <referenceTo>SalesSummary__c</referenceTo>
+    <relationshipLabel>Booking Line Item Revenue Dists</relationshipLabel>
+    <relationshipName>Booking_Line_Item_Revenue_Dists</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

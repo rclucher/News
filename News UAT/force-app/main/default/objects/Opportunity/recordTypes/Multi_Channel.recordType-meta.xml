@@ -1,0 +1,1663 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Multi_Channel</fullName>
+    <active>true</active>
+    <businessProcess>Multi-Channel</businessProcess>
+    <description>Opportunities that include more than one sales channel.</description>
+    <label>Multi-Channel</label>
+    <picklistValues>
+        <picklist>Classification__c</picklist>
+        <values>
+            <fullName>Existing Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lapsed Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Business</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Competitor__c</picklist>
+        <values>
+            <fullName>B Mag</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cinema</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Direct Mail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Letterbox</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Magazines %E2%80%93 Pacific Magazines</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Magazines - Bauer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Magazines - EMAP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Magazines - Fairfax Magazines</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Magazines - Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Map Magazine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Competitor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online - Fairfax Digital</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online - News Digital Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online - NineMSN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online - Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online - Sensis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online - Yahoo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outdoor - APN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outdoor - Adshel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outdoor - Australia Outdoor Network</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outdoor - Eyecorp</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press - APN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press - Fairfax Community</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press - Fairfax Metro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press - News Communitities</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press - News Metro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press - Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press - Trading Post</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press - Yellow Pages</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Radio - Austereo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Radio - DMG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Radio - Macquarie Radio Network</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Radio - Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Radio - Southern Cross</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Style Magazine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TV - ABC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TV - Channel 10</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TV - Channel 7</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TV - Channel 9</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TV - Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TV - Pay TV</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Customer_Books_Direct__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DB_Competitor__c</picklist>
+        <values>
+            <fullName>Competitor A</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competitor B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competitor C</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ForecastCategoryName</picklist>
+        <values>
+            <fullName>Best Case</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pipeline</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LeadSource</picklist>
+        <values>
+            <fullName>Imported - Competitor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Imported - Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Imported - Purchased Lead</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inbound - Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inbound - Phone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Newsletter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Seminar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trade Show</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Walk In</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NRM_Sales_Representative__c</picklist>
+        <values>
+            <fullName>AB-KA-01 Sharon Harper_2334</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AB-KA-02 Lisa Bates_308</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BA-KA-01 Kim Thomas_2569</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BA-KA-02 Alf Boston_1040</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BA-KA-03 Leonie Van Rooyen_2576</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BL-KA-02 Narelle Schnitzerling_1201</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BR-AM-01 Peter Hockings_443</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BR-KA-01 Marie O%27Reilly_2370</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BR-KA-02 Michael Kidd_441</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BU-AM-01 Ingrid Barham_186</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BU-IS-01 Miranda Petersen_2558</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BU-IS-03 Kelly Gates_2801</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BU-KA-01 Morag Barrett_495</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BU-KA-02 Braden Krebs_1378</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BU-KA-04 Michelle Cooper_179</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BU-KA-05 Linda Timmons_182</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BU-KA-06 Alex Werchon_2658</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BY-KA-01 Reif Ianson_2573</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BY-KA-03 Deb Milgate_1038</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CA-KA-09 Dennis Ford_1004</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CA-KA-10 Katie Gourlay_1026</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-BM-01 David Dryden_2399</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-BM-02 Jack Horrocks_2664</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-BM-03 Brad Edmunds_2605</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-BM-04 Rach Howard_2947</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-BM-05 Sirisha Puri_2353</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-BM-06 Michael Watson_2032</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-BM-07 Paul Hopley_2388</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-BM-08 Ron Gurgacz_1958</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-BM-09 Priyanka Karira_2943</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-BM-10 Colin Smith_2620</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-BM-13 Simon Band_2638</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-BM-15 David Rae_2875</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-BM-15 Sam Kang_2970</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-BM-16 Rainer Ellem_2907</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-BM-TL Mitz Wang_1257</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-DA-04 Megan Austin_2036</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-IP-02 Elaine Iro_2602</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-IP-TL Sarah Sutton_1689</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-NX-01 Janet Bowden_1207</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-NX-02 Lisa Jones_2652</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-NX-03 Caroline Madill_2633</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-NX-04 Karine Godin</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-NX-04 Micky Kavanagh</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-NX-05 Marie Rasmussen_2653</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-NX-06 Carrie Riessen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-NX-07 Tracy Leahey</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-NX-09 Ratu Lewis_2974</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-OM-03 Deborah Ward_748</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-OM-04 Matthew Thiele_120</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-OM-09 Fran Hockings_2908</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-OM-10 Frederick Lenz_2909</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-OM-11 Kym Morwood_2932</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-PP-01 Colleen Monaghan_268</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-PP-02 Lisa Fleming_176</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-PP-04 Hayley Pollard_2159</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-PP-08 Elizabeth Colls_2900</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-PP-TL Carolyn Seipolt_2580</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-QA-01 John Black_2935</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-QA-02 Melissa Wilkie_557</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-QA-03 Suellen Finney_2942</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-QA-04 Rocco Mcewan_2940</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-QA-05 Karen Moeser_2939</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-QA-06 Kalliope Venardos_2938</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-QA-07 Emma Tideswell_2936</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-QA-08 Deborah Soden_2937</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-SM-01 Gemma Visentin_1409</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-SM-02 Justine Fryer_659</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-SS-01 Ellie Maher_2661</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-SS-02 Cathy Cornelius_2374</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-SS-04 Danielle Zigliotto_2397</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-SS-05 Petrina Cohen_172</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-SS-06 Lucas Wilburn_2777</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-SS-06 Noah Wilkie_9081</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-SS-07 Ben Warfield_2465</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-SS-08 Tracey Clark_2609</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-SS-09 Marley Schlosswaters_2463</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-SS-10 James Faulkner_2844</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-SS-11 Natalie Rhodes_2631</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-SS-12 Kirsten Jakubenko_733</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-TR-03 Janet Simpson_1421</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-TR-04 Jade Hendry_1449</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-TR-05 Chris Canoy_1463</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-TR-06 Daniel Jones_2775</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-TR-10 Brandon Perez_2980</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-TR-10 Ganpath Tulasiram_2881</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-TR-12 Miranda Smith_2986</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CH-IS-01 Debbie Phillips_725</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CH-KA-01 Jodie Williams_2435</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CH-KA-04 Rachael Green_1640</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CH-KA-05 Ashleigh Griffiths_622</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CH-KA-06 Tori Johnson_2534</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CH-KA-07 Hineata Cash_404</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CH-KA-08 Stephanie Stonehouse_1887</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CH-SM-01 Greg Latta_1180</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CH-SM-02 Nicole McDougall_1450</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CO-IS-01 Heidi Birdsall_2932</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CO-KA-01 Peter Griffin_353</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CO-KA-02 Lorraine Dunstan_357</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CO-KA-03 Robert Gurber_2392</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CO-KA-04 Elise Borg_359</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EM-KA-02 Miranda Hetherington_2452</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Evan Crandon_2486</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FC-IS-04 Karen White_293</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FC-IS-05 Vicki Seddon_1803</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FC-KA-01 Juanita Hamilton_300</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FC-KA-02 Helen Rekdale_1577</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FC-KA-03 Darren Stimpson_189</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FC-KA-04 Kane Carpenter_195</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FC-KA-05 Michael Zentveld_984</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FC-KA-06 Tony Nash_2628</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FC-KA-07 Louise Holmes_2721</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-BA-07 Lyn Rabe_1018</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-BL-27 Rebekah Green_393</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-BU-23 Morgan Galea_1774</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-BU-24 Margret Lepla_1675</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-CA-08 Frances Hickson_1111</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-CH-22 Lorraine Freeman_649</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-CH-42 Suzanne Deem_403</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-CO-06 Lesley Ross_1013</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-FC-33 Cathy Muchow_2722</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-FC-34 Jennifer Birch_2846</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-FC-35 Sarah Watson_265</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-GL-32 Cheryl Royal-Scott_2296</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-GR-02 Kristy Paxton_2617</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-GR-03 Tansie Higgins_2842</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-GR-04 Rebecca Smith_2138</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-GT-14 Karen Wilkinson_638</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-GT-43 Grace Crichton_2837</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-GY-36 Sharon Turner_85</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-GY-37 Trista Blake_2519</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-GY-38 Jo Salmon_2524</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-IP-12 Jenny Taylor_643</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-IP-13 Karen Mccoombes_639</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-KI-18 Sharon Jones_560</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-LI-01 Jill Roder_1015</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-LI-02 Sheran Scotcher_968</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-LI-03 Cathy Ward_1707</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-MA-25 Linda Brogden_2025</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-RO-28 Pamela Adams_2724</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-RO-29 Marilyn Knight_1772</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-RO-30 Sheree Smith_2714</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-SC-39 Lyn Brooke_1623</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-SC-40 Sylvia Reid_322</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-ST-11 Teigan Wantling_1074</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-TO-16 Debbie Mahoney_645</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-TO-17 Sandy Langton_647</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FR-WA-10 Tracey Madsen_2787</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GL-AM-01 Jessica Mckay_831</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GL-KA-01 Tarnya Christian_848</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GL-KA-02 Jane Katsanevas_832</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GL-KA-03 Catherine Merritt_837</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GL-KA-05 Sharon Bell_1700</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GL-KA-06 Teeanna Thomsen_2824</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GL-SS-01 Libby Cattermole_2772</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GR-KA-01 Peter Smajstr_996</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GR-KA-02 Tabatha Ellem_2702</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GR-KA-04 Renae Smidt_2089</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GT-KA-01 David Greer_2440</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GT-KA-02 Kate Calvert_2742</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GT-KA-03 Carol Mansfield_1992</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GT-KA-04 Adam Roberts_2062</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GT-SM-01 Bruce Horrocks_628</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GY-IS-01 Caroline Vielle_543</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GY-KA-02 Jessica Warwick_51</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GY-KA-03 Jessica Thoroughgood_1518</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GY-KA-04 Robin Iddles_52</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GY-SM-01 Tracey Mckean_39</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GY-SS-01 Renee King_41</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IP-AM-02 Brendan Harper_625</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IP-KA-01 Tony Field_594</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IP-KA-02 Kath Walker_435</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IP-KA-03 Shane Long_592</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IP-KA-04 Brent Pettersson_2736</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IP-KA-05 Rhonda Bristow_438</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IP-KA-06 Julie Laimer_437</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IP-MA-01 Lisa Chapman_2794</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jessica Thiele_2912</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KI-KA-01 Georgia Hansen_2230</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KI-KA-02 Helen Dickfos_601</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KI-KA-03 Jessica Zenovich_2931</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KI-KA-04 David Vidler_2539</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KI-KA-05 Melanie Eastaugh_598</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KI-KA-07 Brett Bishop_2869</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LI-IS-01 Christina Blackler_1554</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LI-IS-02 Alison Martin_1055</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LI-IS-03 Sharon Kennedy_2405</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LI-KA-01 Jackie Waterman_1365</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LI-KA-02 Kerrie Watts_2424</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LI-KA-03 Heather Williams_1037</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LI-KA-04 Lee Grimes_424</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LI-KA-05 Scott Kilpatrick_1440</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lismore Bookings_950</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MA-AM-01 Sarah Edwards_1930</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MA-KA-01 Kimbaley Ryals_2207</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MA-KA-02 Janine Thomspon_376</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MA-KA-04 Alannah Wasson_374</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MA-KA-05 Emma Murphy_2744</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MA-KA-06 Kelly Tennyson_2859</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MA-KA-07 Serena Lynch_2330</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MA-SS-01 Vicki Bugeja_895</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ME-KA-01 Ranjit Dias_1693</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ME-KA-02 David McMeekin_1193</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ME-KA-03 Georgia Di Martino_2743</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maria Ambrocio_2934</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Michele Mccoombes_2536</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NP-IP-13 Kath Walker_2813</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NP-RO-01 Robert Kearney_2882</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NP-TO-09 Drew Myers_2817</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RO-AM-01 Jens Kraeft_855</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RO-IS-01 Ben Owen_463</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RO-KA-01 Peter Lynch_467</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RO-KA-02 Allira Rose_862</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RO-KA-03 Cindy Unwin_468</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RO-KA-04 Ben Kitchin_469</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RO-KA-05 Sherrie Ashton_829</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RO-KA-07 Kylie Walker_461</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RO-KA-08 Oksana Hopgood_928</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RO-SS-02 Tahlee Bridges_2196</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RW-KA-02 Kymberley Horn_2746</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RW-KA-03 Michael Beven_307</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RW-KA-04 James Niven_2933</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RW-SM-01 David Brereton_379</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-AM-01 Sue Foster_507</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-AM-02 Sally Waghorn_2641</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-FM-01 Jessica Watson_2153</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-IS-03 Chris Crowe_2140</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-IS-06 Paul Sumner_2143</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-IS-07 Louisa Kneller_2146</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-IS-08 Georgie Rogers_2145</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-IS-09 Rebecca Murdoch_2147</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-KA-01 Toni Howard_2131</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-KA-02 Pennie Bungate_2132</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-KA-04 Jackie Wright_2134</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-KA-06 Samantha Ayliffe_2124</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-KA-09 Matthew Smith_215</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-KA-10 Michelle Attard_1168</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-KA-11 Renee English_2136</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-KA-12 Dawn Stubbs_476</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-KA-13 Amanda Ahern_243</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-KA-14 Kathryn Stuart_2149</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-KA-15 Mark Hancock_2152</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-KA-16 Mark Davis_1347</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-KA-17 Brooke Hindmarsh_2151</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-MA-01 Louise OKeeffe_512</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-SS-01 Roslyn Major_1482</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-SS-02 Nadia Colbourn_2380</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-SS-03 Hejira Convery_2812</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SE-KA-01 Brett Mauger_2645</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SE-KA-03 Rachel Loy_2786</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SE-KA-05 Tracy O%27Connor_2766</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SE-KA-07 Allyson Farmer_2800</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SE-KA-08 Sue Germany_2828</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SE-SM-01 Kristie Waite_2774</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ST-KA-01 Samantha Wantling_1029</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SY-KA-01 Jarrod Frost_2404</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SY-KA-02 Aimee Jenkins_2600</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SY-KA-04 Jane Vickers_2761</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SY-SS-01 Jemima O%27Dea_2832</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-AM-01 Deb Hanfeld_405</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-FM-01 Stacey Phillips_2903</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-IS-01 Lauren Alsemgeest_2910</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-IS-03 Kerri Hooke_785</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-IS-04 Maree Brown_670</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-IS-05 Brooke Gardner_1634</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-IS-07 Victoria Fitch_2853</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-IS-08 Emily Bosman_2979</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-IS-08 Jade Scott_2982</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-IS-08 Mary Maguire_2851</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-IS-09 Maddysen Sears_2911</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-KA-01 Aileen Hedge_378</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-KA-02 Chris Simpson_611</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-KA-03 Kevin Creed_2790</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-KA-04 Darcy Wilson_406</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-KA-05 Gurdeep Saroa_408</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-KA-06 Sandra Thompson_2640</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-KA-07 Ingrid Beitz_2781</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-KA-08 Wayne Quinn_407</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-SM-01 Marg Alexander_350</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WA-KA-01 Bec Gurney_2704</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WA-KA-02 Donna Hey_738</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WA-KA-04 Peter Schmidt_672</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WA-SM-01 Kaela Freeman_1216</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>OpportunityGroup__c</picklist>
+        <values>
+            <fullName>Digital</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inserts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Magazine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NewsXtend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Newspaper</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Opportunity_Type__c</picklist>
+        <values>
+            <fullName>Agreement Negotiation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Brief</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Historical</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Late Space</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Multi-Channel</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Proactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Promotions</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason_Won_Lost__c</picklist>
+        <values>
+            <fullName>Alternative Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Below the Line</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Created In Error</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Editorial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inventory Limitation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lack of Colour</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Masthead Reputation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No budget</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Positioning</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product%2FEnvironment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reach</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Relationship</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Response Rate %25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Share of Voice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Synergy Lost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Target audience</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Timing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Track Record</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Withdrawn</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Referral_Source__c</picklist>
+        <values>
+            <fullName>ANZ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Revenue_Group__c</picklist>
+        <values>
+            <fullName>Amusements</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Employment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>House</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Motor Vehicle Dealers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Communications%2Fbusiness equipment%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Computers%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Finance%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Food and beverages%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Gambling%2Fgaming%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Government%2Fpolitical%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Media%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Motor Vehicle Manufacturers%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Other%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Personal care products%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Pharmaceutical %2F Health Products%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Travel%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Public Notices</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Real Estate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retail</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Core Activity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Core Activity</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

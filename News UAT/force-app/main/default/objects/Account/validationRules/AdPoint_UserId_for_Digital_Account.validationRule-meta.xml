@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AdPoint_UserId_for_Digital_Account</fullName>
+    <active>true</active>
+    <description>Need AdPoint user id when update digital account</description>
+    <errorConditionFormula>AND(
+  Is_Digital__c,
+  ISBLANK( AdPoint_User_Id__c ),
+
+ AND(
+  NOT CONTAINS($Profile.Name, &#39;System Administrat&#39;),
+  NOT CONTAINS($Profile.Name, &#39;IT Administrat&#39;),
+  NOT CONTAINS($Profile.Name, &#39;Integrat&#39;),
+		NOT CONTAINS($Profile.Name, &#39;CNG&#39;)
+ )
+)</errorConditionFormula>
+    <errorMessage>Account does not have an AdPoint User id. Please contact your Administrator to set the AdPoint User Id in this Account. If you do not have an AdPoint User Account, the Administrator will first need to set it up.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Requirements_Ready_For_Deploy</fullName>
+    <columns>NAME</columns>
+    <columns>External_ID__c</columns>
+    <columns>High_Level_Requirement__c</columns>
+    <columns>Functional_Requirement__c</columns>
+    <columns>Proposed_Approach__c</columns>
+    <columns>Use_Case__c</columns>
+    <columns>Comments__c</columns>
+    <columns>Assigned_To__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Implemented_by_Other_Team__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Ready For Deploy</value>
+    </filters>
+    <filters>
+        <field>Schedule_Sprint__c</field>
+        <operation>equals</operation>
+        <value>Sprint 1,Sprint 2</value>
+    </filters>
+    <label>All Requirements - Ready For Deploy</label>
+</ListView>

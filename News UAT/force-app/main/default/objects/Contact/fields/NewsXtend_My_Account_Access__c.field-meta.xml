@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NewsXtend_My_Account_Access__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used to enable access to the My Account Community</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Used to enable access to the My Account Community</inlineHelpText>
+    <label>NewsXtend My Account Access</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

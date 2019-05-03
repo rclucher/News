@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_of_Data_Required__c</fullName>
+    <description>Type of data required for insights</description>
+    <externalId>false</externalId>
+    <inlineHelpText>When thinking about research and data - which of the following best describes your client?</inlineHelpText>
+    <label>Describe Client Attitude To Research</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Prefers Detailed Data and Insights</fullName>
+                <default>false</default>
+                <label>Prefers Detailed Data and Insights</label>
+            </value>
+            <value>
+                <fullName>Receptive to Data &amp; Research - Practical</fullName>
+                <default>false</default>
+                <label>Receptive to Data &amp; Research - Practical</label>
+            </value>
+            <value>
+                <fullName>Research Savvy</fullName>
+                <default>false</default>
+                <label>Research Savvy</label>
+            </value>
+            <value>
+                <fullName>Limited Market Knowledge - Instinctive</fullName>
+                <default>false</default>
+                <label>Limited Market Knowledge - Instinctive</label>
+            </value>
+            <value>
+                <fullName>Not Sure</fullName>
+                <default>false</default>
+                <label>Not Sure</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

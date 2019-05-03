@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lost_to_Req_when_Oppty_Closed_Lost</fullName>
+    <active>false</active>
+    <description>Lost to is required when the Opportunity Stage is Closed Lost</description>
+    <errorConditionFormula>AND(
+ISPICKVAL(StageName, &quot;Closed Lost&quot;),
+ISBLANK(Closure_Summary__c),
+($Setup.NLM_Global_Settings__c.Fire_NLM_Validation_Rules__c) 
+)</errorConditionFormula>
+    <errorMessage>Lost to is required when the Opportunity Stage is Closed Lost</errorMessage>
+</ValidationRule>

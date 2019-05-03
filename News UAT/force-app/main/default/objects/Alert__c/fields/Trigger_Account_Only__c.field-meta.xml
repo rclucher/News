@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Trigger_Account_Only__c</fullName>
+    <defaultValue>false</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>Do not show on page: This checkbox is used to flag that alert is ONLY associated to an account and does not have a contact. This flag allows rollup summaries to use as a filter and hence, create further triggers off rollup summary field. ;)</inlineHelpText>
+    <label>Trigger: Account Only</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

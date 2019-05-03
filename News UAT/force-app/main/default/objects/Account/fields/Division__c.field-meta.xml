@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Division__c</fullName>
+    <description>Return everything left of hyphen for Division</description>
+    <externalId>false</externalId>
+    <formula>IF(LEFT(Owner.UserRole.Name,14) = &quot;NSW Consortium&quot;, 
+&quot;KAC&quot;, 
+IF(LEFT(Owner.UserRole.Name,16) = &quot;NSW Key Accounts&quot;, 
+&quot;KAC&quot;, 
+IF(LEFT(Owner.UserRole.Name,8) = &quot;Prestige&quot;, 
+&quot;KAC&quot;, 
+IF(Left(Owner.UserRole.Name,7) = &quot;VIC KAM&quot;, 
+&quot;KAC&quot;, 
+IF(Left(Owner.UserRole.Name,16) = &quot;Key Accounts VIC&quot;, 
+&quot;KAC&quot;, 
+IF(Left(Owner.UserRole.Name,14) = &quot;Consortium VIC&quot;, 
+&quot;KAC&quot;, 
+IF(LEFT(Owner.UserRole.Name,7) = &quot;KAC VIC&quot;, 
+&quot;KAC&quot;, 
+IF(Left(Owner.UserRole.Name,7) = &quot;IMA NSW&quot;, 
+&quot;NSW&quot;, 
+IF(Left(Owner.UserRole.Name,7) = &quot;SME NSW&quot;, 
+&quot;NSW&quot;, 
+IF(Left(Owner.UserRole.Name,7) = &quot;SME GSD&quot;, 
+&quot;NSW&quot;, 
+IF(Left(Owner.UserRole.Name,6) = &quot;SME FS&quot;, 
+&quot;NSW&quot;, 
+LEFT(Owner.UserRole.Name, FIND(&#39;-&#39;, Owner.UserRole.Name)-1) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+) 
+)</formula>
+    <label>Owner Division</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Est_Hrs_to_Complete__c</fullName>
+    <description>Estimated hours left in the project</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Estimated hours left in the project</inlineHelpText>
+    <label>Est. Hrs to Complete</label>
+    <summarizedField>Burn_Report__c.Est_Hrs_to_Complete__c</summarizedField>
+    <summaryForeignKey>Burn_Report__c.Project_Overview__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

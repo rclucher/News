@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cse_Credit_Application_FaxDetal_Precheck</fullName>
+    <active>true</active>
+    <description>When opening a credit application - and depending on the channel selected, the system will data validate if the contact has an email or fax</description>
+    <errorConditionFormula>AND(
+  RecordType.DeveloperName = &#39;Credit_Application&#39;,
+  ISPICKVAL(Channel__c, &#39;Fax&#39;),
+  NOT(ContactId = &#39;&#39;),
+  Contact.Fax = &#39;&#39;
+)</errorConditionFormula>
+    <errorDisplayField>ContactId</errorDisplayField>
+    <errorMessage>Where the channel is set to fax, the contact person listed must have a fax number. Please open the contact in another tab to enter the fax number before completing this form.</errorMessage>
+</ValidationRule>

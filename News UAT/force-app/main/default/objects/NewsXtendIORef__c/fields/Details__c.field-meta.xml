@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Details__c</fullName>
+    <description>The summary details for this Campaign Element.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field should contain the summary text to be displayed for this part of the IO Sheet. If a number of impressions etc is required to be entered simply enter 0 and it will be automatically replaced with the actual value eg &quot;Impression 0&quot;</inlineHelpText>
+    <label>Details</label>
+    <length>1000</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>15</visibleLines>
+</CustomField>

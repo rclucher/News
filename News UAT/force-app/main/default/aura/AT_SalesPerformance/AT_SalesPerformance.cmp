@@ -1,0 +1,172 @@
+<aura:component controller="AT_SalesPerformance" implements="flexipage:availableForAllPageTypes,lightning:isUrlAddressable">
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    
+    <aura:attribute type="Boolean" name="loading" default="true"/>
+    
+    <aura:attribute type="List" name="months"/>
+    
+    <article class="slds-card">
+      <div class="slds-card__header slds-grid">
+        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+          <div class="slds-media__figure">
+            <span class="slds-icon_container slds-icon-custom-custom102" title="My Sales Performance">
+              <lightning:icon iconName="custom:custom102"/>
+            </span>
+          </div>
+          <div class="slds-media__body">
+            <h2>
+                <b>My Sales Performance</b>
+            </h2>
+          </div>
+        </header>
+          <div class="slds-no-flex">
+              
+          </div>
+      </div>
+      <div class="slds-card__body slds-card__body_inner" style = "padding: 0px;">
+          <aura:if isTrue="{!v.loading}">
+              <lightning:spinner alternativeText="Loading" />
+              
+              <aura:set attribute="else">
+                  <table class="slds-table slds-table_bordered slds-no-row-hover" style="width: 100%; ">
+                      <thead>
+                          <tr>
+                              <th>
+                                &nbsp;
+                              </th>
+                              <aura:iteration items="{!v.months}" var="month">
+                                  <th colspan="4">
+                                      <aura:unescapedHtml value="{!month.label}"/>
+                                  </th>
+                              </aura:iteration>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>&nbsp;</td>
+                              
+                              <aura:iteration items="{!v.months}" var="month">
+                                  <td class="{!month.class}"><b>Target</b></td>
+                                  <td class="{!month.class}"><b>Actual</b></td>
+                                  <td class="{!month.class}"><b>Pipeline</b></td>
+                                  <td class="{!month.class}"><b>Gap</b></td>
+                              </aura:iteration>
+                          </tr>
+                          
+                          <tr>
+                              <td style="color: black;">
+                                  Print
+                              </td>
+                              
+                              <aura:iteration items="{!v.months}" var="month">
+                                  <td class="{!('amount ' + month.class)}">
+                                      $<lightning:formattedNumber value="{!month.target.print}" maximumFractionDigits="0"/>
+                                  </td>
+                                  <td class="{!('amount ' + month.class)}">
+                                      $<lightning:formattedNumber value="{!month.actual.print}" maximumFractionDigits="0"/>
+                                  </td>
+                                  <td class="{!('amount ' + month.class)}">
+                                      $<lightning:formattedNumber value="{!month.pipeline.print}" maximumFractionDigits="0"/>
+                                  </td>
+                                  <td class="{!('amount ' + month.class)}">
+                                      <aura:if isTrue="{!(month.gap.print != 0)}">
+                                          <span class = "gap">
+                                              -$<lightning:formattedNumber value="{!month.gap.print}" maximumFractionDigits="0"/>
+                                          </span>
+                                          <aura:set attribute="else">
+                                              &hellip;
+                                          </aura:set>
+                                      </aura:if>
+                                      
+                                  </td>
+                              </aura:iteration>
+                          </tr>
+                          <tr>
+                              <td style="color: black;">
+                                  Digital
+                              </td>
+                              
+                              <aura:iteration items="{!v.months}" var="month">
+                                  <td class="{!('amount ' + month.class)}">
+                                      $<lightning:formattedNumber value="{!month.target.digital}" maximumFractionDigits="0"/>
+                                  </td>
+                                  <td class="{!('amount ' + month.class)}">
+                                      $<lightning:formattedNumber value="{!month.actual.digital}" maximumFractionDigits="0"/>
+                                  </td>
+                                  <td class="{!('amount ' + month.class)}">
+                                      $<lightning:formattedNumber value="{!month.pipeline.digital}" maximumFractionDigits="0"/>
+                                  </td>
+                                  <td class="{!('amount ' + month.class)}">
+                                      <aura:if isTrue="{!(month.gap.digital != 0)}">
+                                          <span class = "gap">
+                                              -$<lightning:formattedNumber value="{!month.gap.digital}" maximumFractionDigits="0"/>
+                                          </span>
+                                          <aura:set attribute="else">
+                                              &hellip;
+                                          </aura:set>
+                                      </aura:if>
+                                      
+                                  </td>
+                              </aura:iteration>
+                          </tr>
+                          <tr>
+                              <td style="color: black; font-weight: bold;">
+                                  Combined
+                              </td>
+                              
+                              <aura:iteration items="{!v.months}" var="month">
+                                  <td class="{!('combined amount ' + month.class)}">
+                                      $<lightning:formattedNumber value="{!month.target.combined}" maximumFractionDigits="0"/>
+                                  </td>
+                                  <td class="{!('combined amount ' + month.class)}">
+                                      $<lightning:formattedNumber value="{!month.actual.combined}" maximumFractionDigits="0"/>
+                                  </td>
+                                  <td class="{!('combined amount ' + month.class)}">
+                                      $<lightning:formattedNumber value="{!month.pipeline.combined}" maximumFractionDigits="0"/>
+                                  </td>
+                                  <td class="{!('combined amount ' + month.class)}">
+                                      <aura:if isTrue="{!(month.gap.combined != 0)}">
+                                          <span class = "gap">
+                                              -$<lightning:formattedNumber value="{!month.gap.combined}" maximumFractionDigits="0"/>
+                                          </span>
+                                          <aura:set attribute="else">
+                                              &hellip;
+                                          </aura:set>
+                                      </aura:if>
+                                      
+                                  </td>
+                              </aura:iteration>
+                          </tr>
+                          
+                          <tr>
+                              <td style="color: black; font-weight: bold;">
+                                  Actual <span style="font-size: 0.9em;">- vs -</span>
+                                  <br/>
+                                  Target
+                              </td>
+                              
+                              <aura:iteration items="{!v.months}" var="month">
+                                      <td class="{!month.class}" colspan="4" style="padding: 6px; vertical-align: top; text-align: right;">
+                                          <aura:if isTrue="{!(month.percent != 0)}">
+                                              <div style="border: 1px solid #888; width: 100%; border-radius: 4px; background-color: white;">
+                                                 <div style="{!('background-color: ' + month.colour + '; width: ' + month.progress + '%; border-radius: 4px; text-align: right; color: #fff; font-weight: bold; font-sizE: 1.1em;')}" class="outline">
+                                                 	<aura:unescapedHtml value="{!month.indicator}"/>
+                                                 </div>
+                                                   
+                                              </div>
+                                              <div class="percent"><b>{!month.percent}%</b></div>
+                                              
+                                              <aura:set attribute="else">
+                                                  &nbsp;
+                                              </aura:set>
+                                          </aura:if>
+                                      </td>
+                              </aura:iteration>
+                          </tr>
+                      </tbody>
+                  </table>
+              </aura:set>
+          </aura:if>
+      </div>
+    </article>
+</aura:component>

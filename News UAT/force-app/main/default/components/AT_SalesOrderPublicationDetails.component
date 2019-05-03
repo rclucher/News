@@ -1,0 +1,4 @@
+<apex:component controller="AT_SalesOrderPPTDetails" access="global" >
+   <apex:attribute name="salesOrderID" description="Record ID of Sales Order" type="ID" assignTo="{!salesOrderRecordID}" access="global" required="true"/>
+    <apex:outputText >{!Publications}</apex:outputText>
+</apex:component>

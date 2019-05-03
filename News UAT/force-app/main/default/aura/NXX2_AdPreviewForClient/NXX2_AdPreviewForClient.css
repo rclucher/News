@@ -1,0 +1,131 @@
+.THIS{
+    background-color:white;
+    position: relative;
+    min-height: 100px;
+}
+.THIS .create-button-container{
+    text-align : right;
+}
+.THIS .comment-lable{
+    font-size : 16px;
+}
+.THIS .ad-count{
+    border-radius: 10%;
+    border: 1px solid #666;
+    display: inline-block;
+    height: 32px;
+    text-align: center;
+    width: 48px;
+    line-height: 32px;
+    font-size: 12px;    
+    margin-top: 10px;
+}
+.THIS .details-section{
+    width: 300px;
+    min-width : 300px;
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+}
+.THIS .control-section{
+    text-align : center;
+    padding-right: 10px;
+    display: inline-block;
+    float: left;
+    padding-bottom : 10px;
+}
+.THIS .comments-section{
+    display: inline-block;
+    min-width: 350px;
+    width : 100%;
+}
+.THIS .comments-section.disabled footer,.THIS .comments-section.disabled .commentInputArea,.THIS .comments-section.disabled .forceChatterOverflowActionMenu,.THIS .comments-section.disabled .cuf-commentActionButton {
+    display : none;
+}
+.THIS .control-section .slds-icon_container{
+    width: 48px;
+    height: 30px;
+    text-align: center;
+    line-height: 26px;
+    border: solid 1px gray;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: inline-block;
+    background-color:white;
+    cursor:pointer;
+}
+.THIS .control-section .slds-icon_container:hover{
+    opacity : 0.8;
+}
+.THIS .slds-card{
+    padding: 0px;
+}
+.THIS .ad-container{
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 20px;
+}
+.THIS .ad-container .ad-details{
+    background-color: #f2f3f3;
+    border: solid 2px lightgray;
+    border-radius: 5px;    
+    padding: 10px;
+    display: block;
+}
+.THIS .ad-container h1{
+    font-weight: 500;
+    font-size: 28px;
+    color: #535962;
+    margin-bottom: 10px;
+    border-bottom: solid 1px lightgray;
+}
+.THIS .create-form-container{
+    text-align: right;
+    padding: 10px;
+}
+.THIS .ad-form-container{
+    padding: 10px !important;
+}
+.THIS .ad-form-container .form-label{
+    font-size: 16px;
+    font-weight: bold;
+}
+.THIS .ad-form-container .form-value{
+    color: gray;
+}
+.THIS .form-images{
+        display: inline-block;
+    width: 100px;
+    border: solid 1px lightgray;
+    margin: 2px;
+    position: relative;
+}
+.THIS .ad-info-container .custom-label{
+    font-size : 14px;
+    font-weight : bold;
+}
+.THIS .ad-info-container .custom-Value{
+    font-size : 14px;
+    color : gray;
+}
+.THIS .ad-info-container{
+        padding: 5px;
+    border-radius: 5px;
+    background-color: #f2f3f3;
+    margin: 0px;
+    margin-bottom: 5px;
+}
+.THIS .all-button{
+    cursor : pointer;
+}
+@media (min-width: 1025px) {
+    .THIS .ad-container .ad-details{
+        display: flex;
+    }
+}
+@media (max-width: 767px) {
+    .THIS .icon-container{
+        display: inline-block;
+        margin-right: 10px;
+    }
+}

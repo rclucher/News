@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Flow to update new Primary Contact and reset old Primary Contact for an Account record.</description>
+    <interviewLabel>Contact: Update Primary Contact {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Contact: Update Primary Contact</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Get related Account record to update with new Primary Contact and timestamp old Primary Contact</description>
+        <name>Get_Account_record</name>
+        <label>Get Account record</label>
+        <locationX>257</locationX>
+        <locationY>50</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Old_Primary_Contact</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ContactAccountId</elementReference>
+            </value>
+        </filters>
+        <object>Account</object>
+        <outputAssignments>
+            <assignToReference>AccountOldPrimaryConact</assignToReference>
+            <field>Primary_Contact__c</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordUpdates>
+        <description>Reset the Become Primary flag on the Contact record becoming the new Primary Contact for the Account.</description>
+        <name>Reset_Become_Primary_Contact_flag</name>
+        <label>Reset Become Primary Contact flag</label>
+        <locationX>906</locationX>
+        <locationY>50</locationY>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ContactId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Become_Primary_Contact__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update the Account record with the new Primary Contact</description>
+        <name>Update_Account_record_with_new_Primary_Contact</name>
+        <label>Update Account record with new Primary Contact</label>
+        <locationX>702</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Reset_Become_Primary_Contact_flag</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ContactAccountId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Primary_Contact__c</field>
+            <value>
+                <elementReference>ContactId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Timestamp Old Primary Contact record to force Marketo sync</description>
+        <name>Update_Old_Primary_Contact</name>
+        <label>Update Old Primary Contact</label>
+        <locationX>484</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Update_Account_record_with_new_Primary_Contact</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>AccountOldPrimaryConact</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Force_SysMod_Stamp_update__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+    </recordUpdates>
+    <startElementReference>Get_Account_record</startElementReference>
+    <status>Active</status>
+    <variables>
+        <description>Previous Primary Contact Contact Id</description>
+        <name>AccountOldPrimaryConact</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Account Id of Contact becoming Primary Contact</description>
+        <name>ContactAccountId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Contact Id of record becoming Primary Contact for Account</description>
+        <name>ContactId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

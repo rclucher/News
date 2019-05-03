@@ -1,0 +1,250 @@
+<aura:component implements="force:lightningQuickAction,lightning:actionOverride" controller="AT_CreateAccount">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+    
+    <aura:attribute name="recordTypes" type="Object"/>
+    
+    <aura:attribute name="accountName" type="String"/>
+    <aura:attribute name="firstName" type="String"/>
+    <aura:attribute name="lastName" type="String"/>
+    <aura:attribute name="showNames" type="Boolean" default="false"/>
+
+	<aura:attribute name="abnExempt" type="Boolean" default="false"/>
+    
+    <aura:attribute type="Object" name="exemptReasons"/>
+    
+    <aura:attribute type="String" name="selectedExempt"/>
+    
+    <aura:attribute name="abnInput" type="String" default=""/>
+    
+    <aura:attribute name="companyInfo" type="Object"/>
+    
+    <aura:attribute name="recordTypeId" type="String"/>
+    
+    <aura:attribute name="validABN" type="Boolean" default="false"/>
+    
+    <aura:attribute name="companyName" type="String" default="..."/>
+    <aura:attribute name="abnStatus" type="String" default="..."/>
+    
+    <aura:attribute name="existing" type="Boolean" default="false"/>
+    <aura:attribute name="existingId" type="String"/>
+    <aura:attribute name="existingName" type="String"/>
+    
+    <aura:attribute name="addressTypes" type="Object"/>
+    <aura:attribute name="selectedType" type="String"/>
+    
+    <aura:attribute name="searchAddress" type="Boolean" default="true"/>
+    
+    <aura:attribute name="address" type="String"/>
+    <aura:attribute name="showAddresses" type="Boolean" default="false"/>
+    <aura:attribute name="addresses" type="Object"/>
+    <aura:attribute name="selectedAddress" type="String"/>
+    <aura:attribute name="typingTimer" type="Object"/>
+    
+    <aura:attribute name="street" type="String"/>
+    <aura:attribute name="city" type="String"/>
+    <aura:attribute name="postcode" type="String"/>
+    <aura:attribute name="state" type="String"/>
+    <aura:attribute name="country" type="String"/>
+    <aura:attribute name="dpid" type="String"/>
+    
+    <aura:attribute name="valid" type="Boolean"/>
+    
+    <aura:attribute name="loading" type="Boolean" default="false"/>
+    <aura:attribute name="loadingAddress" type="Boolean" default="false"/>
+    
+    <aura:attribute name="duplicates" type="Boolean" default="false"/>
+    <aura:attribute name="duplicateColumns" type="List"/>
+    <aura:attribute name="duplicateData" type="Object"/>
+    
+    <div style = "width: inherit;">
+        <lightning:card >
+            <aura:set attribute="title">
+                <b>New Account</b>
+            </aura:set>
+    
+            <aura:set attribute="actions">
+                
+                <button class="slds-button slds-button--neutral" type="button" onclick="{!c.goBack}">
+                    <lightning:button iconName="utility:back" variant="base" />
+                    Back
+                </button>
+                
+            </aura:set>
+            
+            <table style = "width: inherit;">
+                <tbody>
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <div class="section">
+                                <span class="sectionTitle slds-text-heading--small">
+                                    Record Type
+                                </span>
+                            
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__label">
+                                        <abbr class="slds-required" title="required">*</abbr>
+                                        Record Type
+                                    </div>
+                                </div>
+                                <div class = "cardBody recordTypeList">
+                                    <aura:iteration items="{!v.recordTypes}" var="rt">
+                                        <aura:if isTrue="{!rt.isDefault}">
+                                            <b>
+                                                <lightning:input aura:id="{!rt.id}" type="radio" label="{!rt.name}" name="recordType" value="{!rt.id}" onchange="{!c.selectRecordType}" checked="true" />
+                                            </b>
+                                            {!rt.description}
+                                            <br/>
+                                            <br/>
+                                        </aura:if>
+                                    </aura:iteration>
+                                    
+                                    <aura:iteration items="{!v.recordTypes}" var="rt">
+                                        <aura:if isTrue="{!not(rt.isDefault)}">
+                                            <b>
+                                                <lightning:input aura:id="{!rt.id}" type="radio" label="{!rt.name}" name="recordType" value="{!rt.id}" onchange="{!c.selectRecordType}" />
+                                            </b>
+                                            {!rt.description}
+                                            <br/>
+                                            <br/>
+                                        </aura:if>
+                                    </aura:iteration>
+                                </div>
+                            </div>
+                        </td>
+                        <td style="vertical-align: top;">
+                            <div class="section">
+                                <span class="slds-text-heading--small sectionTitle">
+                                    ABN Validation
+                                </span>
+                                
+                                <div class = "cardBody">
+                                 	<!--<lightning:input type="text" label="Account Name" value="{!v.accountName}" required="true" tabIndex="0" onchange="{!c.checkName}"/>-->
+                                 <!--   
+                                   <aura:if isTrue="{!v.showNames}">
+                                        <lightning:input type="text" label="First Name" value="{!v.firstName}" required="true" tabIndex="0" onchange="{!c.checkFirstName}"/>
+                                    	<lightning:input type="text" label="Last Name" value="{!v.lastName}" required="true" tabIndex="0" onchange="{!c.checkLastName}"/>
+                                   --> 	
+                                    <!--    <aura:set attribute="else">-->
+                                        	<lightning:input type="text" label="Account Name" value="{!v.accountName}" required="true" tabIndex="0" onchange="{!c.checkName}"/>
+                                    <!--    </aura:set>
+                                    </aura:if>-->
+                                    <br/><br/>
+                                    <!-- lightning:input type="checkbox" checked="{!v.abnExempt}" label="ABN Exempt" onchange="{!c.exemptABN}"/ -->
+                                    <aura:if isTrue="{!not(v.abnExempt)}">
+                                        <lightning:input name="abnInput" type="text" value="{!v.abnInput}" label="Company ABN" required="true" onchange="{!c.checkABN}" maxLength="14" messageWhenPatternMismatch="The ABN Number is an invalid format. It must have exactly 11-numbers, either all together or separated by 3 spaces to meet the standard ABN 14-character format." messageWhenTooLong="The ABN Number is an invalid format. It must have exactly 11-numbers, either all together or separated by 3 spaces to meet the standard ABN 14-character format."/>
+                                        <aura:if isTrue="{!and(not(v.abnExempt), v.abnStatus != 'Active')}">
+                                        	<div style="color: #ba000d; padding-top: 5px; padding-bottom: 5px;">Please enter a valid/active ABN before proceeding</div>
+                                        </aura:if>
+                                        <br/>
+                                        Registered Name:
+                                        <aura:if isTrue="{!v.loading}">
+                                            <img src="{!$Resource.Loader}"/>
+                                            
+                                            <aura:set attribute="else">
+                                                {!v.companyName}
+                                            </aura:set>
+                                        </aura:if>
+                                        
+                                        <br/>
+                                        ABN Status:
+                                        <aura:if isTrue="{!v.loading}">
+                                            <img src="{!$Resource.Loader}"/>
+                                            
+                                            <aura:set attribute="else">
+                                                {!v.abnStatus}
+                                            </aura:set>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.existing}">
+                                            <br/><br/>
+                                            Existing account: <lightning:formattedUrl value="{!v.existingId}" label="{!v.existingName}"/>
+                                        </aura:if>
+                                    </aura:if>
+    
+                                    <br/><br/>
+                                    <lightning:select label="ABN Exempt" value="{!v.selectedExempt}" onchange="{!c.exemptABN}">
+                                        <aura:iteration items="{!v.exemptReasons}" var="er">
+                                            <option value = "{!er.value}">{!er.text}</option>
+                                        </aura:iteration>
+                                    </lightning:select>
+                                    <i>
+                                        <br/>
+                                        * If your client does not fall under one of<br/>
+                                        the exemption reasons in the list,<br/>
+                                        then an ABN must be entered.
+                                    </i>
+                                </div>
+                            </div>
+                        </td>
+                        <td style="vertical-align: top;">
+                            <div class="section">
+                                <span class="slds-text-heading--small sectionTitle">
+                                    Address Validation
+                                </span>
+                                
+                                <div class = "cardBody">
+                                    <lightning:select value="{!v.selectedType}" label="Country" onchange="{!c.selectType}">
+                                        <aura:iteration items="{!v.addressTypes}" var="type">
+                                            <option value="{!type.value}" text="{!type.text}"/>
+                                        </aura:iteration>
+                                    </lightning:select>
+                                    
+                                    <aura:if isTrue="{!v.searchAddress}">
+                                        <aura:set attribute="else">
+                                            <br/>
+                                            <i>Enter address manually on the next screen</i>
+                                        </aura:set>
+                                        <lightning:input type="text" value="{!v.address}" label="Search Address" onchange="{!c.checkAddress}"/>
+        
+                                        <aura:if isTrue="{!v.loadingAddress}">
+                                            <br/>
+                                            <img src="{!$Resource.Loader}"/>
+                                                
+                                            <aura:set attribute="else">
+                                                <div>
+                                                    <aura:if isTrue="{!v.showAddresses}">
+                                                        <br/>
+                                                        <div class="slds-form-element">
+                                                            <div class="slds-form-element__label">
+                                                                Matching Addresses
+                                                            </div>
+                                                        </div>
+                                                        <select size="5" id="addressList" onchange="{!c.selectAddress}">
+                                                            <aura:iteration items="{!v.addresses}" var="addr">
+                                                                <option value="{!addr.eid}" text="{!addr.fullAddress}"/>
+                                                            </aura:iteration>
+                                                        </select>
+                                                    </aura:if>
+                                                </div>
+                                            </aura:set>
+                                        </aura:if>
+
+                                    </aura:if>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <aura:if isTrue="{!v.duplicates}">
+                <div class="duplicates">
+                    <h3 class="slds-section__title slds-section-header-container">
+                        <span class="slds-button slds-section-header slds-section__title-action">
+                            <lightning:icon iconName="utility:warning" size="x-small" variant="warning"/>&nbsp;<span class="slds-section-header-title">Possible Duplicates</span>
+                        </span>
+                    </h3>
+                    
+                    <lightning:datatable columns="{!v.duplicateColumns}"
+                                         data="{!v.duplicateData}"
+                                         keyField="Id"
+                                         hideCheckboxColumn="true"
+                                         class="inherit-width"/>
+                </div>
+            </aura:if>
+            
+            <aura:set attribute="footer">
+                <lightning:button variant="brand" label="Continue" disabled="{!not(v.valid)}" onclick="{!c.createAccount}"/>
+            </aura:set>
+        </lightning:card>
+    </div>
+</aura:component>

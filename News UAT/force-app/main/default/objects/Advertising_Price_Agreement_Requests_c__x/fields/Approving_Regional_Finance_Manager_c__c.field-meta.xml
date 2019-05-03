@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approving_Regional_Finance_Manager_c__c</fullName>
+    <externalDeveloperName>Approving_Regional_Finance_Manager__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Approving Regional Finance Manager</label>
+    <length>18</length>
+    <referenceTo>User__x</referenceTo>
+    <relationshipLabel>NRM Advertising Price Agreement Requests</relationshipLabel>
+    <relationshipName>NRM_Advertising_Price_Agreement_Request5</relationshipName>
+    <type>ExternalLookup</type>
+</CustomField>

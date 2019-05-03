@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Led_Address_PRI_Remove_DPID</fullName>
+        <field>datasan__Address_DPID__c</field>
+        <name>Led Address PRI Remove DPID</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Led_Automatically_untick_Email_Invalid</fullName>
+        <field>Email_Invalid__c</field>
+        <literalValue>0</literalValue>
+        <name>Led Automatically untick Email Invalid</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Led_ClearDNCstatus</fullName>
+        <description>Re-evaluate Workflow Rules to to trigger DNC status audit</description>
+        <field>Phone_on_DNC__c</field>
+        <literalValue>0</literalValue>
+        <name>Led_Clear DNC status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Led_ClearWashedDate</fullName>
+        <description>Re-evaluate Workflow Rules to to trigger DNC status audit</description>
+        <field>Phone_DNC_Washed_Date__c</field>
+        <name>Led_Clear DNC Washed Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Led_Set_DNC_Status_audit_field</fullName>
+        <field>DNC_Status_Audit__c</field>
+        <formula>&#39;Phone: &#39;&amp;If( Phone_DNC_Is_Contactable__c ,&#39;Contactable&#39;,&#39;Not contactable&#39;)&amp;&#39; - &#39;&amp;IF(!ISBLANK(Phone_DNC_Washed_Date__c),&#39;Washed @&#39;&amp;TEXT(Phone_DNC_Washed_Date__c),&#39;No washed date&#39;)&amp;BR()&amp; 
+&#39;Mobile: &#39;&amp;If(  Mobile_DNC_Is_Contactable__c  ,&#39;Contactable&#39;,&#39;Not contactable&#39;)&amp;&#39; - &#39;&amp;IF(!ISBLANK(Mobile_DNC_Washed_Date__c),&#39;Washed @&#39;&amp;TEXT(Mobile_DNC_Washed_Date__c),&#39;No washed date&#39;)</formula>
+        <name>Led Set DNC Status audit field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Led_Set_Marketing_Preferences_audit</fullName>
+        <field>MarketingPreferences__c</field>
+        <formula>&#39;Phone: &#39;&amp;BLANKVALUE(TEXT( Channel_Opt_In_Phone__c) ,&#39;None&#39;) &amp;BR()&amp; 
+&#39;SMS: &#39;&amp;BLANKVALUE(TEXT( Channel_Opt_In_SMS__c ) ,&#39;None&#39;) &amp;BR()&amp; 
+&#39;Email: &#39;&amp;BLANKVALUE(TEXT(Channel_Opt_In_Email__c) ,&#39;None&#39;)&amp;BR()&amp;&#39;Metro Print: &#39;&amp;BLANKVALUE(TEXT( Product_Opt_In_Metro_Print__c ) ,&#39;None&#39;)&amp;BR()&amp; 
+&#39;Community Print: &#39;&amp;BLANKVALUE(TEXT(Product_Opt_In_Community_Print__c) ,&#39;None&#39;)&amp;BR()&amp; 
+&#39;Regional Print: &#39;&amp;BLANKVALUE(TEXT( Product_Opt_In_Regional_Print__c) ,&#39;None&#39;)&amp; BR()&amp; 
+&#39;Digital Offerings: &#39;&amp;BLANKVALUE(TEXT(Product_Opt_In_Digital_Offerings__c ) ,&#39;None&#39;)&amp;BR()&amp; 
+&#39;Magazines: &#39;&amp;BLANKVALUE(TEXT(Product_Opt_In_Magazines__c ) ,&#39;None&#39;)&amp;BR()&amp; 
+&#39;Seminars + Events: &#39;&amp;BLANKVALUE(TEXT(Product_Opt_In_Seminars_Events__c) ,&#39;None&#39;)</formula>
+        <name>Led_Set Marketing Preferences audit</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_No_Parent_Flag</fullName>
+        <field>No_Parent__c</field>
+        <literalValue>1</literalValue>
+        <name>Update No Parent Flag</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>Led Address PRI Remove DPID</fullName>
+        <actions>
+            <name>Led_Address_PRI_Remove_DPID</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>DPID is removed as user has entered address which is not validated by DataSan.
+
+ie. Within Console the standard &#39;edit&#39; button; Datasan does not work here.</description>
+        <formula>AND(  OR(   ISCHANGED(City),   ISCHANGED(Country),   ISCHANGED(State),   ISCHANGED(Street),   ISCHANGED(PostalCode)  ),  PRIORVALUE(datasan__Address_DPID__c)=datasan__Address_DPID__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Led Automatically untick Email Invalid</fullName>
+        <actions>
+            <name>Led_Automatically_untick_Email_Invalid</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Automatically untick Email Invalid field when Email Invalid is set to &#39;True&#39; and Email is changed on a Lead.</description>
+        <formula>AND( 
+Email_Invalid__c = True, 
+ISCHANGED( Email ) 
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Led Check No Parent Flag On Creation</fullName>
+        <actions>
+            <name>Update_No_Parent_Flag</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.No_Parent__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <description>Check No Parent flag on Lead creation.</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Led Set DNC Status audit field</fullName>
+        <actions>
+            <name>Led_Set_DNC_Status_audit_field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Populate DNC Status audit field for audit purposes</description>
+        <formula>AND(OR( ISNEW(),  ISCHANGED( Phone ),ISCHANGED( Phone_on_DNC__c ),  ISCHANGED( Phone_DNC_Washed_Date__c ), ISCHANGED(  MobilePhone  ),ISCHANGED(  Mobile_on_DNC__c  ),  ISCHANGED(  Mobile_DNC_Washed_Date__c  ) ))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Led Set Marketing Preferences audit field</fullName>
+        <actions>
+            <name>Led_Set_Marketing_Preferences_audit</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Populate Marketing Channel and Product Preferences field for audit purposes</description>
+        <formula>AND(OR( ISNEW(),  ISCHANGED( Channel_Opt_In_Email__c ),ISCHANGED( Channel_Opt_In_Phone__c ),  ISCHANGED( Channel_Opt_In_SMS__c ),  ISCHANGED( Product_Opt_In_Community_Print__c ),  ISCHANGED( Product_Opt_In_Digital_Offerings__c ),  ISCHANGED( Product_Opt_In_Magazines__c ),  ISCHANGED( Product_Opt_In_Metro_Print__c ),  ISCHANGED( Product_Opt_In_Regional_Print__c ),  ISCHANGED( Product_Opt_In_Seminars_Events__c )  ))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Led_Phone_Changed_Clear_WashedDate_DNCstatus</fullName>
+        <actions>
+            <name>Led_ClearDNCstatus</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Led_ClearWashedDate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Where a phone number is changed or deleted, therefore must also delete the washed date and DNC status</description>
+        <formula>ISCHANGED(Phone)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

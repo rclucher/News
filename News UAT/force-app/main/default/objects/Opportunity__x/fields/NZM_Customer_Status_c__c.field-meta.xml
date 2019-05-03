@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NZM_Customer_Status_c__c</fullName>
+    <externalDeveloperName>NZM_Customer_Status__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>NZM Customer Status</label>
+    <required>false</required>
+    <type>TextArea</type>
+</CustomField>

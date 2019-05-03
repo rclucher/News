@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enabling_Technology__c</fullName>
+    <externalId>false</externalId>
+    <label>Enabling Technology</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SFDC Configuration</fullName>
+                <default>false</default>
+                <label>SFDC Configuration</label>
+            </value>
+            <value>
+                <fullName>SFDC Apex</fullName>
+                <default>false</default>
+                <label>SFDC Apex</label>
+            </value>
+            <value>
+                <fullName>Batch Process/ETL</fullName>
+                <default>false</default>
+                <label>Batch Process/ETL</label>
+            </value>
+            <value>
+                <fullName>Web Services</fullName>
+                <default>false</default>
+                <label>Web Services</label>
+            </value>
+            <value>
+                <fullName>Business Intelligence</fullName>
+                <default>false</default>
+                <label>Business Intelligence</label>
+            </value>
+            <value>
+                <fullName>CTI</fullName>
+                <default>false</default>
+                <label>CTI</label>
+            </value>
+            <value>
+                <fullName>Customer Data Integration</fullName>
+                <default>false</default>
+                <label>Customer Data Integration</label>
+            </value>
+            <value>
+                <fullName>Scontrol</fullName>
+                <default>false</default>
+                <label>Scontrol</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

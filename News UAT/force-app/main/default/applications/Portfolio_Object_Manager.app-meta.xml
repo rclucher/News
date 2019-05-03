@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#4C2D7E</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Displays all the staging and junction objects related to Portfolio</description>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Portfolio Object Manager</label>
+    <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Booking_System_Portfolio_Junction</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Booking_System_Portfolio_Junction__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Booking_System_Portfolio_Junction</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Booking_System_Portfolio_Junction__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>~System Administrator</profile>
+    </profileActionOverrides>
+    <tabs>Portfolio_Staging__c</tabs>
+    <tabs>Portfolio_Account_Staging__c</tabs>
+    <tabs>Portfolio2__c</tabs>
+    <tabs>Portfolio_Owners__c</tabs>
+    <tabs>Account_Portfolio_Relationship__c</tabs>
+    <tabs>Booking_System_Portfolio_Junction__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Portfolio_Object_Manager_UtilityBar</utilityBar>
+</CustomApplication>

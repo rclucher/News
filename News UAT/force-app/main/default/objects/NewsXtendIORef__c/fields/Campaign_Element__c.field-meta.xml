@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Campaign_Element__c</fullName>
+    <description>The name of the section within the IO Sheet</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the name of this section of the IO Sheet. Please ensure you include any associated X_____ signature text if required</inlineHelpText>
+    <label>Campaign Element</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

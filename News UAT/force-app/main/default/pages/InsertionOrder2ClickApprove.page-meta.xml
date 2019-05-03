@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>30.0</apiVersion>
+    <availableInTouch>false</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <label>InsertionOrder2ClickApprove</label>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>66</minorNumber>
+        <namespace>CSCAP</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>342</minorNumber>
+        <namespace>cscfga</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>16</majorNumber>
+        <minorNumber>34</minorNumber>
+        <namespace>csmso</namespace>
+    </packageVersions>
+</ApexPage>

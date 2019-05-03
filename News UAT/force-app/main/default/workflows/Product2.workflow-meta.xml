@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>External_Id_c_field_in_Product2_object</fullName>
+        <field>External_Id__c</field>
+        <formula>Text(Family) &amp; &quot; - &quot; &amp; Text(Category__c) &amp; &quot; - &quot; &amp;  Text( Region__c )</formula>
+        <name>External_Id__c field in Product2 object</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>Update External_Id%5F%5Fc field in Product2 object</fullName>
+        <actions>
+            <name>External_Id_c_field_in_Product2_object</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>1=1</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

@@ -1,0 +1,10 @@
+<apex:page docType="html-5.0" showHeader="false" cache="false"
+             standardStylesheets="false" controller="SOApprovalRedirect"
+             action="{!detectDevice}">
+  
+  <h1>
+      This Sales Order is not available via mobile devices. To view Sales Order detail, please use your desktop or laptop device.
+  </h1>
+  
+  
+</apex:page>

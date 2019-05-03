@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Revenue_Attribution__c</fullName>
+    <description>Field is used to denote some NewsAdds products to be allocated to NewsXtend revenue. Few products will have a value selected, most will be marked as None. Data Services will advise if a product needs to be marked for revenue attribution.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Field is used to denote some NewsAdds products to be allocated to NewsXtend revenue. Few products will have a value selected, most will be marked as None. Data Services will advise if a product needs to be marked for revenue attribution.</inlineHelpText>
+    <label>Revenue Attribution</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>NewsAdds NewsXtend</fullName>
+                <default>false</default>
+                <label>NewsAdds NewsXtend</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

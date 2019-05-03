@@ -1,0 +1,1 @@
+<apex:page standardController="csmso__Sales_Order__c" extensions="GenerateAttrCSVController" contentType="application/vnd.ms-excel#{!csvName}" cache="true" action="{!attachNewFile}">{!csvFileData}</apex:page>

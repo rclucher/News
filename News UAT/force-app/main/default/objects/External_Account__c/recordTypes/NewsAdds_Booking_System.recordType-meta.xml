@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NewsAdds_Booking_System</fullName>
+    <active>true</active>
+    <description>Booking accounts from NewsAdds</description>
+    <label>NewsAdds Booking System</label>
+    <picklistValues>
+        <picklist>Account_Type__c</picklist>
+        <values>
+            <fullName>ABN Exempt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ad Agency</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Casual Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Client of Ad Agency</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Client of Overseas Advertising Agency</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Client of Overseas Agent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contra</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Corporate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Established</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>House</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Newsagent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non Established</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Overseas Advertising Agency</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Overseas Agent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Private Party</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sub corporate</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Credit_Status__c</picklist>
+        <values>
+            <fullName>1 %3D Green%2FGo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2 %3D Review %28bookings go to credit but will run regardless%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3 %3D Risk %28bookings can be made but will not run%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4 %3D High Risk %28bookings cannot be made%2C sales to follow up with NFSS%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5 %3D Cash %28Pre-payment required%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Default_Revenue_Group__c</picklist>
+        <values>
+            <fullName>Amusements</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Election-Political</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Employment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>House</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MV Dealers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nat - Com%2FBus Equip</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nat - Computers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nat - Finance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nat - Food %26 Bev</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nat - Gamb%2FGaming</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nat - Gov%2FPol Part</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nat - MV Manufact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nat - Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nat - Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nat - Pers Care Prod</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nat - Pharm%2FHth Prod</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nat - Travel%2FAccom</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Real Estate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retail</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marked For Deletion</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

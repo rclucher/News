@@ -1,0 +1,139 @@
+<apex:page controller="ExternalAccountCreateBA_Controller" tabStyle="External_Account__c" sidebar="{!showHeaderAndSidebar}" showheader="{!showHeaderAndSidebar}" action="{!ExternalAccountInitCreateBookingAccount}">
+    <apex:includeScript value="/support/console/28.0/integration.js"/>
+    <body>        
+        <apex:form >            
+            <apex:sectionHeader title="Create Booking System Account for Cyber$ell" />            
+            <apex:pageMessages id="messages" />            
+            <apex:pageBlock id="pgbkOrder" mode="edit"  >                                
+                <apex:actionRegion >
+                    <apex:pageBlockSection id="pbksType" columns="1" title="Order Type" rendered="{!isCyberSellEnabled}">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Type"/>
+                            <apex:outputPanel layout="none">
+                                
+                                <apex:selectList size="1" required="true" value="{!bookingType}">
+                                    <apex:selectOptions value="{!GBATypes}" />
+                                    <apex:actionSupport event="onchange" 
+                                                        action="{!onBookingTypeChange}" 
+                                                        rerender="pbksCustomer, pbksContacts, pnlBillBook, pnlCustomer, regCustomer"
+                                                        status="TargetTypeLoadingStatus"/>
+                                </apex:selectList>
+                                
+                                <apex:actionStatus id="TargetTypeLoadingStatus" stopText="">
+                                    <apex:facet name="start">
+                                        <img src="/img/loading.gif" />
+                                    </apex:facet>
+                                </apex:actionStatus>
+                                
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                </apex:actionRegion>
+                
+                
+                
+                <apex:outputPanel id="regCustomer" rendered="{!isCyberSellEnabled}">
+                    <c:AccountSearch debugMode="false"
+                                     rerenderAreas="apbksContacts,dvertiserAccount, pgbkOrder, pnlBillBook, messages"
+                                     vfPageController="{!this}"
+                                     vfKey="AccountSearch"
+                                     rendered="{!AND(NOT(ISBLANK(bookingType)),ISBLANK(selectedAdvertiser))}" />        
+                </apex:outputPanel>
+                
+                
+                
+                <apex:actionRegion id="regOrder" rendered="{!isCyberSellEnabled}">
+                    <apex:outputPanel layout="none" id="pbksContacts" >
+                        <apex:pageBlockSection columns="1" title="Booking Accounts and Contacts" rendered="{!selectedAdvertiser!=null}">
+                            
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="{!$ObjectType.Booking__c.Fields.Advertiser_Account__c.Label}" />
+                                <apex:inputField value="{!externalAccountAdvertiserProxy.Customer_Account__c}" id="advertiserAccount" />
+                                
+                            </apex:pageBlockSectionItem>
+                            
+                            <apex:pageBlockSectionItem >
+                                
+                                <apex:outputLabel value="{!$ObjectType.Booking__c.Fields.Payer_Account__c.Label}" />
+                                
+                                <apex:outputPanel >
+                                    <apex:inputField value="{!externalAccountPayerProxy.Customer_Account__c}" id="payerAccount" rendered="{!isIndirect}">
+                                        <apex:actionSupport event="onchange" 
+                                                            rerender="pnlBillBook,pbbButtons,messages"
+                                                            action="{!onPayerChange}"
+                                                            status="payerAccountLoadingStatus" />
+                                    </apex:inputField>			
+                                    
+                                    <apex:outputField value="{!externalAccountPayerProxy.Customer_Account__c}" id="payerAccountRO" rendered="{!NOT(isIndirect)}" />		                        
+                                    
+                                    <apex:actionStatus id="payerAccountLoadingStatus" stopText="">
+                                        <apex:facet name="start">
+                                            <img src="/img/loading.gif" />
+                                        </apex:facet>
+                                    </apex:actionStatus>
+                                </apex:outputPanel>
+                                
+                            </apex:pageBlockSectionItem>
+                            
+                        </apex:pageBlockSection>
+                        
+                    </apex:outputPanel>
+                    
+                </apex:actionRegion>
+                
+                <apex:outputPanel id="pnlBillBook">
+                    <apex:actionRegion rendered="{!isCyberSellEnabled}">
+                        <c:ExternalAccountForm isIndirect="{!isIndirect}"
+                                               advertiser="{!selectedAdvertiser}"
+                                               vfPageController="{!this}"
+                                               vfkey="externalAccountForm"
+                                               payer="{!selectedPayer}"
+                                               redirect="true"/>
+                    </apex:actionRegion>
+                    
+                </apex:outputPanel>
+                
+                
+                
+                
+                <apex:pageBlockButtons id="pageButtons" location="bottom">
+                    <apex:commandButton action="{!doCancelAndRedirectToSource}" value="Cancel" immediate="true" status="newGBALoadingStatus"/>
+                </apex:pageBlockButtons>
+                
+                
+                
+                
+                
+            </apex:pageBlock>
+            
+            <!--apex:actionFunction name="doSelectAdvertiser" reRender="advertiserAccount, pgbkOrder, pnlBillBook,messages,scnOutput,pbsAddNewAdvertiser" action="{!doSelectAdvertiser}" status="AccountNewAccountTypeSelectionLoadingStatus">
+<apex:param id="selectedAccountId" name="selectedAccountId" value=""/>
+</apex:actionFunction-->
+            
+        </apex:form>
+        
+        
+        <script>
+        
+        jQuery(function() {
+            
+            function openInNewTab(objId)
+            {
+                if (typeof(srcUp) == 'function') {
+                    srcUp('/' + objId);
+                } else {
+                    window.open('/' + objId);
+                }
+            }
+            
+            try
+            {
+                sforce.console.setTabTitle('New Booking System Account');
+            }
+            catch(ex)
+            {}
+        });
+        
+        </script>
+    </body>
+</apex:page>

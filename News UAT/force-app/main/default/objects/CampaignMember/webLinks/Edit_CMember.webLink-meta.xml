@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Edit_CMember</fullName>
+    <availability>online</availability>
+    <description>Test Link for Execution UI</description>
+    <displayType>link</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Edit CMember</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>srcSelf(&#39;/{!CampaignMember.Id}/e?isdtp=vw&#39;)</url>
+</WebLink>

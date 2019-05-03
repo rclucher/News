@@ -1,0 +1,25 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="NXX2_SocialAdPageController">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="communityBaseUrl" type="String" default="{!$Label.c.NewsXtend_Portal_Base_URL}"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <lightning:navigation aura:id="navService"/>
+    <header>
+        <div class="main-menu-container">
+            <lightning:buttonMenu iconName="utility:rows" aura:id="menu" onselect="{! c.handleSelect }" alternativeText="Show menu">
+                <lightning:menuItem value="Home" label="Home" />
+            </lightning:buttonMenu>
+        </div>
+        <div class="portal_logo">
+        	<img src="{!concat(v.communityBaseUrl,'/s/sfsites/c/file-asset/News_Xtend_Logo?v=1')}"></img>
+        </div>
+        <div class="header_title">
+            <a href="{!concat(v.communityBaseUrl,'/s/')}">Home</a>
+        </div>
+        <div class="profile-menu-container">
+            <lightning:buttonMenu menuAlignment="right" iconName="action:user" aura:id="menu" onselect="{! c.handleSelect }" alternativeText="Show menu">
+                <lightning:menuItem value="ChangePassword" label="Change Password" />
+                <lightning:menuItem value="Logout" label="Logout" />
+            </lightning:buttonMenu>
+        </div>
+    </header>
+</aura:component>

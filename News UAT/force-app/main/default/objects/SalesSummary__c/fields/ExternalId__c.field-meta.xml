@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExternalId__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>Format:
+If user x has an id of 123456789, their current role is Sales Consultant and the month that their sale belongs to is February 2016, then the external id can be calculated as u123456789rsalesconsultanttp022016ttarget which can be broken down into:
+Username = u123456789
+Role = rSalesConsultant (make lower case)
+Time Zone = t022016 (02 is February and the year is 2016)
+Type = Target</description>
+    <externalId>true</externalId>
+    <label>External Id</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

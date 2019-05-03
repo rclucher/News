@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Schedule_Date_Alert</fullName>
+    <active>false</active>
+    <description>Advertising start date must not be prior to close date</description>
+    <errorConditionFormula>CloseDate &gt; Campaign_Start_Date__c</errorConditionFormula>
+    <errorDisplayField>CloseDate</errorDisplayField>
+    <errorMessage>Opportunity Close Date must not be after Advertising Start date. Please review your advertising start date and product schedule dates to ensure they are not prior to the opportunity close date</errorMessage>
+</ValidationRule>

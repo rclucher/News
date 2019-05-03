@@ -1,0 +1,156 @@
+<apex:component controller="AccountSearch_Controller">
+<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+
+    <apex:attribute name="andCondition"
+                    assignTo="{!isAndCondition}"
+                    type="Boolean"
+                    required="false" 
+                    default="true"
+                    description="Join accounts found contaning all paramters" />
+
+    <apex:attribute name="queryCharLength"
+                    assignTo="{!minCharLength}"
+                    type="Integer"
+                    required="false" 
+                    default="3"
+                    description="Minimum character length for search paramters" />
+
+    <apex:attribute name="rerenderAreas"
+                    type="String"
+                    description="Areas IDs to rerender on Account Selection" />
+
+    <apex:attribute name="rerenderAreasOnSearch"
+                    required="false"
+                    type="String"
+                    description="Areas IDs to rerender on Search" />
+
+    <apex:attribute name="debugMode"
+                    assignTo="{!isDebugMode}"
+                    type="Boolean"
+                    required="false" 
+                    default="false"
+                    description="Component bebug mode" />
+
+        <apex:attribute name="sectionTitle"
+                    type="String"
+                    default="Customer"
+                    required="false"
+                    description="Section title" />
+
+
+    <apex:attribute name="vfkey"
+                    type="String"
+                    assignTo="{!Key}"
+                    description="The key given to this component so the page can easily get access to it" />
+
+    <apex:attribute name="vfPageController"
+                    type="PageControllerBase"
+                    assignTo="{!pageController}"
+                    required="true"
+                    description="The controller for the page." />
+
+
+
+            <apex:actionRegion id="regCustomer">
+                <apex:outputPanel id="pnlInnerCustomer">
+                    <apex:pageBlockSection id="pbksCustomer" columns="1" title="{!sectionTitle}">
+
+                        <apex:pageBlockSection id="scnInput" columns="1">
+                            <apex:inputText id="txtSearch" styleClass="txtSearch" label="Advertiser Account Search" value="{!searchAccountNameText}" />
+                            <apex:inputText id="phoneText" styleClass="phoneText" label="Phone" value="{!searchPhoneText}"/>
+
+
+                        <script>
+                            jQuery('.txtSearch').bind('keypress', function(e) {
+                                 var code = e.keyCode || e.which;
+                                 if(code == 13) {
+                                   jQuery('.findResultsButton').click();
+                                   return false;
+                                 }
+                            });
+                            jQuery('.phoneText').bind('keypress', function(e) {                           
+                                 var code = e.keyCode || e.which;
+                                 if(code == 13) {
+                                   jQuery('.findResultsButton').click();
+                                   return false;
+                                 }
+                            });
+                        </script>
+
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel />
+                                <apex:commandButton action="{!doAccountQuery}"
+                                                    value="Search"
+                                                    rerender="scnOutput, pbsAddNewAdvertiser,{!rerenderAreasOnSearch}"
+                                                    id="findResultsButton"
+                                                    styleClass="findResultsButton"
+                                                    status="findResultsLoadingStatus" />
+                            </apex:pageBlockSectionItem>
+                        </apex:pageBlockSection>
+                        <apex:pageBlockSection id="scnOutput" columns="1" >
+                            <apex:actionStatus id="findResultsLoadingStatus" stopText="">
+                                <apex:facet name="start">
+                                    <div style="width:100%; text-align:center;">
+                                        <img src="/img/loading.gif" /> Loading...
+                                    </div>
+                                </apex:facet>
+                                <apex:facet name="stop">
+                                    <apex:outputPanel layout="none"  id="tblFindResults" rendered="{!AND(NOT(ISBLANK(findAccountResults)), findAccountResults.size>0)}" >
+                                        <apex:pageBlockTable value="{!accounts}" var="ac" rows="{!searchListSize}" id="accountList">
+                                            <apex:column > 
+                                                <apex:facet name="header" >
+                                                    <apex:outputLabel value="{!$ObjectType.Account.Fields.Name.Label}"/>
+                                                </apex:facet>
+                                                <a href="#"
+                                                    id="{!ac.Id}"
+                                                    position="relative"
+                                                    onclick="LookupHoverDetail.getHover('{!ac.Id}').hide(); doSelectAccount('{!ac.Id}'); return false;"
+                                                    onblur="LookupHoverDetail.getHover('{!ac.Id}').hide();"
+                                                    onfocus="LookupHoverDetail.getHover('{!ac.Id}', '/{!ac.Id}/m?retURL=%2F{!ac.Id}&isAjaxRequest=1').show();"
+                                                    onmouseout="LookupHoverDetail.getHover('{!ac.Id}').hide();"
+                                                    onmouseover="LookupHoverDetail.getHover('{!ac.Id}', '/{!ac.Id}/m?retURL=%2F{!ac.Id}&isAjaxRequest=1').show();">
+                                                    <apex:outputText value="{!ac.Name}" />
+                                                </a>
+                                                
+                                                <apex:facet name="footer">
+                                                    <apex:outputPanel >
+                                                        <apex:commandLink value="Previous" action="{!accountPreviousPage}" rendered="{!accountListHasPrevious}" rerender="accountList"/>
+                                                        <apex:outputLabel value="Previous" rendered="{!NOT(accountListHasPrevious)}"/>                                                      
+                                                        &nbsp;
+                                                        <apex:outputLabel value=" page {!AccountListCurrentPage} of {!AccountListSize} " />
+                                                        &nbsp;
+                                                        <apex:commandLink value="Next" action="{!accountNextPage}" rendered="{!accountListHasNext}" rerender="accountList"/>
+                                                        <apex:outputLabel value="Next" rendered="{!Not(accountListHasNext)}"/>
+                                                    </apex:outputPanel>
+                                                </apex:facet>                                                
+                                                
+                                            </apex:column>
+                                            <apex:column value="{!ac.Phone}"/>
+                                            <apex:column >
+                                                <apex:facet name="header" >
+                                                    <apex:outputLabel value="Address"/>
+                                                </apex:facet>
+
+                                                <apex:outputText value="{!ac.BillingStreet}  {!ac.BillingPostalCode} {!ac.BillingCity} {!ac.BillingState}" />
+                                            </apex:column>
+                                        </apex:pageBlockTable>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                            </apex:actionStatus>
+                        </apex:pageBlockSection>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+            </apex:actionRegion>
+
+            <apex:outputPanel id="pnlDebug">
+                <apex:outputLabel value="selectedAccount: {!selectedAccount}" rendered="{!isDebugMode}" />
+            </apex:outputPanel>
+
+
+        <apex:actionFunction name="doSelectAccount"  action="{!doSelectAccount}" rerender="{!rerenderAreas},pnlDebug">
+            <apex:param id="selectedAccountId" name="selectedAccountId" value=""/>
+        </apex:actionFunction>
+
+
+
+</apex:component>

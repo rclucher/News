@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scope__c</fullName>
+    <externalId>false</externalId>
+    <label>Scope</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Out-of-Scope (deferred)</fullName>
+                <default>false</default>
+                <label>Out-of-Scope (deferred)</label>
+            </value>
+            <value>
+                <fullName>In-Scope (As-Is)</fullName>
+                <default>false</default>
+                <label>In-Scope (As-Is)</label>
+            </value>
+            <value>
+                <fullName>In-Scope (Manual)</fullName>
+                <default>false</default>
+                <label>In-Scope (Manual)</label>
+            </value>
+            <value>
+                <fullName>In-Scope (Automated)</fullName>
+                <default>false</default>
+                <label>In-Scope (Automated)</label>
+            </value>
+            <value>
+                <fullName>Deleted</fullName>
+                <default>false</default>
+                <label>Deleted</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

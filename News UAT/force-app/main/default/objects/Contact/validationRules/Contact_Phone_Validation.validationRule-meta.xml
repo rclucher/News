@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Phone_Validation</fullName>
+    <active>true</active>
+    <description>Phone numbers must be numeric (with the exception of a leading +).</description>
+    <errorConditionFormula>OR(IF (NOT(ISBLANK(AssistantPhone)), 
+Not(ISNUMBER(AssistantPhone)), 
+NULL),IF (NOT(ISBLANK(HomePhone)), 
+Not(ISNUMBER(HomePhone)), 
+NULL), IF (NOT(ISBLANK(MobilePhone)), 
+NOT(ISNUMBER(MobilePhone)), 
+NULL),IF (NOT(ISBLANK(OtherPhone)), 
+NOT(ISNUMBER(OtherPhone)), 
+NULL), IF (NOT(ISBLANK(Phone)), 
+NOT(ISNUMBER(Phone)), 
+NULL), CONTAINS(AssistantPhone, &#39;.&#39;), CONTAINS(HomePhone, &#39;.&#39;), CONTAINS(MobilePhone, &#39;.&#39;), CONTAINS(OtherPhone, &#39;.&#39;), CONTAINS(Phone, &#39;.&#39;), IF (NOT(ISBLANK(Fax)), 
+Not(ISNUMBER(Fax)), 
+NULL), CONTAINS(Fax, &#39;.&#39;))</errorConditionFormula>
+    <errorMessage>All Phone/Fax fields on Contact must be numeric only, with the exception of a leading +.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Final_Score__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+TotalNoCompliance__c &gt; 0,
+0,
+IF(Total_Score__c + TotalBonusScore__c &gt; (Max_Score__c - TotalNotApplicable__c), 
+1,
+(Total_Score__c+TotalBonusScore__c)/(Max_Score__c - TotalNotApplicable__c))
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Final Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

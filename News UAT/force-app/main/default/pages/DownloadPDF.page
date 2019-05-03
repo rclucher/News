@@ -1,0 +1,5 @@
+<apex:page >
+<!--
+<apex:page standardController="csmso__Sales_Order__c" extensions="GenerateProdConfigAttr"  action="{!attachNewFile}">
+    <apex:include pageName="GenerateProdConfigAttrPDF"/>-->
+</apex:page>

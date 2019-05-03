@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Flushable__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Determines whether Logger will insert a Logged Exception every time you call the Log method (if Flushable is false), or if you&#39;d like to en-queue the Logged Exceptions to conserve DML calls (Flushable = true).</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Determines whether Logger will insert a Logged Exception every time you call the Log method (if Flushable is false), or if you&#39;d like to en-queue the Logged Exceptions to conserve DML calls (Flushable = true).</inlineHelpText>
+    <label>Flushable</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

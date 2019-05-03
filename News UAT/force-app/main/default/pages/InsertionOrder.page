@@ -1,0 +1,576 @@
+<!--Commented for field type whole page-->
+<apex:page standardcontroller="csmso__Sales_Order__c" extensions="InsertionOrderController" action="{!checkCampaignElements}"  renderAs="pdf" applyBodyTag="false">
+
+
+    <!-- old logic
+    <apex:outputPanel layout="none" rendered="{!errorWrapper.errorsFound}">
+        <apex:outputText style="font-size:16px; color:#FF0000;text-align:center;" >ERROR WITH DATA: {!errorWrapper.errorMessage}</apex:outputText>
+    </apex:outputPanel>
+    <apex:outputPanel layout="none" rendered="{!errorWrapper.errorsFound==false}">
+    -->
+
+    <apex:outputPanel layout="none" rendered="{!csmso__Sales_Order__c.Campaign_Products_Type__c == 'Invalid'
+            || csmso__Sales_Order__c.Campaign_Products_Type__c == 'Seasonal'}">
+        <apex:outputText rendered="{!csmso__Sales_Order__c.Campaign_Products_Type__c == 'Invalid'}" style="font-size:16px; color:#FF0000;text-align:center;" >ERROR WITH DATA: Incompatible combination of products, please use separate Sales Orders per seasonal and evergreen products</apex:outputText>
+    </apex:outputPanel>
+    <apex:outputPanel layout="none" rendered="{!csmso__Sales_Order__c.Campaign_Products_Type__c != 'Invalid'}">
+
+        <head>
+            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+            <style type="text/css" media="print">
+
+            @page {
+                margin-top: 4cm;
+                margin-bottom: 3cm;
+                @top-center {
+                   content: element(header);
+                }
+                @bottom-left {
+                     content: element(footer);
+                }
+            }
+            .header {
+                display: block;
+                position: running(header);
+            }
+            .footer {
+                display: block;
+                padding: 5px;
+                position: running(footer);
+            }
+                .pagenumber:before {
+                    content: counter(page);
+            }
+                .pagecount:before {
+                    content: counter(pages);
+            }
+            .column1{width: 10px;height:auto; bgcolor:#E6E6FA;}
+            .column2{width: 5px;height:auto; bgcolor:#E6E6FA;}
+            .column3{width: 20px;height:auto; bgcolor:#E6E6FA;}
+            .table-curved {
+                border-collapse: separate;
+            }
+            .table-curved {
+                border: solid #ccc 1px;
+                border-radius: 6px;
+                border-left:0px;
+            }
+            .table-curved td, .table-curved th {
+                border-left: 1px solid #ccc;
+                border-top: 1px solid #ccc;
+            }
+            .table-curved th {
+                border-top: none;
+            }
+            .table-curved th:first-child {
+                border-radius: 6px 0 0 0;
+            }
+            .table-curved th:last-child {
+                border-radius: 0 6px 0 0;
+            }
+            .table-curved th:only-child{
+                border-radius: 6px 6px 0 0;
+            }
+            .table-curved tr:last-child td:first-child {
+                border-radius: 0 0 0 6px;
+            }
+            .table-curved tr:last-child td:last-child {
+                border-radius: 0 0 6px 0;
+            }
+            .table-bordered {
+                -webkit-border-radius: 14px;
+                -moz-border-radius: 4px;
+                border-radius: 14px;
+            }
+            .table-bordered thead:first-child tr:first-child > th:first-child, .table-bordered tbody:first-child tr:first-child > td:first-child, .table-bordered tbody:first-child tr:first-child > th:first-child {
+                -webkit-border-top-left-radius: 14px;
+                border-top-left-radius: 4px;
+                -moz-border-radius-topleft: 14px;
+            }
+            .table-bordered thead:last-child tr:last-child > th:first-child, .table-bordered tbody:last-child tr:last-child > td:first-child, .table-bordered tbody:last-child tr:last-child > th:first-child, .table-bordered tfoot:last-child tr:last-child > td:first-child, .table-bordered tfoot:last-child tr:last-child > th:first-child {
+                -webkit-border-bottom-left-radius: 14px;
+                border-bottom-left-radius: 14px;
+                -moz-border-radius-bottomleft: 14px;
+            }
+            tr.noBorder td {border: 0; }
+            .headerGrid.ui-panelgrid>*>tr,
+            .headerGrid.ui-panelgrid .ui-panelgrid-cell {
+                border: none;
+            }
+            .left-logo {
+                display:block;
+                float:  left;
+                padding-left: 10px;
+            }
+            .right-logo {
+                display:block;
+                float: right;
+                padding-right:  15px;
+/*                margin-top: -80px;
+                margin-left: 540px;*/
+            }
+            .watermark-img {
+                /* https://css-tricks.com/perfect-full-page-background-image/ */
+                position: fixed; 
+                top: 100px; 
+                left: 50px; 
+                min-width: 100%;
+                min-height: 100%;
+            }
+            .watermark-img img {
+                /* Transparency options. Use opacity * 100 for filter alpha */
+                opacity: 0.2;
+                filter: alpha(opacity=20); /* For IE8 and earlier */
+            }
+        </style>
+            <meta charset="utf-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <apex:includescript value="{!URLFOR($Resource.cscfga__jQuery_min)}"/>
+            <apex:includescript value="{!URLFOR($Resource.Bootstrap, 'bootstrap-3.3.6-dist/js/bootstrap.min.js')}"/>
+            <link href="{!URLFOR($Resource.Bootstrap, 'bootstrap-3.3.6-dist/css/bootstrap.min.css')}" rel="stylesheet" media="screen"/>
+        </head>
+        <body style="font-family: Arial Unicode MS;text-align:left;">
+
+        <apex:outputPanel id="watermark-img" layout="block" rendered="{!IF(csmso__Sales_Order__c.csmso__Advertiser__r.Billing_Status__c == 'Red', true, false)}">
+            <div class="watermark-img"><img src="{!URLFOR($Resource.DraftWaterMark)}" alt="" /></div>
+        </apex:outputPanel>
+
+        <div class="CSwrapper content">
+            <apex:stylesheet value="{!URLFOR($Resource.IOStylesCSS)}"/>
+            <!-- define static resource for logo-->
+            <div class="header" >
+                <apex:image value="{!URLFOR($Resource.News_Corp_Australia_logo_2)}"  height="50" styleClass="left-logo"/>
+                <apex:image value="{!URLFOR($Resource.NewsXtend_NewLogo_2)}"  height="50" styleClass="right-logo" />
+            </div>
+            <div class="footer" style="font-size:10px; color:#A9A9A9;text-align:center;">
+                <div style="text-align:center;"> News Pty Limited   I   ABN 47 007 871 178   I   2 Holt Street, Surry Hills, NSW 2010 Australia </div>
+                <!-- | <span style='color: #4682B4;'>  T </span> 1300 935 848-->
+                <!--<div style="text-align:center;"> |  <span style='color: #4682B4;'> E </span> info@newsxtend.com.au    |  <span style='color: #4682B4;'> W </span> www.newsxtend.com.au-->
+                <!--</div>-->
+            </div>
+
+            <!-- 
+
+            PAGE 1
+            Contains client details, newscorp contact details
+
+            -->
+
+            <p style="font-size:25px; font-weight: bold; color:#4682B4; ">NEWS CORP MARKETING CAMPAIGN</p>
+
+            <apex:outputPanel layout="block">
+                <div class="panel panel-default" style="width:100%; white-space:pre-wrap; page-break-after:avoid;" >
+                    <table class="table-noborder" cellspacing="5" cellpadding="5" style="width:100%; white-space:pre-wrap; page-break-after:avoid;-webkit-border-radius: 20px 20px 20px 20px;-moz-border-radius: 6px 20px 20px 20px;border-radius: 20px 20px 20px 20px;border:5px #B0C4DE;">
+                        <tr>
+                            <td style="background-color:#4682B4;font-size:16px; font-weight: 900;text-align:center;color:#FFFAFA; ">CLIENT DETAILS</td>
+                            <td style="background-color:#4682B4;font-size:16px; font-weight: 900;text-align:center; color:#FFFAFA;">NEWS CORP CONTACT DETAILS</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#B0C4DE;font-size:12px; text-align:left;"><span style="visibility: visible;font-size:12px; ">Name: </span> {!csmso__Sales_Order__c.csmso__Booking_Contact__r.Name}</td>
+                            <td style="background-color:#B0C4DE;font-size:12px; font-weight: 900;text-align:left;"><span style="visibility: visible;font-size:12px; ">Account Manager: </span> {!csmso__Sales_Order__c.csmso__Opportunity__r.Owner.Name}</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#B0C4DE;font-size:12px; font-weight: 900;"><span style="visibility: visible;font-size:12px; ">Business Name: </span> {!csmso__Sales_Order__c.csmso__Advertiser__r.Name}</td>
+                            <td style="background-color:#B0C4DE;font-size:12px; font-weight: 900;"><span style="visibility: visible;font-size:12px; ">Email: </span> {!csmso__Sales_Order__c.csmso__Opportunity__r.Owner.Email}</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#B0C4DE;font-size:12px; font-weight: 900;"><span style="visibility: visible;font-size:12px; ">Payer Account: </span> {!csmso__Sales_Order__c.csmso__Opportunity__r.Payer_Account__r.Name}</td>
+                            <td style="background-color:#B0C4DE;font-size:12px; font-weight: 900;"><span style="visibility: visible;font-size:12px; ">Phone: </span> {!csmso__Sales_Order__c.csmso__Opportunity__r.Owner.Phone}</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#B0C4DE;font-size:12px; font-weight: 900;"><span style="visibility: visible;font-size:12px; ">Planner Account: </span> {!csmso__Sales_Order__c.csmso__Opportunity__r.Planner_Account__r.Name}</td>
+                            <td style="background-color:#B0C4DE;font-size:12px; font-weight: 900;"><span style="visibility: visible;font-size:12px; ">Sales Order Name: </span> {!csmso__Sales_Order__c.Name}</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#B0C4DE;font-size:12px; font-weight: 900;"><span style="visibility: visible;font-size:12px; ">Phone: </span> {!csmso__Sales_Order__c.csmso__Booking_Contact__r.Phone}</td>
+                            <td style="background-color:#B0C4DE;font-size:12px; font-weight: 900;"><span style="visibility: visible;font-size:12px; ">Package Creation Date/Time: </span>{!strConvertedDate }</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#B0C4DE;font-size:12px; font-weight: 900;"><span style="visibility: visible;font-size:12px; ">Email: </span> {!csmso__Sales_Order__c.csmso__Booking_Contact__r.Email}</td>
+                            <td style="background-color:#B0C4DE;font-size:12px; font-weight: 900;"></td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#B0C4DE;font-size:12px; font-weight: 900;"><span style="visibility: visible;font-size:12px; ">Business Address: </span> {!csmso__Sales_Order__c.csmso__Advertiser__r.Primary_Address__c}</td>
+                            <td style="background-color:#B0C4DE;font-size:12px; font-weight: 900;"></td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#B0C4DE;font-size:12px; font-weight: 900;"><span style="visibility: visible;font-size:12px; ">Business ABN:</span> {!csmso__Sales_Order__c.csmso__Advertiser__r.AccountNumber}</td>
+                            <td style="background-color:#B0C4DE;font-size:12px; font-weight: 900;"></td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#B0C4DE;font-size:12px; font-weight: 900;"><span style="visibility: visible;font-size:12px; ">Web Address URL:</span> {!csmso__Sales_Order__c.csmso__Advertiser__r.Website}</td>
+                            <td style="background-color:#B0C4DE;font-size:12px; font-weight: 900;"></td>
+                        </tr>
+                    </table>
+                </div>
+            </apex:outputPanel>
+
+
+
+
+
+            <!-- 
+
+            PAGE 2
+            Contains campaign details
+
+            -->
+
+            <apex:outputPanel layout="block">
+                <!-- define line items-->
+                <div class="panel panel-default" style="width:100%; white-space:normal; page-break-before: always;page-break-after:avoid;page-break-inside:avoid;border-style: initial;text-align:left">
+                    <table class="table-noborder"  cellpadding="5"   style="width:100%; page-break-after:avoid;border-style: initial;text-align:left;">
+                        <!-- <div class="panel panel-default" style="width:100%; white-space:pre-wrap; page-break-after:avoid;border-style: initial;" >
+                            <table class="table table-curved table table-striped table-bordered table-condensed" cellspacing="1" style="width:100%; border-color:#DCDCDC; white-space:pre-wrap; page-break-after:avoid;-webkit-border-radius: 20px 20px 20px 20px;-moz-border-radius: 6px 20px 20px 20px;border-radius: 20px 20px 20px 20px;border:5px #DCDCDC;">-->
+                        <tr>
+                            <th colspan="2" style="background-color:#DCDCDC; font-size:20px; font-weight: 900; text-align:center;color:#4682B4;">CAMPAIGN PLAN</th>
+                        </tr>
+                        <tr>
+                            <th style="width:50%; font-size:16px; font-weight: 900; color:#FFFAFA; text-align:center; background-color:#4682B4;"> Product</th>
+                            <th style="width:50%; font-size:16px; font-weight: 900; color:#FFFAFA; text-align:center; background-color:#4682B4;"> Description</th>
+                        </tr>
+                        <apex:variable var="i" value="{!0}" />
+                        <apex:variable var="j" value="{!0}" />
+                        <apex:variable var="k" value="{!0}" />
+
+
+                        <!--Print product start-->
+                        <apex:outputPanel layout="none" rendered="{!printIORefFormatedDescriptions.size > 0}">
+                            <tr><td style="font-size:14px;background-color:#DDE8F1;" colspan="2">Print</td></tr>
+                        </apex:outputPanel>
+                        <apex:repeat value="{!printIORefFormatedDescriptions}" var="rowP" >
+                            <tr style="font-size:12px;background-color:#B0C4DE;">
+                                <apex:repeat value="{!rowP}" var="columnP">
+                                    <td><span style="display:none;">{!columnP}</span>
+                                        <apex:variable var="j" value="{!j+1}"/>
+
+                                        <apex:outputPanel rendered="{!IF((mod(j,2)) == 0,false,true)}" style="width:60px; height:60px;text-align:left; float:left; margin-right: 10px;" >
+                                            <apex:outputPanel rendered="{!IF(urlMap[columnP] == 'No Image', false, true)}" style="text-align:center;">
+                                                <img src="{!urlMap[columnP]}" style="width:60px; height:60px; float:left; margin-right:10px" />
+                                            </apex:outputPanel>
+                                        </apex:outputPanel>
+                                        <apex:outputPanel rendered="{!IF((mod(j,2)) == 0,false,true)}"><span style="font-size:13.5px;text-align:left;display:inline-block;"><apex:outputText escape="false" value="{!columnP}"/></span></apex:outputPanel>
+                                        <apex:outputPanel rendered="{!IF((mod(j,2)) == 1,false,true)}"><span style="font-size:13.5px;text-align:left;display:inline-block;"><apex:outputText escape="false" value="{!columnP}"/></span></apex:outputPanel>
+
+
+                                    </td>
+                                </apex:repeat>
+                            </tr>
+                        </apex:repeat>
+                        <!--Print product end-->
+
+                        <!--Digital product start-->
+                        <apex:outputPanel layout="none" rendered="{!digitalIORefFormatedDescriptions.size > 0}">
+                            <tr><td style="font-size:14px;background-color:#DDE8F1;" colspan="2">Digital Display Advertising Across Desktop and Mobile</td></tr>
+                        </apex:outputPanel>
+
+                        <apex:repeat value="{!digitalIORefFormatedDescriptions}" var="rowD" >
+
+                            <tr style="font-size:12px;background-color:#B0C4DE;">
+                                <apex:repeat value="{!rowD}" var="columnD">
+                                    <td><span style="display:none;">{!columnD}</span>
+                                        <apex:variable var="i" value="{!i+1}"/>
+
+                                        <apex:outputPanel rendered="{!IF((mod(i,2)) == 0,false,true)}" style="width:60px; height:60px;text-align:left; float:left; margin-right: 10px;" >
+                                            <apex:outputPanel rendered="{!IF(urlMap[columnD] == 'No Image', false, true)}" style="text-align:center;">
+                                                <img src="{!urlMap[columnD]}" style="width:60px; height:60px; float:left; margin-right:10px" />
+                                            </apex:outputPanel>
+                                        </apex:outputPanel>
+                                        <apex:outputPanel rendered="{!IF((mod(i,2)) == 0,false,true)}"><br/><span style="font-size:13.5px;text-align:left;display:inline-block;"><apex:outputText escape="false" value="{!columnD}"/></span></apex:outputPanel>
+                                        <apex:outputPanel rendered="{!IF((mod(i,2)) == 1,false,true)}"><span style="font-size:13.5px;text-align:left;display:inline-block;"><apex:outputText escape="false" value="{!columnD}"/></span></apex:outputPanel>
+
+
+                                    </td>
+                                </apex:repeat>
+                            </tr>
+                        </apex:repeat>
+                        <!--Digital product end-->
+
+                        <!--Xtend product start -->
+                        <apex:outputPanel layout="none" rendered="{!IORefFormatedDescriptions.size > 0}">
+                            <tr><td style="font-size:14px;background-color:#DDE8F1;" colspan="2">News Xtend</td></tr>
+                        </apex:outputPanel>
+                        <apex:repeat value="{!IORefFormatedDescriptions}" var="row" >
+                            <tr style="font-size:12px;background-color:#B0C4DE;">
+                                <apex:repeat value="{!row}" var="column">
+                                    <td><span style="display:none;">{!column}</span>
+                                        <apex:variable var="k" value="{!k+1}"/>
+
+                                        <apex:outputPanel rendered="{!IF((mod(k,2)) == 0,false,true)}" style="width:60px; height:60px;text-align:left; float:left; margin-right: 10px;" >
+                                            <apex:outputPanel rendered="{!IF(urlMap[column] == 'No Image', false, true)}" style="text-align:center;">
+                                                <img src="{!urlMap[column]}" style="width:60px; height:60px; float:left; margin-right:10px" />
+                                            </apex:outputPanel>
+                                        </apex:outputPanel>
+                                        <apex:outputPanel rendered="{!IF((mod(k,2)) == 0,false,true)}"><br/><span style="font-size:13.5px;text-align:left;display:inline-block;"><apex:outputText escape="false" value="{!column}"/></span></apex:outputPanel>
+                                        <apex:outputPanel rendered="{!IF((mod(k,2)) == 1,false,true)}"><span style="font-size:13.5px;text-align:left;display:inline-block;"><apex:outputText escape="false" value="{!column}"/></span></apex:outputPanel>
+
+
+                                    </td>
+                                </apex:repeat>
+                            </tr>
+                        </apex:repeat>
+                        <!--  <apex:outputPanel rendered="{!IF(IORefFormatedDescriptionsLimit.size > 0, true, false ) }" layout="block">-->
+                        <!-- Campaign Management -->
+                        <!-- <tr >-->
+                        <apex:variable var="jj" value="{!0}" />
+                        <apex:repeat value="{!campMgmtMap}" var="row" >
+                            <tr style="font-size:12px;background-color:#B0C4DE;text-align:left;">
+                                <td style="font-size:14px;text-align:left;width:60px; height:60px;"><img src="{!URLFOR($Resource.ImgCampaignMgmt)}" style="width:60px; height:60px; float:left;" />
+                                    <apex:outputPanel ><br/><span style="margin-left:10px;">{!row}</span>  </apex:outputPanel>
+                                </td>
+                                <td align="left" style="background-color:#B0C4DE;font-size:13.5px;">
+                                    <apex:outputText value="{!campMgmtMap[row]}" style="text-align:left;" escape="false"/><br/>
+                                </td>
+                            </tr>
+                        </apex:repeat>
+                        <!--</tr>-->
+                        <!-- </apex:outputPanel>-->
+                        <!--Xtend product end-->
+                    </table>
+                </div>
+            </apex:outputPanel>
+            <hr />
+            <div style="page-break-after:always;"/> <!--Forcing break here-->
+
+
+            <!-- 
+            PAGE 3  
+            Contains summary and costs
+            -->
+            <!--<apex:outputPanel layout="none" rendered="{!IORefFormatedDescriptions.size>0}">-->
+            <apex:outputPanel layout="none">
+                <p style="font-size:20px;color:#4682B4;font-weight: 900;">Summary</p>
+
+                <!-- DATES -->
+                <apex:outputPanel style="text-align:center;">
+                    <table cellpadding="0" cellspacing = "0"  style="width:100%;font-family: Arial Unicode MS;">
+                        <tr>
+                            <th style="font-size:14px;width:300px">
+                                <apex:outputLabel value="Estimated Campaign Start Date: "></apex:outputLabel>
+                            </th>
+                            <td  style="font-size:14px;">
+                                <apex:outputText value="{0,date,d/MM/YYYY}"> <apex:param value="{!csmso__Sales_Order__c.Campaign_Start_Date__c}" /> </apex:outputText>
+                            </td>
+                        </tr>
+                        <tr style="display: {!IF(csmso__Sales_Order__c.Campaign_End_Date2__c != null, 'table-row', 'none')};">
+                            <th style="font-size:14px;width:300px">
+                                <apex:outputLabel value="Estimated Campaign End Date: "></apex:outputLabel>
+                            </th>
+                            <td  style="font-size:14px;">
+
+                                <!-- Seasonal - News Xtend -->
+                                <apex:outputText value="{0,date,d/MM/YYYY}"
+                                                 rendered="{! isSeasonalXtend }">
+                                    <apex:param value="{!csmso__Sales_Order__c.Campaign_End_Date2__c}" />
+                                </apex:outputText>
+
+                                <!-- Seasonal - Print Led -->
+                                <apex:outputText value="{0,date,d/MM/YYYY}"
+                                                 rendered="{! isSeasonalPrint}">
+                                    <apex:param value="{!csmso__Sales_Order__c.csmso__To__c}" />
+                                </apex:outputText>
+
+                                <!-- Evergreen -->
+                                <apex:outputText value="{!$Label.IODurationText}"
+                                                 rendered="{! isEvergreen }">
+                                </apex:outputText>
+
+                                <!-- <apex:outputText value="{0,date,d/MM/YYYY}"> <apex:param value="{!csmso__Sales_Order__c.Campaign_End_Date2__c}" /> </apex:outputText> -->
+                            </td>
+                        </tr>
+                    </table>
+                </apex:outputPanel>
+                <br/>
+
+                <!-- COSTS -->
+                <!-- <apex:outputPanel rendered="{!IF(csmso__Sales_Order__c.Campaign_End_Date2__c == null,true,false)}"  > -->
+                <apex:outputPanel >
+                    <div class="panel panel-default" style="width:100%; white-space:pre-wrap;" >
+                        <table class="table table-curved table-bordered" cellpadding="5"  style="width:100%; white-space:pre-wrap; page-break-after:avoid;-webkit-border-radius: 20px 20px 20px 20px;-moz-border-radius: 6px 20px 20px 20px;border-radius: 20px 20px 20px 20px;border:5px #B0C4DE;">
+                            <!-- <table class="table table-curved table table-striped table-bordered table-condensed" cellpadding="0" cellspacing = "0" border="1" style="width:75%; white-space:pre-wrap; page-break-after:avoid;" >-->
+                            <tr style="line-height: 20px;
+                                   display: {! IF(isSeasonalXtend || isEvergreen, 'table-row', 'none')};">
+                                <td style="background-color:#4682B4;font-size:13px; font-weight: 900;color:#FFFAFA; ">Set Up costs (charged as a once off in month 1) (ex GST)</td>
+                                <td style="background-color:#B0C4DE;font-size:13px; font-weight: 900;">$ {!csmso__Sales_Order__c.One_Off_Price__c}</td>
+                            </tr>
+                            <tr style="line-height: 20px;
+                                   display: {! IF(isSeasonalXtend || isEvergreen, 'table-row', 'none')};">
+                                <td style="background-color:#4682B4;font-size:13px; font-weight: 900;color:#FFFAFA;">GST</td>
+                                <td style="background-color:#B0C4DE;font-size:13px; font-weight: 900;">$    <apex:outputText value="{0, number, 0.00}">
+                                    <apex:param value="{!csmso__Sales_Order__c.One_Off_Price__c * (csmso__Sales_Order__c.GST_Tax__c/100)}" />
+                                </apex:outputText></td>
+                            </tr>
+                            <tr style="line-height: 20px;
+                                   display: {! IF(isSeasonalXtend || isEvergreen, 'table-row', 'none')};">
+                                <td style="background-color:#4682B4;font-size:13px; font-weight: 900;color:#FFFAFA;">Set Up costs (charged as a once off in month 1) (inc GST)</td>
+                                <td style="background-color:#B0C4DE;font-size:13px; font-weight: 900;">$ <apex:outputText value="{0, number, 0.00}">
+                                    <apex:param value="{!csmso__Sales_Order__c.One_Off_Price__c + (csmso__Sales_Order__c.One_Off_Price__c * (csmso__Sales_Order__c.GST_Tax__c/100))}" />
+                                </apex:outputText></td>
+                            </tr>
+
+                            <tr style="line-height: 20px;
+                                   display: {!IF(isSeasonalXtend || isEvergreen, 'table-row', 'none')};">
+                                <td style="background-color:#4682B4;font-size:13px; font-weight: 900;color:#FFFAFA;">Monthly Total (ex GST) </td>
+                                <td style="background-color:#B0C4DE;font-size:13px; font-weight: 900;">$ <apex:outputText value="{0, number, 0.00}">
+                                    <apex:param value="{!VALUE(csmso__Sales_Order__c.Total_Monthly_Price__c)  }"/></apex:outputText></td>
+                            </tr>
+                            <tr style="line-height: 20px;
+                                   display: {!IF(isSeasonalXtend || isEvergreen, 'table-row', 'none')};">
+                                <td style="background-color:#4682B4;font-size:13px; font-weight: 900;color:#FFFAFA;">GST</td>
+                                <td style="background-color:#B0C4DE;font-size:13px; font-weight: 900;">$ <apex:outputText value="{0, number, 0.00}">
+                                    <apex:param value="{!VALUE(csmso__Sales_Order__c.GST__c)  }"/></apex:outputText></td>
+                            </tr>
+                            <tr style="line-height: 20px;
+                                   display: {!IF(isSeasonalXtend || isEvergreen, 'table-row', 'none')};">
+                                <td style="background-color:#4682B4;font-size:13px; font-weight: 900;color:#FFFAFA;">Monthly Total (inc GST)</td>
+                                <td style="background-color:#B0C4DE;font-size:13px; font-weight: 900;">$ <apex:outputText value="{0, number, 0.00}">
+                                    <apex:param value="{!VALUE( csmso__Sales_Order__c.Total_GST_Inclusive__c ) }"/></apex:outputText></td>
+                            </tr>
+                            <!-- -show only for Seasonal Print or Seasonal Xtend-->
+                            <tr style="line-height: 20px;
+                                   display: {!IF(isSeasonalPrint || isSeasonalXtend, 'table-row', 'none')};">
+                                <td style="background-color:#4682B4;font-size:13px; font-weight: 900;color:#FFFAFA;">Total Cost</td>
+                                <td style="background-color:#B0C4DE;font-size:13px; font-weight: 900;">$ {!csmso__Sales_Order__c.Total_Duration_Price__c}</td>
+                            </tr>
+                            <tr style="line-height: 20px;
+                                   display: {!IF(isSeasonalPrint || isSeasonalXtend, 'table-row', 'none')};">
+                                <td style="background-color:#4682B4;font-size:13px; font-weight: 900;color:#FFFAFA;">GST</td>
+                                <td style="background-color:#B0C4DE;font-size:13px; font-weight: 900;">$ {!csmso__Sales_Order__c.Total_Duration_GST__c}</td>
+                            </tr>
+                            <tr style="line-height: 20px;
+                                   display: {!IF(isSeasonalPrint || isSeasonalXtend, 'table-row', 'none')};">
+                                <td style="background-color:#4682B4;font-size:13px; font-weight: 900;color:#FFFAFA;">Total Cost (inc GST)</td>
+                                <td style="background-color:#B0C4DE;font-size:13px; font-weight: 900;">$ {!csmso__Sales_Order__c.Total_Duration_Price_GST_Inclusive__c}</td>
+                            </tr>
+                        </table>
+                        <!-- Print Led -->
+                        <apex:outputPanel layout="none" rendered="{!IF(CONTAINS(csmso__Sales_Order__c.Campaign_Products_Type__c ,'Print Led'),'true','false')}">
+                            <p>PLEASE NOTE: Your advertising campaign is shown here as a total cost. Depending on your billing arrangements, your monthly statement will provide a detailed breakdown of the component parts, including Print and Digital advertising for the calendar month billed. If your booking is mid calendar month, you may receive a pro-rated statement for that month.</p>
+                        </apex:outputPanel>
+                    </div>
+                </apex:outputPanel>
+
+            </apex:outputPanel>
+
+            <div style="page-break-after:always;"/> <!--Forcing break here-->
+            <br/>
+
+            <!-- 
+            PAGE 4
+            Contains duration, signature, date, info and URL for terms and contitions, Next Steps
+            -->
+            <apex:outputPanel style="text-align:center;">
+                <table cellpadding="0" cellspacing = "0"  style="width:100%;font-family: calibri;">
+                    <tr>
+                        <th style="font-size:13px;width:200px">
+                            <apex:outputLabel value="Duration :"></apex:outputLabel>
+                        </th>
+                        <td  style="font-size:13px;font-family: Arial Unicode MS;">
+
+                            <!-- Seasonal - News Xtend -->
+                            <apex:outputText value="{!csmso__Sales_Order__c.Campaign_Length__c} months"
+                                             rendered="{! isSeasonalXtend }"/>
+
+                            <!-- Seasonal - Print Led -->
+                            <apex:outputText value="{!csmso__Sales_Order__c.Campaign_Length_Weeks__c} weeks"
+                                             rendered="{! isSeasonalPrint }"/>
+                            <!-- Evergreen -->
+                            <apex:outputText value="{!$Label.IODurationText}"
+                                             rendered="{! isEvergreen}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><br/></td>
+                        <td><br/></td>
+                    </tr>
+                    <tr>
+                        <th style="font-size:13px;width:200px">
+                            <apex:outputLabel value="Authorised Name :"></apex:outputLabel>
+                        </th>
+                        <td  style="font-size:10px;font-weight">
+                            <apex:outputText value="  __________________________________"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><br/></td>
+                        <td><br/></td>
+                    </tr>
+                    <tr>
+                        <th style="font-size:13px;width:200px">
+                            <apex:outputLabel value="Authorised Title :"></apex:outputLabel>
+                        </th>
+                        <td  style="font-size:10px;">
+                            <apex:outputText value="  __________________________________"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><br/></td>
+                        <td><br/></td>
+                    </tr>
+                    <tr>
+                        <th style="font-size:13px;width:200px">
+                            <apex:outputLabel value="Authorised Signature :"></apex:outputLabel>
+                        </th>
+                        <td  style="font-size:10px;">
+                            <apex:outputText value="  __________________________________"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><br/></td>
+                        <td><br/></td>
+                    </tr>
+                    <tr>
+                        <th style="font-size:13px;width:200px">
+                            <apex:outputLabel value="Date :"></apex:outputLabel>
+                        </th>
+                        <td  style="font-size:10px;">
+                            <apex:outputText value="  __________________________________"/>
+                        </td>
+                    </tr>
+                    <br/>
+                    <apex:outputText style="font-size:13px;" escape="false" value="{!$Label.IOTermsAndConditions}"/>
+                    <br/>
+                    
+                </table>
+            </apex:outputPanel>
+
+            <br/>
+            <br/>
+            <apex:outputPanel layout="none" rendered="{!IORefFormatedDescriptions.size > 0}">
+                <apex:outputText style="font-size:20px; font-weight: 900; color:#4682B4;" value="Next Steps" /><br/><br/>
+                <!-- <apex:outputText style="font-size:12px;" value="Please specify 3 times you are available in the upcoming week for a welcome call from your News Xtend Campaign Manager"/>-->
+                <div class="panel panel-default" style="width:100%; white-space:normal; page-break-after:avoid;page-break-before:avoid;">
+                    <table class="table table-curved table-bordered" style="width:100%; white-space:pre-wrap; page-break-after:avoid;-webkit-border-radius: 20px 20px 20px 20px;-moz-border-radius: 6px 20px 20px 20px;border-radius: 20px 20px 20px 20px;border:5px #B0C4DE;">
+                        <!-- <table class="table table-curved table table-striped table-bordered table-condensed" cellpadding="0" cellspacing = "0" border="1" style="width:75%; white-space:pre-wrap; page-break-after:avoid;" >-->
+                        <tr>
+                            <th colspan="4" style="background-color:#4682B4;font-size:14px; font-weight: 900; color:#FFFAFA;">Please specify 3 times you are available in the upcoming week for a welcome call from your News Xtend Campaign Manager</th>
+                        </tr>
+                        <tr>
+                            <td width="25%" style="background-color:#B0C4DE;font-size:14px; font-weight: 900;">Date</td>
+                            <td width="25%" style="background-color:#DCDCDC;"> </td>
+                            <td width="25%" style="background-color:#DCDCDC;"> </td>
+                            <td width="25%" style="background-color:#DCDCDC;"> </td>
+                        </tr>
+                        <tr>
+                            <td width="25%" style="background-color:#B0C4DE;font-size:14px; font-weight: 900;">Time</td>
+                            <td width="25%" style="background-color:#DCDCDC;"> </td>
+                            <td width="25%" style="background-color:#DCDCDC;"> </td>
+                            <td width="25%" style="background-color:#DCDCDC;"> </td>
+                        </tr>
+                    </table>
+                </div>
+
+
+            </apex:outputPanel>
+            <br/>
+            <br/>
+            <div style="text-align:center;font-size:16px; font-weight: 900; color:#4682B4; text-align:center;"> Thank you for partnering with News Corp Australia and News Xtend.
+            </div>
+            <div style="text-align:center;font-size:16px; font-weight: 900; color:#4682B4; text-align:center;">We‘re excited about helping your business grow.
+            </div>
+
+            <hr />
+        </div>
+        </body>
+    </apex:outputPanel>
+</apex:page>

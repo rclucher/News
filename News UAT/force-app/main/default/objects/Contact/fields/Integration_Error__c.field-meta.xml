@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Integration_Error__c</fullName>
+    <description>Set by webMethods if there is a problem processing a Outbound Message for an Account</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Populated by webMethods in the event of an issue processing an Outbound Message for an Account. For instance, when creating or updating Accounts to Adpoint/ CyberAd/ CyberSell.</inlineHelpText>
+    <label>Integration Error</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

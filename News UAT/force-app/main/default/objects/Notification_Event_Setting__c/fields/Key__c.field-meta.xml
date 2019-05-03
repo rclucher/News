@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Key__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(RecordType.Name,&#39;Milestone&#39;, RecordType.Name + &#39;_&#39; + Process_Name__c + &#39;_&#39; +  Step_Name__c,
+&#39;Object&#39;, RecordType.Name + &#39;_&#39; +  TEXT(Object_Name__c) + &#39;_&#39; +  Field_Name__c + &#39;_&#39; +  From_Value__c + &#39;_&#39; +  To_Value__c,
+&#39;Button&#39;, RecordType.Name + &#39;_&#39; +  TEXT(Object_Name__c) + &#39;_&#39; +  Button_Name__c,
+&#39;&#39;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Key</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

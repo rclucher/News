@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Walk_In_Forecast</fullName>
+    <availability>online</availability>
+    <description>The Walk-In Forecast button will be displayed on the Walk-in Opportunity record type to enable Direct Sales to access the Walk-In Forecast custom user interface</description>
+    <displayType>button</displayType>
+    <height>600</height>
+    <linkType>page</linkType>
+    <masterLabel>Walk-In Forecast</masterLabel>
+    <openType>sidebar</openType>
+    <page>WalkInForecast</page>
+    <protected>false</protected>
+</WebLink>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Empty_Core_Fields__c</fullName>
+    <externalId>false</externalId>
+    <formula>OR( ISBLANK( Phone ) ,  IF(  RecordType.DeveloperName   = &quot;Private_Party&quot;, OR(ISBLANK( PersonMailingStreet ) , ISBLANK( PersonMailingCity ) , ISBLANK( PersonMailingState ) , ISBLANK( PersonMailingCountry ) , ISBLANK( PersonMailingPostalCode ), ISBLANK(  datasan__Mailing_Address_DPID__pc )), OR(ISBLANK( BillingStreet ) , ISBLANK( BillingCity ) , ISBLANK( BillingState ) , ISBLANK( BillingCountry ) , ISBLANK( BillingPostalCode ), ISBLANK(  datasan__Billing_Address_DPID__c ))) , ISBLANK( AccountNumber ) , ISBLANK(  Registered_Name__c ) , ISBLANK( Primary_Contact__c ),  CONTAINS( Name , &quot;And&quot;), CONTAINS( Name, &quot;t/as&quot;))</formula>
+    <label>Empty Core Fields</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

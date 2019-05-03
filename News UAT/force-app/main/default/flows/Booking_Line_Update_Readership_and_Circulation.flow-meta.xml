@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>EmailToDebug</name>
+        <label>EmailToDebug</label>
+        <locationX>438</locationX>
+        <locationY>107</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>allVariables</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>An error Occured in the Booking Line: Update Readership and Circulation Flow</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <stringValue>hari.kundrapu@news.com.au</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <decisions>
+        <description>If the Record Lookup Values are same as the Input Values, then don&#39;t perform an Update Operation</description>
+        <name>valNotSameAsInput</name>
+        <label>valNotSameAsInput</label>
+        <locationX>158</locationX>
+        <locationY>247</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Circulation</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>vCirculation</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Readership</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>vReaderShip</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Booking_Line_Item</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>To check whether values are updated or not</description>
+        <name>ValuesUpdated</name>
+        <label>ValuesUpdated</label>
+        <locationX>344</locationX>
+        <locationY>390</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>Updated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Update_Booking_Line_Item</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Updated</label>
+        </rules>
+    </decisions>
+    <description>This flow takes input variables from PB of Booking Line Item Object and Looks up in the Emma object to Get Readership and circulation and updates the Booking Line Item with those values</description>
+    <formulas>
+        <name>Readership</name>
+        <dataType>Number</dataType>
+        <expression>Case({!RunDateDay},
+&quot;MON&quot;,{!ReadershipMF},
+&quot;TUE&quot;,{!ReadershipMF},
+&quot;WED&quot;,{!ReadershipMF},
+&quot;THU&quot;,{!ReadershipMF},
+&quot;FRI&quot;,{!ReadershipMF},
+&quot;SAT&quot;,{!ReadershipSS},
+&quot;SUN&quot;,{!ReadershipSS},
+0)</expression>
+        <scale>0</scale>
+    </formulas>
+    <interviewLabel>Booking Line: Update Readership and Circulation {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Booking Line: Update Readership and Circulation</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Lookup_EMMA_Data</name>
+        <label>Lookup EMMA Data</label>
+        <locationX>156</locationX>
+        <locationY>108</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>valNotSameAsInput</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>EmailToDebug</targetReference>
+        </faultConnector>
+        <filters>
+            <field>Genera_Publication_Code__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>BookingPublicationCode</elementReference>
+            </value>
+        </filters>
+        <object>EMMA_Readership_and_Circulation_Data__c</object>
+        <outputAssignments>
+            <assignToReference>Circulation</assignToReference>
+            <field>Circulation__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>ReadershipMF</assignToReference>
+            <field>Readership_Monday_Friday__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>ReadershipSS</assignToReference>
+            <field>Readership_Saturday_Sunday__c</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Booking_Line_Item</name>
+        <label>Update Booking Line Item</label>
+        <locationX>162</locationX>
+        <locationY>394</locationY>
+        <connector>
+            <targetReference>ValuesUpdated</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>EmailToDebug</targetReference>
+        </faultConnector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>BookingLineId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Circulation__c</field>
+            <value>
+                <elementReference>Circulation</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Readership__c</field>
+            <value>
+                <elementReference>Readership</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Booking_Line_Item__c</object>
+    </recordUpdates>
+    <startElementReference>Lookup_EMMA_Data</startElementReference>
+    <status>Active</status>
+    <textTemplates>
+        <description>To help devleoper to debug if there is any error</description>
+        <name>allVariables</name>
+        <text>An error has occured in Flow: Booking Line: Update Readership and Circulation. Below is the information for the team to trouble shoot.
+
+Current Date Time: {!$Flow.CurrentDateTime}
+Current Record: {!$Flow.CurrentRecord}
+InterviewGuid: {!$Flow.InterviewGuid}
+
+Values of Variables used in Flow:
+iBookingLineId: {!BookingLineId}
+iBookingPublicationCode: {!BookingPublicationCode}
+iRunDateDay: {!RunDateDay}
+v#Circulation: {!Circulation}
+v#ReadershipMF: {!ReadershipMF}
+v#ReadershipSS: {!ReadershipSS}
+f#ReaderShip: {!Readership}
+RecordLookups: 
+ Lookup EMMA Data: {!Lookup_EMMA_Data}
+ReordUpdate:
+ Update Booking Line: {!Update_Booking_Line_Item}
+
+Please debug the error :  (Detailed Error) 
+
+{!$Flow.FaultMessage}</text>
+    </textTemplates>
+    <variables>
+        <name>BookingLineId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>BookingPublicationCode</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Circulation</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <name>ReadershipMF</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <name>ReadershipSS</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <name>RunDateDay</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Input from Process Builder</description>
+        <name>vCirculation</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <description>Input from Process Builder</description>
+        <name>vReaderShip</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+</Flow>

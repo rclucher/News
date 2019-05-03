@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Booking_NextGen</fullName>
+    <availability>online</availability>
+    <description>NextGen new version of booking button specifically for polevault users. Only available on the NextGen layout</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Booking</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/apex.js&quot;)} 
+
+
+
+if(&quot;{!Opportunity.Status__c}&quot; != &quot;Closed Won&quot; &amp;&amp; &quot;{!Opportunity.StageName}&quot; != &quot;Confirmed/Awaiting Bookings&quot; &amp;&amp; &quot;{!Opportunity.StageName}&quot; != &quot;Review/Reaffirm Value&quot;)
+{ 
+alert(&#39;Before creating a booking from an opportunity please ensure the sales stage is set to Closed Won, Review/Reaffirm Value, or Confirmed/Awaiting Bookings&#39;); 
+} 
+else 
+{ 
+try 
+{ 
+srcUp(&#39;/apex/{!$Setup.Visualforce_Target__c.BookingUI__c}?opptyId={!Opportunity.Id}&amp;retURL=/{!Opportunity.Id}&#39;); 
+
+} 
+catch(ex) 
+{ 
+window.location.href = &#39;/apex/{!$Setup.Visualforce_Target__c.BookingUI__c}?opptyId={!Opportunity.Id}&amp;retURL=/{!Opportunity.Id}&amp;s=true&#39; ; 
+} 
+}</url>
+</WebLink>

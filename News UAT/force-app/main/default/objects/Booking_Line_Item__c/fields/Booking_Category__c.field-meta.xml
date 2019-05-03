@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Booking_Category__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( ISPICKVAL(Booking__r.Source_System__c, &#39;CyberAd&#39;) || 
+ISPICKVAL(Booking__r.Source_System__c, &#39;OSCA&#39;) ||
+Ad_Type__c ==&#39;Liner&#39; ||
+Ad_Type__c ==&#39;Semi Display&#39; ||
+Ad_Type__c ==&#39;Semi&#39;
+, &#39;Classified&#39;, &#39;Display&#39;)</formula>
+    <label>Booking Category</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

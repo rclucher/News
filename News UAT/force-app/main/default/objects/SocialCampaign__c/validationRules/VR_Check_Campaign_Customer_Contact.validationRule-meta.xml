@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VR_Check_Campaign_Customer_Contact</fullName>
+    <active>true</active>
+    <description>The validation rule will check, if Campaign Customer Contact exist in Campaign Order or not.</description>
+    <errorConditionFormula>OR( ISNULL( Product_Order__r.Order__r.Campaign_Customer_Contact__c ) , ISBLANK(Product_Order__r.Order__r.Campaign_Customer_Contact__c) )</errorConditionFormula>
+    <errorMessage>Campaign Customer Contact is required at Campaign Order.</errorMessage>
+</ValidationRule>

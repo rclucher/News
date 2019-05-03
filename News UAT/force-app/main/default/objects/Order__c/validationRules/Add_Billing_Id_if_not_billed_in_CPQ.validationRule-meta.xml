@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Add_Billing_Id_if_not_billed_in_CPQ</fullName>
+    <active>false</active>
+    <errorConditionFormula>CPQ_Payment_Needed__c = false &amp;&amp;  Billing_Id__c = &#39;&#39;</errorConditionFormula>
+    <errorDisplayField>Billing_Id__c</errorDisplayField>
+    <errorMessage>Add Billing Id if CPQ Payment not needed.</errorMessage>
+</ValidationRule>

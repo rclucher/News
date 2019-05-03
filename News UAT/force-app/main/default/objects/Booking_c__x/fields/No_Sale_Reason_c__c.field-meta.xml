@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_Sale_Reason_c__c</fullName>
+    <externalDeveloperName>No_Sale_Reason__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>&quot;No Sale&quot; Reason</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Advertising Elsewhere</fullName>
+                <default>false</default>
+                <label>Advertising Elsewhere</label>
+            </value>
+            <value>
+                <fullName>Business Closing</fullName>
+                <default>false</default>
+                <label>Business Closing</label>
+            </value>
+            <value>
+                <fullName>Credit/QA Issue</fullName>
+                <default>false</default>
+                <label>Credit/QA Issue</label>
+            </value>
+            <value>
+                <fullName>Item Sold/Position Filled</fullName>
+                <default>false</default>
+                <label>Item Sold/Position Filled</label>
+            </value>
+            <value>
+                <fullName>No Budget</fullName>
+                <default>false</default>
+                <label>No Budget</label>
+            </value>
+            <value>
+                <fullName>No Response</fullName>
+                <default>false</default>
+                <label>No Response</label>
+            </value>
+            <value>
+                <fullName>On Holiday</fullName>
+                <default>false</default>
+                <label>On Holiday</label>
+            </value>
+            <value>
+                <fullName>Too Busy</fullName>
+                <default>false</default>
+                <label>Too Busy</label>
+            </value>
+            <value>
+                <fullName>Too Expensive</fullName>
+                <default>false</default>
+                <label>Too Expensive</label>
+            </value>
+            <value>
+                <fullName>Unable To Contact</fullName>
+                <default>false</default>
+                <label>Unable To Contact</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

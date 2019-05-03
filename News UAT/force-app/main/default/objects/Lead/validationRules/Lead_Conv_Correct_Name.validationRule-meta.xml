@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Conv_Correct_Name</fullName>
+    <active>true</active>
+    <description>Require proper first and last names. The unwritten rule is that leads with no names are named as Campaign Campaign, but needs to be checked during Conversion</description>
+    <errorConditionFormula>AND(
+  ISPICKVAL( Status, &#39;Qualified&#39;),
+  OR(
+    ISBLANK(FirstName), ISBLANK(LastName),
+    CONTAINS(LOWER(FirstName), &#39;campaign&#39;), 
+    CONTAINS(LOWER(LastName), &#39;campaign&#39;)
+  )
+)</errorConditionFormula>
+    <errorMessage>The person&#39;s First and Last Name must be provided, and they cannot be the default value used for for unnamed Leads (campaign)</errorMessage>
+</ValidationRule>

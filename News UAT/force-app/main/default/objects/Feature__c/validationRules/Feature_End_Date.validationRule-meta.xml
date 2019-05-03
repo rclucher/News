@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Feature_End_Date</fullName>
+    <active>true</active>
+    <description>Cannot be before Start Date</description>
+    <errorConditionFormula>AND(NOT(ISBLANK(Feature_End_Date__c)), Feature_Date__c &gt; Feature_End_Date__c)</errorConditionFormula>
+    <errorDisplayField>Feature_End_Date__c</errorDisplayField>
+    <errorMessage>The Feature&#39;s End date must be the same or after the Start Date</errorMessage>
+</ValidationRule>

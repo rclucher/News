@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Wrap_Up_Reason__c</fullName>
+    <description>Wrap Up Reason for Task</description>
+    <externalId>false</externalId>
+    <label>Wrap Up Reason</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Amend Ad</fullName>
+                <default>false</default>
+                <label>Amend Ad</label>
+            </value>
+            <value>
+                <fullName>Cancel Ad</fullName>
+                <default>false</default>
+                <label>Cancel Ad</label>
+            </value>
+            <value>
+                <fullName>Enquiry</fullName>
+                <default>false</default>
+                <label>Enquiry</label>
+            </value>
+            <value>
+                <fullName>Feedback</fullName>
+                <default>false</default>
+                <label>Feedback</label>
+            </value>
+            <value>
+                <fullName>Follow Up</fullName>
+                <default>false</default>
+                <label>Follow Up</label>
+            </value>
+            <value>
+                <fullName>New Ad</fullName>
+                <default>false</default>
+                <label>New Ad</label>
+            </value>
+            <value>
+                <fullName>Payment</fullName>
+                <default>false</default>
+                <label>Payment</label>
+            </value>
+            <value>
+                <fullName>Quote</fullName>
+                <default>false</default>
+                <label>Quote</label>
+            </value>
+            <value>
+                <fullName>Rebook Ad</fullName>
+                <default>false</default>
+                <label>Rebook Ad</label>
+            </value>
+            <value>
+                <fullName>Transfer external</fullName>
+                <default>false</default>
+                <label>Transfer external</label>
+            </value>
+            <value>
+                <fullName>Transfer internal</fullName>
+                <default>false</default>
+                <label>Transfer internal</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

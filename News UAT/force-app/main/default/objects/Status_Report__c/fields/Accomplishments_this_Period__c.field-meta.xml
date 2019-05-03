@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accomplishments_this_Period__c</fullName>
+    <description>Describes tasks completed during the past week</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Describes tasks completed during the past week</inlineHelpText>
+    <label>Accomplishments this Period</label>
+    <length>32000</length>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>20</visibleLines>
+</CustomField>

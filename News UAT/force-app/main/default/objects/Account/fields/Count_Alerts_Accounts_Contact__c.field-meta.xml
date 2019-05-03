@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Count_Alerts_Accounts_Contact__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Do not show on page: To count the # of records associated to an account AND a contact. This rollup summary allows formula fields from contact record to trigger off.</inlineHelpText>
+    <label>Count: Alerts Accounts &amp; Contact</label>
+    <summaryFilterItems>
+        <field>Alert__c.Is_Active__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Alert__c.Trigger_Account_Only__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Alert__c.Account__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CpgnRes_Prevent_Response_Change</fullName>
+    <active>true</active>
+    <description>Prevent changes to the Campaign Response Type and Subtype fields</description>
+    <errorConditionFormula>OR(
+  AND( 
+    NOT(
+      ISPICKVAL(PRIORVALUE( Response_Type__c ), &#39;&#39;)
+    ), 
+    TEXT(PRIORVALUE(Response_Type__c)) != TEXT(Response_Type__c)
+  ),
+  AND( 
+    NOT(
+      ISPICKVAL(PRIORVALUE(  Response_Subtype__c  ), &#39;&#39;)
+    ), 
+    TEXT(PRIORVALUE(Response_Subtype__c)) != TEXT(Response_Subtype__c)
+  )
+)</errorConditionFormula>
+    <errorDisplayField>Response_Type__c</errorDisplayField>
+    <errorMessage>Response Type or Subtype cannot be updated</errorMessage>
+</ValidationRule>

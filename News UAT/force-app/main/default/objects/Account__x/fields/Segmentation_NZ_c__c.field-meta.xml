@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Segmentation_NZ_c__c</fullName>
+    <externalDeveloperName>Segmentation_NZ__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Segmentation NZ</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>A Client</fullName>
+                <default>false</default>
+                <label>A Client</label>
+            </value>
+            <value>
+                <fullName>B Client</fullName>
+                <default>false</default>
+                <label>B Client</label>
+            </value>
+            <value>
+                <fullName>C Client</fullName>
+                <default>false</default>
+                <label>C Client</label>
+            </value>
+            <value>
+                <fullName>D Client</fullName>
+                <default>false</default>
+                <label>D Client</label>
+            </value>
+            <value>
+                <fullName>E Client</fullName>
+                <default>false</default>
+                <label>E Client</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

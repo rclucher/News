@@ -1,0 +1,58 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,lightning:isUrlAddressable,force:hasRecordId">
+    <aura:attribute name="editing" type="Boolean" default="false"/>
+    <aura:attribute name="externalUser" type="Boolean" default="false"/>
+    <aura:attribute name="displaySpinner" type="Boolean" default="false"/>
+    <aura:registerEvent name="AdHasBeenUpdated" type="c:NXX2_AdHasBeenUpdated"/>
+    <aura:handler event="c:NXX2_AdHasBeenUpdated" action="{!c.refreshComp}"/>
+    <aura:handler name="onSaveSuccess" event="force:recordSaveSuccess" action="{!c.saved}" />
+    <aura:handler event="aura:doneWaiting" action="{!c.handleError1}"/>
+    <div class="slds-card">
+        <aura:if isTrue="{!v.displaySpinner}">
+            <div class="spinner-container">
+                <lightning:spinner size="medium"/>
+            </div>
+            <aura:set attribute="else">
+                <aura:if isTrue="{!not(v.editing)}">
+                    <force:recordView aura:id="recordDetails" recordId="{!v.recordId}" />
+                    <div class="button-container">
+                        <lightning:button variant="brand" label="Edit" onclick="{!c.edit}"/>
+                    </div>
+                </aura:if>
+            </aura:set>
+        </aura:if>
+        <aura:if isTrue="{!v.editing}">
+            <force:recordEdit aura:id="edit" recordId="{!v.recordId}"/>
+            <div class="button-container">
+                <lightning:button variant="neutral" label="Cancel" onclick="{!c.cancel}"/>
+                <lightning:button variant="brand" label="Save" onclick="{!c.save}"/>
+            </div>
+            <aura:set attribute="else">
+                <aura:if isTrue="{!v.externalUser}">
+                    <lightning:recordViewForm recordId="{!v.recordId}" objectApiName="SocialCampaign__c">
+                        <lightning:messages />
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div class="slds-col slds-size_2-of-2">        
+                                <lightning:outputField  fieldName="Name" />
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">        
+                                <lightning:outputField fieldName="Status__c" />
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">        
+                                <lightning:outputField fieldName="Product_Order__c"/>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">        
+                                <lightning:outputField fieldName="Campaign_Start_Date__c" />
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">        
+                                <lightning:outputField fieldName="Campaign_End_Date__c" />
+                            </div>
+                            <div class="slds-col slds-size_2-of-2">        
+                                <lightning:outputField  fieldName="Social_Plan_Focus__c " />
+                            </div>
+                        </div>
+                    </lightning:recordViewForm>
+                </aura:if>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

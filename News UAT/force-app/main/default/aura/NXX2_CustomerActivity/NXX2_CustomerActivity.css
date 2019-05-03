@@ -1,0 +1,34 @@
+.THIS {
+}
+.THIS .TestCircle{
+    justify-content: center;
+width: 24px;
+height: 24px;
+border-radius: 12px;
+margin-right: 12px;
+}
+
+.THIS .customProcessing{
+    width: 8rem;
+    background-color : none;
+}
+.THIS .customMinWidth{
+    min-width: 19rem;
+}
+.THIS .show-md-down{
+    display: block;
+}
+.THIS .show-md-up{
+    display: none;
+}
+.THIS .helptext.show-md-up, .THIS .helptext.show-md-down{
+    margin-top: -2px;
+}
+.THIS .help-tooltip{
+    left: calc(100% + 6px);
+}
+.THIS .help-tooltip:after, .THIS .help-tooltip:before{
+    width: 0.8rem;
+    height: 0.8rem;
+    left: -0.4rem;
+}

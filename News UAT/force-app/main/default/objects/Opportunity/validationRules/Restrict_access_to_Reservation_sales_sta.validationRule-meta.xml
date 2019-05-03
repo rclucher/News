@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_access_to_Reservation_sales_sta</fullName>
+    <active>false</active>
+    <description>Restrict access to reservation sales stage</description>
+    <errorConditionFormula>NOT($Setup.01I90000001bdb900N9000000Dyid0) &amp;&amp; ISPICKVAL(StageName, &quot;Reservation&quot;)</errorConditionFormula>
+    <errorDisplayField>StageName</errorDisplayField>
+    <errorMessage>Reservations are restricted for pilot users</errorMessage>
+</ValidationRule>

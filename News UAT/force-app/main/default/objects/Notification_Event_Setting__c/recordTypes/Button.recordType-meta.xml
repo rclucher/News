@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Button</fullName>
+    <active>true</active>
+    <description>Button event</description>
+    <label>Button</label>
+    <picklistValues>
+        <picklist>Object_Name__c</picklist>
+        <values>
+            <fullName>Opportunity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Order%5F%5Fc</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product_Order%5F%5Fc</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

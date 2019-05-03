@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Supplied_To_Email__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Copy of SuppliedTo__c so that users can use this field as a filter for list views and also be audited. This is copied by workflows. Note: Where the users have sent to multiple users; emails may be truncated.</inlineHelpText>
+    <label>Supplied To Email.</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

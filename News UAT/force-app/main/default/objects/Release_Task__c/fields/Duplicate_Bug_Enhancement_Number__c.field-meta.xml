@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Duplicate_Bug_Enhancement_Number__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Duplicate Bug/Enhancement Number</label>
+    <referenceTo>Release_Task__c</referenceTo>
+    <relationshipLabel>Release Tasks</relationshipLabel>
+    <relationshipName>Release_Tasks</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

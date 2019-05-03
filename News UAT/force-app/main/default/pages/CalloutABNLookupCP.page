@@ -1,0 +1,82 @@
+<apex:page controller="CalloutABNLookupController">
+<apex:includeScript value="{!$Resource.JQuery}"/>
+
+
+  <apex:form >
+        <apex:pageBlock title="ABN Lookup">
+
+            <apex:pageMessages />
+
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Enter ABN:"/>
+                    <apex:outputPanel layout="none">
+                        <apex:inputText value="{!abnQuery}" styleClass="abnSearchInputText"/>
+                        <apex:image value="/img/func_icons/remove12_on.gif" styleClass="invalidABNIcon" id="invalidABNIcon" rendered="{!abn.isInvalid}"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                     <br />
+                     <apex:commandButton action="{!doABNLookup}"  value="Validate" status="loading"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="ABN found" columns="1" rendered="{!AND(NOT(ISNULL(abn)),NOT(abn.isInvalid))}"  id="abnDetails">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="ABN:"/>
+                    <apex:outputText value="{!abn.ABN}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Name:"/>
+                    <apex:outputText value="{!abn.Name}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Is active:"/>
+                    <apex:outputText value="{!abn.isActive}"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+
+        </apex:pageBlock>
+
+
+    </apex:form>
+
+<script>
+jQuery(function() {
+
+    jQuery('.abnSearchInputText').keyup(function() {
+      if(isABNValid(jQuery(this).val().replace(/ /g,''))) //
+      {
+        jQuery('.invalidABNIcon').remove();
+      }
+      else
+      {
+        if(!(jQuery('.invalidABNIcon').length>0))
+        {
+            jQuery(this).parent().append('<img src=\'/img/func_icons/remove12_on.gif\' class=\'invalidABNIcon\' />');
+        }
+      }
+    });
+
+
+
+
+    function isABNValid(value)
+    {
+        if (value.length != 11 || isNaN(parseInt(value)))
+            return false;
+
+        var weighting = [10,1,3,5,7,9,11,13,15,17,19];
+        var tally = (parseInt(value[0]) - 1) * weighting[0];
+        for (var i = 1; i < value.length; i++){
+            tally += (parseInt(value[i]) * weighting[i]);
+        }
+        
+        console.log('tally is ' + tally);
+        
+        return (tally % 89) == 0;
+    }
+});
+
+</script>
+</apex:page>

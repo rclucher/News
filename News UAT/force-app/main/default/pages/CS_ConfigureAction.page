@@ -1,0 +1,258 @@
+<apex:page controller="CS_ConfigureAction_Controller" action="{!init}" lightningStylesheets="true" >
+
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+
+<!-- Import the Design System style sheet -->
+<apex:slds />
+
+<!-- REQUIRED SLDS WRAPPER -->
+<body class="slds-scope">
+
+<apex:form id="theForm">
+
+<!-- 
+	<apex:actionPoller action="{!actionReturn}" interval="5" rendered="{!(mp_bPauseAndRedirect)}" />
+	
+	<apex:actionStatus id="status">
+		<apex:facet name="start">
+			<c:Action_Status BackColor="#ffffff"
+							 borderColor="#6B6B6B"
+							 borderSize="1"
+							 height="50px"
+							 width="60px"
+							 margintop="-25px"
+							 marginleft="-60px"
+							 ImageUrl="/img/loading32.gif"
+							 Message="Please wait"/>
+		</apex:facet>
+	</apex:actionStatus>
+-->
+
+	<apex:pageBlock id="theActionBlock" mode="edit" >
+
+		<apex:pageMessages id="pageMessagesId" />
+
+		<apex:pageBlockSection title="{!mp_SectionTitle}" columns="1" collapsible="false" id="theQuestionSection" >
+
+			<apex:pageBlockSectionItem >
+				<apex:outputText value="Link the user-entered Answer to a Question to a server-side method - for example, a call to the GeoNames web service." />
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem >
+				<apex:outputText value="The output from these methods can also be used to populate an Answer. See the Admin User Guide for more details." />
+			</apex:pageBlockSectionItem>
+
+		</apex:pageBlockSection>
+		
+		<apex:pageBlockSection columns="2" showHeader="false" collapsible="false" id="theServiceSection" >
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Action Name" />
+				<apex:outputPanel >
+					<apex:inputField value="{!mp_Action.Name}" rendered="{!mp_bEditAction}" />
+					<apex:outputField value="{!mp_Action.Name}" rendered="{!NOT(mp_bEditAction)}" />
+				</apex:outputPanel>
+			</apex:pageBlockSectionItem>
+			
+			<apex:pageBlockSectionItem />
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Description" />
+				<apex:outputPanel >
+					<apex:inputField value="{!mp_Action.Description__c}" rendered="{!mp_bEditAction}" />
+					<apex:outputField value="{!mp_Action.Description__c}" rendered="{!NOT(mp_bEditAction)}" />
+				</apex:outputPanel>
+			</apex:pageBlockSectionItem>
+			
+			<apex:pageBlockSectionItem />
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Service Class" />
+				<apex:outputPanel >
+					<apex:inputField value="{!mp_Rule.Service_Class_Name__c}" rendered="{!mp_bEditAction}" />
+					<apex:outputField value="{!mp_Rule.Service_Class_Name__c}" rendered="{!NOT(mp_bEditAction)}" />
+				</apex:outputPanel>
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Method Name" />
+				<apex:outputPanel >
+					<apex:inputField value="{!mp_Rule.Service_Method_Name__c}" rendered="{!mp_bEditAction}" />
+					<apex:outputField value="{!mp_Rule.Service_Method_Name__c}" rendered="{!NOT(mp_bEditAction)}" />
+				</apex:outputPanel>
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Active?" />
+				<apex:outputPanel >
+					<apex:inputField value="{!mp_Action.isActive__c}" />
+				</apex:outputPanel>
+			</apex:pageBlockSectionItem>
+
+		</apex:pageBlockSection>
+
+		<apex:pageBlockButtons location="bottom" >
+			<apex:commandButton action="{!actionSaveAction}" value="Save" title="Save" rerender="theForm" />
+			<apex:commandButton action="{!actionCancel}" value="Cancel" title="Abandon updates and return to Actions list" rendered="{!mp_bEditAction}" />
+		</apex:pageBlockButtons>
+	
+	</apex:pageBlock>
+	
+	<apex:pageBlock id="theRuleBlock" mode="edit" rendered="{!mp_bEditParameters}" >
+		
+		<apex:pageBlockSection title="Input Parameters" columns="1" collapsible="false" id="theInputsSection" >
+		
+			<apex:outputText value="No Input Parameters have been defined for the Service Method yet. Click on 'Add' to get started" rendered="{!mp_liInputs.size = 0}" />
+		
+				<apex:pageBlockTable value="{!mp_liInputs}" var="i" id="theInputList" columns="7" rendered="{!mp_liInputs.size > 0}" >
+						 
+					<apex:column >
+						<apex:outputPanel rendered="{!NOT(mp_bEditRule)}" >
+							<apex:commandLink value="Edit" action="{!actionEditRule}" rerender="theInputsSection" >
+								<apex:param assignTo="{!mp_InputOutput}" name="inputoutput" value="Input" />
+								<apex:param assignTo="{!mp_RuleId}" name="ruleId" value="{!i.Rule.Id}"/>
+							</apex:commandLink>
+							<apex:outputText value=" | " />
+							<apex:commandLink value="Delete" action="{!actionDeleteRule}" rerender="theInputsSection" >
+								<apex:param assignTo="{!mp_InputOutput}" name="inputoutput" value="Input" />
+								<apex:param assignTo="{!mp_RuleId}" name="ruleId" value="{!i.Rule.Id}"/>
+							</apex:commandLink>
+						</apex:outputPanel>
+					</apex:column>
+
+					<apex:column >
+						<apex:facet name="header">Section</apex:facet>
+						<apex:selectList value="{!i.Section}" size="1" rendered="{!NOT(i.bReadOnly)}" >
+							<apex:selectOptions value="{!i.li_Sections}" />
+							<apex:actionSupport event="onchange" action="{!actionRebuildQuestionPicklist}" reRender="theForm" >
+								<apex:param assignTo="{!mp_InputOutput}" name="inputoutput" value="Input" />
+								<apex:param assignTo="{!mp_RuleId}" name="ruleId" value="{!i.Rule.Id}"/>
+							</apex:actionSupport>
+						</apex:selectList>
+						<apex:outputText value="{!i.Section}" rendered="{!i.bReadOnly}" />
+					</apex:column>
+
+					<apex:column >
+						<apex:facet name="header">Question</apex:facet>
+						<apex:selectList value="{!i.QuestionId}" size="1" rendered="{!AND(NOT(i.bReadOnly), i.li_Questions.size > 0)}" >
+							<apex:selectOptions value="{!i.li_Questions}" />
+						</apex:selectList>
+						<apex:outputText value="{!i.QuestionText}" rendered="{!i.bReadOnly}" />
+					</apex:column>
+
+					<apex:column >
+						<apex:facet name="header">Parameter Label</apex:facet>
+						<apex:inputField value="{!i.Rule.Parameter_Label__c}" rendered="{!NOT(i.bReadOnly)}" />
+						<apex:outputText value="{!i.Rule.Parameter_Label__c}" rendered="{!i.bReadOnly}" />
+					</apex:column>
+
+					<apex:column >
+						<apex:facet name="header">Active?</apex:facet>
+						<apex:inputField value="{!i.Rule.isActive__c}" rendered="{!NOT(i.bReadOnly)}" />
+						<apex:outputField value="{!i.Rule.isActive__c}" rendered="{!i.bReadOnly}" />
+					</apex:column>
+
+					<apex:column >
+						<apex:commandLink action="{!actionSaveRule}" value="Save" title="Save" rendered="{!NOT(i.bReadOnly)}" reRender="theForm" >
+							<apex:param assignTo="{!mp_InputOutput}" name="inputoutput" value="Input" />
+							<apex:param assignTo="{!mp_RuleId}" name="ruleId" value="{!i.Rule.Id}"/>
+						</apex:commandLink>
+						<apex:outputText value=" | " rendered="{!NOT(i.bReadOnly)}" />
+						<apex:commandLink action="{!actionCancelEditRule}" value="Cancel" title="Cancel" rendered="{!NOT(i.bReadOnly)}" reRender="theForm" >
+							<apex:param assignTo="{!mp_InputOutput}" name="inputoutput" value="Input" />
+							<apex:param assignTo="{!mp_RuleId}" name="ruleId" value="{!i.Rule.Id}"/>
+						</apex:commandLink>
+					</apex:column>
+
+				</apex:pageBlockTable>
+
+			<apex:commandLink action="{!actionAddRule}" value="Add" title="Add an Input parameter" rendered="{!NOT(mp_bEditRule)}" >
+				<apex:param assignTo="{!mp_InputOutput}" name="inputoutput" value="Input" />
+			</apex:commandLink>
+
+		</apex:pageBlockSection>
+		
+		<apex:pageBlockSection title="Output Parameters" columns="1" collapsible="false" id="theOutputsSection" >
+		
+			<apex:outputText value="No Output Parameters have been defined for the Service Method yet. Click on 'Add' to get started" rendered="{!mp_liOutputs.size = 0}" />
+		
+				<apex:pageBlockTable value="{!mp_liOutputs}" var="i" id="theOutputList" columns="7" rendered="{!mp_liOutputs.size > 0}" >
+						 
+					<apex:column >
+						<apex:outputPanel rendered="{!NOT(mp_bEditRule)}" >
+							<apex:commandLink value="Edit" action="{!actionEditRule}" rerender="theOutputsSection" >
+								<apex:param assignTo="{!mp_InputOutput}" name="inputoutput" value="Output" />
+								<apex:param assignTo="{!mp_RuleId}" name="ruleId" value="{!i.Rule.Id}"/>
+							</apex:commandLink>
+							<apex:outputText value=" | " />
+							<apex:commandLink value="Delete" action="{!actionDeleteRule}" rerender="theOutputsSection" >
+								<apex:param assignTo="{!mp_InputOutput}" name="inputoutput" value="Output" />
+								<apex:param assignTo="{!mp_RuleId}" name="ruleId" value="{!i.Rule.Id}"/>
+							</apex:commandLink>
+						</apex:outputPanel>
+					</apex:column>
+
+					<apex:column >
+						<apex:facet name="header">Section</apex:facet>
+						<apex:selectList value="{!i.Section}" size="1" rendered="{!NOT(i.bReadOnly)}" >
+							<apex:selectOptions value="{!i.li_Sections}" />
+							<apex:actionSupport event="onchange" action="{!actionRebuildQuestionPicklist}" reRender="theForm" >
+								<apex:param assignTo="{!mp_InputOutput}" name="inputoutput" value="Output" />
+								<apex:param assignTo="{!mp_RuleId}" name="ruleId" value="{!i.Rule.Id}"/>
+							</apex:actionSupport>
+						</apex:selectList>
+						<apex:outputText value="{!i.Section}" rendered="{!i.bReadOnly}" />
+					</apex:column>
+
+					<apex:column >
+						<apex:facet name="header">Question</apex:facet>
+						<apex:selectList value="{!i.QuestionId}" size="1" rendered="{!AND(NOT(i.bReadOnly), i.li_Questions.size > 0)}" >
+							<apex:selectOptions value="{!i.li_Questions}" />
+						</apex:selectList>
+						<apex:outputText value="{!i.QuestionText}" rendered="{!i.bReadOnly}" />
+					</apex:column>
+
+					<apex:column >
+						<apex:facet name="header">Parameter Label</apex:facet>
+						<apex:inputField value="{!i.Rule.Parameter_Label__c}" rendered="{!NOT(i.bReadOnly)}" />
+						<apex:outputText value="{!i.Rule.Parameter_Label__c}" rendered="{!i.bReadOnly}" />
+					</apex:column>
+
+					<apex:column >
+						<apex:facet name="header">Active?</apex:facet>
+						<apex:inputField value="{!i.Rule.isActive__c}" rendered="{!NOT(i.bReadOnly)}" />
+						<apex:outputField value="{!i.Rule.isActive__c}" rendered="{!i.bReadOnly}" />
+					</apex:column>
+
+					<apex:column >
+						<apex:commandLink action="{!actionSaveRule}" value="Save" title="Save" rendered="{!NOT(i.bReadOnly)}" reRender="theForm" >
+							<apex:param assignTo="{!mp_InputOutput}" name="inputoutput" value="Output" />
+							<apex:param assignTo="{!mp_RuleId}" name="ruleId" value="{!i.Rule.Id}"/>
+						</apex:commandLink>
+						<apex:outputText value=" | " rendered="{!NOT(i.bReadOnly)}" />
+						<apex:commandLink action="{!actionCancelEditRule}" value="Cancel" title="Cancel" rendered="{!NOT(i.bReadOnly)}" reRender="theForm" >
+							<apex:param assignTo="{!mp_InputOutput}" name="inputoutput" value="Output" />
+							<apex:param assignTo="{!mp_RuleId}" name="ruleId" value="{!i.Rule.Id}"/>
+						</apex:commandLink>
+					</apex:column>
+
+				</apex:pageBlockTable>
+
+			<apex:commandLink action="{!actionAddRule}" value="Add" title="Add an Output parameter" rendered="{!NOT(mp_bEditRule)}" >
+				<apex:param assignTo="{!mp_InputOutput}" name="inputoutput" value="Output"/>
+			</apex:commandLink>
+		
+		</apex:pageBlockSection>
+
+		<apex:pageBlockButtons location="bottom" >
+			<apex:commandButton action="{!actionCancel}" value="Back to List" title="Return to Actions list" immediate="true" />
+		</apex:pageBlockButtons>
+
+	</apex:pageBlock>
+
+</apex:form>
+
+</body>
+
+</html>
+</apex:page>

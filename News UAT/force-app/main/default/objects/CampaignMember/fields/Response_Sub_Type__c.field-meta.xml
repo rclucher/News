@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Response_Sub_Type__c</fullName>
+    <description>Response Comment from the latest Campaign Response</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Response Comment from the latest Campaign Response</inlineHelpText>
+    <label>Latest Response Sub-Type</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Response_Type__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Call Attempts Limit Reached</fullName>
+                <default>false</default>
+                <label>Call Attempts Limit Reached</label>
+            </value>
+            <value>
+                <fullName>Request Call Back - Same Agent</fullName>
+                <default>false</default>
+                <label>Request Call Back - Same Agent</label>
+            </value>
+            <value>
+                <fullName>Use Competitor Products</fullName>
+                <default>false</default>
+                <label>Use Competitor Products</label>
+            </value>
+            <value>
+                <fullName>Will Attend</fullName>
+                <default>false</default>
+                <label>Will Attend</label>
+            </value>
+            <value>
+                <fullName>Will Not Attend</fullName>
+                <default>false</default>
+                <label>Will Not Attend</label>
+            </value>
+            <value>
+                <fullName>Achieved Initial Objective</fullName>
+                <default>false</default>
+                <label>Achieved Initial Objective</label>
+            </value>
+            <value>
+                <fullName>Already Booked</fullName>
+                <default>false</default>
+                <label>Already Booked</label>
+            </value>
+            <value>
+                <fullName>Awaiting Decision</fullName>
+                <default>false</default>
+                <label>Awaiting Decision</label>
+            </value>
+            <value>
+                <fullName>Awaiting Influencer</fullName>
+                <default>false</default>
+                <label>Awaiting Influencer</label>
+            </value>
+            <value>
+                <fullName>Awaiting News Approval</fullName>
+                <default>false</default>
+                <label>Awaiting News Approval</label>
+            </value>
+            <value>
+                <fullName>Booking Error</fullName>
+                <default>false</default>
+                <label>Booking Error</label>
+            </value>
+            <value>
+                <fullName>Create Awareness (Branding)</fullName>
+                <default>false</default>
+                <label>Create Awareness (Branding)</label>
+            </value>
+            <value>
+                <fullName>Credit Issues</fullName>
+                <default>false</default>
+                <label>Credit Issues</label>
+            </value>
+            <value>
+                <fullName>Current CRR Complaint</fullName>
+                <default>false</default>
+                <label>Current CRR Complaint</label>
+            </value>
+            <value>
+                <fullName>Decision Maker Unavailable</fullName>
+                <default>false</default>
+                <label>Decision Maker Unavailable</label>
+            </value>
+            <value>
+                <fullName>Disconnected/Wrong Number</fullName>
+                <default>false</default>
+                <label>Disconnected/Wrong Number</label>
+            </value>
+            <value>
+                <fullName>Duped Record</fullName>
+                <default>false</default>
+                <label>Duped Record</label>
+            </value>
+            <value>
+                <fullName>Growing Business</fullName>
+                <default>false</default>
+                <label>Growing Business</label>
+            </value>
+            <value>
+                <fullName>Maintain Presence</fullName>
+                <default>false</default>
+                <label>Maintain Presence</label>
+            </value>
+            <value>
+                <fullName>Needs Analysis</fullName>
+                <default>false</default>
+                <label>Needs Analysis</label>
+            </value>
+            <value>
+                <fullName>New Business</fullName>
+                <default>false</default>
+                <label>New Business</label>
+            </value>
+            <value>
+                <fullName>New Product or Service</fullName>
+                <default>false</default>
+                <label>New Product or Service</label>
+            </value>
+            <value>
+                <fullName>No Current Need</fullName>
+                <default>false</default>
+                <label>No Current Need</label>
+            </value>
+            <value>
+                <fullName>No Interest in Offer</fullName>
+                <default>false</default>
+                <label>No Interest in Offer</label>
+            </value>
+            <value>
+                <fullName>No Interest With News Corp</fullName>
+                <default>false</default>
+                <label>No Interest With News Corp</label>
+            </value>
+            <value>
+                <fullName>No ROI</fullName>
+                <default>false</default>
+                <label>No ROI</label>
+            </value>
+            <value>
+                <fullName>Opt Out From Further Contact</fullName>
+                <default>false</default>
+                <label>Opt Out From Further Contact</label>
+            </value>
+            <value>
+                <fullName>Out of Business</fullName>
+                <default>false</default>
+                <label>Out of Business</label>
+            </value>
+            <value>
+                <fullName>Poor Match To Campaign</fullName>
+                <default>false</default>
+                <label>Poor Match To Campaign</label>
+            </value>
+            <value>
+                <fullName>Short Term Objective</fullName>
+                <default>false</default>
+                <label>Short Term Objective</label>
+            </value>
+            <value>
+                <fullName>Spent Budget Elsewhere</fullName>
+                <default>false</default>
+                <label>Spent Budget Elsewhere</label>
+            </value>
+            <value>
+                <fullName>Unhappy With Price</fullName>
+                <default>false</default>
+                <label>Unhappy With Price</label>
+            </value>
+            <value>
+                <fullName>Unhappy With Product</fullName>
+                <default>false</default>
+                <label>Unhappy With Product</label>
+            </value>
+            <value>
+                <fullName>Unhappy With Service</fullName>
+                <default>false</default>
+                <label>Unhappy With Service</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Use Competitor Products</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Will Not Attend</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Achieved Initial Objective</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>No Current Need</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>No Interest in Offer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>No Interest With News Corp</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>No ROI</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Poor Match To Campaign</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Spent Budget Elsewhere</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Unhappy With Price</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Unhappy With Product</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No</controllingFieldValue>
+            <valueName>Unhappy With Service</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Yes</controllingFieldValue>
+            <valueName>Will Attend</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Yes</controllingFieldValue>
+            <valueName>Create Awareness (Branding)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Yes</controllingFieldValue>
+            <valueName>Growing Business</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Yes</controllingFieldValue>
+            <valueName>Maintain Presence</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Yes</controllingFieldValue>
+            <valueName>New Business</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Yes</controllingFieldValue>
+            <valueName>New Product or Service</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Yes</controllingFieldValue>
+            <valueName>Short Term Objective</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Follow Up</controllingFieldValue>
+            <valueName>Request Call Back - Same Agent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Follow Up</controllingFieldValue>
+            <valueName>Awaiting Decision</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Follow Up</controllingFieldValue>
+            <valueName>Awaiting Influencer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Follow Up</controllingFieldValue>
+            <valueName>Awaiting News Approval</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Follow Up</controllingFieldValue>
+            <valueName>Decision Maker Unavailable</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Follow Up</controllingFieldValue>
+            <valueName>Needs Analysis</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No Sales Call</controllingFieldValue>
+            <valueName>Call Attempts Limit Reached</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No Sales Call</controllingFieldValue>
+            <valueName>Already Booked</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No Sales Call</controllingFieldValue>
+            <valueName>Booking Error</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No Sales Call</controllingFieldValue>
+            <valueName>Credit Issues</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No Sales Call</controllingFieldValue>
+            <valueName>Current CRR Complaint</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No Sales Call</controllingFieldValue>
+            <valueName>Disconnected/Wrong Number</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No Sales Call</controllingFieldValue>
+            <valueName>Duped Record</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No Sales Call</controllingFieldValue>
+            <valueName>Opt Out From Further Contact</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>No Sales Call</controllingFieldValue>
+            <valueName>Out of Business</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,2 @@
+<aura:event type="APPLICATION" description="Customer Activity has been updated.">
+</aura:event>

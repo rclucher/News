@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NXX2_Validate_Approval_Of_Proof</fullName>
+    <active>true</active>
+    <description>This will validate the approval of proof that the approval is given by the right person.</description>
+    <errorConditionFormula>AND( ISCHANGED( Status__c ) , NOT( $Permission.Has_Rights_To_Approve_Proof ) ,  ISPICKVAL( Status__c ,&#39;Approved&#39;) )</errorConditionFormula>
+    <errorDisplayField>Account__c</errorDisplayField>
+    <errorMessage>You have no rights to approve this proof. Please contact administration.</errorMessage>
+</ValidationRule>

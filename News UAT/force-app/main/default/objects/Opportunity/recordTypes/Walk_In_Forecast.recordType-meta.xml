@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Walk_In_Forecast</fullName>
+    <active>true</active>
+    <businessProcess>Walk-In Forecast</businessProcess>
+    <description>Recordtype to capture Walk-In Forecast. Kept as separate recordtype  due to ease of reporting filters. Recordtype is not selectable by standard users. Records can be created via custom UI.</description>
+    <label>Walk-In Forecast</label>
+    <picklistValues>
+        <picklist>Classification__c</picklist>
+        <values>
+            <fullName>Existing Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lapsed Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Business</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Competitor__c</picklist>
+        <values>
+            <fullName>B Mag</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cinema</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Direct Mail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Letterbox</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Magazines %E2%80%93 Pacific Magazines</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Magazines - Bauer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Magazines - EMAP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Magazines - Fairfax Magazines</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Magazines - Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Map Magazine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Competitor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online - Fairfax Digital</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online - News Digital Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online - NineMSN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online - Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online - Sensis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Online - Yahoo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outdoor - APN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outdoor - Adshel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outdoor - Australia Outdoor Network</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outdoor - Eyecorp</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press - APN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press - Fairfax Community</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press - Fairfax Metro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press - News Communitities</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press - News Metro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press - Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press - Trading Post</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Press - Yellow Pages</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Radio - Austereo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Radio - DMG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Radio - Macquarie Radio Network</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Radio - Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Radio - Southern Cross</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Style Magazine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TV - ABC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TV - Channel 10</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TV - Channel 7</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TV - Channel 9</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TV - Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TV - Pay TV</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Customer_Books_Direct__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DB_Competitor__c</picklist>
+        <values>
+            <fullName>Competitor A</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competitor B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competitor C</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ForecastCategoryName</picklist>
+        <values>
+            <fullName>Best Case</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Omitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pipeline</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LeadSource</picklist>
+        <values>
+            <fullName>Imported - Competitor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Imported - Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Imported - Purchased Lead</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inbound - Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inbound - Phone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Newsletter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Seminar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trade Show</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Walk In</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NRM_Sales_Representative__c</picklist>
+        <values>
+            <fullName>AB-KA-01 Sharon Harper_2334</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AB-KA-02 Lisa Bates_308</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-BM-15 Sam Kang_2970</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-NX-04 Karine Godin</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-NX-04 Micky Kavanagh</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-NX-06 Carrie Riessen</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-NX-07 Tracy Leahey</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-NX-09 Ratu Lewis_2974</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-TR-10 Brandon Perez_2980</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CC-TR-12 Miranda Smith_2986</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CH-KA-01 Jodie Williams_2435</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CO-IS-01 Heidi Birdsall_2932</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CO-KA-04 Elise Borg_359</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dave</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GL-AM-01 Jessica Mckay_831</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GL-KA-01 Tarnya Christian_848</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GL-KA-02 Jane Katsanevas_832</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GL-KA-06 Teeanna Thomsen_2824</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GR-KA-02 Tabatha Ellem_2702</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IP-KA-02 Kath Walker_435</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IP-KA-04 Brent Pettersson_2736</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LI-IS-03 Sharon Kennedy_2405</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MA-KA-01 Kimbaley Ryals_2207</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MA-KA-02 Janine Thomspon_376</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ME-KA-03 Georgia Di Martino_2743</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RO-IS-01 Ben Owen_463</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-IS-03 Chris Crowe_2140</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-IS-06 Paul Sumner_2143</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-KA-01 Toni Howard_2131</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-KA-04 Jackie Wright_2134</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-KA-09 Matthew Smith_215</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-KA-15 Mark Hancock_2152</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC-KA-17 Brooke Hindmarsh_2151</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SY-KA-04 Jane Vickers_2761</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-IS-04 Maree Brown_670</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-IS-08 Emily Bosman_2979</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-IS-08 Jade Scott_2982</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-KA-05 Gurdeep Saroa_408</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-KA-06 Sandra Thompson_2640</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TO-KA-07 Ingrid Beitz_2781</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WA-KA-01 Bec Gurney_2704</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>OpportunityGroup__c</picklist>
+        <values>
+            <fullName>Digital</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inserts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Magazine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NewsXtend</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Newspaper</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Opportunity_Type__c</picklist>
+        <values>
+            <fullName>Walk-In Forecast</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason_Won_Lost__c</picklist>
+        <values>
+            <fullName>Alternative Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Below the Line</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Created In Error</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Editorial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inventory Limitation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lack of Colour</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Masthead Reputation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No budget</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Positioning</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product%2FEnvironment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reach</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Relationship</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Response Rate %25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Share of Voice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Synergy Lost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Target audience</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Timing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Track Record</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Withdrawn</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Referral_Source__c</picklist>
+        <values>
+            <fullName>ANZ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Revenue_Group__c</picklist>
+        <values>
+            <fullName>Amusements</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Employment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>House</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Motor Vehicle Dealers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Communications%2Fbusiness equipment%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Computers%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Finance%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Food and beverages%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Gambling%2Fgaming%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Government%2Fpolitical%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Media%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Motor Vehicle Manufacturers%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Other%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Personal care products%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Pharmaceutical %2F Health Products%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National %28Travel%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Public Notices</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Real Estate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Retail</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Core Activity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Core Activity</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

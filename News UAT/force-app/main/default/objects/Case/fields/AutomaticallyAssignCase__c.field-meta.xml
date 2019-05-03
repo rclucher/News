@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AutomaticallyAssignCase__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>If the box is ticked, this Case will be automatically assigned to the RFP or NFSS queue depending on the case record type.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If the box is ticked, this Case will be automatically assigned to another user/group (e.g. Customer Solutions, National Finance Shared Services)</inlineHelpText>
+    <label>Automatically Assign Case</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

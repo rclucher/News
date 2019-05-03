@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Viewpath__Viewpath_Project_Formula__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>IF(
+    ISNULL(Viewpath__VP_Project__c),
+
+HYPERLINK(&quot;apex/Viewpath__VP_Project_New?CF00NA0000000l3I6=&quot;&amp; Name &amp; &quot;&amp;Name=&quot;&amp;Name&amp;&quot;&amp;CF00NA0000000l3I6_lkid=&quot; &amp; Id &amp; &quot;&amp;retURL=/&quot; &amp; Id,
+IMAGE(&quot;/resource/Viewpath__Button_Create_Viewpath_Project&quot;, &quot;Create Viewpath Project&quot;),&quot;_self&quot;),
+
+HYPERLINK(&quot;/&quot;+Viewpath__VP_Project__c, Viewpath__VP_Project__r.Name, &quot;_self&quot;)
+)</formula>
+    <label>Viewpath Project</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

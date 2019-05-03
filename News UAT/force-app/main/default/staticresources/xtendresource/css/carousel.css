@@ -1,0 +1,80 @@
+/* begin 1 carousel styles for desktops, tablets and mobiles */
+#csHomeCarousel {
+  /* end @media 1920 */
+}
+#csHomeCarousel .carousel-inner{
+  height: 300px;
+}
+@media screen and (max-width: 992px) {
+  #csHomeCarousel .carousel-inner{
+    height: auto;
+  }
+}
+#csHomeCarousel .carousel-inner .item {
+  min-height: 300px;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+}
+@media screen and (max-width: 992px) {
+  #csHomeCarousel .carousel-inner .item {
+    min-height: 300px;
+    height: auto;
+  }
+}
+#csHomeCarousel .carousel-inner .item .container .callout {
+  /*margin: 108px 0 138px;*/
+  margin: 18px 0 28px;
+  text-align: center;
+  background: transparent;
+}
+#csHomeCarousel .carousel-inner .item .container .callout h2 {
+  font-size: 44px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px #414142;
+  color: #efedee;
+  margin-top: 0;
+}
+#csHomeCarousel .carousel-inner .item .container .callout p {
+  font-size: 22px;
+  text-shadow: 2px 2px 4px #414142;
+}
+#csHomeCarousel .carousel-inner .item .container .callout a.btn {
+  color: #e7c57b;
+  background: transparent;
+  border: 2px solid #e7c57b;
+}
+#csHomeCarousel .carousel-inner .item .container .callout a.btn:hover {
+  color: #efedee;
+  background: #e7c57b;
+  box-shadow: 0;
+}
+#csHomeCarousel .carousel-inner .item.hero-1-customer-portal {
+  background-image: url("../images/Attachment1.jpg");
+}
+#csHomeCarousel .carousel-inner .item.hero-2-customer-portal {
+  background-image: url("../images/Attachment2.jpg");
+}
+#csHomeCarousel .carousel-inner .item.hero-3-customer-portal {
+  background-image: url("../images/Attachment3.jpg");
+}
+#csHomeCarousel .carousel-inner .item.hero-4-customer-portal {
+  background-image: url("../images/Attachment4.jpg");
+}
+#csHomeCarousel .carousel-nav .container ol.carousel-indicators {
+  margin-top: 3px;
+}
+#csHomeCarousel .carousel-nav .container ol.carousel-indicators li {
+  height: 12px;
+  width: 12px;
+  border: 1px solid #efedee;
+  border-radius: 100%;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+#csHomeCarousel .carousel-nav .container ol.carousel-indicators li.active {
+  background: #efedee;
+}
+/* end 1 carousel styles for desktops, tablets and mobiles */

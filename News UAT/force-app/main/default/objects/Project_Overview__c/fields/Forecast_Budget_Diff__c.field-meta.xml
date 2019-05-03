@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Forecast_Budget_Diff__c</fullName>
+    <description>Negative amt indicates OVER budget</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Negative amt indicates OVER budget</inlineHelpText>
+    <label>Forecast Budget Diff</label>
+    <summarizedField>Burn_Report__c.Diff_w_Budget_Dollars__c</summarizedField>
+    <summaryForeignKey>Burn_Report__c.Project_Overview__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

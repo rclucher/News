@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CantChangeTypeOnceReivedResponse</fullName>
+    <active>true</active>
+    <description>Can&#39;t change the type once a response has been recorded</description>
+    <errorConditionFormula>IF(
+AND(
+TEXT(Type__c) != TEXT(PRIORVALUE(Type__c)),
+Total_Responses__c &gt; 0),
+TRUE,FALSE)</errorConditionFormula>
+    <errorMessage>This question has received responses and so the type cannot be changed. To change the type please have an administrator delete all of the prior responses first otherwise delete this question and create a new one.</errorMessage>
+</ValidationRule>

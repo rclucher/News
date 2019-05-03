@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product</fullName>
+    <columns>NAME</columns>
+    <columns>Product_Node__c</columns>
+    <columns>Cost_Of_Goods__c</columns>
+    <columns>Basic_Price__c</columns>
+    <columns>Site_Section__c</columns>
+    <columns>Site_Section_Group__c</columns>
+    <columns>Network__c</columns>
+    <columns>Product_Groups_For_IO__c</columns>
+    <columns>Cost_Model__c</columns>
+    <columns>Payment_Type__c</columns>
+    <columns>BriefingFormProducts__c</columns>
+    <columns>Product_Type__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>News_Xtend_Product_Ref__c.Product</value>
+    </filters>
+    <label>Product</label>
+</ListView>

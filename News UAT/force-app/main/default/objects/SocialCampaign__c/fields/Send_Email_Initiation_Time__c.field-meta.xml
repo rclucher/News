@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Email_Initiation_Time__c</fullName>
+    <defaultValue>NOW()</defaultValue>
+    <description>This Date Time will be used in the work flow which will trigger Process builder for reminder email.</description>
+    <externalId>false</externalId>
+    <label>Send Email Initiation Time</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

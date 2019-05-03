@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cirrusadv__First_Reply__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <inlineHelpText>The date this email was first replied to by one of the recipients.</inlineHelpText>
+    <label>First Reply</label>
+    <required>false</required>
+    <type>DateTime</type>
+</CustomField>

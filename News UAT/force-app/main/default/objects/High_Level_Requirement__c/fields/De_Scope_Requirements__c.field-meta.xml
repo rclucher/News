@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>De_Scope_Requirements__c</fullName>
+    <externalId>false</externalId>
+    <label>De-Scope Requirements</label>
+    <summaryFilterItems>
+        <field>Requirement__c.Scope__c</field>
+        <operation>equals</operation>
+        <value>Out-of-Scope (deferred)</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Requirement__c.High_Level_Requirement__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

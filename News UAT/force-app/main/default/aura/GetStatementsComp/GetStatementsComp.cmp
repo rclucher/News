@@ -1,0 +1,14 @@
+<aura:component implements="force:lightningQuickAction,force:hasRecordId" controller="GetStatementsController">
+	
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<aura:attribute name="token" type="String" />
+	
+	<body>
+		<center>
+			<form name="TokenLoginForm" method="post" action="https://viewpoint.computershare.com/NewsLtd/Login.aspx" target="_blank">
+				<input type='hidden' name='Token' value="{!v.token}" />
+			</form>
+
+		</center>
+	</body>
+</aura:component>

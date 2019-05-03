@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stage__c</fullName>
+    <externalId>false</externalId>
+    <label>Stage</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Identify Prospects</fullName>
+                <default>false</default>
+                <label>Identify Prospects</label>
+            </value>
+            <value>
+                <fullName>Establish Rapport</fullName>
+                <default>false</default>
+                <label>Establish Rapport</label>
+            </value>
+            <value>
+                <fullName>Discover Needs</fullName>
+                <default>false</default>
+                <label>Discover Needs</label>
+            </value>
+            <value>
+                <fullName>Develop/Present Solution</fullName>
+                <default>false</default>
+                <label>Develop/Present Solution</label>
+            </value>
+            <value>
+                <fullName>Review/Reaffirm Value</fullName>
+                <default>false</default>
+                <label>Review/Reaffirm Value</label>
+            </value>
+            <value>
+                <fullName>Confirmed/Awaiting Bookings</fullName>
+                <default>false</default>
+                <label>Confirmed/Awaiting Bookings</label>
+            </value>
+            <value>
+                <fullName>Submit Opportunity for BS Approval</fullName>
+                <default>false</default>
+                <label>Submit Opportunity for BS Approval</label>
+            </value>
+            <value>
+                <fullName>Submit Opportunity for CS Approval</fullName>
+                <default>false</default>
+                <label>Submit Opportunity for CS Approval</label>
+            </value>
+            <value>
+                <fullName>Develop Solution/ Proposal</fullName>
+                <default>false</default>
+                <label>Develop Solution/ Proposal</label>
+            </value>
+            <value>
+                <fullName>Present Solution/ Proposal</fullName>
+                <default>false</default>
+                <label>Present Solution/ Proposal</label>
+            </value>
+            <value>
+                <fullName>Submit to BS for final concept approval</fullName>
+                <default>false</default>
+                <label>Submit to BS for final concept approval</label>
+            </value>
+            <value>
+                <fullName>Reservation</fullName>
+                <default>false</default>
+                <label>Reservation</label>
+            </value>
+            <value>
+                <fullName>Re-affirm Value/Awaiting Bookings</fullName>
+                <default>false</default>
+                <label>Re-affirm Value/Awaiting Bookings</label>
+            </value>
+            <value>
+                <fullName>Review/Negotiate</fullName>
+                <default>false</default>
+                <label>Review/Negotiate</label>
+            </value>
+            <value>
+                <fullName>Walk-In Forecast</fullName>
+                <default>false</default>
+                <label>Walk-In Forecast</label>
+            </value>
+            <value>
+                <fullName>Qualify Opportunity</fullName>
+                <default>false</default>
+                <label>Qualify Opportunity</label>
+            </value>
+            <value>
+                <fullName>Closed Won</fullName>
+                <default>false</default>
+                <label>Closed Won</label>
+            </value>
+            <value>
+                <fullName>Select Product/s and Update Stage</fullName>
+                <default>false</default>
+                <label>Select Product/s and Update Stage</label>
+            </value>
+            <value>
+                <fullName>Develop Solution/Proposal</fullName>
+                <default>false</default>
+                <label>Develop Solution/Proposal</label>
+            </value>
+            <value>
+                <fullName>Present Solution/Proposal</fullName>
+                <default>false</default>
+                <label>Present Solution/Proposal</label>
+            </value>
+            <value>
+                <fullName>Closed Lost</fullName>
+                <default>false</default>
+                <label>Closed Lost</label>
+            </value>
+            <value>
+                <fullName>Agreement Won</fullName>
+                <default>false</default>
+                <label>Agreement Won</label>
+            </value>
+            <value>
+                <fullName>Develop Solution</fullName>
+                <default>false</default>
+                <label>Develop Solution</label>
+            </value>
+            <value>
+                <fullName>Reaffirm Value</fullName>
+                <default>false</default>
+                <label>Reaffirm Value</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

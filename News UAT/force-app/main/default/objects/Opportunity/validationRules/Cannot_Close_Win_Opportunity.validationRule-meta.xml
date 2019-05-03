@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_Close_Win_Opportunity</fullName>
+    <active>true</active>
+    <description>Cannot close win Opportunity until there is an approved SO on it and the related Account has an ABN entered.</description>
+    <errorConditionFormula>AND(INCLUDES( OpportunityGroup__c , &#39;NewsXtend&#39;) , 
+       IsWon=True,
+       OR(Has_an_Approved_SO__c=False,
+            AND(ISBLANK(Account.AccountNumber),
+                   Account.ABN_Exempt__c = False
+                  )
+           )        
+)</errorConditionFormula>
+    <errorDisplayField>StageName</errorDisplayField>
+    <errorMessage>Cannot close win an Opportunity until there is an Approved Sales Order on it and the related Account has an ABN entered.</errorMessage>
+</ValidationRule>

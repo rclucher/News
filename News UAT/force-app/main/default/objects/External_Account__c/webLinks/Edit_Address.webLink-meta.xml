@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Edit_Address</fullName>
+    <availability>online</availability>
+    <description>Pull up DataSan to edit address</description>
+    <displayType>button</displayType>
+    <linkType>page</linkType>
+    <masterLabel>Edit Address</masterLabel>
+    <openType>replace</openType>
+    <page>GbaSimplePrefill</page>
+    <protected>false</protected>
+</WebLink>

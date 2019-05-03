@@ -1,0 +1,5 @@
+({
+    renderVideo : function(cmp,innerDoc) {
+        
+    }
+})

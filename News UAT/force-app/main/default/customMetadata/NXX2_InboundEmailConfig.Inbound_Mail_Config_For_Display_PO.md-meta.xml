@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Inbound Mail Config For Display PO</label>
+    <protected>false</protected>
+    <values>
+        <field>EmailBodyTextForApproval__c</field>
+        <value xsi:type="xsd:string">APPROVED</value>
+    </values>
+    <values>
+        <field>EmailBodyTextForRequestChange__c</field>
+        <value xsi:type="xsd:string">In Review</value>
+    </values>
+    <values>
+        <field>TaskRecordType__c</field>
+        <value xsi:type="xsd:string">To-Do</value>
+    </values>
+    <values>
+        <field>TaskSubject__c</field>
+        <value xsi:type="xsd:string">Update client response to Creative</value>
+    </values>
+</CustomMetadata>

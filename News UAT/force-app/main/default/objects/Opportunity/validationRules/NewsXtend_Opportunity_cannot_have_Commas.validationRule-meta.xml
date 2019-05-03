@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NewsXtend_Opportunity_cannot_have_Commas</fullName>
+    <active>true</active>
+    <description>When a NewsXtend Opportunity is created, it cannot have Comma&#39;s in the Opportunity Name as this breaks the billing file export.</description>
+    <errorConditionFormula>AND(Opportunity_Platform_NewsXtend__c = True,
+       CONTAINS(Name,&quot;,&quot;)
+       )</errorConditionFormula>
+    <errorDisplayField>Name</errorDisplayField>
+    <errorMessage>NewsXtend Opportunity cannot have any comma&#39;s (,) in the Opportunity Name, Please remove any Commas from the Opportunity Name.</errorMessage>
+</ValidationRule>

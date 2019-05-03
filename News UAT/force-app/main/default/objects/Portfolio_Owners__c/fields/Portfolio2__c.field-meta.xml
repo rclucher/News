@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Portfolio2__c</fullName>
+    <externalId>false</externalId>
+    <label>Portfolio</label>
+    <referenceTo>Portfolio2__c</referenceTo>
+    <relationshipLabel>Portfolio Owners</relationshipLabel>
+    <relationshipName>Portfolio_Teams</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

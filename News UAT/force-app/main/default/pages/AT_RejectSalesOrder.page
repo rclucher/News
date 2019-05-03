@@ -1,0 +1,15 @@
+<apex:page standardcontroller="csmso__Sales_Order__c" extensions="AT_SalesOrderApprovals" docType="html-5.0"  lightningStyleSheets="true">
+    <apex:form >
+       <apex:pageBlock title="Reject Approval">
+           <apex:pageBlock title="Sales Order">
+        <apex:pageblocksection columns="1">
+            
+             <apex:inputTextarea rows="4" cols="50" value="{!comments}" label="Rejection Comments"/>
+         </apex:pageblocksection>
+         
+         <apex:commandButton value="Reject" action="{!reject}"/>
+               <apex:commandButton value="Cancel" action="{!cancel}"/>
+       </apex:pageBlock>
+       </apex:pageBlock>
+    </apex:form>
+</apex:page>

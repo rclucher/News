@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Extend Access to Google Analytics</label>
+    <protected>false</protected>
+    <values>
+        <field>Comments__c</field>
+        <value xsi:type="xsd:string">Please allow the News Xtend team access to your Google Analytics, in order to track your campaigns marketing efforts. 
+
+Please refer to the instructions attached for more information.</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">Extend Access to Google Analytics</value>
+    </values>
+</CustomMetadata>

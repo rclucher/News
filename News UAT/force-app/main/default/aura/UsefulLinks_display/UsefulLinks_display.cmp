@@ -1,0 +1,23 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="UsefulLinks_Display_controller">
+        <aura:attribute name="usefullinks" type="List" />
+    	<aura:attribute name="HomePageRef" type="String"/>
+    	
+        <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+        <!-- Use a data table from the Lightning Design System: https://www.lightningdesignsystem.com/components/data-tables/ -->
+        <table class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer slds-table_fixed-layout">
+          <thead>
+            <tr class="slds-text-heading_label">
+              <th scope="col"><div class="slds-truncate" title="Useful Link">Useful Link</div></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Use the Apex model and controller to fetch server side data -->
+            <aura:iteration items="{!v.usefullinks}" var="useful_link__c">
+                <tr>
+                    <!-- th scope="row"><div class="slds-truncate" type="url" title="{!useful_link__c.Useful_Link__c}">{!useful_link__c.Useful_Link__c}</div></th -->
+                    <th scope="row"><a target="_blank" href="{!useful_link__c.Useful_Link_URL__c}">{!useful_link__c.Useful_Link_Label__c}</a></th>
+                </tr>
+            </aura:iteration>
+          </tbody>
+        </table>
+      </aura:component>

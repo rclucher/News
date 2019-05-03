@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExpectedCloseDate__c</fullName>
+    <description>Field is populated with the first value entered in the Close Date field and stored for reporting purposes.</description>
+    <externalId>false</externalId>
+    <label>Expected Close Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Attach_Conversation_Starter__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Attach Conversation Starter - i.e. Precall Planning Sheet</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Attach Conversation Starter - i.e. Precall Planning Sheet</inlineHelpText>
+    <label>Attach Conversation Starter</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

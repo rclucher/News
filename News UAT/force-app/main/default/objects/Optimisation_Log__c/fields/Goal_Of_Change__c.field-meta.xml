@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Goal_Of_Change__c</fullName>
+    <externalId>false</externalId>
+    <label>Type Of Change</label>
+    <required>true</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Pacing And Delivery</fullName>
+                <default>false</default>
+                <label>Pacing And Delivery</label>
+            </value>
+            <value>
+                <fullName>Margin Management</fullName>
+                <default>false</default>
+                <label>Margin Management</label>
+            </value>
+            <value>
+                <fullName>Performance</fullName>
+                <default>false</default>
+                <label>Performance</label>
+            </value>
+            <value>
+                <fullName>Tracking Update</fullName>
+                <default>false</default>
+                <label>Tracking Update</label>
+            </value>
+            <value>
+                <fullName>Set up Change</fullName>
+                <default>false</default>
+                <label>Set up Change</label>
+            </value>
+            <value>
+                <fullName>Client Change Request</fullName>
+                <default>false</default>
+                <label>Client Change Request</label>
+            </value>
+            <value>
+                <fullName>Cancellation</fullName>
+                <default>false</default>
+                <label>Cancellation</label>
+            </value>
+            <value>
+                <fullName>Creative Update</fullName>
+                <default>false</default>
+                <label>Creative Update</label>
+            </value>
+            <value>
+                <fullName>Monitoring</fullName>
+                <default>false</default>
+                <label>Monitoring</label>
+            </value>
+            <value>
+                <fullName>Improve Budget Performance</fullName>
+                <default>false</default>
+                <label>Improve Budget Performance</label>
+            </value>
+            <value>
+                <fullName>Improve CTR</fullName>
+                <default>false</default>
+                <label>Improve CTR</label>
+            </value>
+            <value>
+                <fullName>Improve Conversion Rate</fullName>
+                <default>false</default>
+                <label>Improve Conversion Rate</label>
+            </value>
+            <value>
+                <fullName>Improve Relevancy</fullName>
+                <default>false</default>
+                <label>Improve Relevancy</label>
+            </value>
+            <value>
+                <fullName>Increase Traffic</fullName>
+                <default>false</default>
+                <label>Increase Traffic</label>
+            </value>
+            <value>
+                <fullName>Reduce CPC</fullName>
+                <default>false</default>
+                <label>Reduce CPC</label>
+            </value>
+            <value>
+                <fullName>Reduce CPA</fullName>
+                <default>false</default>
+                <label>Reduce CPA</label>
+            </value>
+            <value>
+                <fullName>Improve Quality Score</fullName>
+                <default>false</default>
+                <label>Improve Quality Score</label>
+            </value>
+            <value>
+                <fullName>Client Revisions Errors</fullName>
+                <default>false</default>
+                <label>Client Revisions Errors</label>
+            </value>
+            <value>
+                <fullName>Account Insights</fullName>
+                <default>false</default>
+                <label>Account Insights</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

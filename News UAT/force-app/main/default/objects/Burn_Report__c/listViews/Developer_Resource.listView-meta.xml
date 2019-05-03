@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Developer_Resource</fullName>
+    <columns>NAME</columns>
+    <columns>Resource__c</columns>
+    <columns>Forecast_Budget_Hrs__c</columns>
+    <columns>Budget_Hrs_Wk__c</columns>
+    <columns>Actual_Hrs_Wk__c</columns>
+    <columns>Balance_Budget_Hrs__c</columns>
+    <columns>Budget_Wk__c</columns>
+    <columns>Actual_Wk__c</columns>
+    <columns>Week_Ending__c</columns>
+    <columns>Previous_Burn_Report__c</columns>
+    <columns>Rate_hr__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Role__c</field>
+        <operation>equals</operation>
+        <value>Developer - Custom Code</value>
+    </filters>
+    <label>Developer Resource</label>
+</ListView>

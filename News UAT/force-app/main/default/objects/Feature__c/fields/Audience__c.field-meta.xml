@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Audience__c</fullName>
+    <externalId>false</externalId>
+    <label>Audience</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>All men 25-54</fullName>
+                <default>false</default>
+                <label>All men 25-54</label>
+            </value>
+            <value>
+                <fullName>All people 25-54</fullName>
+                <default>false</default>
+                <label>All people 25-54</label>
+            </value>
+            <value>
+                <fullName>All women 25-54</fullName>
+                <default>false</default>
+                <label>All women 25-54</label>
+            </value>
+            <value>
+                <fullName>Baby Boomers</fullName>
+                <default>false</default>
+                <label>Baby Boomers</label>
+            </value>
+            <value>
+                <fullName>Car Buyers</fullName>
+                <default>false</default>
+                <label>Car Buyers</label>
+            </value>
+            <value>
+                <fullName>Defence Force Recruitment</fullName>
+                <default>false</default>
+                <label>Defence Force Recruitment</label>
+            </value>
+            <value>
+                <fullName>Executive Influencers</fullName>
+                <default>false</default>
+                <label>Executive Influencers</label>
+            </value>
+            <value>
+                <fullName>Family with children under 18</fullName>
+                <default>false</default>
+                <label>Family with children under 18</label>
+            </value>
+            <value>
+                <fullName>Female empty nester 39-54</fullName>
+                <default>false</default>
+                <label>Female empty nester 39-54</label>
+            </value>
+            <value>
+                <fullName>Grocery Buying Mums</fullName>
+                <default>false</default>
+                <label>Grocery Buying Mums</label>
+            </value>
+            <value>
+                <fullName>Grocery Buying Mums with Kids 0-5 years</fullName>
+                <default>false</default>
+                <label>Grocery Buying Mums with Kids 0-5 years</label>
+            </value>
+            <value>
+                <fullName>Home Buyers</fullName>
+                <default>false</default>
+                <label>Home Buyers</label>
+            </value>
+            <value>
+                <fullName>Home owners</fullName>
+                <default>false</default>
+                <label>Home owners</label>
+            </value>
+            <value>
+                <fullName>Male Big Spenders</fullName>
+                <default>false</default>
+                <label>Male Big Spenders</label>
+            </value>
+            <value>
+                <fullName>Male grocery buyer 25-54</fullName>
+                <default>false</default>
+                <label>Male grocery buyer 25-54</label>
+            </value>
+            <value>
+                <fullName>Male sports enthusiast 25-54</fullName>
+                <default>false</default>
+                <label>Male sports enthusiast 25-54</label>
+            </value>
+            <value>
+                <fullName>Over 65s</fullName>
+                <default>false</default>
+                <label>Over 65s</label>
+            </value>
+            <value>
+                <fullName>Passive Job Seeker</fullName>
+                <default>false</default>
+                <label>Passive Job Seeker</label>
+            </value>
+            <value>
+                <fullName>Rural</fullName>
+                <default>false</default>
+                <label>Rural</label>
+            </value>
+            <value>
+                <fullName>Small Business Owners</fullName>
+                <default>false</default>
+                <label>Small Business Owners</label>
+            </value>
+            <value>
+                <fullName>Social Grade A</fullName>
+                <default>false</default>
+                <label>Social Grade A</label>
+            </value>
+            <value>
+                <fullName>Tradie, 18-54</fullName>
+                <default>false</default>
+                <label>Tradie, 18-54</label>
+            </value>
+            <value>
+                <fullName>Young Men 14-24</fullName>
+                <default>false</default>
+                <label>Young Men 14-24</label>
+            </value>
+            <value>
+                <fullName>Young people 18-24</fullName>
+                <default>false</default>
+                <label>Young people 18-24</label>
+            </value>
+            <value>
+                <fullName>Young Women 25-38</fullName>
+                <default>false</default>
+                <label>Young Women 25-38</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

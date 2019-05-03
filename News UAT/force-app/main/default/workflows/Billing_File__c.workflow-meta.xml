@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Email_to_Finance_Team</fullName>
+        <description>Email to Finance Team</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>michael.cartwright@news.com.au</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>natalie.bros@news.com.au</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>ross.macbean@news.com.au</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>sumesh.kewlani@news.com.au</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>no-reply@news.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>News_Xtend/Billing_File_Template</template>
+    </alerts>
+    <rules>
+        <fullName>Billing File Email Notification</fullName>
+        <actions>
+            <name>Email_to_Finance_Team</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Billing_File__c.CreatedDate</field>
+            <operation>greaterOrEqual</operation>
+            <value>10/18/2016</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

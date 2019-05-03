@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fire_NLM_Approval_Process__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>Allows a user to fire NLM specific approval processes</description>
+    <externalId>false</externalId>
+    <label>Fire NLM Approval Process</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

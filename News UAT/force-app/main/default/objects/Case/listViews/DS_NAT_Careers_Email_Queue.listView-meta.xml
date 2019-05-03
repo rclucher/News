@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DS_NAT_Careers_Email_Queue</fullName>
+    <booleanFilter>1 AND (2 OR 3 OR 4 OR 5 OR 6 OR 7 OR 8)</booleanFilter>
+    <columns>CASES.LAST_UPDATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CASES.SUBJECT</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>Pillar__c</columns>
+    <columns>Transfer_to_Queue__c</columns>
+    <columns>SuppliedFromEmail_Text__c</columns>
+    <columns>SuppliedTo__c</columns>
+    <columns>NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.STATUS</field>
+        <operation>equals</operation>
+        <value>In Progress,Queued,Re-Opened</value>
+    </filters>
+    <filters>
+        <field>Transfer_to_Queue__c</field>
+        <operation>equals</operation>
+        <value>SA Email Careers Transfer</value>
+    </filters>
+    <filters>
+        <field>Transfer_to_Queue__c</field>
+        <operation>equals</operation>
+        <value>VIC Email Careers Transfer</value>
+    </filters>
+    <filters>
+        <field>Transfer_to_Queue__c</field>
+        <operation>equals</operation>
+        <value>NSW Email Careers,NSW Email Careers Transfer</value>
+    </filters>
+    <filters>
+        <field>Transfer_to_Queue__c</field>
+        <operation>equals</operation>
+        <value>NSW Email MM Careers Agency,NSW Email MM Careers Agency Transfer</value>
+    </filters>
+    <filters>
+        <field>Transfer_to_Queue__c</field>
+        <operation>equals</operation>
+        <value>SA Email AM Careers,SA Email AM Careers Transfer</value>
+    </filters>
+    <filters>
+        <field>Transfer_to_Queue__c</field>
+        <operation>equals</operation>
+        <value>VIC Email AM Careers Transfer</value>
+    </filters>
+    <filters>
+        <field>Transfer_to_Queue__c</field>
+        <operation>equals</operation>
+        <value>VIC Email MM Careers Transfer</value>
+    </filters>
+    <label>DS NAT Careers Email Queue</label>
+    <sharedTo>
+        <group>Direct_Sales_All_Inc_DSP_AE_AC</group>
+    </sharedTo>
+</ListView>

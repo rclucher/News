@@ -1,0 +1,331 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickActionWithoutHeader,force:hasRecordId" access="global" controller="CS_SOHistoryTrackingController">
+	
+	<aura:attribute name="salesOrderId" type="String" access="private"/>
+	<aura:attribute name="sourceId" type="String" access="private"/>
+	<aura:attribute name="showPanel" type="Boolean" default="true" access="private"/>
+
+
+	<aura:attribute name="objectOptions" 	type="Object" access="private"/>
+	<aura:attribute name="object1" 	type="String" access="private"/>
+	<aura:attribute name="object2" 	type="String" access="private"/>
+	<aura:attribute name="object3" 	type="String" access="private"/>
+
+	<aura:attribute name="snapshotOptions" 	type="Object" access="private"/>
+	<aura:attribute name="snapshot1" 		type="String" access="private"/>
+	<aura:attribute name="snapshot2" 		type="String" access="private"/>
+	<aura:attribute name="snapshot3" 		type="String" access="private"/>
+
+	<aura:attribute name="fields1" 	type="Object" access="private"/>
+	<aura:attribute name="fields2" 	type="Object" access="private"/>
+	<aura:attribute name="fields3" 	type="Object" access="private"/>
+
+	<aura:attribute name="history1" 	type="Object" access="private"/>
+	<aura:attribute name="history2" 	type="Object" access="private"/>
+	<aura:attribute name="history3" 	type="Object" access="private"/>
+
+	<aura:attribute name="showAll1" type="Boolean" default="false" access="private"/>
+	<aura:attribute name="showAll2" type="Boolean" default="false" access="private"/>
+	<aura:attribute name="showAll3" type="Boolean" default="false" access="private"/>
+	<aura:attribute name="showAllHelpText" type="String" default="By default, only fields pre-defined in the Field Sets will be displayed. To add more pre-defined fields, please contact System Administrators." access="private"/>
+
+
+	<aura:attribute name="allHistory" 	type="Object" access="private"/>
+	<aura:attribute name="fieldSetMapping" type="Object" access="private"/>
+	<aura:attribute name="fieldMappings" type="Object" access="private"/>
+
+
+	<aura:attribute name="auditCO_Name" type="String" access="private"/>
+	<aura:attribute name="auditSO_Name" type="String" access="private"/>
+
+
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+	
+
+
+	<!-- control panel -->
+	<div aura:id="controlPanel"  class="slds-box controlPanel ease"  >
+		<Span onclick="{!c.expandPanel}">
+			<c:CS_SvgIcon aura:id="addIcon" svgPath="/resource/SLDS/assets/icons/utility-sprite/svg/symbols.svg#expand_alt" category="utility" size="medium" name="expand_alt" class="controlPanelIcon slds-float_left" />
+		</Span>
+
+		<div class="slds-m-horizontal_xx-large slds-m-vertical_small">
+			<label class="slds-checkbox_toggle slds-grid ">
+				<div class="slds-m-bottom_none">Show another column &nbsp;&nbsp;&nbsp;</div>
+				<input name="checkbox-toggle-2" type="checkbox" aria-describedby="checkbox-toggle-2" value="checkbox-toggle-2" onclick="{!c.toggleColumn}"/>
+				<span id="checkbox-toggle-2" class="slds-checkbox_faux_container" aria-live="assertive">
+				  <span class="slds-checkbox_faux"></span>
+				</span>
+			</label>
+		</div>
+
+		<div class="slds-m-horizontal_xx-large slds-m-vertical_small">
+			Download the snapshots
+			<lightning:button variant="success" label="Download" iconName="utility:download" onclick="{!c.downloadCsv}"/>
+		</div>
+	</div>
+
+	 <!-- history tracking start -->
+	<div class="slds-m-around--medium">
+		<!-- header -->
+		<div class="slds-text-heading_large slds-m-vertical_medium">
+			<c:CS_SvgIcon svgPath="/resource/SLDS/assets/icons/standard-sprite/svg/symbols.svg#hierarchy" category="standard" size="large" name="hierarchy" />
+			<span class="slds-m-left_medium">
+				Audit Tracking
+			</span>
+
+			<span class="slds-m-left_medium slds-text-align_right backBtn">
+				<lightning:button class="slds-button slds-button_neutral" variant="base" label="Back" onclick="{!c.back}"/>
+			</span>
+			<div class="slds-page-header__col-meta slds-m-top--x-small" style="padding: 0.5rem; background: rgb(22, 50, 92);">
+
+				<span class="slds-page-header__meta-text slds-text-color_inverse">Sales Order: <span class="campaignInfo">{!v.auditSO_Name}</span>  |  Campaign Order: <span class="campaignInfo">{!v.auditCO_Name}</span></span>
+			</div>
+
+		</div>
+
+		<div id="container">
+			<div class="slds-grid slds-wrap">
+				<!-- column one  -->
+				<div aura:id="column1" class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 slds-border_right">
+					<div class="slds-m-horizontal_x-small">
+						<div class="slds-cell-fixed filterContainer">
+							<h1 class="slds-page-header__title">Record One</h1>
+						
+							<div class="slds-col slds-size_1-of-1 slds-medium-size_10-of-12 slds-large-size_10-of-12 slds-m-vertical_small">
+								<lightning:select aura:id="column1Object" label="Object" value="{!v.object1}" onchange="{!c.onChangeSnapshot}">
+									<option text="select" value="" selected="true"/>
+							        <aura:iteration items="{!v.objectOptions}" var="option">
+							            <option text="{!option.label}" value="{!option.id}"/>
+							        </aura:iteration>
+							    </lightning:select>
+							</div>
+
+							<div class="slds-col slds-size_1-of-1 slds-medium-size_10-of-12 slds-large-size_10-of-12 slds-m-vertical_small">
+								<lightning:select aura:id="column1Snapshot" label="Snapshot" value="{!v.snapshot1}" onchange="{!c.onChangeSnapshot}">
+									<option text="select" value="" selected="true"/>
+							        <aura:iteration items="{!v.snapshotOptions}" var="option">
+							            <option text="{!option.label}" value="{!option.id}"/>
+							        </aura:iteration>
+							    </lightning:select>
+							</div>
+
+							<div lass="slds-col slds-size_1-of-1 slds-medium-size_10-of-12 slds-large-size_10-of-12 slds-m-vertical_small">
+								<span class='slds-m-right_small'>Show all fields</span><ui:inputCheckbox aura:id="column1ShowAll" change="{!c.onChangeSnapshot}" value="{!v.showAll1}"/><c:CS_CustomHelpText text="{!v.showAllHelpText}" />
+							</div>
+
+							<!-- line breaker -->
+							<aura:if isTrue="{!v.history1.length > 0}">
+								<hr class='slds-m-top_small slds-m-bottom_xx-small'/>
+							</aura:if>
+						</div>
+
+				        <aura:if isTrue="{!v.history1.length > 0}">
+					        <div class="slds-grid slds-wrap slds-truncate">
+					        	<aura:iteration items="{!v.history1}" var="hs">
+					        		<aura:if isTrue="{!hs.name != null}">
+							        	<div title="{!hs.id + 'C1'}" class="slds-page-header" style="cursor: pointer; width: 100%;" onclick="{!c.toggleTable}">
+									      <div class="slds-clearfix" onclick="{!c.toggleTable}">
+									        <div class="slds-float--left">
+									            <span class="{!hs.id + 'C1 slds-show'}" ><lightning:icon iconName="utility:add" size="x-small" alternativeText="Indicates add"/></span>
+									            <span class="{!hs.id + 'C1 slds-hide'}" ><lightning:icon iconName="utility:dash" size="x-small" alternativeText="Indicates dash"/></span>
+									        </div>
+									        <div title="{!hs.id + 'C1'}" onclick="{!c.toggleTable}" class="slds-m-left--large">{!hs.name}</div>
+									      </div>
+									    </div>
+									</aura:if>
+							        <table class="{!hs.id + 'C1 ' + hs.showhide + ' slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped slds-m-vertical_medium'}">
+										<thead>
+											<tr class="">
+											  <th class="slds-text-title_caps slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 tableHeader" scope="col">
+											    <div class="slds-truncate" title="Field">Field</div>
+											  </th>
+											  <th class="slds-text-title_caps slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 tableHeader" scope="col">
+											    <div class="slds-truncate" title="Value">Value</div>
+											  </th>
+											</tr>
+										</thead>
+										<tbody>
+											<aura:iteration items="{!hs.list}" var="h">
+												<tr class="slds-hint-parent">
+													<td class="slds-cell-wrap" data-label="Account Name">
+												    	{!h.label}
+												    </td>
+													<td class="slds-cell-wrap" data-label="Account Name">
+												        {!h.value}
+												    </td>
+												</tr>
+											</aura:iteration>
+											
+										</tbody>
+									</table>
+								</aura:iteration> 
+							</div>
+						</aura:if>
+			    	</div>
+				</div>
+
+				<!-- column 2 -->
+				<div aura:id="column2" class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 slds-border_right">
+					<div class="slds-m-horizontal_x-small">
+						<div class="slds-cell-fixed filterContainer">
+							<h1 class="slds-page-header__title">Record Two</h1>
+							<div class="slds-col slds-size_1-of-1 slds-medium-size_10-of-12 slds-large-size_10-of-12 slds-m-vertical_small">
+								<lightning:select aura:id="column2Object"  label="Object" value="{!v.object2}" onchange="{!c.onChangeSnapshot}">
+									<option text="select" value="" selected="true"/>
+							        <aura:iteration items="{!v.objectOptions}" var="option">
+							            <option text="{!option.label}" value="{!option.id}"/>
+							        </aura:iteration>
+							    </lightning:select>
+							</div>
+
+							<div class="slds-col slds-size_1-of-1 slds-medium-size_10-of-12 slds-large-size_10-of-12 slds-m-vertical_small">
+								<lightning:select aura:id="column2Snapshot" label="Snapshot" value="{!v.snapshot2}" onchange="{!c.onChangeSnapshot}">
+									<option text="select" value="" selected="true"/>
+							       	<aura:iteration items="{!v.snapshotOptions}" var="option">
+							            <option text="{!option.label}" value="{!option.id}"/>
+							        </aura:iteration>
+							    </lightning:select>
+							</div>
+
+							<div lass="slds-col slds-size_1-of-1 slds-medium-size_10-of-12 slds-large-size_10-of-12 slds-m-vertical_small">
+								<span class='slds-m-right_small'>Show all fields</span><ui:inputCheckbox aura:id="column2ShowAll" change="{!c.onChangeSnapshot}" value="{!v.showAll2}"/><c:CS_CustomHelpText text="{!v.showAllHelpText}" />
+							</div>
+
+							<!-- line breaker -->
+							<aura:if isTrue="{!v.history2.length > 0}">
+								<hr class='slds-m-top_small slds-m-bottom_xx-small'/>
+							</aura:if>
+						</div>
+
+						<!-- data table 2-->
+						<aura:if isTrue="{!v.history2.length > 0}">
+							<div class="slds-grid slds-wrap slds-truncate">
+								<aura:iteration items="{!v.history2}" var="hs">
+									<aura:if isTrue="{!hs.name != null}">
+							        	<div title="{!hs.id + 'C2'}" class="slds-page-header" style="cursor: pointer; width: 100%;" onclick="{!c.toggleTable}">
+									      <section class="slds-clearfix" onclick="{!c.toggleTable}">
+									        <div class="slds-float--left ">
+									            <span class="{!hs.id + 'C2 slds-show'}" ><lightning:icon iconName="utility:add" size="x-small" alternativeText="Indicates add"/></span>
+									            <span class="{!hs.id + 'C2 slds-hide'}" ><lightning:icon iconName="utility:dash" size="x-small" alternativeText="Indicates dash"/></span>
+									        </div>
+									        <div title="{!hs.id + 'C2'}" onclick="{!c.toggleTable}" class="slds-m-left--large">{!hs.name}</div>
+									      </section>
+									    </div>
+									</aura:if>
+							        <table class="{!hs.id + 'C2 ' + hs.showhide + ' slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped slds-m-vertical_medium'}">
+										<thead>
+											<tr class="">
+											  <th class="slds-text-title_caps slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 tableHeader" scope="col">
+											    <div class="slds-truncate" title="Field">Field</div>
+											  </th>
+											  <th class="slds-text-title_caps slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 tableHeader" scope="col">
+											    <div class="slds-truncate" title="Value">Value</div>
+											  </th>
+											</tr>
+										</thead>
+										<tbody>
+										
+											<aura:iteration items="{!hs.list}" var="h">
+												<tr class="slds-hint-parent">
+													<td class="slds-cell-wrap" data-label="Account Name">
+												    	{!h.label}
+												    </td>
+													<td class="slds-cell-wrap" data-label="Account Name">
+												        {!h.value}
+												    </td>
+												</tr>
+											</aura:iteration>
+										
+									  	</tbody>
+									</table>
+							</aura:iteration> 
+							</div>
+						</aura:if>
+					</div>
+				</div>
+
+				<!-- column 3 -->
+				<div aura:id="column3" class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_4-of-12 slds-transition-hide">
+					<div class="slds-m-horizontal_x-small">
+						<div class="slds-cell-fixed filterContainer">
+							<h1 class="slds-page-header__title">Record Three</h1>
+							<div class="slds-col slds-size_1-of-1 slds-medium-size_10-of-12 slds-large-size_10-of-12 slds-m-vertical_small">
+								<lightning:select aura:id="column3Object" label="Object" value="{!v.object3}" onchange="{!c.onChangeSnapshot}">
+									<option text="select" value="" selected="true"/>
+							        <aura:iteration items="{!v.objectOptions}" var="option">
+							            <option text="{!option.label}" value="{!option.id}"/>
+							        </aura:iteration>
+							    </lightning:select>
+							</div>
+
+							<div class="slds-col slds-size_1-of-1 slds-medium-size_10-of-12 slds-large-size_10-of-12 slds-m-vertical_small">
+								<lightning:select aura:id="column3Snapshot" label="Snapshot" value="{!v.snapshot3}" onchange="{!c.onChangeSnapshot}">
+									<option text="select" value="" selected="true"/>
+							        <aura:iteration items="{!v.snapshotOptions}" var="option">
+							            <option text="{!option.label}" value="{!option.id}"/>
+							        </aura:iteration>
+							    </lightning:select>
+							</div>
+
+							<div lass="slds-col slds-size_1-of-1 slds-medium-size_10-of-12 slds-large-size_10-of-12 slds-m-vertical_small">
+								<span class='slds-m-right_small'>Show all fields</span><ui:inputCheckbox aura:id="column3ShowAll" change="{!c.onChangeSnapshot}" value="{!v.showAll3}"/><c:CS_CustomHelpText text="{!v.showAllHelpText}" />
+							</div>
+
+							<!-- line breaker -->
+							<aura:if isTrue="{!v.history3.length > 0}">
+								<hr class='slds-m-top_small slds-m-bottom_xx-small'/>
+							</aura:if>
+						</div>
+
+						<!-- data table 3-->
+						<aura:if isTrue="{!v.history3.length > 0}">
+							<div class="slds-grid slds-wrap slds-truncate">
+								<aura:iteration items="{!v.history3}" var="hs">
+									<aura:if isTrue="{!hs.name != null}">
+							        	<div title="{!hs.id + 'C3'}" class="slds-page-header" style="cursor: pointer; width: 100%;" onclick="{!c.toggleTable}">
+									      <div class="slds-clearfix" onclick="{!c.toggleTable}">
+									        <div class="slds-float--left ">
+									            <span class="{!hs.id + 'C3 slds-show'}" ><lightning:icon iconName="utility:add" size="x-small" alternativeText="Indicates add"/></span>
+									            <span class="{!hs.id + 'C3 slds-hide'}" ><lightning:icon iconName="utility:dash" size="x-small" alternativeText="Indicates dash"/></span>
+									        </div>
+									        <div onclick="{!c.toggleTable}" title="{!hs.id + 'C3'}" class="slds-m-left--large">{!hs.name}</div>
+									      </div>
+									    </div>
+									</aura:if>
+							        <table class="{!hs.id + 'C3 ' + hs.showhide + ' slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped slds-m-vertical_medium'}">
+										<thead>
+											<tr class="">
+											  <th class="slds-text-title_caps slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 tableHeader" scope="col">
+											    <div class="slds-truncate" title="Field">Field</div>
+											  </th>
+											  <th class="slds-text-title_caps slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 tableHeader" scope="col">
+											    <div class="slds-truncate" title="Value">Value</div>
+											  </th>
+											</tr>
+										</thead>
+										<tbody>
+											<aura:iteration items="{!hs.list}" var="h">
+												<tr class="slds-hint-parent">
+													<td class="slds-cell-wrap" data-label="Account Name">
+												    	{!h.label}
+												    </td>
+													<td class="slds-cell-wrap" data-label="Account Name">
+												        {!h.value}
+												    </td>
+												</tr>
+											</aura:iteration>
+									  </tbody>
+									</table>
+							</aura:iteration> 
+							</div>
+						</aura:if>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+	
+
+</aura:component>

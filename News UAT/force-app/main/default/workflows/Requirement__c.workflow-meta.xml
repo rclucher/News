@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Requirement_Reset_BLD1_Checkbox</fullName>
+        <field>Release_BLD1__c</field>
+        <literalValue>0</literalValue>
+        <name>Requirement: Reset BLD1 Checkbox</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Requirement_Reset_BLD1_Date</fullName>
+        <field>Release_BLD1_Date__c</field>
+        <name>Requirement: Reset BLD1 Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Requirement_Reset_PROD_Checkbox</fullName>
+        <field>Release_PROD__c</field>
+        <literalValue>0</literalValue>
+        <name>Requirement: Reset PROD Checkbox</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Requirement_Reset_PROD_Date</fullName>
+        <field>Release_PROD_Date__c</field>
+        <name>Requirement: Reset PROD Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Requirement_Reset_SIT1_Checkbox</fullName>
+        <field>Release_SIT1__c</field>
+        <literalValue>0</literalValue>
+        <name>Requirement: Reset SIT1 Checkbox</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Requirement_Reset_SIT1_Date</fullName>
+        <field>Release_SIT1_Date__c</field>
+        <name>Requirement: Reset SIT1 Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Requirement_Reset_UAT1_Checkbox</fullName>
+        <field>Release_UAT1__c</field>
+        <literalValue>0</literalValue>
+        <name>Requirement: Reset UAT1 Checkbox</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Requirement_Reset_UAT1_Date</fullName>
+        <field>Release_UAT1_Date__c</field>
+        <name>Requirement: Reset UAT1 Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Requirement_Update_Release_BLD1_Date</fullName>
+        <field>Release_BLD1_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Requirement: Update Release BLD1 Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Requirement_Update_Release_PROD_Date</fullName>
+        <field>Release_PROD_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Requirement: Update Release PROD Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Requirement_Update_Release_SIT1_Date</fullName>
+        <field>Release_SIT1_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Requirement: Update Release SIT1 Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Requirement_Update_Release_UAT1_Date</fullName>
+        <field>Release_UAT1_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Requirement: Update Release UAT1 Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_BA_Test_Complete_Date</fullName>
+        <field>BA_Test_Complete_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Update BA Test Complete Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Developer_Complete_Date</fullName>
+        <field>Developer_Complete_Date__c</field>
+        <formula>TODAY()</formula>
+        <name>Update Developer Complete Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>Requirement%3A Reset All For Re-Work</fullName>
+        <actions>
+            <name>Requirement_Reset_BLD1_Checkbox</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Requirement_Reset_BLD1_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Requirement_Reset_PROD_Checkbox</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Requirement_Reset_PROD_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Requirement_Reset_SIT1_Checkbox</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Requirement_Reset_SIT1_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Requirement_Reset_UAT1_Checkbox</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Requirement_Reset_UAT1_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Requirement__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Re-work Required</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Requirement%3A Update Release BLD1 Date</fullName>
+        <actions>
+            <name>Requirement_Update_Release_BLD1_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Requirement__c.Release_BLD1__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Requirement%3A Update Release PROD Date</fullName>
+        <actions>
+            <name>Requirement_Update_Release_PROD_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Requirement__c.Release_PROD__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Requirement%3A Update Release SIT1 Date</fullName>
+        <actions>
+            <name>Requirement_Update_Release_SIT1_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Requirement__c.Release_UAT1__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Requirement%3A Update Release UAT1 Date</fullName>
+        <actions>
+            <name>Requirement_Update_Release_UAT1_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Requirement__c.Release_UAT1__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update BA Test Complete Date</fullName>
+        <actions>
+            <name>Update_BA_Test_Complete_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Requirement__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Ready for Deploy</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Developer Complete Date</fullName>
+        <actions>
+            <name>Update_Developer_Complete_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Requirement__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Ready For Test</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

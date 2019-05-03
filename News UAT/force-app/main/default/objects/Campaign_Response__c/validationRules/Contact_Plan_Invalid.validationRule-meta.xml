@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Plan_Invalid</fullName>
+    <active>true</active>
+    <description>Contact Plan only allowed on completion of the Member (Response is Yes or No). 
+
+Please clear all Contact Plan fields to continue if the Response is not Yes/No.</description>
+    <errorConditionFormula>AND(
+   NOT(OR(
+      ISPICKVAL(Response_Type__c, &#39;Yes&#39; ),
+      ISPICKVAL(Response_Type__c, &#39;No&#39; )
+   )),
+   OR(
+     NOT(ISBLANK( Contact_Plan_Date__c )),
+     NOT(ISPICKVAL(Contact_Plan_Ad_Type__c, &#39;&#39; )),
+     NOT(ISBLANK(  Contact_Plan_Publication_Divisions__c ))
+   )
+)</errorConditionFormula>
+    <errorDisplayField>Response_Type__c</errorDisplayField>
+    <errorMessage>Contact Plans can only be set for Responses of Yes or No</errorMessage>
+</ValidationRule>

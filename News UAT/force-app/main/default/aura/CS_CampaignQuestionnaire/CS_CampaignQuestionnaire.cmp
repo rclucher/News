@@ -1,0 +1,325 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickActionWithoutHeader,force:hasRecordId" access="global" controller="CS_QuestionnaireAppController">
+	
+	<aura:attribute name="showSpinner" type="boolean" default="false"/>
+	<aura:attribute name="showSuccessMessage" type="boolean" default="false"/>
+	<aura:attribute name="showErrorMessage" type="boolean" default="false"/>
+	<aura:attribute name="showFieldHistory" type="Object" />
+    <aura:attribute name="isCancelModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="isValidationModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="domLoaded" type="boolean" default="false"/>
+
+
+    <aura:attribute name="validationMessages" type="Object" description="A list of messages for all the outstanding required fields"/>
+    <aura:attribute name="validationMessagesBE" type="Object" description="A list of messages returned from backend validation"/>
+    <aura:attribute name="allRequiredFieldsCompleted" type="Boolean" description="Indicate if all the required fields are filled" default="false"/>
+    <aura:attribute name="recId" type="String" />
+    <aura:attribute name="obj" type="String" />
+    <aura:attribute name="questions" type="Object" access="public"/>
+
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+    <aura:handler event="aura:doneRendering" action="{!c.handleDoneRendering}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+
+    <!-- questionnaire form -->
+	<div class="slds-m-around--medium">
+		<!-- header -->
+		<div class="slds-text-heading_large slds-m-vertical_medium">
+			<c:CS_SvgIcon svgPath="/resource/SLDS/assets/icons/standard-sprite/svg/symbols.svg#drafts" category="standard" size="large" name="drafts" />
+			<span class="slds-m-left_medium">
+				Campaign Brief Questionnaire
+			</span>
+		</div>
+
+		<!-- success message -->
+	    <aura:if isTrue="{!v.showSuccessMessage}">
+			<div class="slds-notify_container slds-m-vertical_medium messageBox">
+			  <div class="slds-notify slds-notify--alert slds-theme--success slds-theme--alert-texture" role="alert">
+			    <button class="slds-button slds-notify__close slds-button--icon-inverse" title="Close" onclick="{!c.hideSuccessMessageBox}">
+			      <c:CS_SvgIcon svgPath="/resource/SLDS/assets/icons/utility-sprite/svg/symbols.svg#close" category="standard" size="small" name="close" />
+			      <span class="slds-assistive-text" >Close</span>
+			    </button>
+			    <span class="slds-assistive-text">Success</span>
+			    <h2>
+			      <c:CS_SvgIcon svgPath="/resource/SLDS/assets/icons/utility-sprite/svg/symbols.svg#success" category="standard" size="small" name="success"/>
+			      &nbsp; The questionnaire has been saved successfully. Please click &nbsp;<a onclick="{!c.handleCancel}"> here </a>&nbsp; to go back. 
+			    </h2>
+			  </div>
+			</div>
+		</aura:if>
+
+		<!-- error message -->
+		<aura:if isTrue="{!v.showErrorMessage}">
+		<div class="slds-notify_container slds-m-vertical_medium messageBox">
+		  <div class="slds-notify slds-notify--alert slds-theme--error slds-theme--alert-texture errorMessageBox" role="alert">
+		    <button class="slds-button slds-notify__close slds-button--icon-inverse" title="Close" onclick="{!c.hideErrorMessageBox}">
+				<c:CS_SvgIcon svgPath="/resource/SLDS/assets/icons/utility-sprite/svg/symbols.svg#close" category="standard" size="small" name="close" />
+				<span class="slds-assistive-text">Close</span>
+		    </button>
+		    <span class="slds-assistive-text">Error</span>
+		    <h2>
+		      <c:CS_SvgIcon svgPath="/resource/SLDS/assets/icons/utility-sprite/svg/symbols.svg#ban" category="standard" size="small" name="ban"/>
+		      	<aura:iteration items="{!v.validationMessagesBE}" var="valMessage">
+					<li>{!valMessage}</li>
+				</aura:iteration>
+		    </h2>
+		  </div>
+		</div>
+		</aura:if>
+
+		<!-- info message -->
+		<aura:if isTrue="{!v.questions.length == 0}">
+		<div class="slds-notify_container slds-m-vertical_medium messageBox">
+		   <div class="slds-notify slds-notify--alert slds-theme--offline slds-theme--alert-texture slds-banner" role="alert">
+		      <span class="slds-assistive-text">Info</span>
+		      <h2>
+		         <c:CS_SvgIcon svgPath="/resource/SLDS/assets/icons/utility-sprite/svg/symbols.svg#info" category="standard" size="small" name="info"/>
+		         	<aura:if isTrue="{!v.obj == 'po'}">
+		         		&nbsp; This briefing form does not have any questions configured to be visible at PO level. Please contact your system admin for support.
+		         		<aura:set attribute="else">
+					        &nbsp; There are currently no questions created for this questionnaire. Please click &nbsp;<a onclick="{!c.handleCancel}"> here </a>&nbsp; to go back. 
+					    </aura:set>
+		         	</aura:if>
+		         
+		      </h2>
+		   </div>
+		</div>
+		</aura:if>
+
+		<div >
+			<!-- tabs -->
+			<div class="slds-tabs--scoped">
+				<ul class="slds-tabs--scoped__nav" role="tablist">
+					<aura:iteration items="{!v.questions}" var="q">
+						<div class="slds-truncate">
+						<li class="{!'slds-tabs--scoped__item customClassForTab ' + q.SectionId}" title="{!q.SectionId}" name="{!q.SectionId}" role="presentation" ><a class="slds-tabs--scoped__link tabTitle" href="javascript:void(0);" title="{!q.SectionId}" onclick="{!c.tabChange}" role="tab" tabindex="{!q.SectionId}" aria-selected="false" aria-controls="tab-default-1" id="sections">{!q.SectionName}</a></li>
+						</div>
+					</aura:iteration>
+				</ul>
+			</div>
+
+			<!-- questions -->
+			<div class="slds-grid slds-wrap">
+			<aura:iteration items="{!v.questions}" var="q">
+				<div name="tabdataName" id="tab-default-1" class="{!'slds-tabs--scoped__content slds-hide customClassForTabData ' + q.SectionId + 'TabData'}" role="tabpanel" aria-labelledby="sections">
+					<ul><div class="slds-grid slds-wrap">
+						<aura:iteration items="{!q.QuestionWrappers}" var="qq">
+							<div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_5-of-12">
+								<div class="slds-m-vertical_large slds-m-horizontal_xx-large">
+									
+									<!-- question label -->
+									<div class="inputFieldLabel">
+										<span class="slds-m-right_xx-small">
+											{!qq.QuestionText}
+											<aura:if isTrue="{!qq.isMandatory}">
+												<span class="requiredText">&nbsp;(*mandatory)</span>
+											</aura:if>
+										</span>
+										<aura:if isTrue="{!qq.showHelpText}">
+											<c:CS_CustomHelpText text="{!qq.HelpText}" />
+										</aura:if>
+									</div>
+
+									<!-- text  -->
+									<aura:if isTrue="{!qq.showAnswerText}">
+										<lightning:input name="{!qq.QuestionText}" value="{!qq.Answer.Answer_Text__c}" disabled="{!qq.isReadOnly}" minlength="{!qq.MinLength}" maxlength="{!qq.MaxLength}"/>
+										<!-- required="{!qq.isMandatory}"  -->
+									</aura:if>	
+
+									<!-- phone -->
+									<aura:if isTrue="{!qq.showAnswerPhone}">
+										<lightning:input name="{!qq.QuestionText}" value="{!qq.Answer.Answer_Phone__c}" disabled="{!qq.isReadOnly}" minlength="{!qq.MinLength}" maxlength="{!qq.MaxLength}" />
+									</aura:if>
+
+									<!-- percentage -->
+									<aura:if isTrue="{!qq.showAnswerPercent}">
+										<lightning:input name="{!qq.QuestionText}" value="{!qq.Answer.Answer_Percent__c}" disabled="{!qq.isReadOnly}"/>
+									</aura:if>
+
+									<!-- picklist  -->
+									<aura:if isTrue="{!qq.showAnswerPicklist}">
+										<lightning:select name="select1" value="{!qq.Answer.Answer_Text__c}" disabled="{!qq.isReadOnly}">
+											<aura:iteration items="{!qq.li_AnswerPicklistValues}" var="option">
+									            <option text="{!option.label}" value="{!option.value}" selected="{!option.selected}"/>
+									        </aura:iteration>
+									    </lightning:select>
+									</aura:if>
+
+									<!-- checkbox -->
+									<aura:if isTrue="{!qq.showAnswerCheckbox}">
+										<lightning:input type="checkbox" checked="{!qq.Answer.Answer_Checkbox__c}" name="input1" disabled="{!qq.isReadOnly}"/>
+									</aura:if>
+
+									<!-- email -->
+									<aura:if isTrue="{!qq.showAnswerEmail}">
+										<lightning:input type="email" name="email1" value="{!qq.Answer.Answer_Email__c}"  disabled="{!qq.isReadOnly}"/>
+									</aura:if>	
+
+									<!-- date -->
+									<aura:if isTrue="{!qq.showAnswerDate}">
+										<lightning:input type="date" value="{!qq.Answer.Answer_Date__c}" disabled="{!qq.isReadOnly}"/>
+									</aura:if>	
+
+									<!-- number/integer -->
+									<aura:if isTrue="{!qq.showAnswerNumeric}">
+										<lightning:input type="number" name="input1" value="{!qq.Answer.Answer_Numeric__c}" disabled="{!qq.isReadOnly}" minlength="{!qq.MinLength}" maxlength="{!qq.MaxLength}"/>
+									</aura:if>	
+
+									<!-- currency -->
+									<aura:if isTrue="{!qq.showAnswerCurrency}">
+										<ui:inputCurrency class="inputCurrency" value="{!qq.Answer.Answer_Currency__c}" updateOn="keyup" disabled="{!qq.isReadOnly}" maxlength="{!qq.MaxLength}"/>
+									</aura:if>
+
+									<!-- url -->
+									<aura:if isTrue="{!qq.showAnswerURL}">
+                                        <aura:if isTrue="{!qq.isReadOnly}">
+                                            <br/>
+                                            <lightning:formattedUrl value="{!qq.Answer.Answer_Url__c}" target="_blank"/>
+                                        </aura:if>
+                                        
+                                        <aura:if isTrue="{!!qq.isReadOnly}">
+                                            <lightning:input type="url" name="input1" value="{!qq.Answer.Answer_Url__c}" disabled="{!qq.isReadOnly}" placeholder="http://"/>
+                                        </aura:if>
+                                        
+										
+									</aura:if>
+
+									<!-- textarea -->
+									<aura:if isTrue="{!qq.showAnswerLongText}">
+										<aura:if isTrue="{!qq.showLongTextAdditional}">
+											<lightning:textarea name="input2" value="{!qq.Answer.Answer_Long_Text__c}" disabled="{!qq.isReadOnly}"/>
+											<div class="{!qq.QuestionId + 'ShowHistoryLink'}">
+												<a name="{!qq.QuestionId}" onclick="{!c.showFieldHistory}">Show field history</a>
+											</div>
+											<div class="{!qq.QuestionId + 'History slds-hide'}">
+												<a name="{!qq.QuestionId}" onclick="{!c.hideFieldHistory}">Hide field history</a>
+												<lightning:textarea name="input2" value="{!qq.LongTextAdditional}" disabled="false" rows="{!qq.LongTextRows}"/>
+											</div>
+										</aura:if>
+
+										<aura:if isTrue="{!!qq.showLongTextAdditional}">
+											<lightning:textarea name="input2" value="{!qq.Answer.Answer_Long_Text__c}" disabled="{!qq.isReadOnly}"/>
+										</aura:if>
+									</aura:if>
+								</div>
+							</div>
+
+							
+						</aura:iteration>
+					</div>
+					</ul>
+				</div>
+			</aura:iteration>
+		 	</div>
+		</div>
+
+		<!-- buttons -->
+		<aura:if isTrue="{!v.questions.length > 0}">
+			<div class="slds-text-align_right slds-m-top--medium">
+				<lightning:button variant="success" label="Download Answers" iconName="utility:download" onclick="{!c.handleDownload}"/>
+				<lightning:button variant="success" label="Change History" iconName="utility:download" onclick="{!c.handleDownloadHistory}"/>
+				<lightning:button variant="brand" label="Save" onclick="{! c.handleSaveWithValidation }" />
+				<lightning:button label="Cancel" onclick="{! c.openCancelModal }"/>
+			</div>
+		</aura:if>
+
+
+		<!-- spinner -->
+		<aura:if isTrue="{!v.showSpinner}">
+			<div aura:id="spinnerId" class="slds-spinner_container">
+			   <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+			     <span class="slds-assistive-text">Loading</span>
+			     <div class="slds-spinner__dot-a"></div>
+			     <div class="slds-spinner__dot-b"></div>
+			   </div>
+			</div>
+		</aura:if>
+
+		<!-- modal for cancel -->
+		<div class="slds-m-around_xx-large">
+	        <aura:if isTrue="{!v.isCancelModalOpen}">
+	            
+	            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+	                <div class="slds-modal__container">
+	                    <header class="slds-modal__header">
+	                        <lightning:buttonIcon iconName="utility:close"
+	                                              onclick="{! c.closeCancelModal }"
+	                                              alternativeText="close"
+	                                              variant="bare-inverse"
+	                                              class="slds-modal__close"/>
+	                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Are you certain that you want to cancel?</h2>
+	                    </header>
+	               		
+	               		 <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+	                        <div class="slds-text-heading_small slds-m-bottom_x-small">
+	                        	You will lose all the changes once you cancel.
+	                        </div>
+	                    </div>
+
+	                    <footer class="slds-modal__footer">
+	                        <lightning:button variant="neutral" 
+	                                          label="Cancel"
+	                                          title="Cancel"
+	                                          onclick="{! c.closeCancelModal }"/>
+	                        <lightning:button variant="brand" 
+	                                          label="Confirm"
+	                                          title="Confirm"
+	                                          onclick="{! c.handleCancel }"/>
+	                    </footer>
+	                </div>
+	            </section>
+	            <div class="slds-backdrop slds-backdrop_open"></div>
+	            
+	        </aura:if>
+	    </div>
+
+	    <!-- modal for validation -->
+		<div class="slds-m-around_xx-large">
+	        <aura:if isTrue="{!v.isValidationModalOpen}">
+	            
+	            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+	                <div class="slds-modal__container">
+	                    <header class="slds-modal__header">
+	                        <lightning:buttonIcon iconName="utility:close"
+	                                              onclick="{! c.closeValidationModal }"
+	                                              alternativeText="close"
+	                                              variant="bare-inverse"
+	                                              class="slds-modal__close"/>
+	                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Are you certain that you want to save?</h2>
+	                    </header>
+
+
+	                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+	                        <div class="slds-text-heading_small slds-m-bottom_x-small">
+	                        	The following questions are required before you submit your questionnaire:
+	                        </div>
+	                        <aura:iteration items="{!v.validationMessages}" var="s">
+	                        	<Strong>{!s.SectionName}:</Strong>
+	                        	<aura:iteration items="{!s.Questions}" var="q">
+		                        	<p>{!q}</p>
+		                        </aura:iteration> 
+		                        <br/>
+	                        </aura:iteration>  
+
+	                        <p>Note: You can still proceed, but data quality might be affected. </p> 
+	                    </div>
+
+	                    <footer class="slds-modal__footer">
+	                        <lightning:button variant="neutral" 
+	                                          label="Cancel"
+	                                          title="Cancel"
+	                                          onclick="{! c.closeValidationModal }"/>
+	                        <lightning:button variant="brand" 
+	                                          label="Confirm"
+	                                          title="Confirm"
+	                                          onclick="{! c.handleSaveWithoutValidation }"/>
+	                    </footer>
+	                </div>
+	            </section>
+	            <div class="slds-backdrop slds-backdrop_open"></div>
+	            
+	        </aura:if>
+	    </div>
+	</div>
+
+</aura:component>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_Quality_Score__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(IsPersonAccount, 
+
+IF(ISBLANK(FirstName), 0, 40) 
++IF(ISBLANK(PersonMailingStreet), 0, 20) 
++IF(ISBLANK( DPID_Primary_Address__pc ), 0, 10) 
++IF(ISBLANK(PersonEmail), 0, 10) 
++IF(ISBLANK(Phone), 0, 20), 
+
+IF(ABN_Exempt__c == false, 
+IF(OR(ISBLANK(AccountNumber),ABN_Status__c != &#39;Active&#39;,ISBLANK( Registered_Name__c )),0,40) 
++IF(ISBLANK(TEXT(Type)),0,10) 
++IF(ISBLANK(Phone), 0, 20) 
++IF(ISBLANK(BillingStreet),0,10) 
++IF(ISBLANK(DPID_Primary_Address__c),0,10) 
++IF(ISBLANK(Industry_Code__c),0,5) 
++IF(ISBLANK(TEXT( Revenue_Group__c )),0,5), 
+IF(ISBLANK(TEXT(Type)),0,20) 
++IF(ISBLANK(Phone), 0, 30) 
++IF(ISBLANK(BillingStreet),0,20) 
++IF(ISBLANK(Industry_Code__c),0,15) 
++IF(ISBLANK(TEXT( Revenue_Group__c )),0,15) 
+) 
+)</formula>
+    <label>Account Data Quality Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,32 @@
+.THIS {
+/* min-width: 20rem;
+max-width: 30rem; */
+}
+.THIS .liBorder{
+border-bottom: none;
+}
+
+.THIS .paddingIcon{
+    padding: 0.5rem;
+}
+
+@media (min-width: 992px) {
+    .THIS input.uiInput--checkbox[type=checkbox].alignDataCenter {
+        margin:auto;
+    }
+    .THIS .alignDataCenter1 {
+        text-align:center;
+    }
+}
+@media (min-width: 992px) {
+        .THIS .column-Header-text-padding {
+            padding-left : 2rem;
+            }
+}
+
+
+
+.THIS .custom-modal-for-customerActivity .slds-modal__container{
+    max-width: 70rem;
+    min-width: 50rem;
+}

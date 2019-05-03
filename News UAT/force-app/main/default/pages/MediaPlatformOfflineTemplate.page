@@ -1,0 +1,64 @@
+<apex:page doctype="html-5.0" controller="cfgoffline.StatelessUIController" action="{!init}" showHeader="false" standardStylesheets="false" sidebar="false">
+    <body>
+        <div>
+            <apex:variable var="jsonString" value="{!definitionDataJson}"/>
+            <apex:variable var="firstTab" value="{!NOT(contains(jsonString,'\"Name\" : \"Node Advert Assignments\"') && contains(jsonString,'\"Name\" : \"Ad Location\"'))}"/>
+            <apex:repeat var="screenSequence" value="{!screenSequences}">
+                <apex:repeat var="layout" value="{!screenSequence.layouts}">
+
+                    <apex:outputText escape="false" value="{!'<script type=\"text/html\" data-cs-ref=\"' & layout.ref & '\">'}" />
+                        <div id="configSection_CONFIGTABS">
+                            <div id="CSInfoMessageBox" class="CSInfoMessageBox"><div id="CSInfoMessage" class="CSInfoMessageBox"></div></div>
+                            <apex:repeat var="section" value="{!layout.sections}">
+                                <div id="configSection_{!section.section.Id}">
+                                    <apex:variable var="firstTab" value="{!1==0}"/>
+                                    <apex:repeat var="row" value="{!section.rows}">
+                                        <div class="configTabAttributeRow">
+                                            <div class="{!IF(NOT(ISNULL(row.first.cscfga__Column_Span__c)) && row.first.cscfga__Column_Span__c > 1, IF(row.first.cscfga__Type__c != 'Text Display', 'configTabAttributeDouble', 'configTabAttributeDouble'), 'configTabAttribute')}" data-role="fieldcontain" style="{!if(row.first.cscfga__Label__c == '__script','display: none;','')}">
+                                                <apex:outputText rendered="{!NOT(row.hasFirst)}">
+                                                    <span>&nbsp;</span>
+                                                </apex:outputText>
+
+                                                <apex:outputText rendered="{!row.hasFirst}">
+                                                    <apex:outputText rendered="{!row.first.cscfga__Type__c != '' && row.first.cscfga__Type__c != 'Text Display'}">
+                                                        <label class="configLabel" for="{!layout.domSafeScreenName & '__' & row.first.cfgoffline__Reference_Name__c}_%idx%" data-cs-label="%ctx%{!row.first.cfgoffline__Reference_Name__c}_%idx%" data-cs-required="%ctx%{!row.first.cfgoffline__Reference_Name__c}_%idx%"> 
+                                                        </label>
+                                                    </apex:outputText>
+                                                    <cfgoffline:AttributeTemplate type="{!row.first.cscfga__Type__c}" domId="{!layout.domSafeScreenName & '__' & row.first.cfgoffline__Reference_Name__c}" flavour="standard" ref="{!row.first.cfgoffline__Reference_Name__c}" definition="{!row.first}" />
+                                                </apex:outputText>
+                                            </div>
+                                            <apex:outputText rendered="{!row.hasSecond}">
+                                                <div class="configTabAttribute" data-role="fieldcontain" style="{!if(row.second.cscfga__Label__c == '__script','display: none; ','')}">
+                                                    <apex:outputText rendered="{!row.second.cscfga__Type__c != '' && row.second.cscfga__Type__c != 'Text Display'}">
+                                                        <label class="configLabel" for="{!layout.domSafeScreenName & '__' & row.second.cfgoffline__Reference_Name__c}_%idx%" data-cs-label="%ctx%{!row.second.cfgoffline__Reference_Name__c}_%idx%" data-cs-required="%ctx%{!row.second.cfgoffline__Reference_Name__c}_%idx%">
+                                                        </label>
+                                                    </apex:outputText>
+                                                    <cfgoffline:AttributeTemplate type="{!row.second.cscfga__Type__c}" domId="{!layout.domSafeScreenName & '__' & row.second.cfgoffline__Reference_Name__c}" flavour="standard" ref="{!row.second.cfgoffline__Reference_Name__c}" definition="{!row.second}" />
+                                                </div>
+                                            </apex:outputText>
+                                            <apex:outputText rendered="{!NOT(row.hasSecond) && NOT(ISBLANK(row.first.cscfga__Column_Span__c)) && row.first.cscfga__Column_Span__c < 2}">
+                                                    <div class="configTabAttribute">
+                                                        <span>&nbsp;</span>
+                                                    </div>
+                                            </apex:outputText>
+                                        </div>
+                                    </apex:repeat>
+                                </div>
+                            </apex:repeat>
+                            <apex:repeat var="list" value="{!layout.lists}">
+                                <div class="configTabAttributeDouble">
+                                    <div data-cs-binding="%ctx%{!list.def.cfgoffline__Reference_Name__c}_%idx%"></div>
+                                </div>
+                            </apex:repeat>
+                            <apex:variable var="firstTab" value="{!NOT(contains(jsonString,'\"Name\" : \"Node Advert Assignments\"') && contains(jsonString,'\"Name\" : \"Ad Location\"'))}"/>
+                        </div>
+                    <apex:outputText escape="false" value="</script>" />
+
+                </apex:repeat>
+            </apex:repeat>
+
+            <cfgoffline:OutputRules />
+
+        </div>
+    </body>
+</apex:page>

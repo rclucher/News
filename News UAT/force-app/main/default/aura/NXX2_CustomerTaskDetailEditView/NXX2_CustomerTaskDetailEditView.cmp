@@ -1,0 +1,77 @@
+<aura:component access="global" controller = 'NXX2_CustomerActivitiesListController' implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction">
+
+    <aura:attribute name="iconName" type="String" />
+    <aura:attribute name="parentRecordId" type="String" />
+    <aura:attribute name="recordType" type="String" />
+
+    <aura:attribute name="mapOfTypeAndComments" type="Map" />
+    <aura:attribute name="record" type="Object" description="The record object to be displayed" />
+    <aura:attribute name="customerTaskRecordData" type="Object" description="A simplified view record object to be displayed" />
+    <aura:registerEvent name="handleCustomerActivityRefreshListEvent" type="c:NXX2_HandleCustomerActivityRefreshListEvent" />
+   
+    <aura:attribute name="disabled" type="Boolean" default="false" />
+    <aura:attribute name="saved" type="Boolean" default="false" />
+    <aura:attribute name="showSpinner" type="Boolean" default="true" />
+    <aura:attribute name="recordId" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <lightning:card variant="Narrow" title="Customer Activity" iconName="{!v.iconName}">
+        <aura:if isTrue="{!v.showSpinner}">
+            <lightning:spinner />
+        </aura:if>
+        <aura:if isTrue="{!!v.saved}">
+        <lightning:recordEditForm 
+            aura:id="createActivityForm"
+            onload="{!c.handleLoad}" 
+            onsubmit="{!c.handleSubmit}" 
+            onsuccess="{!c.handleSuccess}"
+            onerror ="{!c.handleError}"
+            recordTypeId="{!v.recordType}"
+            objectApiName="Customer_Task__c">
+            <lightning:messages />
+                <div class="slds-form slds-form_stacked" role="list">
+                    <div class="slds-grid slds-gutters_small">
+                        <div class="slds-col slds-has-flexi-truncate slds-grid" role="listitem">
+                            <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-hint-parent">
+                                <lightning:inputField fieldName="Type__c" onchange="{!c.getComments}" aura:id='type'/> 
+                            </div>
+                        </div>
+                        <div class="slds-col slds-has-flexi-truncate slds-grid" role="listitem">
+                            <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-hint-parent">
+                                <lightning:inputField fieldName="Due_Date__c" /> 
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="slds-grid slds-gutters_small">
+                            <div class="slds-col slds-has-flexi-truncate slds-grid" role="listitem">
+                                    <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-hint-parent">
+                                        <lightning:inputField fieldName="Status__c"/>
+                                    </div>
+                            </div>
+                    </div>
+					<div class="slds-grid slds-gutters_small">
+                        <div class="slds-col slds-has-flexi-truncate slds-grid" role="listitem">
+                            <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-hint-parent">
+                                <lightning:inputField fieldName="Comments__c"  aura:id='comments'/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-gutters_small">  
+                            <div class="slds-col slds-has-flexi-truncate slds-grid" role="listitem">
+                                <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-hint-parent hideDiv">
+                                    <lightning:inputField fieldName="Social_Campaign__c"  aura:id="proof" value="{!v.parentRecordId}"/>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="slds-m-top_medium">
+                        <lightning:button disabled="{!v.disabled}" variant="brand" type="submit" name="save" label="Save" />
+                    </div>
+            </lightning:recordEditForm>
+            <aura:set attribute="else">
+                <p>Saved! New record id is {!v.recordId}</p>
+            </aura:set>
+        </aura:if>
+    </lightning:card>
+</aura:component>

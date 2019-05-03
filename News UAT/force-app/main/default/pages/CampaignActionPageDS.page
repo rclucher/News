@@ -1,0 +1,584 @@
+<apex:page standardController="CampaignMember" 
+            extensions="CampaignActionPage_ControllerXDS" 
+            action="{!setToInprogress}"
+            title="Member Response"
+            docType="html-5.0">
+    <!-- 2018-04-16 Pratyush Chalasani (Ativa) - Upgrading this to version 42, older versions weren't working in Lightning Console -->
+    <apex:includeScript value="/support/console/42.0/integration.js"/>
+    <body>
+        <link rel="stylesheet" href="{!URLFOR($Resource.Campaign_CSS)}"/>
+        <style>
+            .left-column, .right-column  {width:50%;display:inline-table; margin:auto auto;}
+            .left-column div:first-child {margin-right:5px;}
+            .right-column div:first-child {margin-left:5px;}
+            .campaignMember {display:block;}
+            textArea {width:95%;}
+        </style>
+                
+        <apex:sectionHeader title="Member Response" subtitle="{!If(ISBLANK(member.Contactid),member.Lead.Name,member.Contact.Name)}"/>
+        
+        <apex:form id="theForm">
+            <!--Updated by Bohao Chen on 5/May/2014 for JIRA issue ???-->
+            <apex:actionFunction action="{!doSave}" 
+                                    name="saveResponse" 
+                                    rerender="messages, javascripts"
+                                    status="loading-status" 
+                                    oncomplete="closeMemberResponseTab(false, '{!member.CampaignId}');return false;" />
+            
+            <!-- BEGIN: change added by Tim Fabros 21 / 05 / 2014 -->
+            <apex:actionFunction action="{!doCancel}" 
+                                    name="cancelResponse" 
+                                    reRender="messages, javascripts"
+                                    status="loading-status"
+                                    oncomplete="closeMemberResponseTab(true, '{!member.CampaignId}');return false;" />
+            <!-- END: change added by Tim Fabros 21 / 05 / 2014 -->
+
+            <apex:actionStatus id="loading-status">
+                <apex:facet name="start">
+                    <div id="loading-background"/>
+                    <div id="loading">
+                        <div id="loading-content">
+                        <!--div class="spinner"/-->
+                            <div id="loading-msg">
+                                <img src="/img/loading32.gif" style="float: left; margin: 8px;" />
+                                <span style="display: inline-block; padding: 10px 0px;">Please Wait...</span>
+                            </div>
+                        </div>
+                    </div>
+                </apex:facet>
+            </apex:actionStatus>
+            
+            <apex:pageBlock >
+                
+                <apex:pageMessages id="messages" escape="false"/>
+                
+                <apex:pageBlockButtons id="buttons">
+                    <!--Updated by Bohao Chen on 5/May/2014 for JIRA issue ???-->
+                    <apex:commandButton onclick="cancelResponse();return false;"
+                                        value="Cancel" />
+                    
+                    <!-- this section is available when user is in service console -->
+                    <apex:commandButton onclick="saveResponse();return false;"
+                                        value="Save and Create New Response "  
+                                        rendered="{!AND(NOT(doNotProceed), refTabId != NULL)}" />     
+
+                    <!-- this section is available when user is not in service console -->
+                    <apex:commandButton action="{!doSave}"
+                                        value="Save and Create New Response" 
+                                        rendered="{!AND(NOT(doNotProceed), refTabId == NULL)}"
+                                        reRender="theForm"
+                                        status="loading-status"/>
+                    
+                    <apex:commandButton onclick="openBookingUIPageSubtab('{!member.id}'); return false;"
+                                        value="New Booking"
+                                        rendered="{!AND(NOT(ISBLANK(member.ContactId)),NOT(doNotProceed))}"/>                            
+                    <apex:commandButton onclick="openNewTaskPageSubtab('{!member.campaign.name}','{!member.contact.Name}'); return false;"
+                                        value="New Activity"
+                                        rendered="{!AND(NOT(ISBLANK(member.ContactId)),NOT(doNotProceed))}"/> 
+                    
+                    <apex:commandButton onclick="openNewOpptyPageSubtab('{!member.campaign.name}', '{!member.contactId}', '{!member.contact.Name}', '{!member.contact.account.Name}', '{!member.contact.LeadSource}'); return false;"
+                                        value="New Opportunity"
+                                        rendered="{!AND(NOT(ISBLANK(member.ContactId)),NOT(doNotProceed))}"/>  
+                                        
+                    <!-- 2017-08-11 AdSales 338 darshan.gosar@bluewolfgroup.com Added below code to redirect to canvas page passing contact & campaign ids -->
+                    <apex:commandButton onclick="openNewAddsBookingSubtab('{!member.campaign.Id}', '{!member.contact.Id}', '{!member.contact.account.Id}'); return false;"
+                                        value="NewsAdd Booking"
+                                        rendered="{!AND(NOT(ISBLANK(member.ContactId)),NOT(doNotProceed))}"/>
+                    
+                </apex:pageBlockButtons>    
+                
+                <apex:outputPanel id="newResponse" styleClass="left-column">
+                    <apex:PageBlockSection title="New Response" columns="1">
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="{!$ObjectType.Campaign_Response__c.fields.Response_Type__c.Label}"/>
+                            <apex:outputPanel >
+                                <apex:inputField value="{!newResponse.Response_Type__c}">
+                                    <apex:actionSupport event="onchange" rerender="newResponse" status="ResponseTypeLoadingStatus"/> <!-- uncommented to fix dependent picklist bug -->
+                                </apex:inputField>
+                                <apex:actionStatus id="ResponseTypeLoadingStatus" stopText="">
+                                    <apex:facet name="start">
+                                        <img src="/img/loading.gif" />
+                                    </apex:facet>
+                                </apex:actionStatus>
+                                
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:inputField value="{!newResponse.Response_Subtype__c}" />
+                        <apex:inputField value="{!newResponse.Decision_Maker_Reached__c}" /> 
+                        <apex:inputField value="{!newResponse.Response_Comment__c}" />
+                        
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="{!$ObjectType.Campaign_Response__c.fields.Call_Back_Date__c.Label}"/>
+                            <apex:inputField value="{!newResponse.Call_Back_Date__c}"/>                                     
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="{!$ObjectType.Campaign_Response__c.fields.Call_Back_Reminder__c.Label}"/>
+                            <apex:inputField value="{!newResponse.Call_Back_Reminder__c}"/>                                     
+                        </apex:pageBlockSectionItem>    
+                        
+                        <!-- Updated by Bohao Chen on 04/06/2014 for JIRA SFE-448 -->
+                        <!-- Ability to save contact plans via contact plan fields for certain campaign types -->
+                        <apex:inputField value="{!newResponse.Contact_Plan_Date__c}" />
+                        <apex:inputField value="{!newResponse.Contact_Plan_Ad_Type__c}" />
+                        <apex:inputField value="{!newResponse.Contact_Plan_Publication_Divisions__c}" />
+                        <!-- End -->
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="{!$ObjectType.Campaign_Response__c.fields.Call_Attempt__c.Label}"/>
+                            <apex:outputPanel >
+                                <apex:outputField value="{!newResponse.Call_Attempt__c}" />
+                                <apex:outputLabel value="({!member.Campaign.Max_Call_Attempts__c} soft limit)" />  &nbsp;   
+                                <apex:image value="/img/msg_icons/warning16.png"
+                                            style="vertical-align:middle;"
+                                            rendered="{!newResponse.Call_Attempt__c!=null &&
+                                                      member.Campaign.Max_Call_Attempts__c!=null &&
+                                                      (newResponse.Call_Attempt__c > member.Campaign.Max_Call_Attempts__c)}" />
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        
+                        
+                    </apex:PageBlockSection>
+                </apex:outputPanel>
+                
+
+                <apex:outputPanel id="response-history" styleClass="right-column">
+                    <apex:PageBlockSection title="Response History" columns="1">
+                        <apex:pageBlockTable value="{!campaignResponseHistory}" var="cr" rendered="{!NOT(campaignResponseHistory.Empty)}">
+                            <apex:column headerClass="left" value="{!cr.Call_Attempt__c}" headerValue="Attempt #" />
+                            <apex:column headerClass="left" value="{!cr.CreatedDate}" headerValue="Date"/>
+                            <apex:column headerClass="left" value="{!cr.CreatedBy.Name}" headerValue="Agent Name" /> 
+                            <apex:column headerClass="left" value="{!cr.Response_Type__c}" headerValue="Type" />
+                            <apex:column headerClass="left" value="{!cr.Response_Subtype__c}" headerValue="Subtype"/>
+                            <apex:column headerClass="left" value="{!cr.Response_Comment__c}" headerValue="Comment"/>
+                        </apex:pageBlockTable>
+                        <apex:outputLabel value="No records to display" rendered="{!campaignResponseHistory.Empty}" styleClass="noRowsHeader" />
+                    </apex:PageBlockSection>
+                </apex:outputPanel>                    
+                
+                <apex:outputPanel id="campaignMember" styleClass="{!IF(leadOrContact='contact', 'left-column', '')}">
+                    <apex:PageBlockSection title="Campaign Member" columns="1">
+                        
+                        <apex:outputField value="{!member.ContactId}" rendered="{!NOT(ISBLANK(member.ContactId))}"/>
+                        <apex:outputField value="{!member.LeadId}" rendered="{!NOT(ISBLANK(member.LeadId))}"/>
+                        <apex:outputField value="{!member.Account__c}" rendered="{!NOT(ISBLANK(member.Contact.AccountId))}" />
+                        
+                        <apex:outputField value="{!member.Age_in_List__c}" />
+                        <apex:outputField value="{!member.Execution_Status__c}" />
+                        <apex:outputField value="{!member.Status}" />
+                        <apex:outputField value="{!member.Locked_By__c}" />
+                        <apex:outputField value="{!member.Call_Count__c}" />
+                        <apex:outputField value="{!member.Campaign_Membership_Count__c}" />
+                        <apex:outputField value="{!member.Description__c}"/>
+                    </apex:PageBlockSection>
+                </apex:outputPanel> 
+
+                <apex:outputPanel id="Last-5-Cases" styleClass="right-column" rendered="{!leadOrContact='contact'}">
+                    <apex:pageBlockSection title="Last 5 Cases" columns="1">
+                        <apex:pageBlockTable value="{!caseHistoryList}" var="c" rendered="{!NOT(caseHistoryList.Empty)}">
+                            <apex:column headerClass="left" headerValue="Case #">
+                                <apex:outputLink onclick="openSubtab_JS('{!c.Id}');return false;"
+                                                    value="/{!c.Id}">{!c.CaseNumber}</apex:outputLink>
+                            </apex:column>
+                            <apex:column headerClass="left" value="{!c.RecordType.Name}" headerValue="Record Type"/>
+                            <apex:column headerClass="left" value="{!c.Status}" />
+                            <apex:column headerClass="left" value="{!c.Owner.Name}" headerValue="Owner"/>
+                        </apex:pageBlockTable>
+                        <apex:outputLabel value="No records to display" rendered="{!caseHistoryList.Empty}" styleClass="noRowsHeader" />
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+
+                <apex:outputPanel id="expired-bookings" styleClass="left-column" rendered="{!leadOrContact='contact'}">
+                    <apex:pageBlockSection title="Expired Bookings" columns="1">
+                        <apex:pageBlockTable value="{!expiredBookingList}" var="eb" rendered="{!NOT(expiredBookingList.Empty)}">
+                            <apex:column headerValue="Action">
+                            <a href="#" onclick="gotoBooking('{!eb.Source_System__c}','{!eb.id}','{!eb.sales_Order__r.id}','{!eb.Sales_Order__r.Calc_External_id__c}','{!eb.Account_No__c}','{!eb.Booking_Number__c}','{!eb.Sales_Order__r.Creative_Contact_Name__c}','{!eb.Sales_Order__r.Creative_Contact_Phone__c}','{!eb.Sales_Order__r.Placer_Contact_Name__c}','{!eb.Sales_Order__r.Placer_Contact_Phone__c}','{!member.campaignId}');">Goto Booking</a>
+                            </apex:column>
+                            <apex:column headerValue="Booking #"> 
+                                <apex:outputLink onclick="openSubtab_JS('{!eb.Id}');return false;"
+                                                    value="/{!eb.Id}">{!eb.Name}</apex:outputLink>
+                            </apex:column>                           
+                            <apex:column value="{!eb.Line_Item_Classifications__c}" headerValue="Classification"/>
+                            <apex:column value="{!eb.Total_Cost__c}" />
+                            <apex:column value="{!eb.Status__c}" />
+                        </apex:pageBlockTable>
+                        <apex:outputLabel value="No records to display" rendered="{!expiredBookingList.Empty}" styleClass="noRowsHeader" />
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+
+                <apex:outputPanel id="active-bookings" styleClass="right-column" rendered="{!leadOrContact='contact'}">
+                    <apex:PageBlockSection title="Active Bookings" columns="1" >
+                        <apex:pageBlockTable value="{!bookingList}" var="b" rendered="{!NOT(bookingList.Empty)}">
+                            <apex:column headerValue="Action">
+                                <a href="#" onclick="gotoBooking('{!b.Source_System__c}','{!b.id}','{!b.sales_Order__r.id}','{!b.Sales_Order__r.Calc_External_id__c}','{!b.Account_No__c}','{!b.Booking_Number__c}','{!b.Sales_Order__r.Creative_Contact_Name__c}','{!b.Sales_Order__r.Creative_Contact_Phone__c}','{!b.Sales_Order__r.Placer_Contact_Name__c}','{!b.Sales_Order__r.Placer_Contact_Phone__c}','{!member.campaignId}');">Goto Booking</a>
+                            </apex:column>
+                            <apex:column headerValue="Booking #">
+                                <apex:outputLink onclick="openSubtab_JS('{!b.Id}');return false;"
+                                                    value="/{!b.Id}">{!b.Name}</apex:outputLink>
+                            </apex:column>                       
+                            <apex:column value="{!b.Line_Item_Publication_Divisions_mpl__c}" headerValue="Pub Div"/>
+                            <apex:column value="{!b.Line_Item_Classifications__c}" headerValue="Classification"/>
+                            <apex:column value="{!b.Last_Expiry_Appearance__c}" headerValue="Last Expiry Appearance"/>
+                            <apex:column value="{!b.Total_Cost__c}" />
+                            <apex:column value="{!b.Sales_Rep__c}" />
+                        </apex:pageBlockTable>
+                        <apex:outputLabel value="No records to display" rendered="{!bookingList.Empty}" styleClass="noRowsHeader" />
+                    </apex:PageBlockSection>    
+                </apex:outputPanel>                
+
+                <apex:outputPanel id="Last-5-ActivityHistory" styleClass="left-column">
+                    <apex:pageBlockSection title="Last 5 Activity History" columns="1">
+                        <apex:pageBlockTable value="{!activityHistoryList}" var="ah" rendered="{!NOT(activityHistoryList.Empty)}">
+                            <apex:column headerClass="left" headerValue="Subject">
+                                <apex:outputLink onclick="openSubtab_JS('{!ah.Id}');return false;"
+                                                    value="/{!ah.Id}">{!ah.Subject}</apex:outputLink>
+                            </apex:column>              
+                            <apex:column headerClass="left" value="{!ah.ActivityType}" />
+                            <apex:column headerClass="left" value="{!ah.Owner.Name}" headerValue="Assigned To"/>
+                            <apex:column value="{!ah.ActivityDate}" />
+                        </apex:pageBlockTable>
+                        <apex:outputLabel value="No records to display" rendered="{!activityHistoryList.Empty}" styleClass="noRowsHeader" />
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+
+                <apex:outputPanel id="OpenActivities" styleClass="right-column">
+                    <apex:pageBlockSection title="5 Open Activities" columns="1">
+                        <apex:pageBlockTable value="{!openActivityList}" var="oa" rendered="{!NOT(openActivityList.Empty)}">
+                            <apex:column headerClass="left" headerValue="Subject">
+                                <apex:outputLink onclick="openSubtab_JS('{!oa.Id}');return false;"
+                                                    value="/{!oa.Id}">{!oa.Subject}</apex:outputLink>
+                            </apex:column>
+                            <apex:column headerClass="left" value="{!oa.ActivityType}" />
+                            <apex:column headerClass="left" value="{!oa.Owner.Name}" headerValue="Assigned To"/>
+                            <apex:column value="{!oa.ActivityDate}" />
+                        </apex:pageBlockTable>
+                        <apex:outputLabel value="No records to display" rendered="{!openActivityList.Empty}" styleClass="noRowsHeader" />
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+
+                <apex:outputPanel id="Contact-Plan" 
+                                    rendered="{!AND(NOT(contactPlanList.Empty), 
+                                                    leadOrContact='contact',
+                                                    OR(member.Campaign.NEWS_Campaign_Type__c='Contact Plan',
+                                                       member.Campaign.NEWS_Campaign_Type__c='Retention'))}">
+                    <apex:PageBlockSection title="Contact Plan" columns="1">
+                        <apex:pageBlockTable value="{!contactPlanList}" var="cr">
+                            <apex:column headerValue="Name">
+                                <apex:outputLink onclick="openSubtab_JS('{!cr.Id}');return false;"
+                                                    value="/{!cr.Id}">{!cr.Name}</apex:outputLink>
+                            </apex:column>
+                            <apex:column value="{!cr.Contact_Plan_Date__c}" />
+                            <apex:column value="{!cr.Contact_Plan_Ad_Type__c}" />
+                            <apex:column value="{!cr.Contact_Plan_Publication_Divisions__c}" />
+                        </apex:pageBlockTable>
+                    </apex:PageBlockSection>
+                </apex:outputPanel>
+
+                <apex:outputPanel id="CampaignMembership" 
+                                    rendered="{!NOT(cmList.Empty)}">
+                    <apex:PageBlockSection title="Active Campaign Membership" columns="1">
+                        <apex:pageBlockTable value="{!cmList}" var="cm">
+                            <apex:column headerValue="Campaign Name">
+                                <apex:outputLink onclick="openSubtab_JS('{!cm.CampaignId}');return false;"
+                                                    value="/{!cm.CampaignId}">{!cm.Campaign.Name}</apex:outputLink>                                
+                            </apex:column>
+                            <apex:column value="{!cm.Campaign.Status}" headerValue="Campaign Status"/>
+                            <apex:column value="{!cm.Call_Count__c}" />
+                            <apex:column value="{!cm.Execution_Status__c}" />
+                            <apex:column value="{!cm.Response_Type__c}" />
+                            <apex:column value="{!cm.Response_Sub_Type__c}" />
+                            <apex:column value="{!cm.Age_in_List__c}" />
+                            <apex:column value="{!cm.LastModifiedDate}" />
+                            <apex:column value="{!cm.LastModifiedBy.Name}" headerValue="Last Modified By" />
+                        </apex:pageBlockTable>
+                        <apex:outputLabel value="No records to display" rendered="{!cmList.Empty}" styleClass="noRowsHeader" />
+                    </apex:PageBlockSection>
+                </apex:outputPanel>
+
+            </apex:pageBlock>
+        </apex:form>
+        
+        <apex:outputpanel id="javascripts">
+            <script type="text/javascript">
+            function closeCurrentTab(isCancel) {
+                if(isCancel || '{!newResponse.id}' != '')
+                {
+                    sforce.console.getEnclosingTabId(closeSubtab);
+                }
+            }
+            
+            var closeSubtab = function closeSubtab(result) {
+                var tabId = result.id;
+                sforce.console.closeTab(tabId);
+            };
+            
+            function refreshRefTabById(campaignId) {
+                // visualforce page cannot be refreshed, so the following line is commented out
+                //sforce.console.refreshSubtabById('{!refTabId}', false);
+
+                // 2015-01-10 UserStory16.1 louis.wang@bluewolf.com - call event listener so member response subtab can refresh Campaign Execution subtab
+                sforce.console.fireEvent('CampaignExecution_' + campaignId.substring(0,15), 'refresh');
+                //console.log('CampaignActionPage CampaignExecution_' + campaignId.substring(0,15));
+            }
+            
+            var refreshSuccess = function refreshSuccess(result) {
+                if (result.success == true) {
+                    alert('Sub tab refreshed successfully');
+                } else {
+                    alert('Sub did not refresh');
+                }
+            };      
+
+            function openBookingUIPageSubtab(campaignMemberId)
+            {
+                if (sforce.console.isInConsole()) { // Added by Tim Fabros 19 / 05 / 2014 - SFE-510
+                    sforce.console.getEnclosingPrimaryTabId(function(result) 
+                                                            {         
+                                                                var primaryTabId = result.id;                                           
+                                                                sforce.console.openSubtab(primaryTabId , '/apex/{!$Setup.Visualforce_Target__c.BookingUI__c}?campaignMemberId=' + campaignMemberId
+                                                                                          //+ '&retURL=/' +  campaignMemberId
+                                                                                          + '&refTabId={!refTabId}', true, 'Create Booking');
+                                                            });
+                } else {
+                    window.location.href = '/apex/{!$Setup.Visualforce_Target__c.BookingUI__c}?campaignMemberId=' + campaignMemberId 
+                    //+ '&retURL=/' +  campaignMemberId
+                    + '&s=' + 'true'; // Added by Tim Fabros 19 / 05 / 2014 - SFE-510
+                }
+            }              
+            
+            function openNewOpptyPageSubtab(campaignName, contactId, contactName, AccountName, LeadSource)
+            {
+                if (sforce.console.isInConsole()) {
+                    sforce.console.getEnclosingPrimaryTabId(function(result) 
+                                                            {         
+                                                                var primaryTabId = result.id;      
+                                                                var surl = '/006/e?opp17=' + campaignName +'&opp4=' + AccountName + '&opp6=' + LeadSource + '&{!opportunityContactFieldId}=' + contactName + '&{!opportunityContactFieldId}_lkid=' + contactId;                                    
+                                                                //alert(surl);
+                                                                sforce.console.openSubtab(primaryTabId , surl , true, 'Create Opportunity');
+                                                            });
+                } else {
+                    window.location.href = '/006/e?opp17=' + campaignName +'&opp4=' + AccountName + '&opp6=' + LeadSource + '&{!opportunityContactFieldId}=' + contactName + '&{!opportunityContactFieldId}_lkid=' + contactId + '&s=true'; // Added by Tim Fabros 19 / 05 / 2014 - SFE-510
+                }
+            }           
+
+            // 2017-08-11 AdSales 338 darshan.gosar@bluewolfgroup.com Added below code to redirect to canvas page passing contact & campaign ids
+            function openNewAddsBookingSubtab(campaignId, contactId, accountId)
+            {
+                var surl = '/apex/LeapfrogBooking?Id=' + accountId + '&campaignId=' +  campaignId + '&contactId=' + contactId;
+                if (sforce.console.isInConsole()) {
+                    sforce.console.getEnclosingPrimaryTabId(function(result) 
+                                {         
+                                    var primaryTabId = result.id;                                                                
+                                    sforce.console.openSubtab(primaryTabId , surl , true, 'NewAdds Booking');
+                                });
+                } else {
+                    window.location.href = surl;
+                }
+            }            
+            
+            function openNewTaskPageSubtab(campaignName, contactName)
+            {
+                if (sforce.console.isInConsole()) { // Added by Tim Fabros 19 / 05 / 2014 - SFE-510
+                    sforce.console.getEnclosingPrimaryTabId(function(result) 
+                                                            {         
+                                                                var primaryTabId = result.id;      
+                                                                var surl = '/00T/e?tsk3_mlktp=701&tsk3='+ campaignName + '&tsk2_mlktp=003&tsk2='+contactName;                                    
+                                                                //alert(surl);
+                                                                sforce.console.openSubtab(primaryTabId , surl , true, 'Create Activity');
+                                                            }); 
+                } else {
+                    window.location.href = '/00T/e?tsk3_mlktp=701&tsk3='+ campaignName + '&tsk2_mlktp=003&tsk2='+contactName + '&s=true'; // Added by Tim Fabros 19 / 05 / 2014 - SFE-510
+                }
+            }
+            
+            function openSubtab_JS(targetId)
+            {
+                // 2015-07-29 Make hyperlink to work for both console and non-console mode
+                if (sforce.console.isInConsole()) {            
+                    sforce.console.getEnclosingPrimaryTabId(function(result) 
+                                                        {         
+                                                            var primaryTabId = result.id;                                           
+                                                            //sforce.console.openSubtab(primaryTabId , '/' + targetId, true);
+                                                            
+                                                            // 2018-04-16 Pratyush Chalasani (Ativa) - Need to make things open in a top-level tab instead
+                                                            sforce.console.openPrimaryTab(null, '/' + targetId, true);
+                                                        });
+                } else {
+                    window.location.href = '/' + targetId;
+                }
+            }           
+            
+            function gotoBooking(inSourceSystem, inBookingId, inSalesOrderId, inSalesOrderCalcId, inBookingAccountNo, inBookingNumber, inCreativeContact, inCreativeContactPhone, inPlacerContactName, inPlacerContactPhone, inCampaignId)
+            {    
+                //alert('gotoBooking()');
+                if(inSourceSystem == 'CyberAd')
+                {
+                    //  alert('gotoBooking() CyberAd');
+                    var RequestBroker = new ActiveXObject('SalesForceRequestBroker.RequestBroker'); 
+                    
+                    // Update by Bohao Chen on 1/Sep/2014 for JIRA issue SFE-619
+                    // BEGIN            
+                    var r = RequestBroker.LaunchCyberAd('{!GETSESSIONID()}');//, "{!LEFT($Api.Partner_Server_URL_260, FIND( '/services', $Api.Partner_Server_URL_260))}");
+                    // END
+                    
+                    var Result = RequestBroker.ExecuteRequest('{!GETSESSIONID()}',  inSalesOrderId + '-' + inBookingId , '{\"salesOrderSFID\":\"' + inSalesOrderId + '\", \"bookingSFID\":\"' + inBookingId + '\", \"campaignSFID\":\"' + inCampaignId + '\"}');
+                }
+                
+                else if(inSourceSystem == 'Cyber$ell')
+                {
+                    //  alert('gotoBooking() Cyber$ell');
+                    var wshShell;
+                    var cyberOpen;
+                    var cyberVersion;
+                    var bpStatus;
+                    var salesOrderId;
+                    var baNum;
+                    var bookingNum;
+                    var cyber;
+                    var conName;
+                    var homeNum;
+                    var placerName;
+                    var placerNumber;
+                    var salesRep;
+                    var intgId;
+                    var bookingProfileId;
+                    
+                    
+                    
+                    
+                    try {
+                        wshShell = new ActiveXObject("WScript.Shell");
+                        cyberVersion = "CyberSell v6";
+                        cyberOpen = wshShell.AppActivate(cyberVersion);
+                        
+                        if (cyberOpen) {
+                            bpStatus = "Pending";
+                            
+                            cyber = new ActiveXObject("CyberSell.Application");
+                            cyber = cyber.WrappedApplication;
+                            salesOrderId = inSalesOrderCalcId;
+                            
+                            // Get all values
+                            baNum = inBookingAccountNo;
+                            bookingNum = inBookingNumber;
+                            conName = inCreativeContact;
+                            homeNum = inCreativeContactPhone;
+                            placerName = inPlacerContactName;
+                            placerNumber = inPlacerContactPhone;
+                            
+                            if (conName.replace(/^\s+|\s+$/g, '') == "") {
+                                conName = placerName;
+                                homeNum = placerNumber;
+                            }
+                            
+                            salesRep = "Genera";
+                            intgId = inSalesOrderCalcId;
+                            
+                            //Open existing booking
+                            if ((baNum != "") && (bookingNum != "")) { //Then Locate a GBA and Locate a booking.
+                                cyber.Execute("LocateAccount", "[Number] = '" + baNum + "'");
+                                if (cyber.Results.Accounts.Count == 1) {
+                                    //Next 2 lines are meant to select the Customers tab and select the first item.
+                                    cyber.Results.CurrentTab = 0;
+                                    cyber.Results.ListIndex = 1;
+                                    cyber.Execute("LocateBooking", "[Number] = '" + bookingNum + "'");
+                                }
+                            } else { //Then raise an error.
+                                alert("This Sales Order has invalid Booking");
+                            }
+                            
+                            cyber.UpdateGUI();
+                        } else {
+                            alert("Unable to go to Cyber$ell. Please ensure that Cyber$ell is fully opened then try again.");
+                        }
+                    } catch (e) {
+                        // Write the generic error message to screen
+                        alert(e.toString() + '\n' + cyber + '\n' + e.errText + '\n' + e.errCode);
+                    } finally {
+                        wshShell = null;
+                        cyber = null;
+                    }
+                    
+                }
+                else if(inSourceSystem == 'AdPoint') {
+                    var surl = '/apex/AdPointOrderDetailView?id=' + inBookingId + '&s=false';
+                     
+                    if (sforce.console.isInConsole()){ 
+                        sforce.console.getEnclosingPrimaryTabId(function(result) 
+                        {         
+                            var primaryTabId = result.id;                            
+                            sforce.console.openSubtab(primaryTabId , surl , true, 'Go To Booking');
+                        });                        
+                    } 
+                    else { 
+                        window.location.href = surl;
+                    } 
+               } 
+                    
+               else if(inSourceSystem == 'Leapfrog' || inSourceSystem == 'NewsAdds Booking System') { 
+                   var surl = '/apex/LeapfrogBooking?id=' + inBookingId + '&campaignId=' +  inCampaignId;
+                     
+                    if (sforce.console.isInConsole()){
+                        var primaryTabId = result.id;                        
+                        sforce.console.openSubtab(primaryTabId , surl , true, 'Go To Booking'); 
+                    } else { 
+                        window.location = surl;
+                    } 
+                } 
+                else { 
+                    alert('Unknown booking system in source system field on the booking record'); 
+                }
+            }   
+            
+            //Updated by Bohao Chen on 5/May/2014 for JIRA SFE-510
+            function closeMemberResponseTab(closeTab, campaignId)
+            {             
+                if(sforce.console.isInConsole()) {
+                    if ({!hasError == false}) {
+                        refreshRefTabById(campaignId);
+                        closeCurrentTab(closeTab);
+                    }
+                }
+                else {
+                    //window.close(closeTab);
+                    window.location = '/apex/campaign?Id=' + campaignId;
+                }
+            } 
+            
+            //Updated by Bohao Chen on 12/May/2014 for JIRA SFE-510
+            // using apex remote action method to save and update records instead of apex method in order to return operation result
+            /*function saveNewResponseAndMember(campaignMemberId)
+        {
+            if(campaignMemberId != null)
+            {
+                Visualforce.remoting.Manager.invokeAction(
+
+                );
+            }
+        }
+
+        */
+        // update ends for JIRA SFE-510
+        
+        // added by Tim Fabros 21 / 05 / 2014 - 
+        // BEGIN:
+        window.onload = function() 
+        {
+            var anchors = document.getElementsByTagName('a');
+            for(var i = 0; i < anchors.length; i++) {
+                var anchor = anchors[i];
+                if ((anchor.className).match(/\bx-tab-strip-close/)) { // 
+                    anchor.onclick = function() {
+                        alert('ho ho ho');
+                    }
+                }
+            }
+        }
+        // END:
+        </script>   
+    </apex:outputpanel>
+    </body>
+</apex:page>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LeadSource__c</fullName>
+    <externalDeveloperName>LeadSource</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Lead Source</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Advertised in other competitor</fullName>
+                <default>false</default>
+                <label>Advertised in other competitor</label>
+            </value>
+            <value>
+                <fullName>Advertised in press competitor</fullName>
+                <default>false</default>
+                <label>Advertised in press competitor</label>
+            </value>
+            <value>
+                <fullName>Advertised in radio competitor</fullName>
+                <default>false</default>
+                <label>Advertised in radio competitor</label>
+            </value>
+            <value>
+                <fullName>Advertised in TV competitor</fullName>
+                <default>false</default>
+                <label>Advertised in TV competitor</label>
+            </value>
+            <value>
+                <fullName>Classified Private</fullName>
+                <default>false</default>
+                <label>Classified Private</label>
+            </value>
+            <value>
+                <fullName>Contact centre referral</fullName>
+                <default>false</default>
+                <label>Contact centre referral</label>
+            </value>
+            <value>
+                <fullName>Editorial referral</fullName>
+                <default>false</default>
+                <label>Editorial referral</label>
+            </value>
+            <value>
+                <fullName>Existing Businesses</fullName>
+                <default>false</default>
+                <label>Existing Businesses</label>
+            </value>
+            <value>
+                <fullName>Features referral</fullName>
+                <default>false</default>
+                <label>Features referral</label>
+            </value>
+            <value>
+                <fullName>Free market or local council reports</fullName>
+                <default>false</default>
+                <label>Free market or local council reports</label>
+            </value>
+            <value>
+                <fullName>Incoming Call</fullName>
+                <default>false</default>
+                <label>Incoming Call</label>
+            </value>
+            <value>
+                <fullName>Lapsed Account Database</fullName>
+                <default>false</default>
+                <label>Lapsed Account Database</label>
+            </value>
+            <value>
+                <fullName>Lapsed Accounts</fullName>
+                <default>false</default>
+                <label>Lapsed Accounts</label>
+            </value>
+            <value>
+                <fullName>Local Mail Drop</fullName>
+                <default>false</default>
+                <label>Local Mail Drop</label>
+            </value>
+            <value>
+                <fullName>Marketing referral</fullName>
+                <default>false</default>
+                <label>Marketing referral</label>
+            </value>
+            <value>
+                <fullName>Networking</fullName>
+                <default>false</default>
+                <label>Networking</label>
+            </value>
+            <value>
+                <fullName>NS Cancellations</fullName>
+                <default>false</default>
+                <label>NS Cancellations</label>
+            </value>
+            <value>
+                <fullName>NS Community Advertisers</fullName>
+                <default>false</default>
+                <label>NS Community Advertisers</label>
+            </value>
+            <value>
+                <fullName>NS Competitions</fullName>
+                <default>false</default>
+                <label>NS Competitions</label>
+            </value>
+            <value>
+                <fullName>NS Health Checks</fullName>
+                <default>false</default>
+                <label>NS Health Checks</label>
+            </value>
+            <value>
+                <fullName>NS Part-week subscribers</fullName>
+                <default>false</default>
+                <label>NS Part-week subscribers</label>
+            </value>
+            <value>
+                <fullName>NS Past Dues</fullName>
+                <default>false</default>
+                <label>NS Past Dues</label>
+            </value>
+            <value>
+                <fullName>NS-resolicitation</fullName>
+                <default>false</default>
+                <label>NS-resolicitation</label>
+            </value>
+            <value>
+                <fullName>Proactive</fullName>
+                <default>false</default>
+                <label>Proactive</label>
+            </value>
+            <value>
+                <fullName>Referral from existing customer</fullName>
+                <default>false</default>
+                <label>Referral from existing customer</label>
+            </value>
+            <value>
+                <fullName>Tender</fullName>
+                <default>false</default>
+                <label>Tender</label>
+            </value>
+            <value>
+                <fullName>Trade Show</fullName>
+                <default>false</default>
+                <label>Trade Show</label>
+            </value>
+            <value>
+                <fullName>Word of Mouth</fullName>
+                <default>false</default>
+                <label>Word of Mouth</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

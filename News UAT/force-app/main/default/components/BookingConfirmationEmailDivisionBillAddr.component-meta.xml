@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>29.0</apiVersion>
+    <description>This is division billing address section for visualforce email template &#39;Booking Confirmation&#39;</description>
+    <label>BookingConfirmationEmailDivisionBillAddr</label>
+</ApexComponent>

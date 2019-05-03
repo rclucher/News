@@ -1,0 +1,204 @@
+<aura:component controller="CampaignExecutionController">
+
+	<aura:attribute name="searchLead_Contact_Name" type="String" />
+	<aura:attribute name="searchCompanyOrAccount" type="String" />
+	<aura:attribute name="searchExecution_Status" type="String" />
+	<aura:attribute name="searchLast_Booking_Line_Item_Publication_Divs" type="String" />
+	<aura:attribute name="searchStatus" type="String" />
+	<aura:attribute name="filterCall_Count" type="String" />
+	<aura:attribute name="searchCall_Count" type="String" />
+	<aura:attribute name="filterAge_In_List" type="String" />
+	<aura:attribute name="searchAge_In_List" type="String" />
+	<aura:attribute name="filterLast_Booking_Value" type="String" />
+	<aura:attribute name="searchLast_Booking_Value" type="String" />	
+	<aura:attribute name="filterResponse_DateTime" type="String" />
+	<aura:attribute name="filterCall_Back_Date" type="String" />
+	<aura:attribute name="searchCall_Back_Date" type="Date" />
+	<aura:attribute name="searchResponse_DateTime" type="Date" />
+
+	<aura:attribute name="campaignMemberListMap" type="Map"/>
+
+	<aura:attribute name="campaignMembersToDo" type="CampaignMember[]" />
+	<aura:attribute name="campaignMembersNotStarted" type="CampaignMember[]" />
+	<aura:attribute name="campaignMembersMyCallsToDo" type="CampaignMember[]" />
+	<aura:attribute name="campaignMembersAllCallsToDo" type="CampaignMember[]" />
+	<aura:attribute name="campaignMembersMyCompleted" type="CampaignMember[]" />
+	<aura:attribute name="campaignMembersAllCompleted" type="CampaignMember[]" />
+	<aura:attribute name="campaignMembersAll" type="CampaignMember[]" />
+
+	<aura:attribute name="executionStatusList" type="SelectOptionWrapper[]" description="picklist values for execution statuses"/>
+	<aura:attribute name="statusList" type="SelectOptionWrapper[]" description="picklist values for statuses"/>
+	<aura:attribute name="filterOptions" type="String[]" description="picklist values for filter options"/>
+
+	<aura:attribute name="spinner" type="Boolean" default="false"/>
+
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+	<article class="slds-card slds-m-around--x-large">
+		<header class="slds-card__header slds-grid">
+			<div class="slds-media slds-media--center slds-has-flexi-truncate">
+				<div class="slds-media__figure">
+					<lightning:icon iconName="standard:search" alternativeText="Search Campaign Members"/>
+				</div>
+				<div class="slds-media__body slds-truncate">
+					<span class="slds-text-heading--small">Search Campaign Members</span>
+				</div>
+			</div>
+		</header>
+		<div class="slds-card__body slds-text-align--left slds-p-around--x-large slds-box slds-theme--default">
+			<div class="slds-grid slds-wrap">
+
+				<!-- LEFT SIDE -->
+				<div class="slds-col">
+					<div class="slds-panel__section">
+						<div class="slds-form--horizontal">
+							<div class="slds-form-element">
+								<label class="slds-form-element__label" for="searchLead_Contact_Name">
+									{!$ObjectType.CampaignMember.fields.Lead_Contact_Name__c.Label} Lead/Contact Name
+								</label>
+								<div class="slds-form-element__control">
+									<ui:inputText aura:id="searchLead_Contact_Name" class="slds-input" value="{!v.searchLead_Contact_Name}"/>
+								</div>
+							</div>
+
+							<div class="slds-form-element">
+								<label class="slds-form-element__label" for="searchCompanyOrAccount">
+									{!$ObjectType.CampaignMember.fields.CompanyOrAccount__c.Label} Company Or Account
+								</label>
+								<div class="slds-form-element__control">
+									<ui:inputText aura:id="searchCompanyOrAccount" class="slds-input" value="{!v.searchCompanyOrAccount}"/>
+								</div>
+							</div>
+
+							<div class="slds-form-element">
+								<!-- <label class="slds-form-element__label" for="address-state-province">
+									{!$ObjectType.CampaignMember.fields.Execution_Status__c.Label} 
+								</label> -->
+								<div class="slds-form-element__control">
+									<lightning:select name="searchExecution_Status" aura:id="searchExecution_Status" label="Execution Status" value="{!v.searchExecution_Status}">
+										<option value="">-- None --</option>
+										<aura:iteration items="{!v.executionStatusList}" var="executionStatus1">
+											<option value="{!executionStatus1.optionValue}">{!executionStatus1.optionLabel}</option>
+										</aura:iteration>
+									</lightning:select>
+								</div>
+							</div>
+
+							<div class="slds-form-element">
+								<label class="slds-form-element__label" for="searchLast_Booking_Line_Item_Publication_Divs">
+									{!$ObjectType.CampaignMember.fields.Last_Booking_Line_Item_Publication_Divs__c.Label} Last Booking Line Item Publication Divs
+								</label>
+								<div class="slds-form-element__control">
+									<ui:inputText aura:id="searchLast_Booking_Line_Item_Publication_Divs" class="slds-input" value="{!v.searchLast_Booking_Line_Item_Publication_Divs}"/>
+								</div>
+							</div>
+
+							<div class="slds-form-element">
+								<div class="slds-form-element__control">
+									<lightning:select name="searchStatus" aura:id="searchStatus" label="Status" value="{!v.searchStatus}">
+										<option value="">-- None --</option>
+										<aura:iteration items="{!v.statusList}" var="status1">
+											<option value="{!status1.optionValue}">{!status1.optionLabel}</option>
+										</aura:iteration>
+									</lightning:select>
+								</div>
+							</div>								
+						</div>
+					</div>
+				</div>
+
+				<!-- RIGHT SIDE -->
+				<div class="slds-col">
+					<div class="slds-panel__section">
+						<div class="slds-form--horizontal">
+							
+							<div class="slds-form-element">
+								<div class="slds-form-element__control">
+									<div class="slds-grid slds-wrap">
+										<div class="slds-size_1-of-6">
+											<lightning:select name="filterCall_Count" aura:id="filterCall_Count" label="Call Count" value="{!v.filterCall_Count}" class="select-auto-width">
+												<aura:iteration items="{!v.filterOptions}" var="filterOption">
+													<option value="{!filterOption}">{!filterOption}</option>
+												</aura:iteration>
+											</lightning:select>
+										</div>
+										<div class="slds-size_5-of-6">
+											<lightning:input type="number" aura:id="searchCall_Count" class="complaint_date" value="{!v.searchCall_Count}" label="&nbsp;"/>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="slds-form-element">
+								<div class="slds-form-element__control">
+									<div class="slds-grid slds-wrap">
+										<div class="slds-size_1-of-6">
+											<lightning:select name="filterAge_In_List" aura:id="filterAge_In_List" label="Age in List" value="{!v.filterAge_In_List}" class="select-auto-width">
+												<aura:iteration items="{!v.filterOptions}" var="filterOption">
+													<option value="{!filterOption}" text="{!filterOption}"/>
+												</aura:iteration>
+											</lightning:select>
+										</div>
+										<div class="slds-size_5-of-6">
+											<lightning:input type="number" aura:id="searchAge_In_List" class="complaint_date" value="{!v.searchAge_In_List}" label="&nbsp;"/>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="slds-form-element">
+								<div class="slds-form-element__control">
+									<div class="slds-grid slds-wrap">
+										<div class="slds-size_1-of-6">
+											<lightning:select name="filterLast_Booking_Value" aura:id="filterLast_Booking_Value" label="Last Booking Value" value="{!v.filterLast_Booking_Value}" class="select-auto-width">
+												<aura:iteration items="{!v.filterOptions}" var="filterOption">
+													<option value="{!filterOption}" text="{!filterOption}"/>
+												</aura:iteration>
+											</lightning:select>
+										</div>
+										<div class="slds-size_5-of-6">
+											<lightning:input type="number" aura:id="searchLast_Booking_Value" class="complaint_date" value="{!v.searchLast_Booking_Value}" label="&nbsp;"/>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="slds-form-element">
+								<div class="slds-form-element__control">
+									<div class="slds-grid slds-wrap">
+										<div class="slds-size_1-of-6">
+											<lightning:select name="filterResponse_DateTime" aura:id="filterResponse_DateTime" label="Latest Response Datetime" value="{!v.filterResponse_DateTime}" class="select-auto-width">
+												<aura:iteration items="{!v.filterOptions}" var="filterOption">
+													<option value="{!filterOption}" text="{!filterOption}"/>
+												</aura:iteration>
+											</lightning:select>
+										</div>
+										<div class="slds-size_5-of-6">
+											<lightning:input aura:id="searchResponse_DateTime" type="date"  name="searchResponse_DateTime" class="complaint_date" value="{!v.searchResponse_DateTime}" label="&nbsp;"/>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="slds-form-element">
+								<div class="slds-form-element__control">
+									<div class="slds-grid slds-wrap">
+										<div class="slds-size_1-of-6">
+											<lightning:select name="filterCall_Back_Date" aura:id="filterCall_Back_Date" label="Call Back Date" value="{!v.filterCall_Back_Date}" class="select-auto-width">
+												<aura:iteration items="{!v.filterOptions}" var="filterOption">
+													<option value="{!filterOption}" text="{!filterOption}"/>
+												</aura:iteration>
+											</lightning:select>
+										</div>
+										<div class="slds-size_5-of-6">
+											<lightning:input aura:id="searchCall_Back_Date" type="date"  name="searchCall_Back_Date" class="complaint_date" value="{!v.searchCall_Back_Date}" label="&nbsp;"/>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</article>
+	<c:LoadingSpinnerComponent spinner="{!v.spinner}" />
+</aura:component>

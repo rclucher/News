@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Opportunity_Product_Update_CustomAmount</fullName>
+        <field>Custom_TotalPrice__c</field>
+        <formula>TotalPrice</formula>
+        <name>Opportunity Product: Update CustomAmount</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>OptyLine_Clear_Booking_CreatedDate</fullName>
+        <description>Clear Sales Order created Date/Time for use in a roll-up summary field.</description>
+        <field>OpportunityProduct_Revenue_Date_Actual__c</field>
+        <name>OptyLine - Clear Booking CreatedDate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>OptyLine_Copy_Oppty_Owner</fullName>
+        <field>Opportunity_Owner__c</field>
+        <name>OptyLine - Copy Oppty Owner</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>OptyLine_Copy_Oppty_Probability</fullName>
+        <field>Opportunity_Probablity__c</field>
+        <formula>Opportunity.Probability</formula>
+        <name>OptyLine - Copy Oppty Probability</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>OptyLine_Has_Sales_Order_No</fullName>
+        <field>Has_Sales_Order__c</field>
+        <literalValue>0</literalValue>
+        <name>OptyLine - Has Sales Order No</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>OptyLine_Has_Sales_Order_Yes</fullName>
+        <field>Has_Sales_Order__c</field>
+        <literalValue>1</literalValue>
+        <name>OptyLine - Has Sales Order Yes</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>OptyLine_Update_Booking_CreatedDate</fullName>
+        <description>Set Sales Order created Date/Time for use in a rollup summary field.</description>
+        <field>OpportunityProduct_Revenue_Date_Actual__c</field>
+        <formula>BLANKVALUE(Sales_Order__r.First_Booking_Created_Date_Time__c, Sales_Order__r.CreatedDate)</formula>
+        <name>OptyLine - Update Booking CreatedDate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Opportunity_Owner_Current_Role</fullName>
+        <field>OpportunityOwnerCurrentRole__c</field>
+        <formula>Opportunity.Owner.UserRole.Name</formula>
+        <name>Set Opportunity Owner Current Role</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>Opportunity Owner Current Role</fullName>
+        <actions>
+            <name>Set_Opportunity_Owner_Current_Role</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>OpportunityLineItem.Parent_Opportunity__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Opty Product%3A Update CustomTotalPrice</fullName>
+        <actions>
+            <name>Opportunity_Product_Update_CustomAmount</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>PRIORVALUE(TotalPrice) != TotalPrice</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>OptyLine - Copy Oppty Owner</fullName>
+        <actions>
+            <name>OptyLine_Copy_Oppty_Owner</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>OpportunityLineItem.Parent_Opportunity__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>Copy the related Opportunity&#39;s Owner to the opportunity product level</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>OptyLine - Copy Oppty Probability</fullName>
+        <actions>
+            <name>OptyLine_Copy_Oppty_Probability</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.Probability</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>Copy its opportunity probability to opportunity product level</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>OptyLine - Has Sales Order No</fullName>
+        <actions>
+            <name>OptyLine_Clear_Booking_CreatedDate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>OptyLine_Has_Sales_Order_No</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Set Has Sales order checkbox to false and clear Booking Created Date</description>
+        <formula>ISBLANK(Sales_Order__c)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>OptyLine - Has Sales Order Yes</fullName>
+        <actions>
+            <name>OptyLine_Has_Sales_Order_Yes</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update Has Sales order checkbox</description>
+        <formula>NOT(ISBLANK( Sales_Order__c ))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>OptyLine - Set Sales Order First Booking Date</fullName>
+        <actions>
+            <name>OptyLine_Update_Booking_CreatedDate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Set Sales Order First booking date for opportunity revenue date tracking</description>
+        <formula>NOT(ISBLANK( Sales_Order__c ))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Requirements_Ready_For_Test</fullName>
+    <columns>NAME</columns>
+    <columns>High_Level_Requirement__c</columns>
+    <columns>Schedule_Sprint__c</columns>
+    <columns>Functional_Requirement__c</columns>
+    <columns>Proposed_Approach__c</columns>
+    <columns>Use_Case__c</columns>
+    <columns>Comments__c</columns>
+    <columns>Assigned_To__c</columns>
+    <columns>Release_BLD1__c</columns>
+    <columns>Release_SIT1__c</columns>
+    <columns>Release_UAT1__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Ready For Test</value>
+    </filters>
+    <label>All Requirements - Ready For Test</label>
+</ListView>

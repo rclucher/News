@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>share_to_News_Australia__c</fullName>
+    <description>% of total pitch share to News Australia</description>
+    <externalId>false</externalId>
+    <inlineHelpText>% of total pitch share to News Australia</inlineHelpText>
+    <label>% share to News Australia</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

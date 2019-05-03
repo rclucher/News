@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Credit_Debit_Application</fullName>
+    <availability>online</availability>
+    <description>New related Credit/Debit Application</description>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>New Credit/Debit Application</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>//adds the proper code for inclusion of AJAX toolkit 
+{!REQUIRESCRIPT(&quot;/soap/ajax/28.0/connection.js&quot;)} 
+var ParentCase = &quot;{!Case.CaseNumber}&quot;; 
+var ParentCaseId = &quot;{!Case.Id}&quot;; 
+var Oppty = &quot;{!Case.Opportunity__c}&quot;; 
+var OpptyId = &quot;{!Case.OpportunityId__c}&quot;; 
+var Booking = &quot;{!Case.Booking__c}&quot;; 
+var BookingId = &quot;{!Case.BookingId__c}&quot;; 
+var Account = &quot;{!Case.Account}&quot;; 
+var AccountId = &quot;{!Case.AccountId}&quot;; 
+var Contact = &quot;{!Case.Contact}&quot;; 
+var ContactId = &quot;{!Case.ContactId}&quot;; 
+//Compile URL
+var URL = &#39;/500/e?retURL=%2F500%2Fo&amp;RecordType= 01290000000XOzB&amp;ent=Case&amp;cas28=&#39; + ParentCase + &#39;&amp;cas28_lkid=&#39; + ParentCaseId + &#39;&amp;CF00N90000008T5cC=&#39; + Oppty + &#39;&amp;CF00N90000008T5cC_lkid=&#39; + OpptyId + &#39;&amp;CF00N90000008T5b7=&#39; + Booking + &#39;&amp;CF00N90000008T5b7_lkid=&#39; + BookingId + &#39;&amp;cas4=&#39; + Account + &#39;&amp;cas4_lkid=&#39; + AccountId + &#39;&amp;cas3=&#39; + Contact + &#39;&amp;cas3_lkid=&#39; + ContactId + &#39;&amp;retURL=&#39; + ParentCaseId; 
+var URLc = &#39;&amp;isdtp=vw&#39;; 
+
+//Open in subtab if in console
+if (typeof(srcUp) == &#39;function&#39;) 
+{ 
+srcUp(URL + URLc); 
+} 
+else 
+{ 
+window.location = URL; 
+}</url>
+</WebLink>

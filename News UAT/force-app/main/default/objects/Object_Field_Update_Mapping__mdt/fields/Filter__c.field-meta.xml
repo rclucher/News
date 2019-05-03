@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Filter__c</fullName>
+    <description>Filter that should be used for aggregate type of actions.
+Filter consists of field API name, operator and value.
+Supported comparison operators: &lt;=, &gt;=, &lt;, &gt;, =, !=
+Supported logical operators between filter statements: ||, &amp;&amp;
+Value is always without quotes as all values are treated as a string.
+
+Example:
+Impressions_Quantity__c &gt; 0 &amp;&amp; Name = Bundle Print</description>
+    <externalId>false</externalId>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <inlineHelpText>Filter statement consists of field API name, operator and value.
+Comparison operators: &lt;=, &gt;=, &lt;, &gt;, =, !=
+Logical operators between filter statements: ||, &amp;&amp;
+Value: without quotes
+
+Example:
+Impressions_Quantity__c &gt; 0 &amp;&amp; Name = Bundle Print</inlineHelpText>
+    <label>Filter</label>
+    <required>false</required>
+    <type>TextArea</type>
+</CustomField>

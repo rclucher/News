@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opty_WinLoss_OtherReason</fullName>
+    <active>true</active>
+    <description>If &#39;OTHER&#39; is selected as part of the closed won/ lost reasons then the closure summary field is required</description>
+    <errorConditionFormula>AND(
+  TEXT(Reason_Won_Lost__c) = &quot;Other&quot;,
+  Closure_Summary__c = &quot;&quot;,
+
+  /* Excludes target or walk-in forecast entry */
+  NOT(OR(
+    CONTAINS (TEXT(Opportunity_Type__c), &#39;Walk&#39;),
+    CONTAINS (TEXT(Opportunity_Type__c), &#39;Self Service&#39;)
+  ))
+)</errorConditionFormula>
+    <errorDisplayField>Closure_Summary__c</errorDisplayField>
+    <errorMessage>A description is required where the &#39;Reason Won/Lost&#39; is set to &#39;other&#39;.</errorMessage>
+</ValidationRule>

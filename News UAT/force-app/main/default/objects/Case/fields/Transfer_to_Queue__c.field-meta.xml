@@ -1,0 +1,1067 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Transfer_to_Queue__c</fullName>
+    <externalId>false</externalId>
+    <label>Transfer to Queue</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Admin_Escalation</fullName>
+                <default>false</default>
+                <label>Admin_Escalation</label>
+            </value>
+            <value>
+                <fullName>Adsales_Email_Admin</fullName>
+                <default>false</default>
+                <label>Adsales_Email_Admin</label>
+            </value>
+            <value>
+                <fullName>AdSales_Email_Corporate</fullName>
+                <default>false</default>
+                <label>AdSales_Email_Corporate</label>
+            </value>
+            <value>
+                <fullName>AdSales_Email_Customer_Relations</fullName>
+                <default>false</default>
+                <label>AdSales_Email_Customer_Relations</label>
+            </value>
+            <value>
+                <fullName>AdSales_Email_General</fullName>
+                <default>false</default>
+                <label>AdSales_Email_General</label>
+            </value>
+            <value>
+                <fullName>AdSales_Email_Sales</fullName>
+                <default>false</default>
+                <label>AdSales_Email_Sales</label>
+            </value>
+            <value>
+                <fullName>AdSales_Email_Saves</fullName>
+                <default>false</default>
+                <label>AdSales_Email_Saves</label>
+            </value>
+            <value>
+                <fullName>BuySearchSell Email</fullName>
+                <default>false</default>
+                <label>BuySearchSell Email</label>
+            </value>
+            <value>
+                <fullName>BuySearchSell Email Transfer</fullName>
+                <default>false</default>
+                <label>BuySearchSell Email Transfer</label>
+            </value>
+            <value>
+                <fullName>Corporate_Escalation</fullName>
+                <default>false</default>
+                <label>Corporate_Escalation</label>
+            </value>
+            <value>
+                <fullName>Customer_Relation_escalation</fullName>
+                <default>false</default>
+                <label>Customer_Relation_escalation</label>
+            </value>
+            <value>
+                <fullName>CVM_Escalation</fullName>
+                <default>false</default>
+                <label>CVM_Escalation</label>
+            </value>
+            <value>
+                <fullName>GCP Email ADM</fullName>
+                <default>false</default>
+                <label>GCP Email ADM</label>
+            </value>
+            <value>
+                <fullName>GCP Email ADM Transfer</fullName>
+                <default>false</default>
+                <label>GCP Email ADM Transfer</label>
+            </value>
+            <value>
+                <fullName>MyTributes Email</fullName>
+                <default>false</default>
+                <label>MyTributes Email</label>
+            </value>
+            <value>
+                <fullName>MyTributes Email Transfer</fullName>
+                <default>false</default>
+                <label>MyTributes Email Transfer</label>
+            </value>
+            <value>
+                <fullName>National Email Funeral Directors</fullName>
+                <default>false</default>
+                <label>National Email Funeral Directors</label>
+            </value>
+            <value>
+                <fullName>National Email Funeral Directors Transfer</fullName>
+                <default>false</default>
+                <label>National Email Funeral Directors Transfer</label>
+            </value>
+            <value>
+                <fullName>NewsXtend Lite Email</fullName>
+                <default>false</default>
+                <label>NewsXtend Lite Email</label>
+            </value>
+            <value>
+                <fullName>NewsXtend Lite Email Transfer</fullName>
+                <default>false</default>
+                <label>NewsXtend Lite Email Transfer</label>
+            </value>
+            <value>
+                <fullName>NSW</fullName>
+                <default>false</default>
+                <label>NSW</label>
+            </value>
+            <value>
+                <fullName>NSW CNG Email Classifieds</fullName>
+                <default>false</default>
+                <label>NSW CNG Email Classifieds</label>
+            </value>
+            <value>
+                <fullName>NSW Email ADM</fullName>
+                <default>false</default>
+                <label>NSW Email ADM</label>
+            </value>
+            <value>
+                <fullName>NSW Email ADM Transfer</fullName>
+                <default>false</default>
+                <label>NSW Email ADM Transfer</label>
+            </value>
+            <value>
+                <fullName>NSW Email Adult</fullName>
+                <default>false</default>
+                <label>NSW Email Adult</label>
+            </value>
+            <value>
+                <fullName>NSW Email AM</fullName>
+                <default>false</default>
+                <label>NSW Email AM</label>
+            </value>
+            <value>
+                <fullName>NSW Email AM Transfer</fullName>
+                <default>false</default>
+                <label>NSW Email AM Transfer</label>
+            </value>
+            <value>
+                <fullName>NSW Email Careers</fullName>
+                <default>false</default>
+                <label>NSW Email Careers</label>
+            </value>
+            <value>
+                <fullName>NSW Email CR</fullName>
+                <default>false</default>
+                <label>NSW Email CR</label>
+            </value>
+            <value>
+                <fullName>NSW Email CR Transfer</fullName>
+                <default>false</default>
+                <label>NSW Email CR Transfer</label>
+            </value>
+            <value>
+                <fullName>NSW Email Funeral</fullName>
+                <default>false</default>
+                <label>NSW Email Funeral</label>
+            </value>
+            <value>
+                <fullName>NSW Email MM Adult</fullName>
+                <default>false</default>
+                <label>NSW Email MM Adult</label>
+            </value>
+            <value>
+                <fullName>NSW Email MM Agency</fullName>
+                <default>false</default>
+                <label>NSW Email MM Agency</label>
+            </value>
+            <value>
+                <fullName>NSW Email MM Agency Transfer</fullName>
+                <default>false</default>
+                <label>NSW Email MM Agency Transfer</label>
+            </value>
+            <value>
+                <fullName>NSW Email MM Careers Agency</fullName>
+                <default>false</default>
+                <label>NSW Email MM Careers Agency</label>
+            </value>
+            <value>
+                <fullName>NSW Email MM Careers Agency Transfer</fullName>
+                <default>false</default>
+                <label>NSW Email MM Careers Agency Transfer</label>
+            </value>
+            <value>
+                <fullName>NSW Email MM Display</fullName>
+                <default>false</default>
+                <label>NSW Email MM Display</label>
+            </value>
+            <value>
+                <fullName>NSW Email MM Display Transfer</fullName>
+                <default>false</default>
+                <label>NSW Email MM Display Transfer</label>
+            </value>
+            <value>
+                <fullName>NSW Email MM Retail</fullName>
+                <default>false</default>
+                <label>NSW Email MM Retail</label>
+            </value>
+            <value>
+                <fullName>NSW Email MM Retail Transfer</fullName>
+                <default>false</default>
+                <label>NSW Email MM Retail Transfer</label>
+            </value>
+            <value>
+                <fullName>NSW Email MM Trades Acq</fullName>
+                <default>false</default>
+                <label>NSW Email MM Trades Acq</label>
+            </value>
+            <value>
+                <fullName>NSW Email MM Trades Ret</fullName>
+                <default>false</default>
+                <label>NSW Email MM Trades Ret</label>
+            </value>
+            <value>
+                <fullName>NSW Email Real Estate</fullName>
+                <default>false</default>
+                <label>NSW Email Real Estate</label>
+            </value>
+            <value>
+                <fullName>NSW Email Trades</fullName>
+                <default>false</default>
+                <label>NSW Email Trades</label>
+            </value>
+            <value>
+                <fullName>NSW Email Trades Transfer</fullName>
+                <default>false</default>
+                <label>NSW Email Trades Transfer</label>
+            </value>
+            <value>
+                <fullName>NSW IMA - AE Ops Awaiting Booking</fullName>
+                <default>false</default>
+                <label>NSW IMA - AE Ops Awaiting Booking</label>
+            </value>
+            <value>
+                <fullName>NSW KAC - AE Ops Awaiting Booking</fullName>
+                <default>false</default>
+                <label>NSW KAC - AE Ops Awaiting Booking</label>
+            </value>
+            <value>
+                <fullName>NSW NWN Email Classifieds</fullName>
+                <default>false</default>
+                <label>NSW NWN Email Classifieds</label>
+            </value>
+            <value>
+                <fullName>NSW RE - AE Ops Awaiting Booking</fullName>
+                <default>false</default>
+                <label>NSW RE - AE Ops Awaiting Booking</label>
+            </value>
+            <value>
+                <fullName>NSW SME - AE Ops Awaiting Booking</fullName>
+                <default>false</default>
+                <label>NSW SME - AE Ops Awaiting Booking</label>
+            </value>
+            <value>
+                <fullName>NT Email ADM</fullName>
+                <default>false</default>
+                <label>NT Email ADM</label>
+            </value>
+            <value>
+                <fullName>NT Email ADM Transfer</fullName>
+                <default>false</default>
+                <label>NT Email ADM Transfer</label>
+            </value>
+            <value>
+                <fullName>NTN Email ADM</fullName>
+                <default>false</default>
+                <label>NTN Email ADM</label>
+            </value>
+            <value>
+                <fullName>NTN Email ADM Transfer</fullName>
+                <default>false</default>
+                <label>NTN Email ADM Transfer</label>
+            </value>
+            <value>
+                <fullName>QLD</fullName>
+                <default>false</default>
+                <label>QLD</label>
+            </value>
+            <value>
+                <fullName>QLD CNS Email Classifieds</fullName>
+                <default>false</default>
+                <label>QLD CNS Email Classifieds</label>
+            </value>
+            <value>
+                <fullName>QLD Email ADM</fullName>
+                <default>false</default>
+                <label>QLD Email ADM</label>
+            </value>
+            <value>
+                <fullName>QLD Email ADM 01</fullName>
+                <default>false</default>
+                <label>QLD Email ADM 01</label>
+            </value>
+            <value>
+                <fullName>QLD Email ADM 02</fullName>
+                <default>false</default>
+                <label>QLD Email ADM 02</label>
+            </value>
+            <value>
+                <fullName>QLD Email ADM 03</fullName>
+                <default>false</default>
+                <label>QLD Email ADM 03</label>
+            </value>
+            <value>
+                <fullName>QLD Email ADM 04</fullName>
+                <default>false</default>
+                <label>QLD Email ADM 04</label>
+            </value>
+            <value>
+                <fullName>QLD Email ADM 05</fullName>
+                <default>false</default>
+                <label>QLD Email ADM 05</label>
+            </value>
+            <value>
+                <fullName>QLD Email ADM 06</fullName>
+                <default>false</default>
+                <label>QLD Email ADM 06</label>
+            </value>
+            <value>
+                <fullName>QLD Email ADM Transfer</fullName>
+                <default>false</default>
+                <label>QLD Email ADM Transfer</label>
+            </value>
+            <value>
+                <fullName>QLD Email Adult Transfer</fullName>
+                <default>false</default>
+                <label>QLD Email Adult Transfer</label>
+            </value>
+            <value>
+                <fullName>QLD Email Agency</fullName>
+                <default>false</default>
+                <label>QLD Email Agency</label>
+            </value>
+            <value>
+                <fullName>QLD Email AM 01</fullName>
+                <default>false</default>
+                <label>QLD Email AM 01</label>
+            </value>
+            <value>
+                <fullName>QLD Email AM 02</fullName>
+                <default>false</default>
+                <label>QLD Email AM 02</label>
+            </value>
+            <value>
+                <fullName>QLD Email AM 03</fullName>
+                <default>false</default>
+                <label>QLD Email AM 03</label>
+            </value>
+            <value>
+                <fullName>QLD Email AM 04</fullName>
+                <default>false</default>
+                <label>QLD Email AM 04</label>
+            </value>
+            <value>
+                <fullName>QLD Email AM 05</fullName>
+                <default>false</default>
+                <label>QLD Email AM 05</label>
+            </value>
+            <value>
+                <fullName>QLD Email AM 06</fullName>
+                <default>false</default>
+                <label>QLD Email AM 06</label>
+            </value>
+            <value>
+                <fullName>QLD Email Careers Transfer</fullName>
+                <default>false</default>
+                <label>QLD Email Careers Transfer</label>
+            </value>
+            <value>
+                <fullName>QLD Email CR</fullName>
+                <default>false</default>
+                <label>QLD Email CR</label>
+            </value>
+            <value>
+                <fullName>QLD Email CR Transfer</fullName>
+                <default>false</default>
+                <label>QLD Email CR Transfer</label>
+            </value>
+            <value>
+                <fullName>QLD Email Display</fullName>
+                <default>false</default>
+                <label>QLD Email Display</label>
+            </value>
+            <value>
+                <fullName>QLD Email Display Transfer</fullName>
+                <default>false</default>
+                <label>QLD Email Display Transfer</label>
+            </value>
+            <value>
+                <fullName>QLD Email Gen Class Transfer</fullName>
+                <default>false</default>
+                <label>QLD Email Gen Class Transfer</label>
+            </value>
+            <value>
+                <fullName>QLD Email Leapfrog CR</fullName>
+                <default>false</default>
+                <label>QLD Email Leapfrog CR</label>
+            </value>
+            <value>
+                <fullName>QLD Email Leapfrog Helpdesk</fullName>
+                <default>false</default>
+                <label>QLD Email Leapfrog Helpdesk</label>
+            </value>
+            <value>
+                <fullName>QLD Email Legal Notices Transfer</fullName>
+                <default>false</default>
+                <label>QLD Email Legal Notices Transfer</label>
+            </value>
+            <value>
+                <fullName>QLD Email MM Categories</fullName>
+                <default>false</default>
+                <label>QLD Email MM Categories</label>
+            </value>
+            <value>
+                <fullName>QLD Email MM Categories Transfer</fullName>
+                <default>false</default>
+                <label>QLD Email MM Categories Transfer</label>
+            </value>
+            <value>
+                <fullName>QLD Email MM Trades</fullName>
+                <default>false</default>
+                <label>QLD Email MM Trades</label>
+            </value>
+            <value>
+                <fullName>QLD Email MM Trades Transfer</fullName>
+                <default>false</default>
+                <label>QLD Email MM Trades Transfer</label>
+            </value>
+            <value>
+                <fullName>QLD Email Motoring Transfer</fullName>
+                <default>false</default>
+                <label>QLD Email Motoring Transfer</label>
+            </value>
+            <value>
+                <fullName>QLD Email Personal Notices Transfer</fullName>
+                <default>false</default>
+                <label>QLD Email Personal Notices Transfer</label>
+            </value>
+            <value>
+                <fullName>QLD Email Real Estate Transfer</fullName>
+                <default>false</default>
+                <label>QLD Email Real Estate Transfer</label>
+            </value>
+            <value>
+                <fullName>QLD Email Trades Transfer</fullName>
+                <default>false</default>
+                <label>QLD Email Trades Transfer</label>
+            </value>
+            <value>
+                <fullName>QLD GCB Email Classifieds</fullName>
+                <default>false</default>
+                <label>QLD GCB Email Classifieds</label>
+            </value>
+            <value>
+                <fullName>QLD QNP Email Classifieds</fullName>
+                <default>false</default>
+                <label>QLD QNP Email Classifieds</label>
+            </value>
+            <value>
+                <fullName>QLD QST Email Classifieds</fullName>
+                <default>false</default>
+                <label>QLD QST Email Classifieds</label>
+            </value>
+            <value>
+                <fullName>QLD TSV Email Classifieds</fullName>
+                <default>false</default>
+                <label>QLD TSV Email Classifieds</label>
+            </value>
+            <value>
+                <fullName>SA</fullName>
+                <default>false</default>
+                <label>SA</label>
+            </value>
+            <value>
+                <fullName>SA ADV Email Classifieds</fullName>
+                <default>false</default>
+                <label>SA ADV Email Classifieds</label>
+            </value>
+            <value>
+                <fullName>SA ADV Email Real Estate</fullName>
+                <default>false</default>
+                <label>SA ADV Email Real Estate</label>
+            </value>
+            <value>
+                <fullName>SA ADV Email Retail</fullName>
+                <default>false</default>
+                <label>SA ADV Email Retail</label>
+            </value>
+            <value>
+                <fullName>SA Email ADM</fullName>
+                <default>false</default>
+                <label>SA Email ADM</label>
+            </value>
+            <value>
+                <fullName>SA Email ADM 01</fullName>
+                <default>false</default>
+                <label>SA Email ADM 01</label>
+            </value>
+            <value>
+                <fullName>SA Email ADM 02</fullName>
+                <default>false</default>
+                <label>SA Email ADM 02</label>
+            </value>
+            <value>
+                <fullName>SA Email ADM 03</fullName>
+                <default>false</default>
+                <label>SA Email ADM 03</label>
+            </value>
+            <value>
+                <fullName>SA Email ADM 04</fullName>
+                <default>false</default>
+                <label>SA Email ADM 04</label>
+            </value>
+            <value>
+                <fullName>SA Email ADM 05</fullName>
+                <default>false</default>
+                <label>SA Email ADM 05</label>
+            </value>
+            <value>
+                <fullName>SA Email ADM 06</fullName>
+                <default>false</default>
+                <label>SA Email ADM 06</label>
+            </value>
+            <value>
+                <fullName>SA Email ADM 07</fullName>
+                <default>false</default>
+                <label>SA Email ADM 07</label>
+            </value>
+            <value>
+                <fullName>SA Email ADM 08</fullName>
+                <default>false</default>
+                <label>SA Email ADM 08</label>
+            </value>
+            <value>
+                <fullName>SA Email ADM 09</fullName>
+                <default>false</default>
+                <label>SA Email ADM 09</label>
+            </value>
+            <value>
+                <fullName>SA Email ADM 10</fullName>
+                <default>false</default>
+                <label>SA Email ADM 10</label>
+            </value>
+            <value>
+                <fullName>SA Email ADM Transfer</fullName>
+                <default>false</default>
+                <label>SA Email ADM Transfer</label>
+            </value>
+            <value>
+                <fullName>SA Email Adult Transfer</fullName>
+                <default>false</default>
+                <label>SA Email Adult Transfer</label>
+            </value>
+            <value>
+                <fullName>SA Email AE General</fullName>
+                <default>false</default>
+                <label>SA Email AE General</label>
+            </value>
+            <value>
+                <fullName>SA Email AE General ASM</fullName>
+                <default>false</default>
+                <label>SA Email AE General ASM</label>
+            </value>
+            <value>
+                <fullName>SA Email AE General Transfer</fullName>
+                <default>false</default>
+                <label>SA Email AE General Transfer</label>
+            </value>
+            <value>
+                <fullName>SA Email AE REM</fullName>
+                <default>false</default>
+                <label>SA Email AE REM</label>
+            </value>
+            <value>
+                <fullName>SA Email AE REM ASM</fullName>
+                <default>false</default>
+                <label>SA Email AE REM ASM</label>
+            </value>
+            <value>
+                <fullName>SA Email AE REM Transfer</fullName>
+                <default>false</default>
+                <label>SA Email AE REM Transfer</label>
+            </value>
+            <value>
+                <fullName>SA Email AM Careers</fullName>
+                <default>false</default>
+                <label>SA Email AM Careers</label>
+            </value>
+            <value>
+                <fullName>SA Email AM Careers Transfer</fullName>
+                <default>false</default>
+                <label>SA Email AM Careers Transfer</label>
+            </value>
+            <value>
+                <fullName>SA Email AM Motors</fullName>
+                <default>false</default>
+                <label>SA Email AM Motors</label>
+            </value>
+            <value>
+                <fullName>SA Email AM Motor Transfer</fullName>
+                <default>false</default>
+                <label>SA Email AM Motor Transfer</label>
+            </value>
+            <value>
+                <fullName>SA Email AM Real Estate</fullName>
+                <default>false</default>
+                <label>SA Email AM Real Estate</label>
+            </value>
+            <value>
+                <fullName>SA Email AM Real Estate Transfer</fullName>
+                <default>false</default>
+                <label>SA Email AM Real Estate Transfer</label>
+            </value>
+            <value>
+                <fullName>SA Email AM Sales</fullName>
+                <default>false</default>
+                <label>SA Email AM Sales</label>
+            </value>
+            <value>
+                <fullName>SA Email AM Sales Transfer</fullName>
+                <default>false</default>
+                <label>SA Email AM Sales Transfer</label>
+            </value>
+            <value>
+                <fullName>SA Email AM Trades</fullName>
+                <default>false</default>
+                <label>SA Email AM Trades</label>
+            </value>
+            <value>
+                <fullName>SA Email AM Trades Transfer</fullName>
+                <default>false</default>
+                <label>SA Email AM Trades Transfer</label>
+            </value>
+            <value>
+                <fullName>SA Email Callback Alert</fullName>
+                <default>false</default>
+                <label>SA Email Callback Alert</label>
+            </value>
+            <value>
+                <fullName>SA Email Careers Transfer</fullName>
+                <default>false</default>
+                <label>SA Email Careers Transfer</label>
+            </value>
+            <value>
+                <fullName>SA Email CR</fullName>
+                <default>false</default>
+                <label>SA Email CR</label>
+            </value>
+            <value>
+                <fullName>SA Email CR Transfer</fullName>
+                <default>false</default>
+                <label>SA Email CR Transfer</label>
+            </value>
+            <value>
+                <fullName>SA Email Funeral</fullName>
+                <default>false</default>
+                <label>SA Email Funeral</label>
+            </value>
+            <value>
+                <fullName>SA Email Funeral Transfer</fullName>
+                <default>false</default>
+                <label>SA Email Funeral Transfer</label>
+            </value>
+            <value>
+                <fullName>SA Email Legal Notices Transfer</fullName>
+                <default>false</default>
+                <label>SA Email Legal Notices Transfer</label>
+            </value>
+            <value>
+                <fullName>SA Email LET</fullName>
+                <default>false</default>
+                <label>SA Email LET</label>
+            </value>
+            <value>
+                <fullName>SA Email LET Transfer</fullName>
+                <default>false</default>
+                <label>SA Email LET Transfer</label>
+            </value>
+            <value>
+                <fullName>SA Email MM</fullName>
+                <default>false</default>
+                <label>SA Email MM</label>
+            </value>
+            <value>
+                <fullName>SA Email Motoring Transfer</fullName>
+                <default>false</default>
+                <label>SA Email Motoring Transfer</label>
+            </value>
+            <value>
+                <fullName>SA Email Other Transfer</fullName>
+                <default>false</default>
+                <label>SA Email Other Transfer</label>
+            </value>
+            <value>
+                <fullName>SA Email Personal Notices Transfer</fullName>
+                <default>false</default>
+                <label>SA Email Personal Notices Transfer</label>
+            </value>
+            <value>
+                <fullName>SA Email Real Estate Transfer</fullName>
+                <default>false</default>
+                <label>SA Email Real Estate Transfer</label>
+            </value>
+            <value>
+                <fullName>SA Email Sales Support</fullName>
+                <default>false</default>
+                <label>SA Email Sales Support</label>
+            </value>
+            <value>
+                <fullName>SA Email Sales Support Transfer</fullName>
+                <default>false</default>
+                <label>SA Email Sales Support Transfer</label>
+            </value>
+            <value>
+                <fullName>SA Email Trades Transfer</fullName>
+                <default>false</default>
+                <label>SA Email Trades Transfer</label>
+            </value>
+            <value>
+                <fullName>SA MNG Email Classifieds</fullName>
+                <default>false</default>
+                <label>SA MNG Email Classifieds</label>
+            </value>
+            <value>
+                <fullName>VIC</fullName>
+                <default>false</default>
+                <label>VIC</label>
+            </value>
+            <value>
+                <fullName>VIC Email ADM</fullName>
+                <default>false</default>
+                <label>VIC Email ADM</label>
+            </value>
+            <value>
+                <fullName>VIC Email AM</fullName>
+                <default>false</default>
+                <label>VIC Email AM</label>
+            </value>
+            <value>
+                <fullName>VIC Email AM Legal</fullName>
+                <default>false</default>
+                <label>VIC Email AM Legal</label>
+            </value>
+            <value>
+                <fullName>VIC Email AM Transfer</fullName>
+                <default>false</default>
+                <label>VIC Email AM Transfer</label>
+            </value>
+            <value>
+                <fullName>VIC Email Campaigns</fullName>
+                <default>false</default>
+                <label>VIC Email Campaigns</label>
+            </value>
+            <value>
+                <fullName>VIC Email CR</fullName>
+                <default>false</default>
+                <label>VIC Email CR</label>
+            </value>
+            <value>
+                <fullName>VIC Email CR Transfer</fullName>
+                <default>false</default>
+                <label>VIC Email CR Transfer</label>
+            </value>
+            <value>
+                <fullName>VIC Email Display</fullName>
+                <default>false</default>
+                <label>VIC Email Display</label>
+            </value>
+            <value>
+                <fullName>VIC Email Features</fullName>
+                <default>false</default>
+                <label>VIC Email Features</label>
+            </value>
+            <value>
+                <fullName>VIC Email Funeral</fullName>
+                <default>false</default>
+                <label>VIC Email Funeral</label>
+            </value>
+            <value>
+                <fullName>VIC Email MM</fullName>
+                <default>false</default>
+                <label>VIC Email MM</label>
+            </value>
+            <value>
+                <fullName>VIC Email Trades</fullName>
+                <default>false</default>
+                <label>VIC Email Trades</label>
+            </value>
+            <value>
+                <fullName>VIC Email Trades Transfer</fullName>
+                <default>false</default>
+                <label>VIC Email Trades Transfer</label>
+            </value>
+            <value>
+                <fullName>VIC GAD Email Classifieds</fullName>
+                <default>false</default>
+                <label>VIC GAD Email Classifieds</label>
+            </value>
+            <value>
+                <fullName>VIC HWT Email Classifieds</fullName>
+                <default>false</default>
+                <label>VIC HWT Email Classifieds</label>
+            </value>
+            <value>
+                <fullName>VIC LDR Email Campaigns</fullName>
+                <default>false</default>
+                <label>VIC LDR Email Campaigns</label>
+            </value>
+            <value>
+                <fullName>VIC LDR Email Classifieds</fullName>
+                <default>false</default>
+                <label>VIC LDR Email Classifieds</label>
+            </value>
+            <value>
+                <fullName>NAT Email MM Careers Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NAT Email MM Careers Transfer</label>
+            </value>
+            <value>
+                <fullName>NSW Email Adult Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NSW Email Adult Transfer</label>
+            </value>
+            <value>
+                <fullName>NSW Email Business</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NSW Email Business</label>
+            </value>
+            <value>
+                <fullName>NSW Email Business Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NSW Email Business Transfer</label>
+            </value>
+            <value>
+                <fullName>NSW Email Careers Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NSW Email Careers Transfer</label>
+            </value>
+            <value>
+                <fullName>NSW Email Funeral Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NSW Email Funeral Transfer</label>
+            </value>
+            <value>
+                <fullName>NSW Email LET Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NSW Email LET Transfer</label>
+            </value>
+            <value>
+                <fullName>NSW Email Legal Notices Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NSW Email Legal Notices Transfer</label>
+            </value>
+            <value>
+                <fullName>NSW Email MM Adult Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NSW Email MM Adult Transfer</label>
+            </value>
+            <value>
+                <fullName>NSW Email Motoring Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NSW Email Motoring Transfer</label>
+            </value>
+            <value>
+                <fullName>NSW Email Other Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NSW Email Other Transfer</label>
+            </value>
+            <value>
+                <fullName>NSW Email Personal Notices Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NSW Email Personal Notices Transfer</label>
+            </value>
+            <value>
+                <fullName>NSW Email Real Estate Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NSW Email Real Estate Transfer</label>
+            </value>
+            <value>
+                <fullName>NSW Email Training</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NSW Email Training</label>
+            </value>
+            <value>
+                <fullName>NSW Email Training Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NSW Email Training Transfer</label>
+            </value>
+            <value>
+                <fullName>QLD Email Funeral Notices Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>QLD Email Funeral Notices Transfer</label>
+            </value>
+            <value>
+                <fullName>QLD Email Training</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>QLD Email Training</label>
+            </value>
+            <value>
+                <fullName>QLD Email Training Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>QLD Email Training Transfer</label>
+            </value>
+            <value>
+                <fullName>SA Email Business</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>SA Email Business</label>
+            </value>
+            <value>
+                <fullName>SA Email Business Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>SA Email Business Transfer</label>
+            </value>
+            <value>
+                <fullName>SA Email MM Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>SA Email MM Transfer</label>
+            </value>
+            <value>
+                <fullName>SA Email Training</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>SA Email Training</label>
+            </value>
+            <value>
+                <fullName>SA Email Training Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>SA Email Training Transfer</label>
+            </value>
+            <value>
+                <fullName>VIC Email AM Careers Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VIC Email AM Careers Transfer</label>
+            </value>
+            <value>
+                <fullName>VIC Email Adult Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VIC Email Adult Transfer</label>
+            </value>
+            <value>
+                <fullName>VIC Email Business</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VIC Email Business</label>
+            </value>
+            <value>
+                <fullName>VIC Email Business Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VIC Email Business Transfer</label>
+            </value>
+            <value>
+                <fullName>VIC Email Careers Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VIC Email Careers Transfer</label>
+            </value>
+            <value>
+                <fullName>VIC Email Display Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VIC Email Display Transfer</label>
+            </value>
+            <value>
+                <fullName>VIC Email Funeral Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VIC Email Funeral Transfer</label>
+            </value>
+            <value>
+                <fullName>VIC Email LET Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VIC Email LET Transfer</label>
+            </value>
+            <value>
+                <fullName>VIC Email Legal Notices Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VIC Email Legal Notices Transfer</label>
+            </value>
+            <value>
+                <fullName>VIC Email MM Careers Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VIC Email MM Careers Transfer</label>
+            </value>
+            <value>
+                <fullName>VIC Email MM Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VIC Email MM Transfer</label>
+            </value>
+            <value>
+                <fullName>VIC Email Motoring Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VIC Email Motoring Transfer</label>
+            </value>
+            <value>
+                <fullName>VIC Email Other Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VIC Email Other Transfer</label>
+            </value>
+            <value>
+                <fullName>VIC Email Personal Notices Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VIC Email Personal Notices Transfer</label>
+            </value>
+            <value>
+                <fullName>VIC Email Real Estate Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VIC Email Real Estate Transfer</label>
+            </value>
+            <value>
+                <fullName>VIC Email Training</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VIC Email Training</label>
+            </value>
+            <value>
+                <fullName>VIC Email Training Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VIC Email Training Transfer</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

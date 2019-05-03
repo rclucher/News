@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Place GTM on Website</label>
+    <protected>false</protected>
+    <values>
+        <field>Comments__c</field>
+        <value xsi:type="xsd:string">To assist our team in conversion tracking and retargeting, we require a Google Tag Manager (Container Tag) placed on your website.
+
+Find your Google Tag Manager code attached for this to be placed on your website. 
+Please pass this to your web developer to action.
+
+Once you have done this, please mark this task as completed.</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">Place GTM on Website</value>
+    </values>
+</CustomMetadata>

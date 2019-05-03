@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DNC_A_Number_Is_Contactable__c</fullName>
+    <description>Uses the &#39;[phone] contactable&#39; formula fields for each of the Contact phone numbers.</description>
+    <externalId>false</externalId>
+    <formula>OR(
+ISPICKVAL(Channel_Opt_In_Phone__c,&#39;Opt In&#39;),
+Home_Phone_DNC_Contactable__c, 
+Mobile_DNC_Contactable__c,
+Other_Phone_DNC_Contactable__c,
+Phone_DNC_Contactable__c,
+AssistantPhone_DNC_Contactable__c )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>At least one of the Phone numbers is contactable - it has been washed in the last 30 days and DNC is False</inlineHelpText>
+    <label>DNC A Number Is Contactable</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

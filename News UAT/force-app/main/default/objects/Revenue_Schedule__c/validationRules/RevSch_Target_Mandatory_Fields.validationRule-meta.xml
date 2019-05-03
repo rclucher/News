@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RevSch_Target_Mandatory_Fields</fullName>
+    <active>true</active>
+    <description>When entering targets the user must complete all fields (including admins)</description>
+    <errorConditionFormula>AND(
+  ISPICKVAL(Reporting_Type_L1__c, &#39;Target&#39;),
+  OR(
+    Product__c = &#39;&#39;,
+    ISBLANK(Rev_Amount__c),
+    ISBLANK(Rev_Date__c),
+    ISBLANK(External_ID__c)
+  )
+)</errorConditionFormula>
+    <errorMessage>Product, Rev Amount, Rev Date and External ID are required fields when creating records of type &#39;Target&#39;</errorMessage>
+</ValidationRule>

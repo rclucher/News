@@ -1,0 +1,235 @@
+<aura:component>
+	
+	<!-- <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="campaign" type="Campaign"/> -->
+
+	<aura:attribute name="campaignMembersGrid" type="CampaignMember[]" />
+	<aura:attribute name="campaignMemberClassificationOption" type="String"/>
+    <aura:attribute name="campaign" type="Campaign"/>
+	<aura:attribute name="currentUserId" type="String"/>
+	<aura:attribute name="bInProgressCampaignMember" type="Boolean" default="false"/>
+
+	<aura:attribute name="hideColumnType" type="Boolean" default="false"/>
+	<aura:attribute name="hideColumnName" type="Boolean" default="false"/>
+	<aura:attribute name="hideColumnLast_Booking_Value" type="Boolean" default="false"/>
+	<aura:attribute name="hideColumnLast_Booking_Line_Item_Publication_Divs" type="Boolean" default="false"/>
+	<aura:attribute name="hideColumnCompanyOrAccount" type="Boolean" default="false"/>
+	<aura:attribute name="hideColumnIn_Progress" type="Boolean" default="false"/>
+	<aura:attribute name="hideColumnCall_Count" type="Boolean" default="false"/>
+	<aura:attribute name="hideColumnExecution_Status" type="Boolean" default="false"/>
+	<aura:attribute name="hideColumnStatus" type="Boolean" default="false"/>
+	<aura:attribute name="hideColumnLast_Response_Datetime" type="Boolean" default="false"/>
+	<aura:attribute name="hideColumnCall_Back_Date" type="Boolean" default="false"/>
+	<aura:attribute name="hideColumnLocked_By" type="Boolean" default="false"/>
+	<aura:attribute name="hideColumnAge_in_List" type="Boolean" default="false"/>
+	<aura:attribute name="hideColumnCompleted_By" type="Boolean" default="false"/>
+	<aura:attribute name="hideColumnCompleted_Date" type="Boolean" default="false"/>
+	<aura:attribute name="hideColumnCreated_Date" type="Boolean" default="false"/>
+
+	<aura:attribute name="spinner" type="Boolean" default="false"/>
+	
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<article class="slds-card slds-m-around--x-large">
+		<div class="slds-card__body slds-text-align--left slds-p-around--x-large slds-box slds-theme--default slds-scrollable--x">
+			<!--TABLE-->
+			<table class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_striped">
+			  <thead>
+			    <tr class="slds-line-height_reset">			      
+			      <th class="slds-text-title_caps" scope="col">
+			        <div class="slds-truncate" title="Action">Action</div>
+			      </th>
+			      <aura:if isTrue="{!!v.hideColumnType}">	      
+				      <th class="slds-text-title_caps" scope="col">
+				        <div class="slds-truncate" title="Type">Type</div>
+				      </th>
+				  </aura:if>
+			      <aura:if isTrue="{!!v.hideColumnName}">
+				      <th class="slds-text-title_caps" scope="col">
+				        <div class="slds-truncate" title="Name">Name</div>
+				      </th>
+				  </aura:if>
+			      <aura:if isTrue="{!!v.hideColumnLast_Booking_Value}">
+				      <th class="slds-text-title_caps" scope="col">
+				        <div class="slds-truncate" title="Last Booking Value">Last Bkng Value</div>
+				      </th>
+				  </aura:if>
+			      <aura:if isTrue="{!!v.hideColumnLast_Booking_Line_Item_Publication_Divs}">
+				      <th class="slds-text-title_caps" scope="col">
+				        <div class="slds-truncate" title="Last Booking Line Item Publication Divs">Last Bkng Ln Item Pub Divs</div>
+				      </th>
+				  </aura:if>
+			      <aura:if isTrue="{!!v.hideColumnCompanyOrAccount}">
+				      <th class="slds-text-title_caps" scope="col">
+				        <div class="slds-truncate" title="CompanyOrAccount">CompanyOrAcct</div>
+				      </th>
+				  </aura:if>
+			      <aura:if isTrue="{!!v.hideColumnIn_Progress}">
+				      <th class="slds-text-title_caps" scope="col">
+				        <div class="slds-truncate" title="In Progress">In Progress</div>
+				      </th>
+				  </aura:if>
+			      <aura:if isTrue="{!!v.hideColumnCall_Count}">
+				      <th class="slds-text-title_caps" scope="col">
+				        <div class="slds-truncate" title="Call Count">Call Count</div>
+				      </th>
+				  </aura:if>
+			      <aura:if isTrue="{!!v.hideColumnExecution_Status}">
+				      <th class="slds-text-title_caps" scope="col">
+				        <div class="slds-truncate" title="Execution Status">Execution Status</div>
+				      </th>
+				  </aura:if>
+			      <aura:if isTrue="{!!v.hideColumnStatus}">
+				      <th class="slds-text-title_caps" scope="col">
+				        <div class="slds-truncate" title="Status">Status</div>
+				      </th>
+				  </aura:if>
+			      <aura:if isTrue="{!!v.hideColumnLast_Response_Datetime}">
+				      <th class="slds-text-title_caps" scope="col">
+				        <div class="slds-truncate" title="Last Response Datetime">Last Resp Datetime</div>
+				      </th>
+				  </aura:if>
+			      <aura:if isTrue="{!!v.hideColumnCall_Back_Date}">
+				      <th class="slds-text-title_caps" scope="col">
+				        <div class="slds-truncate" title="Call Back Date">Call Back Date</div>
+				      </th>
+				  </aura:if>
+			      <aura:if isTrue="{!!v.hideColumnLocked_By}">
+				      <th class="slds-text-title_caps" scope="col">
+				        <div class="slds-truncate" title="Locked By">Locked By</div>
+				      </th>
+				  </aura:if>
+			      <aura:if isTrue="{!!v.hideColumnAge_in_List}">
+				      <th class="slds-text-title_caps" scope="col">
+				        <div class="slds-truncate" title="Age in List">Age in List</div>
+				      </th>
+				  </aura:if>
+			      <aura:if isTrue="{!!v.hideColumnCompleted_By}">
+				      <th class="slds-text-title_caps" scope="col">
+				        <div class="slds-truncate" title="Completed By">Completed By</div>
+				      </th>
+				  </aura:if>
+				  <aura:if isTrue="{!!v.hideColumnCompleted_Date}">
+				      <th class="slds-text-title_caps" scope="col">
+				        <div class="slds-truncate" title="Completed Date">Completed Date</div>
+				      </th>
+				  </aura:if>
+			      <aura:if isTrue="{!!v.hideColumnCreated_Date}">
+				      <th class="slds-text-title_caps" scope="col">
+				        <div class="slds-truncate" title="Created Date">Created Date</div>
+				      </th>				  
+				  </aura:if>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    
+			    <aura:iteration items="{!v.campaignMembersGrid}" var="campaignMember">
+				    <tr class="slds-hint-parent">
+				      <td  class="slds-text-title_caps" scope="col">
+				        <div class="slds-button">
+				          	<aura:if isTrue ="{!and(campaignMember.Execution_Status__c !='Completed', and(campaignMember.Locked_By__c == null, !v.bInProgressCampaignMember)) || and(campaignMember.Execution_Status__c == 'Call to Do', campaignMember.Locked_By__c == v.currentUserId)}">
+				          		<a onclick="{!c.openCampaignMemberSubTab}" data-campaignmemberid = "{!campaignMember.Id}">
+				          			Start
+				          		</a>
+				          	</aura:if>
+				          	<aura:if isTrue ="{!and(campaignMember.Execution_Status__c !='Completed', and(campaignMember.Locked_By__c == v.currentUserId, campaignMember.In_Progress__c))}">
+				          		<a onclick="{!c.openCampaignMemberSubTab}" data-campaignmemberid = "{!campaignMember.Id}">
+				          			Resume
+				          		</a>
+				          	</aura:if>					          
+				        </div>
+				      </td>
+				      <aura:if isTrue="{!!v.hideColumnType}">
+					      <td class="slds-text-title" scope="col">
+					        <div class="slds-truncate" title="Type">{!campaignMember.Member_Type__c}</div>
+					      </td>
+					  </aura:if>
+					  <aura:if isTrue="{!!v.hideColumnName}">
+					      <td class="slds-text-title" scope="col">
+					      	<aura:if isTrue="{!campaignMember.Member_Type__c == 'Contact'}">
+					        	<div class="slds-truncate" title="Name"><a onclick="{!c.openContactLeadSubTab}" data-memberid = "{!campaignMember.ContactId}">{!campaignMember.Contact.Name}</a></div>
+					        	<aura:set attribute="else">
+									<div class="slds-truncate" title="Name"><a onclick="{!c.openContactLeadSubTab}" data-memberid = "{!campaignMember.LeadId}">{!campaignMember.Lead.Name}</a></div>
+								</aura:set>
+					        </aura:if>
+					      </td>
+					  </aura:if>
+					  <aura:if isTrue="{!!v.hideColumnLast_Booking_Value}">
+					      <td class="slds-text-title" scope="col">
+					        <div class="slds-truncate" title="Last Booking Value">{!campaignMember.Last_Booking_Value__c}</div>
+					      </td>
+					  </aura:if>
+					  <aura:if isTrue="{!!v.hideColumnLast_Booking_Line_Item_Publication_Divs}">
+					      <td class="slds-text-title" scope="col">
+					        <div class="slds-truncate" title="Last Booking Line Item Publication Divs">{!campaignMember.Last_Booking_Line_Item_Publication_Divs__c}</div>
+					      </td>
+					  </aura:if>
+					  <aura:if isTrue="{!!v.hideColumnCompanyOrAccount}">
+					      <td class="slds-text-title" scope="col">
+					        <div class="slds-truncate" title="CompanyOrAccount">{!campaignMember.CompanyOrAccount__c}</div>
+					      </td>
+					  </aura:if>
+					  <aura:if isTrue="{!!v.hideColumnIn_Progress}">
+					      <td class="slds-text-title" scope="col">
+					        <div class="slds-truncate" title="In Progress"><ui:outputCheckbox class="slds-checkbox_add_button" aura:id="campaignmember-inprogress" value="{!campaignMember.In_Progress__c}"/></div>
+					      </td>
+					  </aura:if>
+					  <aura:if isTrue="{!!v.hideColumnCall_Count}">
+					      <td class="slds-text-title" scope="col">
+					        <div class="slds-truncate" title="Call Count">{!campaignMember.Call_Count__c}</div>
+					      </td>
+					  </aura:if>
+					  <aura:if isTrue="{!!v.hideColumnExecution_Status}">
+					      <td class="slds-text-title" scope="col">
+					        <div class="slds-truncate" title="Execution Status">{!campaignMember.Execution_Status__c}</div>
+					      </td>
+					  </aura:if>
+					  <aura:if isTrue="{!!v.hideColumnStatus}">
+					      <td class="slds-text-title" scope="col">
+					        <div class="slds-truncate" title="Status">{!campaignMember.Status}</div>
+					      </td>
+					  </aura:if>
+					  <aura:if isTrue="{!!v.hideColumnLast_Response_Datetime}">
+					      <td class="slds-text-title" scope="col">
+					        <div class="slds-truncate" title="Last Response Datetime"><ui:outputDate value="{!campaignMember.Response_Datetime__c}" format="dd/MM/yyyy HH:mm"/></div>
+					      </td>
+					  </aura:if>
+					  <aura:if isTrue="{!!v.hideColumnCall_Back_Date}">
+					      <td class="slds-text-title" scope="col">
+					        <div class="slds-truncate" title="Call Back Date"><ui:outputDate value="{!campaignMember.Call_Back_Date__c}" format="dd/MM/yyyy HH:mm"/></div>
+					      </td>
+					  </aura:if>
+					  <aura:if isTrue="{!!v.hideColumnLocked_By}">
+					      <td class="slds-text-title" scope="col">
+					        <div class="slds-truncate" title="Locked By">{!campaignMember.Locked_By__r.Name}</div>
+					      </td>
+					  </aura:if>
+					  <aura:if isTrue="{!!v.hideColumnAge_in_List}">
+					      <td class="slds-text-title" scope="col">
+					        <div class="slds-truncate" title="Age in List">{!campaignMember.Age_in_List__c}</div>
+					      </td>
+					  </aura:if>
+				      <aura:if isTrue="{!!v.hideColumnCompleted_By}">
+					      <td class="slds-text-title" scope="col">
+					        <div class="slds-truncate" title="Completed By">{!campaignMember.Completed_by__r.Name}</div>
+					      </td>
+					  </aura:if>
+					  <aura:if isTrue="{!!v.hideColumnCompleted_Date}">
+					      <td class="slds-text-title" scope="col">
+					        <div class="slds-truncate" title="Completed Date"><ui:outputDate value="{!campaignMember.Date_Completed__c}" format="dd/MM/yyyy HH:mm"/></div>
+					      </td>
+					  </aura:if>
+					  <aura:if isTrue="{!!v.hideColumnCreated_Date}">
+					      <td class="slds-text-title" scope="col">
+					        <div class="slds-truncate" title="Created Date"><ui:outputDate value="{!campaignMember.CreatedDate}" format="dd/MM/yyyy HH:mm"/></div>
+					      </td>
+					  </aura:if>
+				    </tr>
+				  </aura:iteration>
+			  </tbody>
+			</table>
+			<!--TABLE-->
+		</div>
+	</article>
+	<c:LoadingSpinnerComponent spinner="{!v.spinner}" />
+
+</aura:component>

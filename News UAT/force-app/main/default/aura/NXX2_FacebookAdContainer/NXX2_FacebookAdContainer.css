@@ -1,0 +1,63 @@
+.THIS .page-title{
+    padding-bottom: 64px;
+    font-size: 44px;
+    font-weight: 300;
+    color: #535962;
+}
+.THIS.ad-container{
+    background-color: #f2f3f3;
+    padding: 20px;
+    overflow: hidden;
+}
+.THIS .flex-container{
+    display : flex;
+}
+.THIS .ad-details-container{
+    min-width: 500px;
+    width: 100%;
+    margin-right: 20px;
+}
+.THIS .ad-preview-container{
+    min-width: 300px;
+    max-width: 300px;
+}
+@media (max-width: 767px) {
+    .THIS .flex-container{
+        display : block;
+    }
+    .THIS .ad-preview-container{
+        margin-top : 20px;
+        min-width: 300px;
+    }
+}
+@media (max-width: 1024px) {
+    .THIS.ad-container{
+        padding: 10px;
+    }
+}
+.THIS .slds-card{
+    padding: 0px;
+}
+.THIS .slds-spinner_container{
+    position: fixed;
+}
+.THIS.processMessage-container{
+    position: fixed;
+    width: 50%;
+    top: 60%;
+    left: 50%;
+    text-align: center;
+    z-index: 9051;
+    transform: translate(-50%, -50%);
+    overflow:hidden;
+}
+.THIS .process-description{
+    padding : 5px;
+}
+.THIS .confirmation-container{
+    padding : 10px;
+}
+.THIS .confirmation-message{
+    padding: 10px 0px;
+    font-size: 14px;
+}

@@ -1,0 +1,4 @@
+<design:component >
+<design:attribute name="UserType" datasource="Internal,External" />
+<design:attribute name="isExternalUser"/>
+</design:component>

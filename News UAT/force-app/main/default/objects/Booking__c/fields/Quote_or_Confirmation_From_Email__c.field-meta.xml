@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quote_or_Confirmation_From_Email__c</fullName>
+    <description>This field is used to store the user selected From address for the outbound booking quote/confirmation email.</description>
+    <externalId>false</externalId>
+    <label>Quote or Confirmation From Email</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Email</type>
+    <unique>false</unique>
+</CustomField>

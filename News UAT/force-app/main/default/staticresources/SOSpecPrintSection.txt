@@ -1,0 +1,112 @@
+{
+	"title": "Bundle Sales Order Details",
+	"isOpen": true,
+	"product": "Bundle Print",
+	"content": {
+		"col1": [
+        {
+            "name": "Campaign_Start_Date__c",
+            "label": "Bundle Start Date",
+            "type": "date"
+        },
+		{
+			"name": "Total_Insertions__c",
+			"label": "Total No. Insertions",
+			"type": "number"
+		},
+		{
+			"name": "Bundle_Name__c",
+			"label": "Bundle Name",
+			"type": "text"
+		},
+		{
+			"name": "Total_Duration_Price__c",
+			"label": "Total Bundle Price (ex. GST)",
+			"type": "currency"
+		}		
+		],
+		"col2": [
+		{
+			"name": "Campaign_End_Date__c",
+			"label": "Bundle End Date ",
+			"type": "date"
+		},
+		{
+			"name": "Total_Digital_Impressions__c",
+			"label": "Total Impressions:",
+			"type": "number"
+		},		
+		{
+			"name": "Print_Material_Contact__c",
+			"label": "Print Material Contact",
+			"type": "text"
+		},
+		{
+			"name": "Digital_Material_Contact__c",
+			"label": "Digital Material Contact",
+			"type": "text"
+		}
+		]
+	}
+},
+{
+	"title": "Print Sales Order Details",
+	"isOpen": true,
+	"product": "Print Display",
+	"content": {
+		"col1": [
+		{
+			"name": "Campaign_Start_Date__c",
+			"label": "Print Start Date",
+			"type": "date"
+		},
+		{
+			"name": "Print_Impressions_Count__c",
+			"label": "Total No. Insertions",
+			"type": "number"
+		},
+		{
+			"name": "Total_Print_Duration_Price__c",
+			"label": "Total Print Value (ex. GST)",
+			"type": "currency"
+		},		
+		{
+			"name": "Proposed_Print_Price__c",
+			"label": "Proposed Discount ($)",
+			"type": "currency"
+		},
+		{
+			"name": "Target_Print_Price__c",
+			"label": "Total Print Price (ex. GST)",
+			"type": "currency"
+		}
+		],
+		"col2": [
+		{
+			"name": "Campaign_End_Date__c",
+			"label": "Print End Date",
+			"type": "date"
+		},
+		{
+			"name": "Print_Status__c",
+			"label": "Print Approval Status",
+			"type": "text"
+		},
+		{
+			"name": "Target_Discount__c",
+			"label": "Target Discount (%)",
+			"type": "number"
+		},		
+		{
+			"name": "Proposed_Print_Discount__c",
+			"label": "Proposed Discount (%)",
+			"type": "number"
+		},		
+		{
+			"name": "Print_Material_Contact__c",
+			"label": "Print Material Contact",
+			"type": "text"
+		}
+		]
+	}
+}

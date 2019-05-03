@@ -1,0 +1,10 @@
+<aura:component implements="force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global">
+	<div class="slds-grid slds-wrap">
+    	<div class="slds-col slds-size_1-of-1 slds-large-size_7-of-12 custom-padding">
+        	<c:NXX2_ProofListView recordId="{!v.recordId}"></c:NXX2_ProofListView>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-large-size_5-of-12 custom-padding">
+        	<c:NXX2_CustomerActivitiesListView recordId="{!v.recordId}"></c:NXX2_CustomerActivitiesListView>
+        </div>
+    </div>
+</aura:component>

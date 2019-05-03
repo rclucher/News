@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Value_Attribute_Name__c</fullName>
+    <description>Helper field that should contain name of attribute on News Xtend whose value needs to be summarized and displayed for this Product Group as part of Details text (i.e. Details Text/Rich Text contains &lt;0&gt; )</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Helper field that should contain name of attribute on News Xtend whose value needs to be summarized and displayed for this Product Group as part of Details text (i.e. Details Text/Rich Text contains &lt;0&gt; )</inlineHelpText>
+    <label>Total Value Attribute Name</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

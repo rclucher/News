@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Revenue_Group_L1__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( Revenue_Group__c ,
+
+&quot;Classified - Employment&quot;,&quot;Employment&quot;,
+&quot;Classified - Marketplace&quot;,&quot;Marketplace&quot;,
+&quot;Classified - Motor Vehicles&quot;,&quot;Motor Vehicles&quot;,
+&quot;Classified - Amusements&quot;,&quot;Other&quot;,
+&quot;Classified - Other&quot;,&quot;Other&quot;,
+&quot;Classified - Personals Adult&quot;,&quot;Other&quot;,
+&quot;Classified - Personals Other&quot;,&quot;Other&quot;,
+&quot;Classified - Tenders and Public Notices&quot;,&quot;Other&quot;,
+&quot;Classified - Travel&quot;,&quot;Other&quot;,
+&quot;Classified - Real Estate&quot;,&quot;Real Estate&quot;,
+&quot;Classified - TrueLocal Professional&quot;,&quot;Services &amp; Trade&quot;,
+&quot;Classified - TrueLocal Trades&quot;,&quot;Services &amp; Trade&quot;,
+&quot;Amusements&quot;,&quot;Amusements&quot;,
+&quot;Employment&quot;,&quot;Employment&quot;,
+&quot;House&quot;,&quot;House&quot;,
+&quot;Motor Vehicle Dealers&quot;,&quot;National&quot;,
+&quot;National (Communications/business equipment)&quot;,&quot;National&quot;,
+&quot;National (Computers)&quot;,&quot;National&quot;,
+&quot;National (Finance)&quot;,&quot;National&quot;,
+&quot;National (Food and beverages)&quot;,&quot;National&quot;,
+&quot;National (Gambling/gaming)&quot;,&quot;National&quot;,
+&quot;National (Government/political)&quot;,&quot;National&quot;,
+&quot;National (Media)&quot;,&quot;National&quot;,
+&quot;National (Motor Vehicle Manufacturers)&quot;,&quot;National&quot;,
+&quot;National (Other)&quot;,&quot;National&quot;,
+&quot;National (Personal care products)&quot;,&quot;National&quot;,
+&quot;National (Pharmaceutical / Health Products)&quot;,&quot;National&quot;,
+&quot;National (Travel)&quot;,&quot;National&quot;,
+&quot;Public Notices&quot;,&quot;Public Notices&quot;,
+&quot;Real Estate&quot;,&quot;Real Estate&quot;,
+&quot;Retail&quot;,&quot;Retail&quot;,
+&quot;&quot;,&quot;&quot;,
+&quot;Error - Notify system admin - Revenue Group L1 field&quot;
+)</formula>
+    <inlineHelpText>Do not display field on page layout. To be used for reporting only. Note: The same field exist within bookings to capture the actuals.</inlineHelpText>
+    <label>Revenue Group L1</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Parent_Opportunity__c</fullName>
+    <description>Hyperlink to parent opportunity. Tests for service cloud console and constructs appropriate link.</description>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&quot;javascript:if(typeof(srcUp)==&#39;function&#39;) {srcUp(&#39;&quot; + OpportunityId + &quot;?isdtp=vw&#39;); } else {window.location.assign(&#39;/&quot; + OpportunityId + &quot;&#39;) }&quot;,  Opportunity.Name, &#39;_parent&#39; )</formula>
+    <label>Opportunity</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

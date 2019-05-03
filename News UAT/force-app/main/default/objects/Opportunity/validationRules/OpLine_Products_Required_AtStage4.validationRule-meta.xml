@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OpLine_Products_Required_AtStage4</fullName>
+    <active>false</active>
+    <description>Product lines become mandatory when reaches Develop Solution - Close Won (but not at lost)</description>
+    <errorConditionFormula>AND(
+  Product_Line_Count__c &lt;= 0,
+
+  OR(
+    TEXT(StageName) = &quot;Develop/Present Solution&quot;,
+    TEXT(StageName) = &quot;Present Solution/Proposal&quot;,
+    TEXT(StageName) = &quot;Review/Reaffirm Value&quot;,
+    TEXT(StageName) = &quot;Awaiting Bookings&quot;,
+    TEXT(StageName) = &quot;Re-affirm Value/ Awaiting Bookings&quot;,
+    TEXT(StageName) = &quot;Closed Won&quot;
+  ),
+
+  /* Excludes any opportunities created BY the system
+    1. Walk-ins forecast are created by the system thru UI
+    2. Walk-ins are created through booking UI
+    3. Agreements are not required to enter a product even when closed
+    4. Self-service is created by OSCA/ integration
+  */
+  NOT(OR(
+    CONTAINS (TEXT(Opportunity_Type__c), &#39;Agreement Negotiation&#39;),
+    CONTAINS (TEXT(Opportunity_Type__c), &#39;Walk&#39;),
+    CONTAINS (TEXT(Opportunity_Type__c), &#39;Self Service&#39;)
+  ))
+)</errorConditionFormula>
+    <errorDisplayField>StageName</errorDisplayField>
+    <errorMessage>Products are required when the opportunity reaches the solution development stage to closed won. Please add products before updating the stage.</errorMessage>
+</ValidationRule>

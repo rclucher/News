@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Modified_By_Copy__c</fullName>
+    <description>This field is used for sending fax function in booking quote/confirmation module. This field is hidden from users. It is only for administrator to identify who updates booking quote/confirmation and wants to send fax last time. When trigger sends fax, we use the value in this field to set fax confirmation recipient so updated user (not integrator) will receive fax confirmation later.</description>
+    <externalId>false</externalId>
+    <label>Modified By Copy</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

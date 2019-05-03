@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This Object will contains the records having folder id and Object mapping</description>
+    <label>NXX2_GoogleDriveMyAccountsObjectMapping</label>
+    <pluralLabel>NXX2_GoogleDriveMyAccountsObjectMapping</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

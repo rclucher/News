@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ready_for_Routing__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Fields is automatically checked after the contents of the emails is analysed for keywords. This Field is a flag to trigger a workflow and should not to be displayed.</description>
+    <externalId>false</externalId>
+    <label>Ready for Routing</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

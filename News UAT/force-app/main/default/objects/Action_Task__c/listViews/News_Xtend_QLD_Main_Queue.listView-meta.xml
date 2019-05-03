@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>News_Xtend_QLD_Main_Queue</fullName>
+    <columns>Account_URL__c</columns>
+    <columns>Action_Plan__c</columns>
+    <columns>Action_Plan_Start_Date__c</columns>
+    <columns>Action_Plan_Go_Live_Date__c</columns>
+    <columns>NAME</columns>
+    <columns>Action_Task_Name__c</columns>
+    <columns>Action_Task_Group__c</columns>
+    <columns>Action_Task_Sub_Group__c</columns>
+    <columns>Target_Month__c</columns>
+    <columns>Action_Task_Status__c</columns>
+    <columns>OWNER.ALIAS</columns>
+    <columns>Action_Plan_Period__c</columns>
+    <columns>Action_Plan_Go_Dead_Date__c</columns>
+    <columns>Opportunity_URL__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Action_Task_Group__c</field>
+        <operation>equals</operation>
+        <value>Campaign Management,Creative,Display,SEM,SEO</value>
+    </filters>
+    <filters>
+        <field>Action_Task_Sub_Group__c</field>
+        <operation>equals</operation>
+        <value>Setup Task,Month-Month Task</value>
+    </filters>
+    <filters>
+        <field>Action_Task_Status__c</field>
+        <operation>equals</operation>
+        <value>Not Started,In Progress</value>
+    </filters>
+    <filters>
+        <field>Action_Plan_State__c</field>
+        <operation>equals</operation>
+        <value>QLD</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>notEqual</operation>
+        <value>Action_Task__c.Admin_Data</value>
+    </filters>
+    <label>News Xtend QLD Main Queue</label>
+</ListView>

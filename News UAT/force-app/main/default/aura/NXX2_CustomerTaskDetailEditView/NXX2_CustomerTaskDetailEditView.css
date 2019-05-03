@@ -1,0 +1,25 @@
+.THIS {
+}
+
+.THIS .adContent-container .slds-form-element__label{
+    font-size: 16px;
+    color: #535962;
+    font-weight: bold;
+}
+.THIS .adContent-container input{
+    padding: 6px 12px;
+    font-size: 16px;
+    color: #555555;
+}
+.THIS .adContent-container .slds-form-element{
+    border-bottom: none;
+}
+.THIS .custom-slds-modal__container{
+    margin: 0 auto;
+    width: 50%;
+    max-width: 82rem;
+}
+
+.THIS .hideDiv {
+    display: none;
+}

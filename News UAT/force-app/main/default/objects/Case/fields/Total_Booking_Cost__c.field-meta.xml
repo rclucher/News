@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Booking_Cost__c</fullName>
+    <description>Item-00080 - Remap the field to Total_Cost_Cyber__c, so Proofing email template can display the GST Incl value, without waiting for ESB to update Salesforce through BookingLineItem.</description>
+    <externalId>false</externalId>
+    <formula>Booking__r.Total_Cost_Cyber__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This field is only used by CyberAd booking. This field will be displayed on Proofing email template.</inlineHelpText>
+    <label>Total Booking Cost GST Incl</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

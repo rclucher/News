@@ -1,0 +1,71 @@
+<aura:component controller="NXX2_ContactListPageController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <!-- attributes -->
+    
+    <aura:attribute name="searchKeyword" type="String"/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="originalData" type="Object"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="selectedRowsCount" type="Integer" default="0"/>
+    <aura:attribute name="selectedRowsDetails" type="Object" />
+    <aura:attribute name="selectedRowsList" type="List" />
+    
+    <aura:attribute name="maxRowSelection" type="Integer" default="5"/>
+    <aura:attribute name="selectedRows" type="List" />
+    <aura:registerEvent name="refreshParentPage" type="c:NXX2_RefreshParentPage" />
+
+
+    <!--- enableInfiniteLoading  -->
+    <aura:attribute name="enableInfiniteLoading" type="Boolean" default="true"/>
+    <aura:attribute name="initialRows" type="Integer" default="30"/>
+    <aura:attribute name="rowsToLoad" type="Integer" default="10"/>
+    <aura:attribute name="totalNumberOfRows" type="Integer" default="10"/>
+    <aura:attribute name="loadMoreStatus" type="String" default="Loading .... "/>
+    <aura:attribute name="showRowNumberColumn" type="Boolean" default="true"/>
+    <aura:attribute name="rowNumberOffset" type="Integer" default="0"/>
+    <aura:attribute name="rowsToAdd" type="Integer" default="10"/>
+    <aura:attribute name="currentCount" type="Integer" default="10"/>
+    
+    <aura:attribute name="activeFilter" type="string" default="All" 
+                    description="The currently selected actions filter"/>
+    
+    <aura:attribute name="sortedBy" type="String"/>
+    <aura:attribute name="sortedDirection" type="String"/>
+    <aura:attribute name="defaultSortDirection" type="String"/>
+    <ltng:require styles="{!join(',', $Resource.CustomCSSForSocialAd )}" />
+
+    <!-- handlers-->
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+   
+     <!-- the container element determine the height of the datatable -->
+     <div aura:id="containerDiv" class="create-edit-ad-container">
+
+    <lightning:card variant="Narrow" title="Contacts" iconName="standard:contact" >
+        <p class="slds-p-horizontal_small">
+                <div style="max-height: 600px">
+                         <lightning:datatable columns="{! v.columns }"
+                                               data="{! v.data }"
+                                               keyField="id"
+                                               hideCheckboxColumn="true"
+                                               showRowNumberColumn="{!v.showRowNumberColumn}"
+                                               rowNumberOffset="0"
+                                               onrowaction="{! c.handleRowAction }"
+                                               selectedRows="{! v.selectedRows }"
+                                               maxRowSelection="{! v.maxRowSelection }"
+                                               onrowselection="{! c.updateSelectedText }"
+                                               enableInfiniteLoading="{!v.enableInfiniteLoading}"
+                                               onheaderaction="{! c.handleHeaderAction }"
+                                               sortedBy="{! v.sortedBy }"
+                                               sortedDirection="{! v.sortedDirection }"
+                                               defaultSortDirection="{! v.defaultSortDirection }"
+                                               onsort="{! c.updateColumnSorting }"
+                                               onloadmore="{! c.loadMoreData }"/>
+                      </div>
+                      {! v.loadMoreStatus }
+        </p>
+    </lightning:card>
+
+</div> 
+
+</aura:component>

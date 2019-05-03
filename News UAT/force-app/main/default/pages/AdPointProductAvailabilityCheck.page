@@ -1,0 +1,3 @@
+<apex:page controller="AdPointProductAvailabilityCheck_Ctr" sidebar="{!showHeaderAndSidebar}" showheader="{!showHeaderAndSidebar}">
+    <apex:iframe scrolling="true" src="{!adPointUrl}/Production/ProductionPlugins.aspx?tab=Sponsorship+Availability+Calendar"/>
+</apex:page>

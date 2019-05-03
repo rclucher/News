@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Booking_System_Account__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Booking System Account for successful Credit Application</description>
+    <externalId>false</externalId>
+    <label>Booking System Account</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>External_Account__c.Customer_Account__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.AccountId</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>External_Account__c</referenceTo>
+    <relationshipLabel>Cases</relationshipLabel>
+    <relationshipName>Cases</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

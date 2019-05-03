@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Referral_Source__c</fullName>
+    <description>Identifying ANZ or Other Customer Accounts from NX Website via Marketo for NX Lite
+Will be used to exclude from other NCA Print Marketo Campaigns Offers</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Identifying ANZ or Other Customer Accounts from NX Website via Marketo for NX Lite
+Will be used to exclude from other NCA Print Marketo Campaigns Offers</inlineHelpText>
+    <label>Referral Source</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Referral_Source</valueSetName>
+    </valueSet>
+</CustomField>

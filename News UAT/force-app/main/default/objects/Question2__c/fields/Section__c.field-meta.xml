@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Section__c</fullName>
+    <externalId>false</externalId>
+    <label>Section</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Advertiser Details</fullName>
+                <default>false</default>
+                <label>Advertiser Details</label>
+            </value>
+            <value>
+                <fullName>Campaign Goals</fullName>
+                <default>false</default>
+                <label>Campaign Goals</label>
+            </value>
+            <value>
+                <fullName>Targeting</fullName>
+                <default>false</default>
+                <label>Targeting</label>
+            </value>
+            <value>
+                <fullName>Campaign Creatives</fullName>
+                <default>false</default>
+                <label>Campaign Creatives</label>
+            </value>
+            <value>
+                <fullName>Call Tracking</fullName>
+                <default>false</default>
+                <label>Call Tracking</label>
+            </value>
+            <value>
+                <fullName>Catchup TV (Display)</fullName>
+                <default>false</default>
+                <label>Catchup TV (Display)</label>
+            </value>
+            <value>
+                <fullName>Creative Assets</fullName>
+                <default>false</default>
+                <label>Creative Assets</label>
+            </value>
+            <value>
+                <fullName>Display Campaign</fullName>
+                <default>false</default>
+                <label>Display Campaign</label>
+            </value>
+            <value>
+                <fullName>Landing Page</fullName>
+                <default>false</default>
+                <label>Landing Page</label>
+            </value>
+            <value>
+                <fullName>Live Chat</fullName>
+                <default>false</default>
+                <label>Live Chat</label>
+            </value>
+            <value>
+                <fullName>Marketplace Feed</fullName>
+                <default>false</default>
+                <label>Marketplace Feed</label>
+            </value>
+            <value>
+                <fullName>Programmatic Audio (Display)</fullName>
+                <default>false</default>
+                <label>Programmatic Audio (Display)</label>
+            </value>
+            <value>
+                <fullName>Programmatic Video (Display)</fullName>
+                <default>false</default>
+                <label>Programmatic Video (Display)</label>
+            </value>
+            <value>
+                <fullName>Search</fullName>
+                <default>false</default>
+                <label>Search</label>
+            </value>
+            <value>
+                <fullName>SEO</fullName>
+                <default>false</default>
+                <label>SEO</label>
+            </value>
+            <value>
+                <fullName>Social</fullName>
+                <default>false</default>
+                <label>Social</label>
+            </value>
+            <value>
+                <fullName>Web Dev</fullName>
+                <default>false</default>
+                <label>Web Dev</label>
+            </value>
+            <value>
+                <fullName>Website Essentials</fullName>
+                <default>false</default>
+                <label>Website Essentials</label>
+            </value>
+            <value>
+                <fullName>YouTube</fullName>
+                <default>false</default>
+                <label>YouTube</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This configuration will be used to identify the inbound mail of client which are specific to Purchase Order approval or rejection.</description>
+    <label>NXX2_InboundEmailConfig</label>
+    <pluralLabel>NXX2_InboundEmailConfigs</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

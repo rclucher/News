@@ -1,0 +1,12 @@
+<design:component >
+	<design:attribute name="HomePageRef" label="Home Page Reference" required="true" datasource="IMA_Home_Page_Enhanced_Sequence__c,
+                                                                                                 IMA_Home_Page_Manager_Sequence__c,
+                                                                                                 KAC_Home_Page_Enhanced_Sequence__c,
+                                                                                                 KAC_Home_Page_Manager_Sequence__c,
+                                                                                                 Real_Estate_Home_Page_Manager_Sequence__c,
+                                                                                                 SME_Home_Page_Enhanced_Sequence__c,
+                                                                                                 SME_Home_Page_Enhanced_no_CPQ_Sequence__c,
+                                                                                                 SME_Home_Page_Manager_Sequence__c,
+                                                                                                 System_Administrator_Home_Page_Sequence__c,
+                                                                                                 The_Australian_Home_Page_Manager_Sequenc__c"/>    
+</design:component>

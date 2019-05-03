@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Portfolio_Cannot_Modify_User</fullName>
+    <active>true</active>
+    <description>Cannot modify User. Instead delete Portfolio Team Member and create new.</description>
+    <errorConditionFormula>ISCHANGED( User__c )</errorConditionFormula>
+    <errorDisplayField>User__c</errorDisplayField>
+    <errorMessage>You cannot change a user on a Portfolio Team. Please delete the entry and create a new one for the change.</errorMessage>
+</ValidationRule>

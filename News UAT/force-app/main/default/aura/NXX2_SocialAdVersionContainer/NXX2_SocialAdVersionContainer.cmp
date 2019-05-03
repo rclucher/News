@@ -1,0 +1,44 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,lightning:isUrlAddressable,force:hasRecordId" controller="NXX2_SocialAdPageController" access="global">
+    <aura:attribute name="allAds" type="List"/>
+    <aura:attribute name="overlay" type="Object"/>
+    <aura:attribute name="parentSocialAdId" type="String"/>
+    <aura:attribute name="displaySpinner" type="Boolean" default="true"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <div class="slds-box">
+        <aura:if isTrue="{!v.displaySpinner}">
+            <lightning:spinner size="medium"/>
+        </aura:if>
+        <aura:iteration items="{!v.allAds}" var="ad" indexVar="index">
+            <div class="ad-container">
+                <h1>{!ad.Ad_Type__c}</h1>
+                <div class="ad-details">
+                    <div class="control-section">
+                        <div class="icon-container">
+                            <span class="ad-count">
+                                V{!ad.Version_Number__c}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="details-section">
+                        <article class="slds-card slds-p-around_small">
+                            <c:NXX2_PreviewFacebookAd aura:id="previewComp" adDetails="{!ad}"></c:NXX2_PreviewFacebookAd>
+                        </article>
+                    </div>
+                    <div class="comments-section">
+                        <b class="comment-lable">Comments</b>
+                        <article class="slds-card slds-p-around_small">
+                            <forceChatter:publisher context="RECORD" recordId="{!ad.Id}"/>
+                            <forceChatter:feed type="Record" subjectId="{!ad.Id}" feedDesign="DEFAULT"/>
+                            <!--<c:NXX2_AddCommentToAdPreview recordId="{!ad.Id}"></c:NXX2_AddCommentToAdPreview>-->
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </aura:iteration>
+        <aura:if isTrue="{!empty(v.allAds)}">
+            No social ad to display!
+        </aura:if>
+    </div>
+</aura:component>

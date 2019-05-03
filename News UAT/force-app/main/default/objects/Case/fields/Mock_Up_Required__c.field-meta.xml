@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mock_Up_Required__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Mock Up</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Please tick if you have already requested a mock up with Premedia&#39;s Creative Services Team</inlineHelpText>
+    <label>Has a Mock Up been requested</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

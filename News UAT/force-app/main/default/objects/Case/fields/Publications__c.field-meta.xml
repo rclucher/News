@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Publications__c</fullName>
+    <description>Select Publications for Direct Debit Application</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Select Publications for Direct Debit Application</inlineHelpText>
+    <label>Publications</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Nationwide News</fullName>
+                <default>false</default>
+                <label>Nationwide News</label>
+            </value>
+            <value>
+                <fullName>News Local</fullName>
+                <default>false</default>
+                <label>News Local</label>
+            </value>
+            <value>
+                <fullName>News Life Media</fullName>
+                <default>false</default>
+                <label>News Life Media</label>
+            </value>
+            <value>
+                <fullName>Herald and Weekly Times P/L</fullName>
+                <default>false</default>
+                <label>Herald and Weekly Times P/L</label>
+            </value>
+            <value>
+                <fullName>Leader Newspapers</fullName>
+                <default>false</default>
+                <label>Leader Newspapers</label>
+            </value>
+            <value>
+                <fullName>The Geelong Advertiser</fullName>
+                <default>false</default>
+                <label>The Geelong Advertiser</label>
+            </value>
+            <value>
+                <fullName>Davies Bros</fullName>
+                <default>false</default>
+                <label>Davies Bros</label>
+            </value>
+            <value>
+                <fullName>Queensland Newspapers</fullName>
+                <default>false</default>
+                <label>Queensland Newspapers</label>
+            </value>
+            <value>
+                <fullName>Quest Newspapers</fullName>
+                <default>false</default>
+                <label>Quest Newspapers</label>
+            </value>
+            <value>
+                <fullName>Gold Coast Publications</fullName>
+                <default>false</default>
+                <label>Gold Coast Publications</label>
+            </value>
+            <value>
+                <fullName>Townsville Bulletin</fullName>
+                <default>false</default>
+                <label>Townsville Bulletin</label>
+            </value>
+            <value>
+                <fullName>The Cairns Post</fullName>
+                <default>false</default>
+                <label>The Cairns Post</label>
+            </value>
+            <value>
+                <fullName>Advertiser Newspapers</fullName>
+                <default>false</default>
+                <label>Advertiser Newspapers</label>
+            </value>
+            <value>
+                <fullName>Messenger Newspapers</fullName>
+                <default>false</default>
+                <label>Messenger Newspapers</label>
+            </value>
+            <value>
+                <fullName>Perth Sunday Times</fullName>
+                <default>false</default>
+                <label>Perth Sunday Times</label>
+            </value>
+            <value>
+                <fullName>NT News</fullName>
+                <default>false</default>
+                <label>NT News</label>
+            </value>
+            <value>
+                <fullName>Moshtix</fullName>
+                <default>false</default>
+                <label>Moshtix</label>
+            </value>
+            <value>
+                <fullName>Foxtix</fullName>
+                <default>false</default>
+                <label>Foxtix</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>10</visibleLines>
+</CustomField>

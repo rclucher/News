@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>36.0</apiVersion>
+    <availableInTouch>false</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>A simple VF page to capture the file of a signed Insertion Order to attach to an Sales Order</description>
+    <label>AttachIOSalesOrderRedirect</label>
+    <packageVersions>
+        <majorNumber>16</majorNumber>
+        <minorNumber>52</minorNumber>
+        <namespace>csmso</namespace>
+    </packageVersions>
+</ApexPage>

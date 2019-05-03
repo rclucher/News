@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Publication_c__c</fullName>
+    <externalDeveloperName>Publication__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Publication</label>
+    <required>false</required>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Ballina Shire Advoc</fullName>
+                <default>false</default>
+                <label>Ballina Shire Advoc</label>
+            </value>
+            <value>
+                <fullName>Balonne Beacon</fullName>
+                <default>false</default>
+                <label>Balonne Beacon</label>
+            </value>
+            <value>
+                <fullName>Big Rigs</fullName>
+                <default>false</default>
+                <label>Big Rigs</label>
+            </value>
+            <value>
+                <fullName>Biloela Central Tele</fullName>
+                <default>false</default>
+                <label>Biloela Central Tele</label>
+            </value>
+            <value>
+                <fullName>Blackwater Herald</fullName>
+                <default>false</default>
+                <label>Blackwater Herald</label>
+            </value>
+            <value>
+                <fullName>Border Post</fullName>
+                <default>false</default>
+                <label>Border Post</label>
+            </value>
+            <value>
+                <fullName>Bribie Island</fullName>
+                <default>false</default>
+                <label>Bribie Island</label>
+            </value>
+            <value>
+                <fullName>Bribie Weekly</fullName>
+                <default>false</default>
+                <label>Bribie Weekly</label>
+            </value>
+            <value>
+                <fullName>BU Bus Directory</fullName>
+                <default>false</default>
+                <label>BU Bus Directory</label>
+            </value>
+            <value>
+                <fullName>Buderim Chronicle</fullName>
+                <default>false</default>
+                <label>Buderim Chronicle</label>
+            </value>
+            <value>
+                <fullName>Bush Telegraph</fullName>
+                <default>false</default>
+                <label>Bush Telegraph</label>
+            </value>
+            <value>
+                <fullName>Byron Shire News</fullName>
+                <default>false</default>
+                <label>Byron Shire News</label>
+            </value>
+            <value>
+                <fullName>Caboolture News</fullName>
+                <default>false</default>
+                <label>Caboolture News</label>
+            </value>
+            <value>
+                <fullName>Caloundra Weekly</fullName>
+                <default>false</default>
+                <label>Caloundra Weekly</label>
+            </value>
+            <value>
+                <fullName>Capricorn Cst Mirror</fullName>
+                <default>false</default>
+                <label>Capricorn Cst Mirror</label>
+            </value>
+            <value>
+                <fullName>CA Property</fullName>
+                <default>false</default>
+                <label>CA Property</label>
+            </value>
+            <value>
+                <fullName>Central and North Burnett Times</fullName>
+                <default>false</default>
+                <label>Central and North Burnett Times</label>
+            </value>
+            <value>
+                <fullName>Central Qld News</fullName>
+                <default>false</default>
+                <label>Central Qld News</label>
+            </value>
+            <value>
+                <fullName>Chinchilla News</fullName>
+                <default>false</default>
+                <label>Chinchilla News</label>
+            </value>
+            <value>
+                <fullName>CityLife Mackay &amp; The Whitsundays</fullName>
+                <default>false</default>
+                <label>CityLife Mackay &amp; The Whitsundays</label>
+            </value>
+            <value>
+                <fullName>CityLife Townsville</fullName>
+                <default>false</default>
+                <label>CityLife Townsville</label>
+            </value>
+            <value>
+                <fullName>CityLife Tropical North Queensland</fullName>
+                <default>false</default>
+                <label>CityLife Tropical North Queensland</label>
+            </value>
+            <value>
+                <fullName>Coastal Views</fullName>
+                <default>false</default>
+                <label>Coastal Views</label>
+            </value>
+            <value>
+                <fullName>Coffs Coast Advocate</fullName>
+                <default>false</default>
+                <label>Coffs Coast Advocate</label>
+            </value>
+            <value>
+                <fullName>Community Advocate</fullName>
+                <default>false</default>
+                <label>Community Advocate</label>
+            </value>
+            <value>
+                <fullName>Cooloola Advertiser</fullName>
+                <default>false</default>
+                <label>Cooloola Advertiser</label>
+            </value>
+            <value>
+                <fullName>Coolum &amp; North Shore News</fullName>
+                <default>false</default>
+                <label>Coolum &amp; North Shore News</label>
+            </value>
+            <value>
+                <fullName>Countrycars</fullName>
+                <default>false</default>
+                <label>Countrycars</label>
+            </value>
+            <value>
+                <fullName>CQN Property</fullName>
+                <default>false</default>
+                <label>CQN Property</label>
+            </value>
+            <value>
+                <fullName>DAE Property</fullName>
+                <default>false</default>
+                <label>DAE Property</label>
+            </value>
+            <value>
+                <fullName>Daily Examiner</fullName>
+                <default>false</default>
+                <label>Daily Examiner</label>
+            </value>
+            <value>
+                <fullName>Daily Mercury</fullName>
+                <default>false</default>
+                <label>Daily Mercury</label>
+            </value>
+            <value>
+                <fullName>Dalby Herald</fullName>
+                <default>false</default>
+                <label>Dalby Herald</label>
+            </value>
+            <value>
+                <fullName>DAM Motoring</fullName>
+                <default>false</default>
+                <label>DAM Motoring</label>
+            </value>
+            <value>
+                <fullName>DAM Property</fullName>
+                <default>false</default>
+                <label>DAM Property</label>
+            </value>
+            <value>
+                <fullName>Domain</fullName>
+                <default>false</default>
+                <label>Domain</label>
+            </value>
+            <value>
+                <fullName>Drive</fullName>
+                <default>false</default>
+                <label>Drive</label>
+            </value>
+            <value>
+                <fullName>Drive and Country Cars</fullName>
+                <default>false</default>
+                <label>Drive and Country Cars</label>
+            </value>
+            <value>
+                <fullName>Entertainer Noosa</fullName>
+                <default>false</default>
+                <label>Entertainer Noosa</label>
+            </value>
+            <value>
+                <fullName>Entertainer SCD</fullName>
+                <default>false</default>
+                <label>Entertainer SCD</label>
+            </value>
+            <value>
+                <fullName>FC Bus Directory</fullName>
+                <default>false</default>
+                <label>FC Bus Directory</label>
+            </value>
+            <value>
+                <fullName>FCC Property</fullName>
+                <default>false</default>
+                <label>FCC Property</label>
+            </value>
+            <value>
+                <fullName>Fraser Cst Chronicle</fullName>
+                <default>false</default>
+                <label>Fraser Cst Chronicle</label>
+            </value>
+            <value>
+                <fullName>Gatton Star</fullName>
+                <default>false</default>
+                <label>Gatton Star</label>
+            </value>
+            <value>
+                <fullName>Gladstone Observer</fullName>
+                <default>false</default>
+                <label>Gladstone Observer</label>
+            </value>
+            <value>
+                <fullName>GLO Property</fullName>
+                <default>false</default>
+                <label>GLO Property</label>
+            </value>
+            <value>
+                <fullName>Gold Coast Mail</fullName>
+                <default>false</default>
+                <label>Gold Coast Mail</label>
+            </value>
+            <value>
+                <fullName>GR Bus Directory</fullName>
+                <default>false</default>
+                <label>GR Bus Directory</label>
+            </value>
+            <value>
+                <fullName>Guardian</fullName>
+                <default>false</default>
+                <label>Guardian</label>
+            </value>
+            <value>
+                <fullName>Gympie Times</fullName>
+                <default>false</default>
+                <label>Gympie Times</label>
+            </value>
+            <value>
+                <fullName>GYT Bus Directory</fullName>
+                <default>false</default>
+                <label>GYT Bus Directory</label>
+            </value>
+            <value>
+                <fullName>GYT Property</fullName>
+                <default>false</default>
+                <label>GYT Property</label>
+            </value>
+            <value>
+                <fullName>Hervey Bay Observer</fullName>
+                <default>false</default>
+                <label>Hervey Bay Observer</label>
+            </value>
+            <value>
+                <fullName>IP Bus Directory</fullName>
+                <default>false</default>
+                <label>IP Bus Directory</label>
+            </value>
+            <value>
+                <fullName>Ipswich Advertiser</fullName>
+                <default>false</default>
+                <label>Ipswich Advertiser</label>
+            </value>
+            <value>
+                <fullName>Isis Town &amp; Country</fullName>
+                <default>false</default>
+                <label>Isis Town &amp; Country</label>
+            </value>
+            <value>
+                <fullName>Kawana Weekly</fullName>
+                <default>false</default>
+                <label>Kawana Weekly</label>
+            </value>
+            <value>
+                <fullName>KI Bus Directory</fullName>
+                <default>false</default>
+                <label>KI Bus Directory</label>
+            </value>
+            <value>
+                <fullName>KI Special Pubs</fullName>
+                <default>false</default>
+                <label>KI Special Pubs</label>
+            </value>
+            <value>
+                <fullName>Kolan Recorder</fullName>
+                <default>false</default>
+                <label>Kolan Recorder</label>
+            </value>
+            <value>
+                <fullName>LeisureTime</fullName>
+                <default>false</default>
+                <label>LeisureTime</label>
+            </value>
+            <value>
+                <fullName>LI Bus Directory</fullName>
+                <default>false</default>
+                <label>LI Bus Directory</label>
+            </value>
+            <value>
+                <fullName>Mackay Midweek</fullName>
+                <default>false</default>
+                <label>Mackay Midweek</label>
+            </value>
+            <value>
+                <fullName>Magazines - Toow</fullName>
+                <default>false</default>
+                <label>Magazines - Toow</label>
+            </value>
+            <value>
+                <fullName>Major Features - SC</fullName>
+                <default>false</default>
+                <label>Major Features - SC</label>
+            </value>
+            <value>
+                <fullName>Major Features - Toow</fullName>
+                <default>false</default>
+                <label>Major Features - Toow</label>
+            </value>
+            <value>
+                <fullName>Major Features - War</fullName>
+                <default>false</default>
+                <label>Major Features - War</label>
+            </value>
+            <value>
+                <fullName>Maroochy Weekly</fullName>
+                <default>false</default>
+                <label>Maroochy Weekly</label>
+            </value>
+            <value>
+                <fullName>Maryborough Herald</fullName>
+                <default>false</default>
+                <label>Maryborough Herald</label>
+            </value>
+            <value>
+                <fullName>MOB Property</fullName>
+                <default>false</default>
+                <label>MOB Property</label>
+            </value>
+            <value>
+                <fullName>Morning Bulletin</fullName>
+                <default>false</default>
+                <label>Morning Bulletin</label>
+            </value>
+            <value>
+                <fullName>Motoring Guide - SC</fullName>
+                <default>false</default>
+                <label>Motoring Guide - SC</label>
+            </value>
+            <value>
+                <fullName>MyCareer</fullName>
+                <default>false</default>
+                <label>MyCareer</label>
+            </value>
+            <value>
+                <fullName>Nambour Weekly</fullName>
+                <default>false</default>
+                <label>Nambour Weekly</label>
+            </value>
+            <value>
+                <fullName>NEM Motoring</fullName>
+                <default>false</default>
+                <label>NEM Motoring</label>
+            </value>
+            <value>
+                <fullName>NEM Property</fullName>
+                <default>false</default>
+                <label>NEM Property</label>
+            </value>
+            <value>
+                <fullName>NewsMail</fullName>
+                <default>false</default>
+                <label>NewsMail</label>
+            </value>
+            <value>
+                <fullName>New Zealand Magazines</fullName>
+                <default>false</default>
+                <label>New Zealand Magazines</label>
+            </value>
+            <value>
+                <fullName>New Zealand Publications</fullName>
+                <default>false</default>
+                <label>New Zealand Publications</label>
+            </value>
+            <value>
+                <fullName>Noosa News</fullName>
+                <default>false</default>
+                <label>Noosa News</label>
+            </value>
+            <value>
+                <fullName>Northern Downs News</fullName>
+                <default>false</default>
+                <label>Northern Downs News</label>
+            </value>
+            <value>
+                <fullName>Northern Rivers Echo</fullName>
+                <default>false</default>
+                <label>Northern Rivers Echo</label>
+            </value>
+            <value>
+                <fullName>Northern Star</fullName>
+                <default>false</default>
+                <label>Northern Star</label>
+            </value>
+            <value>
+                <fullName>North West Star and Country</fullName>
+                <default>false</default>
+                <label>North West Star and Country</label>
+            </value>
+            <value>
+                <fullName>NOS Motoring</fullName>
+                <default>false</default>
+                <label>NOS Motoring</label>
+            </value>
+            <value>
+                <fullName>NOS Property</fullName>
+                <default>false</default>
+                <label>NOS Property</label>
+            </value>
+            <value>
+                <fullName>Online</fullName>
+                <default>false</default>
+                <label>Online</label>
+            </value>
+            <value>
+                <fullName>Property Guide Noosa</fullName>
+                <default>false</default>
+                <label>Property Guide Noosa</label>
+            </value>
+            <value>
+                <fullName>Property Guide - SC</fullName>
+                <default>false</default>
+                <label>Property Guide - SC</label>
+            </value>
+            <value>
+                <fullName>Property Guide - Toow</fullName>
+                <default>false</default>
+                <label>Property Guide - Toow</label>
+            </value>
+            <value>
+                <fullName>Queensland Times</fullName>
+                <default>false</default>
+                <label>Queensland Times</label>
+            </value>
+            <value>
+                <fullName>QUT Motoring</fullName>
+                <default>false</default>
+                <label>QUT Motoring</label>
+            </value>
+            <value>
+                <fullName>QUT Property</fullName>
+                <default>false</default>
+                <label>QUT Property</label>
+            </value>
+            <value>
+                <fullName>Range News</fullName>
+                <default>false</default>
+                <label>Range News</label>
+            </value>
+            <value>
+                <fullName>Reporter</fullName>
+                <default>false</default>
+                <label>Reporter</label>
+            </value>
+            <value>
+                <fullName>Richmond River Expre</fullName>
+                <default>false</default>
+                <label>Richmond River Expre</label>
+            </value>
+            <value>
+                <fullName>Rivertown Times</fullName>
+                <default>false</default>
+                <label>Rivertown Times</label>
+            </value>
+            <value>
+                <fullName>Rocky Fitzroy News</fullName>
+                <default>false</default>
+                <label>Rocky Fitzroy News</label>
+            </value>
+            <value>
+                <fullName>Rural Weekly</fullName>
+                <default>false</default>
+                <label>Rural Weekly</label>
+            </value>
+            <value>
+                <fullName>Rural Weekly Central</fullName>
+                <default>false</default>
+                <label>Rural Weekly Central</label>
+            </value>
+            <value>
+                <fullName>Rural Weekly Nthn  NSW edition</fullName>
+                <default>false</default>
+                <label>Rural Weekly Nthn  NSW edition</label>
+            </value>
+            <value>
+                <fullName>Rural Weekly Nth Qld</fullName>
+                <default>false</default>
+                <label>Rural Weekly Nth Qld</label>
+            </value>
+            <value>
+                <fullName>Rural Weekly Southern</fullName>
+                <default>false</default>
+                <label>Rural Weekly Southern</label>
+            </value>
+            <value>
+                <fullName>Rural Weekly WideBay</fullName>
+                <default>false</default>
+                <label>Rural Weekly WideBay</label>
+            </value>
+            <value>
+                <fullName>South Burnett Mail</fullName>
+                <default>false</default>
+                <label>South Burnett Mail</label>
+            </value>
+            <value>
+                <fullName>South Burnett Times</fullName>
+                <default>false</default>
+                <label>South Burnett Times</label>
+            </value>
+            <value>
+                <fullName>Style Brisbane Bayside</fullName>
+                <default>false</default>
+                <label>Style Brisbane Bayside</label>
+            </value>
+            <value>
+                <fullName>Style Brisbane North</fullName>
+                <default>false</default>
+                <label>Style Brisbane North</label>
+            </value>
+            <value>
+                <fullName>Style Brisbane South</fullName>
+                <default>false</default>
+                <label>Style Brisbane South</label>
+            </value>
+            <value>
+                <fullName>Style Brisbane West</fullName>
+                <default>false</default>
+                <label>Style Brisbane West</label>
+            </value>
+            <value>
+                <fullName>Style Gold Coast</fullName>
+                <default>false</default>
+                <label>Style Gold Coast</label>
+            </value>
+            <value>
+                <fullName>Style Sunshine Coast</fullName>
+                <default>false</default>
+                <label>Style Sunshine Coast</label>
+            </value>
+            <value>
+                <fullName>Sunshine Coast Daily</fullName>
+                <default>false</default>
+                <label>Sunshine Coast Daily</label>
+            </value>
+            <value>
+                <fullName>Sunshine Coast Sunday</fullName>
+                <default>false</default>
+                <label>Sunshine Coast Sunday</label>
+            </value>
+            <value>
+                <fullName>Surat Basin</fullName>
+                <default>false</default>
+                <label>Surat Basin</label>
+            </value>
+            <value>
+                <fullName>TDN Property</fullName>
+                <default>false</default>
+                <label>TDN Property</label>
+            </value>
+            <value>
+                <fullName>The Guide</fullName>
+                <default>false</default>
+                <label>The Guide</label>
+            </value>
+            <value>
+                <fullName>The Satellite</fullName>
+                <default>false</default>
+                <label>The Satellite</label>
+            </value>
+            <value>
+                <fullName>Toowoomba Chronicle</fullName>
+                <default>false</default>
+                <label>Toowoomba Chronicle</label>
+            </value>
+            <value>
+                <fullName>Toowoomba Mail</fullName>
+                <default>false</default>
+                <label>Toowoomba Mail</label>
+            </value>
+            <value>
+                <fullName>Toowoomba Style</fullName>
+                <default>false</default>
+                <label>Toowoomba Style</label>
+            </value>
+            <value>
+                <fullName>True Blue</fullName>
+                <default>false</default>
+                <label>True Blue</label>
+            </value>
+            <value>
+                <fullName>TW Bus Directory</fullName>
+                <default>false</default>
+                <label>TW Bus Directory</label>
+            </value>
+            <value>
+                <fullName>Tweed Border Mail</fullName>
+                <default>false</default>
+                <label>Tweed Border Mail</label>
+            </value>
+            <value>
+                <fullName>Tweed Daily News</fullName>
+                <default>false</default>
+                <label>Tweed Daily News</label>
+            </value>
+            <value>
+                <fullName>Warwick Daily News</fullName>
+                <default>false</default>
+                <label>Warwick Daily News</label>
+            </value>
+            <value>
+                <fullName>WDN Property</fullName>
+                <default>false</default>
+                <label>WDN Property</label>
+            </value>
+            <value>
+                <fullName>Weekender</fullName>
+                <default>false</default>
+                <label>Weekender</label>
+            </value>
+            <value>
+                <fullName>Weekly Trader</fullName>
+                <default>false</default>
+                <label>Weekly Trader</label>
+            </value>
+            <value>
+                <fullName>Western Star</fullName>
+                <default>false</default>
+                <label>Western Star</label>
+            </value>
+            <value>
+                <fullName>Western Times</fullName>
+                <default>false</default>
+                <label>Western Times</label>
+            </value>
+            <value>
+                <fullName>Whitsunday Times</fullName>
+                <default>false</default>
+                <label>Whitsunday Times</label>
+            </value>
+            <value>
+                <fullName>WHT Property</fullName>
+                <default>false</default>
+                <label>WHT Property</label>
+            </value>
+            <value>
+                <fullName>Woolgoolga Advertise</fullName>
+                <default>false</default>
+                <label>Woolgoolga Advertise</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

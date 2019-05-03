@@ -1,0 +1,10 @@
+<aura:component implements="force:lightningQuickAction,force:hasRecordId" controller="Schedule_payment_ctrl">
+
+    <!-- <aura:attribute name="isOpen" type="boolean" default="false"/> -->
+    <aura:attribute name="recordId" type="Id"/>
+    <aura:attribute name="Orderobj" type="Order__c" default="{ 'sobjectType': 'Product_Order__c'}"/>
+    <aura:attribute name="message" type="String"/>
+    <aura:attribute name="messageType" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.schedulePayments}"/>
+    <aura:unescapedHtml value="{!v.message}"/>
+</aura:component>

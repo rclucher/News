@@ -1,0 +1,27 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes">
+    <aura:attribute name="editing" type="Boolean" default="false"/>
+    <aura:attribute name="displaySpinner" type="Boolean" default="false"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:dependency resource="markup://force:recordSaveSuccess" type="EVENT"/>
+    <aura:handler name="onSaveSuccess" event="force:recordSaveSuccess" action="{!c.saved}" />
+    <aura:handler event="aura:doneWaiting" action="{!c.handleError1}"/>
+    <aura:registerEvent name="updateCustomerActivityList" type="c:NXX2_CustomerActivityUpdated"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <div class="slds-card">
+        <aura:if isTrue="{!v.displaySpinner}">
+            <div class="spinner-container">
+                <lightning:spinner size="medium"/>
+            </div>
+        </aura:if>
+        <aura:if isTrue="{!not(v.editing)}">
+            <force:recordView aura:id="recordDetails" recordId="{!v.recordId}" />
+            <aura:set attribute="else">
+                <force:recordEdit aura:id="edit" recordId="{!v.recordId}"/>
+                <div class="button-container">
+                    <lightning:button variant="neutral" label="Cancel" onclick="{!c.cancel}"/>
+                    <lightning:button variant="brand" label="Save" onclick="{!c.save}"/>
+                </div>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

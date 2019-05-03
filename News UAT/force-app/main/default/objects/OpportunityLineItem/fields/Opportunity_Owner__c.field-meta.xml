@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Owner__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>// Added By Tim Fabros 14 / 08 / 2014
+Owner of the opportunity. Populated by OpportunityManagement.trigger</description>
+    <externalId>false</externalId>
+    <label>Opportunity Owner</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Opportunity_Product</relationshipName>
+    <required>false</required>
+    <type>Lookup</type>
+</CustomField>

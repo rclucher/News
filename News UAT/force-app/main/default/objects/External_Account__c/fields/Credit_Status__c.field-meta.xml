@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Status__c</fullName>
+    <description>External Account Credit Status</description>
+    <externalId>false</externalId>
+    <inlineHelpText>External Account Credit Status</inlineHelpText>
+    <label>Credit Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1 = Green/Go</fullName>
+                <default>false</default>
+                <label>1 = Green/Go</label>
+            </value>
+            <value>
+                <fullName>2 = Review (bookings go to credit but will run regardless)</fullName>
+                <default>false</default>
+                <label>2 = Review (bookings go to credit but will run regardless)</label>
+            </value>
+            <value>
+                <fullName>3 = Risk (bookings can be made but will not run)</fullName>
+                <default>false</default>
+                <label>3 = Risk (bookings can be made but will not run)</label>
+            </value>
+            <value>
+                <fullName>4 = High Risk (bookings cannot be made, sales to follow up with NFSS)</fullName>
+                <default>false</default>
+                <label>4 = High Risk (bookings cannot be made, sales to follow up with NFSS)</label>
+            </value>
+            <value>
+                <fullName>5 = Cash (Pre-payment required)</fullName>
+                <default>false</default>
+                <label>5 = Cash (Pre-payment required)</label>
+            </value>
+            <value>
+                <fullName>Green</fullName>
+                <default>false</default>
+                <label>Green</label>
+            </value>
+            <value>
+                <fullName>Amber</fullName>
+                <default>false</default>
+                <label>Amber</label>
+            </value>
+            <value>
+                <fullName>Orange</fullName>
+                <default>false</default>
+                <label>Orange</label>
+            </value>
+            <value>
+                <fullName>Red</fullName>
+                <default>false</default>
+                <label>Red</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

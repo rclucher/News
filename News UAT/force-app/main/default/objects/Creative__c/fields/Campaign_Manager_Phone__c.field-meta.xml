@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Campaign_Manager_Phone__c</fullName>
+    <description>This is internal field used to get the merge field in Email templates</description>
+    <externalId>false</externalId>
+    <formula>Product_Order__r.Order__r.Campaign_Manager_Phone__c</formula>
+    <label>Campaign Manager Phone</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

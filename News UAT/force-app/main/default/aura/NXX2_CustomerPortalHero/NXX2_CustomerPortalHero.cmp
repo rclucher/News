@@ -1,0 +1,8 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes">
+    <aura:if isTrue="{!equals($Browser.formFactor,'PHONE')}">
+        <img class="heroBannerDesktop" src="{!$Resource.NXX2_Hero_Mobile_Banner}" alt="Hero Image"/>
+        <aura:set attribute="else">
+            <img class="heroBannerMobile" src="{!$Resource.NXX2_Hero_Desktop_Banner}" alt="Hero Image"/>
+        </aura:set>
+    </aura:if>
+</aura:component>

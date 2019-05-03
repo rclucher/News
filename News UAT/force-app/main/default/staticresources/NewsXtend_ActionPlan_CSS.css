@@ -1,0 +1,74 @@
+
+#loading-background {
+    width:100%;
+    height:7000px;
+    position:absolute;
+    left:0;
+    top:0;
+    opacity: 0.4;
+    background-color: black;
+    /*pointer-events:none;*/
+    z-index : 5000;
+}
+#loading {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 50%;
+    margin-top: -46.5px;
+    z-index: 5001;
+}
+#loading-content {
+    background-color: white;
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#loading-msg {
+    font-size: 15px;
+    width: 160px;
+    padding: 0 10px;
+}  
+
+
+    #oppty-block .pbBottomButtons{
+        display:none;
+    }
+    #oppty-block .pbButton{
+        display:none;
+    }
+    #oppty-block .links{
+        display:none;
+    }
+    #oppty-block .metadata{
+        display:none;
+    }
+    #oppty-block .actionColumn{
+        /*display:none;*/
+    }
+
+    .save-button{
+        background-color: blue !important;
+        background-image: none !important;
+        color: white !important;
+        padding: 5px 40px !important;
+        border-radius: 6px !important;
+    }
+    .mass-create-tasks-button{
+        background-color: blue !important;
+        background-image: none !important;
+        color: white !important;
+        padding: 5px 20px !important;
+        border-radius: 6px !important;
+    }
+    .reset-all-tasks-button{
+        background-color: red !important;
+        background-image: none !important;
+        color: white !important;
+        padding: 5px 20px !important;
+        border-radius: 6px !important;
+    }    

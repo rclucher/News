@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RingLead_DMS_Status__c</fullName>
+    <description>Indicates when the RingLead DMS webhook has finished processing a new Marketo record and it can be synced to SFDC.  Values can include &#39;true&#39;, &#39;link_to_account&#39;, &#39;convert_to_contact&#39;, and &#39;Orphan:[SFDC record ID]&#39;.  Also, if an existing SFDC record is not synced to Marketo and it is a duplicate of a new Marketo record, the value will be set to &#39;SF_Orphan:[Marketo record ID].</description>
+    <externalId>false</externalId>
+    <label>RingLead DMS Status</label>
+    <length>25</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

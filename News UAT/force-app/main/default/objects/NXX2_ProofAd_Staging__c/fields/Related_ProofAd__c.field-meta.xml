@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Related_ProofAd__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>This will link to actual proof ad</description>
+    <externalId>false</externalId>
+    <label>Related ProofAd</label>
+    <referenceTo>SocialAd__c</referenceTo>
+    <relationshipLabel>NXX2 ProofAds Staging</relationshipLabel>
+    <relationshipName>NXX2_ProofAds_Staging</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

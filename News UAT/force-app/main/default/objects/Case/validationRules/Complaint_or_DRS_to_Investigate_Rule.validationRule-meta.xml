@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Complaint_or_DRS_to_Investigate_Rule</fullName>
+    <active>true</active>
+    <description>Must have a Booking Division selected to set to QA to Investigate</description>
+    <errorConditionFormula>AND(ISPICKVAL(Status, &#39;QA to Investigate&#39;) , ISPICKVAL(Booking_Division__c,&#39;&#39;))</errorConditionFormula>
+    <errorDisplayField>Status</errorDisplayField>
+    <errorMessage>In order to set Status to QA to Investigate you must select a Booking Division.</errorMessage>
+</ValidationRule>

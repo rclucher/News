@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Digital_Account_must_have_Industry_Code</fullName>
+    <active>true</active>
+    <description>If an Account is marked as Digital, the Industry Code field must be completed.</description>
+    <errorConditionFormula>AND(Is_Digital__c = True,
+				IsPersonAccount = False,
+				ISBLANK(Industry_Code__c),
+NOT( $User.FirstName +&#39; &#39;+ $User.LastName = &#39;Data Services&#39;)
+			)</errorConditionFormula>
+    <errorDisplayField>Industry_Code__c</errorDisplayField>
+    <errorMessage>If an Account is marked as Digital, the Industry Code field must be completed. Please enter an Industry Code</errorMessage>
+</ValidationRule>

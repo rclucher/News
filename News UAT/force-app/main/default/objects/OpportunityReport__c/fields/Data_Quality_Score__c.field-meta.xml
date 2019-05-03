@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_Quality_Score__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( ISPICKVAL(Type__c,&quot;&quot;), 0,20) + IF( LEN( TEXT(MONTH(Close_Date__c))) = 0, 0,20) + IF( Amount__c &lt;= 0, 0,20) + IF( ISPICKVAL( LeadSource__c,&quot;&quot;), 0,20) + IF( LEN(Next_Step__c)=0, 0,20)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Data Quality Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

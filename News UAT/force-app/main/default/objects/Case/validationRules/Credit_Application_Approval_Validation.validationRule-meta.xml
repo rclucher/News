@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Application_Approval_Validation</fullName>
+    <active>true</active>
+    <description>Must select in GBA when approving Credit Application</description>
+    <errorConditionFormula>AND(
+  RecordType.DeveloperName = &#39;Credit_Application&#39;,
+  ISBLANK( Booking_System_Account__c ),
+  ISPICKVAL(Status, &#39;Closed - Successful&#39;)
+)</errorConditionFormula>
+    <errorDisplayField>Booking_System_Account__c</errorDisplayField>
+    <errorMessage>To set the Credit/Debit Application to Status = Closed - Successful, you must have an associated Booking System Account selected.</errorMessage>
+</ValidationRule>

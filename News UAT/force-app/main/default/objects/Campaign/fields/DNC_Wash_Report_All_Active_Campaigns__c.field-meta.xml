@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DNC_Wash_Report_All_Active_Campaigns__c</fullName>
+    <description>Report to download Phone numbers to wash for All Active Campaigns - as opposed to all Campaign Specific campaigns.
+
+These will be phone numbers from All Active Campaigns - runs as a Batch.</description>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&quot;javascript:if(typeof(srcUp)==&#39;function&#39;) {srcUp(&#39;/00O90000004y0e3&#39;); } else {window.location.assign(&#39;/00O90000004y0e3&#39;) }&quot;, &quot;Open Report and Export Phone Numbers&quot;)</formula>
+    <inlineHelpText>Report to download Phone numbers in All Active Campaigns - for Monthly Wash.</inlineHelpText>
+    <label>Monthly (Batch) Wash Export</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

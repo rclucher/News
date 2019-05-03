@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Cloudsense Fulfilment Lightning</label>
+    <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Product_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Product_Order__c</pageOrSobjectType>
+        <recordType>Product_Order__c.Real_Time_Bidding</recordType>
+        <type>Flexipage</type>
+        <profile>News Direct Sales Partner - Fulfillment</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Product_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Product_Order__c</pageOrSobjectType>
+        <recordType>Product_Order__c.Search_Engine_Marketing</recordType>
+        <type>Flexipage</type>
+        <profile>News Direct Sales Partner - Fulfillment</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Product_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Product_Order__c</pageOrSobjectType>
+        <recordType>Product_Order__c.Search_Engine_Optimisation</recordType>
+        <type>Flexipage</type>
+        <profile>News Direct Sales Partner - Fulfillment</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Product_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Product_Order__c</pageOrSobjectType>
+        <recordType>Product_Order__c.Social</recordType>
+        <type>Flexipage</type>
+        <profile>News Direct Sales Partner - Fulfillment</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Product_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Product_Order__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>News Direct Sales Partner - Fulfillment</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Product_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Product_Order__c</pageOrSobjectType>
+        <recordType>Product_Order__c.Call_Tracking</recordType>
+        <type>Flexipage</type>
+        <profile>News Direct Sales Partner - Fulfillment</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Product_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Product_Order__c</pageOrSobjectType>
+        <recordType>Product_Order__c.Catch_Up_TV</recordType>
+        <type>Flexipage</type>
+        <profile>News Direct Sales Partner - Fulfillment</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Product_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Product_Order__c</pageOrSobjectType>
+        <recordType>Product_Order__c.Email_Setup</recordType>
+        <type>Flexipage</type>
+        <profile>News Direct Sales Partner - Fulfillment</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Product_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Product_Order__c</pageOrSobjectType>
+        <recordType>Product_Order__c.Landing_Pages</recordType>
+        <type>Flexipage</type>
+        <profile>News Direct Sales Partner - Fulfillment</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Product_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Product_Order__c</pageOrSobjectType>
+        <recordType>Product_Order__c.Other</recordType>
+        <type>Flexipage</type>
+        <profile>News Direct Sales Partner - Fulfillment</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Product_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Product_Order__c</pageOrSobjectType>
+        <recordType>Product_Order__c.Programmatic_Audio</recordType>
+        <type>Flexipage</type>
+        <profile>News Direct Sales Partner - Fulfillment</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Product_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Product_Order__c</pageOrSobjectType>
+        <recordType>Product_Order__c.Social_Setup</recordType>
+        <type>Flexipage</type>
+        <profile>News Direct Sales Partner - Fulfillment</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Product_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Product_Order__c</pageOrSobjectType>
+        <recordType>Product_Order__c.Website</recordType>
+        <type>Flexipage</type>
+        <profile>News Direct Sales Partner - Fulfillment</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Campaign_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Order__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>News Direct Sales Partner - Fulfillment</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Social</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - SEM L1</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Social</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - SEM L2</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Social</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - SEM L3</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Social</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - Social L1</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Social</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - Social L2</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Social</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - Social L3</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Social</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Social</recordType>
+        <type>Flexipage</type>
+        <profile>~System Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Social</recordType>
+        <type>Flexipage</type>
+        <profile>News Direct Sales Partner - Fulfillment</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Social</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - Campaign L1</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Social</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - Campaign L2</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Social</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - Campaign L3</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Social</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - Programmatic L1</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Social</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - Programmatic L2</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Social</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - Programmatic L3</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign_Display</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Display</recordType>
+        <type>Flexipage</type>
+        <profile>News Direct Sales Partner - Fulfillment</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign_Display</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Display</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - Campaign L1</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign_Display</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Display</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - Campaign L2</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign_Display</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Display</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - Campaign L3</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign_Display</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Display</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - Programmatic L1</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign_Display</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Display</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - Programmatic L2</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign_Display</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Display</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - Programmatic L3</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign_Display</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Display</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - SEM L1</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign_Display</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Display</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - SEM L2</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign_Display</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Display</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - SEM L3</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign_Display</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Display</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - Social L1</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign_Display</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Display</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - Social L2</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign_Display</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Display</recordType>
+        <type>Flexipage</type>
+        <profile>NewsXtend - Social L3</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign_Display</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Display</recordType>
+        <type>Flexipage</type>
+        <profile>~System Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Social_Campaign_Display</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SocialCampaign__c</pageOrSobjectType>
+        <recordType>SocialCampaign__c.Display</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <tabs>Campaign_L1_Home</tabs>
+    <tabs>Campaign_L2_Home</tabs>
+    <tabs>Campaign_L2_Home_For_L1</tabs>
+    <tabs>NX2_0_Campaign_L3_App_Page</tabs>
+    <tabs>Campaign_L3_Home_For_L1_L2</tabs>
+    <tabs>SEM_L1_Home_Page</tabs>
+    <tabs>SEM_L2_Home_Page</tabs>
+    <tabs>SEM_L2_Home_Page_For_L1</tabs>
+    <tabs>SEM_L3_Home_Page_For_L1_L2</tabs>
+    <tabs>NX2_0_SEM_L3_App_Page</tabs>
+    <tabs>Programmatic_L3_Home_Page</tabs>
+    <tabs>Programmatic_L1_Home</tabs>
+    <tabs>Programmetic_L2_Home</tabs>
+    <tabs>Programmatic_L2_Home_For_L1</tabs>
+    <tabs>Programmatic_L3_Home_For_L1_L2</tabs>
+    <tabs>NX2_0_Social_L3_App_Page</tabs>
+    <tabs>Social_L1_Home_Page</tabs>
+    <tabs>Social_L2_Home_Page</tabs>
+    <tabs>Social_L2_Home_Page_For_L1</tabs>
+    <tabs>Social_L3_Home_Page_For_L1_L2</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Opportunity</tabs>
+    <tabs>Order__c</tabs>
+    <tabs>Product_Order__c</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>Re_Assign_Workload</tabs>
+    <tabs>cspmb__Add_On_Price_Item__c</tabs>
+    <tabs>cspmb__Price_Item_Add_On_Price_Item_Association__c</tabs>
+    <tabs>cspmb__Price_Item__c</tabs>
+    <tabs>AccountReport__c</tabs>
+    <tabs>OpportunityReport__c</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>

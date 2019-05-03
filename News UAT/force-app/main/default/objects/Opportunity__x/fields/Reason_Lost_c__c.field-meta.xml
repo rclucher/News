@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_Lost_c__c</fullName>
+    <externalDeveloperName>Reason_Lost__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Reason Lost</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Price - exceeds companies budget</fullName>
+                <default>false</default>
+                <label>Price - exceeds companies budget</label>
+            </value>
+            <value>
+                <fullName>Price - beaten by competitor</fullName>
+                <default>false</default>
+                <label>Price - beaten by competitor</label>
+            </value>
+            <value>
+                <fullName>Product/Campaign not suitable</fullName>
+                <default>false</default>
+                <label>Product/Campaign not suitable</label>
+            </value>
+            <value>
+                <fullName>Existing relationship with competitor</fullName>
+                <default>false</default>
+                <label>Existing relationship with competitor</label>
+            </value>
+            <value>
+                <fullName>Companies business needs changed</fullName>
+                <default>false</default>
+                <label>Companies business needs changed</label>
+            </value>
+            <value>
+                <fullName>Too busy to advertise</fullName>
+                <default>false</default>
+                <label>Too busy to advertise</label>
+            </value>
+            <value>
+                <fullName>Poor response from previous Advertising</fullName>
+                <default>false</default>
+                <label>Poor response from previous Advertising</label>
+            </value>
+            <value>
+                <fullName>Space now sold</fullName>
+                <default>false</default>
+                <label>Space now sold</label>
+            </value>
+            <value>
+                <fullName>Business Closed Down</fullName>
+                <default>false</default>
+                <label>Business Closed Down</label>
+            </value>
+            <value>
+                <fullName>Abandoned</fullName>
+                <default>false</default>
+                <label>Abandoned</label>
+            </value>
+            <value>
+                <fullName>Lead Not Suitable</fullName>
+                <default>false</default>
+                <label>Lead Not Suitable</label>
+            </value>
+            <value>
+                <fullName>Campaign ended</fullName>
+                <default>false</default>
+                <label>Campaign ended</label>
+            </value>
+            <value>
+                <fullName>System Auto Close</fullName>
+                <default>false</default>
+                <label>System Auto Close</label>
+            </value>
+            <value>
+                <fullName>Christchurch only - Business gone</fullName>
+                <default>false</default>
+                <label>Christchurch only - Business gone</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

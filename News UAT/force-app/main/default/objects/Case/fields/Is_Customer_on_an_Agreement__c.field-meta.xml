@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Customer_on_an_Agreement__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Is the Customer on an Agreement with News Ltd</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Yes - Specify the rates
+No - Specify if there is a discount level in mind that has been approved by a Manager</inlineHelpText>
+    <label>Is Customer on an Agreement?</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

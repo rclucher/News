@@ -1,0 +1,14 @@
+.THIS .field-display{
+	border-radius : 5px;
+	min-height: 8rem;
+}
+.THIS .slds-box {
+	padding-left: 20px;
+	padding: 8px;
+	padding-bottom: 15px;
+}
+
+
+.THIS .slds-grid {
+	padding: 6px;
+}

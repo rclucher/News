@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cust_Replied_Since_Last_Interaction__c</fullName>
+    <description>SFE-46 - Checkbox is updated by workflows by counting Inbound + Outbound Email services. This is to notify agents that the customer has responded to the last agent&#39;s email.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+  Apex_Cust_Replied_Since_Last_Interaction__c = TRUE,
+    IMAGE(&#39;/img/samples/flag_green.gif&#39;,&#39;Customer has replied to case! Please review email history&#39;,16,16),
+    &#39;&#39;
+)</formula>
+    <inlineHelpText>This notification flags that the customer has responded to the last email sent by the agent. This may be helpful to see quickly that an existing case may have had a response.</inlineHelpText>
+    <label>Cust Replied Since Last Interaction?</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

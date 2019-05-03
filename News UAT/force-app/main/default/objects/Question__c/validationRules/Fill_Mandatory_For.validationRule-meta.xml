@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fill_Mandatory_For</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(Mandatory__c = True &amp;&amp; ISNULL(Mandatory_For__c), True, False)</errorConditionFormula>
+    <errorDisplayField>Mandatory_For__c</errorDisplayField>
+    <errorMessage>When filling Mandatory field, it&#39;s required to fill Mandatory For field.</errorMessage>
+</ValidationRule>

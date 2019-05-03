@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <interviewLabel>Contact: Update Loyalty Program Contact {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Contact: Update Loyalty Program Contact</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Get related Account record to update with new Primary Contact and timestamp old Primary Contact</description>
+        <name>Get_Account_record</name>
+        <label>Get Account record</label>
+        <locationX>257</locationX>
+        <locationY>50</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Old_Loyalty_Program_Contact</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ContactAccountId</elementReference>
+            </value>
+        </filters>
+        <object>Account</object>
+        <outputAssignments>
+            <assignToReference>AccountOldLoyaltyProgramConact</assignToReference>
+            <field>Loyalty_Program_Contact__c</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordUpdates>
+        <description>Reset the Become Loyalty Program flag on the Contact record becoming the new Loyalty Program Contact for the Account.</description>
+        <name>Reset_Become_Loyalty_Program_Contact_flag</name>
+        <label>Reset Become Loyalty Program Contact flag</label>
+        <locationX>906</locationX>
+        <locationY>50</locationY>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ContactId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Become_Loyalty_Program_Contact__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update the Account record with the new Loyalty Program Contact</description>
+        <name>Update_Account_record_with_new_Loyalty_Program_Contact</name>
+        <label>Update Account record with new Loyalty Program Contact</label>
+        <locationX>702</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Reset_Become_Loyalty_Program_Contact_flag</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ContactAccountId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Loyalty_Program_Contact__c</field>
+            <value>
+                <elementReference>ContactId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Timestamp Old Loyalty Program Contact record to force Marketo sync</description>
+        <name>Update_Old_Loyalty_Program_Contact</name>
+        <label>Update Old Loyalty Program Contact</label>
+        <locationX>484</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Update_Account_record_with_new_Loyalty_Program_Contact</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>AccountOldLoyaltyProgramConact</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Force_SysMod_Stamp_update__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+    </recordUpdates>
+    <startElementReference>Get_Account_record</startElementReference>
+    <status>Active</status>
+    <variables>
+        <description>Previous Loyalty Program Contact Contact Id</description>
+        <name>AccountOldLoyaltyProgramConact</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Account Id of Contact becoming Primary Contact</description>
+        <name>ContactAccountId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Contact Id of record becoming Primary Contact for Account</description>
+        <name>ContactId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

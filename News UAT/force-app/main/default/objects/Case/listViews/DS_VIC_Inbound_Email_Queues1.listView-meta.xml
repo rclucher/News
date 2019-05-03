@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DS_VIC_Inbound_Email_Queues1</fullName>
+    <booleanFilter>1 AND (2 OR 3 OR 4 OR 5 OR 6) AND 7 AND 8</booleanFilter>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>NAME</columns>
+    <columns>CASES.SUBJECT</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>CASES.PRIORITY</columns>
+    <columns>CASES.CREATED_DATE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.STATUS</field>
+        <operation>equals</operation>
+        <value>In Progress,Queued,Re-Opened</value>
+    </filters>
+    <filters>
+        <field>OWNER_NAME</field>
+        <operation>equals</operation>
+        <value>CC HWT Priority,CC GAD Priority</value>
+    </filters>
+    <filters>
+        <field>Transfer_to_Queue__c</field>
+        <operation>equals</operation>
+        <value>VIC GAD Email Classifieds,VIC HWT Email Classifieds,VIC LDR Email Classifieds</value>
+    </filters>
+    <filters>
+        <field>Transfer_to_Queue__c</field>
+        <operation>equals</operation>
+        <value>VIC Email Motoring Transfer,VIC Email Other Transfer</value>
+    </filters>
+    <filters>
+        <field>Transfer_to_Queue__c</field>
+        <operation>equals</operation>
+        <value>VIC Email Business,VIC Email Business Transfer</value>
+    </filters>
+    <filters>
+        <field>Transfer_to_Queue__c</field>
+        <operation>equals</operation>
+        <value>VIC Email Funeral,VIC Email Funeral Transfer</value>
+    </filters>
+    <filters>
+        <field>CASES.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Case.Advertising</value>
+    </filters>
+    <filters>
+        <field>Pillar__c</field>
+        <operation>notEqual</operation>
+        <value>Careers</value>
+    </filters>
+    <label>DS VIC Inbound Email Queues</label>
+</ListView>

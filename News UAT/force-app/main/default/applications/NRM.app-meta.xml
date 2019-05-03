@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <defaultLandingTab>standard-home</defaultLandingTab>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>NRM</label>
+    <tabs>Account__x</tabs>
+    <tabs>Opportunity__x</tabs>
+    <tabs>Booking_c__x</tabs>
+    <tabs>Insertions_c__x</tabs>
+    <tabs>Contract_Level_c__x</tabs>
+    <tabs>Advertising_Price_Agreement_Requests_c__x</tabs>
+    <tabs>Contact__x</tabs>
+    <tabs>Task__x</tabs>
+    <tabs>Event__x</tabs>
+    <tabs>cspmb__Add_On_Price_Item__c</tabs>
+    <tabs>cspmb__Price_Item_Add_On_Price_Item_Association__c</tabs>
+    <tabs>cspmb__Price_Item__c</tabs>
+    <tabs>AccountReport__c</tabs>
+    <tabs>OpportunityReport__c</tabs>
+</CustomApplication>

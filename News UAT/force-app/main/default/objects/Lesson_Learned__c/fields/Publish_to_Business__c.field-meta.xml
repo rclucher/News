@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Publish_to_Business__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Flag to indicate if this item should be reviewed with business partners</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Flag to indicate if this item should be reviewed with business partners</inlineHelpText>
+    <label>Publish to Business?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

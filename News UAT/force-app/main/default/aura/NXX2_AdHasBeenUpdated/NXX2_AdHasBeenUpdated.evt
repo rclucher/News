@@ -1,0 +1,2 @@
+<aura:event type="APPLICATION" description="This will be fired to refresh the page contaning Ads">
+</aura:event>

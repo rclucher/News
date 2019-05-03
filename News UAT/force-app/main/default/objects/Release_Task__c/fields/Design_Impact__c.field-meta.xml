@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Design_Impact__c</fullName>
+    <externalId>false</externalId>
+    <label>Design Impact</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Workshop</fullName>
+                <default>false</default>
+                <label>Workshop</label>
+            </value>
+            <value>
+                <fullName>Communication to Design Team</fullName>
+                <default>false</default>
+                <label>Communication to Design Team</label>
+            </value>
+            <value>
+                <fullName>Gap Analysis with Release</fullName>
+                <default>false</default>
+                <label>Gap Analysis with Release</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>3</visibleLines>
+</CustomField>

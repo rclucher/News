@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cancellation_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Cancellation Reason</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Change in Business</fullName>
+                <default>false</default>
+                <label>Change in Business</label>
+            </value>
+            <value>
+                <fullName>Client perceived ROI</fullName>
+                <default>false</default>
+                <label>Client perceived ROI</label>
+            </value>
+            <value>
+                <fullName>Customer Service Issue</fullName>
+                <default>false</default>
+                <label>Customer Service Issue</label>
+            </value>
+            <value>
+                <fullName>Moving to Another Provider (specify below)</fullName>
+                <default>false</default>
+                <label>Moving to Another Provider (specify below)</label>
+            </value>
+            <value>
+                <fullName>Package Adjustment</fullName>
+                <default>false</default>
+                <label>Package Adjustment</label>
+            </value>
+            <value>
+                <fullName>Seasonal Campaign booked as Evergreen</fullName>
+                <default>false</default>
+                <label>Seasonal Campaign booked as Evergreen</label>
+            </value>
+            <value>
+                <fullName>Upsell</fullName>
+                <default>false</default>
+                <label>Upsell</label>
+            </value>
+            <value>
+                <fullName>Downsell</fullName>
+                <default>false</default>
+                <label>Downsell</label>
+            </value>
+            <value>
+                <fullName>Financial Difficulty</fullName>
+                <default>false</default>
+                <label>Financial Difficulty</label>
+            </value>
+            <value>
+                <fullName>Achieved Desired Outcome</fullName>
+                <default>false</default>
+                <label>Achieved Desired Outcome</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

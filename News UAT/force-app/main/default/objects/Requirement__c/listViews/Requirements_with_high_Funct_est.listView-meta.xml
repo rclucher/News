@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Requirements_with_high_Funct_est</fullName>
+    <columns>NAME</columns>
+    <columns>High_Level_Requirement__c</columns>
+    <columns>Functional_Requirement__c</columns>
+    <columns>Status__c</columns>
+    <columns>Assigned_To__c</columns>
+    <columns>Story_Points__c</columns>
+    <columns>Schedule_Sprint__c</columns>
+    <columns>Process_Id__c</columns>
+    <columns>Process_L2__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Ready For Deploy,Done,Not A Requirement,Waiting on Business,Information Only</value>
+    </filters>
+    <filters>
+        <field>High_Level_Requirement__c</field>
+        <operation>notEqual</operation>
+        <value>Data Migration,Business Process Change</value>
+    </filters>
+    <filters>
+        <field>Scope__c</field>
+        <operation>notEqual</operation>
+        <value>Out-of-Scope (Redundant),Out-of-Scope (deferred),Deleted</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Cannot Be Met</value>
+    </filters>
+    <filters>
+        <field>Functional_Effort__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>1</value>
+    </filters>
+    <label>Requirements with high Funct est</label>
+</ListView>

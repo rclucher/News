@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Discount_Level_CL3_c__c</fullName>
+    <externalDeveloperName>Discount_Level_CL3__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Discount Level (CL3)</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Casual - 0.00%</fullName>
+                <default>false</default>
+                <label>Casual - 0.00%</label>
+            </value>
+            <value>
+                <fullName>Level 2 - 2.5%</fullName>
+                <default>false</default>
+                <label>Level 2 - 2.5%</label>
+            </value>
+            <value>
+                <fullName>Level 3 - 5%</fullName>
+                <default>false</default>
+                <label>Level 3 - 5%</label>
+            </value>
+            <value>
+                <fullName>Level 4 - 7.5%</fullName>
+                <default>false</default>
+                <label>Level 4 - 7.5%</label>
+            </value>
+            <value>
+                <fullName>Level 5 - 10%</fullName>
+                <default>false</default>
+                <label>Level 5 - 10%</label>
+            </value>
+            <value>
+                <fullName>Level 6 - 12.5%</fullName>
+                <default>false</default>
+                <label>Level 6 - 12.5%</label>
+            </value>
+            <value>
+                <fullName>Level 7 - 15%</fullName>
+                <default>false</default>
+                <label>Level 7 - 15%</label>
+            </value>
+            <value>
+                <fullName>Level 8 - 17.5%</fullName>
+                <default>false</default>
+                <label>Level 8 - 17.5%</label>
+            </value>
+            <value>
+                <fullName>Level 9 - 20%</fullName>
+                <default>false</default>
+                <label>Level 9 - 20%</label>
+            </value>
+            <value>
+                <fullName>Level 10 - 22.5%</fullName>
+                <default>false</default>
+                <label>Level 10 - 22.5%</label>
+            </value>
+            <value>
+                <fullName>Level 11 - 25%</fullName>
+                <default>false</default>
+                <label>Level 11 - 25%</label>
+            </value>
+            <value>
+                <fullName>Level 12 - 27.5%</fullName>
+                <default>false</default>
+                <label>Level 12 - 27.5%</label>
+            </value>
+            <value>
+                <fullName>Level 13 - 30%</fullName>
+                <default>false</default>
+                <label>Level 13 - 30%</label>
+            </value>
+            <value>
+                <fullName>Level 14 - 32.5%</fullName>
+                <default>false</default>
+                <label>Level 14 - 32.5%</label>
+            </value>
+            <value>
+                <fullName>Level 15 - 35%</fullName>
+                <default>false</default>
+                <label>Level 15 - 35%</label>
+            </value>
+            <value>
+                <fullName>Level 16 - 37.5%</fullName>
+                <default>false</default>
+                <label>Level 16 - 37.5%</label>
+            </value>
+            <value>
+                <fullName>Level 17 - 40%</fullName>
+                <default>false</default>
+                <label>Level 17 - 40%</label>
+            </value>
+            <value>
+                <fullName>Level 18 - 42.5%</fullName>
+                <default>false</default>
+                <label>Level 18 - 42.5%</label>
+            </value>
+            <value>
+                <fullName>Level 19 - 45%</fullName>
+                <default>false</default>
+                <label>Level 19 - 45%</label>
+            </value>
+            <value>
+                <fullName>Level 20 - 47.5%</fullName>
+                <default>false</default>
+                <label>Level 20 - 47.5%</label>
+            </value>
+            <value>
+                <fullName>Level 21 - 50%</fullName>
+                <default>false</default>
+                <label>Level 21 - 50%</label>
+            </value>
+            <value>
+                <fullName>Level 22 - 52.5%</fullName>
+                <default>false</default>
+                <label>Level 22 - 52.5%</label>
+            </value>
+            <value>
+                <fullName>Level 23 - 55%</fullName>
+                <default>false</default>
+                <label>Level 23 - 55%</label>
+            </value>
+            <value>
+                <fullName>Level 24 - 57.5%</fullName>
+                <default>false</default>
+                <label>Level 24 - 57.5%</label>
+            </value>
+            <value>
+                <fullName>Level 25 - 60%</fullName>
+                <default>false</default>
+                <label>Level 25 - 60%</label>
+            </value>
+            <value>
+                <fullName>Level 26 - 62.5%</fullName>
+                <default>false</default>
+                <label>Level 26 - 62.5%</label>
+            </value>
+            <value>
+                <fullName>Level 27 - 65%</fullName>
+                <default>false</default>
+                <label>Level 27 - 65%</label>
+            </value>
+            <value>
+                <fullName>Level 28 - 67.5%</fullName>
+                <default>false</default>
+                <label>Level 28 - 67.5%</label>
+            </value>
+            <value>
+                <fullName>Level 29 - 70%</fullName>
+                <default>false</default>
+                <label>Level 29 - 70%</label>
+            </value>
+            <value>
+                <fullName>Level 30 - 72.5%</fullName>
+                <default>false</default>
+                <label>Level 30 - 72.5%</label>
+            </value>
+            <value>
+                <fullName>Level 31 - 75%</fullName>
+                <default>false</default>
+                <label>Level 31 - 75%</label>
+            </value>
+            <value>
+                <fullName>Level 32 - 77.5%</fullName>
+                <default>false</default>
+                <label>Level 32 - 77.5%</label>
+            </value>
+            <value>
+                <fullName>Level 33 - 80%</fullName>
+                <default>false</default>
+                <label>Level 33 - 80%</label>
+            </value>
+            <value>
+                <fullName>Level 34 - 82.5%</fullName>
+                <default>false</default>
+                <label>Level 34 - 82.5%</label>
+            </value>
+            <value>
+                <fullName>Level 35 - 85%</fullName>
+                <default>false</default>
+                <label>Level 35 - 85%</label>
+            </value>
+            <value>
+                <fullName>Level 36 - 87.5%</fullName>
+                <default>false</default>
+                <label>Level 36 - 87.5%</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

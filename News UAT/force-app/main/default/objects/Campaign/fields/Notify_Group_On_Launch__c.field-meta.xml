@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Notify_Group_On_Launch__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>Notify Lead on Launch - email sent out to the Campaign Lead 3 days before the  Start Date of a Campaign (unless unchecked by Coordinator).</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Notify Lead on Launch - email sent out to the Campaign Lead 3 days before the  Start Date of the Campaign.</inlineHelpText>
+    <label>Notify Lead On Launch</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

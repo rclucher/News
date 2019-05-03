@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Checking_If_Today_Is_Month_Anniversary__c</fullName>
+    <description>Internal field to check if today is month anniversary of Campaign</description>
+    <externalId>false</externalId>
+    <formula>IF
+( Actual_Start_Date_Plus_1_Month__c = TODAY(), 
+ true, 
+ false
+)</formula>
+    <label>Checking If Today Is Month Anniversary</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

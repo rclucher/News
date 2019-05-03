@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Apex_Adproof_Previously_Sent__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Should be hidden from page layout. Used for SFE39 –  When creating a NEW booking confirmation - the Adproof checkbox should be ticked.</description>
+    <externalId>false</externalId>
+    <label>Apex: Adproof Previously Sent</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

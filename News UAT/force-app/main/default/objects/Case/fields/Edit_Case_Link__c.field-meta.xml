@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Edit_Case_Link__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&quot;javascript:if(typeof(srcUp)==&#39;function&#39;) {srcUp(&#39;/&quot; + Id + &quot;/e?retURL=%2&quot; + Id + &quot;&#39;); } else {window.location.assign(&#39;/&quot; + Id + &quot;/e?retURL=%2&quot; + Id + &quot;&#39;) }&quot;, &quot;Edit Case&quot;)</formula>
+    <label>Edit Case Link</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

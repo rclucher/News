@@ -1,0 +1,35 @@
+<aura:component implements="force:lightningQuickAction,force:hasRecordId" controller="Set_High_Priority_Product_Order_ctrl">
+  <aura:attribute name="isOpen" type="boolean" default="false"/>
+  <aura:attribute name="recordId" type="String" />
+
+  <aura:attribute name="Orderobj" type="Order__c" default="{ 'sobjectType': 'Product_Order__c'}"/>
+     <aura:handler name="init"  value="{!this}" action="{!c.openModel}"/>
+
+  <div class="slds-m-around--xx-large">
+    
+    <aura:if isTrue="{!v.isOpen}">
+      
+      <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open ">
+        <div class="slds-modal__container">
+          <div class="slds-modal__header">
+            <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModel}">
+            X
+            <span class="slds-assistive-text">Close</span>
+            </button>
+            <h2 id="header99" class="slds-text-heading--medium">About set Orchestrator Priority Product Order</h2>
+          </div>
+          <div class="slds-modal__content slds-p-around--medium">
+            <p>Are you sure you want to set Orchestrator Priority?
+            </p>
+          </div>
+          <div class="slds-modal__footer">
+            <button class="slds-button slds-button--neutral" onclick="{!c.closeModel}" >No</button>
+            <button class="slds-button slds-button--brand" onclick="{!c.doUpdate}">Yes</button>
+          </div>
+        </div>
+      </div>
+      <div id="abc" class="slds-backdrop slds-backdrop--open"></div>
+    
+ </aura:if>
+  </div>
+</aura:component>

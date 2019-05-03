@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Relationship_field_API_Name__c</fullName>
+    <description>API name of the field that links source and destination objects.
+Example:
+Source object = cscfga__Product_Basket__c
+Destination object = csmso__Sales_Order__c
+Relationship field = csmso__Sales_Order__c (field from the cscfga__Product_Basket__c)</description>
+    <externalId>false</externalId>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <inlineHelpText>API name of the field that links source and destination objects.
+Example:
+Source object = cscfga__Product_Basket__c
+Destination object = csmso__Sales_Order__c
+Relationship field = csmso__Sales_Order__c (field from the cscfga__Product_Basket__c)</inlineHelpText>
+    <label>Relationship field API Name</label>
+    <length>255</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

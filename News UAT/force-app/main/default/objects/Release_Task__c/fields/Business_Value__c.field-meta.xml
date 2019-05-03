@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Value__c</fullName>
+    <externalId>false</externalId>
+    <label>Business Value</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No impact</fullName>
+                <default>true</default>
+                <label>No impact</label>
+            </value>
+            <value>
+                <fullName>Evolution requested has a negative impact</fullName>
+                <default>false</default>
+                <label>Evolution requested has a negative impact</label>
+            </value>
+            <value>
+                <fullName>Positive impact on business value</fullName>
+                <default>false</default>
+                <label>Positive impact on business value</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

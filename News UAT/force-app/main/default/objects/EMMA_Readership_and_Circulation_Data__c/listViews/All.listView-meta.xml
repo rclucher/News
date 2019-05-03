@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Circulation__c</columns>
+    <columns>EMMA_Publication_Name__c</columns>
+    <columns>Genera_Publication_Code__c</columns>
+    <columns>Genera_Publication_Description__c</columns>
+    <columns>Genera_Publication_Name__c</columns>
+    <columns>Readership_Monday_Friday__c</columns>
+    <columns>Readership_Saturday_Sunday__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>UPDATEDBY_USER</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>OBJECT_ID</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

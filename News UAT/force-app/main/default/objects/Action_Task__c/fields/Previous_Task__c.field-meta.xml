@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Previous_Task__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>For NewsXtend. Used to contain the previous Action Task based on the Step Number Field. Used mainly within the NewsXtend_ActionPlan controller.</description>
+    <externalId>false</externalId>
+    <label>Previous Task</label>
+    <referenceTo>Action_Task__c</referenceTo>
+    <relationshipLabel>Action Tasks (Previous Tasks)</relationshipLabel>
+    <relationshipName>Previous_Tasks</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

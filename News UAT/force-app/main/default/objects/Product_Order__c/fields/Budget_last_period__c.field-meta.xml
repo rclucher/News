@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Budget_last_period__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( OR(ISBLANK(Flight_Period_End_Date__c),AND(NOT(ISBLANK(Flight_Period_End_Date__c)), MONTH( Flight_Period_End_Date__c )&gt; MONTH( Product_Order_Start_Date__c ) )) , Duration_last_period_days__c * Budget_per_day__c, 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Budget last period</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

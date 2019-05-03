@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bookings_Made_External_to_CRM__c</fullName>
+    <externalId>false</externalId>
+    <formula>AND(
+ NOT (ISPICKVAL(Source_System__c, &#39;OSCA&#39;)),
+ CONTAINS(Sales_Order__r.CreatedBy.Profile.Name, &#39;Integrat&#39;),
+ Siebel_Id__c = &#39;&#39; 
+)</formula>
+    <inlineHelpText>All Sales Orders are created by the user through the CRM. Where this is created by the integration user - it is safe to say this was created directly within the booking system. In this case - the CRM will automatically create the SO on behalf of the user.</inlineHelpText>
+    <label>Bookings Made External to CRM</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

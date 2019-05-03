@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_NewsExtend_Created_User__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>The check box will identify whether the User is created by My Account Apex Sharing, for giving the access to external user to my Accounts Community.</description>
+    <externalId>false</externalId>
+    <label>Is NewsExtend Created User</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,174 @@
+<apex:page controller="CS_Question_Controller" action="{!init}" lightningStylesheets="true" docType="html-5.0" >
+
+<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+
+<!-- Import the Design System style sheet -->
+<apex:slds />
+
+<header>
+	<style>
+		    .selectlistClass{
+		        width:100%
+		    }
+
+		    .deleteBtnClass{
+		    	margin-left: 0.5em !important;
+		    }
+
+		    .selectlistBtnClass{
+		    	margin-top: 0.5em !important;
+		    }
+
+		    .inputfieldLightningClass{
+		    	border: 1px solid rgb(221, 219, 218);
+			    max-width: 100%;
+			    border-radius: .25rem;
+			    background-color: rgb(255, 255, 255);
+			    color: rgb(62, 62, 60);
+			    -webkit-transition: border .1s linear,background-color .1s linear;
+			    transition: border .1s linear,background-color .1s linear;
+			    display: inline-block;
+			    padding: 0 1rem 0 .75rem;
+			    min-height: calc(1.875rem + (1px * 2));
+			    line-height: 1.875rem;
+		    }
+		    
+		</style>
+</header>
+
+<!-- REQUIRED SLDS WRAPPER -->
+<body class="slds-scope">
+
+<apex:form id="theForm">
+
+<!-- 
+	<apex:actionPoller action="{!actionReturn}" interval="5" rendered="{!(mp_bPauseAndRedirect)}" />
+	
+	<apex:actionStatus id="status">
+		<apex:facet name="start">
+			<c:Action_Status BackColor="#ffffff"
+							 borderColor="#6B6B6B"
+							 borderSize="1"
+							 height="50px"
+							 width="60px"
+							 margintop="-25px"
+							 marginleft="-60px"
+							 ImageUrl="/img/loading32.gif"
+							 Message="Please wait"/>
+		</apex:facet>
+	</apex:actionStatus>
+-->
+	<apex:pageBlock id="theQuestionBlock" mode="edit" >
+
+		<apex:pageMessages id="pageMessagesId" />
+
+		<apex:pageBlockSection title="{!mp_SectionTitle}" columns="2" collapsible="false" id="theQuestionSection" >
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Section" />
+				<apex:inputField value="{!mp_Question.Section__c}" />
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem >
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Question" />
+				<apex:inputText value="{!mp_Question.Question_Text__c}" size="120" />
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem >
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Active?" />
+				<apex:inputField value="{!mp_Question.isActive__c}" />
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem >
+			</apex:pageBlockSectionItem>
+		
+		</apex:pageBlockSection>
+
+		<apex:pageBlockSection title="Answer Type" columns="2" collapsible="false" id="theAnswerTypeSection" >
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Choose an Answer Type" />
+				<apex:inputField value="{!mp_Question.Answer_Type__c}" >
+					<apex:actionSupport event="onchange" action="{!actionProcessAnswerType}" reRender="theQuestionBlock" />
+				</apex:inputField>
+			</apex:pageBlockSectionItem>
+
+		</apex:pageBlockSection>
+
+		<apex:pageBlockSection title="Define Picklist Values" columns="2" collapsible="false" id="theAnswerPicklistValuesSection" rendered="{!mp_bShowAnswerPicklistValues}" >
+			
+			<apex:pageBlockSectionItem >
+				
+				<apex:outputLabel value="Add a value to the Picklist" />
+
+				<apex:outputPanel >
+					<apex:inputText value="{!mp_NewAnswerValue}" />
+					<apex:commandButton action="{!actionAdd}" value="Add --->" reRender="theQuestionBlock" />
+				</apex:outputPanel>
+			</apex:pageBlockSectionItem>
+
+
+			<apex:pageBlockSectionItem >
+					<apex:selectList value="{!mp_strAnswerPicklistValue}" size="{!mp_liAnswerPicklistValues.size}" styleClass="selectlistClass" >
+			   			<apex:selectOptions value="{!mp_liAnswerPicklistValues}" />
+		  			</apex:selectList>
+
+					<apex:outputPanel >
+						<apex:commandButton action="{!actionDelete}" value="Delete --->" reRender="theQuestionBlock" disabled="{!(mp_liAnswerPicklistValues.size = 0)}" styleClass="deleteBtnClass"/>
+						<br/>
+						<apex:commandButton action="{!actionMoveUp}" value="Move Up" reRender="theQuestionBlock" disabled="{!(mp_liAnswerPicklistValues.size < 2)}" styleClass="selectlistBtnClass"/>
+						<br/>
+						<apex:commandButton action="{!actionMoveDown}" value="Move Down" reRender="theQuestionBlock" disabled="{!(mp_liAnswerPicklistValues.size < 2)}" styleClass="selectlistBtnClass"/>
+					</apex:outputPanel>
+
+			</apex:pageBlockSectionItem>
+
+
+		</apex:pageBlockSection>
+
+		<apex:pageBlockSection title="Validation" columns="2" collapsible="false" id="theValidationSection" >
+		
+			<apex:pageBlockSectionItem rendered="{!(mp_bShowMinMaxLength)}" >
+				<apex:outputLabel value="Minimum Length" />
+				<apex:inputField value="{!mp_Question.Minimum_Length__c}" type="number" rendered="{!(mp_bShowMinMaxLength)}" styleClass="inputfieldLightningClass"/>
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem >
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem rendered="{!(mp_bShowMinMaxLength)}" >
+				<apex:outputLabel value="Maximum Length" />
+				<apex:inputField value="{!mp_Question.Maximum_Length__c}" type="number" rendered="{!(mp_bShowMinMaxLength)}" styleClass="inputfieldLightningClass"/>
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem >
+			</apex:pageBlockSectionItem>
+
+			<apex:pageBlockSectionItem >
+				<apex:outputLabel value="Mandatory" />
+				<apex:inputField value="{!mp_Question.isMandatory__c}" />
+			</apex:pageBlockSectionItem>		
+		
+		</apex:pageBlockSection>
+
+        <apex:pageBlockButtons location="bottom" >
+            <apex:commandButton action="{!actionSave}" value="Save" title="Save" rerender="theQuestionBlock" />
+            <apex:commandButton action="{!actionSaveandNew}" value="Save & New" title="Save" rerender="theQuestionBlock" />
+            <apex:commandButton action="{!actionSaveandReturn}" value="Save and Return" title="Save and Return" />
+            <apex:commandButton action="{!actionReturn}" value="Return" title="Return" immediate="true" />
+        </apex:pageBlockButtons>
+
+	</apex:pageBlock>
+
+</apex:form>
+
+</body>
+
+</html>
+</apex:page>

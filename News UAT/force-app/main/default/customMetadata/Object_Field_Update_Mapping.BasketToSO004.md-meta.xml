@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>BasketToSO004</label>
+    <protected>false</protected>
+    <values>
+        <field>Action_Type__c</field>
+        <value xsi:type="xsd:string">COPY</value>
+    </values>
+    <values>
+        <field>Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Description__c</field>
+        <value xsi:type="xsd:string">Propagate values from Product Basket to Sales Order</value>
+    </values>
+    <values>
+        <field>Destination_Field_API_Name__c</field>
+        <value xsi:type="xsd:string">Bundle_Name__c</value>
+    </values>
+    <values>
+        <field>Destination_Object_API_Name__c</field>
+        <value xsi:type="xsd:string">csmso__Sales_Order__c</value>
+    </values>
+    <values>
+        <field>Filter__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Relationship_field_API_Name__c</field>
+        <value xsi:type="xsd:string">csmso__Sales_Order__c</value>
+    </values>
+    <values>
+        <field>Separator__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Source_Field_API_Name__c</field>
+        <value xsi:type="xsd:string">Bundle_Name__c</value>
+    </values>
+    <values>
+        <field>Source_Object_API_Name__c</field>
+        <value xsi:type="xsd:string">cscfga__Product_Basket__c</value>
+    </values>
+</CustomMetadata>

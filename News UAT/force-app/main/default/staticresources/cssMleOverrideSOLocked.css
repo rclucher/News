@@ -1,0 +1,15 @@
+.myGrid {
+	pointer-events: none;
+}
+
+.csv-parser {
+	display: none;
+}
+
+.button-group {
+	display: none;	
+}
+
+.buttons-wrapper {
+	display: none;
+}

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuraDefinitionBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>43.0</apiVersion>
+    <description>Used by Lightning Action button as a replacement of &#39;NewsAdds Booking&#39; javascript button</description>
+</AuraDefinitionBundle>

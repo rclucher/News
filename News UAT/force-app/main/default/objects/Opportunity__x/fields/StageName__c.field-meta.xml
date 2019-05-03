@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>StageName__c</fullName>
+    <externalDeveloperName>StageName</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Stage</label>
+    <required>true</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New</fullName>
+                <default>false</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>Qualified</fullName>
+                <default>false</default>
+                <label>Qualified</label>
+            </value>
+            <value>
+                <fullName>Proposal/Price Quote</fullName>
+                <default>false</default>
+                <label>Proposal/Price Quote</label>
+            </value>
+            <value>
+                <fullName>Negotiation/Review</fullName>
+                <default>false</default>
+                <label>Negotiation/Review</label>
+            </value>
+            <value>
+                <fullName>NewsXtend IO Required</fullName>
+                <default>false</default>
+                <label>NewsXtend IO Required</label>
+            </value>
+            <value>
+                <fullName>NewsXtend IO Added</fullName>
+                <default>false</default>
+                <label>NewsXtend IO Added</label>
+            </value>
+            <value>
+                <fullName>Contracted 99.99%</fullName>
+                <default>false</default>
+                <label>Contracted 99.99%</label>
+            </value>
+            <value>
+                <fullName>Closed Won</fullName>
+                <default>false</default>
+                <label>Closed Won</label>
+            </value>
+            <value>
+                <fullName>Closed Lost/Abandoned</fullName>
+                <default>false</default>
+                <label>Closed Lost/Abandoned</label>
+            </value>
+            <value>
+                <fullName>Waiting</fullName>
+                <default>false</default>
+                <label>Waiting</label>
+            </value>
+            <value>
+                <fullName>Processed</fullName>
+                <default>false</default>
+                <label>Processed</label>
+            </value>
+            <value>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <label>Cancelled</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

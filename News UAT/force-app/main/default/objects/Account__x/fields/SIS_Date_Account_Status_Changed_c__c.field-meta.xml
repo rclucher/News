@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SIS_Date_Account_Status_Changed_c__c</fullName>
+    <externalDeveloperName>SIS_Date_Account_Status_Changed__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>SIS.Date Account Status Changed</label>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Group_L2__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( TEXT(Product_Group_L1__c)= &#39;Digital&#39;,&#39;Digital&#39;,
+  IF( TEXT(Product_Group_L1__c)= &#39;Print&#39;,&#39;Print&#39;,
+    IF( TEXT(Product_Group_L1__c)= &#39;Magazine&#39;,&#39;Magazine&#39;,
+      IF( (CONTAINS(TEXT(Product_Group_L1__c), &#39;Target&#39;) &amp;&amp; CONTAINS(Name, &#39;Press&#39;)),&#39;Target Press&#39;,
+        IF( (CONTAINS(TEXT(Product_Group_L1__c), &#39;Target&#39;) &amp;&amp; CONTAINS(Name, &#39;Digital&#39;)),&#39;Target Digital&#39;,
+          IF( CONTAINS(Name, &#39;Walk-In&#39;),&#39;Walk-In&#39;, &#39;Err: ProdGroup L2&#39;
+          )
+        )
+      )
+    )
+  )
+)</formula>
+    <label>Product Group L2</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>
